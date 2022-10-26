@@ -123,15 +123,15 @@ class ConditionalAccessUsers implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'excludeGroups' => function (ParseNode $n) use ($o) { $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'excludeGuestsOrExternalUsers' => function (ParseNode $n) use ($o) { $o->setExcludeGuestsOrExternalUsers($n->getObjectValue(array(ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'))); },
-            'excludeRoles' => function (ParseNode $n) use ($o) { $o->setExcludeRoles($n->getCollectionOfPrimitiveValues()); },
-            'excludeUsers' => function (ParseNode $n) use ($o) { $o->setExcludeUsers($n->getCollectionOfPrimitiveValues()); },
-            'includeGroups' => function (ParseNode $n) use ($o) { $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()); },
-            'includeGuestsOrExternalUsers' => function (ParseNode $n) use ($o) { $o->setIncludeGuestsOrExternalUsers($n->getObjectValue(array(ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'))); },
-            'includeRoles' => function (ParseNode $n) use ($o) { $o->setIncludeRoles($n->getCollectionOfPrimitiveValues()); },
-            'includeUsers' => function (ParseNode $n) use ($o) { $o->setIncludeUsers($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'excludeGroups' => fn(ParseNode $n) => $o->setExcludeGroups($n->getCollectionOfPrimitiveValues()),
+            'excludeGuestsOrExternalUsers' => fn(ParseNode $n) => $o->setExcludeGuestsOrExternalUsers($n->getObjectValue([ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'])),
+            'excludeRoles' => fn(ParseNode $n) => $o->setExcludeRoles($n->getCollectionOfPrimitiveValues()),
+            'excludeUsers' => fn(ParseNode $n) => $o->setExcludeUsers($n->getCollectionOfPrimitiveValues()),
+            'includeGroups' => fn(ParseNode $n) => $o->setIncludeGroups($n->getCollectionOfPrimitiveValues()),
+            'includeGuestsOrExternalUsers' => fn(ParseNode $n) => $o->setIncludeGuestsOrExternalUsers($n->getObjectValue([ConditionalAccessGuestsOrExternalUsers::class, 'createFromDiscriminatorValue'])),
+            'includeRoles' => fn(ParseNode $n) => $o->setIncludeRoles($n->getCollectionOfPrimitiveValues()),
+            'includeUsers' => fn(ParseNode $n) => $o->setIncludeUsers($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

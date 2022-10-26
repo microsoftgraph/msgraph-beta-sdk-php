@@ -77,9 +77,9 @@ class DeviceManagementExchangeAccessRule implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessLevel' => function (ParseNode $n) use ($o) { $o->setAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)); },
-            'deviceClass' => function (ParseNode $n) use ($o) { $o->setDeviceClass($n->getObjectValue(array(DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'accessLevel' => fn(ParseNode $n) => $o->setAccessLevel($n->getEnumValue(DeviceManagementExchangeAccessLevel::class)),
+            'deviceClass' => fn(ParseNode $n) => $o->setDeviceClass($n->getObjectValue([DeviceManagementExchangeDeviceClass::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -15,7 +15,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var AggregationType|null $aggregation The aggregation property
+     * @var AggregationType|null $aggregation Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     */
     private ?AggregationType $aggregation = null;
     
@@ -25,12 +25,12 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var OperatorType|null $operator The operator property
+     * @var OperatorType|null $operator Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
     */
     private ?OperatorType $operator = null;
     
     /**
-     * @var int|null $target The target property
+     * @var int|null $target The target threshold value.
     */
     private ?int $target = null;
     
@@ -60,7 +60,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aggregation property value. The aggregation property
+     * Gets the aggregation property value. Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
      * @return AggregationType|null
     */
     public function getAggregation(): ?AggregationType {
@@ -74,10 +74,10 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregation' => function (ParseNode $n) use ($o) { $o->setAggregation($n->getEnumValue(AggregationType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(OperatorType::class)); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getIntegerValue()); },
+            'aggregation' => fn(ParseNode $n) => $o->setAggregation($n->getEnumValue(AggregationType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(OperatorType::class)),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getIntegerValue()),
         ];
     }
 
@@ -90,7 +90,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the operator property value. The operator property
+     * Gets the operator property value. Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
      * @return OperatorType|null
     */
     public function getOperator(): ?OperatorType {
@@ -98,7 +98,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the target property value. The target property
+     * Gets the target property value. The target threshold value.
      * @return int|null
     */
     public function getTarget(): ?int {
@@ -126,7 +126,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aggregation property value. The aggregation property
+     * Sets the aggregation property value. Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
      *  @param AggregationType|null $value Value to set for the aggregation property.
     */
     public function setAggregation(?AggregationType $value ): void {
@@ -142,7 +142,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the operator property value. The operator property
+     * Sets the operator property value. Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
      *  @param OperatorType|null $value Value to set for the operator property.
     */
     public function setOperator(?OperatorType $value ): void {
@@ -150,7 +150,7 @@ class RuleThreshold implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the target property value. The target property
+     * Sets the target property value. The target threshold value.
      *  @param int|null $value Value to set for the target property.
     */
     public function setTarget(?int $value ): void {

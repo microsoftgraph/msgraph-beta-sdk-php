@@ -61,9 +61,9 @@ class AdminConsent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'shareAPNSData' => function (ParseNode $n) use ($o) { $o->setShareAPNSData($n->getEnumValue(AdminConsentState::class)); },
-            'shareUserExperienceAnalyticsData' => function (ParseNode $n) use ($o) { $o->setShareUserExperienceAnalyticsData($n->getEnumValue(AdminConsentState::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'shareAPNSData' => fn(ParseNode $n) => $o->setShareAPNSData($n->getEnumValue(AdminConsentState::class)),
+            'shareUserExperienceAnalyticsData' => fn(ParseNode $n) => $o->setShareUserExperienceAnalyticsData($n->getEnumValue(AdminConsentState::class)),
         ];
     }
 

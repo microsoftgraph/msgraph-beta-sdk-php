@@ -37,7 +37,7 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'wellKnownListName' => function (ParseNode $n) use ($o) { $o->setWellKnownListName($n->getEnumValue(WellKnownListName_v2::class)); },
+            'wellKnownListName' => fn(ParseNode $n) => $o->setWellKnownListName($n->getEnumValue(WellKnownListName_v2::class)),
         ]);
     }
 

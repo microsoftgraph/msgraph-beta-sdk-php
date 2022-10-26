@@ -42,8 +42,8 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'joinMeetingId' => function (ParseNode $n) use ($o) { $o->setJoinMeetingId($n->getStringValue()); },
-            'passcode' => function (ParseNode $n) use ($o) { $o->setPasscode($n->getStringValue()); },
+            'joinMeetingId' => fn(ParseNode $n) => $o->setJoinMeetingId($n->getStringValue()),
+            'passcode' => fn(ParseNode $n) => $o->setPasscode($n->getStringValue()),
         ]);
     }
 

@@ -11,47 +11,47 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AlertRecord extends Entity implements Parsable 
 {
     /**
-     * @var AlertImpact|null $alertImpact The alertImpact property
+     * @var AlertImpact|null $alertImpact The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 Count and 12 AffectedCloudPcPercentage.
     */
     private ?AlertImpact $alertImpact = null;
     
     /**
-     * @var string|null $alertRuleId The alertRuleId property
+     * @var string|null $alertRuleId The corresponding ID of the alert rule.
     */
     private ?string $alertRuleId = null;
     
     /**
-     * @var AlertRuleTemplate|null $alertRuleTemplate The alertRuleTemplate property
+     * @var AlertRuleTemplate|null $alertRuleTemplate The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     */
     private ?AlertRuleTemplate $alertRuleTemplate = null;
     
     /**
-     * @var DateTime|null $detectedDateTime The detectedDateTime property
+     * @var DateTime|null $detectedDateTime The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $detectedDateTime = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The display name of the alert record.
     */
     private ?string $displayName = null;
     
     /**
-     * @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property
+     * @var DateTime|null $lastUpdatedDateTime The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $lastUpdatedDateTime = null;
     
     /**
-     * @var DateTime|null $resolvedDateTime The resolvedDateTime property
+     * @var DateTime|null $resolvedDateTime The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $resolvedDateTime = null;
     
     /**
-     * @var RuleSeverityType|null $severity The severity property
+     * @var RuleSeverityType|null $severity The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     */
     private ?RuleSeverityType $severity = null;
     
     /**
-     * @var AlertStatusType|null $status The status property
+     * @var AlertStatusType|null $status The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
     */
     private ?AlertStatusType $status = null;
     
@@ -73,7 +73,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertImpact property value. The alertImpact property
+     * Gets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 Count and 12 AffectedCloudPcPercentage.
      * @return AlertImpact|null
     */
     public function getAlertImpact(): ?AlertImpact {
@@ -81,7 +81,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRuleId property value. The alertRuleId property
+     * Gets the alertRuleId property value. The corresponding ID of the alert rule.
      * @return string|null
     */
     public function getAlertRuleId(): ?string {
@@ -89,7 +89,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Gets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
@@ -97,7 +97,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the detectedDateTime property value. The detectedDateTime property
+     * Gets the detectedDateTime property value. The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getDetectedDateTime(): ?DateTime {
@@ -105,7 +105,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the alert record.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -119,20 +119,20 @@ class AlertRecord extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertImpact' => function (ParseNode $n) use ($o) { $o->setAlertImpact($n->getObjectValue(array(AlertImpact::class, 'createFromDiscriminatorValue'))); },
-            'alertRuleId' => function (ParseNode $n) use ($o) { $o->setAlertRuleId($n->getStringValue()); },
-            'alertRuleTemplate' => function (ParseNode $n) use ($o) { $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)); },
-            'detectedDateTime' => function (ParseNode $n) use ($o) { $o->setDetectedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'resolvedDateTime' => function (ParseNode $n) use ($o) { $o->setResolvedDateTime($n->getDateTimeValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(RuleSeverityType::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AlertStatusType::class)); },
+            'alertImpact' => fn(ParseNode $n) => $o->setAlertImpact($n->getObjectValue([AlertImpact::class, 'createFromDiscriminatorValue'])),
+            'alertRuleId' => fn(ParseNode $n) => $o->setAlertRuleId($n->getStringValue()),
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'detectedDateTime' => fn(ParseNode $n) => $o->setDetectedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'resolvedDateTime' => fn(ParseNode $n) => $o->setResolvedDateTime($n->getDateTimeValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AlertStatusType::class)),
         ]);
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Gets the lastUpdatedDateTime property value. The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -140,7 +140,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the resolvedDateTime property value. The resolvedDateTime property
+     * Gets the resolvedDateTime property value. The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getResolvedDateTime(): ?DateTime {
@@ -148,7 +148,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
@@ -156,7 +156,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. The status property
+     * Gets the status property value. The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
      * @return AlertStatusType|null
     */
     public function getStatus(): ?AlertStatusType {
@@ -181,7 +181,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertImpact property value. The alertImpact property
+     * Sets the alertImpact property value. The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 Count and 12 AffectedCloudPcPercentage.
      *  @param AlertImpact|null $value Value to set for the alertImpact property.
     */
     public function setAlertImpact(?AlertImpact $value ): void {
@@ -189,7 +189,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertRuleId property value. The alertRuleId property
+     * Sets the alertRuleId property value. The corresponding ID of the alert rule.
      *  @param string|null $value Value to set for the alertRuleId property.
     */
     public function setAlertRuleId(?string $value ): void {
@@ -197,7 +197,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value ): void {
@@ -205,7 +205,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the detectedDateTime property value. The detectedDateTime property
+     * Sets the detectedDateTime property value. The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the detectedDateTime property.
     */
     public function setDetectedDateTime(?DateTime $value ): void {
@@ -213,7 +213,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the alert record.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -221,7 +221,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
+     * Sets the lastUpdatedDateTime property value. The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value ): void {
@@ -229,7 +229,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the resolvedDateTime property value. The resolvedDateTime property
+     * Sets the resolvedDateTime property value. The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the resolvedDateTime property.
     */
     public function setResolvedDateTime(?DateTime $value ): void {
@@ -237,7 +237,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      *  @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value ): void {
@@ -245,7 +245,7 @@ class AlertRecord extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. The status property
+     * Sets the status property value. The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
      *  @param AlertStatusType|null $value Value to set for the status property.
     */
     public function setStatus(?AlertStatusType $value ): void {

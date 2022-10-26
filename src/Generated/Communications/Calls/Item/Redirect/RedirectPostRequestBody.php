@@ -85,12 +85,12 @@ class RedirectPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'callbackUri' => function (ParseNode $n) use ($o) { $o->setCallbackUri($n->getStringValue()); },
-            'maskCallee' => function (ParseNode $n) use ($o) { $o->setMaskCallee($n->getBooleanValue()); },
-            'maskCaller' => function (ParseNode $n) use ($o) { $o->setMaskCaller($n->getBooleanValue()); },
-            'targetDisposition' => function (ParseNode $n) use ($o) { $o->setTargetDisposition($n->getEnumValue(CallDisposition::class)); },
-            'targets' => function (ParseNode $n) use ($o) { $o->setTargets($n->getCollectionOfObjectValues(array(InvitationParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'timeout' => function (ParseNode $n) use ($o) { $o->setTimeout($n->getIntegerValue()); },
+            'callbackUri' => fn(ParseNode $n) => $o->setCallbackUri($n->getStringValue()),
+            'maskCallee' => fn(ParseNode $n) => $o->setMaskCallee($n->getBooleanValue()),
+            'maskCaller' => fn(ParseNode $n) => $o->setMaskCaller($n->getBooleanValue()),
+            'targetDisposition' => fn(ParseNode $n) => $o->setTargetDisposition($n->getEnumValue(CallDisposition::class)),
+            'targets' => fn(ParseNode $n) => $o->setTargets($n->getCollectionOfObjectValues([InvitationParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            'timeout' => fn(ParseNode $n) => $o->setTimeout($n->getIntegerValue()),
         ];
     }
 

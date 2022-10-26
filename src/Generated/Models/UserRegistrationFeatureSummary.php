@@ -71,11 +71,11 @@ class UserRegistrationFeatureSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
-            'userRegistrationFeatureCounts' => function (ParseNode $n) use ($o) { $o->setUserRegistrationFeatureCounts($n->getCollectionOfObjectValues(array(UserRegistrationFeatureCount::class, 'createFromDiscriminatorValue'))); },
-            'userRoles' => function (ParseNode $n) use ($o) { $o->setUserRoles($n->getEnumValue(IncludedUserRoles::class)); },
-            'userTypes' => function (ParseNode $n) use ($o) { $o->setUserTypes($n->getEnumValue(IncludedUserTypes::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'totalUserCount' => fn(ParseNode $n) => $o->setTotalUserCount($n->getIntegerValue()),
+            'userRegistrationFeatureCounts' => fn(ParseNode $n) => $o->setUserRegistrationFeatureCounts($n->getCollectionOfObjectValues([UserRegistrationFeatureCount::class, 'createFromDiscriminatorValue'])),
+            'userRoles' => fn(ParseNode $n) => $o->setUserRoles($n->getEnumValue(IncludedUserRoles::class)),
+            'userTypes' => fn(ParseNode $n) => $o->setUserTypes($n->getEnumValue(IncludedUserTypes::class)),
         ];
     }
 

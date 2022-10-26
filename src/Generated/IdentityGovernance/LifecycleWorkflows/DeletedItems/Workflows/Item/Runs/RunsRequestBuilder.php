@@ -113,10 +113,10 @@ class RunsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(RunCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [RunCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -133,10 +133,10 @@ class RunsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(Run::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [Run::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -144,8 +144,8 @@ class RunsRequestBuilder
 
     /**
      * Provides operations to call the summary method.
-     * @param DateTime $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param DateTime $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
+     * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
      * @return SummaryWithStartDateTimeWithEndDateTimeRequestBuilder
     */
     public function summaryWithStartDateTimeWithEndDateTime(DateTime $endDateTime, DateTime $startDateTime): SummaryWithStartDateTimeWithEndDateTimeRequestBuilder {

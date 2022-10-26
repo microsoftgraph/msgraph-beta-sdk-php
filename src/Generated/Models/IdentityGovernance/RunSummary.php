@@ -97,13 +97,13 @@ class RunSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedRuns' => function (ParseNode $n) use ($o) { $o->setFailedRuns($n->getIntegerValue()); },
-            'failedTasks' => function (ParseNode $n) use ($o) { $o->setFailedTasks($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successfulRuns' => function (ParseNode $n) use ($o) { $o->setSuccessfulRuns($n->getIntegerValue()); },
-            'totalRuns' => function (ParseNode $n) use ($o) { $o->setTotalRuns($n->getIntegerValue()); },
-            'totalTasks' => function (ParseNode $n) use ($o) { $o->setTotalTasks($n->getIntegerValue()); },
-            'totalUsers' => function (ParseNode $n) use ($o) { $o->setTotalUsers($n->getIntegerValue()); },
+            'failedRuns' => fn(ParseNode $n) => $o->setFailedRuns($n->getIntegerValue()),
+            'failedTasks' => fn(ParseNode $n) => $o->setFailedTasks($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successfulRuns' => fn(ParseNode $n) => $o->setSuccessfulRuns($n->getIntegerValue()),
+            'totalRuns' => fn(ParseNode $n) => $o->setTotalRuns($n->getIntegerValue()),
+            'totalTasks' => fn(ParseNode $n) => $o->setTotalTasks($n->getIntegerValue()),
+            'totalUsers' => fn(ParseNode $n) => $o->setTotalUsers($n->getIntegerValue()),
         ];
     }
 

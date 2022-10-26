@@ -16,7 +16,7 @@ class PrinterShareViewpoint implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var DateTime|null $lastUsedDateTime The lastUsedDateTime property
+     * @var DateTime|null $lastUsedDateTime Date and time when the printer was last used by the signed-in user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     */
     private ?DateTime $lastUsedDateTime = null;
     
@@ -57,13 +57,13 @@ class PrinterShareViewpoint implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastUsedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUsedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'lastUsedDateTime' => fn(ParseNode $n) => $o->setLastUsedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the lastUsedDateTime property value. The lastUsedDateTime property
+     * Gets the lastUsedDateTime property value. Date and time when the printer was last used by the signed-in user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @return DateTime|null
     */
     public function getLastUsedDateTime(): ?DateTime {
@@ -97,7 +97,7 @@ class PrinterShareViewpoint implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the lastUsedDateTime property value. The lastUsedDateTime property
+     * Sets the lastUsedDateTime property value. Date and time when the printer was last used by the signed-in user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the lastUsedDateTime property.
     */
     public function setLastUsedDateTime(?DateTime $value ): void {

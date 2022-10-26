@@ -62,10 +62,10 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conditionalAccessPolicyState' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicyState($n->getStringValue()); },
-            'latestPolicyModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLatestPolicyModifiedDateTime($n->getDateTimeValue()); },
-            'requiresDeviceCompliance' => function (ParseNode $n) use ($o) { $o->setRequiresDeviceCompliance($n->getBooleanValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
+            'conditionalAccessPolicyState' => fn(ParseNode $n) => $o->setConditionalAccessPolicyState($n->getStringValue()),
+            'latestPolicyModifiedDateTime' => fn(ParseNode $n) => $o->setLatestPolicyModifiedDateTime($n->getDateTimeValue()),
+            'requiresDeviceCompliance' => fn(ParseNode $n) => $o->setRequiresDeviceCompliance($n->getBooleanValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
         ]);
     }
 

@@ -69,10 +69,10 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customDomainName' => function (ParseNode $n) use ($o) { $o->setCustomDomainName($n->getStringValue()); },
-            'userDomainNameSource' => function (ParseNode $n) use ($o) { $o->setUserDomainNameSource($n->getEnumValue(DomainNameSource::class)); },
-            'usernameAADSource' => function (ParseNode $n) use ($o) { $o->setUsernameAADSource($n->getEnumValue(UsernameSource::class)); },
-            'usernameSource' => function (ParseNode $n) use ($o) { $o->setUsernameSource($n->getEnumValue(UserEmailSource::class)); },
+            'customDomainName' => fn(ParseNode $n) => $o->setCustomDomainName($n->getStringValue()),
+            'userDomainNameSource' => fn(ParseNode $n) => $o->setUserDomainNameSource($n->getEnumValue(DomainNameSource::class)),
+            'usernameAADSource' => fn(ParseNode $n) => $o->setUsernameAADSource($n->getEnumValue(UsernameSource::class)),
+            'usernameSource' => fn(ParseNode $n) => $o->setUsernameSource($n->getEnumValue(UserEmailSource::class)),
         ]);
     }
 

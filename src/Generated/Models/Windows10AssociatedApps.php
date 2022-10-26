@@ -69,9 +69,9 @@ class Windows10AssociatedApps implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appType' => function (ParseNode $n) use ($o) { $o->setAppType($n->getEnumValue(Windows10AppType::class)); },
-            'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'appType' => fn(ParseNode $n) => $o->setAppType($n->getEnumValue(Windows10AppType::class)),
+            'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

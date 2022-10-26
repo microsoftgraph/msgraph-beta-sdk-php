@@ -45,7 +45,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getCollectionOfObjectValues(array(ClassifcationErrorBase::class, 'createFromDiscriminatorValue'))); },
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getCollectionOfObjectValues([ClassifcationErrorBase::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

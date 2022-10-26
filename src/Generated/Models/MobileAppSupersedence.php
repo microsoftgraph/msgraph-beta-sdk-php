@@ -47,9 +47,9 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'supersededAppCount' => function (ParseNode $n) use ($o) { $o->setSupersededAppCount($n->getIntegerValue()); },
-            'supersedenceType' => function (ParseNode $n) use ($o) { $o->setSupersedenceType($n->getEnumValue(MobileAppSupersedenceType::class)); },
-            'supersedingAppCount' => function (ParseNode $n) use ($o) { $o->setSupersedingAppCount($n->getIntegerValue()); },
+            'supersededAppCount' => fn(ParseNode $n) => $o->setSupersededAppCount($n->getIntegerValue()),
+            'supersedenceType' => fn(ParseNode $n) => $o->setSupersedenceType($n->getEnumValue(MobileAppSupersedenceType::class)),
+            'supersedingAppCount' => fn(ParseNode $n) => $o->setSupersedingAppCount($n->getIntegerValue()),
         ]);
     }
 

@@ -15,7 +15,7 @@ class Sharepoint extends Entity implements Parsable
     private ?Settings $settings = null;
     
     /**
-     * Instantiates a new sharepoint and sets the default values.
+     * Instantiates a new Sharepoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -38,7 +38,7 @@ class Sharepoint extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(Settings::class, 'createFromDiscriminatorValue'))); },
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([Settings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -37,7 +37,7 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'groupSettingValue' => function (ParseNode $n) use ($o) { $o->setGroupSettingValue($n->getObjectValue(array(DeviceManagementConfigurationGroupSettingValue::class, 'createFromDiscriminatorValue'))); },
+            'groupSettingValue' => fn(ParseNode $n) => $o->setGroupSettingValue($n->getObjectValue([DeviceManagementConfigurationGroupSettingValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

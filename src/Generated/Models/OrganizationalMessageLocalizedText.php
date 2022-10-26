@@ -61,9 +61,9 @@ class OrganizationalMessageLocalizedText implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'locale' => function (ParseNode $n) use ($o) { $o->setLocale($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getObjectValue(array(OrganizationalMessageText::class, 'createFromDiscriminatorValue'))); },
+            'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getObjectValue([OrganizationalMessageText::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

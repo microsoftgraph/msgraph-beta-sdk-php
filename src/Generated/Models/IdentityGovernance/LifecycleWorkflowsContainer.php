@@ -80,12 +80,12 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customTaskExtensions' => function (ParseNode $n) use ($o) { $o->setCustomTaskExtensions($n->getCollectionOfObjectValues(array(CustomTaskExtension::class, 'createFromDiscriminatorValue'))); },
-            'deletedItems' => function (ParseNode $n) use ($o) { $o->setDeletedItems($n->getObjectValue(array(DeletedItemContainer::class, 'createFromDiscriminatorValue'))); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(LifecycleManagementSettings::class, 'createFromDiscriminatorValue'))); },
-            'taskDefinitions' => function (ParseNode $n) use ($o) { $o->setTaskDefinitions($n->getCollectionOfObjectValues(array(TaskDefinition::class, 'createFromDiscriminatorValue'))); },
-            'workflows' => function (ParseNode $n) use ($o) { $o->setWorkflows($n->getCollectionOfObjectValues(array(Workflow::class, 'createFromDiscriminatorValue'))); },
-            'workflowTemplates' => function (ParseNode $n) use ($o) { $o->setWorkflowTemplates($n->getCollectionOfObjectValues(array(WorkflowTemplate::class, 'createFromDiscriminatorValue'))); },
+            'customTaskExtensions' => fn(ParseNode $n) => $o->setCustomTaskExtensions($n->getCollectionOfObjectValues([CustomTaskExtension::class, 'createFromDiscriminatorValue'])),
+            'deletedItems' => fn(ParseNode $n) => $o->setDeletedItems($n->getObjectValue([DeletedItemContainer::class, 'createFromDiscriminatorValue'])),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([LifecycleManagementSettings::class, 'createFromDiscriminatorValue'])),
+            'taskDefinitions' => fn(ParseNode $n) => $o->setTaskDefinitions($n->getCollectionOfObjectValues([TaskDefinition::class, 'createFromDiscriminatorValue'])),
+            'workflows' => fn(ParseNode $n) => $o->setWorkflows($n->getCollectionOfObjectValues([Workflow::class, 'createFromDiscriminatorValue'])),
+            'workflowTemplates' => fn(ParseNode $n) => $o->setWorkflowTemplates($n->getCollectionOfObjectValues([WorkflowTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

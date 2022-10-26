@@ -89,7 +89,7 @@ class Domain extends Entity implements Parsable
     private ?array $verificationDnsRecords = null;
     
     /**
-     * Instantiates a new Domain and sets the default values.
+     * Instantiates a new domain and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -144,22 +144,22 @@ class Domain extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationType' => function (ParseNode $n) use ($o) { $o->setAuthenticationType($n->getStringValue()); },
-            'availabilityStatus' => function (ParseNode $n) use ($o) { $o->setAvailabilityStatus($n->getStringValue()); },
-            'domainNameReferences' => function (ParseNode $n) use ($o) { $o->setDomainNameReferences($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'federationConfiguration' => function (ParseNode $n) use ($o) { $o->setFederationConfiguration($n->getCollectionOfObjectValues(array(InternalDomainFederation::class, 'createFromDiscriminatorValue'))); },
-            'isAdminManaged' => function (ParseNode $n) use ($o) { $o->setIsAdminManaged($n->getBooleanValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'isInitial' => function (ParseNode $n) use ($o) { $o->setIsInitial($n->getBooleanValue()); },
-            'isRoot' => function (ParseNode $n) use ($o) { $o->setIsRoot($n->getBooleanValue()); },
-            'isVerified' => function (ParseNode $n) use ($o) { $o->setIsVerified($n->getBooleanValue()); },
-            'passwordNotificationWindowInDays' => function (ParseNode $n) use ($o) { $o->setPasswordNotificationWindowInDays($n->getIntegerValue()); },
-            'passwordValidityPeriodInDays' => function (ParseNode $n) use ($o) { $o->setPasswordValidityPeriodInDays($n->getIntegerValue()); },
-            'serviceConfigurationRecords' => function (ParseNode $n) use ($o) { $o->setServiceConfigurationRecords($n->getCollectionOfObjectValues(array(DomainDnsRecord::class, 'createFromDiscriminatorValue'))); },
-            'sharedEmailDomainInvitations' => function (ParseNode $n) use ($o) { $o->setSharedEmailDomainInvitations($n->getCollectionOfObjectValues(array(SharedEmailDomainInvitation::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getObjectValue(array(DomainState::class, 'createFromDiscriminatorValue'))); },
-            'supportedServices' => function (ParseNode $n) use ($o) { $o->setSupportedServices($n->getCollectionOfPrimitiveValues()); },
-            'verificationDnsRecords' => function (ParseNode $n) use ($o) { $o->setVerificationDnsRecords($n->getCollectionOfObjectValues(array(DomainDnsRecord::class, 'createFromDiscriminatorValue'))); },
+            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getStringValue()),
+            'availabilityStatus' => fn(ParseNode $n) => $o->setAvailabilityStatus($n->getStringValue()),
+            'domainNameReferences' => fn(ParseNode $n) => $o->setDomainNameReferences($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'federationConfiguration' => fn(ParseNode $n) => $o->setFederationConfiguration($n->getCollectionOfObjectValues([InternalDomainFederation::class, 'createFromDiscriminatorValue'])),
+            'isAdminManaged' => fn(ParseNode $n) => $o->setIsAdminManaged($n->getBooleanValue()),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'isInitial' => fn(ParseNode $n) => $o->setIsInitial($n->getBooleanValue()),
+            'isRoot' => fn(ParseNode $n) => $o->setIsRoot($n->getBooleanValue()),
+            'isVerified' => fn(ParseNode $n) => $o->setIsVerified($n->getBooleanValue()),
+            'passwordNotificationWindowInDays' => fn(ParseNode $n) => $o->setPasswordNotificationWindowInDays($n->getIntegerValue()),
+            'passwordValidityPeriodInDays' => fn(ParseNode $n) => $o->setPasswordValidityPeriodInDays($n->getIntegerValue()),
+            'serviceConfigurationRecords' => fn(ParseNode $n) => $o->setServiceConfigurationRecords($n->getCollectionOfObjectValues([DomainDnsRecord::class, 'createFromDiscriminatorValue'])),
+            'sharedEmailDomainInvitations' => fn(ParseNode $n) => $o->setSharedEmailDomainInvitations($n->getCollectionOfObjectValues([SharedEmailDomainInvitation::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getObjectValue([DomainState::class, 'createFromDiscriminatorValue'])),
+            'supportedServices' => fn(ParseNode $n) => $o->setSupportedServices($n->getCollectionOfPrimitiveValues()),
+            'verificationDnsRecords' => fn(ParseNode $n) => $o->setVerificationDnsRecords($n->getCollectionOfObjectValues([DomainDnsRecord::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

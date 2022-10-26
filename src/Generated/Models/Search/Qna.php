@@ -95,15 +95,15 @@ class Qna extends SearchAnswer implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availabilityEndDateTime' => function (ParseNode $n) use ($o) { $o->setAvailabilityEndDateTime($n->getDateTimeValue()); },
-            'availabilityStartDateTime' => function (ParseNode $n) use ($o) { $o->setAvailabilityStartDateTime($n->getDateTimeValue()); },
-            'groupIds' => function (ParseNode $n) use ($o) { $o->setGroupIds($n->getCollectionOfPrimitiveValues()); },
-            'isSuggested' => function (ParseNode $n) use ($o) { $o->setIsSuggested($n->getBooleanValue()); },
-            'keywords' => function (ParseNode $n) use ($o) { $o->setKeywords($n->getObjectValue(array(AnswerKeyword::class, 'createFromDiscriminatorValue'))); },
-            'languageTags' => function (ParseNode $n) use ($o) { $o->setLanguageTags($n->getCollectionOfPrimitiveValues()); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AnswerState::class)); },
-            'targetedVariations' => function (ParseNode $n) use ($o) { $o->setTargetedVariations($n->getCollectionOfObjectValues(array(AnswerVariant::class, 'createFromDiscriminatorValue'))); },
+            'availabilityEndDateTime' => fn(ParseNode $n) => $o->setAvailabilityEndDateTime($n->getDateTimeValue()),
+            'availabilityStartDateTime' => fn(ParseNode $n) => $o->setAvailabilityStartDateTime($n->getDateTimeValue()),
+            'groupIds' => fn(ParseNode $n) => $o->setGroupIds($n->getCollectionOfPrimitiveValues()),
+            'isSuggested' => fn(ParseNode $n) => $o->setIsSuggested($n->getBooleanValue()),
+            'keywords' => fn(ParseNode $n) => $o->setKeywords($n->getObjectValue([AnswerKeyword::class, 'createFromDiscriminatorValue'])),
+            'languageTags' => fn(ParseNode $n) => $o->setLanguageTags($n->getCollectionOfPrimitiveValues()),
+            'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getCollectionOfEnumValues(DevicePlatformType::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AnswerState::class)),
+            'targetedVariations' => fn(ParseNode $n) => $o->setTargetedVariations($n->getCollectionOfObjectValues([AnswerVariant::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

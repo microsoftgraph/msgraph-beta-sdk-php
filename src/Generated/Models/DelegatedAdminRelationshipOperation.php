@@ -74,11 +74,11 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(DelegatedAdminRelationshipOperationType::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'data' => fn(ParseNode $n) => $o->setData($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getEnumValue(DelegatedAdminRelationshipOperationType::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
         ]);
     }
 

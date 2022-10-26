@@ -37,7 +37,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetUrl' => function (ParseNode $n) use ($o) { $o->setTargetUrl($n->getStringValue()); },
+            'targetUrl' => fn(ParseNode $n) => $o->setTargetUrl($n->getStringValue()),
         ]);
     }
 

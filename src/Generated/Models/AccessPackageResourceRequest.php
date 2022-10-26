@@ -55,7 +55,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     private ?string $requestStatus = null;
     
     /**
-     * @var string|null $requestType Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
+     * @var string|null $requestType Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
     */
     private ?string $requestType = null;
     
@@ -115,16 +115,16 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResource' => function (ParseNode $n) use ($o) { $o->setAccessPackageResource($n->getObjectValue(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
-            'executeImmediately' => function (ParseNode $n) use ($o) { $o->setExecuteImmediately($n->getBooleanValue()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'isValidationOnly' => function (ParseNode $n) use ($o) { $o->setIsValidationOnly($n->getBooleanValue()); },
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'requestor' => function (ParseNode $n) use ($o) { $o->setRequestor($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
-            'requestState' => function (ParseNode $n) use ($o) { $o->setRequestState($n->getStringValue()); },
-            'requestStatus' => function (ParseNode $n) use ($o) { $o->setRequestStatus($n->getStringValue()); },
-            'requestType' => function (ParseNode $n) use ($o) { $o->setRequestType($n->getStringValue()); },
+            'accessPackageResource' => fn(ParseNode $n) => $o->setAccessPackageResource($n->getObjectValue([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
+            'catalogId' => fn(ParseNode $n) => $o->setCatalogId($n->getStringValue()),
+            'executeImmediately' => fn(ParseNode $n) => $o->setExecuteImmediately($n->getBooleanValue()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'isValidationOnly' => fn(ParseNode $n) => $o->setIsValidationOnly($n->getBooleanValue()),
+            'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'requestor' => fn(ParseNode $n) => $o->setRequestor($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
+            'requestState' => fn(ParseNode $n) => $o->setRequestState($n->getStringValue()),
+            'requestStatus' => fn(ParseNode $n) => $o->setRequestStatus($n->getStringValue()),
+            'requestType' => fn(ParseNode $n) => $o->setRequestType($n->getStringValue()),
         ]);
     }
 
@@ -169,7 +169,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Gets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
+     * Gets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
      * @return string|null
     */
     public function getRequestType(): ?string {
@@ -267,7 +267,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     }
 
     /**
-     * Sets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
+     * Sets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
      *  @param string|null $value Value to set for the requestType property.
     */
     public function setRequestType(?string $value ): void {

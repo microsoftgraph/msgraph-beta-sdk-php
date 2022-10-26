@@ -143,19 +143,19 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'anchor' => function (ParseNode $n) use ($o) { $o->setAnchor($n->getBooleanValue()); },
-            'apiExpressions' => function (ParseNode $n) use ($o) { $o->setApiExpressions($n->getCollectionOfObjectValues(array(StringKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
-            'caseExact' => function (ParseNode $n) use ($o) { $o->setCaseExact($n->getBooleanValue()); },
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getStringValue()); },
-            'flowNullValues' => function (ParseNode $n) use ($o) { $o->setFlowNullValues($n->getBooleanValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
-            'multivalued' => function (ParseNode $n) use ($o) { $o->setMultivalued($n->getBooleanValue()); },
-            'mutability' => function (ParseNode $n) use ($o) { $o->setMutability($n->getEnumValue(Mutability::class)); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'referencedObjects' => function (ParseNode $n) use ($o) { $o->setReferencedObjects($n->getCollectionOfObjectValues(array(ReferencedObject::class, 'createFromDiscriminatorValue'))); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(AttributeType::class)); },
+            'anchor' => fn(ParseNode $n) => $o->setAnchor($n->getBooleanValue()),
+            'apiExpressions' => fn(ParseNode $n) => $o->setApiExpressions($n->getCollectionOfObjectValues([StringKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
+            'caseExact' => fn(ParseNode $n) => $o->setCaseExact($n->getBooleanValue()),
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getStringValue()),
+            'flowNullValues' => fn(ParseNode $n) => $o->setFlowNullValues($n->getBooleanValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'multivalued' => fn(ParseNode $n) => $o->setMultivalued($n->getBooleanValue()),
+            'mutability' => fn(ParseNode $n) => $o->setMutability($n->getEnumValue(Mutability::class)),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'referencedObjects' => fn(ParseNode $n) => $o->setReferencedObjects($n->getCollectionOfObjectValues([ReferencedObject::class, 'createFromDiscriminatorValue'])),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(AttributeType::class)),
         ];
     }
 

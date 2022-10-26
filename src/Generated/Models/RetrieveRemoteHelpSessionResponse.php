@@ -137,16 +137,16 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'acsGroupId' => function (ParseNode $n) use ($o) { $o->setAcsGroupId($n->getStringValue()); },
-            'acsHelperUserId' => function (ParseNode $n) use ($o) { $o->setAcsHelperUserId($n->getStringValue()); },
-            'acsHelperUserToken' => function (ParseNode $n) use ($o) { $o->setAcsHelperUserToken($n->getStringValue()); },
-            'acsSharerUserId' => function (ParseNode $n) use ($o) { $o->setAcsSharerUserId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'pubSubGroupId' => function (ParseNode $n) use ($o) { $o->setPubSubGroupId($n->getStringValue()); },
-            'pubSubHelperAccessUri' => function (ParseNode $n) use ($o) { $o->setPubSubHelperAccessUri($n->getStringValue()); },
-            'sessionExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setSessionExpirationDateTime($n->getDateTimeValue()); },
-            'sessionKey' => function (ParseNode $n) use ($o) { $o->setSessionKey($n->getStringValue()); },
+            'acsGroupId' => fn(ParseNode $n) => $o->setAcsGroupId($n->getStringValue()),
+            'acsHelperUserId' => fn(ParseNode $n) => $o->setAcsHelperUserId($n->getStringValue()),
+            'acsHelperUserToken' => fn(ParseNode $n) => $o->setAcsHelperUserToken($n->getStringValue()),
+            'acsSharerUserId' => fn(ParseNode $n) => $o->setAcsSharerUserId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'pubSubGroupId' => fn(ParseNode $n) => $o->setPubSubGroupId($n->getStringValue()),
+            'pubSubHelperAccessUri' => fn(ParseNode $n) => $o->setPubSubHelperAccessUri($n->getStringValue()),
+            'sessionExpirationDateTime' => fn(ParseNode $n) => $o->setSessionExpirationDateTime($n->getDateTimeValue()),
+            'sessionKey' => fn(ParseNode $n) => $o->setSessionKey($n->getStringValue()),
         ];
     }
 

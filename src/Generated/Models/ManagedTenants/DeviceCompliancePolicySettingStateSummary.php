@@ -123,19 +123,19 @@ class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'conflictDeviceCount' => function (ParseNode $n) use ($o) { $o->setConflictDeviceCount($n->getIntegerValue()); },
-            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'failedDeviceCount' => function (ParseNode $n) use ($o) { $o->setFailedDeviceCount($n->getIntegerValue()); },
-            'intuneAccountId' => function (ParseNode $n) use ($o) { $o->setIntuneAccountId($n->getStringValue()); },
-            'intuneSettingId' => function (ParseNode $n) use ($o) { $o->setIntuneSettingId($n->getStringValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'notApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
-            'pendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setPendingDeviceCount($n->getIntegerValue()); },
-            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getStringValue()); },
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
-            'succeededDeviceCount' => function (ParseNode $n) use ($o) { $o->setSucceededDeviceCount($n->getIntegerValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'conflictDeviceCount' => fn(ParseNode $n) => $o->setConflictDeviceCount($n->getIntegerValue()),
+            'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
+            'failedDeviceCount' => fn(ParseNode $n) => $o->setFailedDeviceCount($n->getIntegerValue()),
+            'intuneAccountId' => fn(ParseNode $n) => $o->setIntuneAccountId($n->getStringValue()),
+            'intuneSettingId' => fn(ParseNode $n) => $o->setIntuneSettingId($n->getStringValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            'notApplicableDeviceCount' => fn(ParseNode $n) => $o->setNotApplicableDeviceCount($n->getIntegerValue()),
+            'pendingDeviceCount' => fn(ParseNode $n) => $o->setPendingDeviceCount($n->getIntegerValue()),
+            'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getStringValue()),
+            'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
+            'succeededDeviceCount' => fn(ParseNode $n) => $o->setSucceededDeviceCount($n->getIntegerValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

@@ -43,8 +43,8 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getObjectValue(array(SubjectSet::class, 'createFromDiscriminatorValue'))); },
-            'trigger' => function (ParseNode $n) use ($o) { $o->setTrigger($n->getObjectValue(array(WorkflowExecutionTrigger::class, 'createFromDiscriminatorValue'))); },
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getObjectValue([SubjectSet::class, 'createFromDiscriminatorValue'])),
+            'trigger' => fn(ParseNode $n) => $o->setTrigger($n->getObjectValue([WorkflowExecutionTrigger::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

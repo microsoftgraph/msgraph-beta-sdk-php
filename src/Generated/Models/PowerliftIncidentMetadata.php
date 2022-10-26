@@ -124,15 +124,15 @@ class PowerliftIncidentMetadata implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getStringValue()); },
-            'clientVersion' => function (ParseNode $n) use ($o) { $o->setClientVersion($n->getStringValue()); },
-            'createdAtDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedAtDateTime($n->getDateTimeValue()); },
-            'easyId' => function (ParseNode $n) use ($o) { $o->setEasyId($n->getStringValue()); },
-            'fileNames' => function (ParseNode $n) use ($o) { $o->setFileNames($n->getCollectionOfPrimitiveValues()); },
-            'locale' => function (ParseNode $n) use ($o) { $o->setLocale($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getStringValue()); },
-            'powerliftId' => function (ParseNode $n) use ($o) { $o->setPowerliftId($n->getStringValue()); },
+            'application' => fn(ParseNode $n) => $o->setApplication($n->getStringValue()),
+            'clientVersion' => fn(ParseNode $n) => $o->setClientVersion($n->getStringValue()),
+            'createdAtDateTime' => fn(ParseNode $n) => $o->setCreatedAtDateTime($n->getDateTimeValue()),
+            'easyId' => fn(ParseNode $n) => $o->setEasyId($n->getStringValue()),
+            'fileNames' => fn(ParseNode $n) => $o->setFileNames($n->getCollectionOfPrimitiveValues()),
+            'locale' => fn(ParseNode $n) => $o->setLocale($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getStringValue()),
+            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getStringValue()),
         ];
     }
 

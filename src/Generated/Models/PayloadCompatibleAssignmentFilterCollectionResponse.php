@@ -36,7 +36,7 @@ class PayloadCompatibleAssignmentFilterCollectionResponse extends BaseCollection
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(PayloadCompatibleAssignmentFilter::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([PayloadCompatibleAssignmentFilter::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

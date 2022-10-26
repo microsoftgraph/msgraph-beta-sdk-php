@@ -61,9 +61,9 @@ class CloudPcRestorePointSetting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'frequencyInHours' => function (ParseNode $n) use ($o) { $o->setFrequencyInHours($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userRestoreEnabled' => function (ParseNode $n) use ($o) { $o->setUserRestoreEnabled($n->getBooleanValue()); },
+            'frequencyInHours' => fn(ParseNode $n) => $o->setFrequencyInHours($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userRestoreEnabled' => fn(ParseNode $n) => $o->setUserRestoreEnabled($n->getBooleanValue()),
         ];
     }
 

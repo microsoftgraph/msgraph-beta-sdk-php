@@ -97,11 +97,11 @@ class WindowsKioskWin32App extends WindowsKioskAppBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classicAppPath' => function (ParseNode $n) use ($o) { $o->setClassicAppPath($n->getStringValue()); },
-            'edgeKiosk' => function (ParseNode $n) use ($o) { $o->setEdgeKiosk($n->getStringValue()); },
-            'edgeKioskIdleTimeoutMinutes' => function (ParseNode $n) use ($o) { $o->setEdgeKioskIdleTimeoutMinutes($n->getIntegerValue()); },
-            'edgeKioskType' => function (ParseNode $n) use ($o) { $o->setEdgeKioskType($n->getEnumValue(WindowsEdgeKioskType::class)); },
-            'edgeNoFirstRun' => function (ParseNode $n) use ($o) { $o->setEdgeNoFirstRun($n->getBooleanValue()); },
+            'classicAppPath' => fn(ParseNode $n) => $o->setClassicAppPath($n->getStringValue()),
+            'edgeKiosk' => fn(ParseNode $n) => $o->setEdgeKiosk($n->getStringValue()),
+            'edgeKioskIdleTimeoutMinutes' => fn(ParseNode $n) => $o->setEdgeKioskIdleTimeoutMinutes($n->getIntegerValue()),
+            'edgeKioskType' => fn(ParseNode $n) => $o->setEdgeKioskType($n->getEnumValue(WindowsEdgeKioskType::class)),
+            'edgeNoFirstRun' => fn(ParseNode $n) => $o->setEdgeNoFirstRun($n->getBooleanValue()),
         ]);
     }
 

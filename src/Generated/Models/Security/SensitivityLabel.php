@@ -107,16 +107,16 @@ class SensitivityLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'color' => function (ParseNode $n) use ($o) { $o->setColor($n->getStringValue()); },
-            'contentFormats' => function (ParseNode $n) use ($o) { $o->setContentFormats($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'hasProtection' => function (ParseNode $n) use ($o) { $o->setHasProtection($n->getBooleanValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'isAppliable' => function (ParseNode $n) use ($o) { $o->setIsAppliable($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
-            'sensitivity' => function (ParseNode $n) use ($o) { $o->setSensitivity($n->getIntegerValue()); },
-            'tooltip' => function (ParseNode $n) use ($o) { $o->setTooltip($n->getStringValue()); },
+            'color' => fn(ParseNode $n) => $o->setColor($n->getStringValue()),
+            'contentFormats' => fn(ParseNode $n) => $o->setContentFormats($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'hasProtection' => fn(ParseNode $n) => $o->setHasProtection($n->getBooleanValue()),
+            'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
+            'isAppliable' => fn(ParseNode $n) => $o->setIsAppliable($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
+            'sensitivity' => fn(ParseNode $n) => $o->setSensitivity($n->getIntegerValue()),
+            'tooltip' => fn(ParseNode $n) => $o->setTooltip($n->getStringValue()),
         ]);
     }
 

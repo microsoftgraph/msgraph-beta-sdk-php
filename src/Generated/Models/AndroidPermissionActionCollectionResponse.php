@@ -36,7 +36,7 @@ class AndroidPermissionActionCollectionResponse extends BaseCollectionPagination
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AndroidPermissionAction::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([AndroidPermissionAction::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

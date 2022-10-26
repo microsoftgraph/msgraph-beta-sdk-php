@@ -59,7 +59,7 @@ class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'credentials' => function (ParseNode $n) use ($o) { $o->setCredentials($n->getCollectionOfObjectValues(array(SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'))); },
+            'credentials' => fn(ParseNode $n) => $o->setCredentials($n->getCollectionOfObjectValues([SynchronizationSecretKeyStringValuePair::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

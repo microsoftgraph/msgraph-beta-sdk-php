@@ -36,7 +36,7 @@ class TeamworkConfiguredPeripheralCollectionResponse extends BaseCollectionPagin
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(TeamworkConfiguredPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([TeamworkConfiguredPeripheral::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

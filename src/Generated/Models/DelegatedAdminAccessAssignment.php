@@ -82,11 +82,11 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessContainer' => function (ParseNode $n) use ($o) { $o->setAccessContainer($n->getObjectValue(array(DelegatedAdminAccessContainer::class, 'createFromDiscriminatorValue'))); },
-            'accessDetails' => function (ParseNode $n) use ($o) { $o->setAccessDetails($n->getObjectValue(array(DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DelegatedAdminAccessAssignmentStatus::class)); },
+            'accessContainer' => fn(ParseNode $n) => $o->setAccessContainer($n->getObjectValue([DelegatedAdminAccessContainer::class, 'createFromDiscriminatorValue'])),
+            'accessDetails' => fn(ParseNode $n) => $o->setAccessDetails($n->getObjectValue([DelegatedAdminAccessDetails::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DelegatedAdminAccessAssignmentStatus::class)),
         ]);
     }
 

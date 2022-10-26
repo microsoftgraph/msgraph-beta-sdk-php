@@ -38,7 +38,7 @@ class UserSignInInsight extends GovernanceInsight implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'lastSignInDateTime' => function (ParseNode $n) use ($o) { $o->setLastSignInDateTime($n->getDateTimeValue()); },
+            'lastSignInDateTime' => fn(ParseNode $n) => $o->setLastSignInDateTime($n->getDateTimeValue()),
         ]);
     }
 

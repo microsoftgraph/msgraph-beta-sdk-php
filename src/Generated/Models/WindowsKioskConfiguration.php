@@ -90,16 +90,16 @@ class WindowsKioskConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'edgeKioskEnablePublicBrowsing' => function (ParseNode $n) use ($o) { $o->setEdgeKioskEnablePublicBrowsing($n->getBooleanValue()); },
-            'kioskBrowserBlockedUrlExceptions' => function (ParseNode $n) use ($o) { $o->setKioskBrowserBlockedUrlExceptions($n->getCollectionOfPrimitiveValues()); },
-            'kioskBrowserBlockedURLs' => function (ParseNode $n) use ($o) { $o->setKioskBrowserBlockedURLs($n->getCollectionOfPrimitiveValues()); },
-            'kioskBrowserDefaultUrl' => function (ParseNode $n) use ($o) { $o->setKioskBrowserDefaultUrl($n->getStringValue()); },
-            'kioskBrowserEnableEndSessionButton' => function (ParseNode $n) use ($o) { $o->setKioskBrowserEnableEndSessionButton($n->getBooleanValue()); },
-            'kioskBrowserEnableHomeButton' => function (ParseNode $n) use ($o) { $o->setKioskBrowserEnableHomeButton($n->getBooleanValue()); },
-            'kioskBrowserEnableNavigationButtons' => function (ParseNode $n) use ($o) { $o->setKioskBrowserEnableNavigationButtons($n->getBooleanValue()); },
-            'kioskBrowserRestartOnIdleTimeInMinutes' => function (ParseNode $n) use ($o) { $o->setKioskBrowserRestartOnIdleTimeInMinutes($n->getIntegerValue()); },
-            'kioskProfiles' => function (ParseNode $n) use ($o) { $o->setKioskProfiles($n->getCollectionOfObjectValues(array(WindowsKioskProfile::class, 'createFromDiscriminatorValue'))); },
-            'windowsKioskForceUpdateSchedule' => function (ParseNode $n) use ($o) { $o->setWindowsKioskForceUpdateSchedule($n->getObjectValue(array(WindowsKioskForceUpdateSchedule::class, 'createFromDiscriminatorValue'))); },
+            'edgeKioskEnablePublicBrowsing' => fn(ParseNode $n) => $o->setEdgeKioskEnablePublicBrowsing($n->getBooleanValue()),
+            'kioskBrowserBlockedUrlExceptions' => fn(ParseNode $n) => $o->setKioskBrowserBlockedUrlExceptions($n->getCollectionOfPrimitiveValues()),
+            'kioskBrowserBlockedURLs' => fn(ParseNode $n) => $o->setKioskBrowserBlockedURLs($n->getCollectionOfPrimitiveValues()),
+            'kioskBrowserDefaultUrl' => fn(ParseNode $n) => $o->setKioskBrowserDefaultUrl($n->getStringValue()),
+            'kioskBrowserEnableEndSessionButton' => fn(ParseNode $n) => $o->setKioskBrowserEnableEndSessionButton($n->getBooleanValue()),
+            'kioskBrowserEnableHomeButton' => fn(ParseNode $n) => $o->setKioskBrowserEnableHomeButton($n->getBooleanValue()),
+            'kioskBrowserEnableNavigationButtons' => fn(ParseNode $n) => $o->setKioskBrowserEnableNavigationButtons($n->getBooleanValue()),
+            'kioskBrowserRestartOnIdleTimeInMinutes' => fn(ParseNode $n) => $o->setKioskBrowserRestartOnIdleTimeInMinutes($n->getIntegerValue()),
+            'kioskProfiles' => fn(ParseNode $n) => $o->setKioskProfiles($n->getCollectionOfObjectValues([WindowsKioskProfile::class, 'createFromDiscriminatorValue'])),
+            'windowsKioskForceUpdateSchedule' => fn(ParseNode $n) => $o->setWindowsKioskForceUpdateSchedule($n->getObjectValue([WindowsKioskForceUpdateSchedule::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

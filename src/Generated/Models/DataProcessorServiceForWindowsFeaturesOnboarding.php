@@ -69,9 +69,9 @@ class DataProcessorServiceForWindowsFeaturesOnboarding implements AdditionalData
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'areDataProcessorServiceForWindowsFeaturesEnabled' => function (ParseNode $n) use ($o) { $o->setAreDataProcessorServiceForWindowsFeaturesEnabled($n->getBooleanValue()); },
-            'hasValidWindowsLicense' => function (ParseNode $n) use ($o) { $o->setHasValidWindowsLicense($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'areDataProcessorServiceForWindowsFeaturesEnabled' => fn(ParseNode $n) => $o->setAreDataProcessorServiceForWindowsFeaturesEnabled($n->getBooleanValue()),
+            'hasValidWindowsLicense' => fn(ParseNode $n) => $o->setHasValidWindowsLicense($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

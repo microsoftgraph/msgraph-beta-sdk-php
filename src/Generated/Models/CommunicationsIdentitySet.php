@@ -112,14 +112,14 @@ class CommunicationsIdentitySet extends IdentitySet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationInstance' => function (ParseNode $n) use ($o) { $o->setApplicationInstance($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'assertedIdentity' => function (ParseNode $n) use ($o) { $o->setAssertedIdentity($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'azureCommunicationServicesUser' => function (ParseNode $n) use ($o) { $o->setAzureCommunicationServicesUser($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'encrypted' => function (ParseNode $n) use ($o) { $o->setEncrypted($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
-            'guest' => function (ParseNode $n) use ($o) { $o->setGuest($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'onPremises' => function (ParseNode $n) use ($o) { $o->setOnPremises($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'phone' => function (ParseNode $n) use ($o) { $o->setPhone($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
+            'applicationInstance' => fn(ParseNode $n) => $o->setApplicationInstance($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'assertedIdentity' => fn(ParseNode $n) => $o->setAssertedIdentity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'azureCommunicationServicesUser' => fn(ParseNode $n) => $o->setAzureCommunicationServicesUser($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'encrypted' => fn(ParseNode $n) => $o->setEncrypted($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'endpointType' => fn(ParseNode $n) => $o->setEndpointType($n->getEnumValue(EndpointType::class)),
+            'guest' => fn(ParseNode $n) => $o->setGuest($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'onPremises' => fn(ParseNode $n) => $o->setOnPremises($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'phone' => fn(ParseNode $n) => $o->setPhone($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

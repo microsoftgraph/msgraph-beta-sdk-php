@@ -84,10 +84,10 @@ class WindowsPrivacyDataAccessControlItem extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessLevel' => function (ParseNode $n) use ($o) { $o->setAccessLevel($n->getEnumValue(WindowsPrivacyDataAccessLevel::class)); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appPackageFamilyName' => function (ParseNode $n) use ($o) { $o->setAppPackageFamilyName($n->getStringValue()); },
-            'dataCategory' => function (ParseNode $n) use ($o) { $o->setDataCategory($n->getEnumValue(WindowsPrivacyDataCategory::class)); },
+            'accessLevel' => fn(ParseNode $n) => $o->setAccessLevel($n->getEnumValue(WindowsPrivacyDataAccessLevel::class)),
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appPackageFamilyName' => fn(ParseNode $n) => $o->setAppPackageFamilyName($n->getStringValue()),
+            'dataCategory' => fn(ParseNode $n) => $o->setDataCategory($n->getEnumValue(WindowsPrivacyDataCategory::class)),
         ]);
     }
 

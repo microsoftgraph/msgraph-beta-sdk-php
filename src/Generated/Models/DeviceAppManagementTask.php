@@ -156,16 +156,16 @@ class DeviceAppManagementTask extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedTo' => function (ParseNode $n) use ($o) { $o->setAssignedTo($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(DeviceAppManagementTaskCategory::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'creator' => function (ParseNode $n) use ($o) { $o->setCreator($n->getStringValue()); },
-            'creatorNotes' => function (ParseNode $n) use ($o) { $o->setCreatorNotes($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getDateTimeValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getEnumValue(DeviceAppManagementTaskPriority::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)); },
+            'assignedTo' => fn(ParseNode $n) => $o->setAssignedTo($n->getStringValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(DeviceAppManagementTaskCategory::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'creator' => fn(ParseNode $n) => $o->setCreator($n->getStringValue()),
+            'creatorNotes' => fn(ParseNode $n) => $o->setCreatorNotes($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getDateTimeValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getEnumValue(DeviceAppManagementTaskPriority::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceAppManagementTaskStatus::class)),
         ]);
     }
 

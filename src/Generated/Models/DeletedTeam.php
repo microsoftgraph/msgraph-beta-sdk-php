@@ -45,7 +45,7 @@ class DeletedTeam extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'channels' => function (ParseNode $n) use ($o) { $o->setChannels($n->getCollectionOfObjectValues(array(Channel::class, 'createFromDiscriminatorValue'))); },
+            'channels' => fn(ParseNode $n) => $o->setChannels($n->getCollectionOfObjectValues([Channel::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

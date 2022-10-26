@@ -96,14 +96,14 @@ class PlannerUser extends PlannerDelta implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'all' => function (ParseNode $n) use ($o) { $o->setAll($n->getCollectionOfObjectValues(array(PlannerDelta::class, 'createFromDiscriminatorValue'))); },
-            'favoritePlanReferences' => function (ParseNode $n) use ($o) { $o->setFavoritePlanReferences($n->getObjectValue(array(PlannerFavoritePlanReferenceCollection::class, 'createFromDiscriminatorValue'))); },
-            'favoritePlans' => function (ParseNode $n) use ($o) { $o->setFavoritePlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'plans' => function (ParseNode $n) use ($o) { $o->setPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'recentPlanReferences' => function (ParseNode $n) use ($o) { $o->setRecentPlanReferences($n->getObjectValue(array(PlannerRecentPlanReferenceCollection::class, 'createFromDiscriminatorValue'))); },
-            'recentPlans' => function (ParseNode $n) use ($o) { $o->setRecentPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'rosterPlans' => function (ParseNode $n) use ($o) { $o->setRosterPlans($n->getCollectionOfObjectValues(array(PlannerPlan::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(PlannerTask::class, 'createFromDiscriminatorValue'))); },
+            'all' => fn(ParseNode $n) => $o->setAll($n->getCollectionOfObjectValues([PlannerDelta::class, 'createFromDiscriminatorValue'])),
+            'favoritePlanReferences' => fn(ParseNode $n) => $o->setFavoritePlanReferences($n->getObjectValue([PlannerFavoritePlanReferenceCollection::class, 'createFromDiscriminatorValue'])),
+            'favoritePlans' => fn(ParseNode $n) => $o->setFavoritePlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'plans' => fn(ParseNode $n) => $o->setPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'recentPlanReferences' => fn(ParseNode $n) => $o->setRecentPlanReferences($n->getObjectValue([PlannerRecentPlanReferenceCollection::class, 'createFromDiscriminatorValue'])),
+            'recentPlans' => fn(ParseNode $n) => $o->setRecentPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'rosterPlans' => fn(ParseNode $n) => $o->setRosterPlans($n->getCollectionOfObjectValues([PlannerPlan::class, 'createFromDiscriminatorValue'])),
+            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

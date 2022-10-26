@@ -69,9 +69,9 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'decisionMakerCriteria' => function (ParseNode $n) use ($o) { $o->setDecisionMakerCriteria($n->getCollectionOfObjectValues(array(GovernanceCriteria::class, 'createFromDiscriminatorValue'))); },
-            'notificationPolicy' => function (ParseNode $n) use ($o) { $o->setNotificationPolicy($n->getObjectValue(array(GovernanceNotificationPolicy::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'decisionMakerCriteria' => fn(ParseNode $n) => $o->setDecisionMakerCriteria($n->getCollectionOfObjectValues([GovernanceCriteria::class, 'createFromDiscriminatorValue'])),
+            'notificationPolicy' => fn(ParseNode $n) => $o->setNotificationPolicy($n->getObjectValue([GovernanceNotificationPolicy::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

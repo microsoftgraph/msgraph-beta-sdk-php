@@ -118,15 +118,15 @@ class RemoteActionAudit extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getEnumValue(RemoteAction::class)); },
-            'actionState' => function (ParseNode $n) use ($o) { $o->setActionState($n->getEnumValue(ActionState::class)); },
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceIMEI' => function (ParseNode $n) use ($o) { $o->setDeviceIMEI($n->getStringValue()); },
-            'deviceOwnerUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setDeviceOwnerUserPrincipalName($n->getStringValue()); },
-            'initiatedByUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'requestDateTime' => function (ParseNode $n) use ($o) { $o->setRequestDateTime($n->getDateTimeValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getEnumValue(RemoteAction::class)),
+            'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(ActionState::class)),
+            'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
+            'deviceIMEI' => fn(ParseNode $n) => $o->setDeviceIMEI($n->getStringValue()),
+            'deviceOwnerUserPrincipalName' => fn(ParseNode $n) => $o->setDeviceOwnerUserPrincipalName($n->getStringValue()),
+            'initiatedByUserPrincipalName' => fn(ParseNode $n) => $o->setInitiatedByUserPrincipalName($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'requestDateTime' => fn(ParseNode $n) => $o->setRequestDateTime($n->getDateTimeValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

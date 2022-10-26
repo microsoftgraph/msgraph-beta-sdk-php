@@ -46,7 +46,7 @@ class GovernanceInsight extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'insightCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setInsightCreatedDateTime($n->getDateTimeValue()); },
+            'insightCreatedDateTime' => fn(ParseNode $n) => $o->setInsightCreatedDateTime($n->getDateTimeValue()),
         ]);
     }
 

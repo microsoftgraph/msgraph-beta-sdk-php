@@ -70,12 +70,12 @@ class WebAccount extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getObjectValue(array(ServiceInformation::class, 'createFromDiscriminatorValue'))); },
-            'statusMessage' => function (ParseNode $n) use ($o) { $o->setStatusMessage($n->getStringValue()); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'service' => fn(ParseNode $n) => $o->setService($n->getObjectValue([ServiceInformation::class, 'createFromDiscriminatorValue'])),
+            'statusMessage' => fn(ParseNode $n) => $o->setStatusMessage($n->getStringValue()),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

@@ -60,10 +60,10 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'extensionType' => function (ParseNode $n) use ($o) { $o->setExtensionType($n->getStringValue()); },
-            'namespaceUrl' => function (ParseNode $n) use ($o) { $o->setNamespaceUrl($n->getStringValue()); },
-            'nodeName' => function (ParseNode $n) use ($o) { $o->setNodeName($n->getStringValue()); },
-            'settingScope' => function (ParseNode $n) use ($o) { $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)); },
+            'extensionType' => fn(ParseNode $n) => $o->setExtensionType($n->getStringValue()),
+            'namespaceUrl' => fn(ParseNode $n) => $o->setNamespaceUrl($n->getStringValue()),
+            'nodeName' => fn(ParseNode $n) => $o->setNodeName($n->getStringValue()),
+            'settingScope' => fn(ParseNode $n) => $o->setSettingScope($n->getEnumValue(GroupPolicySettingScope::class)),
         ]);
     }
 

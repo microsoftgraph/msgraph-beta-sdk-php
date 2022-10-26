@@ -37,7 +37,7 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'messageUrl' => function (ParseNode $n) use ($o) { $o->setMessageUrl($n->getStringValue()); },
+            'messageUrl' => fn(ParseNode $n) => $o->setMessageUrl($n->getStringValue()),
         ]);
     }
 

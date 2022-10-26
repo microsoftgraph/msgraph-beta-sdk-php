@@ -55,8 +55,8 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'justification' => function (ParseNode $n) use ($o) { $o->setJustification($n->getStringValue()); },
-            'reviewResult' => function (ParseNode $n) use ($o) { $o->setReviewResult($n->getStringValue()); },
+            'justification' => fn(ParseNode $n) => $o->setJustification($n->getStringValue()),
+            'reviewResult' => fn(ParseNode $n) => $o->setReviewResult($n->getStringValue()),
         ];
     }
 

@@ -51,7 +51,7 @@ class SetScheduledActionsPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'scheduledActions' => function (ParseNode $n) use ($o) { $o->setScheduledActions($n->getCollectionOfObjectValues(array(DeviceManagementComplianceScheduledActionForRule::class, 'createFromDiscriminatorValue'))); },
+            'scheduledActions' => fn(ParseNode $n) => $o->setScheduledActions($n->getCollectionOfObjectValues([DeviceManagementComplianceScheduledActionForRule::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

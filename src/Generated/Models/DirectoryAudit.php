@@ -25,7 +25,7 @@ class DirectoryAudit extends Entity implements Parsable
     private ?array $additionalDetails = null;
     
     /**
-     * @var string|null $category Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * @var string|null $category Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
     */
     private ?string $category = null;
     
@@ -70,7 +70,7 @@ class DirectoryAudit extends Entity implements Parsable
     private ?string $userAgent = null;
     
     /**
-     * Instantiates a new directoryAudit and sets the default values.
+     * Instantiates a new DirectoryAudit and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -111,7 +111,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Gets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * Gets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
      * @return string|null
     */
     public function getCategory(): ?string {
@@ -133,18 +133,18 @@ class DirectoryAudit extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'activityDisplayName' => function (ParseNode $n) use ($o) { $o->setActivityDisplayName($n->getStringValue()); },
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getCollectionOfObjectValues(array(KeyValue::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getObjectValue(array(AuditActivityInitiator::class, 'createFromDiscriminatorValue'))); },
-            'loggedByService' => function (ParseNode $n) use ($o) { $o->setLoggedByService($n->getStringValue()); },
-            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getStringValue()); },
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(OperationResult::class)); },
-            'resultReason' => function (ParseNode $n) use ($o) { $o->setResultReason($n->getStringValue()); },
-            'targetResources' => function (ParseNode $n) use ($o) { $o->setTargetResources($n->getCollectionOfObjectValues(array(TargetResource::class, 'createFromDiscriminatorValue'))); },
-            'userAgent' => function (ParseNode $n) use ($o) { $o->setUserAgent($n->getStringValue()); },
+            'activityDateTime' => fn(ParseNode $n) => $o->setActivityDateTime($n->getDateTimeValue()),
+            'activityDisplayName' => fn(ParseNode $n) => $o->setActivityDisplayName($n->getStringValue()),
+            'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getCollectionOfObjectValues([KeyValue::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'initiatedBy' => fn(ParseNode $n) => $o->setInitiatedBy($n->getObjectValue([AuditActivityInitiator::class, 'createFromDiscriminatorValue'])),
+            'loggedByService' => fn(ParseNode $n) => $o->setLoggedByService($n->getStringValue()),
+            'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getStringValue()),
+            'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(OperationResult::class)),
+            'resultReason' => fn(ParseNode $n) => $o->setResultReason($n->getStringValue()),
+            'targetResources' => fn(ParseNode $n) => $o->setTargetResources($n->getCollectionOfObjectValues([TargetResource::class, 'createFromDiscriminatorValue'])),
+            'userAgent' => fn(ParseNode $n) => $o->setUserAgent($n->getStringValue()),
         ]);
     }
 
@@ -249,7 +249,7 @@ class DirectoryAudit extends Entity implements Parsable
     }
 
     /**
-     * Sets the category property value. Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+     * Sets the category property value. Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
      *  @param string|null $value Value to set for the category property.
     */
     public function setCategory(?string $value ): void {

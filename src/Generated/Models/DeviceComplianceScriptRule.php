@@ -105,13 +105,13 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dataType' => function (ParseNode $n) use ($o) { $o->setDataType($n->getEnumValue(DataType::class)); },
-            'deviceComplianceScriptRuleDataType' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRuleDataType($n->getEnumValue(DeviceComplianceScriptRuleDataType::class)); },
-            'deviceComplianceScriptRulOperator' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptRulOperator($n->getEnumValue(DeviceComplianceScriptRulOperator::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operand' => function (ParseNode $n) use ($o) { $o->setOperand($n->getStringValue()); },
-            'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Operator::class)); },
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
+            'dataType' => fn(ParseNode $n) => $o->setDataType($n->getEnumValue(DataType::class)),
+            'deviceComplianceScriptRuleDataType' => fn(ParseNode $n) => $o->setDeviceComplianceScriptRuleDataType($n->getEnumValue(DeviceComplianceScriptRuleDataType::class)),
+            'deviceComplianceScriptRulOperator' => fn(ParseNode $n) => $o->setDeviceComplianceScriptRulOperator($n->getEnumValue(DeviceComplianceScriptRulOperator::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operand' => fn(ParseNode $n) => $o->setOperand($n->getStringValue()),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(Operator::class)),
+            'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
         ];
     }
 

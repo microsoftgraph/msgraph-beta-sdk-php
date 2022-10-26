@@ -169,9 +169,9 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
 
     /**
      * Gets the backgroundImage property value. Image that appears as the background of the sign-in page. The allowed types are PNG or JPEG not smaller than 300 KB and not larger than 1920 × 1080 pixels. A smaller image will reduce bandwidth requirements and make the page load faster.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getBackgroundImage(): ?StreamInterface {
+    public function getBackgroundImage(): StreamInterface {
         return $this->backgroundImage;
     }
 
@@ -185,9 +185,9 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
 
     /**
      * Gets the bannerLogo property value. A banner version of your company logo that appears on the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getBannerLogo(): ?StreamInterface {
+    public function getBannerLogo(): StreamInterface {
         return $this->bannerLogo;
     }
 
@@ -281,9 +281,9 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
 
     /**
      * Gets the favicon property value. A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getFavicon(): ?StreamInterface {
+    public function getFavicon(): StreamInterface {
         return $this->favicon;
     }
 
@@ -302,31 +302,31 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'backgroundColor' => function (ParseNode $n) use ($o) { $o->setBackgroundColor($n->getStringValue()); },
-            'backgroundImage' => function (ParseNode $n) use ($o) { $o->setBackgroundImage($n->getBinaryContent()); },
-            'backgroundImageRelativeUrl' => function (ParseNode $n) use ($o) { $o->setBackgroundImageRelativeUrl($n->getStringValue()); },
-            'bannerLogo' => function (ParseNode $n) use ($o) { $o->setBannerLogo($n->getBinaryContent()); },
-            'bannerLogoRelativeUrl' => function (ParseNode $n) use ($o) { $o->setBannerLogoRelativeUrl($n->getStringValue()); },
-            'cdnList' => function (ParseNode $n) use ($o) { $o->setCdnList($n->getCollectionOfPrimitiveValues()); },
-            'customAccountResetCredentialsUrl' => function (ParseNode $n) use ($o) { $o->setCustomAccountResetCredentialsUrl($n->getStringValue()); },
-            'customCannotAccessYourAccountText' => function (ParseNode $n) use ($o) { $o->setCustomCannotAccessYourAccountText($n->getStringValue()); },
-            'customCannotAccessYourAccountUrl' => function (ParseNode $n) use ($o) { $o->setCustomCannotAccessYourAccountUrl($n->getStringValue()); },
-            'customForgotMyPasswordText' => function (ParseNode $n) use ($o) { $o->setCustomForgotMyPasswordText($n->getStringValue()); },
-            'customPrivacyAndCookiesText' => function (ParseNode $n) use ($o) { $o->setCustomPrivacyAndCookiesText($n->getStringValue()); },
-            'customPrivacyAndCookiesUrl' => function (ParseNode $n) use ($o) { $o->setCustomPrivacyAndCookiesUrl($n->getStringValue()); },
-            'customResetItNowText' => function (ParseNode $n) use ($o) { $o->setCustomResetItNowText($n->getStringValue()); },
-            'customTermsOfUseText' => function (ParseNode $n) use ($o) { $o->setCustomTermsOfUseText($n->getStringValue()); },
-            'customTermsOfUseUrl' => function (ParseNode $n) use ($o) { $o->setCustomTermsOfUseUrl($n->getStringValue()); },
-            'favicon' => function (ParseNode $n) use ($o) { $o->setFavicon($n->getBinaryContent()); },
-            'faviconRelativeUrl' => function (ParseNode $n) use ($o) { $o->setFaviconRelativeUrl($n->getStringValue()); },
-            'headerBackgroundColor' => function (ParseNode $n) use ($o) { $o->setHeaderBackgroundColor($n->getStringValue()); },
-            'loginPageTextVisibilitySettings' => function (ParseNode $n) use ($o) { $o->setLoginPageTextVisibilitySettings($n->getObjectValue(array(LoginPageTextVisibilitySettings::class, 'createFromDiscriminatorValue'))); },
-            'signInPageText' => function (ParseNode $n) use ($o) { $o->setSignInPageText($n->getStringValue()); },
-            'squareLogo' => function (ParseNode $n) use ($o) { $o->setSquareLogo($n->getBinaryContent()); },
-            'squareLogoDark' => function (ParseNode $n) use ($o) { $o->setSquareLogoDark($n->getBinaryContent()); },
-            'squareLogoDarkRelativeUrl' => function (ParseNode $n) use ($o) { $o->setSquareLogoDarkRelativeUrl($n->getStringValue()); },
-            'squareLogoRelativeUrl' => function (ParseNode $n) use ($o) { $o->setSquareLogoRelativeUrl($n->getStringValue()); },
-            'usernameHintText' => function (ParseNode $n) use ($o) { $o->setUsernameHintText($n->getStringValue()); },
+            'backgroundColor' => fn(ParseNode $n) => $o->setBackgroundColor($n->getStringValue()),
+            'backgroundImage' => fn(ParseNode $n) => $o->setBackgroundImage($n->getBinaryContent()),
+            'backgroundImageRelativeUrl' => fn(ParseNode $n) => $o->setBackgroundImageRelativeUrl($n->getStringValue()),
+            'bannerLogo' => fn(ParseNode $n) => $o->setBannerLogo($n->getBinaryContent()),
+            'bannerLogoRelativeUrl' => fn(ParseNode $n) => $o->setBannerLogoRelativeUrl($n->getStringValue()),
+            'cdnList' => fn(ParseNode $n) => $o->setCdnList($n->getCollectionOfPrimitiveValues()),
+            'customAccountResetCredentialsUrl' => fn(ParseNode $n) => $o->setCustomAccountResetCredentialsUrl($n->getStringValue()),
+            'customCannotAccessYourAccountText' => fn(ParseNode $n) => $o->setCustomCannotAccessYourAccountText($n->getStringValue()),
+            'customCannotAccessYourAccountUrl' => fn(ParseNode $n) => $o->setCustomCannotAccessYourAccountUrl($n->getStringValue()),
+            'customForgotMyPasswordText' => fn(ParseNode $n) => $o->setCustomForgotMyPasswordText($n->getStringValue()),
+            'customPrivacyAndCookiesText' => fn(ParseNode $n) => $o->setCustomPrivacyAndCookiesText($n->getStringValue()),
+            'customPrivacyAndCookiesUrl' => fn(ParseNode $n) => $o->setCustomPrivacyAndCookiesUrl($n->getStringValue()),
+            'customResetItNowText' => fn(ParseNode $n) => $o->setCustomResetItNowText($n->getStringValue()),
+            'customTermsOfUseText' => fn(ParseNode $n) => $o->setCustomTermsOfUseText($n->getStringValue()),
+            'customTermsOfUseUrl' => fn(ParseNode $n) => $o->setCustomTermsOfUseUrl($n->getStringValue()),
+            'favicon' => fn(ParseNode $n) => $o->setFavicon($n->getBinaryContent()),
+            'faviconRelativeUrl' => fn(ParseNode $n) => $o->setFaviconRelativeUrl($n->getStringValue()),
+            'headerBackgroundColor' => fn(ParseNode $n) => $o->setHeaderBackgroundColor($n->getStringValue()),
+            'loginPageTextVisibilitySettings' => fn(ParseNode $n) => $o->setLoginPageTextVisibilitySettings($n->getObjectValue([LoginPageTextVisibilitySettings::class, 'createFromDiscriminatorValue'])),
+            'signInPageText' => fn(ParseNode $n) => $o->setSignInPageText($n->getStringValue()),
+            'squareLogo' => fn(ParseNode $n) => $o->setSquareLogo($n->getBinaryContent()),
+            'squareLogoDark' => fn(ParseNode $n) => $o->setSquareLogoDark($n->getBinaryContent()),
+            'squareLogoDarkRelativeUrl' => fn(ParseNode $n) => $o->setSquareLogoDarkRelativeUrl($n->getStringValue()),
+            'squareLogoRelativeUrl' => fn(ParseNode $n) => $o->setSquareLogoRelativeUrl($n->getStringValue()),
+            'usernameHintText' => fn(ParseNode $n) => $o->setUsernameHintText($n->getStringValue()),
         ]);
     }
 
@@ -356,17 +356,17 @@ class OrganizationalBrandingProperties extends Entity implements Parsable
 
     /**
      * Gets the squareLogo property value. A square version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getSquareLogo(): ?StreamInterface {
+    public function getSquareLogo(): StreamInterface {
         return $this->squareLogo;
     }
 
     /**
      * Gets the squareLogoDark property value. A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getSquareLogoDark(): ?StreamInterface {
+    public function getSquareLogoDark(): StreamInterface {
         return $this->squareLogoDark;
     }
 

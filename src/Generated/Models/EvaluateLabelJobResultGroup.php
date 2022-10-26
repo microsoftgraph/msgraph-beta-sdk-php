@@ -69,9 +69,9 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'automatic' => function (ParseNode $n) use ($o) { $o->setAutomatic($n->getObjectValue(array(EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recommended' => function (ParseNode $n) use ($o) { $o->setRecommended($n->getObjectValue(array(EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'))); },
+            'automatic' => fn(ParseNode $n) => $o->setAutomatic($n->getObjectValue([EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recommended' => fn(ParseNode $n) => $o->setRecommended($n->getObjectValue([EvaluateLabelJobResult::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

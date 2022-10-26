@@ -129,14 +129,14 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId extends
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appCrashCount' => function (ParseNode $n) use ($o) { $o->setAppCrashCount($n->getIntegerValue()); },
-            'appDisplayName' => function (ParseNode $n) use ($o) { $o->setAppDisplayName($n->getStringValue()); },
-            'appName' => function (ParseNode $n) use ($o) { $o->setAppName($n->getStringValue()); },
-            'appPublisher' => function (ParseNode $n) use ($o) { $o->setAppPublisher($n->getStringValue()); },
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceDisplayName' => function (ParseNode $n) use ($o) { $o->setDeviceDisplayName($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'processedDateTime' => function (ParseNode $n) use ($o) { $o->setProcessedDateTime($n->getDateTimeValue()); },
+            'appCrashCount' => fn(ParseNode $n) => $o->setAppCrashCount($n->getIntegerValue()),
+            'appDisplayName' => fn(ParseNode $n) => $o->setAppDisplayName($n->getStringValue()),
+            'appName' => fn(ParseNode $n) => $o->setAppName($n->getStringValue()),
+            'appPublisher' => fn(ParseNode $n) => $o->setAppPublisher($n->getStringValue()),
+            'appVersion' => fn(ParseNode $n) => $o->setAppVersion($n->getStringValue()),
+            'deviceDisplayName' => fn(ParseNode $n) => $o->setDeviceDisplayName($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'processedDateTime' => fn(ParseNode $n) => $o->setProcessedDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -95,11 +95,11 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'alternateUrl' => function (ParseNode $n) use ($o) { $o->setAlternateUrl($n->getStringValue()); },
-            'corsConfigurations' => function (ParseNode $n) use ($o) { $o->setCorsConfigurations($n->getCollectionOfObjectValues(array(CorsConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'externalUrl' => function (ParseNode $n) use ($o) { $o->setExternalUrl($n->getStringValue()); },
-            'internalUrl' => function (ParseNode $n) use ($o) { $o->setInternalUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'alternateUrl' => fn(ParseNode $n) => $o->setAlternateUrl($n->getStringValue()),
+            'corsConfigurations' => fn(ParseNode $n) => $o->setCorsConfigurations($n->getCollectionOfObjectValues([CorsConfiguration::class, 'createFromDiscriminatorValue'])),
+            'externalUrl' => fn(ParseNode $n) => $o->setExternalUrl($n->getStringValue()),
+            'internalUrl' => fn(ParseNode $n) => $o->setInternalUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

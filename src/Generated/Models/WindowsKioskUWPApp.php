@@ -71,9 +71,9 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'appUserModelId' => function (ParseNode $n) use ($o) { $o->setAppUserModelId($n->getStringValue()); },
-            'containedAppId' => function (ParseNode $n) use ($o) { $o->setContainedAppId($n->getStringValue()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'appUserModelId' => fn(ParseNode $n) => $o->setAppUserModelId($n->getStringValue()),
+            'containedAppId' => fn(ParseNode $n) => $o->setContainedAppId($n->getStringValue()),
         ]);
     }
 

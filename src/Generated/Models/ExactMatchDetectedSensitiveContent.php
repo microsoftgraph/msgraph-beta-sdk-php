@@ -37,7 +37,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(SensitiveContentLocation::class, 'createFromDiscriminatorValue'))); },
+            'matches' => fn(ParseNode $n) => $o->setMatches($n->getCollectionOfObjectValues([SensitiveContentLocation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

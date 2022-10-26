@@ -80,11 +80,11 @@ class AndroidWorkProfileWiFiConfiguration extends DeviceConfiguration implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectAutomatically' => function (ParseNode $n) use ($o) { $o->setConnectAutomatically($n->getBooleanValue()); },
-            'connectWhenNetworkNameIsHidden' => function (ParseNode $n) use ($o) { $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()); },
-            'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
-            'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
-            'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(AndroidWiFiSecurityType::class)); },
+            'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
+            'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
+            'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
+            'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(AndroidWiFiSecurityType::class)),
         ]);
     }
 

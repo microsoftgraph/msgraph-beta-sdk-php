@@ -15,7 +15,7 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var SearchContent|null $includeContent The includeContent property
+     * @var SearchContent|null $includeContent The type of search content. The possible values are: privateContent, sharedContent. Read-only.
     */
     private ?SearchContent $includeContent = null;
     
@@ -56,13 +56,13 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'includeContent' => function (ParseNode $n) use ($o) { $o->setIncludeContent($n->getEnumValue(SearchContent::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'includeContent' => fn(ParseNode $n) => $o->setIncludeContent($n->getEnumValue(SearchContent::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
-     * Gets the includeContent property value. The includeContent property
+     * Gets the includeContent property value. The type of search content. The possible values are: privateContent, sharedContent. Read-only.
      * @return SearchContent|null
     */
     public function getIncludeContent(): ?SearchContent {
@@ -96,7 +96,7 @@ class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the includeContent property value. The includeContent property
+     * Sets the includeContent property value. The type of search content. The possible values are: privateContent, sharedContent. Read-only.
      *  @param SearchContent|null $value Value to set for the includeContent property.
     */
     public function setIncludeContent(?SearchContent $value ): void {

@@ -129,22 +129,22 @@ class Office365ServicesUserCounts extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exchangeActive' => function (ParseNode $n) use ($o) { $o->setExchangeActive($n->getIntegerValue()); },
-            'exchangeInactive' => function (ParseNode $n) use ($o) { $o->setExchangeInactive($n->getIntegerValue()); },
-            'office365Active' => function (ParseNode $n) use ($o) { $o->setOffice365Active($n->getIntegerValue()); },
-            'office365Inactive' => function (ParseNode $n) use ($o) { $o->setOffice365Inactive($n->getIntegerValue()); },
-            'oneDriveActive' => function (ParseNode $n) use ($o) { $o->setOneDriveActive($n->getIntegerValue()); },
-            'oneDriveInactive' => function (ParseNode $n) use ($o) { $o->setOneDriveInactive($n->getIntegerValue()); },
-            'reportPeriod' => function (ParseNode $n) use ($o) { $o->setReportPeriod($n->getStringValue()); },
-            'reportRefreshDate' => function (ParseNode $n) use ($o) { $o->setReportRefreshDate($n->getDateValue()); },
-            'sharePointActive' => function (ParseNode $n) use ($o) { $o->setSharePointActive($n->getIntegerValue()); },
-            'sharePointInactive' => function (ParseNode $n) use ($o) { $o->setSharePointInactive($n->getIntegerValue()); },
-            'skypeForBusinessActive' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessActive($n->getIntegerValue()); },
-            'skypeForBusinessInactive' => function (ParseNode $n) use ($o) { $o->setSkypeForBusinessInactive($n->getIntegerValue()); },
-            'teamsActive' => function (ParseNode $n) use ($o) { $o->setTeamsActive($n->getIntegerValue()); },
-            'teamsInactive' => function (ParseNode $n) use ($o) { $o->setTeamsInactive($n->getIntegerValue()); },
-            'yammerActive' => function (ParseNode $n) use ($o) { $o->setYammerActive($n->getIntegerValue()); },
-            'yammerInactive' => function (ParseNode $n) use ($o) { $o->setYammerInactive($n->getIntegerValue()); },
+            'exchangeActive' => fn(ParseNode $n) => $o->setExchangeActive($n->getIntegerValue()),
+            'exchangeInactive' => fn(ParseNode $n) => $o->setExchangeInactive($n->getIntegerValue()),
+            'office365Active' => fn(ParseNode $n) => $o->setOffice365Active($n->getIntegerValue()),
+            'office365Inactive' => fn(ParseNode $n) => $o->setOffice365Inactive($n->getIntegerValue()),
+            'oneDriveActive' => fn(ParseNode $n) => $o->setOneDriveActive($n->getIntegerValue()),
+            'oneDriveInactive' => fn(ParseNode $n) => $o->setOneDriveInactive($n->getIntegerValue()),
+            'reportPeriod' => fn(ParseNode $n) => $o->setReportPeriod($n->getStringValue()),
+            'reportRefreshDate' => fn(ParseNode $n) => $o->setReportRefreshDate($n->getDateValue()),
+            'sharePointActive' => fn(ParseNode $n) => $o->setSharePointActive($n->getIntegerValue()),
+            'sharePointInactive' => fn(ParseNode $n) => $o->setSharePointInactive($n->getIntegerValue()),
+            'skypeForBusinessActive' => fn(ParseNode $n) => $o->setSkypeForBusinessActive($n->getIntegerValue()),
+            'skypeForBusinessInactive' => fn(ParseNode $n) => $o->setSkypeForBusinessInactive($n->getIntegerValue()),
+            'teamsActive' => fn(ParseNode $n) => $o->setTeamsActive($n->getIntegerValue()),
+            'teamsInactive' => fn(ParseNode $n) => $o->setTeamsInactive($n->getIntegerValue()),
+            'yammerActive' => fn(ParseNode $n) => $o->setYammerActive($n->getIntegerValue()),
+            'yammerInactive' => fn(ParseNode $n) => $o->setYammerInactive($n->getIntegerValue()),
         ]);
     }
 

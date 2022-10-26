@@ -50,7 +50,7 @@ class BulkReprovisionCloudPcPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managedDeviceIds' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

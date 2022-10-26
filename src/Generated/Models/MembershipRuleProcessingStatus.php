@@ -75,10 +75,10 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
-            'lastMembershipUpdated' => function (ParseNode $n) use ($o) { $o->setLastMembershipUpdated($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)); },
+            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
+            'lastMembershipUpdated' => fn(ParseNode $n) => $o->setLastMembershipUpdated($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MembershipRuleProcessingStatusDetails::class)),
         ];
     }
 

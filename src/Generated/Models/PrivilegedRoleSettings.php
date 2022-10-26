@@ -107,16 +107,16 @@ class PrivilegedRoleSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'approvalOnElevation' => function (ParseNode $n) use ($o) { $o->setApprovalOnElevation($n->getBooleanValue()); },
-            'approverIds' => function (ParseNode $n) use ($o) { $o->setApproverIds($n->getCollectionOfPrimitiveValues()); },
-            'elevationDuration' => function (ParseNode $n) use ($o) { $o->setElevationDuration($n->getDateIntervalValue()); },
-            'isMfaOnElevationConfigurable' => function (ParseNode $n) use ($o) { $o->setIsMfaOnElevationConfigurable($n->getBooleanValue()); },
-            'lastGlobalAdmin' => function (ParseNode $n) use ($o) { $o->setLastGlobalAdmin($n->getBooleanValue()); },
-            'maxElavationDuration' => function (ParseNode $n) use ($o) { $o->setMaxElavationDuration($n->getDateIntervalValue()); },
-            'mfaOnElevation' => function (ParseNode $n) use ($o) { $o->setMfaOnElevation($n->getBooleanValue()); },
-            'minElevationDuration' => function (ParseNode $n) use ($o) { $o->setMinElevationDuration($n->getDateIntervalValue()); },
-            'notificationToUserOnElevation' => function (ParseNode $n) use ($o) { $o->setNotificationToUserOnElevation($n->getBooleanValue()); },
-            'ticketingInfoOnElevation' => function (ParseNode $n) use ($o) { $o->setTicketingInfoOnElevation($n->getBooleanValue()); },
+            'approvalOnElevation' => fn(ParseNode $n) => $o->setApprovalOnElevation($n->getBooleanValue()),
+            'approverIds' => fn(ParseNode $n) => $o->setApproverIds($n->getCollectionOfPrimitiveValues()),
+            'elevationDuration' => fn(ParseNode $n) => $o->setElevationDuration($n->getDateIntervalValue()),
+            'isMfaOnElevationConfigurable' => fn(ParseNode $n) => $o->setIsMfaOnElevationConfigurable($n->getBooleanValue()),
+            'lastGlobalAdmin' => fn(ParseNode $n) => $o->setLastGlobalAdmin($n->getBooleanValue()),
+            'maxElavationDuration' => fn(ParseNode $n) => $o->setMaxElavationDuration($n->getDateIntervalValue()),
+            'mfaOnElevation' => fn(ParseNode $n) => $o->setMfaOnElevation($n->getBooleanValue()),
+            'minElevationDuration' => fn(ParseNode $n) => $o->setMinElevationDuration($n->getDateIntervalValue()),
+            'notificationToUserOnElevation' => fn(ParseNode $n) => $o->setNotificationToUserOnElevation($n->getBooleanValue()),
+            'ticketingInfoOnElevation' => fn(ParseNode $n) => $o->setTicketingInfoOnElevation($n->getBooleanValue()),
         ]);
     }
 

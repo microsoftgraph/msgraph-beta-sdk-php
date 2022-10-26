@@ -105,13 +105,13 @@ class RelatedContact implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessConsent' => function (ParseNode $n) use ($o) { $o->setAccessConsent($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'emailAddress' => function (ParseNode $n) use ($o) { $o->setEmailAddress($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'mobilePhone' => function (ParseNode $n) use ($o) { $o->setMobilePhone($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'relationship' => function (ParseNode $n) use ($o) { $o->setRelationship($n->getEnumValue(ContactRelationship::class)); },
+            'accessConsent' => fn(ParseNode $n) => $o->setAccessConsent($n->getBooleanValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'emailAddress' => fn(ParseNode $n) => $o->setEmailAddress($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'mobilePhone' => fn(ParseNode $n) => $o->setMobilePhone($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'relationship' => fn(ParseNode $n) => $o->setRelationship($n->getEnumValue(ContactRelationship::class)),
         ];
     }
 

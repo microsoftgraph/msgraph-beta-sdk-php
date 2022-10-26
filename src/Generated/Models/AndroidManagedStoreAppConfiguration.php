@@ -78,12 +78,12 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appSupportsOemConfig' => function (ParseNode $n) use ($o) { $o->setAppSupportsOemConfig($n->getBooleanValue()); },
-            'connectedAppsEnabled' => function (ParseNode $n) use ($o) { $o->setConnectedAppsEnabled($n->getBooleanValue()); },
-            'packageId' => function (ParseNode $n) use ($o) { $o->setPackageId($n->getStringValue()); },
-            'payloadJson' => function (ParseNode $n) use ($o) { $o->setPayloadJson($n->getStringValue()); },
-            'permissionActions' => function (ParseNode $n) use ($o) { $o->setPermissionActions($n->getCollectionOfObjectValues(array(AndroidPermissionAction::class, 'createFromDiscriminatorValue'))); },
-            'profileApplicability' => function (ParseNode $n) use ($o) { $o->setProfileApplicability($n->getEnumValue(AndroidProfileApplicability::class)); },
+            'appSupportsOemConfig' => fn(ParseNode $n) => $o->setAppSupportsOemConfig($n->getBooleanValue()),
+            'connectedAppsEnabled' => fn(ParseNode $n) => $o->setConnectedAppsEnabled($n->getBooleanValue()),
+            'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
+            'payloadJson' => fn(ParseNode $n) => $o->setPayloadJson($n->getStringValue()),
+            'permissionActions' => fn(ParseNode $n) => $o->setPermissionActions($n->getCollectionOfObjectValues([AndroidPermissionAction::class, 'createFromDiscriminatorValue'])),
+            'profileApplicability' => fn(ParseNode $n) => $o->setProfileApplicability($n->getEnumValue(AndroidProfileApplicability::class)),
         ]);
     }
 

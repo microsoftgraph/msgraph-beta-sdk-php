@@ -96,11 +96,11 @@ class WindowsKioskAppBase implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appType' => function (ParseNode $n) use ($o) { $o->setAppType($n->getEnumValue(WindowsKioskAppType::class)); },
-            'autoLaunch' => function (ParseNode $n) use ($o) { $o->setAutoLaunch($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startLayoutTileSize' => function (ParseNode $n) use ($o) { $o->setStartLayoutTileSize($n->getEnumValue(WindowsAppStartLayoutTileSize::class)); },
+            'appType' => fn(ParseNode $n) => $o->setAppType($n->getEnumValue(WindowsKioskAppType::class)),
+            'autoLaunch' => fn(ParseNode $n) => $o->setAutoLaunch($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startLayoutTileSize' => fn(ParseNode $n) => $o->setStartLayoutTileSize($n->getEnumValue(WindowsAppStartLayoutTileSize::class)),
         ];
     }
 

@@ -51,7 +51,7 @@ class PostponePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'postponeUntilDateTime' => function (ParseNode $n) use ($o) { $o->setPostponeUntilDateTime($n->getDateTimeValue()); },
+            'postponeUntilDateTime' => fn(ParseNode $n) => $o->setPostponeUntilDateTime($n->getDateTimeValue()),
         ];
     }
 

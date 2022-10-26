@@ -59,7 +59,7 @@ class RestartPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'criteria' => function (ParseNode $n) use ($o) { $o->setCriteria($n->getObjectValue(array(SynchronizationJobRestartCriteria::class, 'createFromDiscriminatorValue'))); },
+            'criteria' => fn(ParseNode $n) => $o->setCriteria($n->getObjectValue([SynchronizationJobRestartCriteria::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

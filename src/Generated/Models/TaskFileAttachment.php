@@ -33,9 +33,9 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
 
     /**
      * Gets the contentBytes property value. The base64-encoded contents of the file.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContentBytes(): ?StreamInterface {
+    public function getContentBytes(): StreamInterface {
         return $this->contentBytes;
     }
 
@@ -46,7 +46,7 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentBytes' => function (ParseNode $n) use ($o) { $o->setContentBytes($n->getBinaryContent()); },
+            'contentBytes' => fn(ParseNode $n) => $o->setContentBytes($n->getBinaryContent()),
         ]);
     }
 

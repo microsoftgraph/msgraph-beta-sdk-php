@@ -14,7 +14,7 @@ class AdminReportSettings extends Entity implements Parsable
     private ?bool $displayConcealedNames = null;
     
     /**
-     * Instantiates a new adminReportSettings and sets the default values.
+     * Instantiates a new AdminReportSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -45,7 +45,7 @@ class AdminReportSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayConcealedNames' => function (ParseNode $n) use ($o) { $o->setDisplayConcealedNames($n->getBooleanValue()); },
+            'displayConcealedNames' => fn(ParseNode $n) => $o->setDisplayConcealedNames($n->getBooleanValue()),
         ]);
     }
 

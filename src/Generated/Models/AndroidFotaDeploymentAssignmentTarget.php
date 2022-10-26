@@ -56,8 +56,8 @@ class AndroidFotaDeploymentAssignmentTarget implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

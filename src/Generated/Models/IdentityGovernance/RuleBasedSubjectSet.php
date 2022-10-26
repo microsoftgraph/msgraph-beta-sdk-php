@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RuleBasedSubjectSet extends SubjectSet implements Parsable 
 {
     /**
-     * @var string|null $rule The rule for the subject set.
+     * @var string|null $rule The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
     */
     private ?string $rule = null;
     
@@ -38,12 +38,12 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'rule' => function (ParseNode $n) use ($o) { $o->setRule($n->getStringValue()); },
+            'rule' => fn(ParseNode $n) => $o->setRule($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the rule property value. The rule for the subject set.
+     * Gets the rule property value. The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
      * @return string|null
     */
     public function getRule(): ?string {
@@ -60,7 +60,7 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
     }
 
     /**
-     * Sets the rule property value. The rule for the subject set.
+     * Sets the rule property value. The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
      *  @param string|null $value Value to set for the rule property.
     */
     public function setRule(?string $value ): void {

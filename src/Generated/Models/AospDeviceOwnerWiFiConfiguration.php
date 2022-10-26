@@ -90,13 +90,13 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectAutomatically' => function (ParseNode $n) use ($o) { $o->setConnectAutomatically($n->getBooleanValue()); },
-            'connectWhenNetworkNameIsHidden' => function (ParseNode $n) use ($o) { $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()); },
-            'networkName' => function (ParseNode $n) use ($o) { $o->setNetworkName($n->getStringValue()); },
-            'preSharedKey' => function (ParseNode $n) use ($o) { $o->setPreSharedKey($n->getStringValue()); },
-            'preSharedKeyIsSet' => function (ParseNode $n) use ($o) { $o->setPreSharedKeyIsSet($n->getBooleanValue()); },
-            'ssid' => function (ParseNode $n) use ($o) { $o->setSsid($n->getStringValue()); },
-            'wiFiSecurityType' => function (ParseNode $n) use ($o) { $o->setWiFiSecurityType($n->getEnumValue(AospDeviceOwnerWiFiSecurityType::class)); },
+            'connectAutomatically' => fn(ParseNode $n) => $o->setConnectAutomatically($n->getBooleanValue()),
+            'connectWhenNetworkNameIsHidden' => fn(ParseNode $n) => $o->setConnectWhenNetworkNameIsHidden($n->getBooleanValue()),
+            'networkName' => fn(ParseNode $n) => $o->setNetworkName($n->getStringValue()),
+            'preSharedKey' => fn(ParseNode $n) => $o->setPreSharedKey($n->getStringValue()),
+            'preSharedKeyIsSet' => fn(ParseNode $n) => $o->setPreSharedKeyIsSet($n->getBooleanValue()),
+            'ssid' => fn(ParseNode $n) => $o->setSsid($n->getStringValue()),
+            'wiFiSecurityType' => fn(ParseNode $n) => $o->setWiFiSecurityType($n->getEnumValue(AospDeviceOwnerWiFiSecurityType::class)),
         ]);
     }
 

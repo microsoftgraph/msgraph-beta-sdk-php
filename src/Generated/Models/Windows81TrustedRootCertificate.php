@@ -64,17 +64,17 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certFileName' => function (ParseNode $n) use ($o) { $o->setCertFileName($n->getStringValue()); },
-            'destinationStore' => function (ParseNode $n) use ($o) { $o->setDestinationStore($n->getEnumValue(CertificateDestinationStore::class)); },
-            'trustedRootCertificate' => function (ParseNode $n) use ($o) { $o->setTrustedRootCertificate($n->getBinaryContent()); },
+            'certFileName' => fn(ParseNode $n) => $o->setCertFileName($n->getStringValue()),
+            'destinationStore' => fn(ParseNode $n) => $o->setDestinationStore($n->getEnumValue(CertificateDestinationStore::class)),
+            'trustedRootCertificate' => fn(ParseNode $n) => $o->setTrustedRootCertificate($n->getBinaryContent()),
         ]);
     }
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getTrustedRootCertificate(): ?StreamInterface {
+    public function getTrustedRootCertificate(): StreamInterface {
         return $this->trustedRootCertificate;
     }
 

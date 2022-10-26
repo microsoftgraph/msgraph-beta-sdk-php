@@ -90,10 +90,10 @@ class TimeCardEntry implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'breaks' => function (ParseNode $n) use ($o) { $o->setBreaks($n->getCollectionOfObjectValues(array(TimeCardBreak::class, 'createFromDiscriminatorValue'))); },
-            'clockInEvent' => function (ParseNode $n) use ($o) { $o->setClockInEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'clockOutEvent' => function (ParseNode $n) use ($o) { $o->setClockOutEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'breaks' => fn(ParseNode $n) => $o->setBreaks($n->getCollectionOfObjectValues([TimeCardBreak::class, 'createFromDiscriminatorValue'])),
+            'clockInEvent' => fn(ParseNode $n) => $o->setClockInEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
+            'clockOutEvent' => fn(ParseNode $n) => $o->setClockOutEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

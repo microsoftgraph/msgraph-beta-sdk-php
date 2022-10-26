@@ -56,9 +56,9 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'afterHours' => function (ParseNode $n) use ($o) { $o->setAfterHours($n->getDateIntervalValue()); },
-            'readEmail' => function (ParseNode $n) use ($o) { $o->setReadEmail($n->getDateIntervalValue()); },
-            'sentEmail' => function (ParseNode $n) use ($o) { $o->setSentEmail($n->getDateIntervalValue()); },
+            'afterHours' => fn(ParseNode $n) => $o->setAfterHours($n->getDateIntervalValue()),
+            'readEmail' => fn(ParseNode $n) => $o->setReadEmail($n->getDateIntervalValue()),
+            'sentEmail' => fn(ParseNode $n) => $o->setSentEmail($n->getDateIntervalValue()),
         ]);
     }
 

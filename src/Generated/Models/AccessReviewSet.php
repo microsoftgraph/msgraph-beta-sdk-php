@@ -68,10 +68,10 @@ class AccessReviewSet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'decisions' => function (ParseNode $n) use ($o) { $o->setDecisions($n->getCollectionOfObjectValues(array(AccessReviewInstanceDecisionItem::class, 'createFromDiscriminatorValue'))); },
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(AccessReviewScheduleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'historyDefinitions' => function (ParseNode $n) use ($o) { $o->setHistoryDefinitions($n->getCollectionOfObjectValues(array(AccessReviewHistoryDefinition::class, 'createFromDiscriminatorValue'))); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(AccessReviewPolicy::class, 'createFromDiscriminatorValue'))); },
+            'decisions' => fn(ParseNode $n) => $o->setDecisions($n->getCollectionOfObjectValues([AccessReviewInstanceDecisionItem::class, 'createFromDiscriminatorValue'])),
+            'definitions' => fn(ParseNode $n) => $o->setDefinitions($n->getCollectionOfObjectValues([AccessReviewScheduleDefinition::class, 'createFromDiscriminatorValue'])),
+            'historyDefinitions' => fn(ParseNode $n) => $o->setHistoryDefinitions($n->getCollectionOfObjectValues([AccessReviewHistoryDefinition::class, 'createFromDiscriminatorValue'])),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([AccessReviewPolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -52,9 +52,9 @@ class BufferDecryptionResult implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the decryptedBuffer property value. The decryptedBuffer property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDecryptedBuffer(): ?StreamInterface {
+    public function getDecryptedBuffer(): StreamInterface {
         return $this->decryptedBuffer;
     }
 
@@ -65,8 +65,8 @@ class BufferDecryptionResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'decryptedBuffer' => function (ParseNode $n) use ($o) { $o->setDecryptedBuffer($n->getBinaryContent()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'decryptedBuffer' => fn(ParseNode $n) => $o->setDecryptedBuffer($n->getBinaryContent()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

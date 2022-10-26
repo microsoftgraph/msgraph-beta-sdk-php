@@ -36,12 +36,12 @@ class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRe
      * Instantiates a new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-     * @param DateTime|null $endDateTime Usage: endDateTime='{endDateTime}'
+     * @param DateTime|null $endDateTime Usage: endDateTime={endDateTime}
      * @param string|null $printerId Usage: printerId='{printerId}'
-     * @param DateTime|null $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime|null $startDateTime Usage: startDateTime={startDateTime}
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?DateTime $endDateTime = null, ?string $printerId = null, ?DateTime $startDateTime = null) {
-        $this->urlTemplate = '{+baseurl}/reports/microsoft.graph.getPrinterArchivedPrintJobs(printerId=\'{printerId}\',startDateTime=\'{startDateTime}\',endDateTime=\'{endDateTime}\'){?%24top,%24skip,%24search,%24filter,%24count}';
+        $this->urlTemplate = '{+baseurl}/reports/microsoft.graph.getPrinterArchivedPrintJobs(printerId=\'{printerId}\',startDateTime={startDateTime},endDateTime={endDateTime}){?%24top,%24skip,%24search,%24filter,%24count}';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -86,10 +86,10 @@ class GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRe
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

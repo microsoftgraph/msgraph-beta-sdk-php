@@ -73,10 +73,10 @@ class GenerateKeyPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'use' => function (ParseNode $n) use ($o) { $o->setUse($n->getStringValue()); },
-            'exp' => function (ParseNode $n) use ($o) { $o->setExp($n->getIntegerValue()); },
-            'kty' => function (ParseNode $n) use ($o) { $o->setKty($n->getStringValue()); },
-            'nbf' => function (ParseNode $n) use ($o) { $o->setNbf($n->getIntegerValue()); },
+            'use' => fn(ParseNode $n) => $o->setUse($n->getStringValue()),
+            'exp' => fn(ParseNode $n) => $o->setExp($n->getIntegerValue()),
+            'kty' => fn(ParseNode $n) => $o->setKty($n->getStringValue()),
+            'nbf' => fn(ParseNode $n) => $o->setNbf($n->getIntegerValue()),
         ];
     }
 

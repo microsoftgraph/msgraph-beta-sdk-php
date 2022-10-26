@@ -55,9 +55,9 @@ class DeviceManagementConfigurationRedirectSettingDefinition extends DeviceManag
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deepLink' => function (ParseNode $n) use ($o) { $o->setDeepLink($n->getStringValue()); },
-            'redirectMessage' => function (ParseNode $n) use ($o) { $o->setRedirectMessage($n->getStringValue()); },
-            'redirectReason' => function (ParseNode $n) use ($o) { $o->setRedirectReason($n->getStringValue()); },
+            'deepLink' => fn(ParseNode $n) => $o->setDeepLink($n->getStringValue()),
+            'redirectMessage' => fn(ParseNode $n) => $o->setRedirectMessage($n->getStringValue()),
+            'redirectReason' => fn(ParseNode $n) => $o->setRedirectReason($n->getStringValue()),
         ]);
     }
 

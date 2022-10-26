@@ -60,9 +60,9 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'footer' => function (ParseNode $n) use ($o) { $o->setFooter($n->getStringValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
+            'footer' => fn(ParseNode $n) => $o->setFooter($n->getStringValue()),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            'phoneNumber' => fn(ParseNode $n) => $o->setPhoneNumber($n->getStringValue()),
         ];
     }
 

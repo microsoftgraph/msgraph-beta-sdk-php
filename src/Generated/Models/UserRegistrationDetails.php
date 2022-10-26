@@ -100,18 +100,18 @@ class UserRegistrationDetails extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultMfaMethod' => function (ParseNode $n) use ($o) { $o->setDefaultMfaMethod($n->getEnumValue(DefaultMfaMethodType::class)); },
-            'isAdmin' => function (ParseNode $n) use ($o) { $o->setIsAdmin($n->getBooleanValue()); },
-            'isMfaCapable' => function (ParseNode $n) use ($o) { $o->setIsMfaCapable($n->getBooleanValue()); },
-            'isMfaRegistered' => function (ParseNode $n) use ($o) { $o->setIsMfaRegistered($n->getBooleanValue()); },
-            'isPasswordlessCapable' => function (ParseNode $n) use ($o) { $o->setIsPasswordlessCapable($n->getBooleanValue()); },
-            'isSsprCapable' => function (ParseNode $n) use ($o) { $o->setIsSsprCapable($n->getBooleanValue()); },
-            'isSsprEnabled' => function (ParseNode $n) use ($o) { $o->setIsSsprEnabled($n->getBooleanValue()); },
-            'isSsprRegistered' => function (ParseNode $n) use ($o) { $o->setIsSsprRegistered($n->getBooleanValue()); },
-            'methodsRegistered' => function (ParseNode $n) use ($o) { $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(SignInUserType::class)); },
+            'defaultMfaMethod' => fn(ParseNode $n) => $o->setDefaultMfaMethod($n->getEnumValue(DefaultMfaMethodType::class)),
+            'isAdmin' => fn(ParseNode $n) => $o->setIsAdmin($n->getBooleanValue()),
+            'isMfaCapable' => fn(ParseNode $n) => $o->setIsMfaCapable($n->getBooleanValue()),
+            'isMfaRegistered' => fn(ParseNode $n) => $o->setIsMfaRegistered($n->getBooleanValue()),
+            'isPasswordlessCapable' => fn(ParseNode $n) => $o->setIsPasswordlessCapable($n->getBooleanValue()),
+            'isSsprCapable' => fn(ParseNode $n) => $o->setIsSsprCapable($n->getBooleanValue()),
+            'isSsprEnabled' => fn(ParseNode $n) => $o->setIsSsprEnabled($n->getBooleanValue()),
+            'isSsprRegistered' => fn(ParseNode $n) => $o->setIsSsprRegistered($n->getBooleanValue()),
+            'methodsRegistered' => fn(ParseNode $n) => $o->setMethodsRegistered($n->getCollectionOfPrimitiveValues()),
+            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(SignInUserType::class)),
         ]);
     }
 

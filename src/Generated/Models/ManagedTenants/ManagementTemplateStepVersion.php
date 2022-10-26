@@ -129,17 +129,17 @@ class ManagementTemplateStepVersion extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'acceptedFor' => function (ParseNode $n) use ($o) { $o->setAcceptedFor($n->getObjectValue(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
-            'contentMarkdown' => function (ParseNode $n) use ($o) { $o->setContentMarkdown($n->getStringValue()); },
-            'createdByUserId' => function (ParseNode $n) use ($o) { $o->setCreatedByUserId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deployments' => function (ParseNode $n) use ($o) { $o->setDeployments($n->getCollectionOfObjectValues(array(ManagementTemplateStepDeployment::class, 'createFromDiscriminatorValue'))); },
-            'lastActionByUserId' => function (ParseNode $n) use ($o) { $o->setLastActionByUserId($n->getStringValue()); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'templateStep' => function (ParseNode $n) use ($o) { $o->setTemplateStep($n->getObjectValue(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
-            'versionInformation' => function (ParseNode $n) use ($o) { $o->setVersionInformation($n->getStringValue()); },
+            'acceptedFor' => fn(ParseNode $n) => $o->setAcceptedFor($n->getObjectValue([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
+            'contentMarkdown' => fn(ParseNode $n) => $o->setContentMarkdown($n->getStringValue()),
+            'createdByUserId' => fn(ParseNode $n) => $o->setCreatedByUserId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deployments' => fn(ParseNode $n) => $o->setDeployments($n->getCollectionOfObjectValues([ManagementTemplateStepDeployment::class, 'createFromDiscriminatorValue'])),
+            'lastActionByUserId' => fn(ParseNode $n) => $o->setLastActionByUserId($n->getStringValue()),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'templateStep' => fn(ParseNode $n) => $o->setTemplateStep($n->getObjectValue([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
+            'versionInformation' => fn(ParseNode $n) => $o->setVersionInformation($n->getStringValue()),
         ]);
     }
 

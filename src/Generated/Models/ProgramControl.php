@@ -110,15 +110,15 @@ class ProgramControl extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controlId' => function (ParseNode $n) use ($o) { $o->setControlId($n->getStringValue()); },
-            'controlTypeId' => function (ParseNode $n) use ($o) { $o->setControlTypeId($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'owner' => function (ParseNode $n) use ($o) { $o->setOwner($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'program' => function (ParseNode $n) use ($o) { $o->setProgram($n->getObjectValue(array(Program::class, 'createFromDiscriminatorValue'))); },
-            'programId' => function (ParseNode $n) use ($o) { $o->setProgramId($n->getStringValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(ProgramResource::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'controlId' => fn(ParseNode $n) => $o->setControlId($n->getStringValue()),
+            'controlTypeId' => fn(ParseNode $n) => $o->setControlTypeId($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'owner' => fn(ParseNode $n) => $o->setOwner($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'program' => fn(ParseNode $n) => $o->setProgram($n->getObjectValue([Program::class, 'createFromDiscriminatorValue'])),
+            'programId' => fn(ParseNode $n) => $o->setProgramId($n->getStringValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([ProgramResource::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
     }
 

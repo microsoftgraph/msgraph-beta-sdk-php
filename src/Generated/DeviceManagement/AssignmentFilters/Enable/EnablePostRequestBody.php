@@ -58,7 +58,7 @@ class EnablePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enable' => function (ParseNode $n) use ($o) { $o->setEnable($n->getBooleanValue()); },
+            'enable' => fn(ParseNode $n) => $o->setEnable($n->getBooleanValue()),
         ];
     }
 

@@ -50,8 +50,8 @@ class MobileAppContent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'containedApps' => function (ParseNode $n) use ($o) { $o->setContainedApps($n->getCollectionOfObjectValues(array(MobileContainedApp::class, 'createFromDiscriminatorValue'))); },
-            'files' => function (ParseNode $n) use ($o) { $o->setFiles($n->getCollectionOfObjectValues(array(MobileAppContentFile::class, 'createFromDiscriminatorValue'))); },
+            'containedApps' => fn(ParseNode $n) => $o->setContainedApps($n->getCollectionOfObjectValues([MobileContainedApp::class, 'createFromDiscriminatorValue'])),
+            'files' => fn(ParseNode $n) => $o->setFiles($n->getCollectionOfObjectValues([MobileAppContentFile::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

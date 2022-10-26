@@ -126,14 +126,14 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowDeviceUseBeforeProfileAndAppInstallComplete' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseBeforeProfileAndAppInstallComplete($n->getBooleanValue()); },
-            'allowDeviceUseOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()); },
-            'allowLogCollectionOnInstallFailure' => function (ParseNode $n) use ($o) { $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()); },
-            'blockDeviceSetupRetryByUser' => function (ParseNode $n) use ($o) { $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()); },
-            'customErrorMessage' => function (ParseNode $n) use ($o) { $o->setCustomErrorMessage($n->getStringValue()); },
-            'hideInstallationProgress' => function (ParseNode $n) use ($o) { $o->setHideInstallationProgress($n->getBooleanValue()); },
-            'installProgressTimeoutInMinutes' => function (ParseNode $n) use ($o) { $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowDeviceUseBeforeProfileAndAppInstallComplete' => fn(ParseNode $n) => $o->setAllowDeviceUseBeforeProfileAndAppInstallComplete($n->getBooleanValue()),
+            'allowDeviceUseOnInstallFailure' => fn(ParseNode $n) => $o->setAllowDeviceUseOnInstallFailure($n->getBooleanValue()),
+            'allowLogCollectionOnInstallFailure' => fn(ParseNode $n) => $o->setAllowLogCollectionOnInstallFailure($n->getBooleanValue()),
+            'blockDeviceSetupRetryByUser' => fn(ParseNode $n) => $o->setBlockDeviceSetupRetryByUser($n->getBooleanValue()),
+            'customErrorMessage' => fn(ParseNode $n) => $o->setCustomErrorMessage($n->getStringValue()),
+            'hideInstallationProgress' => fn(ParseNode $n) => $o->setHideInstallationProgress($n->getBooleanValue()),
+            'installProgressTimeoutInMinutes' => fn(ParseNode $n) => $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

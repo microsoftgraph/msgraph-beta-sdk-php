@@ -50,7 +50,7 @@ class RequestSignupUrlPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'hostName' => function (ParseNode $n) use ($o) { $o->setHostName($n->getStringValue()); },
+            'hostName' => fn(ParseNode $n) => $o->setHostName($n->getStringValue()),
         ];
     }
 

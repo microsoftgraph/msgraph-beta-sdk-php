@@ -21,7 +21,7 @@ class LearningContent extends Entity implements Parsable
     private ?string $contentWebUrl = null;
     
     /**
-     * @var array<string>|null $contributors The contributors property
+     * @var array<string>|null $contributors The authors, creators, or contributors of the learning content. Optional.
     */
     private ?array $contributors = null;
     
@@ -134,7 +134,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the contributors property value. The contributors property
+     * Gets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
      * @return array<string>|null
     */
     public function getContributors(): ?array {
@@ -180,24 +180,24 @@ class LearningContent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalTags' => function (ParseNode $n) use ($o) { $o->setAdditionalTags($n->getCollectionOfPrimitiveValues()); },
-            'contentWebUrl' => function (ParseNode $n) use ($o) { $o->setContentWebUrl($n->getStringValue()); },
-            'contributors' => function (ParseNode $n) use ($o) { $o->setContributors($n->getCollectionOfPrimitiveValues()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'duration' => function (ParseNode $n) use ($o) { $o->setDuration($n->getDateIntervalValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getStringValue()); },
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
-            'isPremium' => function (ParseNode $n) use ($o) { $o->setIsPremium($n->getBooleanValue()); },
-            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'numberOfPages' => function (ParseNode $n) use ($o) { $o->setNumberOfPages($n->getIntegerValue()); },
-            'skillTags' => function (ParseNode $n) use ($o) { $o->setSkillTags($n->getCollectionOfPrimitiveValues()); },
-            'sourceName' => function (ParseNode $n) use ($o) { $o->setSourceName($n->getStringValue()); },
-            'thumbnailWebUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailWebUrl($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'additionalTags' => fn(ParseNode $n) => $o->setAdditionalTags($n->getCollectionOfPrimitiveValues()),
+            'contentWebUrl' => fn(ParseNode $n) => $o->setContentWebUrl($n->getStringValue()),
+            'contributors' => fn(ParseNode $n) => $o->setContributors($n->getCollectionOfPrimitiveValues()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'duration' => fn(ParseNode $n) => $o->setDuration($n->getDateIntervalValue()),
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
+            'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
+            'isPremium' => fn(ParseNode $n) => $o->setIsPremium($n->getBooleanValue()),
+            'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
+            'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'numberOfPages' => fn(ParseNode $n) => $o->setNumberOfPages($n->getIntegerValue()),
+            'skillTags' => fn(ParseNode $n) => $o->setSkillTags($n->getCollectionOfPrimitiveValues()),
+            'sourceName' => fn(ParseNode $n) => $o->setSourceName($n->getStringValue()),
+            'thumbnailWebUrl' => fn(ParseNode $n) => $o->setThumbnailWebUrl($n->getStringValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ]);
     }
 
@@ -332,7 +332,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Sets the contributors property value. The contributors property
+     * Sets the contributors property value. The authors, creators, or contributors of the learning content. Optional.
      *  @param array<string>|null $value Value to set for the contributors property.
     */
     public function setContributors(?array $value ): void {

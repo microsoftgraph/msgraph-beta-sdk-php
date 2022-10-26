@@ -79,11 +79,11 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'countryOrRegionCode' => function (ParseNode $n) use ($o) { $o->setCountryOrRegionCode($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'organization' => function (ParseNode $n) use ($o) { $o->setOrganization($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
-            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
+            'countryOrRegionCode' => fn(ParseNode $n) => $o->setCountryOrRegionCode($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'organization' => fn(ParseNode $n) => $o->setOrganization($n->getStringValue()),
+            'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
+            'vendor' => fn(ParseNode $n) => $o->setVendor($n->getStringValue()),
         ];
     }
 

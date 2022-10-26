@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Fido2CombinationConfiguration extends AuthenticationCombinationConfiguration implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedAAGUIDs The allowedAAGUIDs property
+     * @var array<string>|null $allowedAAGUIDs A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
     */
     private ?array $allowedAAGUIDs = null;
     
@@ -31,7 +31,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
     }
 
     /**
-     * Gets the allowedAAGUIDs property value. The allowedAAGUIDs property
+     * Gets the allowedAAGUIDs property value. A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
      * @return array<string>|null
     */
     public function getAllowedAAGUIDs(): ?array {
@@ -45,7 +45,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAAGUIDs' => function (ParseNode $n) use ($o) { $o->setAllowedAAGUIDs($n->getCollectionOfPrimitiveValues()); },
+            'allowedAAGUIDs' => fn(ParseNode $n) => $o->setAllowedAAGUIDs($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 
@@ -59,7 +59,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
     }
 
     /**
-     * Sets the allowedAAGUIDs property value. The allowedAAGUIDs property
+     * Sets the allowedAAGUIDs property value. A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
      *  @param array<string>|null $value Value to set for the allowedAAGUIDs property.
     */
     public function setAllowedAAGUIDs(?array $value ): void {

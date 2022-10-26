@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessTemplate extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The user-friendly name of the template.
     */
     private ?string $description = null;
     
@@ -19,7 +19,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     private ?ConditionalAccessPolicyDetail $details = null;
     
     /**
-     * @var string|null $name The name property
+     * @var string|null $name The user-friendly name of the template.
     */
     private ?string $name = null;
     
@@ -46,7 +46,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The user-friendly name of the template.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -68,15 +68,15 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'details' => function (ParseNode $n) use ($o) { $o->setDetails($n->getObjectValue(array(ConditionalAccessPolicyDetail::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'scenarios' => function (ParseNode $n) use ($o) { $o->setScenarios($n->getEnumValue(TemplateScenarios::class)); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([ConditionalAccessPolicyDetail::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'scenarios' => fn(ParseNode $n) => $o->setScenarios($n->getEnumValue(TemplateScenarios::class)),
         ]);
     }
 
     /**
-     * Gets the name property value. The name property
+     * Gets the name property value. The user-friendly name of the template.
      * @return string|null
     */
     public function getName(): ?string {
@@ -104,7 +104,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The user-friendly name of the template.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -120,7 +120,7 @@ class ConditionalAccessTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the name property value. The name property
+     * Sets the name property value. The user-friendly name of the template.
      *  @param string|null $value Value to set for the name property.
     */
     public function setName(?string $value ): void {

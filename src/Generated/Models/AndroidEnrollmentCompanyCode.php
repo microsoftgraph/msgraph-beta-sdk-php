@@ -74,10 +74,10 @@ class AndroidEnrollmentCompanyCode implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enrollmentToken' => function (ParseNode $n) use ($o) { $o->setEnrollmentToken($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'qrCodeContent' => function (ParseNode $n) use ($o) { $o->setQrCodeContent($n->getStringValue()); },
-            'qrCodeImage' => function (ParseNode $n) use ($o) { $o->setQrCodeImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
+            'enrollmentToken' => fn(ParseNode $n) => $o->setEnrollmentToken($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'qrCodeContent' => fn(ParseNode $n) => $o->setQrCodeContent($n->getStringValue()),
+            'qrCodeImage' => fn(ParseNode $n) => $o->setQrCodeImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

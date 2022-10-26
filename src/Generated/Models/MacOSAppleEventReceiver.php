@@ -87,11 +87,11 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowed' => function (ParseNode $n) use ($o) { $o->setAllowed($n->getBooleanValue()); },
-            'codeRequirement' => function (ParseNode $n) use ($o) { $o->setCodeRequirement($n->getStringValue()); },
-            'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
-            'identifierType' => function (ParseNode $n) use ($o) { $o->setIdentifierType($n->getEnumValue(MacOSProcessIdentifierType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowed' => fn(ParseNode $n) => $o->setAllowed($n->getBooleanValue()),
+            'codeRequirement' => fn(ParseNode $n) => $o->setCodeRequirement($n->getStringValue()),
+            'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
+            'identifierType' => fn(ParseNode $n) => $o->setIdentifierType($n->getEnumValue(MacOSProcessIdentifierType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -110,15 +110,15 @@ class TeamworkDeviceOperation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(OperationError::class, 'createFromDiscriminatorValue'))); },
-            'lastActionBy' => function (ParseNode $n) use ($o) { $o->setLastActionBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastActionDateTime' => function (ParseNode $n) use ($o) { $o->setLastActionDateTime($n->getDateTimeValue()); },
-            'operationType' => function (ParseNode $n) use ($o) { $o->setOperationType($n->getEnumValue(TeamworkDeviceOperationType::class)); },
-            'startedDateTime' => function (ParseNode $n) use ($o) { $o->setStartedDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([OperationError::class, 'createFromDiscriminatorValue'])),
+            'lastActionBy' => fn(ParseNode $n) => $o->setLastActionBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastActionDateTime' => fn(ParseNode $n) => $o->setLastActionDateTime($n->getDateTimeValue()),
+            'operationType' => fn(ParseNode $n) => $o->setOperationType($n->getEnumValue(TeamworkDeviceOperationType::class)),
+            'startedDateTime' => fn(ParseNode $n) => $o->setStartedDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
     }
 

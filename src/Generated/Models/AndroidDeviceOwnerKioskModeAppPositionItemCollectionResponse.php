@@ -36,7 +36,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItemCollectionResponse extends BaseC
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AndroidDeviceOwnerKioskModeAppPositionItem::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([AndroidDeviceOwnerKioskModeAppPositionItem::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

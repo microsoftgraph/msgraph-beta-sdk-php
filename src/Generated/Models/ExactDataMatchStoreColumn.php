@@ -71,11 +71,11 @@ class ExactDataMatchStoreColumn implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'ignoredDelimiters' => function (ParseNode $n) use ($o) { $o->setIgnoredDelimiters($n->getCollectionOfPrimitiveValues()); },
-            'isCaseInsensitive' => function (ParseNode $n) use ($o) { $o->setIsCaseInsensitive($n->getBooleanValue()); },
-            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'ignoredDelimiters' => fn(ParseNode $n) => $o->setIgnoredDelimiters($n->getCollectionOfPrimitiveValues()),
+            'isCaseInsensitive' => fn(ParseNode $n) => $o->setIsCaseInsensitive($n->getBooleanValue()),
+            'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

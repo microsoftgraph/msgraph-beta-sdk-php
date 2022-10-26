@@ -64,8 +64,8 @@ class CustomExtensionCallbackConfiguration implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'timeoutDuration' => function (ParseNode $n) use ($o) { $o->setTimeoutDuration($n->getDateIntervalValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'timeoutDuration' => fn(ParseNode $n) => $o->setTimeoutDuration($n->getDateIntervalValue()),
         ];
     }
 

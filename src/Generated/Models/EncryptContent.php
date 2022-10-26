@@ -53,7 +53,7 @@ class EncryptContent extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'encryptWith' => function (ParseNode $n) use ($o) { $o->setEncryptWith($n->getEnumValue(EncryptWith::class)); },
+            'encryptWith' => fn(ParseNode $n) => $o->setEncryptWith($n->getEnumValue(EncryptWith::class)),
         ]);
     }
 

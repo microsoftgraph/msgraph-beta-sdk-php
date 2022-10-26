@@ -101,12 +101,12 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recommendedConfidence' => function (ParseNode $n) use ($o) { $o->setRecommendedConfidence($n->getIntegerValue()); },
-            'uniqueCount' => function (ParseNode $n) use ($o) { $o->setUniqueCount($n->getIntegerValue()); },
+            'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recommendedConfidence' => fn(ParseNode $n) => $o->setRecommendedConfidence($n->getIntegerValue()),
+            'uniqueCount' => fn(ParseNode $n) => $o->setUniqueCount($n->getIntegerValue()),
         ];
     }
 

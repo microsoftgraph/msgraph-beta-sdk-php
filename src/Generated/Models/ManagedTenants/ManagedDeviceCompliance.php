@@ -120,20 +120,20 @@ class ManagedDeviceCompliance extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'complianceStatus' => function (ParseNode $n) use ($o) { $o->setComplianceStatus($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getStringValue()); },
-            'inGracePeriodUntilDateTime' => function (ParseNode $n) use ($o) { $o->setInGracePeriodUntilDateTime($n->getDateTimeValue()); },
-            'lastRefreshedDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshedDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getStringValue()); },
-            'tenantDisplayName' => function (ParseNode $n) use ($o) { $o->setTenantDisplayName($n->getStringValue()); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'complianceStatus' => fn(ParseNode $n) => $o->setComplianceStatus($n->getStringValue()),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getStringValue()),
+            'inGracePeriodUntilDateTime' => fn(ParseNode $n) => $o->setInGracePeriodUntilDateTime($n->getDateTimeValue()),
+            'lastRefreshedDateTime' => fn(ParseNode $n) => $o->setLastRefreshedDateTime($n->getDateTimeValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getStringValue()),
+            'tenantDisplayName' => fn(ParseNode $n) => $o->setTenantDisplayName($n->getStringValue()),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

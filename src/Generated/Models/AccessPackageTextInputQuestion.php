@@ -42,8 +42,8 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isSingleLineQuestion' => function (ParseNode $n) use ($o) { $o->setIsSingleLineQuestion($n->getBooleanValue()); },
-            'regexPattern' => function (ParseNode $n) use ($o) { $o->setRegexPattern($n->getStringValue()); },
+            'isSingleLineQuestion' => fn(ParseNode $n) => $o->setIsSingleLineQuestion($n->getBooleanValue()),
+            'regexPattern' => fn(ParseNode $n) => $o->setRegexPattern($n->getStringValue()),
         ]);
     }
 

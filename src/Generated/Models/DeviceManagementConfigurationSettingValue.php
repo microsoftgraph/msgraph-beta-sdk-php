@@ -69,8 +69,8 @@ class DeviceManagementConfigurationSettingValue implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'settingValueTemplateReference' => function (ParseNode $n) use ($o) { $o->setSettingValueTemplateReference($n->getObjectValue(array(DeviceManagementConfigurationSettingValueTemplateReference::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'settingValueTemplateReference' => fn(ParseNode $n) => $o->setSettingValueTemplateReference($n->getObjectValue([DeviceManagementConfigurationSettingValueTemplateReference::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

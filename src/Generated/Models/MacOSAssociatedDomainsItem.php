@@ -90,10 +90,10 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicationIdentifier' => function (ParseNode $n) use ($o) { $o->setApplicationIdentifier($n->getStringValue()); },
-            'directDownloadsEnabled' => function (ParseNode $n) use ($o) { $o->setDirectDownloadsEnabled($n->getBooleanValue()); },
-            'domains' => function (ParseNode $n) use ($o) { $o->setDomains($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'applicationIdentifier' => fn(ParseNode $n) => $o->setApplicationIdentifier($n->getStringValue()),
+            'directDownloadsEnabled' => fn(ParseNode $n) => $o->setDirectDownloadsEnabled($n->getBooleanValue()),
+            'domains' => fn(ParseNode $n) => $o->setDomains($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

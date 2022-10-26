@@ -95,12 +95,12 @@ class TaskDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(LifecycleTaskCategory::class)); },
-            'continueOnError' => function (ParseNode $n) use ($o) { $o->setContinueOnError($n->getBooleanValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(Parameter::class, 'createFromDiscriminatorValue'))); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(LifecycleTaskCategory::class)),
+            'continueOnError' => fn(ParseNode $n) => $o->setContinueOnError($n->getBooleanValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([Parameter::class, 'createFromDiscriminatorValue'])),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
 

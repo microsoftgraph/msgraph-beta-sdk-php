@@ -71,8 +71,8 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
-            'deviceScopeId' => function (ParseNode $n) use ($o) { $o->setDeviceScopeId($n->getStringValue()); },
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getStringValue()),
+            'deviceScopeId' => fn(ParseNode $n) => $o->setDeviceScopeId($n->getStringValue()),
         ];
     }
 

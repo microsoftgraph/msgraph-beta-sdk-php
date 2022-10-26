@@ -37,7 +37,7 @@ class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

@@ -37,7 +37,7 @@ class AllowedValue extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isActive' => function (ParseNode $n) use ($o) { $o->setIsActive($n->getBooleanValue()); },
+            'isActive' => fn(ParseNode $n) => $o->setIsActive($n->getBooleanValue()),
         ]);
     }
 

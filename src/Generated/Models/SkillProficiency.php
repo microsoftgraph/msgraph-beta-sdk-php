@@ -86,12 +86,12 @@ class SkillProficiency extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'proficiency' => function (ParseNode $n) use ($o) { $o->setProficiency($n->getEnumValue(SkillProficiencyLevel::class)); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'collaborationTags' => fn(ParseNode $n) => $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'proficiency' => fn(ParseNode $n) => $o->setProficiency($n->getEnumValue(SkillProficiencyLevel::class)),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

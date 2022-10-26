@@ -87,17 +87,17 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'osCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setOsCheckFailedPercentage($n->getFloatValue()); },
-            'processor64BitCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessor64BitCheckFailedPercentage($n->getFloatValue()); },
-            'processorCoreCountCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorCoreCountCheckFailedPercentage($n->getFloatValue()); },
-            'processorFamilyCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorFamilyCheckFailedPercentage($n->getFloatValue()); },
-            'processorSpeedCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setProcessorSpeedCheckFailedPercentage($n->getFloatValue()); },
-            'ramCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setRamCheckFailedPercentage($n->getFloatValue()); },
-            'secureBootCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setSecureBootCheckFailedPercentage($n->getFloatValue()); },
-            'storageCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setStorageCheckFailedPercentage($n->getFloatValue()); },
-            'totalDeviceCount' => function (ParseNode $n) use ($o) { $o->setTotalDeviceCount($n->getIntegerValue()); },
-            'tpmCheckFailedPercentage' => function (ParseNode $n) use ($o) { $o->setTpmCheckFailedPercentage($n->getFloatValue()); },
-            'upgradeEligibleDeviceCount' => function (ParseNode $n) use ($o) { $o->setUpgradeEligibleDeviceCount($n->getIntegerValue()); },
+            'osCheckFailedPercentage' => fn(ParseNode $n) => $o->setOsCheckFailedPercentage($n->getFloatValue()),
+            'processor64BitCheckFailedPercentage' => fn(ParseNode $n) => $o->setProcessor64BitCheckFailedPercentage($n->getFloatValue()),
+            'processorCoreCountCheckFailedPercentage' => fn(ParseNode $n) => $o->setProcessorCoreCountCheckFailedPercentage($n->getFloatValue()),
+            'processorFamilyCheckFailedPercentage' => fn(ParseNode $n) => $o->setProcessorFamilyCheckFailedPercentage($n->getFloatValue()),
+            'processorSpeedCheckFailedPercentage' => fn(ParseNode $n) => $o->setProcessorSpeedCheckFailedPercentage($n->getFloatValue()),
+            'ramCheckFailedPercentage' => fn(ParseNode $n) => $o->setRamCheckFailedPercentage($n->getFloatValue()),
+            'secureBootCheckFailedPercentage' => fn(ParseNode $n) => $o->setSecureBootCheckFailedPercentage($n->getFloatValue()),
+            'storageCheckFailedPercentage' => fn(ParseNode $n) => $o->setStorageCheckFailedPercentage($n->getFloatValue()),
+            'totalDeviceCount' => fn(ParseNode $n) => $o->setTotalDeviceCount($n->getIntegerValue()),
+            'tpmCheckFailedPercentage' => fn(ParseNode $n) => $o->setTpmCheckFailedPercentage($n->getFloatValue()),
+            'upgradeEligibleDeviceCount' => fn(ParseNode $n) => $o->setUpgradeEligibleDeviceCount($n->getIntegerValue()),
         ]);
     }
 

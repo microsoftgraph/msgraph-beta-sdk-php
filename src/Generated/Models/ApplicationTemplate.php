@@ -59,7 +59,7 @@ class ApplicationTemplate extends Entity implements Parsable
     private ?array $supportedSingleSignOnModes = null;
     
     /**
-     * Instantiates a new applicationTemplate and sets the default values.
+     * Instantiates a new ApplicationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -106,16 +106,16 @@ class ApplicationTemplate extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'homePageUrl' => function (ParseNode $n) use ($o) { $o->setHomePageUrl($n->getStringValue()); },
-            'informationalUrls' => function (ParseNode $n) use ($o) { $o->setInformationalUrls($n->getObjectValue(array(InformationalUrls::class, 'createFromDiscriminatorValue'))); },
-            'logoUrl' => function (ParseNode $n) use ($o) { $o->setLogoUrl($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'supportedClaimConfiguration' => function (ParseNode $n) use ($o) { $o->setSupportedClaimConfiguration($n->getObjectValue(array(SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'supportedProvisioningTypes' => function (ParseNode $n) use ($o) { $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()); },
-            'supportedSingleSignOnModes' => function (ParseNode $n) use ($o) { $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()); },
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
+            'informationalUrls' => fn(ParseNode $n) => $o->setInformationalUrls($n->getObjectValue([InformationalUrls::class, 'createFromDiscriminatorValue'])),
+            'logoUrl' => fn(ParseNode $n) => $o->setLogoUrl($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'supportedClaimConfiguration' => fn(ParseNode $n) => $o->setSupportedClaimConfiguration($n->getObjectValue([SupportedClaimConfiguration::class, 'createFromDiscriminatorValue'])),
+            'supportedProvisioningTypes' => fn(ParseNode $n) => $o->setSupportedProvisioningTypes($n->getCollectionOfPrimitiveValues()),
+            'supportedSingleSignOnModes' => fn(ParseNode $n) => $o->setSupportedSingleSignOnModes($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

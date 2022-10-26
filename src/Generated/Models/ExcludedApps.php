@@ -150,22 +150,22 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'access' => function (ParseNode $n) use ($o) { $o->setAccess($n->getBooleanValue()); },
-            'bing' => function (ParseNode $n) use ($o) { $o->setBing($n->getBooleanValue()); },
-            'excel' => function (ParseNode $n) use ($o) { $o->setExcel($n->getBooleanValue()); },
-            'groove' => function (ParseNode $n) use ($o) { $o->setGroove($n->getBooleanValue()); },
-            'infoPath' => function (ParseNode $n) use ($o) { $o->setInfoPath($n->getBooleanValue()); },
-            'lync' => function (ParseNode $n) use ($o) { $o->setLync($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'oneDrive' => function (ParseNode $n) use ($o) { $o->setOneDrive($n->getBooleanValue()); },
-            'oneNote' => function (ParseNode $n) use ($o) { $o->setOneNote($n->getBooleanValue()); },
-            'outlook' => function (ParseNode $n) use ($o) { $o->setOutlook($n->getBooleanValue()); },
-            'powerPoint' => function (ParseNode $n) use ($o) { $o->setPowerPoint($n->getBooleanValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getBooleanValue()); },
-            'sharePointDesigner' => function (ParseNode $n) use ($o) { $o->setSharePointDesigner($n->getBooleanValue()); },
-            'teams' => function (ParseNode $n) use ($o) { $o->setTeams($n->getBooleanValue()); },
-            'visio' => function (ParseNode $n) use ($o) { $o->setVisio($n->getBooleanValue()); },
-            'word' => function (ParseNode $n) use ($o) { $o->setWord($n->getBooleanValue()); },
+            'access' => fn(ParseNode $n) => $o->setAccess($n->getBooleanValue()),
+            'bing' => fn(ParseNode $n) => $o->setBing($n->getBooleanValue()),
+            'excel' => fn(ParseNode $n) => $o->setExcel($n->getBooleanValue()),
+            'groove' => fn(ParseNode $n) => $o->setGroove($n->getBooleanValue()),
+            'infoPath' => fn(ParseNode $n) => $o->setInfoPath($n->getBooleanValue()),
+            'lync' => fn(ParseNode $n) => $o->setLync($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'oneDrive' => fn(ParseNode $n) => $o->setOneDrive($n->getBooleanValue()),
+            'oneNote' => fn(ParseNode $n) => $o->setOneNote($n->getBooleanValue()),
+            'outlook' => fn(ParseNode $n) => $o->setOutlook($n->getBooleanValue()),
+            'powerPoint' => fn(ParseNode $n) => $o->setPowerPoint($n->getBooleanValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getBooleanValue()),
+            'sharePointDesigner' => fn(ParseNode $n) => $o->setSharePointDesigner($n->getBooleanValue()),
+            'teams' => fn(ParseNode $n) => $o->setTeams($n->getBooleanValue()),
+            'visio' => fn(ParseNode $n) => $o->setVisio($n->getBooleanValue()),
+            'word' => fn(ParseNode $n) => $o->setWord($n->getBooleanValue()),
         ];
     }
 

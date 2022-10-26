@@ -46,7 +46,7 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'date' => function (ParseNode $n) use ($o) { $o->setDate($n->getDateValue()); },
+            'date' => fn(ParseNode $n) => $o->setDate($n->getDateValue()),
         ]);
     }
 

@@ -65,8 +65,8 @@ class EvaluateApplicationPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentInfo' => function (ParseNode $n) use ($o) { $o->setContentInfo($n->getObjectValue(array(ContentInfo::class, 'createFromDiscriminatorValue'))); },
-            'labelingOptions' => function (ParseNode $n) use ($o) { $o->setLabelingOptions($n->getObjectValue(array(LabelingOptions::class, 'createFromDiscriminatorValue'))); },
+            'contentInfo' => fn(ParseNode $n) => $o->setContentInfo($n->getObjectValue([ContentInfo::class, 'createFromDiscriminatorValue'])),
+            'labelingOptions' => fn(ParseNode $n) => $o->setLabelingOptions($n->getObjectValue([LabelingOptions::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

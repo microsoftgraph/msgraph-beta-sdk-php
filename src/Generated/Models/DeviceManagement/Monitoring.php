@@ -10,12 +10,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Monitoring extends Entity implements Parsable 
 {
     /**
-     * @var array<AlertRecord>|null $alertRecords The alertRecords property
+     * @var array<AlertRecord>|null $alertRecords The collection of records of alert events.
     */
     private ?array $alertRecords = null;
     
     /**
-     * @var array<AlertRule>|null $alertRules The alertRules property
+     * @var array<AlertRule>|null $alertRules The collection of alert rules.
     */
     private ?array $alertRules = null;
     
@@ -37,7 +37,7 @@ class Monitoring extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRecords property value. The alertRecords property
+     * Gets the alertRecords property value. The collection of records of alert events.
      * @return array<AlertRecord>|null
     */
     public function getAlertRecords(): ?array {
@@ -45,7 +45,7 @@ class Monitoring extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRules property value. The alertRules property
+     * Gets the alertRules property value. The collection of alert rules.
      * @return array<AlertRule>|null
     */
     public function getAlertRules(): ?array {
@@ -59,8 +59,8 @@ class Monitoring extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertRecords' => function (ParseNode $n) use ($o) { $o->setAlertRecords($n->getCollectionOfObjectValues(array(AlertRecord::class, 'createFromDiscriminatorValue'))); },
-            'alertRules' => function (ParseNode $n) use ($o) { $o->setAlertRules($n->getCollectionOfObjectValues(array(AlertRule::class, 'createFromDiscriminatorValue'))); },
+            'alertRecords' => fn(ParseNode $n) => $o->setAlertRecords($n->getCollectionOfObjectValues([AlertRecord::class, 'createFromDiscriminatorValue'])),
+            'alertRules' => fn(ParseNode $n) => $o->setAlertRules($n->getCollectionOfObjectValues([AlertRule::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -75,7 +75,7 @@ class Monitoring extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertRecords property value. The alertRecords property
+     * Sets the alertRecords property value. The collection of records of alert events.
      *  @param array<AlertRecord>|null $value Value to set for the alertRecords property.
     */
     public function setAlertRecords(?array $value ): void {
@@ -83,7 +83,7 @@ class Monitoring extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertRules property value. The alertRules property
+     * Sets the alertRules property value. The collection of alert rules.
      *  @param array<AlertRule>|null $value Value to set for the alertRules property.
     */
     public function setAlertRules(?array $value ): void {

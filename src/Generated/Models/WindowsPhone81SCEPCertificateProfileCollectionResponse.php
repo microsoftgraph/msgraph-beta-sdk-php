@@ -36,7 +36,7 @@ class WindowsPhone81SCEPCertificateProfileCollectionResponse extends BaseCollect
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(WindowsPhone81SCEPCertificateProfile::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([WindowsPhone81SCEPCertificateProfile::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

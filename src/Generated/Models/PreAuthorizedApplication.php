@@ -69,9 +69,9 @@ class PreAuthorizedApplication implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'permissionIds' => function (ParseNode $n) use ($o) { $o->setPermissionIds($n->getCollectionOfPrimitiveValues()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'permissionIds' => fn(ParseNode $n) => $o->setPermissionIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -73,11 +73,11 @@ class SideLoadingKey extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getStringValue()); },
-            'totalActivation' => function (ParseNode $n) use ($o) { $o->setTotalActivation($n->getIntegerValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getStringValue()),
+            'totalActivation' => fn(ParseNode $n) => $o->setTotalActivation($n->getIntegerValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ]);
     }
 

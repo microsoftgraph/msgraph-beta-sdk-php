@@ -69,9 +69,9 @@ class ManagedDeviceSummarizedAppState implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'summarizedAppState' => function (ParseNode $n) use ($o) { $o->setSummarizedAppState($n->getEnumValue(RunState::class)); },
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'summarizedAppState' => fn(ParseNode $n) => $o->setSummarizedAppState($n->getEnumValue(RunState::class)),
         ];
     }
 

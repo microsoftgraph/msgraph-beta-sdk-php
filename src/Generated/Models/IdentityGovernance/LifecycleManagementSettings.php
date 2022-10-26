@@ -38,7 +38,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'workflowScheduleIntervalInHours' => function (ParseNode $n) use ($o) { $o->setWorkflowScheduleIntervalInHours($n->getIntegerValue()); },
+            'workflowScheduleIntervalInHours' => fn(ParseNode $n) => $o->setWorkflowScheduleIntervalInHours($n->getIntegerValue()),
         ]);
     }
 

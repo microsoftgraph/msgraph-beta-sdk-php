@@ -42,8 +42,8 @@ class CustomAction extends InformationProtectionAction implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'properties' => function (ParseNode $n) use ($o) { $o->setProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'properties' => fn(ParseNode $n) => $o->setProperties($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

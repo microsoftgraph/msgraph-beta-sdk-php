@@ -64,8 +64,8 @@ class SafeguardSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'disabledSafeguardProfiles' => function (ParseNode $n) use ($o) { $o->setDisabledSafeguardProfiles($n->getCollectionOfObjectValues(array(SafeguardProfile::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'disabledSafeguardProfiles' => fn(ParseNode $n) => $o->setDisabledSafeguardProfiles($n->getCollectionOfObjectValues([SafeguardProfile::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

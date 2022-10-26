@@ -73,11 +73,11 @@ class Admin implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'reportSettings' => function (ParseNode $n) use ($o) { $o->setReportSettings($n->getObjectValue(array(AdminReportSettings::class, 'createFromDiscriminatorValue'))); },
-            'serviceAnnouncement' => function (ParseNode $n) use ($o) { $o->setServiceAnnouncement($n->getObjectValue(array(ServiceAnnouncement::class, 'createFromDiscriminatorValue'))); },
-            'sharepoint' => function (ParseNode $n) use ($o) { $o->setSharepoint($n->getObjectValue(array(Sharepoint::class, 'createFromDiscriminatorValue'))); },
-            'windows' => function (ParseNode $n) use ($o) { $o->setWindows($n->getObjectValue(array(Windows::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
+            'serviceAnnouncement' => fn(ParseNode $n) => $o->setServiceAnnouncement($n->getObjectValue([ServiceAnnouncement::class, 'createFromDiscriminatorValue'])),
+            'sharepoint' => fn(ParseNode $n) => $o->setSharepoint($n->getObjectValue([Sharepoint::class, 'createFromDiscriminatorValue'])),
+            'windows' => fn(ParseNode $n) => $o->setWindows($n->getObjectValue([Windows::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

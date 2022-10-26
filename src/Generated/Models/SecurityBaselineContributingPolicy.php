@@ -74,10 +74,10 @@ class SecurityBaselineContributingPolicy implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'sourceId' => function (ParseNode $n) use ($o) { $o->setSourceId($n->getStringValue()); },
-            'sourceType' => function (ParseNode $n) use ($o) { $o->setSourceType($n->getEnumValue(SecurityBaselinePolicySourceType::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'sourceId' => fn(ParseNode $n) => $o->setSourceId($n->getStringValue()),
+            'sourceType' => fn(ParseNode $n) => $o->setSourceType($n->getEnumValue(SecurityBaselinePolicySourceType::class)),
         ];
     }
 

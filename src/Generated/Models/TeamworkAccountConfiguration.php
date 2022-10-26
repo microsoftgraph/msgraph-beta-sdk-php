@@ -61,9 +61,9 @@ class TeamworkAccountConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'onPremisesCalendarSyncConfiguration' => function (ParseNode $n) use ($o) { $o->setOnPremisesCalendarSyncConfiguration($n->getObjectValue(array(TeamworkOnPremisesCalendarSyncConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'supportedClient' => function (ParseNode $n) use ($o) { $o->setSupportedClient($n->getEnumValue(TeamworkSupportedClient::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'onPremisesCalendarSyncConfiguration' => fn(ParseNode $n) => $o->setOnPremisesCalendarSyncConfiguration($n->getObjectValue([TeamworkOnPremisesCalendarSyncConfiguration::class, 'createFromDiscriminatorValue'])),
+            'supportedClient' => fn(ParseNode $n) => $o->setSupportedClient($n->getEnumValue(TeamworkSupportedClient::class)),
         ];
     }
 

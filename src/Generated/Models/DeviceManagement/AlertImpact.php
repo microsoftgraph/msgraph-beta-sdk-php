@@ -15,7 +15,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var AggregationType|null $aggregationType The aggregationType property
+     * @var AggregationType|null $aggregationType The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     */
     private ?AggregationType $aggregationType = null;
     
@@ -25,7 +25,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var int|null $value The value property
+     * @var int|null $value The number value of the impact.
     */
     private ?int $value = null;
     
@@ -55,7 +55,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the aggregationType property value. The aggregationType property
+     * Gets the aggregationType property value. The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
      * @return AggregationType|null
     */
     public function getAggregationType(): ?AggregationType {
@@ -69,9 +69,9 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregationType' => function (ParseNode $n) use ($o) { $o->setAggregationType($n->getEnumValue(AggregationType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
+            'aggregationType' => fn(ParseNode $n) => $o->setAggregationType($n->getEnumValue(AggregationType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ];
     }
 
@@ -84,7 +84,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the value property value. The value property
+     * Gets the value property value. The number value of the impact.
      * @return int|null
     */
     public function getValue(): ?int {
@@ -111,7 +111,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the aggregationType property value. The aggregationType property
+     * Sets the aggregationType property value. The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
      *  @param AggregationType|null $value Value to set for the aggregationType property.
     */
     public function setAggregationType(?AggregationType $value ): void {
@@ -127,7 +127,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the value property value. The value property
+     * Sets the value property value. The number value of the impact.
      *  @param int|null $value Value to set for the value property.
     */
     public function setValue(?int $value ): void {

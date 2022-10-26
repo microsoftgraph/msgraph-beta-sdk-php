@@ -71,9 +71,9 @@ class Program extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'controls' => function (ParseNode $n) use ($o) { $o->setControls($n->getCollectionOfObjectValues(array(ProgramControl::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'controls' => fn(ParseNode $n) => $o->setControls($n->getCollectionOfObjectValues([ProgramControl::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 

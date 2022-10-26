@@ -60,6 +60,41 @@ class ManagedTenant extends Entity implements Parsable
     private ?array $managedDeviceComplianceTrends = null;
     
     /**
+     * @var array<ManagedTenantAlertLog>|null $managedTenantAlertLogs The managedTenantAlertLogs property
+    */
+    private ?array $managedTenantAlertLogs = null;
+    
+    /**
+     * @var array<ManagedTenantAlertRuleDefinition>|null $managedTenantAlertRuleDefinitions The managedTenantAlertRuleDefinitions property
+    */
+    private ?array $managedTenantAlertRuleDefinitions = null;
+    
+    /**
+     * @var array<ManagedTenantAlertRule>|null $managedTenantAlertRules The managedTenantAlertRules property
+    */
+    private ?array $managedTenantAlertRules = null;
+    
+    /**
+     * @var array<ManagedTenantAlert>|null $managedTenantAlerts The managedTenantAlerts property
+    */
+    private ?array $managedTenantAlerts = null;
+    
+    /**
+     * @var array<ManagedTenantApiNotification>|null $managedTenantApiNotifications The managedTenantApiNotifications property
+    */
+    private ?array $managedTenantApiNotifications = null;
+    
+    /**
+     * @var array<ManagedTenantEmailNotification>|null $managedTenantEmailNotifications The managedTenantEmailNotifications property
+    */
+    private ?array $managedTenantEmailNotifications = null;
+    
+    /**
+     * @var array<ManagedTenantTicketingEndpoint>|null $managedTenantTicketingEndpoints The managedTenantTicketingEndpoints property
+    */
+    private ?array $managedTenantTicketingEndpoints = null;
+    
+    /**
      * @var array<ManagementAction>|null $managementActions The collection of baseline management actions across managed tenants.
     */
     private ?array $managementActions = null;
@@ -222,31 +257,38 @@ class ManagedTenant extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'aggregatedPolicyCompliances' => function (ParseNode $n) use ($o) { $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues(array(AggregatedPolicyCompliance::class, 'createFromDiscriminatorValue'))); },
-            'auditEvents' => function (ParseNode $n) use ($o) { $o->setAuditEvents($n->getCollectionOfObjectValues(array(AuditEvent::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcConnections' => function (ParseNode $n) use ($o) { $o->setCloudPcConnections($n->getCollectionOfObjectValues(array(CloudPcConnection::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcDevices' => function (ParseNode $n) use ($o) { $o->setCloudPcDevices($n->getCollectionOfObjectValues(array(CloudPcDevice::class, 'createFromDiscriminatorValue'))); },
-            'cloudPcsOverview' => function (ParseNode $n) use ($o) { $o->setCloudPcsOverview($n->getCollectionOfObjectValues(array(CloudPcOverview::class, 'createFromDiscriminatorValue'))); },
-            'conditionalAccessPolicyCoverages' => function (ParseNode $n) use ($o) { $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues(array(ConditionalAccessPolicyCoverage::class, 'createFromDiscriminatorValue'))); },
-            'credentialUserRegistrationsSummaries' => function (ParseNode $n) use ($o) { $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues(array(CredentialUserRegistrationsSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceCompliancePolicySettingStateSummaries' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues(array(DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceCompliances' => function (ParseNode $n) use ($o) { $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues(array(ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceComplianceTrends' => function (ParseNode $n) use ($o) { $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues(array(ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'))); },
-            'managementActions' => function (ParseNode $n) use ($o) { $o->setManagementActions($n->getCollectionOfObjectValues(array(ManagementAction::class, 'createFromDiscriminatorValue'))); },
-            'managementActionTenantDeploymentStatuses' => function (ParseNode $n) use ($o) { $o->setManagementActionTenantDeploymentStatuses($n->getCollectionOfObjectValues(array(ManagementActionTenantDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
-            'managementIntents' => function (ParseNode $n) use ($o) { $o->setManagementIntents($n->getCollectionOfObjectValues(array(ManagementIntent::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateCollections' => function (ParseNode $n) use ($o) { $o->setManagementTemplateCollections($n->getCollectionOfObjectValues(array(ManagementTemplateCollection::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplate::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateSteps' => function (ParseNode $n) use ($o) { $o->setManagementTemplateSteps($n->getCollectionOfObjectValues(array(ManagementTemplateStep::class, 'createFromDiscriminatorValue'))); },
-            'managementTemplateStepVersions' => function (ParseNode $n) use ($o) { $o->setManagementTemplateStepVersions($n->getCollectionOfObjectValues(array(ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'))); },
-            'myRoles' => function (ParseNode $n) use ($o) { $o->setMyRoles($n->getCollectionOfObjectValues(array(MyRole::class, 'createFromDiscriminatorValue'))); },
-            'tenantGroups' => function (ParseNode $n) use ($o) { $o->setTenantGroups($n->getCollectionOfObjectValues(array(TenantGroup::class, 'createFromDiscriminatorValue'))); },
-            'tenants' => function (ParseNode $n) use ($o) { $o->setTenants($n->getCollectionOfObjectValues(array(Tenant::class, 'createFromDiscriminatorValue'))); },
-            'tenantsCustomizedInformation' => function (ParseNode $n) use ($o) { $o->setTenantsCustomizedInformation($n->getCollectionOfObjectValues(array(TenantCustomizedInformation::class, 'createFromDiscriminatorValue'))); },
-            'tenantsDetailedInformation' => function (ParseNode $n) use ($o) { $o->setTenantsDetailedInformation($n->getCollectionOfObjectValues(array(TenantDetailedInformation::class, 'createFromDiscriminatorValue'))); },
-            'tenantTags' => function (ParseNode $n) use ($o) { $o->setTenantTags($n->getCollectionOfObjectValues(array(TenantTag::class, 'createFromDiscriminatorValue'))); },
-            'windowsDeviceMalwareStates' => function (ParseNode $n) use ($o) { $o->setWindowsDeviceMalwareStates($n->getCollectionOfObjectValues(array(WindowsDeviceMalwareState::class, 'createFromDiscriminatorValue'))); },
-            'windowsProtectionStates' => function (ParseNode $n) use ($o) { $o->setWindowsProtectionStates($n->getCollectionOfObjectValues(array(WindowsProtectionState::class, 'createFromDiscriminatorValue'))); },
+            'aggregatedPolicyCompliances' => fn(ParseNode $n) => $o->setAggregatedPolicyCompliances($n->getCollectionOfObjectValues([AggregatedPolicyCompliance::class, 'createFromDiscriminatorValue'])),
+            'auditEvents' => fn(ParseNode $n) => $o->setAuditEvents($n->getCollectionOfObjectValues([AuditEvent::class, 'createFromDiscriminatorValue'])),
+            'cloudPcConnections' => fn(ParseNode $n) => $o->setCloudPcConnections($n->getCollectionOfObjectValues([CloudPcConnection::class, 'createFromDiscriminatorValue'])),
+            'cloudPcDevices' => fn(ParseNode $n) => $o->setCloudPcDevices($n->getCollectionOfObjectValues([CloudPcDevice::class, 'createFromDiscriminatorValue'])),
+            'cloudPcsOverview' => fn(ParseNode $n) => $o->setCloudPcsOverview($n->getCollectionOfObjectValues([CloudPcOverview::class, 'createFromDiscriminatorValue'])),
+            'conditionalAccessPolicyCoverages' => fn(ParseNode $n) => $o->setConditionalAccessPolicyCoverages($n->getCollectionOfObjectValues([ConditionalAccessPolicyCoverage::class, 'createFromDiscriminatorValue'])),
+            'credentialUserRegistrationsSummaries' => fn(ParseNode $n) => $o->setCredentialUserRegistrationsSummaries($n->getCollectionOfObjectValues([CredentialUserRegistrationsSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceCompliancePolicySettingStateSummaries' => fn(ParseNode $n) => $o->setDeviceCompliancePolicySettingStateSummaries($n->getCollectionOfObjectValues([DeviceCompliancePolicySettingStateSummary::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceCompliances' => fn(ParseNode $n) => $o->setManagedDeviceCompliances($n->getCollectionOfObjectValues([ManagedDeviceCompliance::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceComplianceTrends' => fn(ParseNode $n) => $o->setManagedDeviceComplianceTrends($n->getCollectionOfObjectValues([ManagedDeviceComplianceTrend::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertLogs' => fn(ParseNode $n) => $o->setManagedTenantAlertLogs($n->getCollectionOfObjectValues([ManagedTenantAlertLog::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertRuleDefinitions' => fn(ParseNode $n) => $o->setManagedTenantAlertRuleDefinitions($n->getCollectionOfObjectValues([ManagedTenantAlertRuleDefinition::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlertRules' => fn(ParseNode $n) => $o->setManagedTenantAlertRules($n->getCollectionOfObjectValues([ManagedTenantAlertRule::class, 'createFromDiscriminatorValue'])),
+            'managedTenantAlerts' => fn(ParseNode $n) => $o->setManagedTenantAlerts($n->getCollectionOfObjectValues([ManagedTenantAlert::class, 'createFromDiscriminatorValue'])),
+            'managedTenantApiNotifications' => fn(ParseNode $n) => $o->setManagedTenantApiNotifications($n->getCollectionOfObjectValues([ManagedTenantApiNotification::class, 'createFromDiscriminatorValue'])),
+            'managedTenantEmailNotifications' => fn(ParseNode $n) => $o->setManagedTenantEmailNotifications($n->getCollectionOfObjectValues([ManagedTenantEmailNotification::class, 'createFromDiscriminatorValue'])),
+            'managedTenantTicketingEndpoints' => fn(ParseNode $n) => $o->setManagedTenantTicketingEndpoints($n->getCollectionOfObjectValues([ManagedTenantTicketingEndpoint::class, 'createFromDiscriminatorValue'])),
+            'managementActions' => fn(ParseNode $n) => $o->setManagementActions($n->getCollectionOfObjectValues([ManagementAction::class, 'createFromDiscriminatorValue'])),
+            'managementActionTenantDeploymentStatuses' => fn(ParseNode $n) => $o->setManagementActionTenantDeploymentStatuses($n->getCollectionOfObjectValues([ManagementActionTenantDeploymentStatus::class, 'createFromDiscriminatorValue'])),
+            'managementIntents' => fn(ParseNode $n) => $o->setManagementIntents($n->getCollectionOfObjectValues([ManagementIntent::class, 'createFromDiscriminatorValue'])),
+            'managementTemplateCollections' => fn(ParseNode $n) => $o->setManagementTemplateCollections($n->getCollectionOfObjectValues([ManagementTemplateCollection::class, 'createFromDiscriminatorValue'])),
+            'managementTemplates' => fn(ParseNode $n) => $o->setManagementTemplates($n->getCollectionOfObjectValues([ManagementTemplate::class, 'createFromDiscriminatorValue'])),
+            'managementTemplateSteps' => fn(ParseNode $n) => $o->setManagementTemplateSteps($n->getCollectionOfObjectValues([ManagementTemplateStep::class, 'createFromDiscriminatorValue'])),
+            'managementTemplateStepVersions' => fn(ParseNode $n) => $o->setManagementTemplateStepVersions($n->getCollectionOfObjectValues([ManagementTemplateStepVersion::class, 'createFromDiscriminatorValue'])),
+            'myRoles' => fn(ParseNode $n) => $o->setMyRoles($n->getCollectionOfObjectValues([MyRole::class, 'createFromDiscriminatorValue'])),
+            'tenantGroups' => fn(ParseNode $n) => $o->setTenantGroups($n->getCollectionOfObjectValues([TenantGroup::class, 'createFromDiscriminatorValue'])),
+            'tenants' => fn(ParseNode $n) => $o->setTenants($n->getCollectionOfObjectValues([Tenant::class, 'createFromDiscriminatorValue'])),
+            'tenantsCustomizedInformation' => fn(ParseNode $n) => $o->setTenantsCustomizedInformation($n->getCollectionOfObjectValues([TenantCustomizedInformation::class, 'createFromDiscriminatorValue'])),
+            'tenantsDetailedInformation' => fn(ParseNode $n) => $o->setTenantsDetailedInformation($n->getCollectionOfObjectValues([TenantDetailedInformation::class, 'createFromDiscriminatorValue'])),
+            'tenantTags' => fn(ParseNode $n) => $o->setTenantTags($n->getCollectionOfObjectValues([TenantTag::class, 'createFromDiscriminatorValue'])),
+            'windowsDeviceMalwareStates' => fn(ParseNode $n) => $o->setWindowsDeviceMalwareStates($n->getCollectionOfObjectValues([WindowsDeviceMalwareState::class, 'createFromDiscriminatorValue'])),
+            'windowsProtectionStates' => fn(ParseNode $n) => $o->setWindowsProtectionStates($n->getCollectionOfObjectValues([WindowsProtectionState::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -264,6 +306,62 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function getManagedDeviceComplianceTrends(): ?array {
         return $this->managedDeviceComplianceTrends;
+    }
+
+    /**
+     * Gets the managedTenantAlertLogs property value. The managedTenantAlertLogs property
+     * @return array<ManagedTenantAlertLog>|null
+    */
+    public function getManagedTenantAlertLogs(): ?array {
+        return $this->managedTenantAlertLogs;
+    }
+
+    /**
+     * Gets the managedTenantAlertRuleDefinitions property value. The managedTenantAlertRuleDefinitions property
+     * @return array<ManagedTenantAlertRuleDefinition>|null
+    */
+    public function getManagedTenantAlertRuleDefinitions(): ?array {
+        return $this->managedTenantAlertRuleDefinitions;
+    }
+
+    /**
+     * Gets the managedTenantAlertRules property value. The managedTenantAlertRules property
+     * @return array<ManagedTenantAlertRule>|null
+    */
+    public function getManagedTenantAlertRules(): ?array {
+        return $this->managedTenantAlertRules;
+    }
+
+    /**
+     * Gets the managedTenantAlerts property value. The managedTenantAlerts property
+     * @return array<ManagedTenantAlert>|null
+    */
+    public function getManagedTenantAlerts(): ?array {
+        return $this->managedTenantAlerts;
+    }
+
+    /**
+     * Gets the managedTenantApiNotifications property value. The managedTenantApiNotifications property
+     * @return array<ManagedTenantApiNotification>|null
+    */
+    public function getManagedTenantApiNotifications(): ?array {
+        return $this->managedTenantApiNotifications;
+    }
+
+    /**
+     * Gets the managedTenantEmailNotifications property value. The managedTenantEmailNotifications property
+     * @return array<ManagedTenantEmailNotification>|null
+    */
+    public function getManagedTenantEmailNotifications(): ?array {
+        return $this->managedTenantEmailNotifications;
+    }
+
+    /**
+     * Gets the managedTenantTicketingEndpoints property value. The managedTenantTicketingEndpoints property
+     * @return array<ManagedTenantTicketingEndpoint>|null
+    */
+    public function getManagedTenantTicketingEndpoints(): ?array {
+        return $this->managedTenantTicketingEndpoints;
     }
 
     /**
@@ -402,6 +500,13 @@ class ManagedTenant extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->deviceCompliancePolicySettingStateSummaries);
         $writer->writeCollectionOfObjectValues('managedDeviceCompliances', $this->managedDeviceCompliances);
         $writer->writeCollectionOfObjectValues('managedDeviceComplianceTrends', $this->managedDeviceComplianceTrends);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertLogs', $this->managedTenantAlertLogs);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertRuleDefinitions', $this->managedTenantAlertRuleDefinitions);
+        $writer->writeCollectionOfObjectValues('managedTenantAlertRules', $this->managedTenantAlertRules);
+        $writer->writeCollectionOfObjectValues('managedTenantAlerts', $this->managedTenantAlerts);
+        $writer->writeCollectionOfObjectValues('managedTenantApiNotifications', $this->managedTenantApiNotifications);
+        $writer->writeCollectionOfObjectValues('managedTenantEmailNotifications', $this->managedTenantEmailNotifications);
+        $writer->writeCollectionOfObjectValues('managedTenantTicketingEndpoints', $this->managedTenantTicketingEndpoints);
         $writer->writeCollectionOfObjectValues('managementActions', $this->managementActions);
         $writer->writeCollectionOfObjectValues('managementActionTenantDeploymentStatuses', $this->managementActionTenantDeploymentStatuses);
         $writer->writeCollectionOfObjectValues('managementIntents', $this->managementIntents);
@@ -497,6 +602,62 @@ class ManagedTenant extends Entity implements Parsable
     */
     public function setManagedDeviceComplianceTrends(?array $value ): void {
         $this->managedDeviceComplianceTrends = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertLogs property value. The managedTenantAlertLogs property
+     *  @param array<ManagedTenantAlertLog>|null $value Value to set for the managedTenantAlertLogs property.
+    */
+    public function setManagedTenantAlertLogs(?array $value ): void {
+        $this->managedTenantAlertLogs = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertRuleDefinitions property value. The managedTenantAlertRuleDefinitions property
+     *  @param array<ManagedTenantAlertRuleDefinition>|null $value Value to set for the managedTenantAlertRuleDefinitions property.
+    */
+    public function setManagedTenantAlertRuleDefinitions(?array $value ): void {
+        $this->managedTenantAlertRuleDefinitions = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlertRules property value. The managedTenantAlertRules property
+     *  @param array<ManagedTenantAlertRule>|null $value Value to set for the managedTenantAlertRules property.
+    */
+    public function setManagedTenantAlertRules(?array $value ): void {
+        $this->managedTenantAlertRules = $value;
+    }
+
+    /**
+     * Sets the managedTenantAlerts property value. The managedTenantAlerts property
+     *  @param array<ManagedTenantAlert>|null $value Value to set for the managedTenantAlerts property.
+    */
+    public function setManagedTenantAlerts(?array $value ): void {
+        $this->managedTenantAlerts = $value;
+    }
+
+    /**
+     * Sets the managedTenantApiNotifications property value. The managedTenantApiNotifications property
+     *  @param array<ManagedTenantApiNotification>|null $value Value to set for the managedTenantApiNotifications property.
+    */
+    public function setManagedTenantApiNotifications(?array $value ): void {
+        $this->managedTenantApiNotifications = $value;
+    }
+
+    /**
+     * Sets the managedTenantEmailNotifications property value. The managedTenantEmailNotifications property
+     *  @param array<ManagedTenantEmailNotification>|null $value Value to set for the managedTenantEmailNotifications property.
+    */
+    public function setManagedTenantEmailNotifications(?array $value ): void {
+        $this->managedTenantEmailNotifications = $value;
+    }
+
+    /**
+     * Sets the managedTenantTicketingEndpoints property value. The managedTenantTicketingEndpoints property
+     *  @param array<ManagedTenantTicketingEndpoint>|null $value Value to set for the managedTenantTicketingEndpoints property.
+    */
+    public function setManagedTenantTicketingEndpoints(?array $value ): void {
+        $this->managedTenantTicketingEndpoints = $value;
     }
 
     /**

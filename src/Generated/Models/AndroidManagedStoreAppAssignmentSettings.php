@@ -58,8 +58,8 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'androidManagedStoreAppTrackIds' => function (ParseNode $n) use ($o) { $o->setAndroidManagedStoreAppTrackIds($n->getCollectionOfPrimitiveValues()); },
-            'autoUpdateMode' => function (ParseNode $n) use ($o) { $o->setAutoUpdateMode($n->getEnumValue(AndroidManagedStoreAutoUpdateMode::class)); },
+            'androidManagedStoreAppTrackIds' => fn(ParseNode $n) => $o->setAndroidManagedStoreAppTrackIds($n->getCollectionOfPrimitiveValues()),
+            'autoUpdateMode' => fn(ParseNode $n) => $o->setAutoUpdateMode($n->getEnumValue(AndroidManagedStoreAutoUpdateMode::class)),
         ]);
     }
 

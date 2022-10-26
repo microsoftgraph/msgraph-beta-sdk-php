@@ -51,7 +51,7 @@ class CreateDeviceLogCollectionRequestPostRequestBody implements AdditionalDataH
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'templateType' => function (ParseNode $n) use ($o) { $o->setTemplateType($n->getObjectValue(array(DeviceLogCollectionRequest::class, 'createFromDiscriminatorValue'))); },
+            'templateType' => fn(ParseNode $n) => $o->setTemplateType($n->getObjectValue([DeviceLogCollectionRequest::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

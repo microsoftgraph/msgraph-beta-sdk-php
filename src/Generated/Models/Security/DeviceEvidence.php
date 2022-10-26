@@ -132,21 +132,21 @@ class DeviceEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureAdDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureAdDeviceId($n->getStringValue()); },
-            'defenderAvStatus' => function (ParseNode $n) use ($o) { $o->setDefenderAvStatus($n->getEnumValue(DefenderAvStatus::class)); },
-            'deviceDnsName' => function (ParseNode $n) use ($o) { $o->setDeviceDnsName($n->getStringValue()); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(DeviceHealthStatus::class)); },
-            'loggedOnUsers' => function (ParseNode $n) use ($o) { $o->setLoggedOnUsers($n->getCollectionOfObjectValues(array(LoggedOnUser::class, 'createFromDiscriminatorValue'))); },
-            'mdeDeviceId' => function (ParseNode $n) use ($o) { $o->setMdeDeviceId($n->getStringValue()); },
-            'onboardingStatus' => function (ParseNode $n) use ($o) { $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)); },
-            'osBuild' => function (ParseNode $n) use ($o) { $o->setOsBuild($n->getIntegerValue()); },
-            'osPlatform' => function (ParseNode $n) use ($o) { $o->setOsPlatform($n->getStringValue()); },
-            'rbacGroupId' => function (ParseNode $n) use ($o) { $o->setRbacGroupId($n->getIntegerValue()); },
-            'rbacGroupName' => function (ParseNode $n) use ($o) { $o->setRbacGroupName($n->getStringValue()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getEnumValue(DeviceRiskScore::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
-            'vmMetadata' => function (ParseNode $n) use ($o) { $o->setVmMetadata($n->getObjectValue(array(VmMetadata::class, 'createFromDiscriminatorValue'))); },
+            'azureAdDeviceId' => fn(ParseNode $n) => $o->setAzureAdDeviceId($n->getStringValue()),
+            'defenderAvStatus' => fn(ParseNode $n) => $o->setDefenderAvStatus($n->getEnumValue(DefenderAvStatus::class)),
+            'deviceDnsName' => fn(ParseNode $n) => $o->setDeviceDnsName($n->getStringValue()),
+            'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(DeviceHealthStatus::class)),
+            'loggedOnUsers' => fn(ParseNode $n) => $o->setLoggedOnUsers($n->getCollectionOfObjectValues([LoggedOnUser::class, 'createFromDiscriminatorValue'])),
+            'mdeDeviceId' => fn(ParseNode $n) => $o->setMdeDeviceId($n->getStringValue()),
+            'onboardingStatus' => fn(ParseNode $n) => $o->setOnboardingStatus($n->getEnumValue(OnboardingStatus::class)),
+            'osBuild' => fn(ParseNode $n) => $o->setOsBuild($n->getIntegerValue()),
+            'osPlatform' => fn(ParseNode $n) => $o->setOsPlatform($n->getStringValue()),
+            'rbacGroupId' => fn(ParseNode $n) => $o->setRbacGroupId($n->getIntegerValue()),
+            'rbacGroupName' => fn(ParseNode $n) => $o->setRbacGroupName($n->getStringValue()),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getEnumValue(DeviceRiskScore::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
+            'vmMetadata' => fn(ParseNode $n) => $o->setVmMetadata($n->getObjectValue([VmMetadata::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -36,7 +36,7 @@ class EmbeddedSIMActivationCodeCollectionResponse extends BaseCollectionPaginati
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(EmbeddedSIMActivationCode::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([EmbeddedSIMActivationCode::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

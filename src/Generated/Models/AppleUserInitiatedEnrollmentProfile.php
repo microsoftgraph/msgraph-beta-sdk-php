@@ -126,15 +126,15 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(AppleEnrollmentProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'availableEnrollmentTypeOptions' => function (ParseNode $n) use ($o) { $o->setAvailableEnrollmentTypeOptions($n->getCollectionOfObjectValues(array(AppleOwnerTypeEnrollmentType::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'defaultEnrollmentType' => function (ParseNode $n) use ($o) { $o->setDefaultEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'platform' => function (ParseNode $n) use ($o) { $o->setPlatform($n->getEnumValue(DevicePlatformType::class)); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([AppleEnrollmentProfileAssignment::class, 'createFromDiscriminatorValue'])),
+            'availableEnrollmentTypeOptions' => fn(ParseNode $n) => $o->setAvailableEnrollmentTypeOptions($n->getCollectionOfObjectValues([AppleOwnerTypeEnrollmentType::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'defaultEnrollmentType' => fn(ParseNode $n) => $o->setDefaultEnrollmentType($n->getEnumValue(AppleUserInitiatedEnrollmentType::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'platform' => fn(ParseNode $n) => $o->setPlatform($n->getEnumValue(DevicePlatformType::class)),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
         ]);
     }
 

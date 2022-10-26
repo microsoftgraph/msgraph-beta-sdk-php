@@ -83,10 +83,10 @@ class DlpPoliciesJobResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'auditCorrelationId' => function (ParseNode $n) use ($o) { $o->setAuditCorrelationId($n->getStringValue()); },
-            'evaluationDateTime' => function (ParseNode $n) use ($o) { $o->setEvaluationDateTime($n->getDateTimeValue()); },
-            'matchingRules' => function (ParseNode $n) use ($o) { $o->setMatchingRules($n->getCollectionOfObjectValues(array(MatchingDlpRule::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'auditCorrelationId' => fn(ParseNode $n) => $o->setAuditCorrelationId($n->getStringValue()),
+            'evaluationDateTime' => fn(ParseNode $n) => $o->setEvaluationDateTime($n->getDateTimeValue()),
+            'matchingRules' => fn(ParseNode $n) => $o->setMatchingRules($n->getCollectionOfObjectValues([MatchingDlpRule::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

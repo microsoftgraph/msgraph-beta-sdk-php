@@ -97,11 +97,11 @@ class ZebraFotaDeployment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deploymentAssignments' => function (ParseNode $n) use ($o) { $o->setDeploymentAssignments($n->getCollectionOfObjectValues(array(AndroidFotaDeploymentAssignment::class, 'createFromDiscriminatorValue'))); },
-            'deploymentSettings' => function (ParseNode $n) use ($o) { $o->setDeploymentSettings($n->getObjectValue(array(ZebraFotaDeploymentSettings::class, 'createFromDiscriminatorValue'))); },
-            'deploymentStatus' => function (ParseNode $n) use ($o) { $o->setDeploymentStatus($n->getObjectValue(array(ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'deploymentAssignments' => fn(ParseNode $n) => $o->setDeploymentAssignments($n->getCollectionOfObjectValues([AndroidFotaDeploymentAssignment::class, 'createFromDiscriminatorValue'])),
+            'deploymentSettings' => fn(ParseNode $n) => $o->setDeploymentSettings($n->getObjectValue([ZebraFotaDeploymentSettings::class, 'createFromDiscriminatorValue'])),
+            'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getObjectValue([ZebraFotaDeploymentStatus::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 

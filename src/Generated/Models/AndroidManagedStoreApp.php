@@ -108,15 +108,15 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appIdentifier' => function (ParseNode $n) use ($o) { $o->setAppIdentifier($n->getStringValue()); },
-            'appStoreUrl' => function (ParseNode $n) use ($o) { $o->setAppStoreUrl($n->getStringValue()); },
-            'appTracks' => function (ParseNode $n) use ($o) { $o->setAppTracks($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppTrack::class, 'createFromDiscriminatorValue'))); },
-            'isPrivate' => function (ParseNode $n) use ($o) { $o->setIsPrivate($n->getBooleanValue()); },
-            'isSystemApp' => function (ParseNode $n) use ($o) { $o->setIsSystemApp($n->getBooleanValue()); },
-            'packageId' => function (ParseNode $n) use ($o) { $o->setPackageId($n->getStringValue()); },
-            'supportsOemConfig' => function (ParseNode $n) use ($o) { $o->setSupportsOemConfig($n->getBooleanValue()); },
-            'totalLicenseCount' => function (ParseNode $n) use ($o) { $o->setTotalLicenseCount($n->getIntegerValue()); },
-            'usedLicenseCount' => function (ParseNode $n) use ($o) { $o->setUsedLicenseCount($n->getIntegerValue()); },
+            'appIdentifier' => fn(ParseNode $n) => $o->setAppIdentifier($n->getStringValue()),
+            'appStoreUrl' => fn(ParseNode $n) => $o->setAppStoreUrl($n->getStringValue()),
+            'appTracks' => fn(ParseNode $n) => $o->setAppTracks($n->getCollectionOfObjectValues([AndroidManagedStoreAppTrack::class, 'createFromDiscriminatorValue'])),
+            'isPrivate' => fn(ParseNode $n) => $o->setIsPrivate($n->getBooleanValue()),
+            'isSystemApp' => fn(ParseNode $n) => $o->setIsSystemApp($n->getBooleanValue()),
+            'packageId' => fn(ParseNode $n) => $o->setPackageId($n->getStringValue()),
+            'supportsOemConfig' => fn(ParseNode $n) => $o->setSupportsOemConfig($n->getBooleanValue()),
+            'totalLicenseCount' => fn(ParseNode $n) => $o->setTotalLicenseCount($n->getIntegerValue()),
+            'usedLicenseCount' => fn(ParseNode $n) => $o->setUsedLicenseCount($n->getIntegerValue()),
         ]);
     }
 

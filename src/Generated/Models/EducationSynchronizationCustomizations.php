@@ -62,12 +62,12 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'school' => function (ParseNode $n) use ($o) { $o->setSchool($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
-            'section' => function (ParseNode $n) use ($o) { $o->setSection($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
-            'student' => function (ParseNode $n) use ($o) { $o->setStudent($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
-            'studentEnrollment' => function (ParseNode $n) use ($o) { $o->setStudentEnrollment($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
-            'teacher' => function (ParseNode $n) use ($o) { $o->setTeacher($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
-            'teacherRoster' => function (ParseNode $n) use ($o) { $o->setTeacherRoster($n->getObjectValue(array(EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'))); },
+            'school' => fn(ParseNode $n) => $o->setSchool($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
+            'section' => fn(ParseNode $n) => $o->setSection($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
+            'student' => fn(ParseNode $n) => $o->setStudent($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
+            'studentEnrollment' => fn(ParseNode $n) => $o->setStudentEnrollment($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
+            'teacher' => fn(ParseNode $n) => $o->setTeacher($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
+            'teacherRoster' => fn(ParseNode $n) => $o->setTeacherRoster($n->getObjectValue([EducationSynchronizationCustomization::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

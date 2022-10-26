@@ -123,13 +123,13 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedThreatProtectionAutoPopulateOnboardingBlob' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionAutoPopulateOnboardingBlob($n->getBooleanValue()); },
-            'advancedThreatProtectionOffboardingBlob' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionOffboardingBlob($n->getStringValue()); },
-            'advancedThreatProtectionOffboardingFilename' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionOffboardingFilename($n->getStringValue()); },
-            'advancedThreatProtectionOnboardingBlob' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionOnboardingBlob($n->getStringValue()); },
-            'advancedThreatProtectionOnboardingFilename' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionOnboardingFilename($n->getStringValue()); },
-            'allowSampleSharing' => function (ParseNode $n) use ($o) { $o->setAllowSampleSharing($n->getBooleanValue()); },
-            'enableExpeditedTelemetryReporting' => function (ParseNode $n) use ($o) { $o->setEnableExpeditedTelemetryReporting($n->getBooleanValue()); },
+            'advancedThreatProtectionAutoPopulateOnboardingBlob' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionAutoPopulateOnboardingBlob($n->getBooleanValue()),
+            'advancedThreatProtectionOffboardingBlob' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOffboardingBlob($n->getStringValue()),
+            'advancedThreatProtectionOffboardingFilename' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOffboardingFilename($n->getStringValue()),
+            'advancedThreatProtectionOnboardingBlob' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOnboardingBlob($n->getStringValue()),
+            'advancedThreatProtectionOnboardingFilename' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOnboardingFilename($n->getStringValue()),
+            'allowSampleSharing' => fn(ParseNode $n) => $o->setAllowSampleSharing($n->getBooleanValue()),
+            'enableExpeditedTelemetryReporting' => fn(ParseNode $n) => $o->setEnableExpeditedTelemetryReporting($n->getBooleanValue()),
         ]);
     }
 

@@ -101,15 +101,15 @@ class RestrictedAppsViolation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceConfigurationId' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationId($n->getStringValue()); },
-            'deviceConfigurationName' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationName($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)); },
-            'restrictedApps' => function (ParseNode $n) use ($o) { $o->setRestrictedApps($n->getCollectionOfObjectValues(array(ManagedDeviceReportedApp::class, 'createFromDiscriminatorValue'))); },
-            'restrictedAppsState' => function (ParseNode $n) use ($o) { $o->setRestrictedAppsState($n->getEnumValue(RestrictedAppsState::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
+            'deviceConfigurationId' => fn(ParseNode $n) => $o->setDeviceConfigurationId($n->getStringValue()),
+            'deviceConfigurationName' => fn(ParseNode $n) => $o->setDeviceConfigurationName($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(PolicyPlatformType::class)),
+            'restrictedApps' => fn(ParseNode $n) => $o->setRestrictedApps($n->getCollectionOfObjectValues([ManagedDeviceReportedApp::class, 'createFromDiscriminatorValue'])),
+            'restrictedAppsState' => fn(ParseNode $n) => $o->setRestrictedAppsState($n->getEnumValue(RestrictedAppsState::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
         ]);
     }
 

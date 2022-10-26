@@ -73,8 +73,8 @@ class MeetingInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowConversationWithoutHost' => function (ParseNode $n) use ($o) { $o->setAllowConversationWithoutHost($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowConversationWithoutHost' => fn(ParseNode $n) => $o->setAllowConversationWithoutHost($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

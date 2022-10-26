@@ -52,9 +52,9 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the content property value. Not yet documented
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -65,8 +65,8 @@ class DeviceAndAppManagementData implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

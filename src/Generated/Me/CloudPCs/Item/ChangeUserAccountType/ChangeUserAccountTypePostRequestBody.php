@@ -51,7 +51,7 @@ class ChangeUserAccountTypePostRequestBody implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'userAccountType' => function (ParseNode $n) use ($o) { $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)); },
+            'userAccountType' => fn(ParseNode $n) => $o->setUserAccountType($n->getEnumValue(CloudPcUserAccountType::class)),
         ];
     }
 

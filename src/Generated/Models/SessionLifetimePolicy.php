@@ -77,9 +77,9 @@ class SessionLifetimePolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getStringValue()); },
-            'expirationRequirement' => function (ParseNode $n) use ($o) { $o->setExpirationRequirement($n->getEnumValue(ExpirationRequirement::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getStringValue()),
+            'expirationRequirement' => fn(ParseNode $n) => $o->setExpirationRequirement($n->getEnumValue(ExpirationRequirement::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

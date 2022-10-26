@@ -59,7 +59,7 @@ class TriggerConfigurationManagerActionPostRequestBody implements AdditionalData
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'configurationManagerAction' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerAction($n->getObjectValue(array(ConfigurationManagerAction::class, 'createFromDiscriminatorValue'))); },
+            'configurationManagerAction' => fn(ParseNode $n) => $o->setConfigurationManagerAction($n->getObjectValue([ConfigurationManagerAction::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

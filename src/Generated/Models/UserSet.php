@@ -68,8 +68,8 @@ class UserSet implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isBackup' => function (ParseNode $n) use ($o) { $o->setIsBackup($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'isBackup' => fn(ParseNode $n) => $o->setIsBackup($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

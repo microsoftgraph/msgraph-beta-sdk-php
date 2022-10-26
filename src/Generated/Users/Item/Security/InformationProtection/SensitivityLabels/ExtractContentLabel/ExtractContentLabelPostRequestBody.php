@@ -59,7 +59,7 @@ class ExtractContentLabelPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentInfo' => function (ParseNode $n) use ($o) { $o->setContentInfo($n->getObjectValue(array(ContentInfo::class, 'createFromDiscriminatorValue'))); },
+            'contentInfo' => fn(ParseNode $n) => $o->setContentInfo($n->getObjectValue([ContentInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

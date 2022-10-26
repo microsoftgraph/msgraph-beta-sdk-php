@@ -125,17 +125,17 @@ class VpnTrafficRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getStringValue()); },
-            'appType' => function (ParseNode $n) use ($o) { $o->setAppType($n->getEnumValue(VpnTrafficRuleAppType::class)); },
-            'claims' => function (ParseNode $n) use ($o) { $o->setClaims($n->getStringValue()); },
-            'localAddressRanges' => function (ParseNode $n) use ($o) { $o->setLocalAddressRanges($n->getCollectionOfObjectValues(array(IPv4Range::class, 'createFromDiscriminatorValue'))); },
-            'localPortRanges' => function (ParseNode $n) use ($o) { $o->setLocalPortRanges($n->getCollectionOfObjectValues(array(NumberRange::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'protocols' => function (ParseNode $n) use ($o) { $o->setProtocols($n->getIntegerValue()); },
-            'remoteAddressRanges' => function (ParseNode $n) use ($o) { $o->setRemoteAddressRanges($n->getCollectionOfObjectValues(array(IPv4Range::class, 'createFromDiscriminatorValue'))); },
-            'remotePortRanges' => function (ParseNode $n) use ($o) { $o->setRemotePortRanges($n->getCollectionOfObjectValues(array(NumberRange::class, 'createFromDiscriminatorValue'))); },
-            'routingPolicyType' => function (ParseNode $n) use ($o) { $o->setRoutingPolicyType($n->getEnumValue(VpnTrafficRuleRoutingPolicyType::class)); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getStringValue()),
+            'appType' => fn(ParseNode $n) => $o->setAppType($n->getEnumValue(VpnTrafficRuleAppType::class)),
+            'claims' => fn(ParseNode $n) => $o->setClaims($n->getStringValue()),
+            'localAddressRanges' => fn(ParseNode $n) => $o->setLocalAddressRanges($n->getCollectionOfObjectValues([IPv4Range::class, 'createFromDiscriminatorValue'])),
+            'localPortRanges' => fn(ParseNode $n) => $o->setLocalPortRanges($n->getCollectionOfObjectValues([NumberRange::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'protocols' => fn(ParseNode $n) => $o->setProtocols($n->getIntegerValue()),
+            'remoteAddressRanges' => fn(ParseNode $n) => $o->setRemoteAddressRanges($n->getCollectionOfObjectValues([IPv4Range::class, 'createFromDiscriminatorValue'])),
+            'remotePortRanges' => fn(ParseNode $n) => $o->setRemotePortRanges($n->getCollectionOfObjectValues([NumberRange::class, 'createFromDiscriminatorValue'])),
+            'routingPolicyType' => fn(ParseNode $n) => $o->setRoutingPolicyType($n->getEnumValue(VpnTrafficRuleRoutingPolicyType::class)),
         ];
     }
 

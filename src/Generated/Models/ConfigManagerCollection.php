@@ -87,12 +87,12 @@ class ConfigManagerCollection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'collectionIdentifier' => function (ParseNode $n) use ($o) { $o->setCollectionIdentifier($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'hierarchyIdentifier' => function (ParseNode $n) use ($o) { $o->setHierarchyIdentifier($n->getStringValue()); },
-            'hierarchyName' => function (ParseNode $n) use ($o) { $o->setHierarchyName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'collectionIdentifier' => fn(ParseNode $n) => $o->setCollectionIdentifier($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'hierarchyIdentifier' => fn(ParseNode $n) => $o->setHierarchyIdentifier($n->getStringValue()),
+            'hierarchyName' => fn(ParseNode $n) => $o->setHierarchyName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

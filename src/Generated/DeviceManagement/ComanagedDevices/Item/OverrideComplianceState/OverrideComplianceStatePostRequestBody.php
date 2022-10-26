@@ -64,8 +64,8 @@ class OverrideComplianceStatePostRequestBody implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'complianceState' => function (ParseNode $n) use ($o) { $o->setComplianceState($n->getEnumValue(AdministratorConfiguredDeviceComplianceState::class)); },
-            'remediationUrl' => function (ParseNode $n) use ($o) { $o->setRemediationUrl($n->getStringValue()); },
+            'complianceState' => fn(ParseNode $n) => $o->setComplianceState($n->getEnumValue(AdministratorConfiguredDeviceComplianceState::class)),
+            'remediationUrl' => fn(ParseNode $n) => $o->setRemediationUrl($n->getStringValue()),
         ];
     }
 

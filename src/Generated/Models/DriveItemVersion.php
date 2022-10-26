@@ -38,9 +38,9 @@ class DriveItemVersion extends BaseItemVersion implements Parsable
 
     /**
      * Gets the content property value. The content property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -51,8 +51,8 @@ class DriveItemVersion extends BaseItemVersion implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
         ]);
     }
 

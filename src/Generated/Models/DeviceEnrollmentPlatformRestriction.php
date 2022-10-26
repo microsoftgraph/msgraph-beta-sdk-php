@@ -97,13 +97,13 @@ class DeviceEnrollmentPlatformRestriction implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'blockedManufacturers' => function (ParseNode $n) use ($o) { $o->setBlockedManufacturers($n->getCollectionOfPrimitiveValues()); },
-            'blockedSkus' => function (ParseNode $n) use ($o) { $o->setBlockedSkus($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'osMaximumVersion' => function (ParseNode $n) use ($o) { $o->setOsMaximumVersion($n->getStringValue()); },
-            'osMinimumVersion' => function (ParseNode $n) use ($o) { $o->setOsMinimumVersion($n->getStringValue()); },
-            'personalDeviceEnrollmentBlocked' => function (ParseNode $n) use ($o) { $o->setPersonalDeviceEnrollmentBlocked($n->getBooleanValue()); },
-            'platformBlocked' => function (ParseNode $n) use ($o) { $o->setPlatformBlocked($n->getBooleanValue()); },
+            'blockedManufacturers' => fn(ParseNode $n) => $o->setBlockedManufacturers($n->getCollectionOfPrimitiveValues()),
+            'blockedSkus' => fn(ParseNode $n) => $o->setBlockedSkus($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'osMaximumVersion' => fn(ParseNode $n) => $o->setOsMaximumVersion($n->getStringValue()),
+            'osMinimumVersion' => fn(ParseNode $n) => $o->setOsMinimumVersion($n->getStringValue()),
+            'personalDeviceEnrollmentBlocked' => fn(ParseNode $n) => $o->setPersonalDeviceEnrollmentBlocked($n->getBooleanValue()),
+            'platformBlocked' => fn(ParseNode $n) => $o->setPlatformBlocked($n->getBooleanValue()),
         ];
     }
 

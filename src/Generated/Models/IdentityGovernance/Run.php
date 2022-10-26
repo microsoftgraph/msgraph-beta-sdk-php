@@ -128,20 +128,20 @@ class Run extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'failedTasksCount' => function (ParseNode $n) use ($o) { $o->setFailedTasksCount($n->getIntegerValue()); },
-            'failedUsersCount' => function (ParseNode $n) use ($o) { $o->setFailedUsersCount($n->getIntegerValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'processingStatus' => function (ParseNode $n) use ($o) { $o->setProcessingStatus($n->getEnumValue(LifecycleWorkflowProcessingStatus::class)); },
-            'scheduledDateTime' => function (ParseNode $n) use ($o) { $o->setScheduledDateTime($n->getDateTimeValue()); },
-            'startedDateTime' => function (ParseNode $n) use ($o) { $o->setStartedDateTime($n->getDateTimeValue()); },
-            'successfulUsersCount' => function (ParseNode $n) use ($o) { $o->setSuccessfulUsersCount($n->getIntegerValue()); },
-            'taskProcessingResults' => function (ParseNode $n) use ($o) { $o->setTaskProcessingResults($n->getCollectionOfObjectValues(array(TaskProcessingResult::class, 'createFromDiscriminatorValue'))); },
-            'totalTasksCount' => function (ParseNode $n) use ($o) { $o->setTotalTasksCount($n->getIntegerValue()); },
-            'totalUnprocessedTasksCount' => function (ParseNode $n) use ($o) { $o->setTotalUnprocessedTasksCount($n->getIntegerValue()); },
-            'totalUsersCount' => function (ParseNode $n) use ($o) { $o->setTotalUsersCount($n->getIntegerValue()); },
-            'userProcessingResults' => function (ParseNode $n) use ($o) { $o->setUserProcessingResults($n->getCollectionOfObjectValues(array(UserProcessingResult::class, 'createFromDiscriminatorValue'))); },
-            'workflowExecutionType' => function (ParseNode $n) use ($o) { $o->setWorkflowExecutionType($n->getEnumValue(WorkflowExecutionType::class)); },
+            'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            'failedTasksCount' => fn(ParseNode $n) => $o->setFailedTasksCount($n->getIntegerValue()),
+            'failedUsersCount' => fn(ParseNode $n) => $o->setFailedUsersCount($n->getIntegerValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'processingStatus' => fn(ParseNode $n) => $o->setProcessingStatus($n->getEnumValue(LifecycleWorkflowProcessingStatus::class)),
+            'scheduledDateTime' => fn(ParseNode $n) => $o->setScheduledDateTime($n->getDateTimeValue()),
+            'startedDateTime' => fn(ParseNode $n) => $o->setStartedDateTime($n->getDateTimeValue()),
+            'successfulUsersCount' => fn(ParseNode $n) => $o->setSuccessfulUsersCount($n->getIntegerValue()),
+            'taskProcessingResults' => fn(ParseNode $n) => $o->setTaskProcessingResults($n->getCollectionOfObjectValues([TaskProcessingResult::class, 'createFromDiscriminatorValue'])),
+            'totalTasksCount' => fn(ParseNode $n) => $o->setTotalTasksCount($n->getIntegerValue()),
+            'totalUnprocessedTasksCount' => fn(ParseNode $n) => $o->setTotalUnprocessedTasksCount($n->getIntegerValue()),
+            'totalUsersCount' => fn(ParseNode $n) => $o->setTotalUsersCount($n->getIntegerValue()),
+            'userProcessingResults' => fn(ParseNode $n) => $o->setUserProcessingResults($n->getCollectionOfObjectValues([UserProcessingResult::class, 'createFromDiscriminatorValue'])),
+            'workflowExecutionType' => fn(ParseNode $n) => $o->setWorkflowExecutionType($n->getEnumValue(WorkflowExecutionType::class)),
         ]);
     }
 

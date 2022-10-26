@@ -67,10 +67,10 @@ class WindowsUpdateRolloutSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'offerEndDateTimeInUTC' => function (ParseNode $n) use ($o) { $o->setOfferEndDateTimeInUTC($n->getDateTimeValue()); },
-            'offerIntervalInDays' => function (ParseNode $n) use ($o) { $o->setOfferIntervalInDays($n->getIntegerValue()); },
-            'offerStartDateTimeInUTC' => function (ParseNode $n) use ($o) { $o->setOfferStartDateTimeInUTC($n->getDateTimeValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offerEndDateTimeInUTC' => fn(ParseNode $n) => $o->setOfferEndDateTimeInUTC($n->getDateTimeValue()),
+            'offerIntervalInDays' => fn(ParseNode $n) => $o->setOfferIntervalInDays($n->getIntegerValue()),
+            'offerStartDateTimeInUTC' => fn(ParseNode $n) => $o->setOfferStartDateTimeInUTC($n->getDateTimeValue()),
         ];
     }
 

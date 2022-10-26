@@ -112,17 +112,17 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceScopeName' => function (ParseNode $n) use ($o) { $o->setDeviceScopeName($n->getStringValue()); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(DeviceScopeOperator::class)); },
-            'ownerId' => function (ParseNode $n) use ($o) { $o->setOwnerId($n->getStringValue()); },
-            'parameter' => function (ParseNode $n) use ($o) { $o->setParameter($n->getEnumValue(DeviceScopeParameter::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceScopeStatus::class)); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
-            'valueObjectId' => function (ParseNode $n) use ($o) { $o->setValueObjectId($n->getStringValue()); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deviceScopeName' => fn(ParseNode $n) => $o->setDeviceScopeName($n->getStringValue()),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(DeviceScopeOperator::class)),
+            'ownerId' => fn(ParseNode $n) => $o->setOwnerId($n->getStringValue()),
+            'parameter' => fn(ParseNode $n) => $o->setParameter($n->getEnumValue(DeviceScopeParameter::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceScopeStatus::class)),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
+            'valueObjectId' => fn(ParseNode $n) => $o->setValueObjectId($n->getStringValue()),
         ]);
     }
 

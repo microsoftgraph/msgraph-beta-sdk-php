@@ -37,7 +37,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isUsableForSignIn' => function (ParseNode $n) use ($o) { $o->setIsUsableForSignIn($n->getBooleanValue()); },
+            'isUsableForSignIn' => fn(ParseNode $n) => $o->setIsUsableForSignIn($n->getBooleanValue()),
         ]);
     }
 

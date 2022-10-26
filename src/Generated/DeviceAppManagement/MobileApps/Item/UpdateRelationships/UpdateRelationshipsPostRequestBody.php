@@ -51,7 +51,7 @@ class UpdateRelationshipsPostRequestBody implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'relationships' => function (ParseNode $n) use ($o) { $o->setRelationships($n->getCollectionOfObjectValues(array(MobileAppRelationship::class, 'createFromDiscriminatorValue'))); },
+            'relationships' => fn(ParseNode $n) => $o->setRelationships($n->getCollectionOfObjectValues([MobileAppRelationship::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

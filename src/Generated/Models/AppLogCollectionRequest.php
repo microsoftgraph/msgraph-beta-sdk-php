@@ -77,10 +77,10 @@ class AppLogCollectionRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'customLogFolders' => function (ParseNode $n) use ($o) { $o->setCustomLogFolders($n->getCollectionOfPrimitiveValues()); },
-            'errorMessage' => function (ParseNode $n) use ($o) { $o->setErrorMessage($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(AppLogUploadState::class)); },
+            'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            'customLogFolders' => fn(ParseNode $n) => $o->setCustomLogFolders($n->getCollectionOfPrimitiveValues()),
+            'errorMessage' => fn(ParseNode $n) => $o->setErrorMessage($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(AppLogUploadState::class)),
         ]);
     }
 

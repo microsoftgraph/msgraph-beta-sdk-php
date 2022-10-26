@@ -69,9 +69,9 @@ class RoleAssignment implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentType' => function (ParseNode $n) use ($o) { $o->setAssignmentType($n->getEnumValue(DelegatedPrivilegeStatus::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roles' => function (ParseNode $n) use ($o) { $o->setRoles($n->getCollectionOfObjectValues(array(RoleDefinition::class, 'createFromDiscriminatorValue'))); },
+            'assignmentType' => fn(ParseNode $n) => $o->setAssignmentType($n->getEnumValue(DelegatedPrivilegeStatus::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'roles' => fn(ParseNode $n) => $o->setRoles($n->getCollectionOfObjectValues([RoleDefinition::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

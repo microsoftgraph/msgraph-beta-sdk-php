@@ -45,7 +45,7 @@ class MacOSMicrosoftEdgeApp extends MobileApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'channel' => function (ParseNode $n) use ($o) { $o->setChannel($n->getEnumValue(MicrosoftEdgeChannel::class)); },
+            'channel' => fn(ParseNode $n) => $o->setChannel($n->getEnumValue(MicrosoftEdgeChannel::class)),
         ]);
     }
 

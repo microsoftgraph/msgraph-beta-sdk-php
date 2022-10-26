@@ -45,7 +45,7 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'carrierUrl' => function (ParseNode $n) use ($o) { $o->setCarrierUrl($n->getStringValue()); },
+            'carrierUrl' => fn(ParseNode $n) => $o->setCarrierUrl($n->getStringValue()),
         ]);
     }
 

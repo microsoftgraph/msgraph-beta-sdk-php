@@ -45,7 +45,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'elementDefinitionId' => function (ParseNode $n) use ($o) { $o->setElementDefinitionId($n->getStringValue()); },
+            'elementDefinitionId' => fn(ParseNode $n) => $o->setElementDefinitionId($n->getStringValue()),
         ]);
     }
 

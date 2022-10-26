@@ -123,14 +123,14 @@ class ItemFacet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedAudiences' => function (ParseNode $n) use ($o) { $o->setAllowedAudiences($n->getEnumValue(AllowedAudiences::class)); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'inference' => function (ParseNode $n) use ($o) { $o->setInference($n->getObjectValue(array(InferenceData::class, 'createFromDiscriminatorValue'))); },
-            'isSearchable' => function (ParseNode $n) use ($o) { $o->setIsSearchable($n->getBooleanValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(PersonDataSources::class, 'createFromDiscriminatorValue'))); },
+            'allowedAudiences' => fn(ParseNode $n) => $o->setAllowedAudiences($n->getEnumValue(AllowedAudiences::class)),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'inference' => fn(ParseNode $n) => $o->setInference($n->getObjectValue([InferenceData::class, 'createFromDiscriminatorValue'])),
+            'isSearchable' => fn(ParseNode $n) => $o->setIsSearchable($n->getBooleanValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([PersonDataSources::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

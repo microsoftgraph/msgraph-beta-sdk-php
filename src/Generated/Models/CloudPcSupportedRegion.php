@@ -55,9 +55,9 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'regionStatus' => function (ParseNode $n) use ($o) { $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)); },
-            'supportedSolution' => function (ParseNode $n) use ($o) { $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'regionStatus' => fn(ParseNode $n) => $o->setRegionStatus($n->getEnumValue(CloudPcSupportedRegionStatus::class)),
+            'supportedSolution' => fn(ParseNode $n) => $o->setSupportedSolution($n->getEnumValue(CloudPcManagementService::class)),
         ]);
     }
 

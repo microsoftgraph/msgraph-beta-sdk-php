@@ -421,10 +421,10 @@ class ReportsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ReportRoot::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -590,9 +590,9 @@ class ReportsRequestBuilder
 
     /**
      * Provides operations to call the getGroupArchivedPrintJobs method.
-     * @param DateTime $endDateTime Usage: endDateTime='{endDateTime}'
+     * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param string $groupId Usage: groupId='{groupId}'
-     * @param DateTime $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
      * @return GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder
     */
     public function getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(DateTime $endDateTime, string $groupId, DateTime $startDateTime): GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder {
@@ -868,9 +868,9 @@ class ReportsRequestBuilder
 
     /**
      * Provides operations to call the getPrinterArchivedPrintJobs method.
-     * @param DateTime $endDateTime Usage: endDateTime='{endDateTime}'
+     * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
      * @param string $printerId Usage: printerId='{printerId}'
-     * @param DateTime $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
      * @return GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder
     */
     public function getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(DateTime $endDateTime, string $printerId, DateTime $startDateTime): GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder {
@@ -1311,8 +1311,8 @@ class ReportsRequestBuilder
 
     /**
      * Provides operations to call the getUserArchivedPrintJobs method.
-     * @param DateTime $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param DateTime $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime $endDateTime Usage: endDateTime={endDateTime}
+     * @param DateTime $startDateTime Usage: startDateTime={startDateTime}
      * @param string $userId Usage: userId='{userId}'
      * @return GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder
     */
@@ -1552,10 +1552,10 @@ class ReportsRequestBuilder
         $requestInfo = $this->createPatchRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(ReportRoot::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [ReportRoot::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

@@ -56,8 +56,8 @@ class AutoReviewSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'notReviewedResult' => function (ParseNode $n) use ($o) { $o->setNotReviewedResult($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'notReviewedResult' => fn(ParseNode $n) => $o->setNotReviewedResult($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

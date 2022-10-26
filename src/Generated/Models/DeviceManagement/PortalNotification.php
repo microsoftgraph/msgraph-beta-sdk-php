@@ -15,37 +15,37 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var AlertImpact|null $alertImpact The alertImpact property
+     * @var AlertImpact|null $alertImpact The associated alert impact.
     */
     private ?AlertImpact $alertImpact = null;
     
     /**
-     * @var string|null $alertRecordId The alertRecordId property
+     * @var string|null $alertRecordId The associated alert record ID.
     */
     private ?string $alertRecordId = null;
     
     /**
-     * @var string|null $alertRuleId The alertRuleId property
+     * @var string|null $alertRuleId The associated alert rule ID.
     */
     private ?string $alertRuleId = null;
     
     /**
-     * @var string|null $alertRuleName The alertRuleName property
+     * @var string|null $alertRuleName The associated alert rule name.
     */
     private ?string $alertRuleName = null;
     
     /**
-     * @var AlertRuleTemplate|null $alertRuleTemplate The alertRuleTemplate property
+     * @var AlertRuleTemplate|null $alertRuleTemplate The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     */
     private ?AlertRuleTemplate $alertRuleTemplate = null;
     
     /**
-     * @var string|null $id The id property
+     * @var string|null $id The unique identifier for the portal notification.
     */
     private ?string $id = null;
     
     /**
-     * @var bool|null $isPortalNotificationSent The isPortalNotificationSent property
+     * @var bool|null $isPortalNotificationSent If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
     */
     private ?bool $isPortalNotificationSent = null;
     
@@ -55,7 +55,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var RuleSeverityType|null $severity The severity property
+     * @var RuleSeverityType|null $severity The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     */
     private ?RuleSeverityType $severity = null;
     
@@ -85,7 +85,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertImpact property value. The alertImpact property
+     * Gets the alertImpact property value. The associated alert impact.
      * @return AlertImpact|null
     */
     public function getAlertImpact(): ?AlertImpact {
@@ -93,7 +93,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertRecordId property value. The alertRecordId property
+     * Gets the alertRecordId property value. The associated alert record ID.
      * @return string|null
     */
     public function getAlertRecordId(): ?string {
@@ -101,7 +101,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertRuleId property value. The alertRuleId property
+     * Gets the alertRuleId property value. The associated alert rule ID.
      * @return string|null
     */
     public function getAlertRuleId(): ?string {
@@ -109,7 +109,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertRuleName property value. The alertRuleName property
+     * Gets the alertRuleName property value. The associated alert rule name.
      * @return string|null
     */
     public function getAlertRuleName(): ?string {
@@ -117,7 +117,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Gets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
@@ -131,20 +131,20 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'alertImpact' => function (ParseNode $n) use ($o) { $o->setAlertImpact($n->getObjectValue(array(AlertImpact::class, 'createFromDiscriminatorValue'))); },
-            'alertRecordId' => function (ParseNode $n) use ($o) { $o->setAlertRecordId($n->getStringValue()); },
-            'alertRuleId' => function (ParseNode $n) use ($o) { $o->setAlertRuleId($n->getStringValue()); },
-            'alertRuleName' => function (ParseNode $n) use ($o) { $o->setAlertRuleName($n->getStringValue()); },
-            'alertRuleTemplate' => function (ParseNode $n) use ($o) { $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'isPortalNotificationSent' => function (ParseNode $n) use ($o) { $o->setIsPortalNotificationSent($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(RuleSeverityType::class)); },
+            'alertImpact' => fn(ParseNode $n) => $o->setAlertImpact($n->getObjectValue([AlertImpact::class, 'createFromDiscriminatorValue'])),
+            'alertRecordId' => fn(ParseNode $n) => $o->setAlertRecordId($n->getStringValue()),
+            'alertRuleId' => fn(ParseNode $n) => $o->setAlertRuleId($n->getStringValue()),
+            'alertRuleName' => fn(ParseNode $n) => $o->setAlertRuleName($n->getStringValue()),
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'isPortalNotificationSent' => fn(ParseNode $n) => $o->setIsPortalNotificationSent($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
         ];
     }
 
     /**
-     * Gets the id property value. The id property
+     * Gets the id property value. The unique identifier for the portal notification.
      * @return string|null
     */
     public function getId(): ?string {
@@ -152,7 +152,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the isPortalNotificationSent property value. The isPortalNotificationSent property
+     * Gets the isPortalNotificationSent property value. If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
      * @return bool|null
     */
     public function getIsPortalNotificationSent(): ?bool {
@@ -168,7 +168,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the severity property value. The severity property
+     * Gets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      * @return RuleSeverityType|null
     */
     public function getSeverity(): ?RuleSeverityType {
@@ -201,7 +201,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertImpact property value. The alertImpact property
+     * Sets the alertImpact property value. The associated alert impact.
      *  @param AlertImpact|null $value Value to set for the alertImpact property.
     */
     public function setAlertImpact(?AlertImpact $value ): void {
@@ -209,7 +209,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertRecordId property value. The alertRecordId property
+     * Sets the alertRecordId property value. The associated alert record ID.
      *  @param string|null $value Value to set for the alertRecordId property.
     */
     public function setAlertRecordId(?string $value ): void {
@@ -217,7 +217,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertRuleId property value. The alertRuleId property
+     * Sets the alertRuleId property value. The associated alert rule ID.
      *  @param string|null $value Value to set for the alertRuleId property.
     */
     public function setAlertRuleId(?string $value ): void {
@@ -225,7 +225,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertRuleName property value. The alertRuleName property
+     * Sets the alertRuleName property value. The associated alert rule name.
      *  @param string|null $value Value to set for the alertRuleName property.
     */
     public function setAlertRuleName(?string $value ): void {
@@ -233,7 +233,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Sets the alertRuleTemplate property value. The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value ): void {
@@ -241,7 +241,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the id property value. The id property
+     * Sets the id property value. The unique identifier for the portal notification.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -249,7 +249,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the isPortalNotificationSent property value. The isPortalNotificationSent property
+     * Sets the isPortalNotificationSent property value. If true, the portal notification has already been sent for the user; otherwise, the portal notification hasn't been sent yet.
      *  @param bool|null $value Value to set for the isPortalNotificationSent property.
     */
     public function setIsPortalNotificationSent(?bool $value ): void {
@@ -265,7 +265,7 @@ class PortalNotification implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the severity property value. The severity property
+     * Sets the severity property value. The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
      *  @param RuleSeverityType|null $value Value to set for the severity property.
     */
     public function setSeverity(?RuleSeverityType $value ): void {

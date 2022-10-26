@@ -156,21 +156,21 @@ class StrongAuthenticationPhoneAppDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationType' => function (ParseNode $n) use ($o) { $o->setAuthenticationType($n->getStringValue()); },
-            'authenticatorFlavor' => function (ParseNode $n) use ($o) { $o->setAuthenticatorFlavor($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceTag' => function (ParseNode $n) use ($o) { $o->setDeviceTag($n->getStringValue()); },
-            'deviceToken' => function (ParseNode $n) use ($o) { $o->setDeviceToken($n->getStringValue()); },
-            'hashFunction' => function (ParseNode $n) use ($o) { $o->setHashFunction($n->getStringValue()); },
-            'lastAuthenticatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastAuthenticatedDateTime($n->getDateTimeValue()); },
-            'notificationType' => function (ParseNode $n) use ($o) { $o->setNotificationType($n->getStringValue()); },
-            'oathSecretKey' => function (ParseNode $n) use ($o) { $o->setOathSecretKey($n->getStringValue()); },
-            'oathTokenMetadata' => function (ParseNode $n) use ($o) { $o->setOathTokenMetadata($n->getObjectValue(array(OathTokenMetadata::class, 'createFromDiscriminatorValue'))); },
-            'oathTokenTimeDriftInSeconds' => function (ParseNode $n) use ($o) { $o->setOathTokenTimeDriftInSeconds($n->getIntegerValue()); },
-            'phoneAppVersion' => function (ParseNode $n) use ($o) { $o->setPhoneAppVersion($n->getStringValue()); },
-            'tenantDeviceId' => function (ParseNode $n) use ($o) { $o->setTenantDeviceId($n->getStringValue()); },
-            'tokenGenerationIntervalInSeconds' => function (ParseNode $n) use ($o) { $o->setTokenGenerationIntervalInSeconds($n->getIntegerValue()); },
+            'authenticationType' => fn(ParseNode $n) => $o->setAuthenticationType($n->getStringValue()),
+            'authenticatorFlavor' => fn(ParseNode $n) => $o->setAuthenticatorFlavor($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceTag' => fn(ParseNode $n) => $o->setDeviceTag($n->getStringValue()),
+            'deviceToken' => fn(ParseNode $n) => $o->setDeviceToken($n->getStringValue()),
+            'hashFunction' => fn(ParseNode $n) => $o->setHashFunction($n->getStringValue()),
+            'lastAuthenticatedDateTime' => fn(ParseNode $n) => $o->setLastAuthenticatedDateTime($n->getDateTimeValue()),
+            'notificationType' => fn(ParseNode $n) => $o->setNotificationType($n->getStringValue()),
+            'oathSecretKey' => fn(ParseNode $n) => $o->setOathSecretKey($n->getStringValue()),
+            'oathTokenMetadata' => fn(ParseNode $n) => $o->setOathTokenMetadata($n->getObjectValue([OathTokenMetadata::class, 'createFromDiscriminatorValue'])),
+            'oathTokenTimeDriftInSeconds' => fn(ParseNode $n) => $o->setOathTokenTimeDriftInSeconds($n->getIntegerValue()),
+            'phoneAppVersion' => fn(ParseNode $n) => $o->setPhoneAppVersion($n->getStringValue()),
+            'tenantDeviceId' => fn(ParseNode $n) => $o->setTenantDeviceId($n->getStringValue()),
+            'tokenGenerationIntervalInSeconds' => fn(ParseNode $n) => $o->setTokenGenerationIntervalInSeconds($n->getIntegerValue()),
         ]);
     }
 

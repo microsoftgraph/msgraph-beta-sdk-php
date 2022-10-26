@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcUserSetting extends Entity implements Parsable 
 {
     /**
-     * @var array<CloudPcUserSettingAssignment>|null $assignments Represents the set of Microsoft 365 groups and security groups in Azure AD that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
+     * @var array<CloudPcUserSettingAssignment>|null $assignments Represents the set of Microsoft 365 groups and security groups in Azure Active Directory that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
     */
     private ?array $assignments = null;
     
@@ -45,7 +45,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     private ?bool $selfServiceEnabled = null;
     
     /**
-     * Instantiates a new cloudPcUserSetting and sets the default values.
+     * Instantiates a new CloudPcUserSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -62,7 +62,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Gets the assignments property value. Represents the set of Microsoft 365 groups and security groups in Azure AD that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
+     * Gets the assignments property value. Represents the set of Microsoft 365 groups and security groups in Azure Active Directory that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
      * @return array<CloudPcUserSettingAssignment>|null
     */
     public function getAssignments(): ?array {
@@ -92,13 +92,13 @@ class CloudPcUserSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(CloudPcUserSettingAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'localAdminEnabled' => function (ParseNode $n) use ($o) { $o->setLocalAdminEnabled($n->getBooleanValue()); },
-            'restorePointSetting' => function (ParseNode $n) use ($o) { $o->setRestorePointSetting($n->getObjectValue(array(CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'))); },
-            'selfServiceEnabled' => function (ParseNode $n) use ($o) { $o->setSelfServiceEnabled($n->getBooleanValue()); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([CloudPcUserSettingAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'localAdminEnabled' => fn(ParseNode $n) => $o->setLocalAdminEnabled($n->getBooleanValue()),
+            'restorePointSetting' => fn(ParseNode $n) => $o->setRestorePointSetting($n->getObjectValue([CloudPcRestorePointSetting::class, 'createFromDiscriminatorValue'])),
+            'selfServiceEnabled' => fn(ParseNode $n) => $o->setSelfServiceEnabled($n->getBooleanValue()),
         ]);
     }
 
@@ -150,7 +150,7 @@ class CloudPcUserSetting extends Entity implements Parsable
     }
 
     /**
-     * Sets the assignments property value. Represents the set of Microsoft 365 groups and security groups in Azure AD that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
+     * Sets the assignments property value. Represents the set of Microsoft 365 groups and security groups in Azure Active Directory that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.
      *  @param array<CloudPcUserSettingAssignment>|null $value Value to set for the assignments property.
     */
     public function setAssignments(?array $value ): void {

@@ -37,7 +37,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settingName' => function (ParseNode $n) use ($o) { $o->setSettingName($n->getStringValue()); },
+            'settingName' => fn(ParseNode $n) => $o->setSettingName($n->getStringValue()),
         ]);
     }
 

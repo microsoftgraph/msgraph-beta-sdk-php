@@ -79,11 +79,11 @@ class CloudPcAuditResource implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'modifiedProperties' => function (ParseNode $n) use ($o) { $o->setModifiedProperties($n->getCollectionOfObjectValues(array(CloudPcAuditProperty::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'modifiedProperties' => fn(ParseNode $n) => $o->setModifiedProperties($n->getCollectionOfObjectValues([CloudPcAuditProperty::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
 

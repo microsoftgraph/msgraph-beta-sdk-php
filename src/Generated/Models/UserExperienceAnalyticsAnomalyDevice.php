@@ -134,15 +134,15 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'anomalyId' => function (ParseNode $n) use ($o) { $o->setAnomalyId($n->getStringValue()); },
-            'anomalyOnDeviceFirstOccurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setAnomalyOnDeviceFirstOccurrenceDateTime($n->getDateTimeValue()); },
-            'anomalyOnDeviceLatestOccurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setAnomalyOnDeviceLatestOccurrenceDateTime($n->getDateTimeValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceManufacturer' => function (ParseNode $n) use ($o) { $o->setDeviceManufacturer($n->getStringValue()); },
-            'deviceModel' => function (ParseNode $n) use ($o) { $o->setDeviceModel($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'osName' => function (ParseNode $n) use ($o) { $o->setOsName($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'anomalyId' => fn(ParseNode $n) => $o->setAnomalyId($n->getStringValue()),
+            'anomalyOnDeviceFirstOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyOnDeviceFirstOccurrenceDateTime($n->getDateTimeValue()),
+            'anomalyOnDeviceLatestOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyOnDeviceLatestOccurrenceDateTime($n->getDateTimeValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceManufacturer' => fn(ParseNode $n) => $o->setDeviceManufacturer($n->getStringValue()),
+            'deviceModel' => fn(ParseNode $n) => $o->setDeviceModel($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'osName' => fn(ParseNode $n) => $o->setOsName($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
         ]);
     }
 

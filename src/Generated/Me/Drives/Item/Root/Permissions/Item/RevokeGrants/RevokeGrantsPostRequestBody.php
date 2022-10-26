@@ -51,7 +51,7 @@ class RevokeGrantsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'grantees' => function (ParseNode $n) use ($o) { $o->setGrantees($n->getCollectionOfObjectValues(array(DriveRecipient::class, 'createFromDiscriminatorValue'))); },
+            'grantees' => fn(ParseNode $n) => $o->setGrantees($n->getCollectionOfObjectValues([DriveRecipient::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

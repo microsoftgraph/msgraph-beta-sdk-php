@@ -42,8 +42,8 @@ class DefaultUserRoleOverride extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'rolePermissions' => function (ParseNode $n) use ($o) { $o->setRolePermissions($n->getCollectionOfObjectValues(array(UnifiedRolePermission::class, 'createFromDiscriminatorValue'))); },
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'rolePermissions' => fn(ParseNode $n) => $o->setRolePermissions($n->getCollectionOfObjectValues([UnifiedRolePermission::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

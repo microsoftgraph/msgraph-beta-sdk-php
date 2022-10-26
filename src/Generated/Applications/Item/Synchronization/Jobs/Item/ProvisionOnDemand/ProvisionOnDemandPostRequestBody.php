@@ -51,7 +51,7 @@ class ProvisionOnDemandPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'parameters' => function (ParseNode $n) use ($o) { $o->setParameters($n->getCollectionOfObjectValues(array(SynchronizationJobApplicationParameters::class, 'createFromDiscriminatorValue'))); },
+            'parameters' => fn(ParseNode $n) => $o->setParameters($n->getCollectionOfObjectValues([SynchronizationJobApplicationParameters::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -74,11 +74,11 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceOSVersion' => function (ParseNode $n) use ($o) { $o->setDeviceOSVersion($n->getStringValue()); },
-            'healthState' => function (ParseNode $n) use ($o) { $o->setHealthState($n->getEnumValue(HealthState::class)); },
-            'installedVersion' => function (ParseNode $n) use ($o) { $o->setInstalledVersion($n->getStringValue()); },
-            'lastCheckInDateTime' => function (ParseNode $n) use ($o) { $o->setLastCheckInDateTime($n->getDateTimeValue()); },
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceOSVersion' => fn(ParseNode $n) => $o->setDeviceOSVersion($n->getStringValue()),
+            'healthState' => fn(ParseNode $n) => $o->setHealthState($n->getEnumValue(HealthState::class)),
+            'installedVersion' => fn(ParseNode $n) => $o->setInstalledVersion($n->getStringValue()),
+            'lastCheckInDateTime' => fn(ParseNode $n) => $o->setLastCheckInDateTime($n->getDateTimeValue()),
         ]);
     }
 

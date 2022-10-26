@@ -64,8 +64,8 @@ class UpdatePasswordSingleSignOnCredentialsPostRequestBody implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'credentials' => function (ParseNode $n) use ($o) { $o->setCredentials($n->getCollectionOfObjectValues(array(Credential::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'credentials' => fn(ParseNode $n) => $o->setCredentials($n->getCollectionOfObjectValues([Credential::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
         ];
     }
 

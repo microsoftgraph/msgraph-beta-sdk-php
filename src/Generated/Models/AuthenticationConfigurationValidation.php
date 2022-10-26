@@ -69,9 +69,9 @@ class AuthenticationConfigurationValidation implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'errors' => function (ParseNode $n) use ($o) { $o->setErrors($n->getCollectionOfObjectValues(array(GenericError::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'warnings' => function (ParseNode $n) use ($o) { $o->setWarnings($n->getCollectionOfObjectValues(array(GenericError::class, 'createFromDiscriminatorValue'))); },
+            'errors' => fn(ParseNode $n) => $o->setErrors($n->getCollectionOfObjectValues([GenericError::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'warnings' => fn(ParseNode $n) => $o->setWarnings($n->getCollectionOfObjectValues([GenericError::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

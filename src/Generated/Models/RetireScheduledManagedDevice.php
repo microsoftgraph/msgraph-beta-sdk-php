@@ -139,18 +139,18 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'complianceState' => function (ParseNode $n) use ($o) { $o->setComplianceState($n->getEnumValue(ComplianceStatus::class)); },
-            'deviceCompliancePolicyId' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyId($n->getStringValue()); },
-            'deviceCompliancePolicyName' => function (ParseNode $n) use ($o) { $o->setDeviceCompliancePolicyName($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(DeviceType::class)); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'managedDeviceName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceName($n->getStringValue()); },
-            'managementAgent' => function (ParseNode $n) use ($o) { $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ownerType' => function (ParseNode $n) use ($o) { $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)); },
-            'retireAfterDateTime' => function (ParseNode $n) use ($o) { $o->setRetireAfterDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'complianceState' => fn(ParseNode $n) => $o->setComplianceState($n->getEnumValue(ComplianceStatus::class)),
+            'deviceCompliancePolicyId' => fn(ParseNode $n) => $o->setDeviceCompliancePolicyId($n->getStringValue()),
+            'deviceCompliancePolicyName' => fn(ParseNode $n) => $o->setDeviceCompliancePolicyName($n->getStringValue()),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(DeviceType::class)),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'managedDeviceName' => fn(ParseNode $n) => $o->setManagedDeviceName($n->getStringValue()),
+            'managementAgent' => fn(ParseNode $n) => $o->setManagementAgent($n->getEnumValue(ManagementAgentType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ownerType' => fn(ParseNode $n) => $o->setOwnerType($n->getEnumValue(ManagedDeviceOwnerType::class)),
+            'retireAfterDateTime' => fn(ParseNode $n) => $o->setRetireAfterDateTime($n->getDateTimeValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

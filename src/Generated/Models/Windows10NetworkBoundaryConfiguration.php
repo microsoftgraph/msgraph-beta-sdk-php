@@ -37,7 +37,7 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'windowsNetworkIsolationPolicy' => function (ParseNode $n) use ($o) { $o->setWindowsNetworkIsolationPolicy($n->getObjectValue(array(WindowsNetworkIsolationPolicy::class, 'createFromDiscriminatorValue'))); },
+            'windowsNetworkIsolationPolicy' => fn(ParseNode $n) => $o->setWindowsNetworkIsolationPolicy($n->getObjectValue([WindowsNetworkIsolationPolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

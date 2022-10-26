@@ -58,8 +58,8 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowsMultipleSelection' => function (ParseNode $n) use ($o) { $o->setAllowsMultipleSelection($n->getBooleanValue()); },
-            'choices' => function (ParseNode $n) use ($o) { $o->setChoices($n->getCollectionOfObjectValues(array(AccessPackageAnswerChoice::class, 'createFromDiscriminatorValue'))); },
+            'allowsMultipleSelection' => fn(ParseNode $n) => $o->setAllowsMultipleSelection($n->getBooleanValue()),
+            'choices' => fn(ParseNode $n) => $o->setChoices($n->getCollectionOfObjectValues([AccessPackageAnswerChoice::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

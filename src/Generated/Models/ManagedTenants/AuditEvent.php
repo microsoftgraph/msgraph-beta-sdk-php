@@ -131,19 +131,19 @@ class AuditEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getStringValue()); },
-            'activityDateTime' => function (ParseNode $n) use ($o) { $o->setActivityDateTime($n->getDateTimeValue()); },
-            'activityId' => function (ParseNode $n) use ($o) { $o->setActivityId($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'httpVerb' => function (ParseNode $n) use ($o) { $o->setHttpVerb($n->getStringValue()); },
-            'initiatedByAppId' => function (ParseNode $n) use ($o) { $o->setInitiatedByAppId($n->getStringValue()); },
-            'initiatedByUpn' => function (ParseNode $n) use ($o) { $o->setInitiatedByUpn($n->getStringValue()); },
-            'initiatedByUserId' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserId($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'requestBody' => function (ParseNode $n) use ($o) { $o->setRequestBody($n->getStringValue()); },
-            'requestUrl' => function (ParseNode $n) use ($o) { $o->setRequestUrl($n->getStringValue()); },
-            'tenantIds' => function (ParseNode $n) use ($o) { $o->setTenantIds($n->getStringValue()); },
-            'tenantNames' => function (ParseNode $n) use ($o) { $o->setTenantNames($n->getStringValue()); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getStringValue()),
+            'activityDateTime' => fn(ParseNode $n) => $o->setActivityDateTime($n->getDateTimeValue()),
+            'activityId' => fn(ParseNode $n) => $o->setActivityId($n->getStringValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'httpVerb' => fn(ParseNode $n) => $o->setHttpVerb($n->getStringValue()),
+            'initiatedByAppId' => fn(ParseNode $n) => $o->setInitiatedByAppId($n->getStringValue()),
+            'initiatedByUpn' => fn(ParseNode $n) => $o->setInitiatedByUpn($n->getStringValue()),
+            'initiatedByUserId' => fn(ParseNode $n) => $o->setInitiatedByUserId($n->getStringValue()),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            'requestBody' => fn(ParseNode $n) => $o->setRequestBody($n->getStringValue()),
+            'requestUrl' => fn(ParseNode $n) => $o->setRequestUrl($n->getStringValue()),
+            'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getStringValue()),
+            'tenantNames' => fn(ParseNode $n) => $o->setTenantNames($n->getStringValue()),
         ]);
     }
 

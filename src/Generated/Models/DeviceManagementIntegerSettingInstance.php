@@ -37,7 +37,7 @@ class DeviceManagementIntegerSettingInstance extends DeviceManagementSettingInst
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ]);
     }
 

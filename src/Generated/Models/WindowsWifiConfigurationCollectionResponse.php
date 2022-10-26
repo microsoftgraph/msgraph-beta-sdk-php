@@ -36,7 +36,7 @@ class WindowsWifiConfigurationCollectionResponse extends BaseCollectionPaginatio
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(WindowsWifiConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([WindowsWifiConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

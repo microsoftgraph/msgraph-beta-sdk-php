@@ -71,11 +71,11 @@ class ChromeOSDeviceProperty implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'updatable' => function (ParseNode $n) use ($o) { $o->setUpdatable($n->getBooleanValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getStringValue()); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'updatable' => fn(ParseNode $n) => $o->setUpdatable($n->getBooleanValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
+            'valueType' => fn(ParseNode $n) => $o->setValueType($n->getStringValue()),
         ];
     }
 

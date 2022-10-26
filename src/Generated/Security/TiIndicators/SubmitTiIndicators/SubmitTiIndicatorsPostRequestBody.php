@@ -51,7 +51,7 @@ class SubmitTiIndicatorsPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(TiIndicator::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([TiIndicator::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

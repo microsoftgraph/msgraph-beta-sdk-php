@@ -74,10 +74,10 @@ class BitLockerFixedDrivePolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recoveryOptions' => function (ParseNode $n) use ($o) { $o->setRecoveryOptions($n->getObjectValue(array(BitLockerRecoveryOptions::class, 'createFromDiscriminatorValue'))); },
-            'requireEncryptionForWriteAccess' => function (ParseNode $n) use ($o) { $o->setRequireEncryptionForWriteAccess($n->getBooleanValue()); },
+            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recoveryOptions' => fn(ParseNode $n) => $o->setRecoveryOptions($n->getObjectValue([BitLockerRecoveryOptions::class, 'createFromDiscriminatorValue'])),
+            'requireEncryptionForWriteAccess' => fn(ParseNode $n) => $o->setRequireEncryptionForWriteAccess($n->getBooleanValue()),
         ];
     }
 

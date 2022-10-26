@@ -74,10 +74,10 @@ class DeviceManagementApplicabilityRuleDeviceMode implements AdditionalDataHolde
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceMode' => function (ParseNode $n) use ($o) { $o->setDeviceMode($n->getEnumValue(Windows10DeviceModeType::class)); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleType' => function (ParseNode $n) use ($o) { $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)); },
+            'deviceMode' => fn(ParseNode $n) => $o->setDeviceMode($n->getEnumValue(Windows10DeviceModeType::class)),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleType' => fn(ParseNode $n) => $o->setRuleType($n->getEnumValue(DeviceManagementApplicabilityRuleType::class)),
         ];
     }
 

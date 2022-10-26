@@ -81,13 +81,13 @@ class WebApplication implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'homePageUrl' => function (ParseNode $n) use ($o) { $o->setHomePageUrl($n->getStringValue()); },
-            'implicitGrantSettings' => function (ParseNode $n) use ($o) { $o->setImplicitGrantSettings($n->getObjectValue(array(ImplicitGrantSettings::class, 'createFromDiscriminatorValue'))); },
-            'logoutUrl' => function (ParseNode $n) use ($o) { $o->setLogoutUrl($n->getStringValue()); },
-            'oauth2AllowImplicitFlow' => function (ParseNode $n) use ($o) { $o->setOauth2AllowImplicitFlow($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'redirectUris' => function (ParseNode $n) use ($o) { $o->setRedirectUris($n->getCollectionOfPrimitiveValues()); },
-            'redirectUriSettings' => function (ParseNode $n) use ($o) { $o->setRedirectUriSettings($n->getCollectionOfObjectValues(array(RedirectUriSettings::class, 'createFromDiscriminatorValue'))); },
+            'homePageUrl' => fn(ParseNode $n) => $o->setHomePageUrl($n->getStringValue()),
+            'implicitGrantSettings' => fn(ParseNode $n) => $o->setImplicitGrantSettings($n->getObjectValue([ImplicitGrantSettings::class, 'createFromDiscriminatorValue'])),
+            'logoutUrl' => fn(ParseNode $n) => $o->setLogoutUrl($n->getStringValue()),
+            'oauth2AllowImplicitFlow' => fn(ParseNode $n) => $o->setOauth2AllowImplicitFlow($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'redirectUris' => fn(ParseNode $n) => $o->setRedirectUris($n->getCollectionOfPrimitiveValues()),
+            'redirectUriSettings' => fn(ParseNode $n) => $o->setRedirectUriSettings($n->getCollectionOfObjectValues([RedirectUriSettings::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

@@ -37,7 +37,7 @@ class WindowsDeploymentSettings extends DeploymentSettings implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userExperience' => function (ParseNode $n) use ($o) { $o->setUserExperience($n->getObjectValue(array(UserExperienceSettings::class, 'createFromDiscriminatorValue'))); },
+            'userExperience' => fn(ParseNode $n) => $o->setUserExperience($n->getObjectValue([UserExperienceSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -70,9 +70,9 @@ class TeamworkConnection implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'connectionStatus' => function (ParseNode $n) use ($o) { $o->setConnectionStatus($n->getEnumValue(TeamworkConnectionStatus::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'connectionStatus' => fn(ParseNode $n) => $o->setConnectionStatus($n->getEnumValue(TeamworkConnectionStatus::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

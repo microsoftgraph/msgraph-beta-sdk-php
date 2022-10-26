@@ -56,8 +56,8 @@ class UnhideForUserPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getObjectValue(array(TeamworkUserIdentity::class, 'createFromDiscriminatorValue'))); },
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([TeamworkUserIdentity::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

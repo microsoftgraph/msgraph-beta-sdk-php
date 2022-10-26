@@ -86,12 +86,12 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'impactValue' => function (ParseNode $n) use ($o) { $o->setImpactValue($n->getFloatValue()); },
-            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'impactValue' => fn(ParseNode $n) => $o->setImpactValue($n->getFloatValue()),
+            'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
         ]);
     }
 

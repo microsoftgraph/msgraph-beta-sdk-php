@@ -37,7 +37,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfPrimitiveValues()); },
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

@@ -38,9 +38,9 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
 
     /**
      * Gets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getExampleJson(): ?StreamInterface {
+    public function getExampleJson(): StreamInterface {
         return $this->exampleJson;
     }
 
@@ -51,8 +51,8 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'exampleJson' => function (ParseNode $n) use ($o) { $o->setExampleJson($n->getBinaryContent()); },
-            'schemaItems' => function (ParseNode $n) use ($o) { $o->setSchemaItems($n->getCollectionOfObjectValues(array(AndroidForWorkAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'))); },
+            'exampleJson' => fn(ParseNode $n) => $o->setExampleJson($n->getBinaryContent()),
+            'schemaItems' => fn(ParseNode $n) => $o->setSchemaItems($n->getCollectionOfObjectValues([AndroidForWorkAppConfigurationSchemaItem::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

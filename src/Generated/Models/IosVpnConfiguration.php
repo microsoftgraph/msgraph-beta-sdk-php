@@ -103,14 +103,14 @@ class IosVpnConfiguration extends AppleVpnConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudName' => function (ParseNode $n) use ($o) { $o->setCloudName($n->getStringValue()); },
-            'derivedCredentialSettings' => function (ParseNode $n) use ($o) { $o->setDerivedCredentialSettings($n->getObjectValue(array(DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'))); },
-            'excludeList' => function (ParseNode $n) use ($o) { $o->setExcludeList($n->getCollectionOfPrimitiveValues()); },
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(IosCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'microsoftTunnelSiteId' => function (ParseNode $n) use ($o) { $o->setMicrosoftTunnelSiteId($n->getStringValue()); },
-            'strictEnforcement' => function (ParseNode $n) use ($o) { $o->setStrictEnforcement($n->getBooleanValue()); },
-            'targetedMobileApps' => function (ParseNode $n) use ($o) { $o->setTargetedMobileApps($n->getCollectionOfObjectValues(array(AppListItem::class, 'createFromDiscriminatorValue'))); },
-            'userDomain' => function (ParseNode $n) use ($o) { $o->setUserDomain($n->getStringValue()); },
+            'cloudName' => fn(ParseNode $n) => $o->setCloudName($n->getStringValue()),
+            'derivedCredentialSettings' => fn(ParseNode $n) => $o->setDerivedCredentialSettings($n->getObjectValue([DeviceManagementDerivedCredentialSettings::class, 'createFromDiscriminatorValue'])),
+            'excludeList' => fn(ParseNode $n) => $o->setExcludeList($n->getCollectionOfPrimitiveValues()),
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'microsoftTunnelSiteId' => fn(ParseNode $n) => $o->setMicrosoftTunnelSiteId($n->getStringValue()),
+            'strictEnforcement' => fn(ParseNode $n) => $o->setStrictEnforcement($n->getBooleanValue()),
+            'targetedMobileApps' => fn(ParseNode $n) => $o->setTargetedMobileApps($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
+            'userDomain' => fn(ParseNode $n) => $o->setUserDomain($n->getStringValue()),
         ]);
     }
 

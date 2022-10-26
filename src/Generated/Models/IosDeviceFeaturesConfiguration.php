@@ -123,21 +123,21 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assetTagTemplate' => function (ParseNode $n) use ($o) { $o->setAssetTagTemplate($n->getStringValue()); },
-            'contentFilterSettings' => function (ParseNode $n) use ($o) { $o->setContentFilterSettings($n->getObjectValue(array(IosWebContentFilterBase::class, 'createFromDiscriminatorValue'))); },
-            'homeScreenDockIcons' => function (ParseNode $n) use ($o) { $o->setHomeScreenDockIcons($n->getCollectionOfObjectValues(array(IosHomeScreenItem::class, 'createFromDiscriminatorValue'))); },
-            'homeScreenGridHeight' => function (ParseNode $n) use ($o) { $o->setHomeScreenGridHeight($n->getIntegerValue()); },
-            'homeScreenGridWidth' => function (ParseNode $n) use ($o) { $o->setHomeScreenGridWidth($n->getIntegerValue()); },
-            'homeScreenPages' => function (ParseNode $n) use ($o) { $o->setHomeScreenPages($n->getCollectionOfObjectValues(array(IosHomeScreenPage::class, 'createFromDiscriminatorValue'))); },
-            'identityCertificateForClientAuthentication' => function (ParseNode $n) use ($o) { $o->setIdentityCertificateForClientAuthentication($n->getObjectValue(array(IosCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'iosSingleSignOnExtension' => function (ParseNode $n) use ($o) { $o->setIosSingleSignOnExtension($n->getObjectValue(array(IosSingleSignOnExtension::class, 'createFromDiscriminatorValue'))); },
-            'lockScreenFootnote' => function (ParseNode $n) use ($o) { $o->setLockScreenFootnote($n->getStringValue()); },
-            'notificationSettings' => function (ParseNode $n) use ($o) { $o->setNotificationSettings($n->getCollectionOfObjectValues(array(IosNotificationSettings::class, 'createFromDiscriminatorValue'))); },
-            'singleSignOnExtension' => function (ParseNode $n) use ($o) { $o->setSingleSignOnExtension($n->getObjectValue(array(SingleSignOnExtension::class, 'createFromDiscriminatorValue'))); },
-            'singleSignOnExtensionPkinitCertificate' => function (ParseNode $n) use ($o) { $o->setSingleSignOnExtensionPkinitCertificate($n->getObjectValue(array(IosCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'singleSignOnSettings' => function (ParseNode $n) use ($o) { $o->setSingleSignOnSettings($n->getObjectValue(array(IosSingleSignOnSettings::class, 'createFromDiscriminatorValue'))); },
-            'wallpaperDisplayLocation' => function (ParseNode $n) use ($o) { $o->setWallpaperDisplayLocation($n->getEnumValue(IosWallpaperDisplayLocation::class)); },
-            'wallpaperImage' => function (ParseNode $n) use ($o) { $o->setWallpaperImage($n->getObjectValue(array(MimeContent::class, 'createFromDiscriminatorValue'))); },
+            'assetTagTemplate' => fn(ParseNode $n) => $o->setAssetTagTemplate($n->getStringValue()),
+            'contentFilterSettings' => fn(ParseNode $n) => $o->setContentFilterSettings($n->getObjectValue([IosWebContentFilterBase::class, 'createFromDiscriminatorValue'])),
+            'homeScreenDockIcons' => fn(ParseNode $n) => $o->setHomeScreenDockIcons($n->getCollectionOfObjectValues([IosHomeScreenItem::class, 'createFromDiscriminatorValue'])),
+            'homeScreenGridHeight' => fn(ParseNode $n) => $o->setHomeScreenGridHeight($n->getIntegerValue()),
+            'homeScreenGridWidth' => fn(ParseNode $n) => $o->setHomeScreenGridWidth($n->getIntegerValue()),
+            'homeScreenPages' => fn(ParseNode $n) => $o->setHomeScreenPages($n->getCollectionOfObjectValues([IosHomeScreenPage::class, 'createFromDiscriminatorValue'])),
+            'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'iosSingleSignOnExtension' => fn(ParseNode $n) => $o->setIosSingleSignOnExtension($n->getObjectValue([IosSingleSignOnExtension::class, 'createFromDiscriminatorValue'])),
+            'lockScreenFootnote' => fn(ParseNode $n) => $o->setLockScreenFootnote($n->getStringValue()),
+            'notificationSettings' => fn(ParseNode $n) => $o->setNotificationSettings($n->getCollectionOfObjectValues([IosNotificationSettings::class, 'createFromDiscriminatorValue'])),
+            'singleSignOnExtension' => fn(ParseNode $n) => $o->setSingleSignOnExtension($n->getObjectValue([SingleSignOnExtension::class, 'createFromDiscriminatorValue'])),
+            'singleSignOnExtensionPkinitCertificate' => fn(ParseNode $n) => $o->setSingleSignOnExtensionPkinitCertificate($n->getObjectValue([IosCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'singleSignOnSettings' => fn(ParseNode $n) => $o->setSingleSignOnSettings($n->getObjectValue([IosSingleSignOnSettings::class, 'createFromDiscriminatorValue'])),
+            'wallpaperDisplayLocation' => fn(ParseNode $n) => $o->setWallpaperDisplayLocation($n->getEnumValue(IosWallpaperDisplayLocation::class)),
+            'wallpaperImage' => fn(ParseNode $n) => $o->setWallpaperImage($n->getObjectValue([MimeContent::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

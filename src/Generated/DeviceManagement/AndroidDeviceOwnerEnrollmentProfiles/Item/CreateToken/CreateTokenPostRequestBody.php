@@ -50,7 +50,7 @@ class CreateTokenPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'tokenValidityInSeconds' => function (ParseNode $n) use ($o) { $o->setTokenValidityInSeconds($n->getIntegerValue()); },
+            'tokenValidityInSeconds' => fn(ParseNode $n) => $o->setTokenValidityInSeconds($n->getIntegerValue()),
         ];
     }
 

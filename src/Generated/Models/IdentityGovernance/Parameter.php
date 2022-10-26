@@ -66,10 +66,10 @@ class Parameter implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
-            'valueType' => function (ParseNode $n) use ($o) { $o->setValueType($n->getEnumValue(ValueType::class)); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfPrimitiveValues()),
+            'valueType' => fn(ParseNode $n) => $o->setValueType($n->getEnumValue(ValueType::class)),
         ];
     }
 

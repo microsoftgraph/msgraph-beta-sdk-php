@@ -56,8 +56,8 @@ class UserExperienceAnalyticsWindows10DevicesSummary implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'unsupportedOSversionDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnsupportedOSversionDeviceCount($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'unsupportedOSversionDeviceCount' => fn(ParseNode $n) => $o->setUnsupportedOSversionDeviceCount($n->getIntegerValue()),
         ];
     }
 

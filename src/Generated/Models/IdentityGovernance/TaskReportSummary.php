@@ -79,11 +79,11 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedTasks' => function (ParseNode $n) use ($o) { $o->setFailedTasks($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successfulTasks' => function (ParseNode $n) use ($o) { $o->setSuccessfulTasks($n->getIntegerValue()); },
-            'totalTasks' => function (ParseNode $n) use ($o) { $o->setTotalTasks($n->getIntegerValue()); },
-            'unprocessedTasks' => function (ParseNode $n) use ($o) { $o->setUnprocessedTasks($n->getIntegerValue()); },
+            'failedTasks' => fn(ParseNode $n) => $o->setFailedTasks($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successfulTasks' => fn(ParseNode $n) => $o->setSuccessfulTasks($n->getIntegerValue()),
+            'totalTasks' => fn(ParseNode $n) => $o->setTotalTasks($n->getIntegerValue()),
+            'unprocessedTasks' => fn(ParseNode $n) => $o->setUnprocessedTasks($n->getIntegerValue()),
         ];
     }
 

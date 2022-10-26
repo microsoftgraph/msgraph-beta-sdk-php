@@ -90,10 +90,10 @@ class TenantContract implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contractType' => function (ParseNode $n) use ($o) { $o->setContractType($n->getIntegerValue()); },
-            'defaultDomainName' => function (ParseNode $n) use ($o) { $o->setDefaultDomainName($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'contractType' => fn(ParseNode $n) => $o->setContractType($n->getIntegerValue()),
+            'defaultDomainName' => fn(ParseNode $n) => $o->setDefaultDomainName($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -92,12 +92,12 @@ class TeamworkDisplayConfiguration implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'configuredDisplays' => function (ParseNode $n) use ($o) { $o->setConfiguredDisplays($n->getCollectionOfObjectValues(array(TeamworkConfiguredPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'displayCount' => function (ParseNode $n) use ($o) { $o->setDisplayCount($n->getIntegerValue()); },
-            'inBuiltDisplayScreenConfiguration' => function (ParseNode $n) use ($o) { $o->setInBuiltDisplayScreenConfiguration($n->getObjectValue(array(TeamworkDisplayScreenConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'isContentDuplicationAllowed' => function (ParseNode $n) use ($o) { $o->setIsContentDuplicationAllowed($n->getBooleanValue()); },
-            'isDualDisplayModeEnabled' => function (ParseNode $n) use ($o) { $o->setIsDualDisplayModeEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'configuredDisplays' => fn(ParseNode $n) => $o->setConfiguredDisplays($n->getCollectionOfObjectValues([TeamworkConfiguredPeripheral::class, 'createFromDiscriminatorValue'])),
+            'displayCount' => fn(ParseNode $n) => $o->setDisplayCount($n->getIntegerValue()),
+            'inBuiltDisplayScreenConfiguration' => fn(ParseNode $n) => $o->setInBuiltDisplayScreenConfiguration($n->getObjectValue([TeamworkDisplayScreenConfiguration::class, 'createFromDiscriminatorValue'])),
+            'isContentDuplicationAllowed' => fn(ParseNode $n) => $o->setIsContentDuplicationAllowed($n->getBooleanValue()),
+            'isDualDisplayModeEnabled' => fn(ParseNode $n) => $o->setIsDualDisplayModeEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

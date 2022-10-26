@@ -109,15 +109,15 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedThreatProtectionOnboardingDeviceSettingStates' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionOnboardingDeviceSettingStates($n->getCollectionOfObjectValues(array(AdvancedThreatProtectionOnboardingDeviceSettingState::class, 'createFromDiscriminatorValue'))); },
-            'compliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setCompliantDeviceCount($n->getIntegerValue()); },
-            'conflictDeviceCount' => function (ParseNode $n) use ($o) { $o->setConflictDeviceCount($n->getIntegerValue()); },
-            'errorDeviceCount' => function (ParseNode $n) use ($o) { $o->setErrorDeviceCount($n->getIntegerValue()); },
-            'nonCompliantDeviceCount' => function (ParseNode $n) use ($o) { $o->setNonCompliantDeviceCount($n->getIntegerValue()); },
-            'notApplicableDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotApplicableDeviceCount($n->getIntegerValue()); },
-            'notAssignedDeviceCount' => function (ParseNode $n) use ($o) { $o->setNotAssignedDeviceCount($n->getIntegerValue()); },
-            'remediatedDeviceCount' => function (ParseNode $n) use ($o) { $o->setRemediatedDeviceCount($n->getIntegerValue()); },
-            'unknownDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnknownDeviceCount($n->getIntegerValue()); },
+            'advancedThreatProtectionOnboardingDeviceSettingStates' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionOnboardingDeviceSettingStates($n->getCollectionOfObjectValues([AdvancedThreatProtectionOnboardingDeviceSettingState::class, 'createFromDiscriminatorValue'])),
+            'compliantDeviceCount' => fn(ParseNode $n) => $o->setCompliantDeviceCount($n->getIntegerValue()),
+            'conflictDeviceCount' => fn(ParseNode $n) => $o->setConflictDeviceCount($n->getIntegerValue()),
+            'errorDeviceCount' => fn(ParseNode $n) => $o->setErrorDeviceCount($n->getIntegerValue()),
+            'nonCompliantDeviceCount' => fn(ParseNode $n) => $o->setNonCompliantDeviceCount($n->getIntegerValue()),
+            'notApplicableDeviceCount' => fn(ParseNode $n) => $o->setNotApplicableDeviceCount($n->getIntegerValue()),
+            'notAssignedDeviceCount' => fn(ParseNode $n) => $o->setNotAssignedDeviceCount($n->getIntegerValue()),
+            'remediatedDeviceCount' => fn(ParseNode $n) => $o->setRemediatedDeviceCount($n->getIntegerValue()),
+            'unknownDeviceCount' => fn(ParseNode $n) => $o->setUnknownDeviceCount($n->getIntegerValue()),
         ]);
     }
 

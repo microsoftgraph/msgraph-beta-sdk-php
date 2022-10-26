@@ -68,10 +68,10 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'check32BitOn64System' => function (ParseNode $n) use ($o) { $o->setCheck32BitOn64System($n->getBooleanValue()); },
-            'detectionType' => function (ParseNode $n) use ($o) { $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)); },
-            'keyPath' => function (ParseNode $n) use ($o) { $o->setKeyPath($n->getStringValue()); },
-            'valueName' => function (ParseNode $n) use ($o) { $o->setValueName($n->getStringValue()); },
+            'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
+            'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)),
+            'keyPath' => fn(ParseNode $n) => $o->setKeyPath($n->getStringValue()),
+            'valueName' => fn(ParseNode $n) => $o->setValueName($n->getStringValue()),
         ]);
     }
 

@@ -36,7 +36,7 @@ class IosVppAppRevokeLicensesActionResultCollectionResponse extends BaseCollecti
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(IosVppAppRevokeLicensesActionResult::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([IosVppAppRevokeLicensesActionResult::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

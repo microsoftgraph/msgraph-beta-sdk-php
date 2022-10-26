@@ -100,12 +100,12 @@ class IosSingleSignOnSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedAppsList' => function (ParseNode $n) use ($o) { $o->setAllowedAppsList($n->getCollectionOfObjectValues(array(AppListItem::class, 'createFromDiscriminatorValue'))); },
-            'allowedUrls' => function (ParseNode $n) use ($o) { $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'kerberosPrincipalName' => function (ParseNode $n) use ($o) { $o->setKerberosPrincipalName($n->getStringValue()); },
-            'kerberosRealm' => function (ParseNode $n) use ($o) { $o->setKerberosRealm($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowedAppsList' => fn(ParseNode $n) => $o->setAllowedAppsList($n->getCollectionOfObjectValues([AppListItem::class, 'createFromDiscriminatorValue'])),
+            'allowedUrls' => fn(ParseNode $n) => $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'kerberosPrincipalName' => fn(ParseNode $n) => $o->setKerberosPrincipalName($n->getStringValue()),
+            'kerberosRealm' => fn(ParseNode $n) => $o->setKerberosRealm($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

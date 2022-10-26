@@ -81,11 +81,11 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activeDirectoryDomainName' => function (ParseNode $n) use ($o) { $o->setActiveDirectoryDomainName($n->getStringValue()); },
-            'computerNameStaticPrefix' => function (ParseNode $n) use ($o) { $o->setComputerNameStaticPrefix($n->getStringValue()); },
-            'computerNameSuffixRandomCharCount' => function (ParseNode $n) use ($o) { $o->setComputerNameSuffixRandomCharCount($n->getIntegerValue()); },
-            'networkAccessConfigurations' => function (ParseNode $n) use ($o) { $o->setNetworkAccessConfigurations($n->getCollectionOfObjectValues(array(DeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'organizationalUnit' => function (ParseNode $n) use ($o) { $o->setOrganizationalUnit($n->getStringValue()); },
+            'activeDirectoryDomainName' => fn(ParseNode $n) => $o->setActiveDirectoryDomainName($n->getStringValue()),
+            'computerNameStaticPrefix' => fn(ParseNode $n) => $o->setComputerNameStaticPrefix($n->getStringValue()),
+            'computerNameSuffixRandomCharCount' => fn(ParseNode $n) => $o->setComputerNameSuffixRandomCharCount($n->getIntegerValue()),
+            'networkAccessConfigurations' => fn(ParseNode $n) => $o->setNetworkAccessConfigurations($n->getCollectionOfObjectValues([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
+            'organizationalUnit' => fn(ParseNode $n) => $o->setOrganizationalUnit($n->getStringValue()),
         ]);
     }
 

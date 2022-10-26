@@ -71,11 +71,11 @@ class ContentInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getEnumValue(ContentFormat::class)); },
-            'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ContentState::class)); },
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getEnumValue(ContentFormat::class)),
+            'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ContentState::class)),
         ];
     }
 

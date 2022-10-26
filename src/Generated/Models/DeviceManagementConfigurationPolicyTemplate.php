@@ -132,18 +132,18 @@ class DeviceManagementConfigurationPolicyTemplate extends Entity implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowUnmanagedSettings' => function (ParseNode $n) use ($o) { $o->setAllowUnmanagedSettings($n->getBooleanValue()); },
-            'baseId' => function (ParseNode $n) use ($o) { $o->setBaseId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'displayVersion' => function (ParseNode $n) use ($o) { $o->setDisplayVersion($n->getStringValue()); },
-            'lifecycleState' => function (ParseNode $n) use ($o) { $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'settingTemplateCount' => function (ParseNode $n) use ($o) { $o->setSettingTemplateCount($n->getIntegerValue()); },
-            'settingTemplates' => function (ParseNode $n) use ($o) { $o->setSettingTemplates($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'))); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
-            'templateFamily' => function (ParseNode $n) use ($o) { $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'allowUnmanagedSettings' => fn(ParseNode $n) => $o->setAllowUnmanagedSettings($n->getBooleanValue()),
+            'baseId' => fn(ParseNode $n) => $o->setBaseId($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'displayVersion' => fn(ParseNode $n) => $o->setDisplayVersion($n->getStringValue()),
+            'lifecycleState' => fn(ParseNode $n) => $o->setLifecycleState($n->getEnumValue(DeviceManagementTemplateLifecycleState::class)),
+            'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)),
+            'settingTemplateCount' => fn(ParseNode $n) => $o->setSettingTemplateCount($n->getIntegerValue()),
+            'settingTemplates' => fn(ParseNode $n) => $o->setSettingTemplates($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingTemplate::class, 'createFromDiscriminatorValue'])),
+            'technologies' => fn(ParseNode $n) => $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)),
+            'templateFamily' => fn(ParseNode $n) => $o->setTemplateFamily($n->getEnumValue(DeviceManagementConfigurationTemplateFamily::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
 

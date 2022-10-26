@@ -47,9 +47,9 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'installTimeSettings' => function (ParseNode $n) use ($o) { $o->setInstallTimeSettings($n->getObjectValue(array(WinGetAppInstallTimeSettings::class, 'createFromDiscriminatorValue'))); },
-            'notifications' => function (ParseNode $n) use ($o) { $o->setNotifications($n->getEnumValue(WinGetAppNotification::class)); },
-            'restartSettings' => function (ParseNode $n) use ($o) { $o->setRestartSettings($n->getObjectValue(array(WinGetAppRestartSettings::class, 'createFromDiscriminatorValue'))); },
+            'installTimeSettings' => fn(ParseNode $n) => $o->setInstallTimeSettings($n->getObjectValue([WinGetAppInstallTimeSettings::class, 'createFromDiscriminatorValue'])),
+            'notifications' => fn(ParseNode $n) => $o->setNotifications($n->getEnumValue(WinGetAppNotification::class)),
+            'restartSettings' => fn(ParseNode $n) => $o->setRestartSettings($n->getObjectValue([WinGetAppRestartSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

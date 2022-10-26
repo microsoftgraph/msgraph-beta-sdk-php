@@ -104,14 +104,14 @@ class TimeCard extends ChangeTrackedEntity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'breaks' => function (ParseNode $n) use ($o) { $o->setBreaks($n->getCollectionOfObjectValues(array(TimeCardBreak::class, 'createFromDiscriminatorValue'))); },
-            'clockInEvent' => function (ParseNode $n) use ($o) { $o->setClockInEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'clockOutEvent' => function (ParseNode $n) use ($o) { $o->setClockOutEvent($n->getObjectValue(array(TimeCardEvent::class, 'createFromDiscriminatorValue'))); },
-            'confirmedBy' => function (ParseNode $n) use ($o) { $o->setConfirmedBy($n->getEnumValue(ConfirmedBy::class)); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'originalEntry' => function (ParseNode $n) use ($o) { $o->setOriginalEntry($n->getObjectValue(array(TimeCardEntry::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(TimeCardState::class)); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'breaks' => fn(ParseNode $n) => $o->setBreaks($n->getCollectionOfObjectValues([TimeCardBreak::class, 'createFromDiscriminatorValue'])),
+            'clockInEvent' => fn(ParseNode $n) => $o->setClockInEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
+            'clockOutEvent' => fn(ParseNode $n) => $o->setClockOutEvent($n->getObjectValue([TimeCardEvent::class, 'createFromDiscriminatorValue'])),
+            'confirmedBy' => fn(ParseNode $n) => $o->setConfirmedBy($n->getEnumValue(ConfirmedBy::class)),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'originalEntry' => fn(ParseNode $n) => $o->setOriginalEntry($n->getObjectValue([TimeCardEntry::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(TimeCardState::class)),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

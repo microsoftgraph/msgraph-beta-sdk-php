@@ -56,9 +56,9 @@ class MarkContent extends LabelActionBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fontColor' => function (ParseNode $n) use ($o) { $o->setFontColor($n->getStringValue()); },
-            'fontSize' => function (ParseNode $n) use ($o) { $o->setFontSize($n->getIntegerValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'fontColor' => fn(ParseNode $n) => $o->setFontColor($n->getStringValue()),
+            'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ]);
     }
 

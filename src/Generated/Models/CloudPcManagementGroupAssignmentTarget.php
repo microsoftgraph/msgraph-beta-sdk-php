@@ -37,7 +37,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
+            'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
         ]);
     }
 

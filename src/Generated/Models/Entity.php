@@ -271,6 +271,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPC': return new CloudPC();
                 case '#microsoft.graph.cloudPcAuditEvent': return new CloudPcAuditEvent();
                 case '#microsoft.graph.cloudPCConnectivityIssue': return new CloudPCConnectivityIssue();
+                case '#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping': return new CloudPcCrossCloudGovernmentOrganizationMapping();
                 case '#microsoft.graph.cloudPcDeviceImage': return new CloudPcDeviceImage();
                 case '#microsoft.graph.cloudPcExportJob': return new CloudPcExportJob();
                 case '#microsoft.graph.cloudPcExternalPartnerSetting': return new CloudPcExternalPartnerSetting();
@@ -821,6 +822,13 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.managedTenants.managedDeviceCompliance': return new ManagedDeviceCompliance();
                 case '#microsoft.graph.managedTenants.managedDeviceComplianceTrend': return new ManagedDeviceComplianceTrend();
                 case '#microsoft.graph.managedTenants.managedTenant': return new ManagedTenant();
+                case '#microsoft.graph.managedTenants.managedTenantAlert': return new ManagedTenantAlert();
+                case '#microsoft.graph.managedTenants.managedTenantAlertLog': return new ManagedTenantAlertLog();
+                case '#microsoft.graph.managedTenants.managedTenantAlertRule': return new ManagedTenantAlertRule();
+                case '#microsoft.graph.managedTenants.managedTenantAlertRuleDefinition': return new ManagedTenantAlertRuleDefinition();
+                case '#microsoft.graph.managedTenants.managedTenantApiNotification': return new ManagedTenantApiNotification();
+                case '#microsoft.graph.managedTenants.managedTenantEmailNotification': return new ManagedTenantEmailNotification();
+                case '#microsoft.graph.managedTenants.managedTenantTicketingEndpoint': return new ManagedTenantTicketingEndpoint();
                 case '#microsoft.graph.managedTenants.managementAction': return new ManagementAction();
                 case '#microsoft.graph.managedTenants.managementActionTenantDeploymentStatus': return new ManagementActionTenantDeploymentStatus();
                 case '#microsoft.graph.managedTenants.managementIntent': return new ManagementIntent();
@@ -1557,8 +1565,8 @@ class Entity implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

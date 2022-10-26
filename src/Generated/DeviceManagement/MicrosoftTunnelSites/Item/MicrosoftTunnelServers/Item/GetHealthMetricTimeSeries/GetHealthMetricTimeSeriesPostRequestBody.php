@@ -69,9 +69,9 @@ class GetHealthMetricTimeSeriesPostRequestBody implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'metricName' => function (ParseNode $n) use ($o) { $o->setMetricName($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'metricName' => fn(ParseNode $n) => $o->setMetricName($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

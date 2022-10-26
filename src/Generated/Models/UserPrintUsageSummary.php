@@ -84,12 +84,12 @@ class UserPrintUsageSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'completedJobCount' => function (ParseNode $n) use ($o) { $o->setCompletedJobCount($n->getIntegerValue()); },
-            'incompleteJobCount' => function (ParseNode $n) use ($o) { $o->setIncompleteJobCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'user' => function (ParseNode $n) use ($o) { $o->setUser($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'userDisplayName' => function (ParseNode $n) use ($o) { $o->setUserDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'completedJobCount' => fn(ParseNode $n) => $o->setCompletedJobCount($n->getIntegerValue()),
+            'incompleteJobCount' => fn(ParseNode $n) => $o->setIncompleteJobCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'user' => fn(ParseNode $n) => $o->setUser($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'userDisplayName' => fn(ParseNode $n) => $o->setUserDisplayName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
 

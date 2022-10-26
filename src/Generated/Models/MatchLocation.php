@@ -61,9 +61,9 @@ class MatchLocation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'length' => function (ParseNode $n) use ($o) { $o->setLength($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'offset' => function (ParseNode $n) use ($o) { $o->setOffset($n->getIntegerValue()); },
+            'length' => fn(ParseNode $n) => $o->setLength($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'offset' => fn(ParseNode $n) => $o->setOffset($n->getIntegerValue()),
         ];
     }
 

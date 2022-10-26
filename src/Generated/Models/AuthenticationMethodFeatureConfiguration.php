@@ -74,10 +74,10 @@ class AuthenticationMethodFeatureConfiguration implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'excludeTarget' => function (ParseNode $n) use ($o) { $o->setExcludeTarget($n->getObjectValue(array(FeatureTarget::class, 'createFromDiscriminatorValue'))); },
-            'includeTarget' => function (ParseNode $n) use ($o) { $o->setIncludeTarget($n->getObjectValue(array(FeatureTarget::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(AdvancedConfigState::class)); },
+            'excludeTarget' => fn(ParseNode $n) => $o->setExcludeTarget($n->getObjectValue([FeatureTarget::class, 'createFromDiscriminatorValue'])),
+            'includeTarget' => fn(ParseNode $n) => $o->setIncludeTarget($n->getObjectValue([FeatureTarget::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(AdvancedConfigState::class)),
         ];
     }
 

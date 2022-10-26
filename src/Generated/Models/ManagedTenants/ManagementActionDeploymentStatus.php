@@ -76,12 +76,12 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managementActionId' => function (ParseNode $n) use ($o) { $o->setManagementActionId($n->getStringValue()); },
-            'managementTemplateId' => function (ParseNode $n) use ($o) { $o->setManagementTemplateId($n->getStringValue()); },
-            'managementTemplateVersion' => function (ParseNode $n) use ($o) { $o->setManagementTemplateVersion($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ManagementActionStatus::class)); },
-            'workloadActionDeploymentStatuses' => function (ParseNode $n) use ($o) { $o->setWorkloadActionDeploymentStatuses($n->getCollectionOfObjectValues(array(WorkloadActionDeploymentStatus::class, 'createFromDiscriminatorValue'))); },
+            'managementActionId' => fn(ParseNode $n) => $o->setManagementActionId($n->getStringValue()),
+            'managementTemplateId' => fn(ParseNode $n) => $o->setManagementTemplateId($n->getStringValue()),
+            'managementTemplateVersion' => fn(ParseNode $n) => $o->setManagementTemplateVersion($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ManagementActionStatus::class)),
+            'workloadActionDeploymentStatuses' => fn(ParseNode $n) => $o->setWorkloadActionDeploymentStatuses($n->getCollectionOfObjectValues([WorkloadActionDeploymentStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

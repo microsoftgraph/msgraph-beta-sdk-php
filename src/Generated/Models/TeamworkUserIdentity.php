@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var TeamworkUserIdentityType|null $userIdentityType Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * @var TeamworkUserIdentityType|null $userIdentityType Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
     */
     private ?TeamworkUserIdentityType $userIdentityType = null;
     
@@ -37,12 +37,12 @@ class TeamworkUserIdentity extends Identity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'userIdentityType' => function (ParseNode $n) use ($o) { $o->setUserIdentityType($n->getEnumValue(TeamworkUserIdentityType::class)); },
+            'userIdentityType' => fn(ParseNode $n) => $o->setUserIdentityType($n->getEnumValue(TeamworkUserIdentityType::class)),
         ]);
     }
 
     /**
-     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
      * @return TeamworkUserIdentityType|null
     */
     public function getUserIdentityType(): ?TeamworkUserIdentityType {
@@ -59,7 +59,7 @@ class TeamworkUserIdentity extends Identity implements Parsable
     }
 
     /**
-     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
+     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, emailUser and azureCommunicationServicesUser.
      *  @param TeamworkUserIdentityType|null $value Value to set for the userIdentityType property.
     */
     public function setUserIdentityType(?TeamworkUserIdentityType $value ): void {

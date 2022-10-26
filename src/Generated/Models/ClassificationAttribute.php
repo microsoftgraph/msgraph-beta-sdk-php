@@ -77,9 +77,9 @@ class ClassificationAttribute implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
+            'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

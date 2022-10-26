@@ -61,9 +61,9 @@ class PayloadTypes implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'rawContent' => function (ParseNode $n) use ($o) { $o->setRawContent($n->getStringValue()); },
-            'visualContent' => function (ParseNode $n) use ($o) { $o->setVisualContent($n->getObjectValue(array(VisualProperties::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rawContent' => fn(ParseNode $n) => $o->setRawContent($n->getStringValue()),
+            'visualContent' => fn(ParseNode $n) => $o->setVisualContent($n->getObjectValue([VisualProperties::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

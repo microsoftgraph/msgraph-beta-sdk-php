@@ -42,8 +42,8 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'settingDefinitions' => function (ParseNode $n) use ($o) { $o->setSettingDefinitions($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'))); },
-            'settingInstance' => function (ParseNode $n) use ($o) { $o->setSettingInstance($n->getObjectValue(array(DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'))); },
+            'settingDefinitions' => fn(ParseNode $n) => $o->setSettingDefinitions($n->getCollectionOfObjectValues([DeviceManagementConfigurationSettingDefinition::class, 'createFromDiscriminatorValue'])),
+            'settingInstance' => fn(ParseNode $n) => $o->setSettingInstance($n->getObjectValue([DeviceManagementConfigurationSettingInstance::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

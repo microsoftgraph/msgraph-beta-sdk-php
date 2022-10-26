@@ -37,7 +37,7 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue impl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

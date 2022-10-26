@@ -48,17 +48,17 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getBinaryContent()); },
-            'payloadFileName' => function (ParseNode $n) use ($o) { $o->setPayloadFileName($n->getStringValue()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
+            'payload' => fn(ParseNode $n) => $o->setPayload($n->getBinaryContent()),
+            'payloadFileName' => fn(ParseNode $n) => $o->setPayloadFileName($n->getStringValue()),
+            'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
         ]);
     }
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPayload(): ?StreamInterface {
+    public function getPayload(): StreamInterface {
         return $this->payload;
     }
 

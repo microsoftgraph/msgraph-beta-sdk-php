@@ -61,9 +61,9 @@ class TrustFramework implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'keySets' => function (ParseNode $n) use ($o) { $o->setKeySets($n->getCollectionOfObjectValues(array(TrustFrameworkKeySet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(TrustFrameworkPolicy::class, 'createFromDiscriminatorValue'))); },
+            'keySets' => fn(ParseNode $n) => $o->setKeySets($n->getCollectionOfObjectValues([TrustFrameworkKeySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([TrustFrameworkPolicy::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

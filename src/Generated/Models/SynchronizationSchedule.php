@@ -76,10 +76,10 @@ class SynchronizationSchedule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expiration' => function (ParseNode $n) use ($o) { $o->setExpiration($n->getDateTimeValue()); },
-            'interval' => function (ParseNode $n) use ($o) { $o->setInterval($n->getDateIntervalValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationScheduleState::class)); },
+            'expiration' => fn(ParseNode $n) => $o->setExpiration($n->getDateTimeValue()),
+            'interval' => fn(ParseNode $n) => $o->setInterval($n->getDateIntervalValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(SynchronizationScheduleState::class)),
         ];
     }
 

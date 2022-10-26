@@ -94,14 +94,14 @@ class PrinterUsageSummary implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'completedJobCount' => function (ParseNode $n) use ($o) { $o->setCompletedJobCount($n->getIntegerValue()); },
-            'incompleteJobCount' => function (ParseNode $n) use ($o) { $o->setIncompleteJobCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'printer' => function (ParseNode $n) use ($o) { $o->setPrinter($n->getObjectValue(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'printerDisplayName' => function (ParseNode $n) use ($o) { $o->setPrinterDisplayName($n->getStringValue()); },
-            'printerId' => function (ParseNode $n) use ($o) { $o->setPrinterId($n->getStringValue()); },
-            'printerManufacturer' => function (ParseNode $n) use ($o) { $o->setPrinterManufacturer($n->getStringValue()); },
-            'printerModel' => function (ParseNode $n) use ($o) { $o->setPrinterModel($n->getStringValue()); },
+            'completedJobCount' => fn(ParseNode $n) => $o->setCompletedJobCount($n->getIntegerValue()),
+            'incompleteJobCount' => fn(ParseNode $n) => $o->setIncompleteJobCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'printer' => fn(ParseNode $n) => $o->setPrinter($n->getObjectValue([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'printerDisplayName' => fn(ParseNode $n) => $o->setPrinterDisplayName($n->getStringValue()),
+            'printerId' => fn(ParseNode $n) => $o->setPrinterId($n->getStringValue()),
+            'printerManufacturer' => fn(ParseNode $n) => $o->setPrinterManufacturer($n->getStringValue()),
+            'printerModel' => fn(ParseNode $n) => $o->setPrinterModel($n->getStringValue()),
         ];
     }
 

@@ -81,11 +81,11 @@ class ItemActivityOLD extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'action' => function (ParseNode $n) use ($o) { $o->setAction($n->getObjectValue(array(ItemActionSet::class, 'createFromDiscriminatorValue'))); },
-            'actor' => function (ParseNode $n) use ($o) { $o->setActor($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'driveItem' => function (ParseNode $n) use ($o) { $o->setDriveItem($n->getObjectValue(array(DriveItem::class, 'createFromDiscriminatorValue'))); },
-            'listItem' => function (ParseNode $n) use ($o) { $o->setListItem($n->getObjectValue(array(ListItem::class, 'createFromDiscriminatorValue'))); },
-            'times' => function (ParseNode $n) use ($o) { $o->setTimes($n->getObjectValue(array(ItemActivityTimeSet::class, 'createFromDiscriminatorValue'))); },
+            'action' => fn(ParseNode $n) => $o->setAction($n->getObjectValue([ItemActionSet::class, 'createFromDiscriminatorValue'])),
+            'actor' => fn(ParseNode $n) => $o->setActor($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'driveItem' => fn(ParseNode $n) => $o->setDriveItem($n->getObjectValue([DriveItem::class, 'createFromDiscriminatorValue'])),
+            'listItem' => fn(ParseNode $n) => $o->setListItem($n->getObjectValue([ListItem::class, 'createFromDiscriminatorValue'])),
+            'times' => fn(ParseNode $n) => $o->setTimes($n->getObjectValue([ItemActivityTimeSet::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

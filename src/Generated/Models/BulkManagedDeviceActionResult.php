@@ -79,11 +79,11 @@ class BulkManagedDeviceActionResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedDeviceIds' => function (ParseNode $n) use ($o) { $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notFoundDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            'notSupportedDeviceIds' => function (ParseNode $n) use ($o) { $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successfulDeviceIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()); },
+            'failedDeviceIds' => fn(ParseNode $n) => $o->setFailedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'notFoundDeviceIds' => fn(ParseNode $n) => $o->setNotFoundDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'notSupportedDeviceIds' => fn(ParseNode $n) => $o->setNotSupportedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successfulDeviceIds' => fn(ParseNode $n) => $o->setSuccessfulDeviceIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

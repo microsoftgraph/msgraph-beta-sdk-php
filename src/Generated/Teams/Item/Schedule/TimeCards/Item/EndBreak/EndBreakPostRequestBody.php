@@ -64,8 +64,8 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'atApprovedLocation' => function (ParseNode $n) use ($o) { $o->setAtApprovedLocation($n->getBooleanValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
+            'atApprovedLocation' => fn(ParseNode $n) => $o->setAtApprovedLocation($n->getBooleanValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

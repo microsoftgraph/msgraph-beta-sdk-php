@@ -38,7 +38,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'startupDateTime' => function (ParseNode $n) use ($o) { $o->setStartupDateTime($n->getDateTimeValue()); },
+            'startupDateTime' => fn(ParseNode $n) => $o->setStartupDateTime($n->getDateTimeValue()),
         ]);
     }
 

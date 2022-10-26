@@ -94,14 +94,14 @@ class RegionalFormatOverrides implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'calendar' => function (ParseNode $n) use ($o) { $o->setCalendar($n->getStringValue()); },
-            'firstDayOfWeek' => function (ParseNode $n) use ($o) { $o->setFirstDayOfWeek($n->getStringValue()); },
-            'longDateFormat' => function (ParseNode $n) use ($o) { $o->setLongDateFormat($n->getStringValue()); },
-            'longTimeFormat' => function (ParseNode $n) use ($o) { $o->setLongTimeFormat($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'shortDateFormat' => function (ParseNode $n) use ($o) { $o->setShortDateFormat($n->getStringValue()); },
-            'shortTimeFormat' => function (ParseNode $n) use ($o) { $o->setShortTimeFormat($n->getStringValue()); },
-            'timeZone' => function (ParseNode $n) use ($o) { $o->setTimeZone($n->getStringValue()); },
+            'calendar' => fn(ParseNode $n) => $o->setCalendar($n->getStringValue()),
+            'firstDayOfWeek' => fn(ParseNode $n) => $o->setFirstDayOfWeek($n->getStringValue()),
+            'longDateFormat' => fn(ParseNode $n) => $o->setLongDateFormat($n->getStringValue()),
+            'longTimeFormat' => fn(ParseNode $n) => $o->setLongTimeFormat($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'shortDateFormat' => fn(ParseNode $n) => $o->setShortDateFormat($n->getStringValue()),
+            'shortTimeFormat' => fn(ParseNode $n) => $o->setShortTimeFormat($n->getStringValue()),
+            'timeZone' => fn(ParseNode $n) => $o->setTimeZone($n->getStringValue()),
         ];
     }
 

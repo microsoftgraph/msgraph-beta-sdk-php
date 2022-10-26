@@ -73,8 +73,8 @@ class EvaluatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'currentLabel' => function (ParseNode $n) use ($o) { $o->setCurrentLabel($n->getObjectValue(array(CurrentLabel::class, 'createFromDiscriminatorValue'))); },
-            'discoveredSensitiveTypes' => function (ParseNode $n) use ($o) { $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues(array(DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'))); },
+            'currentLabel' => fn(ParseNode $n) => $o->setCurrentLabel($n->getObjectValue([CurrentLabel::class, 'createFromDiscriminatorValue'])),
+            'discoveredSensitiveTypes' => fn(ParseNode $n) => $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues([DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

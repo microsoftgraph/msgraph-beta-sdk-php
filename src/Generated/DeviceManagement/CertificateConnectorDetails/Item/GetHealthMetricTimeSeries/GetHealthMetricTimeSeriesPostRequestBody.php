@@ -51,7 +51,7 @@ class GetHealthMetricTimeSeriesPostRequestBody implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'timeSeries' => function (ParseNode $n) use ($o) { $o->setTimeSeries($n->getObjectValue(array(TimeSeriesParameter::class, 'createFromDiscriminatorValue'))); },
+            'timeSeries' => fn(ParseNode $n) => $o->setTimeSeries($n->getObjectValue([TimeSeriesParameter::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

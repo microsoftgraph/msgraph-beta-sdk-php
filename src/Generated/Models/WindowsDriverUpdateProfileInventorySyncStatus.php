@@ -70,9 +70,9 @@ class WindowsDriverUpdateProfileInventorySyncStatus implements AdditionalDataHol
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'driverInventorySyncState' => function (ParseNode $n) use ($o) { $o->setDriverInventorySyncState($n->getEnumValue(WindowsDriverUpdateProfileInventorySyncState::class)); },
-            'lastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'driverInventorySyncState' => fn(ParseNode $n) => $o->setDriverInventorySyncState($n->getEnumValue(WindowsDriverUpdateProfileInventorySyncState::class)),
+            'lastSuccessfulSyncDateTime' => fn(ParseNode $n) => $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

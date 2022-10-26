@@ -50,7 +50,7 @@ class GetHealthMetricsPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'metricNames' => function (ParseNode $n) use ($o) { $o->setMetricNames($n->getCollectionOfPrimitiveValues()); },
+            'metricNames' => fn(ParseNode $n) => $o->setMetricNames($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -55,8 +55,8 @@ class AddMembersByIdPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'ids' => function (ParseNode $n) use ($o) { $o->setIds($n->getCollectionOfPrimitiveValues()); },
-            'memberEntityType' => function (ParseNode $n) use ($o) { $o->setMemberEntityType($n->getStringValue()); },
+            'ids' => fn(ParseNode $n) => $o->setIds($n->getCollectionOfPrimitiveValues()),
+            'memberEntityType' => fn(ParseNode $n) => $o->setMemberEntityType($n->getStringValue()),
         ];
     }
 

@@ -58,7 +58,7 @@ class CompleteSignupPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'enterpriseToken' => function (ParseNode $n) use ($o) { $o->setEnterpriseToken($n->getStringValue()); },
+            'enterpriseToken' => fn(ParseNode $n) => $o->setEnterpriseToken($n->getStringValue()),
         ];
     }
 

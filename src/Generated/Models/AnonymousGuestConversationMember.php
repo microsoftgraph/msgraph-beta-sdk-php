@@ -45,7 +45,7 @@ class AnonymousGuestConversationMember extends ConversationMember implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'anonymousGuestId' => function (ParseNode $n) use ($o) { $o->setAnonymousGuestId($n->getStringValue()); },
+            'anonymousGuestId' => fn(ParseNode $n) => $o->setAnonymousGuestId($n->getStringValue()),
         ]);
     }
 

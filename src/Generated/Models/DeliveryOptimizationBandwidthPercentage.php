@@ -42,8 +42,8 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumBackgroundBandwidthPercentage' => function (ParseNode $n) use ($o) { $o->setMaximumBackgroundBandwidthPercentage($n->getIntegerValue()); },
-            'maximumForegroundBandwidthPercentage' => function (ParseNode $n) use ($o) { $o->setMaximumForegroundBandwidthPercentage($n->getIntegerValue()); },
+            'maximumBackgroundBandwidthPercentage' => fn(ParseNode $n) => $o->setMaximumBackgroundBandwidthPercentage($n->getIntegerValue()),
+            'maximumForegroundBandwidthPercentage' => fn(ParseNode $n) => $o->setMaximumForegroundBandwidthPercentage($n->getIntegerValue()),
         ]);
     }
 

@@ -87,11 +87,11 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'attendees' => function (ParseNode $n) use ($o) { $o->setAttendees($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'contributors' => function (ParseNode $n) use ($o) { $o->setContributors($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'organizer' => function (ParseNode $n) use ($o) { $o->setOrganizer($n->getObjectValue(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
-            'producers' => function (ParseNode $n) use ($o) { $o->setProducers($n->getCollectionOfObjectValues(array(MeetingParticipantInfo::class, 'createFromDiscriminatorValue'))); },
+            'attendees' => fn(ParseNode $n) => $o->setAttendees($n->getCollectionOfObjectValues([MeetingParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            'contributors' => fn(ParseNode $n) => $o->setContributors($n->getCollectionOfObjectValues([MeetingParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'organizer' => fn(ParseNode $n) => $o->setOrganizer($n->getObjectValue([MeetingParticipantInfo::class, 'createFromDiscriminatorValue'])),
+            'producers' => fn(ParseNode $n) => $o->setProducers($n->getCollectionOfObjectValues([MeetingParticipantInfo::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

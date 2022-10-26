@@ -69,9 +69,9 @@ class UserRegistrationFeatureCount implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'feature' => function (ParseNode $n) use ($o) { $o->setFeature($n->getEnumValue(AuthenticationMethodFeature::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userCount' => function (ParseNode $n) use ($o) { $o->setUserCount($n->getIntegerValue()); },
+            'feature' => fn(ParseNode $n) => $o->setFeature($n->getEnumValue(AuthenticationMethodFeature::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userCount' => fn(ParseNode $n) => $o->setUserCount($n->getIntegerValue()),
         ];
     }
 

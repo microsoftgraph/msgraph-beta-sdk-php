@@ -70,12 +70,12 @@ class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPrese
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultValue' => function (ParseNode $n) use ($o) { $o->setDefaultValue($n->getIntegerValue()); },
-            'maxValue' => function (ParseNode $n) use ($o) { $o->setMaxValue($n->getIntegerValue()); },
-            'minValue' => function (ParseNode $n) use ($o) { $o->setMinValue($n->getIntegerValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
-            'spin' => function (ParseNode $n) use ($o) { $o->setSpin($n->getBooleanValue()); },
-            'spinStep' => function (ParseNode $n) use ($o) { $o->setSpinStep($n->getIntegerValue()); },
+            'defaultValue' => fn(ParseNode $n) => $o->setDefaultValue($n->getIntegerValue()),
+            'maxValue' => fn(ParseNode $n) => $o->setMaxValue($n->getIntegerValue()),
+            'minValue' => fn(ParseNode $n) => $o->setMinValue($n->getIntegerValue()),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
+            'spin' => fn(ParseNode $n) => $o->setSpin($n->getBooleanValue()),
+            'spinStep' => fn(ParseNode $n) => $o->setSpinStep($n->getIntegerValue()),
         ]);
     }
 

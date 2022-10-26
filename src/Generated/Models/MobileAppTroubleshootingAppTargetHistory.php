@@ -55,9 +55,9 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getStringValue()); },
-            'runState' => function (ParseNode $n) use ($o) { $o->setRunState($n->getEnumValue(RunState::class)); },
-            'securityGroupId' => function (ParseNode $n) use ($o) { $o->setSecurityGroupId($n->getStringValue()); },
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getStringValue()),
+            'runState' => fn(ParseNode $n) => $o->setRunState($n->getEnumValue(RunState::class)),
+            'securityGroupId' => fn(ParseNode $n) => $o->setSecurityGroupId($n->getStringValue()),
         ]);
     }
 

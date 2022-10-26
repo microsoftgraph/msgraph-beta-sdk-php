@@ -110,20 +110,20 @@ class WindowsIdentityProtectionConfiguration extends DeviceConfiguration impleme
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enhancedAntiSpoofingForFacialFeaturesEnabled' => function (ParseNode $n) use ($o) { $o->setEnhancedAntiSpoofingForFacialFeaturesEnabled($n->getBooleanValue()); },
-            'pinExpirationInDays' => function (ParseNode $n) use ($o) { $o->setPinExpirationInDays($n->getIntegerValue()); },
-            'pinLowercaseCharactersUsage' => function (ParseNode $n) use ($o) { $o->setPinLowercaseCharactersUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'pinMaximumLength' => function (ParseNode $n) use ($o) { $o->setPinMaximumLength($n->getIntegerValue()); },
-            'pinMinimumLength' => function (ParseNode $n) use ($o) { $o->setPinMinimumLength($n->getIntegerValue()); },
-            'pinPreviousBlockCount' => function (ParseNode $n) use ($o) { $o->setPinPreviousBlockCount($n->getIntegerValue()); },
-            'pinRecoveryEnabled' => function (ParseNode $n) use ($o) { $o->setPinRecoveryEnabled($n->getBooleanValue()); },
-            'pinSpecialCharactersUsage' => function (ParseNode $n) use ($o) { $o->setPinSpecialCharactersUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'pinUppercaseCharactersUsage' => function (ParseNode $n) use ($o) { $o->setPinUppercaseCharactersUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'securityDeviceRequired' => function (ParseNode $n) use ($o) { $o->setSecurityDeviceRequired($n->getBooleanValue()); },
-            'unlockWithBiometricsEnabled' => function (ParseNode $n) use ($o) { $o->setUnlockWithBiometricsEnabled($n->getBooleanValue()); },
-            'useCertificatesForOnPremisesAuthEnabled' => function (ParseNode $n) use ($o) { $o->setUseCertificatesForOnPremisesAuthEnabled($n->getBooleanValue()); },
-            'useSecurityKeyForSignin' => function (ParseNode $n) use ($o) { $o->setUseSecurityKeyForSignin($n->getBooleanValue()); },
-            'windowsHelloForBusinessBlocked' => function (ParseNode $n) use ($o) { $o->setWindowsHelloForBusinessBlocked($n->getBooleanValue()); },
+            'enhancedAntiSpoofingForFacialFeaturesEnabled' => fn(ParseNode $n) => $o->setEnhancedAntiSpoofingForFacialFeaturesEnabled($n->getBooleanValue()),
+            'pinExpirationInDays' => fn(ParseNode $n) => $o->setPinExpirationInDays($n->getIntegerValue()),
+            'pinLowercaseCharactersUsage' => fn(ParseNode $n) => $o->setPinLowercaseCharactersUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'pinMaximumLength' => fn(ParseNode $n) => $o->setPinMaximumLength($n->getIntegerValue()),
+            'pinMinimumLength' => fn(ParseNode $n) => $o->setPinMinimumLength($n->getIntegerValue()),
+            'pinPreviousBlockCount' => fn(ParseNode $n) => $o->setPinPreviousBlockCount($n->getIntegerValue()),
+            'pinRecoveryEnabled' => fn(ParseNode $n) => $o->setPinRecoveryEnabled($n->getBooleanValue()),
+            'pinSpecialCharactersUsage' => fn(ParseNode $n) => $o->setPinSpecialCharactersUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'pinUppercaseCharactersUsage' => fn(ParseNode $n) => $o->setPinUppercaseCharactersUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'securityDeviceRequired' => fn(ParseNode $n) => $o->setSecurityDeviceRequired($n->getBooleanValue()),
+            'unlockWithBiometricsEnabled' => fn(ParseNode $n) => $o->setUnlockWithBiometricsEnabled($n->getBooleanValue()),
+            'useCertificatesForOnPremisesAuthEnabled' => fn(ParseNode $n) => $o->setUseCertificatesForOnPremisesAuthEnabled($n->getBooleanValue()),
+            'useSecurityKeyForSignin' => fn(ParseNode $n) => $o->setUseSecurityKeyForSignin($n->getBooleanValue()),
+            'windowsHelloForBusinessBlocked' => fn(ParseNode $n) => $o->setWindowsHelloForBusinessBlocked($n->getBooleanValue()),
         ]);
     }
 

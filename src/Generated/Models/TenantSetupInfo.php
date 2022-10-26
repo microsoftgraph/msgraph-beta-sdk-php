@@ -70,12 +70,12 @@ class TenantSetupInfo extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultRolesSettings' => function (ParseNode $n) use ($o) { $o->setDefaultRolesSettings($n->getObjectValue(array(PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'))); },
-            'firstTimeSetup' => function (ParseNode $n) use ($o) { $o->setFirstTimeSetup($n->getBooleanValue()); },
-            'relevantRolesSettings' => function (ParseNode $n) use ($o) { $o->setRelevantRolesSettings($n->getCollectionOfPrimitiveValues()); },
-            'setupStatus' => function (ParseNode $n) use ($o) { $o->setSetupStatus($n->getEnumValue(SetupStatus::class)); },
-            'skipSetup' => function (ParseNode $n) use ($o) { $o->setSkipSetup($n->getBooleanValue()); },
-            'userRolesActions' => function (ParseNode $n) use ($o) { $o->setUserRolesActions($n->getStringValue()); },
+            'defaultRolesSettings' => fn(ParseNode $n) => $o->setDefaultRolesSettings($n->getObjectValue([PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'])),
+            'firstTimeSetup' => fn(ParseNode $n) => $o->setFirstTimeSetup($n->getBooleanValue()),
+            'relevantRolesSettings' => fn(ParseNode $n) => $o->setRelevantRolesSettings($n->getCollectionOfPrimitiveValues()),
+            'setupStatus' => fn(ParseNode $n) => $o->setSetupStatus($n->getEnumValue(SetupStatus::class)),
+            'skipSetup' => fn(ParseNode $n) => $o->setSkipSetup($n->getBooleanValue()),
+            'userRolesActions' => fn(ParseNode $n) => $o->setUserRolesActions($n->getStringValue()),
         ]);
     }
 

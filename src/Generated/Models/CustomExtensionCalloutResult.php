@@ -82,11 +82,11 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'calloutDateTime' => function (ParseNode $n) use ($o) { $o->setCalloutDateTime($n->getDateTimeValue()); },
-            'customExtensionId' => function (ParseNode $n) use ($o) { $o->setCustomExtensionId($n->getStringValue()); },
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'httpStatus' => function (ParseNode $n) use ($o) { $o->setHttpStatus($n->getIntegerValue()); },
-            'numberOfAttempts' => function (ParseNode $n) use ($o) { $o->setNumberOfAttempts($n->getIntegerValue()); },
+            'calloutDateTime' => fn(ParseNode $n) => $o->setCalloutDateTime($n->getDateTimeValue()),
+            'customExtensionId' => fn(ParseNode $n) => $o->setCustomExtensionId($n->getStringValue()),
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'httpStatus' => fn(ParseNode $n) => $o->setHttpStatus($n->getIntegerValue()),
+            'numberOfAttempts' => fn(ParseNode $n) => $o->setNumberOfAttempts($n->getIntegerValue()),
         ]);
     }
 

@@ -38,7 +38,7 @@ class DeletedItemContainer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'workflows' => function (ParseNode $n) use ($o) { $o->setWorkflows($n->getCollectionOfObjectValues(array(Workflow::class, 'createFromDiscriminatorValue'))); },
+            'workflows' => fn(ParseNode $n) => $o->setWorkflows($n->getCollectionOfObjectValues([Workflow::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

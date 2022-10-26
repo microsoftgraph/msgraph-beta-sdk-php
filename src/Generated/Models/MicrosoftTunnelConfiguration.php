@@ -156,21 +156,21 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedSettings' => function (ParseNode $n) use ($o) { $o->setAdvancedSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'defaultDomainSuffix' => function (ParseNode $n) use ($o) { $o->setDefaultDomainSuffix($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'disableUdpConnections' => function (ParseNode $n) use ($o) { $o->setDisableUdpConnections($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dnsServers' => function (ParseNode $n) use ($o) { $o->setDnsServers($n->getCollectionOfPrimitiveValues()); },
-            'lastUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdateDateTime($n->getDateTimeValue()); },
-            'listenPort' => function (ParseNode $n) use ($o) { $o->setListenPort($n->getIntegerValue()); },
-            'network' => function (ParseNode $n) use ($o) { $o->setNetwork($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'routeExcludes' => function (ParseNode $n) use ($o) { $o->setRouteExcludes($n->getCollectionOfPrimitiveValues()); },
-            'routeIncludes' => function (ParseNode $n) use ($o) { $o->setRouteIncludes($n->getCollectionOfPrimitiveValues()); },
-            'routesExclude' => function (ParseNode $n) use ($o) { $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()); },
-            'routesInclude' => function (ParseNode $n) use ($o) { $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()); },
-            'splitDNS' => function (ParseNode $n) use ($o) { $o->setSplitDNS($n->getCollectionOfPrimitiveValues()); },
+            'advancedSettings' => fn(ParseNode $n) => $o->setAdvancedSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'defaultDomainSuffix' => fn(ParseNode $n) => $o->setDefaultDomainSuffix($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'disableUdpConnections' => fn(ParseNode $n) => $o->setDisableUdpConnections($n->getBooleanValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'dnsServers' => fn(ParseNode $n) => $o->setDnsServers($n->getCollectionOfPrimitiveValues()),
+            'lastUpdateDateTime' => fn(ParseNode $n) => $o->setLastUpdateDateTime($n->getDateTimeValue()),
+            'listenPort' => fn(ParseNode $n) => $o->setListenPort($n->getIntegerValue()),
+            'network' => fn(ParseNode $n) => $o->setNetwork($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'routeExcludes' => fn(ParseNode $n) => $o->setRouteExcludes($n->getCollectionOfPrimitiveValues()),
+            'routeIncludes' => fn(ParseNode $n) => $o->setRouteIncludes($n->getCollectionOfPrimitiveValues()),
+            'routesExclude' => fn(ParseNode $n) => $o->setRoutesExclude($n->getCollectionOfPrimitiveValues()),
+            'routesInclude' => fn(ParseNode $n) => $o->setRoutesInclude($n->getCollectionOfPrimitiveValues()),
+            'splitDNS' => fn(ParseNode $n) => $o->setSplitDNS($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

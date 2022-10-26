@@ -96,16 +96,16 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'permanentFail' => function (ParseNode $n) use ($o) { $o->setPermanentFail($n->getIntegerValue()); },
-            'permanentSuccess' => function (ParseNode $n) use ($o) { $o->setPermanentSuccess($n->getIntegerValue()); },
-            'removeFail' => function (ParseNode $n) use ($o) { $o->setRemoveFail($n->getIntegerValue()); },
-            'removeSuccess' => function (ParseNode $n) use ($o) { $o->setRemoveSuccess($n->getIntegerValue()); },
-            'roleId' => function (ParseNode $n) use ($o) { $o->setRoleId($n->getStringValue()); },
-            'roleName' => function (ParseNode $n) use ($o) { $o->setRoleName($n->getStringValue()); },
-            'temporaryFail' => function (ParseNode $n) use ($o) { $o->setTemporaryFail($n->getIntegerValue()); },
-            'temporarySuccess' => function (ParseNode $n) use ($o) { $o->setTemporarySuccess($n->getIntegerValue()); },
-            'unknownFail' => function (ParseNode $n) use ($o) { $o->setUnknownFail($n->getIntegerValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'permanentFail' => fn(ParseNode $n) => $o->setPermanentFail($n->getIntegerValue()),
+            'permanentSuccess' => fn(ParseNode $n) => $o->setPermanentSuccess($n->getIntegerValue()),
+            'removeFail' => fn(ParseNode $n) => $o->setRemoveFail($n->getIntegerValue()),
+            'removeSuccess' => fn(ParseNode $n) => $o->setRemoveSuccess($n->getIntegerValue()),
+            'roleId' => fn(ParseNode $n) => $o->setRoleId($n->getStringValue()),
+            'roleName' => fn(ParseNode $n) => $o->setRoleName($n->getStringValue()),
+            'temporaryFail' => fn(ParseNode $n) => $o->setTemporaryFail($n->getIntegerValue()),
+            'temporarySuccess' => fn(ParseNode $n) => $o->setTemporarySuccess($n->getIntegerValue()),
+            'unknownFail' => fn(ParseNode $n) => $o->setUnknownFail($n->getIntegerValue()),
         ];
     }
 

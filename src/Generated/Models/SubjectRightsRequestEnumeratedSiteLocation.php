@@ -37,7 +37,7 @@ class SubjectRightsRequestEnumeratedSiteLocation extends SubjectRightsRequestSit
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'urls' => function (ParseNode $n) use ($o) { $o->setUrls($n->getCollectionOfPrimitiveValues()); },
+            'urls' => fn(ParseNode $n) => $o->setUrls($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

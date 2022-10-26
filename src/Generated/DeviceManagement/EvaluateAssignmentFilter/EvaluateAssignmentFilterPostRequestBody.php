@@ -59,7 +59,7 @@ class EvaluateAssignmentFilterPostRequestBody implements AdditionalDataHolder, P
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getObjectValue(array(AssignmentFilterEvaluateRequest::class, 'createFromDiscriminatorValue'))); },
+            'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([AssignmentFilterEvaluateRequest::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

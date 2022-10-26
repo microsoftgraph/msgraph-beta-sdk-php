@@ -79,10 +79,10 @@ class ReviewSet extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'queries' => function (ParseNode $n) use ($o) { $o->setQueries($n->getCollectionOfObjectValues(array(ReviewSetQuery::class, 'createFromDiscriminatorValue'))); },
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'queries' => fn(ParseNode $n) => $o->setQueries($n->getCollectionOfObjectValues([ReviewSetQuery::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

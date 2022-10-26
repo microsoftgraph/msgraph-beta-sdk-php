@@ -42,8 +42,8 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'unit' => function (ParseNode $n) use ($o) { $o->setUnit($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getFloatValue()); },
+            'unit' => fn(ParseNode $n) => $o->setUnit($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getFloatValue()),
         ]);
     }
 

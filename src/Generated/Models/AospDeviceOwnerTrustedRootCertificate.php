@@ -51,16 +51,16 @@ class AospDeviceOwnerTrustedRootCertificate extends DeviceConfiguration implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certFileName' => function (ParseNode $n) use ($o) { $o->setCertFileName($n->getStringValue()); },
-            'trustedRootCertificate' => function (ParseNode $n) use ($o) { $o->setTrustedRootCertificate($n->getBinaryContent()); },
+            'certFileName' => fn(ParseNode $n) => $o->setCertFileName($n->getStringValue()),
+            'trustedRootCertificate' => fn(ParseNode $n) => $o->setTrustedRootCertificate($n->getBinaryContent()),
         ]);
     }
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getTrustedRootCertificate(): ?StreamInterface {
+    public function getTrustedRootCertificate(): StreamInterface {
         return $this->trustedRootCertificate;
     }
 

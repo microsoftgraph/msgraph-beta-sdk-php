@@ -79,11 +79,11 @@ class CloudPcSourceDeviceImage implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'subscriptionDisplayName' => function (ParseNode $n) use ($o) { $o->setSubscriptionDisplayName($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'subscriptionDisplayName' => fn(ParseNode $n) => $o->setSubscriptionDisplayName($n->getStringValue()),
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
         ];
     }
 

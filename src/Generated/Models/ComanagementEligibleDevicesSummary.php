@@ -100,12 +100,12 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'comanagedCount' => function (ParseNode $n) use ($o) { $o->setComanagedCount($n->getIntegerValue()); },
-            'eligibleButNotAzureAdJoinedCount' => function (ParseNode $n) use ($o) { $o->setEligibleButNotAzureAdJoinedCount($n->getIntegerValue()); },
-            'eligibleCount' => function (ParseNode $n) use ($o) { $o->setEligibleCount($n->getIntegerValue()); },
-            'ineligibleCount' => function (ParseNode $n) use ($o) { $o->setIneligibleCount($n->getIntegerValue()); },
-            'needsOsUpdateCount' => function (ParseNode $n) use ($o) { $o->setNeedsOsUpdateCount($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'comanagedCount' => fn(ParseNode $n) => $o->setComanagedCount($n->getIntegerValue()),
+            'eligibleButNotAzureAdJoinedCount' => fn(ParseNode $n) => $o->setEligibleButNotAzureAdJoinedCount($n->getIntegerValue()),
+            'eligibleCount' => fn(ParseNode $n) => $o->setEligibleCount($n->getIntegerValue()),
+            'ineligibleCount' => fn(ParseNode $n) => $o->setIneligibleCount($n->getIntegerValue()),
+            'needsOsUpdateCount' => fn(ParseNode $n) => $o->setNeedsOsUpdateCount($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

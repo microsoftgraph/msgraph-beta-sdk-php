@@ -45,7 +45,7 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appXPackageInformationList' => function (ParseNode $n) use ($o) { $o->setAppXPackageInformationList($n->getCollectionOfObjectValues(array(WindowsPackageInformation::class, 'createFromDiscriminatorValue'))); },
+            'appXPackageInformationList' => fn(ParseNode $n) => $o->setAppXPackageInformationList($n->getCollectionOfObjectValues([WindowsPackageInformation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

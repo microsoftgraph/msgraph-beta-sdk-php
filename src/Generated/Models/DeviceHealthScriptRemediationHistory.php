@@ -62,9 +62,9 @@ class DeviceHealthScriptRemediationHistory implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'historyData' => function (ParseNode $n) use ($o) { $o->setHistoryData($n->getCollectionOfObjectValues(array(DeviceHealthScriptRemediationHistoryData::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'historyData' => fn(ParseNode $n) => $o->setHistoryData($n->getCollectionOfObjectValues([DeviceHealthScriptRemediationHistoryData::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

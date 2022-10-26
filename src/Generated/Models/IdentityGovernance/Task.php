@@ -127,15 +127,15 @@ class Task extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'arguments' => function (ParseNode $n) use ($o) { $o->setArguments($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(LifecycleTaskCategory::class)); },
-            'continueOnError' => function (ParseNode $n) use ($o) { $o->setContinueOnError($n->getBooleanValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'executionSequence' => function (ParseNode $n) use ($o) { $o->setExecutionSequence($n->getIntegerValue()); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'taskDefinitionId' => function (ParseNode $n) use ($o) { $o->setTaskDefinitionId($n->getStringValue()); },
-            'taskProcessingResults' => function (ParseNode $n) use ($o) { $o->setTaskProcessingResults($n->getCollectionOfObjectValues(array(TaskProcessingResult::class, 'createFromDiscriminatorValue'))); },
+            'arguments' => fn(ParseNode $n) => $o->setArguments($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(LifecycleTaskCategory::class)),
+            'continueOnError' => fn(ParseNode $n) => $o->setContinueOnError($n->getBooleanValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'executionSequence' => fn(ParseNode $n) => $o->setExecutionSequence($n->getIntegerValue()),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'taskDefinitionId' => fn(ParseNode $n) => $o->setTaskDefinitionId($n->getStringValue()),
+            'taskProcessingResults' => fn(ParseNode $n) => $o->setTaskProcessingResults($n->getCollectionOfObjectValues([TaskProcessingResult::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

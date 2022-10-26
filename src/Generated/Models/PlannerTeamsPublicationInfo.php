@@ -77,12 +77,12 @@ class PlannerTeamsPublicationInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'publicationId' => function (ParseNode $n) use ($o) { $o->setPublicationId($n->getStringValue()); },
-            'publishedToPlanId' => function (ParseNode $n) use ($o) { $o->setPublishedToPlanId($n->getStringValue()); },
-            'publishingTeamId' => function (ParseNode $n) use ($o) { $o->setPublishingTeamId($n->getStringValue()); },
-            'publishingTeamName' => function (ParseNode $n) use ($o) { $o->setPublishingTeamName($n->getStringValue()); },
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'publicationId' => fn(ParseNode $n) => $o->setPublicationId($n->getStringValue()),
+            'publishedToPlanId' => fn(ParseNode $n) => $o->setPublishedToPlanId($n->getStringValue()),
+            'publishingTeamId' => fn(ParseNode $n) => $o->setPublishingTeamId($n->getStringValue()),
+            'publishingTeamName' => fn(ParseNode $n) => $o->setPublishingTeamName($n->getStringValue()),
         ];
     }
 

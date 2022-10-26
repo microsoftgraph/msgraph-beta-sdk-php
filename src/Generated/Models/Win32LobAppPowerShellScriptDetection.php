@@ -55,9 +55,9 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enforceSignatureCheck' => function (ParseNode $n) use ($o) { $o->setEnforceSignatureCheck($n->getBooleanValue()); },
-            'runAs32Bit' => function (ParseNode $n) use ($o) { $o->setRunAs32Bit($n->getBooleanValue()); },
-            'scriptContent' => function (ParseNode $n) use ($o) { $o->setScriptContent($n->getStringValue()); },
+            'enforceSignatureCheck' => fn(ParseNode $n) => $o->setEnforceSignatureCheck($n->getBooleanValue()),
+            'runAs32Bit' => fn(ParseNode $n) => $o->setRunAs32Bit($n->getBooleanValue()),
+            'scriptContent' => fn(ParseNode $n) => $o->setScriptContent($n->getStringValue()),
         ]);
     }
 

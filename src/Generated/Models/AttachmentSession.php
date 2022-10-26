@@ -44,9 +44,9 @@ class AttachmentSession extends Entity implements Parsable
 
     /**
      * Gets the content property value. The content streams that are uploaded.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -65,9 +65,9 @@ class AttachmentSession extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'nextExpectedRanges' => function (ParseNode $n) use ($o) { $o->setNextExpectedRanges($n->getCollectionOfPrimitiveValues()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'nextExpectedRanges' => fn(ParseNode $n) => $o->setNextExpectedRanges($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

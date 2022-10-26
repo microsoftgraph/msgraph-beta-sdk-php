@@ -45,7 +45,7 @@ class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementCo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'enrollmentTypes' => function (ParseNode $n) use ($o) { $o->setEnrollmentTypes($n->getCollectionOfPrimitiveValues()); },
+            'enrollmentTypes' => fn(ParseNode $n) => $o->setEnrollmentTypes($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

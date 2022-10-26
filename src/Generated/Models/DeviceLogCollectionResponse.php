@@ -89,14 +89,14 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'errorCode' => function (ParseNode $n) use ($o) { $o->setErrorCode($n->getIntegerValue()); },
-            'expirationDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setExpirationDateTimeUTC($n->getDateTimeValue()); },
-            'initiatedByUserPrincipalName' => function (ParseNode $n) use ($o) { $o->setInitiatedByUserPrincipalName($n->getStringValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'receivedDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setReceivedDateTimeUTC($n->getDateTimeValue()); },
-            'requestedDateTimeUTC' => function (ParseNode $n) use ($o) { $o->setRequestedDateTimeUTC($n->getDateTimeValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getFloatValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
+            'expirationDateTimeUTC' => fn(ParseNode $n) => $o->setExpirationDateTimeUTC($n->getDateTimeValue()),
+            'initiatedByUserPrincipalName' => fn(ParseNode $n) => $o->setInitiatedByUserPrincipalName($n->getStringValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'receivedDateTimeUTC' => fn(ParseNode $n) => $o->setReceivedDateTimeUTC($n->getDateTimeValue()),
+            'requestedDateTimeUTC' => fn(ParseNode $n) => $o->setRequestedDateTimeUTC($n->getDateTimeValue()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getFloatValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
     }
 

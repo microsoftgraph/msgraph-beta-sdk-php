@@ -153,22 +153,22 @@ class DepOnboardingSetting extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appleIdentifier' => function (ParseNode $n) use ($o) { $o->setAppleIdentifier($n->getStringValue()); },
-            'dataSharingConsentGranted' => function (ParseNode $n) use ($o) { $o->setDataSharingConsentGranted($n->getBooleanValue()); },
-            'defaultIosEnrollmentProfile' => function (ParseNode $n) use ($o) { $o->setDefaultIosEnrollmentProfile($n->getObjectValue(array(DepIOSEnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'defaultMacOsEnrollmentProfile' => function (ParseNode $n) use ($o) { $o->setDefaultMacOsEnrollmentProfile($n->getObjectValue(array(DepMacOSEnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'enrollmentProfiles' => function (ParseNode $n) use ($o) { $o->setEnrollmentProfiles($n->getCollectionOfObjectValues(array(EnrollmentProfile::class, 'createFromDiscriminatorValue'))); },
-            'importedAppleDeviceIdentities' => function (ParseNode $n) use ($o) { $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues(array(ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'lastSuccessfulSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()); },
-            'lastSyncErrorCode' => function (ParseNode $n) use ($o) { $o->setLastSyncErrorCode($n->getIntegerValue()); },
-            'lastSyncTriggeredDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncTriggeredDateTime($n->getDateTimeValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'shareTokenWithSchoolDataSyncService' => function (ParseNode $n) use ($o) { $o->setShareTokenWithSchoolDataSyncService($n->getBooleanValue()); },
-            'syncedDeviceCount' => function (ParseNode $n) use ($o) { $o->setSyncedDeviceCount($n->getIntegerValue()); },
-            'tokenExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setTokenExpirationDateTime($n->getDateTimeValue()); },
-            'tokenName' => function (ParseNode $n) use ($o) { $o->setTokenName($n->getStringValue()); },
-            'tokenType' => function (ParseNode $n) use ($o) { $o->setTokenType($n->getEnumValue(DepTokenType::class)); },
+            'appleIdentifier' => fn(ParseNode $n) => $o->setAppleIdentifier($n->getStringValue()),
+            'dataSharingConsentGranted' => fn(ParseNode $n) => $o->setDataSharingConsentGranted($n->getBooleanValue()),
+            'defaultIosEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultIosEnrollmentProfile($n->getObjectValue([DepIOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
+            'defaultMacOsEnrollmentProfile' => fn(ParseNode $n) => $o->setDefaultMacOsEnrollmentProfile($n->getObjectValue([DepMacOSEnrollmentProfile::class, 'createFromDiscriminatorValue'])),
+            'enrollmentProfiles' => fn(ParseNode $n) => $o->setEnrollmentProfiles($n->getCollectionOfObjectValues([EnrollmentProfile::class, 'createFromDiscriminatorValue'])),
+            'importedAppleDeviceIdentities' => fn(ParseNode $n) => $o->setImportedAppleDeviceIdentities($n->getCollectionOfObjectValues([ImportedAppleDeviceIdentity::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'lastSuccessfulSyncDateTime' => fn(ParseNode $n) => $o->setLastSuccessfulSyncDateTime($n->getDateTimeValue()),
+            'lastSyncErrorCode' => fn(ParseNode $n) => $o->setLastSyncErrorCode($n->getIntegerValue()),
+            'lastSyncTriggeredDateTime' => fn(ParseNode $n) => $o->setLastSyncTriggeredDateTime($n->getDateTimeValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'shareTokenWithSchoolDataSyncService' => fn(ParseNode $n) => $o->setShareTokenWithSchoolDataSyncService($n->getBooleanValue()),
+            'syncedDeviceCount' => fn(ParseNode $n) => $o->setSyncedDeviceCount($n->getIntegerValue()),
+            'tokenExpirationDateTime' => fn(ParseNode $n) => $o->setTokenExpirationDateTime($n->getDateTimeValue()),
+            'tokenName' => fn(ParseNode $n) => $o->setTokenName($n->getStringValue()),
+            'tokenType' => fn(ParseNode $n) => $o->setTokenType($n->getEnumValue(DepTokenType::class)),
         ]);
     }
 

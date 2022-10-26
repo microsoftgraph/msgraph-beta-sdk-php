@@ -119,14 +119,14 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalDetails' => function (ParseNode $n) use ($o) { $o->setAdditionalDetails($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'errorType' => function (ParseNode $n) use ($o) { $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recommendedAction' => function (ParseNode $n) use ($o) { $o->setRecommendedAction($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)); },
+            'additionalDetails' => fn(ParseNode $n) => $o->setAdditionalDetails($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'errorType' => fn(ParseNode $n) => $o->setErrorType($n->getEnumValue(CloudPcOnPremisesConnectionHealthCheckErrorType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recommendedAction' => fn(ParseNode $n) => $o->setRecommendedAction($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcOnPremisesConnectionStatus::class)),
         ];
     }
 

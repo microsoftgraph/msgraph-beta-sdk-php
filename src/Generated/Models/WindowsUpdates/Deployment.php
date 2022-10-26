@@ -88,12 +88,12 @@ class Deployment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => function (ParseNode $n) use ($o) { $o->setAudience($n->getObjectValue(array(DeploymentAudience::class, 'createFromDiscriminatorValue'))); },
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(DeployableContent::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(DeploymentSettings::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getObjectValue(array(DeploymentState::class, 'createFromDiscriminatorValue'))); },
+            'audience' => fn(ParseNode $n) => $o->setAudience($n->getObjectValue([DeploymentAudience::class, 'createFromDiscriminatorValue'])),
+            'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([DeployableContent::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([DeploymentSettings::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getObjectValue([DeploymentState::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

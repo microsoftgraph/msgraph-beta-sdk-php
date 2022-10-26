@@ -71,11 +71,11 @@ class PrivateLinkDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'policyId' => function (ParseNode $n) use ($o) { $o->setPolicyId($n->getStringValue()); },
-            'policyName' => function (ParseNode $n) use ($o) { $o->setPolicyName($n->getStringValue()); },
-            'policyTenantId' => function (ParseNode $n) use ($o) { $o->setPolicyTenantId($n->getStringValue()); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'policyId' => fn(ParseNode $n) => $o->setPolicyId($n->getStringValue()),
+            'policyName' => fn(ParseNode $n) => $o->setPolicyName($n->getStringValue()),
+            'policyTenantId' => fn(ParseNode $n) => $o->setPolicyTenantId($n->getStringValue()),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
         ];
     }
 

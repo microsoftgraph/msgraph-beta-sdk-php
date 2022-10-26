@@ -37,11 +37,11 @@ class SummaryWithStartDateTimeWithEndDateTimeRequestBuilder
      * Instantiates a new SummaryWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
      * @param array<string, mixed> $pathParameters Path parameters for the request
      * @param RequestAdapter $requestAdapter The request adapter to use to execute the requests.
-     * @param DateTime|null $endDateTime Usage: endDateTime='{endDateTime}'
-     * @param DateTime|null $startDateTime Usage: startDateTime='{startDateTime}'
+     * @param DateTime|null $endDateTime Usage: endDateTime={endDateTime}
+     * @param DateTime|null $startDateTime Usage: startDateTime={startDateTime}
     */
     public function __construct(array $pathParameters, RequestAdapter $requestAdapter, ?DateTime $endDateTime = null, ?DateTime $startDateTime = null) {
-        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/runs/microsoft.graph.identityGovernance.summary(startDateTime=\'{startDateTime}\',endDateTime=\'{endDateTime}\')';
+        $this->urlTemplate = '{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/runs/microsoft.graph.identityGovernance.summary(startDateTime={startDateTime},endDateTime={endDateTime})';
         $this->requestAdapter = $requestAdapter;
         $this->pathParameters = $pathParameters;
         $urlTplParams = $pathParameters;
@@ -82,10 +82,10 @@ class SummaryWithStartDateTimeWithEndDateTimeRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(RunSummary::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [RunSummary::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

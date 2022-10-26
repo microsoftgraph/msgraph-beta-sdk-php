@@ -66,10 +66,10 @@ class TranslationPreferences implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'languageOverrides' => function (ParseNode $n) use ($o) { $o->setLanguageOverrides($n->getCollectionOfObjectValues(array(TranslationLanguageOverride::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'translationBehavior' => function (ParseNode $n) use ($o) { $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)); },
-            'untranslatedLanguages' => function (ParseNode $n) use ($o) { $o->setUntranslatedLanguages($n->getCollectionOfPrimitiveValues()); },
+            'languageOverrides' => fn(ParseNode $n) => $o->setLanguageOverrides($n->getCollectionOfObjectValues([TranslationLanguageOverride::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'translationBehavior' => fn(ParseNode $n) => $o->setTranslationBehavior($n->getEnumValue(TranslationBehavior::class)),
+            'untranslatedLanguages' => fn(ParseNode $n) => $o->setUntranslatedLanguages($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

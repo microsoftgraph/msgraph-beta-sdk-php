@@ -37,7 +37,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'supportedTypes' => function (ParseNode $n) use ($o) { $o->setSupportedTypes($n->getCollectionOfPrimitiveValues()); },
+            'supportedTypes' => fn(ParseNode $n) => $o->setSupportedTypes($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

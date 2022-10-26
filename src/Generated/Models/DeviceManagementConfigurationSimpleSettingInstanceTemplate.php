@@ -37,7 +37,7 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'simpleSettingValueTemplate' => function (ParseNode $n) use ($o) { $o->setSimpleSettingValueTemplate($n->getObjectValue(array(DeviceManagementConfigurationSimpleSettingValueTemplate::class, 'createFromDiscriminatorValue'))); },
+            'simpleSettingValueTemplate' => fn(ParseNode $n) => $o->setSimpleSettingValueTemplate($n->getObjectValue([DeviceManagementConfigurationSimpleSettingValueTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

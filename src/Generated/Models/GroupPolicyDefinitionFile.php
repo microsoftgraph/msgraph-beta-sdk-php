@@ -114,16 +114,16 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'languageCodes' => function (ParseNode $n) use ($o) { $o->setLanguageCodes($n->getCollectionOfPrimitiveValues()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'policyType' => function (ParseNode $n) use ($o) { $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)); },
-            'revision' => function (ParseNode $n) use ($o) { $o->setRevision($n->getStringValue()); },
-            'targetNamespace' => function (ParseNode $n) use ($o) { $o->setTargetNamespace($n->getStringValue()); },
-            'targetPrefix' => function (ParseNode $n) use ($o) { $o->setTargetPrefix($n->getStringValue()); },
+            'definitions' => fn(ParseNode $n) => $o->setDefinitions($n->getCollectionOfObjectValues([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            'languageCodes' => fn(ParseNode $n) => $o->setLanguageCodes($n->getCollectionOfPrimitiveValues()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'policyType' => fn(ParseNode $n) => $o->setPolicyType($n->getEnumValue(GroupPolicyType::class)),
+            'revision' => fn(ParseNode $n) => $o->setRevision($n->getStringValue()),
+            'targetNamespace' => fn(ParseNode $n) => $o->setTargetNamespace($n->getStringValue()),
+            'targetPrefix' => fn(ParseNode $n) => $o->setTargetPrefix($n->getStringValue()),
         ]);
     }
 

@@ -105,13 +105,13 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'asn' => function (ParseNode $n) use ($o) { $o->setAsn($n->getIntegerValue()); },
-            'city' => function (ParseNode $n) use ($o) { $o->setCity($n->getStringValue()); },
-            'countryOrRegionCode' => function (ParseNode $n) use ($o) { $o->setCountryOrRegionCode($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'organization' => function (ParseNode $n) use ($o) { $o->setOrganization($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
-            'vendor' => function (ParseNode $n) use ($o) { $o->setVendor($n->getStringValue()); },
+            'asn' => fn(ParseNode $n) => $o->setAsn($n->getIntegerValue()),
+            'city' => fn(ParseNode $n) => $o->setCity($n->getStringValue()),
+            'countryOrRegionCode' => fn(ParseNode $n) => $o->setCountryOrRegionCode($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'organization' => fn(ParseNode $n) => $o->setOrganization($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
+            'vendor' => fn(ParseNode $n) => $o->setVendor($n->getStringValue()),
         ];
     }
 

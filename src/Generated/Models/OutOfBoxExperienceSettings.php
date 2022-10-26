@@ -89,13 +89,13 @@ class OutOfBoxExperienceSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceUsageType' => function (ParseNode $n) use ($o) { $o->setDeviceUsageType($n->getEnumValue(WindowsDeviceUsageType::class)); },
-            'hideEscapeLink' => function (ParseNode $n) use ($o) { $o->setHideEscapeLink($n->getBooleanValue()); },
-            'hideEULA' => function (ParseNode $n) use ($o) { $o->setHideEULA($n->getBooleanValue()); },
-            'hidePrivacySettings' => function (ParseNode $n) use ($o) { $o->setHidePrivacySettings($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'skipKeyboardSelectionPage' => function (ParseNode $n) use ($o) { $o->setSkipKeyboardSelectionPage($n->getBooleanValue()); },
-            'userType' => function (ParseNode $n) use ($o) { $o->setUserType($n->getEnumValue(WindowsUserType::class)); },
+            'deviceUsageType' => fn(ParseNode $n) => $o->setDeviceUsageType($n->getEnumValue(WindowsDeviceUsageType::class)),
+            'hideEscapeLink' => fn(ParseNode $n) => $o->setHideEscapeLink($n->getBooleanValue()),
+            'hideEULA' => fn(ParseNode $n) => $o->setHideEULA($n->getBooleanValue()),
+            'hidePrivacySettings' => fn(ParseNode $n) => $o->setHidePrivacySettings($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'skipKeyboardSelectionPage' => fn(ParseNode $n) => $o->setSkipKeyboardSelectionPage($n->getBooleanValue()),
+            'userType' => fn(ParseNode $n) => $o->setUserType($n->getEnumValue(WindowsUserType::class)),
         ];
     }
 

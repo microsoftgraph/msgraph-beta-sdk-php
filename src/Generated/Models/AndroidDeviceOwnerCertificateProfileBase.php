@@ -100,13 +100,13 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateValidityPeriodScale' => function (ParseNode $n) use ($o) { $o->setCertificateValidityPeriodScale($n->getEnumValue(CertificateValidityPeriodScale::class)); },
-            'certificateValidityPeriodValue' => function (ParseNode $n) use ($o) { $o->setCertificateValidityPeriodValue($n->getIntegerValue()); },
-            'extendedKeyUsages' => function (ParseNode $n) use ($o) { $o->setExtendedKeyUsages($n->getCollectionOfObjectValues(array(ExtendedKeyUsage::class, 'createFromDiscriminatorValue'))); },
-            'renewalThresholdPercentage' => function (ParseNode $n) use ($o) { $o->setRenewalThresholdPercentage($n->getIntegerValue()); },
-            'rootCertificate' => function (ParseNode $n) use ($o) { $o->setRootCertificate($n->getObjectValue(array(AndroidDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'))); },
-            'subjectAlternativeNameType' => function (ParseNode $n) use ($o) { $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)); },
-            'subjectNameFormat' => function (ParseNode $n) use ($o) { $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)); },
+            'certificateValidityPeriodScale' => fn(ParseNode $n) => $o->setCertificateValidityPeriodScale($n->getEnumValue(CertificateValidityPeriodScale::class)),
+            'certificateValidityPeriodValue' => fn(ParseNode $n) => $o->setCertificateValidityPeriodValue($n->getIntegerValue()),
+            'extendedKeyUsages' => fn(ParseNode $n) => $o->setExtendedKeyUsages($n->getCollectionOfObjectValues([ExtendedKeyUsage::class, 'createFromDiscriminatorValue'])),
+            'renewalThresholdPercentage' => fn(ParseNode $n) => $o->setRenewalThresholdPercentage($n->getIntegerValue()),
+            'rootCertificate' => fn(ParseNode $n) => $o->setRootCertificate($n->getObjectValue([AndroidDeviceOwnerTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
+            'subjectAlternativeNameType' => fn(ParseNode $n) => $o->setSubjectAlternativeNameType($n->getEnumValue(SubjectAlternativeNameType::class)),
+            'subjectNameFormat' => fn(ParseNode $n) => $o->setSubjectNameFormat($n->getEnumValue(SubjectNameFormat::class)),
         ]);
     }
 

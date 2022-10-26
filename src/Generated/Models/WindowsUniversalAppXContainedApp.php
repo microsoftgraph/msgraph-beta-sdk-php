@@ -45,7 +45,7 @@ class WindowsUniversalAppXContainedApp extends MobileContainedApp implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appUserModelId' => function (ParseNode $n) use ($o) { $o->setAppUserModelId($n->getStringValue()); },
+            'appUserModelId' => fn(ParseNode $n) => $o->setAppUserModelId($n->getStringValue()),
         ]);
     }
 

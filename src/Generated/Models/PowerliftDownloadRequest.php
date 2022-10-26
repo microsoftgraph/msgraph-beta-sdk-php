@@ -61,9 +61,9 @@ class PowerliftDownloadRequest implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'files' => function (ParseNode $n) use ($o) { $o->setFiles($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'powerliftId' => function (ParseNode $n) use ($o) { $o->setPowerliftId($n->getStringValue()); },
+            'files' => fn(ParseNode $n) => $o->setFiles($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'powerliftId' => fn(ParseNode $n) => $o->setPowerliftId($n->getStringValue()),
         ];
     }
 

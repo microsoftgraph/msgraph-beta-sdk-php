@@ -145,19 +145,19 @@ class SensitivityLabel extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicableTo' => function (ParseNode $n) use ($o) { $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)); },
-            'applicationMode' => function (ParseNode $n) use ($o) { $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)); },
-            'assignedPolicies' => function (ParseNode $n) use ($o) { $o->setAssignedPolicies($n->getCollectionOfObjectValues(array(LabelPolicy::class, 'createFromDiscriminatorValue'))); },
-            'autoLabeling' => function (ParseNode $n) use ($o) { $o->setAutoLabeling($n->getObjectValue(array(AutoLabeling::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'isEndpointProtectionEnabled' => function (ParseNode $n) use ($o) { $o->setIsEndpointProtectionEnabled($n->getBooleanValue()); },
-            'labelActions' => function (ParseNode $n) use ($o) { $o->setLabelActions($n->getCollectionOfObjectValues(array(LabelActionBase::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'priority' => function (ParseNode $n) use ($o) { $o->setPriority($n->getIntegerValue()); },
-            'sublabels' => function (ParseNode $n) use ($o) { $o->setSublabels($n->getCollectionOfObjectValues(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
-            'toolTip' => function (ParseNode $n) use ($o) { $o->setToolTip($n->getStringValue()); },
+            'applicableTo' => fn(ParseNode $n) => $o->setApplicableTo($n->getEnumValue(SensitivityLabelTarget::class)),
+            'applicationMode' => fn(ParseNode $n) => $o->setApplicationMode($n->getEnumValue(ApplicationMode::class)),
+            'assignedPolicies' => fn(ParseNode $n) => $o->setAssignedPolicies($n->getCollectionOfObjectValues([LabelPolicy::class, 'createFromDiscriminatorValue'])),
+            'autoLabeling' => fn(ParseNode $n) => $o->setAutoLabeling($n->getObjectValue([AutoLabeling::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'isEndpointProtectionEnabled' => fn(ParseNode $n) => $o->setIsEndpointProtectionEnabled($n->getBooleanValue()),
+            'labelActions' => fn(ParseNode $n) => $o->setLabelActions($n->getCollectionOfObjectValues([LabelActionBase::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
+            'sublabels' => fn(ParseNode $n) => $o->setSublabels($n->getCollectionOfObjectValues([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
+            'toolTip' => fn(ParseNode $n) => $o->setToolTip($n->getStringValue()),
         ]);
     }
 

@@ -62,9 +62,9 @@ class LoggedOnUser implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'lastLogOnDateTime' => function (ParseNode $n) use ($o) { $o->setLastLogOnDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'lastLogOnDateTime' => fn(ParseNode $n) => $o->setLastLogOnDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
 

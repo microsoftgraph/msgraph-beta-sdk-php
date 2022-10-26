@@ -66,10 +66,10 @@ class IdleSessionSignOut implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'signOutAfterInSeconds' => function (ParseNode $n) use ($o) { $o->setSignOutAfterInSeconds($n->getIntegerValue()); },
-            'warnAfterInSeconds' => function (ParseNode $n) use ($o) { $o->setWarnAfterInSeconds($n->getIntegerValue()); },
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'signOutAfterInSeconds' => fn(ParseNode $n) => $o->setSignOutAfterInSeconds($n->getIntegerValue()),
+            'warnAfterInSeconds' => fn(ParseNode $n) => $o->setWarnAfterInSeconds($n->getIntegerValue()),
         ];
     }
 

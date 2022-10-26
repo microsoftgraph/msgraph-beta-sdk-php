@@ -46,9 +46,9 @@ class SignDigestPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the digest property value. The digest property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDigest(): ?StreamInterface {
+    public function getDigest(): StreamInterface {
         return $this->digest;
     }
 
@@ -59,7 +59,7 @@ class SignDigestPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'digest' => function (ParseNode $n) use ($o) { $o->setDigest($n->getBinaryContent()); },
+            'digest' => fn(ParseNode $n) => $o->setDigest($n->getBinaryContent()),
         ];
     }
 

@@ -81,13 +81,13 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'hideAccountResetCredentials' => function (ParseNode $n) use ($o) { $o->setHideAccountResetCredentials($n->getBooleanValue()); },
-            'hideCannotAccessYourAccount' => function (ParseNode $n) use ($o) { $o->setHideCannotAccessYourAccount($n->getBooleanValue()); },
-            'hideForgotMyPassword' => function (ParseNode $n) use ($o) { $o->setHideForgotMyPassword($n->getBooleanValue()); },
-            'hidePrivacyAndCookies' => function (ParseNode $n) use ($o) { $o->setHidePrivacyAndCookies($n->getBooleanValue()); },
-            'hideResetItNow' => function (ParseNode $n) use ($o) { $o->setHideResetItNow($n->getBooleanValue()); },
-            'hideTermsOfUse' => function (ParseNode $n) use ($o) { $o->setHideTermsOfUse($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'hideAccountResetCredentials' => fn(ParseNode $n) => $o->setHideAccountResetCredentials($n->getBooleanValue()),
+            'hideCannotAccessYourAccount' => fn(ParseNode $n) => $o->setHideCannotAccessYourAccount($n->getBooleanValue()),
+            'hideForgotMyPassword' => fn(ParseNode $n) => $o->setHideForgotMyPassword($n->getBooleanValue()),
+            'hidePrivacyAndCookies' => fn(ParseNode $n) => $o->setHidePrivacyAndCookies($n->getBooleanValue()),
+            'hideResetItNow' => fn(ParseNode $n) => $o->setHideResetItNow($n->getBooleanValue()),
+            'hideTermsOfUse' => fn(ParseNode $n) => $o->setHideTermsOfUse($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -102,14 +102,14 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applicableArchitecture' => function (ParseNode $n) use ($o) { $o->setApplicableArchitecture($n->getEnumValue(WindowsArchitecture::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'identityName' => function (ParseNode $n) use ($o) { $o->setIdentityName($n->getStringValue()); },
-            'identityPublisher' => function (ParseNode $n) use ($o) { $o->setIdentityPublisher($n->getStringValue()); },
-            'identityResourceIdentifier' => function (ParseNode $n) use ($o) { $o->setIdentityResourceIdentifier($n->getStringValue()); },
-            'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'applicableArchitecture' => fn(ParseNode $n) => $o->setApplicableArchitecture($n->getEnumValue(WindowsArchitecture::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'identityName' => fn(ParseNode $n) => $o->setIdentityName($n->getStringValue()),
+            'identityPublisher' => fn(ParseNode $n) => $o->setIdentityPublisher($n->getStringValue()),
+            'identityResourceIdentifier' => fn(ParseNode $n) => $o->setIdentityResourceIdentifier($n->getStringValue()),
+            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

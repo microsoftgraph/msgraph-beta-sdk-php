@@ -64,8 +64,8 @@ class CreateServerLogCollectionRequestPostRequestBody implements AdditionalDataH
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
         ];
     }
 

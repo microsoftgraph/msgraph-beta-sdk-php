@@ -114,10 +114,10 @@ class CallRecordsRequestBuilder
         $requestInfo = $this->createGetRequestInformation($requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(CallRecordCollectionResponse::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CallRecordCollectionResponse::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }
@@ -125,8 +125,8 @@ class CallRecordsRequestBuilder
 
     /**
      * Provides operations to call the getDirectRoutingCalls method.
-     * @param DateTime $fromDateTime Usage: fromDateTime='{fromDateTime}'
-     * @param DateTime $toDateTime Usage: toDateTime='{toDateTime}'
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
      * @return GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder
     */
     public function getDirectRoutingCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): GetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
@@ -135,8 +135,8 @@ class CallRecordsRequestBuilder
 
     /**
      * Provides operations to call the getPstnCalls method.
-     * @param DateTime $fromDateTime Usage: fromDateTime='{fromDateTime}'
-     * @param DateTime $toDateTime Usage: toDateTime='{toDateTime}'
+     * @param DateTime $fromDateTime Usage: fromDateTime={fromDateTime}
+     * @param DateTime $toDateTime Usage: toDateTime={toDateTime}
      * @return GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder
     */
     public function getPstnCallsWithFromDateTimeWithToDateTime(DateTime $fromDateTime, DateTime $toDateTime): GetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder {
@@ -154,10 +154,10 @@ class CallRecordsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
-            return $this->requestAdapter->sendAsync($requestInfo, array(CallRecord::class, 'createFromDiscriminatorValue'), $responseHandler, $errorMappings);
+            return $this->requestAdapter->sendAsync($requestInfo, [CallRecord::class, 'createFromDiscriminatorValue'], $responseHandler, $errorMappings);
         } catch(Exception $ex) {
             return new RejectedPromise($ex);
         }

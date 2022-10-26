@@ -57,11 +57,11 @@ class OrganizationalMessageGuidedContent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'logo' => function (ParseNode $n) use ($o) { $o->setLogo($n->getObjectValue(array(OrganizationalMessageLogoGuide::class, 'createFromDiscriminatorValue'))); },
-            'placementDetails' => function (ParseNode $n) use ($o) { $o->setPlacementDetails($n->getCollectionOfObjectValues(array(OrganizationalMessagePlacementDetail::class, 'createFromDiscriminatorValue'))); },
-            'scenario' => function (ParseNode $n) use ($o) { $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)); },
-            'surface' => function (ParseNode $n) use ($o) { $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)); },
-            'theme' => function (ParseNode $n) use ($o) { $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)); },
+            'logo' => fn(ParseNode $n) => $o->setLogo($n->getObjectValue([OrganizationalMessageLogoGuide::class, 'createFromDiscriminatorValue'])),
+            'placementDetails' => fn(ParseNode $n) => $o->setPlacementDetails($n->getCollectionOfObjectValues([OrganizationalMessagePlacementDetail::class, 'createFromDiscriminatorValue'])),
+            'scenario' => fn(ParseNode $n) => $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)),
+            'surface' => fn(ParseNode $n) => $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)),
+            'theme' => fn(ParseNode $n) => $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)),
         ]);
     }
 

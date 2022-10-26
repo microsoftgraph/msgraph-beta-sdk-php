@@ -99,11 +99,11 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'correlationId' => function (ParseNode $n) use ($o) { $o->setCorrelationId($n->getStringValue()); },
-            'eventDateTime' => function (ParseNode $n) use ($o) { $o->setEventDateTime($n->getDateTimeValue()); },
-            'eventName' => function (ParseNode $n) use ($o) { $o->setEventName($n->getStringValue()); },
-            'troubleshootingErrorDetails' => function (ParseNode $n) use ($o) { $o->setTroubleshootingErrorDetails($n->getObjectValue(array(DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'))); },
+            'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'correlationId' => fn(ParseNode $n) => $o->setCorrelationId($n->getStringValue()),
+            'eventDateTime' => fn(ParseNode $n) => $o->setEventDateTime($n->getDateTimeValue()),
+            'eventName' => fn(ParseNode $n) => $o->setEventName($n->getStringValue()),
+            'troubleshootingErrorDetails' => fn(ParseNode $n) => $o->setTroubleshootingErrorDetails($n->getObjectValue([DeviceManagementTroubleshootingErrorDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

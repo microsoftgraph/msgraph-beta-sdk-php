@@ -25,7 +25,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     private ?DateTime $endDateTime = null;
     
     /**
-     * @var OrganizationalMessageFrequency|null $frequency The frequency at which a client will see the message. Possible values are: weeklyOnce, monthlyOnce, monthlyTwice, unknownFutureValue.
+     * @var OrganizationalMessageFrequency|null $frequency The frequency at which a client will see the message
     */
     private ?OrganizationalMessageFrequency $frequency = null;
     
@@ -35,7 +35,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     private ?DateTime $lastModifiedDateTime = null;
     
     /**
-     * @var OrganizationalMessageScenario|null $scenario Indicates the scenario for the message. Possible values are: onboarding, lifecycle, unknownFutureValue.
+     * @var OrganizationalMessageScenario|null $scenario Indicates the scenario for the message
     */
     private ?OrganizationalMessageScenario $scenario = null;
     
@@ -45,12 +45,12 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     private ?DateTime $startDateTime = null;
     
     /**
-     * @var OrganizationalMessageStatus|null $status Indicates the deployment status of the message. Possible values are: scheduled, active, completed, cancelled, unknownFutureValue.
+     * @var OrganizationalMessageStatus|null $status Indicates the deployment status of the message
     */
     private ?OrganizationalMessageStatus $status = null;
     
     /**
-     * @var OrganizationalMessageSurface|null $surface Indicates the area where content will be displayed to customers. Possible values are: actionCenter, getStarted, softLanding, unknownFutureValue.
+     * @var OrganizationalMessageSurface|null $surface Indicates the area where content will be displayed to customers
     */
     private ?OrganizationalMessageSurface $surface = null;
     
@@ -60,7 +60,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     private ?OrganizationalMessageTargeting $targeting = null;
     
     /**
-     * @var OrganizationalMessageTheme|null $theme Indicates the theme for the experience. Possible values are: update, training, welcomeToWindows, explore, unknownFutureValue.
+     * @var OrganizationalMessageTheme|null $theme Indicates the theme for the experience
     */
     private ?OrganizationalMessageTheme $theme = null;
     
@@ -122,24 +122,24 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getObjectValue(array(OrganizationalMessageContent::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'frequency' => function (ParseNode $n) use ($o) { $o->setFrequency($n->getEnumValue(OrganizationalMessageFrequency::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'scenario' => function (ParseNode $n) use ($o) { $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(OrganizationalMessageStatus::class)); },
-            'surface' => function (ParseNode $n) use ($o) { $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)); },
-            'targeting' => function (ParseNode $n) use ($o) { $o->setTargeting($n->getObjectValue(array(OrganizationalMessageTargeting::class, 'createFromDiscriminatorValue'))); },
-            'theme' => function (ParseNode $n) use ($o) { $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)); },
-            'userEngagementStatistics' => function (ParseNode $n) use ($o) { $o->setUserEngagementStatistics($n->getObjectValue(array(OrganizationalMessageInsights::class, 'createFromDiscriminatorValue'))); },
-            'variant' => function (ParseNode $n) use ($o) { $o->setVariant($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getObjectValue([OrganizationalMessageContent::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'frequency' => fn(ParseNode $n) => $o->setFrequency($n->getEnumValue(OrganizationalMessageFrequency::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'scenario' => fn(ParseNode $n) => $o->setScenario($n->getEnumValue(OrganizationalMessageScenario::class)),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(OrganizationalMessageStatus::class)),
+            'surface' => fn(ParseNode $n) => $o->setSurface($n->getEnumValue(OrganizationalMessageSurface::class)),
+            'targeting' => fn(ParseNode $n) => $o->setTargeting($n->getObjectValue([OrganizationalMessageTargeting::class, 'createFromDiscriminatorValue'])),
+            'theme' => fn(ParseNode $n) => $o->setTheme($n->getEnumValue(OrganizationalMessageTheme::class)),
+            'userEngagementStatistics' => fn(ParseNode $n) => $o->setUserEngagementStatistics($n->getObjectValue([OrganizationalMessageInsights::class, 'createFromDiscriminatorValue'])),
+            'variant' => fn(ParseNode $n) => $o->setVariant($n->getStringValue()),
         ]);
     }
 
     /**
-     * Gets the frequency property value. The frequency at which a client will see the message. Possible values are: weeklyOnce, monthlyOnce, monthlyTwice, unknownFutureValue.
+     * Gets the frequency property value. The frequency at which a client will see the message
      * @return OrganizationalMessageFrequency|null
     */
     public function getFrequency(): ?OrganizationalMessageFrequency {
@@ -155,7 +155,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the scenario property value. Indicates the scenario for the message. Possible values are: onboarding, lifecycle, unknownFutureValue.
+     * Gets the scenario property value. Indicates the scenario for the message
      * @return OrganizationalMessageScenario|null
     */
     public function getScenario(): ?OrganizationalMessageScenario {
@@ -171,7 +171,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the status property value. Indicates the deployment status of the message. Possible values are: scheduled, active, completed, cancelled, unknownFutureValue.
+     * Gets the status property value. Indicates the deployment status of the message
      * @return OrganizationalMessageStatus|null
     */
     public function getStatus(): ?OrganizationalMessageStatus {
@@ -179,7 +179,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the surface property value. Indicates the area where content will be displayed to customers. Possible values are: actionCenter, getStarted, softLanding, unknownFutureValue.
+     * Gets the surface property value. Indicates the area where content will be displayed to customers
      * @return OrganizationalMessageSurface|null
     */
     public function getSurface(): ?OrganizationalMessageSurface {
@@ -195,7 +195,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Gets the theme property value. Indicates the theme for the experience. Possible values are: update, training, welcomeToWindows, explore, unknownFutureValue.
+     * Gets the theme property value. Indicates the theme for the experience
      * @return OrganizationalMessageTheme|null
     */
     public function getTheme(): ?OrganizationalMessageTheme {
@@ -264,7 +264,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the frequency property value. The frequency at which a client will see the message. Possible values are: weeklyOnce, monthlyOnce, monthlyTwice, unknownFutureValue.
+     * Sets the frequency property value. The frequency at which a client will see the message
      *  @param OrganizationalMessageFrequency|null $value Value to set for the frequency property.
     */
     public function setFrequency(?OrganizationalMessageFrequency $value ): void {
@@ -280,7 +280,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the scenario property value. Indicates the scenario for the message. Possible values are: onboarding, lifecycle, unknownFutureValue.
+     * Sets the scenario property value. Indicates the scenario for the message
      *  @param OrganizationalMessageScenario|null $value Value to set for the scenario property.
     */
     public function setScenario(?OrganizationalMessageScenario $value ): void {
@@ -296,7 +296,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the status property value. Indicates the deployment status of the message. Possible values are: scheduled, active, completed, cancelled, unknownFutureValue.
+     * Sets the status property value. Indicates the deployment status of the message
      *  @param OrganizationalMessageStatus|null $value Value to set for the status property.
     */
     public function setStatus(?OrganizationalMessageStatus $value ): void {
@@ -304,7 +304,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the surface property value. Indicates the area where content will be displayed to customers. Possible values are: actionCenter, getStarted, softLanding, unknownFutureValue.
+     * Sets the surface property value. Indicates the area where content will be displayed to customers
      *  @param OrganizationalMessageSurface|null $value Value to set for the surface property.
     */
     public function setSurface(?OrganizationalMessageSurface $value ): void {
@@ -320,7 +320,7 @@ class OrganizationalMessageDetail extends Entity implements Parsable
     }
 
     /**
-     * Sets the theme property value. Indicates the theme for the experience. Possible values are: update, training, welcomeToWindows, explore, unknownFutureValue.
+     * Sets the theme property value. Indicates the theme for the experience
      *  @param OrganizationalMessageTheme|null $value Value to set for the theme property.
     */
     public function setTheme(?OrganizationalMessageTheme $value ): void {

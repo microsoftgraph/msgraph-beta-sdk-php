@@ -125,18 +125,18 @@ class TeamworkDeviceConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cameraConfiguration' => function (ParseNode $n) use ($o) { $o->setCameraConfiguration($n->getObjectValue(array(TeamworkCameraConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayConfiguration' => function (ParseNode $n) use ($o) { $o->setDisplayConfiguration($n->getObjectValue(array(TeamworkDisplayConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'hardwareConfiguration' => function (ParseNode $n) use ($o) { $o->setHardwareConfiguration($n->getObjectValue(array(TeamworkHardwareConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'microphoneConfiguration' => function (ParseNode $n) use ($o) { $o->setMicrophoneConfiguration($n->getObjectValue(array(TeamworkMicrophoneConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'softwareVersions' => function (ParseNode $n) use ($o) { $o->setSoftwareVersions($n->getObjectValue(array(TeamworkDeviceSoftwareVersions::class, 'createFromDiscriminatorValue'))); },
-            'speakerConfiguration' => function (ParseNode $n) use ($o) { $o->setSpeakerConfiguration($n->getObjectValue(array(TeamworkSpeakerConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'systemConfiguration' => function (ParseNode $n) use ($o) { $o->setSystemConfiguration($n->getObjectValue(array(TeamworkSystemConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'teamsClientConfiguration' => function (ParseNode $n) use ($o) { $o->setTeamsClientConfiguration($n->getObjectValue(array(TeamworkTeamsClientConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'cameraConfiguration' => fn(ParseNode $n) => $o->setCameraConfiguration($n->getObjectValue([TeamworkCameraConfiguration::class, 'createFromDiscriminatorValue'])),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayConfiguration' => fn(ParseNode $n) => $o->setDisplayConfiguration($n->getObjectValue([TeamworkDisplayConfiguration::class, 'createFromDiscriminatorValue'])),
+            'hardwareConfiguration' => fn(ParseNode $n) => $o->setHardwareConfiguration($n->getObjectValue([TeamworkHardwareConfiguration::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'microphoneConfiguration' => fn(ParseNode $n) => $o->setMicrophoneConfiguration($n->getObjectValue([TeamworkMicrophoneConfiguration::class, 'createFromDiscriminatorValue'])),
+            'softwareVersions' => fn(ParseNode $n) => $o->setSoftwareVersions($n->getObjectValue([TeamworkDeviceSoftwareVersions::class, 'createFromDiscriminatorValue'])),
+            'speakerConfiguration' => fn(ParseNode $n) => $o->setSpeakerConfiguration($n->getObjectValue([TeamworkSpeakerConfiguration::class, 'createFromDiscriminatorValue'])),
+            'systemConfiguration' => fn(ParseNode $n) => $o->setSystemConfiguration($n->getObjectValue([TeamworkSystemConfiguration::class, 'createFromDiscriminatorValue'])),
+            'teamsClientConfiguration' => fn(ParseNode $n) => $o->setTeamsClientConfiguration($n->getObjectValue([TeamworkTeamsClientConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

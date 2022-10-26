@@ -47,9 +47,9 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'identityVersion' => function (ParseNode $n) use ($o) { $o->setIdentityVersion($n->getStringValue()); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            'productIdentifier' => function (ParseNode $n) use ($o) { $o->setProductIdentifier($n->getStringValue()); },
+            'identityVersion' => fn(ParseNode $n) => $o->setIdentityVersion($n->getStringValue()),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([WindowsMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'productIdentifier' => fn(ParseNode $n) => $o->setProductIdentifier($n->getStringValue()),
         ]);
     }
 

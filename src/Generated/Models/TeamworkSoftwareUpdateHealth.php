@@ -97,13 +97,13 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'adminAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setAdminAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
-            'companyPortalSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setCompanyPortalSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
-            'firmwareSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setFirmwareSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'operatingSystemSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setOperatingSystemSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
-            'partnerAgentSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setPartnerAgentSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
-            'teamsClientSoftwareUpdateStatus' => function (ParseNode $n) use ($o) { $o->setTeamsClientSoftwareUpdateStatus($n->getObjectValue(array(TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'))); },
+            'adminAgentSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setAdminAgentSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
+            'companyPortalSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setCompanyPortalSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
+            'firmwareSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setFirmwareSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'operatingSystemSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setOperatingSystemSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
+            'partnerAgentSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setPartnerAgentSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
+            'teamsClientSoftwareUpdateStatus' => fn(ParseNode $n) => $o->setTeamsClientSoftwareUpdateStatus($n->getObjectValue([TeamworkSoftwareUpdateStatus::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

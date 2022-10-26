@@ -55,9 +55,9 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'defaultItem' => function (ParseNode $n) use ($o) { $o->setDefaultItem($n->getObjectValue(array(GroupPolicyPresentationDropdownListItem::class, 'createFromDiscriminatorValue'))); },
-            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(GroupPolicyPresentationDropdownListItem::class, 'createFromDiscriminatorValue'))); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
+            'defaultItem' => fn(ParseNode $n) => $o->setDefaultItem($n->getObjectValue([GroupPolicyPresentationDropdownListItem::class, 'createFromDiscriminatorValue'])),
+            'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([GroupPolicyPresentationDropdownListItem::class, 'createFromDiscriminatorValue'])),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
         ]);
     }
 

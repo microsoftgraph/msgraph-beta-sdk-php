@@ -118,14 +118,14 @@ class WorkloadAction implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionId' => function (ParseNode $n) use ($o) { $o->setActionId($n->getStringValue()); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'licenses' => function (ParseNode $n) use ($o) { $o->setLicenses($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'service' => function (ParseNode $n) use ($o) { $o->setService($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getCollectionOfObjectValues(array(Setting::class, 'createFromDiscriminatorValue'))); },
+            'actionId' => fn(ParseNode $n) => $o->setActionId($n->getStringValue()),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(WorkloadActionCategory::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'licenses' => fn(ParseNode $n) => $o->setLicenses($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'service' => fn(ParseNode $n) => $o->setService($n->getStringValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getCollectionOfObjectValues([Setting::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

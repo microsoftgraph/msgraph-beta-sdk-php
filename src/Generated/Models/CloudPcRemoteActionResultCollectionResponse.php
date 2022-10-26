@@ -36,7 +36,7 @@ class CloudPcRemoteActionResultCollectionResponse extends BaseCollectionPaginati
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([CloudPcRemoteActionResult::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

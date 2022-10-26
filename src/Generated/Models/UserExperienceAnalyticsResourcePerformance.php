@@ -161,19 +161,19 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'averageSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setAverageSpikeTimeScore($n->getIntegerValue()); },
-            'cpuSpikeTimePercentage' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimePercentage($n->getFloatValue()); },
-            'cpuSpikeTimePercentageThreshold' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()); },
-            'cpuSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setCpuSpikeTimeScore($n->getIntegerValue()); },
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'deviceResourcePerformanceScore' => function (ParseNode $n) use ($o) { $o->setDeviceResourcePerformanceScore($n->getIntegerValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'ramSpikeTimePercentage' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimePercentage($n->getFloatValue()); },
-            'ramSpikeTimePercentageThreshold' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()); },
-            'ramSpikeTimeScore' => function (ParseNode $n) use ($o) { $o->setRamSpikeTimeScore($n->getIntegerValue()); },
+            'averageSpikeTimeScore' => fn(ParseNode $n) => $o->setAverageSpikeTimeScore($n->getIntegerValue()),
+            'cpuSpikeTimePercentage' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentage($n->getFloatValue()),
+            'cpuSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setCpuSpikeTimePercentageThreshold($n->getFloatValue()),
+            'cpuSpikeTimeScore' => fn(ParseNode $n) => $o->setCpuSpikeTimeScore($n->getIntegerValue()),
+            'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'deviceResourcePerformanceScore' => fn(ParseNode $n) => $o->setDeviceResourcePerformanceScore($n->getIntegerValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'ramSpikeTimePercentage' => fn(ParseNode $n) => $o->setRamSpikeTimePercentage($n->getFloatValue()),
+            'ramSpikeTimePercentageThreshold' => fn(ParseNode $n) => $o->setRamSpikeTimePercentageThreshold($n->getFloatValue()),
+            'ramSpikeTimeScore' => fn(ParseNode $n) => $o->setRamSpikeTimeScore($n->getIntegerValue()),
         ]);
     }
 

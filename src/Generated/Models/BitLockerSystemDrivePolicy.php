@@ -119,19 +119,19 @@ class BitLockerSystemDrivePolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'encryptionMethod' => function (ParseNode $n) use ($o) { $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)); },
-            'minimumPinLength' => function (ParseNode $n) use ($o) { $o->setMinimumPinLength($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'prebootRecoveryEnableMessageAndUrl' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryEnableMessageAndUrl($n->getBooleanValue()); },
-            'prebootRecoveryMessage' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryMessage($n->getStringValue()); },
-            'prebootRecoveryUrl' => function (ParseNode $n) use ($o) { $o->setPrebootRecoveryUrl($n->getStringValue()); },
-            'recoveryOptions' => function (ParseNode $n) use ($o) { $o->setRecoveryOptions($n->getObjectValue(array(BitLockerRecoveryOptions::class, 'createFromDiscriminatorValue'))); },
-            'startupAuthenticationBlockWithoutTpmChip' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationBlockWithoutTpmChip($n->getBooleanValue()); },
-            'startupAuthenticationRequired' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationRequired($n->getBooleanValue()); },
-            'startupAuthenticationTpmKeyUsage' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationTpmKeyUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'startupAuthenticationTpmPinAndKeyUsage' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationTpmPinAndKeyUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'startupAuthenticationTpmPinUsage' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationTpmPinUsage($n->getEnumValue(ConfigurationUsage::class)); },
-            'startupAuthenticationTpmUsage' => function (ParseNode $n) use ($o) { $o->setStartupAuthenticationTpmUsage($n->getEnumValue(ConfigurationUsage::class)); },
+            'encryptionMethod' => fn(ParseNode $n) => $o->setEncryptionMethod($n->getEnumValue(BitLockerEncryptionMethod::class)),
+            'minimumPinLength' => fn(ParseNode $n) => $o->setMinimumPinLength($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'prebootRecoveryEnableMessageAndUrl' => fn(ParseNode $n) => $o->setPrebootRecoveryEnableMessageAndUrl($n->getBooleanValue()),
+            'prebootRecoveryMessage' => fn(ParseNode $n) => $o->setPrebootRecoveryMessage($n->getStringValue()),
+            'prebootRecoveryUrl' => fn(ParseNode $n) => $o->setPrebootRecoveryUrl($n->getStringValue()),
+            'recoveryOptions' => fn(ParseNode $n) => $o->setRecoveryOptions($n->getObjectValue([BitLockerRecoveryOptions::class, 'createFromDiscriminatorValue'])),
+            'startupAuthenticationBlockWithoutTpmChip' => fn(ParseNode $n) => $o->setStartupAuthenticationBlockWithoutTpmChip($n->getBooleanValue()),
+            'startupAuthenticationRequired' => fn(ParseNode $n) => $o->setStartupAuthenticationRequired($n->getBooleanValue()),
+            'startupAuthenticationTpmKeyUsage' => fn(ParseNode $n) => $o->setStartupAuthenticationTpmKeyUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'startupAuthenticationTpmPinAndKeyUsage' => fn(ParseNode $n) => $o->setStartupAuthenticationTpmPinAndKeyUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'startupAuthenticationTpmPinUsage' => fn(ParseNode $n) => $o->setStartupAuthenticationTpmPinUsage($n->getEnumValue(ConfigurationUsage::class)),
+            'startupAuthenticationTpmUsage' => fn(ParseNode $n) => $o->setStartupAuthenticationTpmUsage($n->getEnumValue(ConfigurationUsage::class)),
         ];
     }
 

@@ -71,11 +71,11 @@ class EventPropagationResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'serviceName' => function (ParseNode $n) use ($o) { $o->setServiceName($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(EventPropagationStatus::class)); },
-            'statusInformation' => function (ParseNode $n) use ($o) { $o->setStatusInformation($n->getStringValue()); },
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'serviceName' => fn(ParseNode $n) => $o->setServiceName($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(EventPropagationStatus::class)),
+            'statusInformation' => fn(ParseNode $n) => $o->setStatusInformation($n->getStringValue()),
         ];
     }
 

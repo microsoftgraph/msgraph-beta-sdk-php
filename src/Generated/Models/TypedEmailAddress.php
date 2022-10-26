@@ -42,8 +42,8 @@ class TypedEmailAddress extends EmailAddress implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'otherLabel' => function (ParseNode $n) use ($o) { $o->setOtherLabel($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(EmailType::class)); },
+            'otherLabel' => fn(ParseNode $n) => $o->setOtherLabel($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(EmailType::class)),
         ]);
     }
 

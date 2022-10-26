@@ -50,7 +50,7 @@ class DismissPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'servicePrincipalIds' => function (ParseNode $n) use ($o) { $o->setServicePrincipalIds($n->getCollectionOfPrimitiveValues()); },
+            'servicePrincipalIds' => fn(ParseNode $n) => $o->setServicePrincipalIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

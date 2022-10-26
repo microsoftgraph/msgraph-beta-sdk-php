@@ -63,9 +63,9 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureResourceGroupName' => function (ParseNode $n) use ($o) { $o->setAzureResourceGroupName($n->getStringValue()); },
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'workspaceName' => function (ParseNode $n) use ($o) { $o->setWorkspaceName($n->getStringValue()); },
+            'azureResourceGroupName' => fn(ParseNode $n) => $o->setAzureResourceGroupName($n->getStringValue()),
+            'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
+            'workspaceName' => fn(ParseNode $n) => $o->setWorkspaceName($n->getStringValue()),
         ]);
     }
 

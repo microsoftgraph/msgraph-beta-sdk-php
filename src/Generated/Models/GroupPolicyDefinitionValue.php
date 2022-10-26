@@ -95,12 +95,12 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationType' => function (ParseNode $n) use ($o) { $o->setConfigurationType($n->getEnumValue(GroupPolicyConfigurationType::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definition' => function (ParseNode $n) use ($o) { $o->setDefinition($n->getObjectValue(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'presentationValues' => function (ParseNode $n) use ($o) { $o->setPresentationValues($n->getCollectionOfObjectValues(array(GroupPolicyPresentationValue::class, 'createFromDiscriminatorValue'))); },
+            'configurationType' => fn(ParseNode $n) => $o->setConfigurationType($n->getEnumValue(GroupPolicyConfigurationType::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'definition' => fn(ParseNode $n) => $o->setDefinition($n->getObjectValue([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'presentationValues' => fn(ParseNode $n) => $o->setPresentationValues($n->getCollectionOfObjectValues([GroupPolicyPresentationValue::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

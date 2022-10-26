@@ -2,19 +2,14 @@
 
 namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\GetOffice365GroupsActivityGroupCountsWithPeriod;
 
+use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Graph\Beta\Generated\Models\Office365GroupsActivityGroupCounts;
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements AdditionalDataHolder, Parsable 
+class GetOffice365GroupsActivityGroupCountsWithPeriodResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
     /**
      * @var array<Office365GroupsActivityGroupCounts>|null $value The value property
     */
@@ -24,7 +19,7 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements Additio
      * Instantiates a new getOffice365GroupsActivityGroupCountsWithPeriodResponse and sets the default values.
     */
     public function __construct() {
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -37,22 +32,14 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements Additio
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
-    */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(Office365GroupsActivityGroupCounts::class, 'createFromDiscriminatorValue'))); },
-        ];
+        return array_merge(parent::getFieldDeserializers(), [
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([Office365GroupsActivityGroupCounts::class, 'createFromDiscriminatorValue'])),
+        ]);
     }
 
     /**
@@ -68,16 +55,8 @@ class GetOffice365GroupsActivityGroupCountsWithPeriodResponse implements Additio
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeCollectionOfObjectValues('value', $this->value);
-        $writer->writeAdditionalData($this->additionalData);
-    }
-
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
     }
 
     /**

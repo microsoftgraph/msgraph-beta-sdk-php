@@ -77,9 +77,9 @@ class CertificateAuthority implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the certificate property value. Required. The base64 encoded string representing the public certificate.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getCertificate(): ?StreamInterface {
+    public function getCertificate(): StreamInterface {
         return $this->certificate;
     }
 
@@ -106,13 +106,13 @@ class CertificateAuthority implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'certificate' => function (ParseNode $n) use ($o) { $o->setCertificate($n->getBinaryContent()); },
-            'certificateRevocationListUrl' => function (ParseNode $n) use ($o) { $o->setCertificateRevocationListUrl($n->getStringValue()); },
-            'deltaCertificateRevocationListUrl' => function (ParseNode $n) use ($o) { $o->setDeltaCertificateRevocationListUrl($n->getStringValue()); },
-            'isRootAuthority' => function (ParseNode $n) use ($o) { $o->setIsRootAuthority($n->getBooleanValue()); },
-            'issuer' => function (ParseNode $n) use ($o) { $o->setIssuer($n->getStringValue()); },
-            'issuerSki' => function (ParseNode $n) use ($o) { $o->setIssuerSki($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'certificate' => fn(ParseNode $n) => $o->setCertificate($n->getBinaryContent()),
+            'certificateRevocationListUrl' => fn(ParseNode $n) => $o->setCertificateRevocationListUrl($n->getStringValue()),
+            'deltaCertificateRevocationListUrl' => fn(ParseNode $n) => $o->setDeltaCertificateRevocationListUrl($n->getStringValue()),
+            'isRootAuthority' => fn(ParseNode $n) => $o->setIsRootAuthority($n->getBooleanValue()),
+            'issuer' => fn(ParseNode $n) => $o->setIssuer($n->getStringValue()),
+            'issuerSki' => fn(ParseNode $n) => $o->setIssuerSki($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

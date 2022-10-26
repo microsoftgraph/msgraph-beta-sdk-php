@@ -172,19 +172,19 @@ class SourceCollection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'additionalSources' => function (ParseNode $n) use ($o) { $o->setAdditionalSources($n->getCollectionOfObjectValues(array(DataSource::class, 'createFromDiscriminatorValue'))); },
-            'addToReviewSetOperation' => function (ParseNode $n) use ($o) { $o->setAddToReviewSetOperation($n->getObjectValue(array(AddToReviewSetOperation::class, 'createFromDiscriminatorValue'))); },
-            'contentQuery' => function (ParseNode $n) use ($o) { $o->setContentQuery($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'custodianSources' => function (ParseNode $n) use ($o) { $o->setCustodianSources($n->getCollectionOfObjectValues(array(DataSource::class, 'createFromDiscriminatorValue'))); },
-            'dataSourceScopes' => function (ParseNode $n) use ($o) { $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastEstimateStatisticsOperation' => function (ParseNode $n) use ($o) { $o->setLastEstimateStatisticsOperation($n->getObjectValue(array(EstimateStatisticsOperation::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'noncustodialSources' => function (ParseNode $n) use ($o) { $o->setNoncustodialSources($n->getCollectionOfObjectValues(array(NoncustodialDataSource::class, 'createFromDiscriminatorValue'))); },
+            'additionalSources' => fn(ParseNode $n) => $o->setAdditionalSources($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
+            'addToReviewSetOperation' => fn(ParseNode $n) => $o->setAddToReviewSetOperation($n->getObjectValue([AddToReviewSetOperation::class, 'createFromDiscriminatorValue'])),
+            'contentQuery' => fn(ParseNode $n) => $o->setContentQuery($n->getStringValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'custodianSources' => fn(ParseNode $n) => $o->setCustodianSources($n->getCollectionOfObjectValues([DataSource::class, 'createFromDiscriminatorValue'])),
+            'dataSourceScopes' => fn(ParseNode $n) => $o->setDataSourceScopes($n->getEnumValue(DataSourceScopes::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastEstimateStatisticsOperation' => fn(ParseNode $n) => $o->setLastEstimateStatisticsOperation($n->getObjectValue([EstimateStatisticsOperation::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'noncustodialSources' => fn(ParseNode $n) => $o->setNoncustodialSources($n->getCollectionOfObjectValues([NoncustodialDataSource::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -210,21 +210,21 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'activityIdentifier' => function (ParseNode $n) use ($o) { $o->setActivityIdentifier($n->getStringValue()); },
-            'countEntitled' => function (ParseNode $n) use ($o) { $o->setCountEntitled($n->getIntegerValue()); },
-            'countEntitledForProvisioning' => function (ParseNode $n) use ($o) { $o->setCountEntitledForProvisioning($n->getIntegerValue()); },
-            'countEscrowed' => function (ParseNode $n) use ($o) { $o->setCountEscrowed($n->getIntegerValue()); },
-            'countEscrowedRaw' => function (ParseNode $n) use ($o) { $o->setCountEscrowedRaw($n->getIntegerValue()); },
-            'countExported' => function (ParseNode $n) use ($o) { $o->setCountExported($n->getIntegerValue()); },
-            'countExports' => function (ParseNode $n) use ($o) { $o->setCountExports($n->getIntegerValue()); },
-            'countImported' => function (ParseNode $n) use ($o) { $o->setCountImported($n->getIntegerValue()); },
-            'countImportedDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedDeltas($n->getIntegerValue()); },
-            'countImportedReferenceDeltas' => function (ParseNode $n) use ($o) { $o->setCountImportedReferenceDeltas($n->getIntegerValue()); },
-            'error' => function (ParseNode $n) use ($o) { $o->setError($n->getObjectValue(array(SynchronizationError::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(SynchronizationTaskExecutionResult::class)); },
-            'timeBegan' => function (ParseNode $n) use ($o) { $o->setTimeBegan($n->getDateTimeValue()); },
-            'timeEnded' => function (ParseNode $n) use ($o) { $o->setTimeEnded($n->getDateTimeValue()); },
+            'activityIdentifier' => fn(ParseNode $n) => $o->setActivityIdentifier($n->getStringValue()),
+            'countEntitled' => fn(ParseNode $n) => $o->setCountEntitled($n->getIntegerValue()),
+            'countEntitledForProvisioning' => fn(ParseNode $n) => $o->setCountEntitledForProvisioning($n->getIntegerValue()),
+            'countEscrowed' => fn(ParseNode $n) => $o->setCountEscrowed($n->getIntegerValue()),
+            'countEscrowedRaw' => fn(ParseNode $n) => $o->setCountEscrowedRaw($n->getIntegerValue()),
+            'countExported' => fn(ParseNode $n) => $o->setCountExported($n->getIntegerValue()),
+            'countExports' => fn(ParseNode $n) => $o->setCountExports($n->getIntegerValue()),
+            'countImported' => fn(ParseNode $n) => $o->setCountImported($n->getIntegerValue()),
+            'countImportedDeltas' => fn(ParseNode $n) => $o->setCountImportedDeltas($n->getIntegerValue()),
+            'countImportedReferenceDeltas' => fn(ParseNode $n) => $o->setCountImportedReferenceDeltas($n->getIntegerValue()),
+            'error' => fn(ParseNode $n) => $o->setError($n->getObjectValue([SynchronizationError::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(SynchronizationTaskExecutionResult::class)),
+            'timeBegan' => fn(ParseNode $n) => $o->setTimeBegan($n->getDateTimeValue()),
+            'timeEnded' => fn(ParseNode $n) => $o->setTimeEnded($n->getDateTimeValue()),
         ];
     }
 

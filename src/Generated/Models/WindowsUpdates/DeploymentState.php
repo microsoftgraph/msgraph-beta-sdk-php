@@ -66,10 +66,10 @@ class DeploymentState implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'reasons' => function (ParseNode $n) use ($o) { $o->setReasons($n->getCollectionOfObjectValues(array(DeploymentStateReason::class, 'createFromDiscriminatorValue'))); },
-            'requestedValue' => function (ParseNode $n) use ($o) { $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getEnumValue(DeploymentStateValue::class)); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'reasons' => fn(ParseNode $n) => $o->setReasons($n->getCollectionOfObjectValues([DeploymentStateReason::class, 'createFromDiscriminatorValue'])),
+            'requestedValue' => fn(ParseNode $n) => $o->setRequestedValue($n->getEnumValue(RequestedDeploymentStateValue::class)),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getEnumValue(DeploymentStateValue::class)),
         ];
     }
 

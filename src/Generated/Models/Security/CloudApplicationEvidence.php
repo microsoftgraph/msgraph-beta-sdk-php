@@ -73,11 +73,11 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appId' => function (ParseNode $n) use ($o) { $o->setAppId($n->getIntegerValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'instanceId' => function (ParseNode $n) use ($o) { $o->setInstanceId($n->getIntegerValue()); },
-            'instanceName' => function (ParseNode $n) use ($o) { $o->setInstanceName($n->getStringValue()); },
-            'saasAppId' => function (ParseNode $n) use ($o) { $o->setSaasAppId($n->getIntegerValue()); },
+            'appId' => fn(ParseNode $n) => $o->setAppId($n->getIntegerValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'instanceId' => fn(ParseNode $n) => $o->setInstanceId($n->getIntegerValue()),
+            'instanceName' => fn(ParseNode $n) => $o->setInstanceName($n->getStringValue()),
+            'saasAppId' => fn(ParseNode $n) => $o->setSaasAppId($n->getIntegerValue()),
         ]);
     }
 

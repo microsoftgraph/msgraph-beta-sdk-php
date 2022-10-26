@@ -61,10 +61,10 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(DeviceManagementDomainJoinConnectorState::class)); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(DeviceManagementDomainJoinConnectorState::class)),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getStringValue()),
         ]);
     }
 

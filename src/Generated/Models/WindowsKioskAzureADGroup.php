@@ -50,8 +50,8 @@ class WindowsKioskAzureADGroup extends WindowsKioskUser implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groupId' => function (ParseNode $n) use ($o) { $o->setGroupId($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
         ]);
     }
 

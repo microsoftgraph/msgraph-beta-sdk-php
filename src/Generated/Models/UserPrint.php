@@ -56,8 +56,8 @@ class UserPrint implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'recentPrinterShares' => function (ParseNode $n) use ($o) { $o->setRecentPrinterShares($n->getCollectionOfObjectValues(array(PrinterShare::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'recentPrinterShares' => fn(ParseNode $n) => $o->setRecentPrinterShares($n->getCollectionOfObjectValues([PrinterShare::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

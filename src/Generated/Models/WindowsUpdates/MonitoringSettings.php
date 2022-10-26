@@ -56,8 +56,8 @@ class MonitoringSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'monitoringRules' => function (ParseNode $n) use ($o) { $o->setMonitoringRules($n->getCollectionOfObjectValues(array(MonitoringRule::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'monitoringRules' => fn(ParseNode $n) => $o->setMonitoringRules($n->getCollectionOfObjectValues([MonitoringRule::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

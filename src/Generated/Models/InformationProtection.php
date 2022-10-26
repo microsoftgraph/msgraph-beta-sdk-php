@@ -78,12 +78,12 @@ class InformationProtection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bitlocker' => function (ParseNode $n) use ($o) { $o->setBitlocker($n->getObjectValue(array(Bitlocker::class, 'createFromDiscriminatorValue'))); },
-            'dataLossPreventionPolicies' => function (ParseNode $n) use ($o) { $o->setDataLossPreventionPolicies($n->getCollectionOfObjectValues(array(DataLossPreventionPolicy::class, 'createFromDiscriminatorValue'))); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(InformationProtectionPolicy::class, 'createFromDiscriminatorValue'))); },
-            'sensitivityLabels' => function (ParseNode $n) use ($o) { $o->setSensitivityLabels($n->getCollectionOfObjectValues(array(SensitivityLabel::class, 'createFromDiscriminatorValue'))); },
-            'sensitivityPolicySettings' => function (ParseNode $n) use ($o) { $o->setSensitivityPolicySettings($n->getObjectValue(array(SensitivityPolicySettings::class, 'createFromDiscriminatorValue'))); },
-            'threatAssessmentRequests' => function (ParseNode $n) use ($o) { $o->setThreatAssessmentRequests($n->getCollectionOfObjectValues(array(ThreatAssessmentRequest::class, 'createFromDiscriminatorValue'))); },
+            'bitlocker' => fn(ParseNode $n) => $o->setBitlocker($n->getObjectValue([Bitlocker::class, 'createFromDiscriminatorValue'])),
+            'dataLossPreventionPolicies' => fn(ParseNode $n) => $o->setDataLossPreventionPolicies($n->getCollectionOfObjectValues([DataLossPreventionPolicy::class, 'createFromDiscriminatorValue'])),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([InformationProtectionPolicy::class, 'createFromDiscriminatorValue'])),
+            'sensitivityLabels' => fn(ParseNode $n) => $o->setSensitivityLabels($n->getCollectionOfObjectValues([SensitivityLabel::class, 'createFromDiscriminatorValue'])),
+            'sensitivityPolicySettings' => fn(ParseNode $n) => $o->setSensitivityPolicySettings($n->getObjectValue([SensitivityPolicySettings::class, 'createFromDiscriminatorValue'])),
+            'threatAssessmentRequests' => fn(ParseNode $n) => $o->setThreatAssessmentRequests($n->getCollectionOfObjectValues([ThreatAssessmentRequest::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

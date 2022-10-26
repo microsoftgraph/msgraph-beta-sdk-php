@@ -120,14 +120,14 @@ class ProjectParticipation extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'client' => function (ParseNode $n) use ($o) { $o->setClient($n->getObjectValue(array(CompanyDetail::class, 'createFromDiscriminatorValue'))); },
-            'collaborationTags' => function (ParseNode $n) use ($o) { $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()); },
-            'colleagues' => function (ParseNode $n) use ($o) { $o->setColleagues($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'detail' => function (ParseNode $n) use ($o) { $o->setDetail($n->getObjectValue(array(PositionDetail::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'sponsors' => function (ParseNode $n) use ($o) { $o->setSponsors($n->getCollectionOfObjectValues(array(RelatedPerson::class, 'createFromDiscriminatorValue'))); },
-            'thumbnailUrl' => function (ParseNode $n) use ($o) { $o->setThumbnailUrl($n->getStringValue()); },
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'client' => fn(ParseNode $n) => $o->setClient($n->getObjectValue([CompanyDetail::class, 'createFromDiscriminatorValue'])),
+            'collaborationTags' => fn(ParseNode $n) => $o->setCollaborationTags($n->getCollectionOfPrimitiveValues()),
+            'colleagues' => fn(ParseNode $n) => $o->setColleagues($n->getCollectionOfObjectValues([RelatedPerson::class, 'createFromDiscriminatorValue'])),
+            'detail' => fn(ParseNode $n) => $o->setDetail($n->getObjectValue([PositionDetail::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'sponsors' => fn(ParseNode $n) => $o->setSponsors($n->getCollectionOfObjectValues([RelatedPerson::class, 'createFromDiscriminatorValue'])),
+            'thumbnailUrl' => fn(ParseNode $n) => $o->setThumbnailUrl($n->getStringValue()),
         ]);
     }
 

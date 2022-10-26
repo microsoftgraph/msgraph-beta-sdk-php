@@ -90,10 +90,10 @@ class MeetingCapability implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowAnonymousUsersToDialOut' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToDialOut($n->getBooleanValue()); },
-            'allowAnonymousUsersToStartMeeting' => function (ParseNode $n) use ($o) { $o->setAllowAnonymousUsersToStartMeeting($n->getBooleanValue()); },
-            'autoAdmittedUsers' => function (ParseNode $n) use ($o) { $o->setAutoAdmittedUsers($n->getEnumValue(AutoAdmittedUsersType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowAnonymousUsersToDialOut' => fn(ParseNode $n) => $o->setAllowAnonymousUsersToDialOut($n->getBooleanValue()),
+            'allowAnonymousUsersToStartMeeting' => fn(ParseNode $n) => $o->setAllowAnonymousUsersToStartMeeting($n->getBooleanValue()),
+            'autoAdmittedUsers' => fn(ParseNode $n) => $o->setAutoAdmittedUsers($n->getEnumValue(AutoAdmittedUsersType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

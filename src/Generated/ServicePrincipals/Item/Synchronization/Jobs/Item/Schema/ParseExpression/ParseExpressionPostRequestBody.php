@@ -70,9 +70,9 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expression' => function (ParseNode $n) use ($o) { $o->setExpression($n->getStringValue()); },
-            'targetAttributeDefinition' => function (ParseNode $n) use ($o) { $o->setTargetAttributeDefinition($n->getObjectValue(array(AttributeDefinition::class, 'createFromDiscriminatorValue'))); },
-            'testInputObject' => function (ParseNode $n) use ($o) { $o->setTestInputObject($n->getObjectValue(array(ExpressionInputObject::class, 'createFromDiscriminatorValue'))); },
+            'expression' => fn(ParseNode $n) => $o->setExpression($n->getStringValue()),
+            'targetAttributeDefinition' => fn(ParseNode $n) => $o->setTargetAttributeDefinition($n->getObjectValue([AttributeDefinition::class, 'createFromDiscriminatorValue'])),
+            'testInputObject' => fn(ParseNode $n) => $o->setTestInputObject($n->getObjectValue([ExpressionInputObject::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

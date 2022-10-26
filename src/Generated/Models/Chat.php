@@ -129,22 +129,22 @@ class Chat extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'chatType' => function (ParseNode $n) use ($o) { $o->setChatType($n->getEnumValue(ChatType::class)); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'installedApps' => function (ParseNode $n) use ($o) { $o->setInstalledApps($n->getCollectionOfObjectValues(array(TeamsAppInstallation::class, 'createFromDiscriminatorValue'))); },
-            'lastMessagePreview' => function (ParseNode $n) use ($o) { $o->setLastMessagePreview($n->getObjectValue(array(ChatMessageInfo::class, 'createFromDiscriminatorValue'))); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(ConversationMember::class, 'createFromDiscriminatorValue'))); },
-            'messages' => function (ParseNode $n) use ($o) { $o->setMessages($n->getCollectionOfObjectValues(array(ChatMessage::class, 'createFromDiscriminatorValue'))); },
-            'onlineMeetingInfo' => function (ParseNode $n) use ($o) { $o->setOnlineMeetingInfo($n->getObjectValue(array(TeamworkOnlineMeetingInfo::class, 'createFromDiscriminatorValue'))); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(TeamsAsyncOperation::class, 'createFromDiscriminatorValue'))); },
-            'permissionGrants' => function (ParseNode $n) use ($o) { $o->setPermissionGrants($n->getCollectionOfObjectValues(array(ResourceSpecificPermissionGrant::class, 'createFromDiscriminatorValue'))); },
-            'pinnedMessages' => function (ParseNode $n) use ($o) { $o->setPinnedMessages($n->getCollectionOfObjectValues(array(PinnedChatMessageInfo::class, 'createFromDiscriminatorValue'))); },
-            'tabs' => function (ParseNode $n) use ($o) { $o->setTabs($n->getCollectionOfObjectValues(array(TeamsTab::class, 'createFromDiscriminatorValue'))); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
-            'topic' => function (ParseNode $n) use ($o) { $o->setTopic($n->getStringValue()); },
-            'viewpoint' => function (ParseNode $n) use ($o) { $o->setViewpoint($n->getObjectValue(array(ChatViewpoint::class, 'createFromDiscriminatorValue'))); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'chatType' => fn(ParseNode $n) => $o->setChatType($n->getEnumValue(ChatType::class)),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'installedApps' => fn(ParseNode $n) => $o->setInstalledApps($n->getCollectionOfObjectValues([TeamsAppInstallation::class, 'createFromDiscriminatorValue'])),
+            'lastMessagePreview' => fn(ParseNode $n) => $o->setLastMessagePreview($n->getObjectValue([ChatMessageInfo::class, 'createFromDiscriminatorValue'])),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([ConversationMember::class, 'createFromDiscriminatorValue'])),
+            'messages' => fn(ParseNode $n) => $o->setMessages($n->getCollectionOfObjectValues([ChatMessage::class, 'createFromDiscriminatorValue'])),
+            'onlineMeetingInfo' => fn(ParseNode $n) => $o->setOnlineMeetingInfo($n->getObjectValue([TeamworkOnlineMeetingInfo::class, 'createFromDiscriminatorValue'])),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([TeamsAsyncOperation::class, 'createFromDiscriminatorValue'])),
+            'permissionGrants' => fn(ParseNode $n) => $o->setPermissionGrants($n->getCollectionOfObjectValues([ResourceSpecificPermissionGrant::class, 'createFromDiscriminatorValue'])),
+            'pinnedMessages' => fn(ParseNode $n) => $o->setPinnedMessages($n->getCollectionOfObjectValues([PinnedChatMessageInfo::class, 'createFromDiscriminatorValue'])),
+            'tabs' => fn(ParseNode $n) => $o->setTabs($n->getCollectionOfObjectValues([TeamsTab::class, 'createFromDiscriminatorValue'])),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
+            'topic' => fn(ParseNode $n) => $o->setTopic($n->getStringValue()),
+            'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([ChatViewpoint::class, 'createFromDiscriminatorValue'])),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 

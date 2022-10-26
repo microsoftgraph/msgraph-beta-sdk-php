@@ -82,10 +82,10 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'devicesNotAutopilotRegistered' => function (ParseNode $n) use ($o) { $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()); },
-            'devicesWithoutAutopilotProfileAssigned' => function (ParseNode $n) use ($o) { $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'totalWindows10DevicesWithoutTenantAttached' => function (ParseNode $n) use ($o) { $o->setTotalWindows10DevicesWithoutTenantAttached($n->getIntegerValue()); },
+            'devicesNotAutopilotRegistered' => fn(ParseNode $n) => $o->setDevicesNotAutopilotRegistered($n->getIntegerValue()),
+            'devicesWithoutAutopilotProfileAssigned' => fn(ParseNode $n) => $o->setDevicesWithoutAutopilotProfileAssigned($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'totalWindows10DevicesWithoutTenantAttached' => fn(ParseNode $n) => $o->setTotalWindows10DevicesWithoutTenantAttached($n->getIntegerValue()),
         ];
     }
 

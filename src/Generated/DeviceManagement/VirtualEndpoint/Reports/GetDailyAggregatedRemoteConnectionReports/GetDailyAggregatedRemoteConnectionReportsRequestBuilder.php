@@ -44,7 +44,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder
     }
 
     /**
-     * Invoke action getDailyAggregatedRemoteConnectionReports
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body 
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -67,7 +67,7 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder
     }
 
     /**
-     * Invoke action getDailyAggregatedRemoteConnectionReports
+     * Get the daily aggregated remote connection reports, such as round trip time, available bandwidth, and so on, in a given period.
      * @param GetDailyAggregatedRemoteConnectionReportsPostRequestBody $body 
      * @param GetDailyAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -77,8 +77,8 @@ class GetDailyAggregatedRemoteConnectionReportsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
             return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
         } catch(Exception $ex) {

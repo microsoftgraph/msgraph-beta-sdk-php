@@ -50,8 +50,8 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'availableForEncryption' => function (ParseNode $n) use ($o) { $o->setAvailableForEncryption($n->getBooleanValue()); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            'availableForEncryption' => fn(ParseNode $n) => $o->setAvailableForEncryption($n->getBooleanValue()),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ]);
     }
 

@@ -58,7 +58,7 @@ class RestorePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudPcSnapshotId' => function (ParseNode $n) use ($o) { $o->setCloudPcSnapshotId($n->getStringValue()); },
+            'cloudPcSnapshotId' => fn(ParseNode $n) => $o->setCloudPcSnapshotId($n->getStringValue()),
         ];
     }
 

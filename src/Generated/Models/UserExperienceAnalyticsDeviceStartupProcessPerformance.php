@@ -80,14 +80,14 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity impl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'medianImpactInMs' => function (ParseNode $n) use ($o) { $o->setMedianImpactInMs($n->getIntegerValue()); },
-            'medianImpactInMs2' => function (ParseNode $n) use ($o) { $o->setMedianImpactInMs2($n->getIntegerValue()); },
-            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
-            'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'totalImpactInMs' => function (ParseNode $n) use ($o) { $o->setTotalImpactInMs($n->getIntegerValue()); },
-            'totalImpactInMs2' => function (ParseNode $n) use ($o) { $o->setTotalImpactInMs2($n->getIntegerValue()); },
+            'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
+            'medianImpactInMs' => fn(ParseNode $n) => $o->setMedianImpactInMs($n->getIntegerValue()),
+            'medianImpactInMs2' => fn(ParseNode $n) => $o->setMedianImpactInMs2($n->getIntegerValue()),
+            'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
+            'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'totalImpactInMs' => fn(ParseNode $n) => $o->setTotalImpactInMs($n->getIntegerValue()),
+            'totalImpactInMs2' => fn(ParseNode $n) => $o->setTotalImpactInMs2($n->getIntegerValue()),
         ]);
     }
 

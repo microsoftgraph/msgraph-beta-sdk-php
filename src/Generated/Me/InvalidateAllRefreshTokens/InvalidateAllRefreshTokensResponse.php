@@ -50,7 +50,7 @@ class InvalidateAllRefreshTokensResponse implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getBooleanValue()); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getBooleanValue()),
         ];
     }
 

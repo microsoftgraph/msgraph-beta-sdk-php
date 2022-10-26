@@ -33,9 +33,9 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the configurationXml property value. Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getConfigurationXml(): ?StreamInterface {
+    public function getConfigurationXml(): StreamInterface {
         return $this->configurationXml;
     }
 
@@ -46,7 +46,7 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'configurationXml' => function (ParseNode $n) use ($o) { $o->setConfigurationXml($n->getBinaryContent()); },
+            'configurationXml' => fn(ParseNode $n) => $o->setConfigurationXml($n->getBinaryContent()),
         ]);
     }
 

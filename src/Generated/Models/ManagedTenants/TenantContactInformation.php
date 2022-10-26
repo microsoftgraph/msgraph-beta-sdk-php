@@ -84,12 +84,12 @@ class TenantContactInformation implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'phone' => function (ParseNode $n) use ($o) { $o->setPhone($n->getStringValue()); },
-            'title' => function (ParseNode $n) use ($o) { $o->setTitle($n->getStringValue()); },
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'phone' => fn(ParseNode $n) => $o->setPhone($n->getStringValue()),
+            'title' => fn(ParseNode $n) => $o->setTitle($n->getStringValue()),
         ];
     }
 

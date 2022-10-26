@@ -37,7 +37,7 @@ class DeviceManagementSettingRequiredConstraint extends DeviceManagementConstrai
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'notConfiguredValue' => function (ParseNode $n) use ($o) { $o->setNotConfiguredValue($n->getStringValue()); },
+            'notConfiguredValue' => fn(ParseNode $n) => $o->setNotConfiguredValue($n->getStringValue()),
         ]);
     }
 

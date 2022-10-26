@@ -60,9 +60,9 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getStringValue()); },
-            'resultColumnNames' => function (ParseNode $n) use ($o) { $o->setResultColumnNames($n->getCollectionOfPrimitiveValues()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
+            'key' => fn(ParseNode $n) => $o->setKey($n->getStringValue()),
+            'resultColumnNames' => fn(ParseNode $n) => $o->setResultColumnNames($n->getCollectionOfPrimitiveValues()),
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

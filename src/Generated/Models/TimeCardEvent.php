@@ -83,10 +83,10 @@ class TimeCardEvent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'atApprovedLocation' => function (ParseNode $n) use ($o) { $o->setAtApprovedLocation($n->getBooleanValue()); },
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'atApprovedLocation' => fn(ParseNode $n) => $o->setAtApprovedLocation($n->getBooleanValue()),
+            'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

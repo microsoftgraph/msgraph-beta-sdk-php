@@ -39,7 +39,7 @@ class PrivilegedAccess extends Entity implements Parsable
     private ?array $roleSettings = null;
     
     /**
-     * Instantiates a new PrivilegedAccess and sets the default values.
+     * Instantiates a new privilegedAccess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -70,12 +70,12 @@ class PrivilegedAccess extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'resources' => function (ParseNode $n) use ($o) { $o->setResources($n->getCollectionOfObjectValues(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues(array(GovernanceRoleAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'roleAssignments' => function (ParseNode $n) use ($o) { $o->setRoleAssignments($n->getCollectionOfObjectValues(array(GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitions' => function (ParseNode $n) use ($o) { $o->setRoleDefinitions($n->getCollectionOfObjectValues(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleSettings' => function (ParseNode $n) use ($o) { $o->setRoleSettings($n->getCollectionOfObjectValues(array(GovernanceRoleSetting::class, 'createFromDiscriminatorValue'))); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'resources' => fn(ParseNode $n) => $o->setResources($n->getCollectionOfObjectValues([GovernanceResource::class, 'createFromDiscriminatorValue'])),
+            'roleAssignmentRequests' => fn(ParseNode $n) => $o->setRoleAssignmentRequests($n->getCollectionOfObjectValues([GovernanceRoleAssignmentRequest::class, 'createFromDiscriminatorValue'])),
+            'roleAssignments' => fn(ParseNode $n) => $o->setRoleAssignments($n->getCollectionOfObjectValues([GovernanceRoleAssignment::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitions' => fn(ParseNode $n) => $o->setRoleDefinitions($n->getCollectionOfObjectValues([GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'])),
+            'roleSettings' => fn(ParseNode $n) => $o->setRoleSettings($n->getCollectionOfObjectValues([GovernanceRoleSetting::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

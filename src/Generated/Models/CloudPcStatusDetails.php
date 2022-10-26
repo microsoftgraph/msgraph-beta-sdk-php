@@ -82,10 +82,10 @@ class CloudPcStatusDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'message' => function (ParseNode $n) use ($o) { $o->setMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'message' => fn(ParseNode $n) => $o->setMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

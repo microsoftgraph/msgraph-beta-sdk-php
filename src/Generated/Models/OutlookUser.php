@@ -52,10 +52,10 @@ class OutlookUser extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'masterCategories' => function (ParseNode $n) use ($o) { $o->setMasterCategories($n->getCollectionOfObjectValues(array(OutlookCategory::class, 'createFromDiscriminatorValue'))); },
-            'taskFolders' => function (ParseNode $n) use ($o) { $o->setTaskFolders($n->getCollectionOfObjectValues(array(OutlookTaskFolder::class, 'createFromDiscriminatorValue'))); },
-            'taskGroups' => function (ParseNode $n) use ($o) { $o->setTaskGroups($n->getCollectionOfObjectValues(array(OutlookTaskGroup::class, 'createFromDiscriminatorValue'))); },
-            'tasks' => function (ParseNode $n) use ($o) { $o->setTasks($n->getCollectionOfObjectValues(array(OutlookTask::class, 'createFromDiscriminatorValue'))); },
+            'masterCategories' => fn(ParseNode $n) => $o->setMasterCategories($n->getCollectionOfObjectValues([OutlookCategory::class, 'createFromDiscriminatorValue'])),
+            'taskFolders' => fn(ParseNode $n) => $o->setTaskFolders($n->getCollectionOfObjectValues([OutlookTaskFolder::class, 'createFromDiscriminatorValue'])),
+            'taskGroups' => fn(ParseNode $n) => $o->setTaskGroups($n->getCollectionOfObjectValues([OutlookTaskGroup::class, 'createFromDiscriminatorValue'])),
+            'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([OutlookTask::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

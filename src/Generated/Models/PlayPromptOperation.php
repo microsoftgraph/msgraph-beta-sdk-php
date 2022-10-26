@@ -45,7 +45,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionReason' => function (ParseNode $n) use ($o) { $o->setCompletionReason($n->getEnumValue(PlayPromptCompletionReason::class)); },
+            'completionReason' => fn(ParseNode $n) => $o->setCompletionReason($n->getEnumValue(PlayPromptCompletionReason::class)),
         ]);
     }
 

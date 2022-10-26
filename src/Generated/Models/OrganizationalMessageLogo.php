@@ -16,7 +16,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var OrganizationalMessageLogoType|null $contentType The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
+     * @var OrganizationalMessageLogoType|null $contentType The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo
     */
     private ?OrganizationalMessageLogoType $contentType = null;
     
@@ -61,7 +61,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
+     * Gets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo
      * @return OrganizationalMessageLogoType|null
     */
     public function getContentType(): ?OrganizationalMessageLogoType {
@@ -75,18 +75,18 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getEnumValue(OrganizationalMessageLogoType::class)); },
-            'logo' => function (ParseNode $n) use ($o) { $o->setLogo($n->getBinaryContent()); },
-            'logoCdnUrl' => function (ParseNode $n) use ($o) { $o->setLogoCdnUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getEnumValue(OrganizationalMessageLogoType::class)),
+            'logo' => fn(ParseNode $n) => $o->setLogo($n->getBinaryContent()),
+            'logoCdnUrl' => fn(ParseNode $n) => $o->setLogoCdnUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the logo property value. The binary contents of the logo. This is null when logoCdnUrl is used to send the logo
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getLogo(): ?StreamInterface {
+    public function getLogo(): StreamInterface {
         return $this->logo;
     }
 
@@ -127,7 +127,7 @@ class OrganizationalMessageLogo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo. Possible values are: png, unknownFutureValue.
+     * Sets the contentType property value. The content type of the logo that is contained in the logo array. This is null when logoCdnUrl is used to send the logo
      *  @param OrganizationalMessageLogoType|null $value Value to set for the contentType property.
     */
     public function setContentType(?OrganizationalMessageLogoType $value ): void {

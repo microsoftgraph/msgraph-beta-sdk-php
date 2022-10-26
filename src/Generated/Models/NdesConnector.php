@@ -92,13 +92,13 @@ class NdesConnector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enrolledDateTime' => function (ParseNode $n) use ($o) { $o->setEnrolledDateTime($n->getDateTimeValue()); },
-            'lastConnectionDateTime' => function (ParseNode $n) use ($o) { $o->setLastConnectionDateTime($n->getDateTimeValue()); },
-            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(NdesConnectorState::class)); },
+            'connectorVersion' => fn(ParseNode $n) => $o->setConnectorVersion($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enrolledDateTime' => fn(ParseNode $n) => $o->setEnrolledDateTime($n->getDateTimeValue()),
+            'lastConnectionDateTime' => fn(ParseNode $n) => $o->setLastConnectionDateTime($n->getDateTimeValue()),
+            'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(NdesConnectorState::class)),
         ]);
     }
 

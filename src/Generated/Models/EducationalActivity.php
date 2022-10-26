@@ -74,11 +74,11 @@ class EducationalActivity extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'completionMonthYear' => function (ParseNode $n) use ($o) { $o->setCompletionMonthYear($n->getDateValue()); },
-            'endMonthYear' => function (ParseNode $n) use ($o) { $o->setEndMonthYear($n->getDateValue()); },
-            'institution' => function (ParseNode $n) use ($o) { $o->setInstitution($n->getObjectValue(array(InstitutionData::class, 'createFromDiscriminatorValue'))); },
-            'program' => function (ParseNode $n) use ($o) { $o->setProgram($n->getObjectValue(array(EducationalActivityDetail::class, 'createFromDiscriminatorValue'))); },
-            'startMonthYear' => function (ParseNode $n) use ($o) { $o->setStartMonthYear($n->getDateValue()); },
+            'completionMonthYear' => fn(ParseNode $n) => $o->setCompletionMonthYear($n->getDateValue()),
+            'endMonthYear' => fn(ParseNode $n) => $o->setEndMonthYear($n->getDateValue()),
+            'institution' => fn(ParseNode $n) => $o->setInstitution($n->getObjectValue([InstitutionData::class, 'createFromDiscriminatorValue'])),
+            'program' => fn(ParseNode $n) => $o->setProgram($n->getObjectValue([EducationalActivityDetail::class, 'createFromDiscriminatorValue'])),
+            'startMonthYear' => fn(ParseNode $n) => $o->setStartMonthYear($n->getDateValue()),
         ]);
     }
 

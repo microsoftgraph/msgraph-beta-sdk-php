@@ -125,18 +125,18 @@ class TeamTemplateDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'audience' => function (ParseNode $n) use ($o) { $o->setAudience($n->getEnumValue(TeamTemplateAudience::class)); },
-            'categories' => function (ParseNode $n) use ($o) { $o->setCategories($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'iconUrl' => function (ParseNode $n) use ($o) { $o->setIconUrl($n->getStringValue()); },
-            'languageTag' => function (ParseNode $n) use ($o) { $o->setLanguageTag($n->getStringValue()); },
-            'lastModifiedBy' => function (ParseNode $n) use ($o) { $o->setLastModifiedBy($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'parentTemplateId' => function (ParseNode $n) use ($o) { $o->setParentTemplateId($n->getStringValue()); },
-            'publisherName' => function (ParseNode $n) use ($o) { $o->setPublisherName($n->getStringValue()); },
-            'shortDescription' => function (ParseNode $n) use ($o) { $o->setShortDescription($n->getStringValue()); },
-            'teamDefinition' => function (ParseNode $n) use ($o) { $o->setTeamDefinition($n->getObjectValue(array(Team::class, 'createFromDiscriminatorValue'))); },
+            'audience' => fn(ParseNode $n) => $o->setAudience($n->getEnumValue(TeamTemplateAudience::class)),
+            'categories' => fn(ParseNode $n) => $o->setCategories($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'iconUrl' => fn(ParseNode $n) => $o->setIconUrl($n->getStringValue()),
+            'languageTag' => fn(ParseNode $n) => $o->setLanguageTag($n->getStringValue()),
+            'lastModifiedBy' => fn(ParseNode $n) => $o->setLastModifiedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'parentTemplateId' => fn(ParseNode $n) => $o->setParentTemplateId($n->getStringValue()),
+            'publisherName' => fn(ParseNode $n) => $o->setPublisherName($n->getStringValue()),
+            'shortDescription' => fn(ParseNode $n) => $o->setShortDescription($n->getStringValue()),
+            'teamDefinition' => fn(ParseNode $n) => $o->setTeamDefinition($n->getObjectValue([Team::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

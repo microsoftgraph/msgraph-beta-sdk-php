@@ -90,10 +90,10 @@ class AppLogCollectionDownloadDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appLogDecryptionAlgorithm' => function (ParseNode $n) use ($o) { $o->setAppLogDecryptionAlgorithm($n->getEnumValue(AppLogDecryptionAlgorithm::class)); },
-            'decryptionKey' => function (ParseNode $n) use ($o) { $o->setDecryptionKey($n->getStringValue()); },
-            'downloadUrl' => function (ParseNode $n) use ($o) { $o->setDownloadUrl($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'appLogDecryptionAlgorithm' => fn(ParseNode $n) => $o->setAppLogDecryptionAlgorithm($n->getEnumValue(AppLogDecryptionAlgorithm::class)),
+            'decryptionKey' => fn(ParseNode $n) => $o->setDecryptionKey($n->getStringValue()),
+            'downloadUrl' => fn(ParseNode $n) => $o->setDownloadUrl($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

@@ -217,30 +217,30 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'advancedThreatProtectionAutomaticSampleSubmission' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionAutomaticSampleSubmission($n->getEnumValue(Enablement::class)); },
-            'advancedThreatProtectionCloudDelivered' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionCloudDelivered($n->getEnumValue(Enablement::class)); },
-            'advancedThreatProtectionDiagnosticDataCollection' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionDiagnosticDataCollection($n->getEnumValue(Enablement::class)); },
-            'advancedThreatProtectionExcludedExtensions' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionExcludedExtensions($n->getCollectionOfPrimitiveValues()); },
-            'advancedThreatProtectionExcludedFiles' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionExcludedFiles($n->getCollectionOfPrimitiveValues()); },
-            'advancedThreatProtectionExcludedFolders' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionExcludedFolders($n->getCollectionOfPrimitiveValues()); },
-            'advancedThreatProtectionExcludedProcesses' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionExcludedProcesses($n->getCollectionOfPrimitiveValues()); },
-            'advancedThreatProtectionRealTime' => function (ParseNode $n) use ($o) { $o->setAdvancedThreatProtectionRealTime($n->getEnumValue(Enablement::class)); },
-            'fileVaultAllowDeferralUntilSignOut' => function (ParseNode $n) use ($o) { $o->setFileVaultAllowDeferralUntilSignOut($n->getBooleanValue()); },
-            'fileVaultDisablePromptAtSignOut' => function (ParseNode $n) use ($o) { $o->setFileVaultDisablePromptAtSignOut($n->getBooleanValue()); },
-            'fileVaultEnabled' => function (ParseNode $n) use ($o) { $o->setFileVaultEnabled($n->getBooleanValue()); },
-            'fileVaultHidePersonalRecoveryKey' => function (ParseNode $n) use ($o) { $o->setFileVaultHidePersonalRecoveryKey($n->getBooleanValue()); },
-            'fileVaultInstitutionalRecoveryKeyCertificate' => function (ParseNode $n) use ($o) { $o->setFileVaultInstitutionalRecoveryKeyCertificate($n->getBinaryContent()); },
-            'fileVaultInstitutionalRecoveryKeyCertificateFileName' => function (ParseNode $n) use ($o) { $o->setFileVaultInstitutionalRecoveryKeyCertificateFileName($n->getStringValue()); },
-            'fileVaultNumberOfTimesUserCanIgnore' => function (ParseNode $n) use ($o) { $o->setFileVaultNumberOfTimesUserCanIgnore($n->getIntegerValue()); },
-            'fileVaultPersonalRecoveryKeyHelpMessage' => function (ParseNode $n) use ($o) { $o->setFileVaultPersonalRecoveryKeyHelpMessage($n->getStringValue()); },
-            'fileVaultPersonalRecoveryKeyRotationInMonths' => function (ParseNode $n) use ($o) { $o->setFileVaultPersonalRecoveryKeyRotationInMonths($n->getIntegerValue()); },
-            'fileVaultSelectedRecoveryKeyTypes' => function (ParseNode $n) use ($o) { $o->setFileVaultSelectedRecoveryKeyTypes($n->getEnumValue(MacOSFileVaultRecoveryKeyTypes::class)); },
-            'firewallApplications' => function (ParseNode $n) use ($o) { $o->setFirewallApplications($n->getCollectionOfObjectValues(array(MacOSFirewallApplication::class, 'createFromDiscriminatorValue'))); },
-            'firewallBlockAllIncoming' => function (ParseNode $n) use ($o) { $o->setFirewallBlockAllIncoming($n->getBooleanValue()); },
-            'firewallEnabled' => function (ParseNode $n) use ($o) { $o->setFirewallEnabled($n->getBooleanValue()); },
-            'firewallEnableStealthMode' => function (ParseNode $n) use ($o) { $o->setFirewallEnableStealthMode($n->getBooleanValue()); },
-            'gatekeeperAllowedAppSource' => function (ParseNode $n) use ($o) { $o->setGatekeeperAllowedAppSource($n->getEnumValue(MacOSGatekeeperAppSources::class)); },
-            'gatekeeperBlockOverride' => function (ParseNode $n) use ($o) { $o->setGatekeeperBlockOverride($n->getBooleanValue()); },
+            'advancedThreatProtectionAutomaticSampleSubmission' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionAutomaticSampleSubmission($n->getEnumValue(Enablement::class)),
+            'advancedThreatProtectionCloudDelivered' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionCloudDelivered($n->getEnumValue(Enablement::class)),
+            'advancedThreatProtectionDiagnosticDataCollection' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionDiagnosticDataCollection($n->getEnumValue(Enablement::class)),
+            'advancedThreatProtectionExcludedExtensions' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedExtensions($n->getCollectionOfPrimitiveValues()),
+            'advancedThreatProtectionExcludedFiles' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedFiles($n->getCollectionOfPrimitiveValues()),
+            'advancedThreatProtectionExcludedFolders' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedFolders($n->getCollectionOfPrimitiveValues()),
+            'advancedThreatProtectionExcludedProcesses' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionExcludedProcesses($n->getCollectionOfPrimitiveValues()),
+            'advancedThreatProtectionRealTime' => fn(ParseNode $n) => $o->setAdvancedThreatProtectionRealTime($n->getEnumValue(Enablement::class)),
+            'fileVaultAllowDeferralUntilSignOut' => fn(ParseNode $n) => $o->setFileVaultAllowDeferralUntilSignOut($n->getBooleanValue()),
+            'fileVaultDisablePromptAtSignOut' => fn(ParseNode $n) => $o->setFileVaultDisablePromptAtSignOut($n->getBooleanValue()),
+            'fileVaultEnabled' => fn(ParseNode $n) => $o->setFileVaultEnabled($n->getBooleanValue()),
+            'fileVaultHidePersonalRecoveryKey' => fn(ParseNode $n) => $o->setFileVaultHidePersonalRecoveryKey($n->getBooleanValue()),
+            'fileVaultInstitutionalRecoveryKeyCertificate' => fn(ParseNode $n) => $o->setFileVaultInstitutionalRecoveryKeyCertificate($n->getBinaryContent()),
+            'fileVaultInstitutionalRecoveryKeyCertificateFileName' => fn(ParseNode $n) => $o->setFileVaultInstitutionalRecoveryKeyCertificateFileName($n->getStringValue()),
+            'fileVaultNumberOfTimesUserCanIgnore' => fn(ParseNode $n) => $o->setFileVaultNumberOfTimesUserCanIgnore($n->getIntegerValue()),
+            'fileVaultPersonalRecoveryKeyHelpMessage' => fn(ParseNode $n) => $o->setFileVaultPersonalRecoveryKeyHelpMessage($n->getStringValue()),
+            'fileVaultPersonalRecoveryKeyRotationInMonths' => fn(ParseNode $n) => $o->setFileVaultPersonalRecoveryKeyRotationInMonths($n->getIntegerValue()),
+            'fileVaultSelectedRecoveryKeyTypes' => fn(ParseNode $n) => $o->setFileVaultSelectedRecoveryKeyTypes($n->getEnumValue(MacOSFileVaultRecoveryKeyTypes::class)),
+            'firewallApplications' => fn(ParseNode $n) => $o->setFirewallApplications($n->getCollectionOfObjectValues([MacOSFirewallApplication::class, 'createFromDiscriminatorValue'])),
+            'firewallBlockAllIncoming' => fn(ParseNode $n) => $o->setFirewallBlockAllIncoming($n->getBooleanValue()),
+            'firewallEnabled' => fn(ParseNode $n) => $o->setFirewallEnabled($n->getBooleanValue()),
+            'firewallEnableStealthMode' => fn(ParseNode $n) => $o->setFirewallEnableStealthMode($n->getBooleanValue()),
+            'gatekeeperAllowedAppSource' => fn(ParseNode $n) => $o->setGatekeeperAllowedAppSource($n->getEnumValue(MacOSGatekeeperAppSources::class)),
+            'gatekeeperBlockOverride' => fn(ParseNode $n) => $o->setGatekeeperBlockOverride($n->getBooleanValue()),
         ]);
     }
 
@@ -278,9 +278,9 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration implement
 
     /**
      * Gets the fileVaultInstitutionalRecoveryKeyCertificate property value. Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getFileVaultInstitutionalRecoveryKeyCertificate(): ?StreamInterface {
+    public function getFileVaultInstitutionalRecoveryKeyCertificate(): StreamInterface {
         return $this->fileVaultInstitutionalRecoveryKeyCertificate;
     }
 

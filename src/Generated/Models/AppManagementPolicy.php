@@ -55,9 +55,9 @@ class AppManagementPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appliesTo' => function (ParseNode $n) use ($o) { $o->setAppliesTo($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'isEnabled' => function (ParseNode $n) use ($o) { $o->setIsEnabled($n->getBooleanValue()); },
-            'restrictions' => function (ParseNode $n) use ($o) { $o->setRestrictions($n->getObjectValue(array(AppManagementConfiguration::class, 'createFromDiscriminatorValue'))); },
+            'appliesTo' => fn(ParseNode $n) => $o->setAppliesTo($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'isEnabled' => fn(ParseNode $n) => $o->setIsEnabled($n->getBooleanValue()),
+            'restrictions' => fn(ParseNode $n) => $o->setRestrictions($n->getObjectValue([AppManagementConfiguration::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

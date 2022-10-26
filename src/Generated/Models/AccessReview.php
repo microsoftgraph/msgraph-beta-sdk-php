@@ -80,7 +80,7 @@ class AccessReview extends Entity implements Parsable
     private ?string $status = null;
     
     /**
-     * Instantiates a new AccessReview and sets the default values.
+     * Instantiates a new accessReview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -151,20 +151,20 @@ class AccessReview extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'businessFlowTemplateId' => function (ParseNode $n) use ($o) { $o->setBusinessFlowTemplateId($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(UserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'decisions' => function (ParseNode $n) use ($o) { $o->setDecisions($n->getCollectionOfObjectValues(array(AccessReviewDecision::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'instances' => function (ParseNode $n) use ($o) { $o->setInstances($n->getCollectionOfObjectValues(array(AccessReview::class, 'createFromDiscriminatorValue'))); },
-            'myDecisions' => function (ParseNode $n) use ($o) { $o->setMyDecisions($n->getCollectionOfObjectValues(array(AccessReviewDecision::class, 'createFromDiscriminatorValue'))); },
-            'reviewedEntity' => function (ParseNode $n) use ($o) { $o->setReviewedEntity($n->getObjectValue(array(Identity::class, 'createFromDiscriminatorValue'))); },
-            'reviewers' => function (ParseNode $n) use ($o) { $o->setReviewers($n->getCollectionOfObjectValues(array(AccessReviewReviewer::class, 'createFromDiscriminatorValue'))); },
-            'reviewerType' => function (ParseNode $n) use ($o) { $o->setReviewerType($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(AccessReviewSettings::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getStringValue()); },
+            'businessFlowTemplateId' => fn(ParseNode $n) => $o->setBusinessFlowTemplateId($n->getStringValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([UserIdentity::class, 'createFromDiscriminatorValue'])),
+            'decisions' => fn(ParseNode $n) => $o->setDecisions($n->getCollectionOfObjectValues([AccessReviewDecision::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'instances' => fn(ParseNode $n) => $o->setInstances($n->getCollectionOfObjectValues([AccessReview::class, 'createFromDiscriminatorValue'])),
+            'myDecisions' => fn(ParseNode $n) => $o->setMyDecisions($n->getCollectionOfObjectValues([AccessReviewDecision::class, 'createFromDiscriminatorValue'])),
+            'reviewedEntity' => fn(ParseNode $n) => $o->setReviewedEntity($n->getObjectValue([Identity::class, 'createFromDiscriminatorValue'])),
+            'reviewers' => fn(ParseNode $n) => $o->setReviewers($n->getCollectionOfObjectValues([AccessReviewReviewer::class, 'createFromDiscriminatorValue'])),
+            'reviewerType' => fn(ParseNode $n) => $o->setReviewerType($n->getStringValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([AccessReviewSettings::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getStringValue()),
         ]);
     }
 

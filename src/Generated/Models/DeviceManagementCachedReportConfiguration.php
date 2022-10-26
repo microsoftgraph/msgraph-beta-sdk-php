@@ -81,14 +81,14 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'expirationDateTime' => function (ParseNode $n) use ($o) { $o->setExpirationDateTime($n->getDateTimeValue()); },
-            'filter' => function (ParseNode $n) use ($o) { $o->setFilter($n->getStringValue()); },
-            'lastRefreshDateTime' => function (ParseNode $n) use ($o) { $o->setLastRefreshDateTime($n->getDateTimeValue()); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getStringValue()); },
-            'orderBy' => function (ParseNode $n) use ($o) { $o->setOrderBy($n->getCollectionOfPrimitiveValues()); },
-            'reportName' => function (ParseNode $n) use ($o) { $o->setReportName($n->getStringValue()); },
-            'select' => function (ParseNode $n) use ($o) { $o->setSelect($n->getCollectionOfPrimitiveValues()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DeviceManagementReportStatus::class)); },
+            'expirationDateTime' => fn(ParseNode $n) => $o->setExpirationDateTime($n->getDateTimeValue()),
+            'filter' => fn(ParseNode $n) => $o->setFilter($n->getStringValue()),
+            'lastRefreshDateTime' => fn(ParseNode $n) => $o->setLastRefreshDateTime($n->getDateTimeValue()),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getStringValue()),
+            'orderBy' => fn(ParseNode $n) => $o->setOrderBy($n->getCollectionOfPrimitiveValues()),
+            'reportName' => fn(ParseNode $n) => $o->setReportName($n->getStringValue()),
+            'select' => fn(ParseNode $n) => $o->setSelect($n->getCollectionOfPrimitiveValues()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DeviceManagementReportStatus::class)),
         ]);
     }
 

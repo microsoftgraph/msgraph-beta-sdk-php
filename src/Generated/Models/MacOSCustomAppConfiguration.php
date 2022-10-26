@@ -51,9 +51,9 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
 
     /**
      * Gets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getConfigurationXml(): ?StreamInterface {
+    public function getConfigurationXml(): StreamInterface {
         return $this->configurationXml;
     }
 
@@ -64,9 +64,9 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bundleId' => function (ParseNode $n) use ($o) { $o->setBundleId($n->getStringValue()); },
-            'configurationXml' => function (ParseNode $n) use ($o) { $o->setConfigurationXml($n->getBinaryContent()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
+            'bundleId' => fn(ParseNode $n) => $o->setBundleId($n->getStringValue()),
+            'configurationXml' => fn(ParseNode $n) => $o->setConfigurationXml($n->getBinaryContent()),
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
         ]);
     }
 

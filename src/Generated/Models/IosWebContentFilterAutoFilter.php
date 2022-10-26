@@ -58,8 +58,8 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowedUrls' => function (ParseNode $n) use ($o) { $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()); },
-            'blockedUrls' => function (ParseNode $n) use ($o) { $o->setBlockedUrls($n->getCollectionOfPrimitiveValues()); },
+            'allowedUrls' => fn(ParseNode $n) => $o->setAllowedUrls($n->getCollectionOfPrimitiveValues()),
+            'blockedUrls' => fn(ParseNode $n) => $o->setBlockedUrls($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

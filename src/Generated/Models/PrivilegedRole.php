@@ -60,10 +60,10 @@ class PrivilegedRole extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(PrivilegedRoleAssignment::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'settings' => function (ParseNode $n) use ($o) { $o->setSettings($n->getObjectValue(array(PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'))); },
-            'summary' => function (ParseNode $n) use ($o) { $o->setSummary($n->getObjectValue(array(PrivilegedRoleSummary::class, 'createFromDiscriminatorValue'))); },
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([PrivilegedRoleAssignment::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'settings' => fn(ParseNode $n) => $o->setSettings($n->getObjectValue([PrivilegedRoleSettings::class, 'createFromDiscriminatorValue'])),
+            'summary' => fn(ParseNode $n) => $o->setSummary($n->getObjectValue([PrivilegedRoleSummary::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

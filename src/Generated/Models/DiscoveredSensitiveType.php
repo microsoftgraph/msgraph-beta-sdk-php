@@ -95,11 +95,11 @@ class DiscoveredSensitiveType implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'classificationAttributes' => function (ParseNode $n) use ($o) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(array(ClassificationAttribute::class, 'createFromDiscriminatorValue'))); },
-            'confidence' => function (ParseNode $n) use ($o) { $o->setConfidence($n->getIntegerValue()); },
-            'count' => function (ParseNode $n) use ($o) { $o->setCount($n->getIntegerValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'classificationAttributes' => fn(ParseNode $n) => $o->setClassificationAttributes($n->getCollectionOfObjectValues([ClassificationAttribute::class, 'createFromDiscriminatorValue'])),
+            'confidence' => fn(ParseNode $n) => $o->setConfidence($n->getIntegerValue()),
+            'count' => fn(ParseNode $n) => $o->setCount($n->getIntegerValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

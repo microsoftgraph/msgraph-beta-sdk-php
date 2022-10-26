@@ -62,12 +62,12 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'fontColor' => function (ParseNode $n) use ($o) { $o->setFontColor($n->getStringValue()); },
-            'fontName' => function (ParseNode $n) use ($o) { $o->setFontName($n->getStringValue()); },
-            'fontSize' => function (ParseNode $n) use ($o) { $o->setFontSize($n->getIntegerValue()); },
-            'layout' => function (ParseNode $n) use ($o) { $o->setLayout($n->getEnumValue(WatermarkLayout::class)); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
-            'uiElementName' => function (ParseNode $n) use ($o) { $o->setUiElementName($n->getStringValue()); },
+            'fontColor' => fn(ParseNode $n) => $o->setFontColor($n->getStringValue()),
+            'fontName' => fn(ParseNode $n) => $o->setFontName($n->getStringValue()),
+            'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
+            'layout' => fn(ParseNode $n) => $o->setLayout($n->getEnumValue(WatermarkLayout::class)),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
+            'uiElementName' => fn(ParseNode $n) => $o->setUiElementName($n->getStringValue()),
         ]);
     }
 

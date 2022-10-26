@@ -98,16 +98,16 @@ class AndroidWorkProfileEnterpriseWiFiConfiguration extends AndroidWorkProfileWi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)); },
-            'eapType' => function (ParseNode $n) use ($o) { $o->setEapType($n->getEnumValue(AndroidEapType::class)); },
-            'identityCertificateForClientAuthentication' => function (ParseNode $n) use ($o) { $o->setIdentityCertificateForClientAuthentication($n->getObjectValue(array(AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'innerAuthenticationProtocolForEapTtls' => function (ParseNode $n) use ($o) { $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)); },
-            'innerAuthenticationProtocolForPeap' => function (ParseNode $n) use ($o) { $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)); },
-            'outerIdentityPrivacyTemporaryValue' => function (ParseNode $n) use ($o) { $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()); },
-            'proxyAutomaticConfigurationUrl' => function (ParseNode $n) use ($o) { $o->setProxyAutomaticConfigurationUrl($n->getStringValue()); },
-            'proxySettings' => function (ParseNode $n) use ($o) { $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)); },
-            'rootCertificateForServerValidation' => function (ParseNode $n) use ($o) { $o->setRootCertificateForServerValidation($n->getObjectValue(array(AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'))); },
-            'trustedServerCertificateNames' => function (ParseNode $n) use ($o) { $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(WiFiAuthenticationMethod::class)),
+            'eapType' => fn(ParseNode $n) => $o->setEapType($n->getEnumValue(AndroidEapType::class)),
+            'identityCertificateForClientAuthentication' => fn(ParseNode $n) => $o->setIdentityCertificateForClientAuthentication($n->getObjectValue([AndroidWorkProfileCertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'innerAuthenticationProtocolForEapTtls' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForEapTtls($n->getEnumValue(NonEapAuthenticationMethodForEapTtlsType::class)),
+            'innerAuthenticationProtocolForPeap' => fn(ParseNode $n) => $o->setInnerAuthenticationProtocolForPeap($n->getEnumValue(NonEapAuthenticationMethodForPeap::class)),
+            'outerIdentityPrivacyTemporaryValue' => fn(ParseNode $n) => $o->setOuterIdentityPrivacyTemporaryValue($n->getStringValue()),
+            'proxyAutomaticConfigurationUrl' => fn(ParseNode $n) => $o->setProxyAutomaticConfigurationUrl($n->getStringValue()),
+            'proxySettings' => fn(ParseNode $n) => $o->setProxySettings($n->getEnumValue(WiFiProxySetting::class)),
+            'rootCertificateForServerValidation' => fn(ParseNode $n) => $o->setRootCertificateForServerValidation($n->getObjectValue([AndroidWorkProfileTrustedRootCertificate::class, 'createFromDiscriminatorValue'])),
+            'trustedServerCertificateNames' => fn(ParseNode $n) => $o->setTrustedServerCertificateNames($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

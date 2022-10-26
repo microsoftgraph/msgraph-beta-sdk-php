@@ -37,7 +37,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'upns' => function (ParseNode $n) use ($o) { $o->setUpns($n->getCollectionOfPrimitiveValues()); },
+            'upns' => fn(ParseNode $n) => $o->setUpns($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

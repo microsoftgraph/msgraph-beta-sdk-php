@@ -55,9 +55,9 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activity' => function (ParseNode $n) use ($o) { $o->setActivity($n->getObjectValue(array(RiskServicePrincipalActivity::class, 'createFromDiscriminatorValue'))); },
-            'initiatedBy' => function (ParseNode $n) use ($o) { $o->setInitiatedBy($n->getStringValue()); },
-            'servicePrincipalId' => function (ParseNode $n) use ($o) { $o->setServicePrincipalId($n->getStringValue()); },
+            'activity' => fn(ParseNode $n) => $o->setActivity($n->getObjectValue([RiskServicePrincipalActivity::class, 'createFromDiscriminatorValue'])),
+            'initiatedBy' => fn(ParseNode $n) => $o->setInitiatedBy($n->getStringValue()),
+            'servicePrincipalId' => fn(ParseNode $n) => $o->setServicePrincipalId($n->getStringValue()),
         ]);
     }
 

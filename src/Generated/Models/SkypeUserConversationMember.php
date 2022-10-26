@@ -37,7 +37,7 @@ class SkypeUserConversationMember extends ConversationMember implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'skypeId' => function (ParseNode $n) use ($o) { $o->setSkypeId($n->getStringValue()); },
+            'skypeId' => fn(ParseNode $n) => $o->setSkypeId($n->getStringValue()),
         ]);
     }
 

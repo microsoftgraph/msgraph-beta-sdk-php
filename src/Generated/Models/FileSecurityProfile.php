@@ -153,22 +153,22 @@ class FileSecurityProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activityGroupNames' => function (ParseNode $n) use ($o) { $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()); },
-            'azureSubscriptionId' => function (ParseNode $n) use ($o) { $o->setAzureSubscriptionId($n->getStringValue()); },
-            'azureTenantId' => function (ParseNode $n) use ($o) { $o->setAzureTenantId($n->getStringValue()); },
-            'certificateThumbprint' => function (ParseNode $n) use ($o) { $o->setCertificateThumbprint($n->getStringValue()); },
-            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfPrimitiveValues()); },
-            'fileType' => function (ParseNode $n) use ($o) { $o->setFileType($n->getStringValue()); },
-            'firstSeenDateTime' => function (ParseNode $n) use ($o) { $o->setFirstSeenDateTime($n->getDateTimeValue()); },
-            'hashes' => function (ParseNode $n) use ($o) { $o->setHashes($n->getCollectionOfObjectValues(array(FileHash::class, 'createFromDiscriminatorValue'))); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'malwareStates' => function (ParseNode $n) use ($o) { $o->setMalwareStates($n->getCollectionOfObjectValues(array(MalwareState::class, 'createFromDiscriminatorValue'))); },
-            'names' => function (ParseNode $n) use ($o) { $o->setNames($n->getCollectionOfPrimitiveValues()); },
-            'riskScore' => function (ParseNode $n) use ($o) { $o->setRiskScore($n->getStringValue()); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'tags' => function (ParseNode $n) use ($o) { $o->setTags($n->getCollectionOfPrimitiveValues()); },
-            'vendorInformation' => function (ParseNode $n) use ($o) { $o->setVendorInformation($n->getObjectValue(array(SecurityVendorInformation::class, 'createFromDiscriminatorValue'))); },
-            'vulnerabilityStates' => function (ParseNode $n) use ($o) { $o->setVulnerabilityStates($n->getCollectionOfObjectValues(array(VulnerabilityState::class, 'createFromDiscriminatorValue'))); },
+            'activityGroupNames' => fn(ParseNode $n) => $o->setActivityGroupNames($n->getCollectionOfPrimitiveValues()),
+            'azureSubscriptionId' => fn(ParseNode $n) => $o->setAzureSubscriptionId($n->getStringValue()),
+            'azureTenantId' => fn(ParseNode $n) => $o->setAzureTenantId($n->getStringValue()),
+            'certificateThumbprint' => fn(ParseNode $n) => $o->setCertificateThumbprint($n->getStringValue()),
+            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfPrimitiveValues()),
+            'fileType' => fn(ParseNode $n) => $o->setFileType($n->getStringValue()),
+            'firstSeenDateTime' => fn(ParseNode $n) => $o->setFirstSeenDateTime($n->getDateTimeValue()),
+            'hashes' => fn(ParseNode $n) => $o->setHashes($n->getCollectionOfObjectValues([FileHash::class, 'createFromDiscriminatorValue'])),
+            'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            'malwareStates' => fn(ParseNode $n) => $o->setMalwareStates($n->getCollectionOfObjectValues([MalwareState::class, 'createFromDiscriminatorValue'])),
+            'names' => fn(ParseNode $n) => $o->setNames($n->getCollectionOfPrimitiveValues()),
+            'riskScore' => fn(ParseNode $n) => $o->setRiskScore($n->getStringValue()),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'tags' => fn(ParseNode $n) => $o->setTags($n->getCollectionOfPrimitiveValues()),
+            'vendorInformation' => fn(ParseNode $n) => $o->setVendorInformation($n->getObjectValue([SecurityVendorInformation::class, 'createFromDiscriminatorValue'])),
+            'vulnerabilityStates' => fn(ParseNode $n) => $o->setVulnerabilityStates($n->getCollectionOfObjectValues([VulnerabilityState::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

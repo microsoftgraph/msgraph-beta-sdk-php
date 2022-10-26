@@ -79,11 +79,11 @@ class ObjectDefinition implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'attributes' => function (ParseNode $n) use ($o) { $o->setAttributes($n->getCollectionOfObjectValues(array(AttributeDefinition::class, 'createFromDiscriminatorValue'))); },
-            'metadata' => function (ParseNode $n) use ($o) { $o->setMetadata($n->getCollectionOfObjectValues(array(MetadataEntry::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'supportedApis' => function (ParseNode $n) use ($o) { $o->setSupportedApis($n->getCollectionOfPrimitiveValues()); },
+            'attributes' => fn(ParseNode $n) => $o->setAttributes($n->getCollectionOfObjectValues([AttributeDefinition::class, 'createFromDiscriminatorValue'])),
+            'metadata' => fn(ParseNode $n) => $o->setMetadata($n->getCollectionOfObjectValues([MetadataEntry::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'supportedApis' => fn(ParseNode $n) => $o->setSupportedApis($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

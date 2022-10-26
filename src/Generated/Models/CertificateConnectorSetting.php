@@ -106,13 +106,13 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'certExpiryTime' => function (ParseNode $n) use ($o) { $o->setCertExpiryTime($n->getDateTimeValue()); },
-            'connectorVersion' => function (ParseNode $n) use ($o) { $o->setConnectorVersion($n->getStringValue()); },
-            'enrollmentError' => function (ParseNode $n) use ($o) { $o->setEnrollmentError($n->getStringValue()); },
-            'lastConnectorConnectionTime' => function (ParseNode $n) use ($o) { $o->setLastConnectorConnectionTime($n->getDateTimeValue()); },
-            'lastUploadVersion' => function (ParseNode $n) use ($o) { $o->setLastUploadVersion($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getIntegerValue()); },
+            'certExpiryTime' => fn(ParseNode $n) => $o->setCertExpiryTime($n->getDateTimeValue()),
+            'connectorVersion' => fn(ParseNode $n) => $o->setConnectorVersion($n->getStringValue()),
+            'enrollmentError' => fn(ParseNode $n) => $o->setEnrollmentError($n->getStringValue()),
+            'lastConnectorConnectionTime' => fn(ParseNode $n) => $o->setLastConnectorConnectionTime($n->getDateTimeValue()),
+            'lastUploadVersion' => fn(ParseNode $n) => $o->setLastUploadVersion($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getIntegerValue()),
         ];
     }
 

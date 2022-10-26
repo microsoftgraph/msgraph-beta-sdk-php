@@ -78,12 +78,12 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'externalId' => function (ParseNode $n) use ($o) { $o->setExternalId($n->getStringValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleSetting' => function (ParseNode $n) use ($o) { $o->setRoleSetting($n->getObjectValue(array(GovernanceRoleSetting::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'externalId' => fn(ParseNode $n) => $o->setExternalId($n->getStringValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'roleSetting' => fn(ParseNode $n) => $o->setRoleSetting($n->getObjectValue([GovernanceRoleSetting::class, 'createFromDiscriminatorValue'])),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ]);
     }
 

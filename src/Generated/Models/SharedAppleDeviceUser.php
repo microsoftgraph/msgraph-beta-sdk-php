@@ -95,11 +95,11 @@ class SharedAppleDeviceUser implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dataQuota' => function (ParseNode $n) use ($o) { $o->setDataQuota($n->getIntegerValue()); },
-            'dataToSync' => function (ParseNode $n) use ($o) { $o->setDataToSync($n->getBooleanValue()); },
-            'dataUsed' => function (ParseNode $n) use ($o) { $o->setDataUsed($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'dataQuota' => fn(ParseNode $n) => $o->setDataQuota($n->getIntegerValue()),
+            'dataToSync' => fn(ParseNode $n) => $o->setDataToSync($n->getBooleanValue()),
+            'dataUsed' => fn(ParseNode $n) => $o->setDataUsed($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ];
     }
 

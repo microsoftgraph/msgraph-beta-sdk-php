@@ -57,11 +57,11 @@ class SynchronizationJob extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(SynchronizationSchedule::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(SynchronizationSchema::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(SynchronizationStatus::class, 'createFromDiscriminatorValue'))); },
-            'synchronizationJobSettings' => function (ParseNode $n) use ($o) { $o->setSynchronizationJobSettings($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'templateId' => function (ParseNode $n) use ($o) { $o->setTemplateId($n->getStringValue()); },
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([SynchronizationSchedule::class, 'createFromDiscriminatorValue'])),
+            'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([SynchronizationSchema::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([SynchronizationStatus::class, 'createFromDiscriminatorValue'])),
+            'synchronizationJobSettings' => fn(ParseNode $n) => $o->setSynchronizationJobSettings($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'templateId' => fn(ParseNode $n) => $o->setTemplateId($n->getStringValue()),
         ]);
     }
 

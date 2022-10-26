@@ -61,18 +61,18 @@ class MacOSCustomConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deploymentChannel' => function (ParseNode $n) use ($o) { $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)); },
-            'payload' => function (ParseNode $n) use ($o) { $o->setPayload($n->getBinaryContent()); },
-            'payloadFileName' => function (ParseNode $n) use ($o) { $o->setPayloadFileName($n->getStringValue()); },
-            'payloadName' => function (ParseNode $n) use ($o) { $o->setPayloadName($n->getStringValue()); },
+            'deploymentChannel' => fn(ParseNode $n) => $o->setDeploymentChannel($n->getEnumValue(AppleDeploymentChannel::class)),
+            'payload' => fn(ParseNode $n) => $o->setPayload($n->getBinaryContent()),
+            'payloadFileName' => fn(ParseNode $n) => $o->setPayloadFileName($n->getStringValue()),
+            'payloadName' => fn(ParseNode $n) => $o->setPayloadName($n->getStringValue()),
         ]);
     }
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPayload(): ?StreamInterface {
+    public function getPayload(): StreamInterface {
         return $this->payload;
     }
 

@@ -96,11 +96,11 @@ class DeviceHealthScriptParameter implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'applyDefaultValueWhenNotAssigned' => function (ParseNode $n) use ($o) { $o->setApplyDefaultValueWhenNotAssigned($n->getBooleanValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'isRequired' => function (ParseNode $n) use ($o) { $o->setIsRequired($n->getBooleanValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'applyDefaultValueWhenNotAssigned' => fn(ParseNode $n) => $o->setApplyDefaultValueWhenNotAssigned($n->getBooleanValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'isRequired' => fn(ParseNode $n) => $o->setIsRequired($n->getBooleanValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

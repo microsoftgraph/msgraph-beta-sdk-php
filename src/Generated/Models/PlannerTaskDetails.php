@@ -19,7 +19,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     private ?string $description = null;
     
     /**
-     * @var ItemBody|null $notes The notes property
+     * @var ItemBody|null $notes Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
     */
     private ?ItemBody $notes = null;
     
@@ -73,16 +73,16 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'checklist' => function (ParseNode $n) use ($o) { $o->setChecklist($n->getObjectValue(array(PlannerChecklistItems::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            'previewType' => function (ParseNode $n) use ($o) { $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)); },
-            'references' => function (ParseNode $n) use ($o) { $o->setReferences($n->getObjectValue(array(PlannerExternalReferences::class, 'createFromDiscriminatorValue'))); },
+            'checklist' => fn(ParseNode $n) => $o->setChecklist($n->getObjectValue([PlannerChecklistItems::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            'previewType' => fn(ParseNode $n) => $o->setPreviewType($n->getEnumValue(PlannerPreviewType::class)),
+            'references' => fn(ParseNode $n) => $o->setReferences($n->getObjectValue([PlannerExternalReferences::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the notes property value. The notes property
+     * Gets the notes property value. Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
@@ -135,7 +135,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the notes property value. The notes property
+     * Sets the notes property value. Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
      *  @param ItemBody|null $value Value to set for the notes property.
     */
     public function setNotes(?ItemBody $value ): void {

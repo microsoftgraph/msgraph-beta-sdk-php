@@ -72,9 +72,9 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endOfSupportDate' => function (ParseNode $n) use ($o) { $o->setEndOfSupportDate($n->getDateTimeValue()); },
-            'releaseDateTime' => function (ParseNode $n) use ($o) { $o->setReleaseDateTime($n->getDateTimeValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endOfSupportDate' => fn(ParseNode $n) => $o->setEndOfSupportDate($n->getDateTimeValue()),
+            'releaseDateTime' => fn(ParseNode $n) => $o->setReleaseDateTime($n->getDateTimeValue()),
         ]);
     }
 

@@ -123,18 +123,18 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'domain' => function (ParseNode $n) use ($o) { $o->setDomain($n->getStringValue()); },
-            'ipAddress' => function (ParseNode $n) use ($o) { $o->setIpAddress($n->getStringValue()); },
-            'lastLoggedOnUser' => function (ParseNode $n) use ($o) { $o->setLastLoggedOnUser($n->getStringValue()); },
-            'lastSeenDateTime' => function (ParseNode $n) use ($o) { $o->setLastSeenDateTime($n->getDateTimeValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
-            'macAddress' => function (ParseNode $n) use ($o) { $o->setMacAddress($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'os' => function (ParseNode $n) use ($o) { $o->setOs($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'domain' => fn(ParseNode $n) => $o->setDomain($n->getStringValue()),
+            'ipAddress' => fn(ParseNode $n) => $o->setIpAddress($n->getStringValue()),
+            'lastLoggedOnUser' => fn(ParseNode $n) => $o->setLastLoggedOnUser($n->getStringValue()),
+            'lastSeenDateTime' => fn(ParseNode $n) => $o->setLastSeenDateTime($n->getDateTimeValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getStringValue()),
+            'macAddress' => fn(ParseNode $n) => $o->setMacAddress($n->getStringValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'os' => fn(ParseNode $n) => $o->setOs($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
         ];
     }
 

@@ -106,19 +106,19 @@ class GovernanceRoleAssignmentRequest extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'linkedEligibleRoleAssignmentId' => function (ParseNode $n) use ($o) { $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()); },
-            'reason' => function (ParseNode $n) use ($o) { $o->setReason($n->getStringValue()); },
-            'requestedDateTime' => function (ParseNode $n) use ($o) { $o->setRequestedDateTime($n->getDateTimeValue()); },
-            'resource' => function (ParseNode $n) use ($o) { $o->setResource($n->getObjectValue(array(GovernanceResource::class, 'createFromDiscriminatorValue'))); },
-            'resourceId' => function (ParseNode $n) use ($o) { $o->setResourceId($n->getStringValue()); },
-            'roleDefinition' => function (ParseNode $n) use ($o) { $o->setRoleDefinition($n->getObjectValue(array(GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'))); },
-            'roleDefinitionId' => function (ParseNode $n) use ($o) { $o->setRoleDefinitionId($n->getStringValue()); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(GovernanceSchedule::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getObjectValue(array(GovernanceRoleAssignmentRequestStatus::class, 'createFromDiscriminatorValue'))); },
-            'subject' => function (ParseNode $n) use ($o) { $o->setSubject($n->getObjectValue(array(GovernanceSubject::class, 'createFromDiscriminatorValue'))); },
-            'subjectId' => function (ParseNode $n) use ($o) { $o->setSubjectId($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
+            'linkedEligibleRoleAssignmentId' => fn(ParseNode $n) => $o->setLinkedEligibleRoleAssignmentId($n->getStringValue()),
+            'reason' => fn(ParseNode $n) => $o->setReason($n->getStringValue()),
+            'requestedDateTime' => fn(ParseNode $n) => $o->setRequestedDateTime($n->getDateTimeValue()),
+            'resource' => fn(ParseNode $n) => $o->setResource($n->getObjectValue([GovernanceResource::class, 'createFromDiscriminatorValue'])),
+            'resourceId' => fn(ParseNode $n) => $o->setResourceId($n->getStringValue()),
+            'roleDefinition' => fn(ParseNode $n) => $o->setRoleDefinition($n->getObjectValue([GovernanceRoleDefinition::class, 'createFromDiscriminatorValue'])),
+            'roleDefinitionId' => fn(ParseNode $n) => $o->setRoleDefinitionId($n->getStringValue()),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([GovernanceSchedule::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getObjectValue([GovernanceRoleAssignmentRequestStatus::class, 'createFromDiscriminatorValue'])),
+            'subject' => fn(ParseNode $n) => $o->setSubject($n->getObjectValue([GovernanceSubject::class, 'createFromDiscriminatorValue'])),
+            'subjectId' => fn(ParseNode $n) => $o->setSubjectId($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ]);
     }
 

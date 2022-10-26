@@ -73,9 +73,9 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the content property value. The contents of the uploaded ADML file.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -86,12 +86,12 @@ class GroupPolicyUploadedLanguageFile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'fileName' => function (ParseNode $n) use ($o) { $o->setFileName($n->getStringValue()); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'languageCode' => function (ParseNode $n) use ($o) { $o->setLanguageCode($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'fileName' => fn(ParseNode $n) => $o->setFileName($n->getStringValue()),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'languageCode' => fn(ParseNode $n) => $o->setLanguageCode($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

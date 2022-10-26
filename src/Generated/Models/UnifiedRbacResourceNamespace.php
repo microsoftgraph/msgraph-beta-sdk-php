@@ -42,8 +42,8 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'resourceActions' => function (ParseNode $n) use ($o) { $o->setResourceActions($n->getCollectionOfObjectValues(array(UnifiedRbacResourceAction::class, 'createFromDiscriminatorValue'))); },
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'resourceActions' => fn(ParseNode $n) => $o->setResourceActions($n->getCollectionOfObjectValues([UnifiedRbacResourceAction::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

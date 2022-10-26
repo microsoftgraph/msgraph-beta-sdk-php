@@ -51,7 +51,7 @@ class ActivatePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'subjects' => function (ParseNode $n) use ($o) { $o->setSubjects($n->getCollectionOfObjectValues(array(User::class, 'createFromDiscriminatorValue'))); },
+            'subjects' => fn(ParseNode $n) => $o->setSubjects($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

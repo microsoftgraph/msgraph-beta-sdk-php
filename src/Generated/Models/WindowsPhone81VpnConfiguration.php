@@ -94,12 +94,12 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)); },
-            'bypassVpnOnCompanyWifi' => function (ParseNode $n) use ($o) { $o->setBypassVpnOnCompanyWifi($n->getBooleanValue()); },
-            'bypassVpnOnHomeWifi' => function (ParseNode $n) use ($o) { $o->setBypassVpnOnHomeWifi($n->getBooleanValue()); },
-            'dnsSuffixSearchList' => function (ParseNode $n) use ($o) { $o->setDnsSuffixSearchList($n->getCollectionOfPrimitiveValues()); },
-            'identityCertificate' => function (ParseNode $n) use ($o) { $o->setIdentityCertificate($n->getObjectValue(array(WindowsPhone81CertificateProfileBase::class, 'createFromDiscriminatorValue'))); },
-            'rememberUserCredentials' => function (ParseNode $n) use ($o) { $o->setRememberUserCredentials($n->getBooleanValue()); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)),
+            'bypassVpnOnCompanyWifi' => fn(ParseNode $n) => $o->setBypassVpnOnCompanyWifi($n->getBooleanValue()),
+            'bypassVpnOnHomeWifi' => fn(ParseNode $n) => $o->setBypassVpnOnHomeWifi($n->getBooleanValue()),
+            'dnsSuffixSearchList' => fn(ParseNode $n) => $o->setDnsSuffixSearchList($n->getCollectionOfPrimitiveValues()),
+            'identityCertificate' => fn(ParseNode $n) => $o->setIdentityCertificate($n->getObjectValue([WindowsPhone81CertificateProfileBase::class, 'createFromDiscriminatorValue'])),
+            'rememberUserCredentials' => fn(ParseNode $n) => $o->setRememberUserCredentials($n->getBooleanValue()),
         ]);
     }
 

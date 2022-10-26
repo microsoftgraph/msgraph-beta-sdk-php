@@ -74,10 +74,10 @@ class BulkDriverActionResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedDriverIds' => function (ParseNode $n) use ($o) { $o->setFailedDriverIds($n->getCollectionOfPrimitiveValues()); },
-            'notFoundDriverIds' => function (ParseNode $n) use ($o) { $o->setNotFoundDriverIds($n->getCollectionOfPrimitiveValues()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'successfulDriverIds' => function (ParseNode $n) use ($o) { $o->setSuccessfulDriverIds($n->getCollectionOfPrimitiveValues()); },
+            'failedDriverIds' => fn(ParseNode $n) => $o->setFailedDriverIds($n->getCollectionOfPrimitiveValues()),
+            'notFoundDriverIds' => fn(ParseNode $n) => $o->setNotFoundDriverIds($n->getCollectionOfPrimitiveValues()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'successfulDriverIds' => fn(ParseNode $n) => $o->setSuccessfulDriverIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

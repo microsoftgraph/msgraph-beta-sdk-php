@@ -69,9 +69,9 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'conditionalAccessCondition' => function (ParseNode $n) use ($o) { $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessConditions::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleSatisfied' => function (ParseNode $n) use ($o) { $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRule::class)); },
+            'conditionalAccessCondition' => fn(ParseNode $n) => $o->setConditionalAccessCondition($n->getEnumValue(ConditionalAccessConditions::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleSatisfied' => fn(ParseNode $n) => $o->setRuleSatisfied($n->getEnumValue(ConditionalAccessRule::class)),
         ];
     }
 

@@ -103,11 +103,11 @@ class RoleManagement implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'cloudPC' => function (ParseNode $n) use ($o) { $o->setCloudPC($n->getObjectValue(array(RbacApplicationMultiple::class, 'createFromDiscriminatorValue'))); },
-            'deviceManagement' => function (ParseNode $n) use ($o) { $o->setDeviceManagement($n->getObjectValue(array(RbacApplicationMultiple::class, 'createFromDiscriminatorValue'))); },
-            'directory' => function (ParseNode $n) use ($o) { $o->setDirectory($n->getObjectValue(array(RbacApplication::class, 'createFromDiscriminatorValue'))); },
-            'entitlementManagement' => function (ParseNode $n) use ($o) { $o->setEntitlementManagement($n->getObjectValue(array(RbacApplication::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'cloudPC' => fn(ParseNode $n) => $o->setCloudPC($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
+            'deviceManagement' => fn(ParseNode $n) => $o->setDeviceManagement($n->getObjectValue([RbacApplicationMultiple::class, 'createFromDiscriminatorValue'])),
+            'directory' => fn(ParseNode $n) => $o->setDirectory($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
+            'entitlementManagement' => fn(ParseNode $n) => $o->setEntitlementManagement($n->getObjectValue([RbacApplication::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

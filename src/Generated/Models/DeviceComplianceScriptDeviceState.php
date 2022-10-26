@@ -84,13 +84,13 @@ class DeviceComplianceScriptDeviceState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionState' => function (ParseNode $n) use ($o) { $o->setDetectionState($n->getEnumValue(RunState::class)); },
-            'expectedStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastStateUpdateDateTime' => function (ParseNode $n) use ($o) { $o->setLastStateUpdateDateTime($n->getDateTimeValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'managedDevice' => function (ParseNode $n) use ($o) { $o->setManagedDevice($n->getObjectValue(array(ManagedDevice::class, 'createFromDiscriminatorValue'))); },
-            'scriptError' => function (ParseNode $n) use ($o) { $o->setScriptError($n->getStringValue()); },
-            'scriptOutput' => function (ParseNode $n) use ($o) { $o->setScriptOutput($n->getStringValue()); },
+            'detectionState' => fn(ParseNode $n) => $o->setDetectionState($n->getEnumValue(RunState::class)),
+            'expectedStateUpdateDateTime' => fn(ParseNode $n) => $o->setExpectedStateUpdateDateTime($n->getDateTimeValue()),
+            'lastStateUpdateDateTime' => fn(ParseNode $n) => $o->setLastStateUpdateDateTime($n->getDateTimeValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'managedDevice' => fn(ParseNode $n) => $o->setManagedDevice($n->getObjectValue([ManagedDevice::class, 'createFromDiscriminatorValue'])),
+            'scriptError' => fn(ParseNode $n) => $o->setScriptError($n->getStringValue()),
+            'scriptOutput' => fn(ParseNode $n) => $o->setScriptOutput($n->getStringValue()),
         ]);
     }
 

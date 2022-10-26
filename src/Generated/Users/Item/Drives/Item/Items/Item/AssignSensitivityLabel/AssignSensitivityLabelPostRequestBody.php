@@ -69,9 +69,9 @@ class AssignSensitivityLabelPostRequestBody implements AdditionalDataHolder, Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)); },
-            'justificationText' => function (ParseNode $n) use ($o) { $o->setJustificationText($n->getStringValue()); },
-            'sensitivityLabelId' => function (ParseNode $n) use ($o) { $o->setSensitivityLabelId($n->getStringValue()); },
+            'assignmentMethod' => fn(ParseNode $n) => $o->setAssignmentMethod($n->getEnumValue(SensitivityLabelAssignmentMethod::class)),
+            'justificationText' => fn(ParseNode $n) => $o->setJustificationText($n->getStringValue()),
+            'sensitivityLabelId' => fn(ParseNode $n) => $o->setSensitivityLabelId($n->getStringValue()),
         ];
     }
 

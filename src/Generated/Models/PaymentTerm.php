@@ -116,13 +116,13 @@ class PaymentTerm extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'calculateDiscountOnCreditMemos' => function (ParseNode $n) use ($o) { $o->setCalculateDiscountOnCreditMemos($n->getBooleanValue()); },
-            'code' => function (ParseNode $n) use ($o) { $o->setCode($n->getStringValue()); },
-            'discountDateCalculation' => function (ParseNode $n) use ($o) { $o->setDiscountDateCalculation($n->getStringValue()); },
-            'discountPercent' => function (ParseNode $n) use ($o) { $o->setDiscountPercent($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateCalculation' => function (ParseNode $n) use ($o) { $o->setDueDateCalculation($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
+            'calculateDiscountOnCreditMemos' => fn(ParseNode $n) => $o->setCalculateDiscountOnCreditMemos($n->getBooleanValue()),
+            'code' => fn(ParseNode $n) => $o->setCode($n->getStringValue()),
+            'discountDateCalculation' => fn(ParseNode $n) => $o->setDiscountDateCalculation($n->getStringValue()),
+            'discountPercent' => fn(ParseNode $n) => $o->setDiscountPercent($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'dueDateCalculation' => fn(ParseNode $n) => $o->setDueDateCalculation($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

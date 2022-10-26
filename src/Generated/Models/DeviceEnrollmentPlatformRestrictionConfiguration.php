@@ -42,8 +42,8 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'platformRestriction' => function (ParseNode $n) use ($o) { $o->setPlatformRestriction($n->getObjectValue(array(DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'))); },
-            'platformType' => function (ParseNode $n) use ($o) { $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)); },
+            'platformRestriction' => fn(ParseNode $n) => $o->setPlatformRestriction($n->getObjectValue([DeviceEnrollmentPlatformRestriction::class, 'createFromDiscriminatorValue'])),
+            'platformType' => fn(ParseNode $n) => $o->setPlatformType($n->getEnumValue(EnrollmentRestrictionPlatformType::class)),
         ]);
     }
 

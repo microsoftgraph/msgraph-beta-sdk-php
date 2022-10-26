@@ -10,27 +10,27 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AlertRule extends Entity implements Parsable 
 {
     /**
-     * @var AlertRuleTemplate|null $alertRuleTemplate The alertRuleTemplate property
+     * @var AlertRuleTemplate|null $alertRuleTemplate The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     */
     private ?AlertRuleTemplate $alertRuleTemplate = null;
     
     /**
-     * @var string|null $description The description property
+     * @var string|null $description The rule description.
     */
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The displayName property
+     * @var string|null $displayName The display name of the rule.
     */
     private ?string $displayName = null;
     
     /**
-     * @var bool|null $enabled The enabled property
+     * @var bool|null $enabled The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
     */
     private ?bool $enabled = null;
     
     /**
-     * @var bool|null $isSystemRule The isSystemRule property
+     * @var bool|null $isSystemRule Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only
     */
     private ?bool $isSystemRule = null;
     
@@ -67,7 +67,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Gets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      * @return AlertRuleTemplate|null
     */
     public function getAlertRuleTemplate(): ?AlertRuleTemplate {
@@ -75,7 +75,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the description property value. The description property
+     * Gets the description property value. The rule description.
      * @return string|null
     */
     public function getDescription(): ?string {
@@ -83,7 +83,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The displayName property
+     * Gets the displayName property value. The display name of the rule.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -91,7 +91,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Gets the enabled property value. The enabled property
+     * Gets the enabled property value. The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
      * @return bool|null
     */
     public function getEnabled(): ?bool {
@@ -105,19 +105,19 @@ class AlertRule extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alertRuleTemplate' => function (ParseNode $n) use ($o) { $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enabled' => function (ParseNode $n) use ($o) { $o->setEnabled($n->getBooleanValue()); },
-            'isSystemRule' => function (ParseNode $n) use ($o) { $o->setIsSystemRule($n->getBooleanValue()); },
-            'notificationChannels' => function (ParseNode $n) use ($o) { $o->setNotificationChannels($n->getCollectionOfObjectValues(array(NotificationChannel::class, 'createFromDiscriminatorValue'))); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(RuleSeverityType::class)); },
-            'threshold' => function (ParseNode $n) use ($o) { $o->setThreshold($n->getObjectValue(array(RuleThreshold::class, 'createFromDiscriminatorValue'))); },
+            'alertRuleTemplate' => fn(ParseNode $n) => $o->setAlertRuleTemplate($n->getEnumValue(AlertRuleTemplate::class)),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enabled' => fn(ParseNode $n) => $o->setEnabled($n->getBooleanValue()),
+            'isSystemRule' => fn(ParseNode $n) => $o->setIsSystemRule($n->getBooleanValue()),
+            'notificationChannels' => fn(ParseNode $n) => $o->setNotificationChannels($n->getCollectionOfObjectValues([NotificationChannel::class, 'createFromDiscriminatorValue'])),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(RuleSeverityType::class)),
+            'threshold' => fn(ParseNode $n) => $o->setThreshold($n->getObjectValue([RuleThreshold::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the isSystemRule property value. The isSystemRule property
+     * Gets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only
      * @return bool|null
     */
     public function getIsSystemRule(): ?bool {
@@ -165,7 +165,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the alertRuleTemplate property value. The alertRuleTemplate property
+     * Sets the alertRuleTemplate property value. The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
      *  @param AlertRuleTemplate|null $value Value to set for the alertRuleTemplate property.
     */
     public function setAlertRuleTemplate(?AlertRuleTemplate $value ): void {
@@ -173,7 +173,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the description property value. The description property
+     * Sets the description property value. The rule description.
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
@@ -181,7 +181,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The displayName property
+     * Sets the displayName property value. The display name of the rule.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -189,7 +189,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the enabled property value. The enabled property
+     * Sets the enabled property value. The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
      *  @param bool|null $value Value to set for the enabled property.
     */
     public function setEnabled(?bool $value ): void {
@@ -197,7 +197,7 @@ class AlertRule extends Entity implements Parsable
     }
 
     /**
-     * Sets the isSystemRule property value. The isSystemRule property
+     * Sets the isSystemRule property value. Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only
      *  @param bool|null $value Value to set for the isSystemRule property.
     */
     public function setIsSystemRule(?bool $value ): void {

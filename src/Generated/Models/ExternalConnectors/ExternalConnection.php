@@ -85,7 +85,7 @@ class ExternalConnection extends Entity implements Parsable
     private ?ConnectionState $state = null;
     
     /**
-     * Instantiates a new ExternalConnection and sets the default values.
+     * Instantiates a new externalConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -156,21 +156,21 @@ class ExternalConnection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activitySettings' => function (ParseNode $n) use ($o) { $o->setActivitySettings($n->getObjectValue(array(ActivitySettings::class, 'createFromDiscriminatorValue'))); },
-            'complianceSettings' => function (ParseNode $n) use ($o) { $o->setComplianceSettings($n->getObjectValue(array(ComplianceSettings::class, 'createFromDiscriminatorValue'))); },
-            'configuration' => function (ParseNode $n) use ($o) { $o->setConfiguration($n->getObjectValue(array(Configuration::class, 'createFromDiscriminatorValue'))); },
-            'connectorId' => function (ParseNode $n) use ($o) { $o->setConnectorId($n->getStringValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'enabledContentExperiences' => function (ParseNode $n) use ($o) { $o->setEnabledContentExperiences($n->getEnumValue(ContentExperienceType::class)); },
-            'groups' => function (ParseNode $n) use ($o) { $o->setGroups($n->getCollectionOfObjectValues(array(ExternalGroup::class, 'createFromDiscriminatorValue'))); },
-            'ingestedItemsCount' => function (ParseNode $n) use ($o) { $o->setIngestedItemsCount($n->getIntegerValue()); },
-            'items' => function (ParseNode $n) use ($o) { $o->setItems($n->getCollectionOfObjectValues(array(ExternalItem::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'operations' => function (ParseNode $n) use ($o) { $o->setOperations($n->getCollectionOfObjectValues(array(ConnectionOperation::class, 'createFromDiscriminatorValue'))); },
-            'quota' => function (ParseNode $n) use ($o) { $o->setQuota($n->getObjectValue(array(ConnectionQuota::class, 'createFromDiscriminatorValue'))); },
-            'schema' => function (ParseNode $n) use ($o) { $o->setSchema($n->getObjectValue(array(Schema::class, 'createFromDiscriminatorValue'))); },
-            'searchSettings' => function (ParseNode $n) use ($o) { $o->setSearchSettings($n->getObjectValue(array(SearchSettings::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConnectionState::class)); },
+            'activitySettings' => fn(ParseNode $n) => $o->setActivitySettings($n->getObjectValue([ActivitySettings::class, 'createFromDiscriminatorValue'])),
+            'complianceSettings' => fn(ParseNode $n) => $o->setComplianceSettings($n->getObjectValue([ComplianceSettings::class, 'createFromDiscriminatorValue'])),
+            'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([Configuration::class, 'createFromDiscriminatorValue'])),
+            'connectorId' => fn(ParseNode $n) => $o->setConnectorId($n->getStringValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'enabledContentExperiences' => fn(ParseNode $n) => $o->setEnabledContentExperiences($n->getEnumValue(ContentExperienceType::class)),
+            'groups' => fn(ParseNode $n) => $o->setGroups($n->getCollectionOfObjectValues([ExternalGroup::class, 'createFromDiscriminatorValue'])),
+            'ingestedItemsCount' => fn(ParseNode $n) => $o->setIngestedItemsCount($n->getIntegerValue()),
+            'items' => fn(ParseNode $n) => $o->setItems($n->getCollectionOfObjectValues([ExternalItem::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'operations' => fn(ParseNode $n) => $o->setOperations($n->getCollectionOfObjectValues([ConnectionOperation::class, 'createFromDiscriminatorValue'])),
+            'quota' => fn(ParseNode $n) => $o->setQuota($n->getObjectValue([ConnectionQuota::class, 'createFromDiscriminatorValue'])),
+            'schema' => fn(ParseNode $n) => $o->setSchema($n->getObjectValue([Schema::class, 'createFromDiscriminatorValue'])),
+            'searchSettings' => fn(ParseNode $n) => $o->setSearchSettings($n->getObjectValue([SearchSettings::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ConnectionState::class)),
         ]);
     }
 

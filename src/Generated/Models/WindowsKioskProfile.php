@@ -79,11 +79,11 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'appConfiguration' => function (ParseNode $n) use ($o) { $o->setAppConfiguration($n->getObjectValue(array(WindowsKioskAppConfiguration::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'profileId' => function (ParseNode $n) use ($o) { $o->setProfileId($n->getStringValue()); },
-            'profileName' => function (ParseNode $n) use ($o) { $o->setProfileName($n->getStringValue()); },
-            'userAccountsConfiguration' => function (ParseNode $n) use ($o) { $o->setUserAccountsConfiguration($n->getCollectionOfObjectValues(array(WindowsKioskUser::class, 'createFromDiscriminatorValue'))); },
+            'appConfiguration' => fn(ParseNode $n) => $o->setAppConfiguration($n->getObjectValue([WindowsKioskAppConfiguration::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'profileId' => fn(ParseNode $n) => $o->setProfileId($n->getStringValue()),
+            'profileName' => fn(ParseNode $n) => $o->setProfileName($n->getStringValue()),
+            'userAccountsConfiguration' => fn(ParseNode $n) => $o->setUserAccountsConfiguration($n->getCollectionOfObjectValues([WindowsKioskUser::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

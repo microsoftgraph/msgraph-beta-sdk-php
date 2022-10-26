@@ -86,9 +86,9 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getEnumValue(DriverApprovalAction::class)); },
-            'deploymentDate' => function (ParseNode $n) use ($o) { $o->setDeploymentDate($n->getDateTimeValue()); },
-            'driverIds' => function (ParseNode $n) use ($o) { $o->setDriverIds($n->getCollectionOfPrimitiveValues()); },
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getEnumValue(DriverApprovalAction::class)),
+            'deploymentDate' => fn(ParseNode $n) => $o->setDeploymentDate($n->getDateTimeValue()),
+            'driverIds' => fn(ParseNode $n) => $o->setDriverIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

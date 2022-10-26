@@ -47,9 +47,9 @@ class DeviceHealthScriptAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'runRemediationScript' => function (ParseNode $n) use ($o) { $o->setRunRemediationScript($n->getBooleanValue()); },
-            'runSchedule' => function (ParseNode $n) use ($o) { $o->setRunSchedule($n->getObjectValue(array(DeviceHealthScriptRunSchedule::class, 'createFromDiscriminatorValue'))); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'runRemediationScript' => fn(ParseNode $n) => $o->setRunRemediationScript($n->getBooleanValue()),
+            'runSchedule' => fn(ParseNode $n) => $o->setRunSchedule($n->getObjectValue([DeviceHealthScriptRunSchedule::class, 'createFromDiscriminatorValue'])),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([DeviceAndAppManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

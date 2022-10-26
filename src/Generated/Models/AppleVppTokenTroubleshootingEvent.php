@@ -37,7 +37,7 @@ class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingE
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'tokenId' => function (ParseNode $n) use ($o) { $o->setTokenId($n->getStringValue()); },
+            'tokenId' => fn(ParseNode $n) => $o->setTokenId($n->getStringValue()),
         ]);
     }
 

@@ -92,12 +92,12 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'communicationSpeaker' => function (ParseNode $n) use ($o) { $o->setCommunicationSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'contentCamera' => function (ParseNode $n) use ($o) { $o->setContentCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'microphone' => function (ParseNode $n) use ($o) { $o->setMicrophone($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roomCamera' => function (ParseNode $n) use ($o) { $o->setRoomCamera($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
-            'speaker' => function (ParseNode $n) use ($o) { $o->setSpeaker($n->getObjectValue(array(TeamworkPeripheral::class, 'createFromDiscriminatorValue'))); },
+            'communicationSpeaker' => fn(ParseNode $n) => $o->setCommunicationSpeaker($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'contentCamera' => fn(ParseNode $n) => $o->setContentCamera($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'microphone' => fn(ParseNode $n) => $o->setMicrophone($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'roomCamera' => fn(ParseNode $n) => $o->setRoomCamera($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
+            'speaker' => fn(ParseNode $n) => $o->setSpeaker($n->getObjectValue([TeamworkPeripheral::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

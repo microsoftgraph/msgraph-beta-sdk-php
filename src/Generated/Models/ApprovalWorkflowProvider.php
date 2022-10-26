@@ -29,7 +29,7 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
     private ?array $policyTemplates = null;
     
     /**
-     * Instantiates a new approvalWorkflowProvider and sets the default values.
+     * Instantiates a new ApprovalWorkflowProvider and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -76,10 +76,10 @@ class ApprovalWorkflowProvider extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'businessFlows' => function (ParseNode $n) use ($o) { $o->setBusinessFlows($n->getCollectionOfObjectValues(array(BusinessFlow::class, 'createFromDiscriminatorValue'))); },
-            'businessFlowsWithRequestsAwaitingMyDecision' => function (ParseNode $n) use ($o) { $o->setBusinessFlowsWithRequestsAwaitingMyDecision($n->getCollectionOfObjectValues(array(BusinessFlow::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'policyTemplates' => function (ParseNode $n) use ($o) { $o->setPolicyTemplates($n->getCollectionOfObjectValues(array(GovernancePolicyTemplate::class, 'createFromDiscriminatorValue'))); },
+            'businessFlows' => fn(ParseNode $n) => $o->setBusinessFlows($n->getCollectionOfObjectValues([BusinessFlow::class, 'createFromDiscriminatorValue'])),
+            'businessFlowsWithRequestsAwaitingMyDecision' => fn(ParseNode $n) => $o->setBusinessFlowsWithRequestsAwaitingMyDecision($n->getCollectionOfObjectValues([BusinessFlow::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'policyTemplates' => fn(ParseNode $n) => $o->setPolicyTemplates($n->getCollectionOfObjectValues([GovernancePolicyTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

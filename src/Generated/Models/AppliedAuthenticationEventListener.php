@@ -82,10 +82,10 @@ class AppliedAuthenticationEventListener implements AdditionalDataHolder, Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'eventType' => function (ParseNode $n) use ($o) { $o->setEventType($n->getEnumValue(AuthenticationEventType::class)); },
-            'executedListenerId' => function (ParseNode $n) use ($o) { $o->setExecutedListenerId($n->getStringValue()); },
-            'handlerResult' => function (ParseNode $n) use ($o) { $o->setHandlerResult($n->getObjectValue(array(AuthenticationEventHandlerResult::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'eventType' => fn(ParseNode $n) => $o->setEventType($n->getEnumValue(AuthenticationEventType::class)),
+            'executedListenerId' => fn(ParseNode $n) => $o->setExecutedListenerId($n->getStringValue()),
+            'handlerResult' => fn(ParseNode $n) => $o->setHandlerResult($n->getObjectValue([AuthenticationEventHandlerResult::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

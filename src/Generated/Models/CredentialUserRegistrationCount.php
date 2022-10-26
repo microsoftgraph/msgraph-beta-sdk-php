@@ -42,8 +42,8 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'totalUserCount' => function (ParseNode $n) use ($o) { $o->setTotalUserCount($n->getIntegerValue()); },
-            'userRegistrationCounts' => function (ParseNode $n) use ($o) { $o->setUserRegistrationCounts($n->getCollectionOfObjectValues(array(UserRegistrationCount::class, 'createFromDiscriminatorValue'))); },
+            'totalUserCount' => fn(ParseNode $n) => $o->setTotalUserCount($n->getIntegerValue()),
+            'userRegistrationCounts' => fn(ParseNode $n) => $o->setUserRegistrationCounts($n->getCollectionOfObjectValues([UserRegistrationCount::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -71,9 +71,9 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'dependencyType' => function (ParseNode $n) use ($o) { $o->setDependencyType($n->getEnumValue(MobileAppDependencyType::class)); },
-            'dependentAppCount' => function (ParseNode $n) use ($o) { $o->setDependentAppCount($n->getIntegerValue()); },
-            'dependsOnAppCount' => function (ParseNode $n) use ($o) { $o->setDependsOnAppCount($n->getIntegerValue()); },
+            'dependencyType' => fn(ParseNode $n) => $o->setDependencyType($n->getEnumValue(MobileAppDependencyType::class)),
+            'dependentAppCount' => fn(ParseNode $n) => $o->setDependentAppCount($n->getIntegerValue()),
+            'dependsOnAppCount' => fn(ParseNode $n) => $o->setDependsOnAppCount($n->getIntegerValue()),
         ]);
     }
 

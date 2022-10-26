@@ -97,14 +97,14 @@ class PrintConnector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appVersion' => function (ParseNode $n) use ($o) { $o->setAppVersion($n->getStringValue()); },
-            'deviceHealth' => function (ParseNode $n) use ($o) { $o->setDeviceHealth($n->getObjectValue(array(DeviceHealth::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'fullyQualifiedDomainName' => function (ParseNode $n) use ($o) { $o->setFullyQualifiedDomainName($n->getStringValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(PrinterLocation::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'operatingSystem' => function (ParseNode $n) use ($o) { $o->setOperatingSystem($n->getStringValue()); },
-            'registeredDateTime' => function (ParseNode $n) use ($o) { $o->setRegisteredDateTime($n->getDateTimeValue()); },
+            'appVersion' => fn(ParseNode $n) => $o->setAppVersion($n->getStringValue()),
+            'deviceHealth' => fn(ParseNode $n) => $o->setDeviceHealth($n->getObjectValue([DeviceHealth::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'fullyQualifiedDomainName' => fn(ParseNode $n) => $o->setFullyQualifiedDomainName($n->getStringValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([PrinterLocation::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'operatingSystem' => fn(ParseNode $n) => $o->setOperatingSystem($n->getStringValue()),
+            'registeredDateTime' => fn(ParseNode $n) => $o->setRegisteredDateTime($n->getDateTimeValue()),
         ]);
     }
 

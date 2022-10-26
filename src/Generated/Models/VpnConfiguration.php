@@ -80,11 +80,11 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationMethod' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)); },
-            'connectionName' => function (ParseNode $n) use ($o) { $o->setConnectionName($n->getStringValue()); },
-            'realm' => function (ParseNode $n) use ($o) { $o->setRealm($n->getStringValue()); },
-            'role' => function (ParseNode $n) use ($o) { $o->setRole($n->getStringValue()); },
-            'servers' => function (ParseNode $n) use ($o) { $o->setServers($n->getCollectionOfObjectValues(array(VpnServer::class, 'createFromDiscriminatorValue'))); },
+            'authenticationMethod' => fn(ParseNode $n) => $o->setAuthenticationMethod($n->getEnumValue(VpnAuthenticationMethod::class)),
+            'connectionName' => fn(ParseNode $n) => $o->setConnectionName($n->getStringValue()),
+            'realm' => fn(ParseNode $n) => $o->setRealm($n->getStringValue()),
+            'role' => fn(ParseNode $n) => $o->setRole($n->getStringValue()),
+            'servers' => fn(ParseNode $n) => $o->setServers($n->getCollectionOfObjectValues([VpnServer::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

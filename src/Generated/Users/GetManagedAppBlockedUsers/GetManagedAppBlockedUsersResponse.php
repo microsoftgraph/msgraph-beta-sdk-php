@@ -2,18 +2,13 @@
 
 namespace Microsoft\Graph\Beta\Generated\Users\GetManagedAppBlockedUsers;
 
-use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
+use Microsoft\Graph\Beta\Generated\Models\BaseCollectionPaginationCountResponse;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 
-class GetManagedAppBlockedUsersResponse implements AdditionalDataHolder, Parsable 
+class GetManagedAppBlockedUsersResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
     /**
      * @var array<string>|null $value The value property
     */
@@ -23,7 +18,7 @@ class GetManagedAppBlockedUsersResponse implements AdditionalDataHolder, Parsabl
      * Instantiates a new getManagedAppBlockedUsersResponse and sets the default values.
     */
     public function __construct() {
-        $this->setAdditionalData([]);
+        parent::__construct();
     }
 
     /**
@@ -36,22 +31,14 @@ class GetManagedAppBlockedUsersResponse implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @return array<string, mixed>
-    */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
-    }
-
-    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
-        return  [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfPrimitiveValues()); },
-        ];
+        return array_merge(parent::getFieldDeserializers(), [
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfPrimitiveValues()),
+        ]);
     }
 
     /**
@@ -67,16 +54,8 @@ class GetManagedAppBlockedUsersResponse implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        parent::serialize($writer);
         $writer->writeCollectionOfPrimitiveValues('value', $this->value);
-        $writer->writeAdditionalData($this->additionalData);
-    }
-
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     *  @param array<string,mixed> $value Value to set for the AdditionalData property.
-    */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
     }
 
     /**

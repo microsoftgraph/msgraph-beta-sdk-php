@@ -42,8 +42,8 @@ class AuditUserIdentity extends UserIdentity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'homeTenantId' => function (ParseNode $n) use ($o) { $o->setHomeTenantId($n->getStringValue()); },
-            'homeTenantName' => function (ParseNode $n) use ($o) { $o->setHomeTenantName($n->getStringValue()); },
+            'homeTenantId' => fn(ParseNode $n) => $o->setHomeTenantId($n->getStringValue()),
+            'homeTenantName' => fn(ParseNode $n) => $o->setHomeTenantName($n->getStringValue()),
         ]);
     }
 

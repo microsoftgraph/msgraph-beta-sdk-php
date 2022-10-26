@@ -58,8 +58,8 @@ class DeviceManagementReports extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cachedReportConfigurations' => function (ParseNode $n) use ($o) { $o->setCachedReportConfigurations($n->getCollectionOfObjectValues(array(DeviceManagementCachedReportConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'exportJobs' => function (ParseNode $n) use ($o) { $o->setExportJobs($n->getCollectionOfObjectValues(array(DeviceManagementExportJob::class, 'createFromDiscriminatorValue'))); },
+            'cachedReportConfigurations' => fn(ParseNode $n) => $o->setCachedReportConfigurations($n->getCollectionOfObjectValues([DeviceManagementCachedReportConfiguration::class, 'createFromDiscriminatorValue'])),
+            'exportJobs' => fn(ParseNode $n) => $o->setExportJobs($n->getCollectionOfObjectValues([DeviceManagementExportJob::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

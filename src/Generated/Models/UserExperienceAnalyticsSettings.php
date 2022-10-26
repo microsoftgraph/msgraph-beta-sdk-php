@@ -64,8 +64,8 @@ class UserExperienceAnalyticsSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'configurationManagerDataConnectorConfigured' => function (ParseNode $n) use ($o) { $o->setConfigurationManagerDataConnectorConfigured($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'configurationManagerDataConnectorConfigured' => fn(ParseNode $n) => $o->setConfigurationManagerDataConnectorConfigured($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

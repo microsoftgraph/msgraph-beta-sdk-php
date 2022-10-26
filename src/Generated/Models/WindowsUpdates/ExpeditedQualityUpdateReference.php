@@ -45,7 +45,7 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference implements 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'equivalentContent' => function (ParseNode $n) use ($o) { $o->setEquivalentContent($n->getEnumValue(EquivalentContentOption::class)); },
+            'equivalentContent' => fn(ParseNode $n) => $o->setEquivalentContent($n->getEnumValue(EquivalentContentOption::class)),
         ]);
     }
 

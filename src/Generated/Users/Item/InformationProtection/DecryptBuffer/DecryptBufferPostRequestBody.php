@@ -51,9 +51,9 @@ class DecryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the encryptedBuffer property value. The encryptedBuffer property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEncryptedBuffer(): ?StreamInterface {
+    public function getEncryptedBuffer(): StreamInterface {
         return $this->encryptedBuffer;
     }
 
@@ -64,16 +64,16 @@ class DecryptBufferPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'encryptedBuffer' => function (ParseNode $n) use ($o) { $o->setEncryptedBuffer($n->getBinaryContent()); },
-            'publishingLicense' => function (ParseNode $n) use ($o) { $o->setPublishingLicense($n->getBinaryContent()); },
+            'encryptedBuffer' => fn(ParseNode $n) => $o->setEncryptedBuffer($n->getBinaryContent()),
+            'publishingLicense' => fn(ParseNode $n) => $o->setPublishingLicense($n->getBinaryContent()),
         ];
     }
 
     /**
      * Gets the publishingLicense property value. The publishingLicense property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPublishingLicense(): ?StreamInterface {
+    public function getPublishingLicense(): StreamInterface {
         return $this->publishingLicense;
     }
 

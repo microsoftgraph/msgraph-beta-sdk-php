@@ -196,21 +196,21 @@ class WindowsAutopilotDeploymentProfile extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'assignedDevices' => function (ParseNode $n) use ($o) { $o->setAssignedDevices($n->getCollectionOfObjectValues(array(WindowsAutopilotDeviceIdentity::class, 'createFromDiscriminatorValue'))); },
-            'assignments' => function (ParseNode $n) use ($o) { $o->setAssignments($n->getCollectionOfObjectValues(array(WindowsAutopilotDeploymentProfileAssignment::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceNameTemplate' => function (ParseNode $n) use ($o) { $o->setDeviceNameTemplate($n->getStringValue()); },
-            'deviceType' => function (ParseNode $n) use ($o) { $o->setDeviceType($n->getEnumValue(WindowsAutopilotDeviceType::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enableWhiteGlove' => function (ParseNode $n) use ($o) { $o->setEnableWhiteGlove($n->getBooleanValue()); },
-            'enrollmentStatusScreenSettings' => function (ParseNode $n) use ($o) { $o->setEnrollmentStatusScreenSettings($n->getObjectValue(array(WindowsEnrollmentStatusScreenSettings::class, 'createFromDiscriminatorValue'))); },
-            'extractHardwareHash' => function (ParseNode $n) use ($o) { $o->setExtractHardwareHash($n->getBooleanValue()); },
-            'language' => function (ParseNode $n) use ($o) { $o->setLanguage($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'managementServiceAppId' => function (ParseNode $n) use ($o) { $o->setManagementServiceAppId($n->getStringValue()); },
-            'outOfBoxExperienceSettings' => function (ParseNode $n) use ($o) { $o->setOutOfBoxExperienceSettings($n->getObjectValue(array(OutOfBoxExperienceSettings::class, 'createFromDiscriminatorValue'))); },
-            'roleScopeTagIds' => function (ParseNode $n) use ($o) { $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()); },
+            'assignedDevices' => fn(ParseNode $n) => $o->setAssignedDevices($n->getCollectionOfObjectValues([WindowsAutopilotDeviceIdentity::class, 'createFromDiscriminatorValue'])),
+            'assignments' => fn(ParseNode $n) => $o->setAssignments($n->getCollectionOfObjectValues([WindowsAutopilotDeploymentProfileAssignment::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceNameTemplate' => fn(ParseNode $n) => $o->setDeviceNameTemplate($n->getStringValue()),
+            'deviceType' => fn(ParseNode $n) => $o->setDeviceType($n->getEnumValue(WindowsAutopilotDeviceType::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enableWhiteGlove' => fn(ParseNode $n) => $o->setEnableWhiteGlove($n->getBooleanValue()),
+            'enrollmentStatusScreenSettings' => fn(ParseNode $n) => $o->setEnrollmentStatusScreenSettings($n->getObjectValue([WindowsEnrollmentStatusScreenSettings::class, 'createFromDiscriminatorValue'])),
+            'extractHardwareHash' => fn(ParseNode $n) => $o->setExtractHardwareHash($n->getBooleanValue()),
+            'language' => fn(ParseNode $n) => $o->setLanguage($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'managementServiceAppId' => fn(ParseNode $n) => $o->setManagementServiceAppId($n->getStringValue()),
+            'outOfBoxExperienceSettings' => fn(ParseNode $n) => $o->setOutOfBoxExperienceSettings($n->getObjectValue([OutOfBoxExperienceSettings::class, 'createFromDiscriminatorValue'])),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

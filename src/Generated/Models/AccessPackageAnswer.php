@@ -84,9 +84,9 @@ class AccessPackageAnswer implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'answeredQuestion' => function (ParseNode $n) use ($o) { $o->setAnsweredQuestion($n->getObjectValue(array(AccessPackageQuestion::class, 'createFromDiscriminatorValue'))); },
-            'displayValue' => function (ParseNode $n) use ($o) { $o->setDisplayValue($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'answeredQuestion' => fn(ParseNode $n) => $o->setAnsweredQuestion($n->getObjectValue([AccessPackageQuestion::class, 'createFromDiscriminatorValue'])),
+            'displayValue' => fn(ParseNode $n) => $o->setDisplayValue($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

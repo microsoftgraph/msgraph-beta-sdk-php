@@ -66,10 +66,10 @@ class X509CertificateRule implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'identifier' => function (ParseNode $n) use ($o) { $o->setIdentifier($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'x509CertificateAuthenticationMode' => function (ParseNode $n) use ($o) { $o->setX509CertificateAuthenticationMode($n->getEnumValue(X509CertificateAuthenticationMode::class)); },
-            'x509CertificateRuleType' => function (ParseNode $n) use ($o) { $o->setX509CertificateRuleType($n->getEnumValue(X509CertificateRuleType::class)); },
+            'identifier' => fn(ParseNode $n) => $o->setIdentifier($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'x509CertificateAuthenticationMode' => fn(ParseNode $n) => $o->setX509CertificateAuthenticationMode($n->getEnumValue(X509CertificateAuthenticationMode::class)),
+            'x509CertificateRuleType' => fn(ParseNode $n) => $o->setX509CertificateRuleType($n->getEnumValue(X509CertificateRuleType::class)),
         ];
     }
 

@@ -63,9 +63,9 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deviceConfiguration' => function (ParseNode $n) use ($o) { $o->setDeviceConfiguration($n->getObjectValue(array(DeviceConfiguration::class, 'createFromDiscriminatorValue'))); },
-            'excludeGroup' => function (ParseNode $n) use ($o) { $o->setExcludeGroup($n->getBooleanValue()); },
-            'targetGroupId' => function (ParseNode $n) use ($o) { $o->setTargetGroupId($n->getStringValue()); },
+            'deviceConfiguration' => fn(ParseNode $n) => $o->setDeviceConfiguration($n->getObjectValue([DeviceConfiguration::class, 'createFromDiscriminatorValue'])),
+            'excludeGroup' => fn(ParseNode $n) => $o->setExcludeGroup($n->getBooleanValue()),
+            'targetGroupId' => fn(ParseNode $n) => $o->setTargetGroupId($n->getStringValue()),
         ]);
     }
 

@@ -183,20 +183,20 @@ class AccessPackageAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackage' => function (ParseNode $n) use ($o) { $o->setAccessPackage($n->getObjectValue(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentPolicy' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentPolicy($n->getObjectValue(array(AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentRequests' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues(array(AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageAssignmentResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageAssignmentResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageId' => function (ParseNode $n) use ($o) { $o->setAccessPackageId($n->getStringValue()); },
-            'assignmentPolicyId' => function (ParseNode $n) use ($o) { $o->setAssignmentPolicyId($n->getStringValue()); },
-            'assignmentState' => function (ParseNode $n) use ($o) { $o->setAssignmentState($n->getStringValue()); },
-            'assignmentStatus' => function (ParseNode $n) use ($o) { $o->setAssignmentStatus($n->getStringValue()); },
-            'catalogId' => function (ParseNode $n) use ($o) { $o->setCatalogId($n->getStringValue()); },
-            'expiredDateTime' => function (ParseNode $n) use ($o) { $o->setExpiredDateTime($n->getDateTimeValue()); },
-            'isExtended' => function (ParseNode $n) use ($o) { $o->setIsExtended($n->getBooleanValue()); },
-            'schedule' => function (ParseNode $n) use ($o) { $o->setSchedule($n->getObjectValue(array(RequestSchedule::class, 'createFromDiscriminatorValue'))); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(AccessPackageSubject::class, 'createFromDiscriminatorValue'))); },
-            'targetId' => function (ParseNode $n) use ($o) { $o->setTargetId($n->getStringValue()); },
+            'accessPackage' => fn(ParseNode $n) => $o->setAccessPackage($n->getObjectValue([AccessPackage::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentPolicy' => fn(ParseNode $n) => $o->setAccessPackageAssignmentPolicy($n->getObjectValue([AccessPackageAssignmentPolicy::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentRequests' => fn(ParseNode $n) => $o->setAccessPackageAssignmentRequests($n->getCollectionOfObjectValues([AccessPackageAssignmentRequest::class, 'createFromDiscriminatorValue'])),
+            'accessPackageAssignmentResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageAssignmentResourceRoles($n->getCollectionOfObjectValues([AccessPackageAssignmentResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageId' => fn(ParseNode $n) => $o->setAccessPackageId($n->getStringValue()),
+            'assignmentPolicyId' => fn(ParseNode $n) => $o->setAssignmentPolicyId($n->getStringValue()),
+            'assignmentState' => fn(ParseNode $n) => $o->setAssignmentState($n->getStringValue()),
+            'assignmentStatus' => fn(ParseNode $n) => $o->setAssignmentStatus($n->getStringValue()),
+            'catalogId' => fn(ParseNode $n) => $o->setCatalogId($n->getStringValue()),
+            'expiredDateTime' => fn(ParseNode $n) => $o->setExpiredDateTime($n->getDateTimeValue()),
+            'isExtended' => fn(ParseNode $n) => $o->setIsExtended($n->getBooleanValue()),
+            'schedule' => fn(ParseNode $n) => $o->setSchedule($n->getObjectValue([RequestSchedule::class, 'createFromDiscriminatorValue'])),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([AccessPackageSubject::class, 'createFromDiscriminatorValue'])),
+            'targetId' => fn(ParseNode $n) => $o->setTargetId($n->getStringValue()),
         ]);
     }
 

@@ -47,9 +47,9 @@ class MobileAppIntentAndState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'managedDeviceIdentifier' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIdentifier($n->getStringValue()); },
-            'mobileAppList' => function (ParseNode $n) use ($o) { $o->setMobileAppList($n->getCollectionOfObjectValues(array(MobileAppIntentAndStateDetail::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'managedDeviceIdentifier' => fn(ParseNode $n) => $o->setManagedDeviceIdentifier($n->getStringValue()),
+            'mobileAppList' => fn(ParseNode $n) => $o->setMobileAppList($n->getCollectionOfObjectValues([MobileAppIntentAndStateDetail::class, 'createFromDiscriminatorValue'])),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

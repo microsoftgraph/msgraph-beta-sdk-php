@@ -61,9 +61,9 @@ class OutboundSharedUserProfile implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'tenants' => function (ParseNode $n) use ($o) { $o->setTenants($n->getCollectionOfObjectValues(array(TenantReference::class, 'createFromDiscriminatorValue'))); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'tenants' => fn(ParseNode $n) => $o->setTenants($n->getCollectionOfObjectValues([TenantReference::class, 'createFromDiscriminatorValue'])),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
 

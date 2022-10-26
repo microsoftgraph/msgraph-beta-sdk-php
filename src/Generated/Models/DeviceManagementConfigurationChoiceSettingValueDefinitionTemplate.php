@@ -64,8 +64,8 @@ class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate implemen
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedOptions' => function (ParseNode $n) use ($o) { $o->setAllowedOptions($n->getCollectionOfObjectValues(array(DeviceManagementConfigurationOptionDefinitionTemplate::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'allowedOptions' => fn(ParseNode $n) => $o->setAllowedOptions($n->getCollectionOfObjectValues([DeviceManagementConfigurationOptionDefinitionTemplate::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

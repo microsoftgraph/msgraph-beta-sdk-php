@@ -145,16 +145,16 @@ class ThreatSubmission extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'adminReview' => function (ParseNode $n) use ($o) { $o->setAdminReview($n->getObjectValue(array(SubmissionAdminReview::class, 'createFromDiscriminatorValue'))); },
-            'category' => function (ParseNode $n) use ($o) { $o->setCategory($n->getEnumValue(SubmissionCategory::class)); },
-            'clientSource' => function (ParseNode $n) use ($o) { $o->setClientSource($n->getEnumValue(SubmissionClientSource::class)); },
-            'contentType' => function (ParseNode $n) use ($o) { $o->setContentType($n->getEnumValue(SubmissionContentType::class)); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(SubmissionUserIdentity::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getObjectValue(array(SubmissionResult::class, 'createFromDiscriminatorValue'))); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getEnumValue(SubmissionSource::class)); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)); },
-            'tenantId' => function (ParseNode $n) use ($o) { $o->setTenantId($n->getStringValue()); },
+            'adminReview' => fn(ParseNode $n) => $o->setAdminReview($n->getObjectValue([SubmissionAdminReview::class, 'createFromDiscriminatorValue'])),
+            'category' => fn(ParseNode $n) => $o->setCategory($n->getEnumValue(SubmissionCategory::class)),
+            'clientSource' => fn(ParseNode $n) => $o->setClientSource($n->getEnumValue(SubmissionClientSource::class)),
+            'contentType' => fn(ParseNode $n) => $o->setContentType($n->getEnumValue(SubmissionContentType::class)),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([SubmissionUserIdentity::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'result' => fn(ParseNode $n) => $o->setResult($n->getObjectValue([SubmissionResult::class, 'createFromDiscriminatorValue'])),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getEnumValue(SubmissionSource::class)),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(LongRunningOperationStatus::class)),
+            'tenantId' => fn(ParseNode $n) => $o->setTenantId($n->getStringValue()),
         ]);
     }
 

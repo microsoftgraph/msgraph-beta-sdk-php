@@ -47,9 +47,9 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maxLength' => function (ParseNode $n) use ($o) { $o->setMaxLength($n->getIntegerValue()); },
-            'maxStrings' => function (ParseNode $n) use ($o) { $o->setMaxStrings($n->getIntegerValue()); },
-            'required' => function (ParseNode $n) use ($o) { $o->setRequired($n->getBooleanValue()); },
+            'maxLength' => fn(ParseNode $n) => $o->setMaxLength($n->getIntegerValue()),
+            'maxStrings' => fn(ParseNode $n) => $o->setMaxStrings($n->getIntegerValue()),
+            'required' => fn(ParseNode $n) => $o->setRequired($n->getBooleanValue()),
         ]);
     }
 

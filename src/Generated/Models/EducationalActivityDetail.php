@@ -136,16 +136,16 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'abbreviation' => function (ParseNode $n) use ($o) { $o->setAbbreviation($n->getStringValue()); },
-            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfPrimitiveValues()); },
-            'awards' => function (ParseNode $n) use ($o) { $o->setAwards($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'fieldsOfStudy' => function (ParseNode $n) use ($o) { $o->setFieldsOfStudy($n->getCollectionOfPrimitiveValues()); },
-            'grade' => function (ParseNode $n) use ($o) { $o->setGrade($n->getStringValue()); },
-            'notes' => function (ParseNode $n) use ($o) { $o->setNotes($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'webUrl' => function (ParseNode $n) use ($o) { $o->setWebUrl($n->getStringValue()); },
+            'abbreviation' => fn(ParseNode $n) => $o->setAbbreviation($n->getStringValue()),
+            'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfPrimitiveValues()),
+            'awards' => fn(ParseNode $n) => $o->setAwards($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'fieldsOfStudy' => fn(ParseNode $n) => $o->setFieldsOfStudy($n->getCollectionOfPrimitiveValues()),
+            'grade' => fn(ParseNode $n) => $o->setGrade($n->getStringValue()),
+            'notes' => fn(ParseNode $n) => $o->setNotes($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ];
     }
 

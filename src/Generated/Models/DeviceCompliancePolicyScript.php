@@ -70,9 +70,9 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceComplianceScriptId' => function (ParseNode $n) use ($o) { $o->setDeviceComplianceScriptId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'rulesContent' => function (ParseNode $n) use ($o) { $o->setRulesContent($n->getBinaryContent()); },
+            'deviceComplianceScriptId' => fn(ParseNode $n) => $o->setDeviceComplianceScriptId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'rulesContent' => fn(ParseNode $n) => $o->setRulesContent($n->getBinaryContent()),
         ];
     }
 
@@ -86,9 +86,9 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the rulesContent property value. Json of the rules.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getRulesContent(): ?StreamInterface {
+    public function getRulesContent(): StreamInterface {
         return $this->rulesContent;
     }
 

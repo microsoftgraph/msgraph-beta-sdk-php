@@ -36,7 +36,7 @@ class PlannerRosterCollectionResponse extends BaseCollectionPaginationCountRespo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(PlannerRoster::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([PlannerRoster::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -75,10 +75,10 @@ class CloudPcConnectivityResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'failedHealthCheckItems' => function (ParseNode $n) use ($o) { $o->setFailedHealthCheckItems($n->getCollectionOfObjectValues(array(CloudPcHealthCheckItem::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(CloudPcConnectivityStatus::class)); },
-            'updatedDateTime' => function (ParseNode $n) use ($o) { $o->setUpdatedDateTime($n->getDateTimeValue()); },
+            'failedHealthCheckItems' => fn(ParseNode $n) => $o->setFailedHealthCheckItems($n->getCollectionOfObjectValues([CloudPcHealthCheckItem::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(CloudPcConnectivityStatus::class)),
+            'updatedDateTime' => fn(ParseNode $n) => $o->setUpdatedDateTime($n->getDateTimeValue()),
         ];
     }
 

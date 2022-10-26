@@ -96,17 +96,17 @@ class DeviceManagementPartner extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'groupsRequiringPartnerEnrollment' => function (ParseNode $n) use ($o) { $o->setGroupsRequiringPartnerEnrollment($n->getCollectionOfObjectValues(array(DeviceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'))); },
-            'isConfigured' => function (ParseNode $n) use ($o) { $o->setIsConfigured($n->getBooleanValue()); },
-            'lastHeartbeatDateTime' => function (ParseNode $n) use ($o) { $o->setLastHeartbeatDateTime($n->getDateTimeValue()); },
-            'partnerAppType' => function (ParseNode $n) use ($o) { $o->setPartnerAppType($n->getEnumValue(DeviceManagementPartnerAppType::class)); },
-            'partnerState' => function (ParseNode $n) use ($o) { $o->setPartnerState($n->getEnumValue(DeviceManagementPartnerTenantState::class)); },
-            'singleTenantAppId' => function (ParseNode $n) use ($o) { $o->setSingleTenantAppId($n->getStringValue()); },
-            'whenPartnerDevicesWillBeMarkedAsNonCompliant' => function (ParseNode $n) use ($o) { $o->setWhenPartnerDevicesWillBeMarkedAsNonCompliant($n->getDateTimeValue()); },
-            'whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime' => function (ParseNode $n) use ($o) { $o->setWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime($n->getDateTimeValue()); },
-            'whenPartnerDevicesWillBeRemoved' => function (ParseNode $n) use ($o) { $o->setWhenPartnerDevicesWillBeRemoved($n->getDateTimeValue()); },
-            'whenPartnerDevicesWillBeRemovedDateTime' => function (ParseNode $n) use ($o) { $o->setWhenPartnerDevicesWillBeRemovedDateTime($n->getDateTimeValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'groupsRequiringPartnerEnrollment' => fn(ParseNode $n) => $o->setGroupsRequiringPartnerEnrollment($n->getCollectionOfObjectValues([DeviceManagementPartnerAssignment::class, 'createFromDiscriminatorValue'])),
+            'isConfigured' => fn(ParseNode $n) => $o->setIsConfigured($n->getBooleanValue()),
+            'lastHeartbeatDateTime' => fn(ParseNode $n) => $o->setLastHeartbeatDateTime($n->getDateTimeValue()),
+            'partnerAppType' => fn(ParseNode $n) => $o->setPartnerAppType($n->getEnumValue(DeviceManagementPartnerAppType::class)),
+            'partnerState' => fn(ParseNode $n) => $o->setPartnerState($n->getEnumValue(DeviceManagementPartnerTenantState::class)),
+            'singleTenantAppId' => fn(ParseNode $n) => $o->setSingleTenantAppId($n->getStringValue()),
+            'whenPartnerDevicesWillBeMarkedAsNonCompliant' => fn(ParseNode $n) => $o->setWhenPartnerDevicesWillBeMarkedAsNonCompliant($n->getDateTimeValue()),
+            'whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime' => fn(ParseNode $n) => $o->setWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime($n->getDateTimeValue()),
+            'whenPartnerDevicesWillBeRemoved' => fn(ParseNode $n) => $o->setWhenPartnerDevicesWillBeRemoved($n->getDateTimeValue()),
+            'whenPartnerDevicesWillBeRemovedDateTime' => fn(ParseNode $n) => $o->setWhenPartnerDevicesWillBeRemovedDateTime($n->getDateTimeValue()),
         ]);
     }
 

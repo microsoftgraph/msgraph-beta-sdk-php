@@ -15,17 +15,17 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $additionalInformation The additionalInformation property
+     * @var string|null $additionalInformation Information about why the updateAllowedCombinations action was successful or failed.
     */
     private ?string $additionalInformation = null;
     
     /**
-     * @var array<string>|null $conditionalAccessReferences The conditionalAccessReferences property
+     * @var array<string>|null $conditionalAccessReferences References to existing Conditional Access policies that use this authentication strength.
     */
     private ?array $conditionalAccessReferences = null;
     
     /**
-     * @var array<AuthenticationMethodModes>|null $currentCombinations The currentCombinations property
+     * @var array<AuthenticationMethodModes>|null $currentCombinations The list of current authentication method combinations allowed by the authentication strength.
     */
     private ?array $currentCombinations = null;
     
@@ -35,7 +35,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var array<AuthenticationMethodModes>|null $previousCombinations The previousCombinations property
+     * @var array<AuthenticationMethodModes>|null $previousCombinations The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
     */
     private ?array $previousCombinations = null;
     
@@ -65,7 +65,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the additionalInformation property value. The additionalInformation property
+     * Gets the additionalInformation property value. Information about why the updateAllowedCombinations action was successful or failed.
      * @return string|null
     */
     public function getAdditionalInformation(): ?string {
@@ -73,7 +73,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the conditionalAccessReferences property value. The conditionalAccessReferences property
+     * Gets the conditionalAccessReferences property value. References to existing Conditional Access policies that use this authentication strength.
      * @return array<string>|null
     */
     public function getConditionalAccessReferences(): ?array {
@@ -81,7 +81,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the currentCombinations property value. The currentCombinations property
+     * Gets the currentCombinations property value. The list of current authentication method combinations allowed by the authentication strength.
      * @return array<AuthenticationMethodModes>|null
     */
     public function getCurrentCombinations(): ?array {
@@ -95,11 +95,11 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'additionalInformation' => function (ParseNode $n) use ($o) { $o->setAdditionalInformation($n->getStringValue()); },
-            'conditionalAccessReferences' => function (ParseNode $n) use ($o) { $o->setConditionalAccessReferences($n->getCollectionOfPrimitiveValues()); },
-            'currentCombinations' => function (ParseNode $n) use ($o) { $o->setCurrentCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'previousCombinations' => function (ParseNode $n) use ($o) { $o->setPreviousCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)); },
+            'additionalInformation' => fn(ParseNode $n) => $o->setAdditionalInformation($n->getStringValue()),
+            'conditionalAccessReferences' => fn(ParseNode $n) => $o->setConditionalAccessReferences($n->getCollectionOfPrimitiveValues()),
+            'currentCombinations' => fn(ParseNode $n) => $o->setCurrentCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'previousCombinations' => fn(ParseNode $n) => $o->setPreviousCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)),
         ];
     }
 
@@ -112,7 +112,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the previousCombinations property value. The previousCombinations property
+     * Gets the previousCombinations property value. The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
      * @return array<AuthenticationMethodModes>|null
     */
     public function getPreviousCombinations(): ?array {
@@ -141,7 +141,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the additionalInformation property value. The additionalInformation property
+     * Sets the additionalInformation property value. Information about why the updateAllowedCombinations action was successful or failed.
      *  @param string|null $value Value to set for the additionalInformation property.
     */
     public function setAdditionalInformation(?string $value ): void {
@@ -149,7 +149,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the conditionalAccessReferences property value. The conditionalAccessReferences property
+     * Sets the conditionalAccessReferences property value. References to existing Conditional Access policies that use this authentication strength.
      *  @param array<string>|null $value Value to set for the conditionalAccessReferences property.
     */
     public function setConditionalAccessReferences(?array $value ): void {
@@ -157,7 +157,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the currentCombinations property value. The currentCombinations property
+     * Sets the currentCombinations property value. The list of current authentication method combinations allowed by the authentication strength.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the currentCombinations property.
     */
     public function setCurrentCombinations(?array $value ): void {
@@ -173,7 +173,7 @@ class UpdateAllowedCombinationsResult implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the previousCombinations property value. The previousCombinations property
+     * Sets the previousCombinations property value. The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the previousCombinations property.
     */
     public function setPreviousCombinations(?array $value ): void {

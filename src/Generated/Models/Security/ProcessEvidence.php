@@ -91,16 +91,16 @@ class ProcessEvidence extends AlertEvidence implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionStatus' => function (ParseNode $n) use ($o) { $o->setDetectionStatus($n->getEnumValue(DetectionStatus::class)); },
-            'imageFile' => function (ParseNode $n) use ($o) { $o->setImageFile($n->getObjectValue(array(FileDetails::class, 'createFromDiscriminatorValue'))); },
-            'mdeDeviceId' => function (ParseNode $n) use ($o) { $o->setMdeDeviceId($n->getStringValue()); },
-            'parentProcessCreationDateTime' => function (ParseNode $n) use ($o) { $o->setParentProcessCreationDateTime($n->getDateTimeValue()); },
-            'parentProcessId' => function (ParseNode $n) use ($o) { $o->setParentProcessId($n->getIntegerValue()); },
-            'parentProcessImageFile' => function (ParseNode $n) use ($o) { $o->setParentProcessImageFile($n->getObjectValue(array(FileDetails::class, 'createFromDiscriminatorValue'))); },
-            'processCommandLine' => function (ParseNode $n) use ($o) { $o->setProcessCommandLine($n->getStringValue()); },
-            'processCreationDateTime' => function (ParseNode $n) use ($o) { $o->setProcessCreationDateTime($n->getDateTimeValue()); },
-            'processId' => function (ParseNode $n) use ($o) { $o->setProcessId($n->getIntegerValue()); },
-            'userAccount' => function (ParseNode $n) use ($o) { $o->setUserAccount($n->getObjectValue(array(UserAccount::class, 'createFromDiscriminatorValue'))); },
+            'detectionStatus' => fn(ParseNode $n) => $o->setDetectionStatus($n->getEnumValue(DetectionStatus::class)),
+            'imageFile' => fn(ParseNode $n) => $o->setImageFile($n->getObjectValue([FileDetails::class, 'createFromDiscriminatorValue'])),
+            'mdeDeviceId' => fn(ParseNode $n) => $o->setMdeDeviceId($n->getStringValue()),
+            'parentProcessCreationDateTime' => fn(ParseNode $n) => $o->setParentProcessCreationDateTime($n->getDateTimeValue()),
+            'parentProcessId' => fn(ParseNode $n) => $o->setParentProcessId($n->getIntegerValue()),
+            'parentProcessImageFile' => fn(ParseNode $n) => $o->setParentProcessImageFile($n->getObjectValue([FileDetails::class, 'createFromDiscriminatorValue'])),
+            'processCommandLine' => fn(ParseNode $n) => $o->setProcessCommandLine($n->getStringValue()),
+            'processCreationDateTime' => fn(ParseNode $n) => $o->setProcessCreationDateTime($n->getDateTimeValue()),
+            'processId' => fn(ParseNode $n) => $o->setProcessId($n->getIntegerValue()),
+            'userAccount' => fn(ParseNode $n) => $o->setUserAccount($n->getObjectValue([UserAccount::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

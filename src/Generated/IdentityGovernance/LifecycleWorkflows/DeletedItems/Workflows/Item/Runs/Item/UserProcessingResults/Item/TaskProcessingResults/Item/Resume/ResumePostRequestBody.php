@@ -69,9 +69,9 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'data' => function (ParseNode $n) use ($o) { $o->setData($n->getObjectValue(array(CustomTaskExtensionCallbackData::class, 'createFromDiscriminatorValue'))); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
+            'data' => fn(ParseNode $n) => $o->setData($n->getObjectValue([CustomTaskExtensionCallbackData::class, 'createFromDiscriminatorValue'])),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
         ];
     }
 

@@ -131,16 +131,16 @@ class UserExperienceAnalyticsBaseline extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'appHealthMetrics' => function (ParseNode $n) use ($o) { $o->setAppHealthMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'batteryHealthMetrics' => function (ParseNode $n) use ($o) { $o->setBatteryHealthMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'bestPracticesMetrics' => function (ParseNode $n) use ($o) { $o->setBestPracticesMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deviceBootPerformanceMetrics' => function (ParseNode $n) use ($o) { $o->setDeviceBootPerformanceMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isBuiltIn' => function (ParseNode $n) use ($o) { $o->setIsBuiltIn($n->getBooleanValue()); },
-            'rebootAnalyticsMetrics' => function (ParseNode $n) use ($o) { $o->setRebootAnalyticsMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'resourcePerformanceMetrics' => function (ParseNode $n) use ($o) { $o->setResourcePerformanceMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
-            'workFromAnywhereMetrics' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereMetrics($n->getObjectValue(array(UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'))); },
+            'appHealthMetrics' => fn(ParseNode $n) => $o->setAppHealthMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'batteryHealthMetrics' => fn(ParseNode $n) => $o->setBatteryHealthMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'bestPracticesMetrics' => fn(ParseNode $n) => $o->setBestPracticesMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deviceBootPerformanceMetrics' => fn(ParseNode $n) => $o->setDeviceBootPerformanceMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isBuiltIn' => fn(ParseNode $n) => $o->setIsBuiltIn($n->getBooleanValue()),
+            'rebootAnalyticsMetrics' => fn(ParseNode $n) => $o->setRebootAnalyticsMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'resourcePerformanceMetrics' => fn(ParseNode $n) => $o->setResourcePerformanceMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
+            'workFromAnywhereMetrics' => fn(ParseNode $n) => $o->setWorkFromAnywhereMetrics($n->getObjectValue([UserExperienceAnalyticsCategory::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

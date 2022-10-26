@@ -64,8 +64,8 @@ class UserExperienceSettings implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'daysUntilForcedReboot' => function (ParseNode $n) use ($o) { $o->setDaysUntilForcedReboot($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'daysUntilForcedReboot' => fn(ParseNode $n) => $o->setDaysUntilForcedReboot($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

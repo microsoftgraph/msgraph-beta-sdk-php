@@ -78,12 +78,12 @@ class ConnectorGroup extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applications' => function (ParseNode $n) use ($o) { $o->setApplications($n->getCollectionOfObjectValues(array(Application::class, 'createFromDiscriminatorValue'))); },
-            'connectorGroupType' => function (ParseNode $n) use ($o) { $o->setConnectorGroupType($n->getEnumValue(ConnectorGroupType::class)); },
-            'isDefault' => function (ParseNode $n) use ($o) { $o->setIsDefault($n->getBooleanValue()); },
-            'members' => function (ParseNode $n) use ($o) { $o->setMembers($n->getCollectionOfObjectValues(array(Connector::class, 'createFromDiscriminatorValue'))); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)); },
+            'applications' => fn(ParseNode $n) => $o->setApplications($n->getCollectionOfObjectValues([Application::class, 'createFromDiscriminatorValue'])),
+            'connectorGroupType' => fn(ParseNode $n) => $o->setConnectorGroupType($n->getEnumValue(ConnectorGroupType::class)),
+            'isDefault' => fn(ParseNode $n) => $o->setIsDefault($n->getBooleanValue()),
+            'members' => fn(ParseNode $n) => $o->setMembers($n->getCollectionOfObjectValues([Connector::class, 'createFromDiscriminatorValue'])),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getEnumValue(ConnectorGroupRegion::class)),
         ]);
     }
 

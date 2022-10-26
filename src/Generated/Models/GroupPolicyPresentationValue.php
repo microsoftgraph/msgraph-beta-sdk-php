@@ -81,10 +81,10 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'definitionValue' => function (ParseNode $n) use ($o) { $o->setDefinitionValue($n->getObjectValue(array(GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'presentation' => function (ParseNode $n) use ($o) { $o->setPresentation($n->getObjectValue(array(GroupPolicyPresentation::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'definitionValue' => fn(ParseNode $n) => $o->setDefinitionValue($n->getObjectValue([GroupPolicyDefinitionValue::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'presentation' => fn(ParseNode $n) => $o->setPresentation($n->getObjectValue([GroupPolicyPresentation::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

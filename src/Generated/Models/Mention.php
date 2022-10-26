@@ -113,14 +113,14 @@ class Mention extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'application' => function (ParseNode $n) use ($o) { $o->setApplication($n->getStringValue()); },
-            'clientReference' => function (ParseNode $n) use ($o) { $o->setClientReference($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'deepLink' => function (ParseNode $n) use ($o) { $o->setDeepLink($n->getStringValue()); },
-            'mentioned' => function (ParseNode $n) use ($o) { $o->setMentioned($n->getObjectValue(array(EmailAddress::class, 'createFromDiscriminatorValue'))); },
-            'mentionText' => function (ParseNode $n) use ($o) { $o->setMentionText($n->getStringValue()); },
-            'serverCreatedDateTime' => function (ParseNode $n) use ($o) { $o->setServerCreatedDateTime($n->getDateTimeValue()); },
+            'application' => fn(ParseNode $n) => $o->setApplication($n->getStringValue()),
+            'clientReference' => fn(ParseNode $n) => $o->setClientReference($n->getStringValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([EmailAddress::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'deepLink' => fn(ParseNode $n) => $o->setDeepLink($n->getStringValue()),
+            'mentioned' => fn(ParseNode $n) => $o->setMentioned($n->getObjectValue([EmailAddress::class, 'createFromDiscriminatorValue'])),
+            'mentionText' => fn(ParseNode $n) => $o->setMentionText($n->getStringValue()),
+            'serverCreatedDateTime' => fn(ParseNode $n) => $o->setServerCreatedDateTime($n->getDateTimeValue()),
         ]);
     }
 

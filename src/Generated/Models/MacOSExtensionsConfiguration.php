@@ -67,13 +67,13 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'kernelExtensionAllowedTeamIdentifiers' => function (ParseNode $n) use ($o) { $o->setKernelExtensionAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()); },
-            'kernelExtensionOverridesAllowed' => function (ParseNode $n) use ($o) { $o->setKernelExtensionOverridesAllowed($n->getBooleanValue()); },
-            'kernelExtensionsAllowed' => function (ParseNode $n) use ($o) { $o->setKernelExtensionsAllowed($n->getCollectionOfObjectValues(array(MacOSKernelExtension::class, 'createFromDiscriminatorValue'))); },
-            'systemExtensionsAllowed' => function (ParseNode $n) use ($o) { $o->setSystemExtensionsAllowed($n->getCollectionOfObjectValues(array(MacOSSystemExtension::class, 'createFromDiscriminatorValue'))); },
-            'systemExtensionsAllowedTeamIdentifiers' => function (ParseNode $n) use ($o) { $o->setSystemExtensionsAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()); },
-            'systemExtensionsAllowedTypes' => function (ParseNode $n) use ($o) { $o->setSystemExtensionsAllowedTypes($n->getCollectionOfObjectValues(array(MacOSSystemExtensionTypeMapping::class, 'createFromDiscriminatorValue'))); },
-            'systemExtensionsBlockOverride' => function (ParseNode $n) use ($o) { $o->setSystemExtensionsBlockOverride($n->getBooleanValue()); },
+            'kernelExtensionAllowedTeamIdentifiers' => fn(ParseNode $n) => $o->setKernelExtensionAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()),
+            'kernelExtensionOverridesAllowed' => fn(ParseNode $n) => $o->setKernelExtensionOverridesAllowed($n->getBooleanValue()),
+            'kernelExtensionsAllowed' => fn(ParseNode $n) => $o->setKernelExtensionsAllowed($n->getCollectionOfObjectValues([MacOSKernelExtension::class, 'createFromDiscriminatorValue'])),
+            'systemExtensionsAllowed' => fn(ParseNode $n) => $o->setSystemExtensionsAllowed($n->getCollectionOfObjectValues([MacOSSystemExtension::class, 'createFromDiscriminatorValue'])),
+            'systemExtensionsAllowedTeamIdentifiers' => fn(ParseNode $n) => $o->setSystemExtensionsAllowedTeamIdentifiers($n->getCollectionOfPrimitiveValues()),
+            'systemExtensionsAllowedTypes' => fn(ParseNode $n) => $o->setSystemExtensionsAllowedTypes($n->getCollectionOfObjectValues([MacOSSystemExtensionTypeMapping::class, 'createFromDiscriminatorValue'])),
+            'systemExtensionsBlockOverride' => fn(ParseNode $n) => $o->setSystemExtensionsBlockOverride($n->getBooleanValue()),
         ]);
     }
 

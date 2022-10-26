@@ -119,17 +119,17 @@ class DeviceManagementConfigurationCategory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categoryDescription' => function (ParseNode $n) use ($o) { $o->setCategoryDescription($n->getStringValue()); },
-            'childCategoryIds' => function (ParseNode $n) use ($o) { $o->setChildCategoryIds($n->getCollectionOfPrimitiveValues()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'helpText' => function (ParseNode $n) use ($o) { $o->setHelpText($n->getStringValue()); },
-            'name' => function (ParseNode $n) use ($o) { $o->setName($n->getStringValue()); },
-            'parentCategoryId' => function (ParseNode $n) use ($o) { $o->setParentCategoryId($n->getStringValue()); },
-            'platforms' => function (ParseNode $n) use ($o) { $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)); },
-            'rootCategoryId' => function (ParseNode $n) use ($o) { $o->setRootCategoryId($n->getStringValue()); },
-            'settingUsage' => function (ParseNode $n) use ($o) { $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)); },
-            'technologies' => function (ParseNode $n) use ($o) { $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)); },
+            'categoryDescription' => fn(ParseNode $n) => $o->setCategoryDescription($n->getStringValue()),
+            'childCategoryIds' => fn(ParseNode $n) => $o->setChildCategoryIds($n->getCollectionOfPrimitiveValues()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'helpText' => fn(ParseNode $n) => $o->setHelpText($n->getStringValue()),
+            'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
+            'parentCategoryId' => fn(ParseNode $n) => $o->setParentCategoryId($n->getStringValue()),
+            'platforms' => fn(ParseNode $n) => $o->setPlatforms($n->getEnumValue(DeviceManagementConfigurationPlatforms::class)),
+            'rootCategoryId' => fn(ParseNode $n) => $o->setRootCategoryId($n->getStringValue()),
+            'settingUsage' => fn(ParseNode $n) => $o->setSettingUsage($n->getEnumValue(DeviceManagementConfigurationSettingUsage::class)),
+            'technologies' => fn(ParseNode $n) => $o->setTechnologies($n->getEnumValue(DeviceManagementConfigurationTechnologies::class)),
         ]);
     }
 

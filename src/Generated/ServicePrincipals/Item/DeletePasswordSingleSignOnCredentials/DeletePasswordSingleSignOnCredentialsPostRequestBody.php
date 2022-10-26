@@ -50,7 +50,7 @@ class DeletePasswordSingleSignOnCredentialsPostRequestBody implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
         ];
     }
 

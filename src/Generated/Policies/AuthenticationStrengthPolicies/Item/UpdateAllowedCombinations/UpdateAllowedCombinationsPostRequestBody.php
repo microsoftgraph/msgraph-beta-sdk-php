@@ -59,7 +59,7 @@ class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'allowedCombinations' => function (ParseNode $n) use ($o) { $o->setAllowedCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)); },
+            'allowedCombinations' => fn(ParseNode $n) => $o->setAllowedCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)),
         ];
     }
 

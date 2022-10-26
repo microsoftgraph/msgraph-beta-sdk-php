@@ -21,7 +21,7 @@ class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var ItemBody|null $description The content of the service issue post.
+     * @var ItemBody|null $description The content of the service issue post. The supported value for the contentType property is html.
     */
     private ?ItemBody $description = null;
     
@@ -69,7 +69,7 @@ class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the description property value. The content of the service issue post.
+     * Gets the description property value. The content of the service issue post. The supported value for the contentType property is html.
      * @return ItemBody|null
     */
     public function getDescription(): ?ItemBody {
@@ -83,10 +83,10 @@ class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getObjectValue(array(ItemBody::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'postType' => function (ParseNode $n) use ($o) { $o->setPostType($n->getEnumValue(PostType::class)); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getObjectValue([ItemBody::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'postType' => fn(ParseNode $n) => $o->setPostType($n->getEnumValue(PostType::class)),
         ];
     }
 
@@ -135,7 +135,7 @@ class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the description property value. The content of the service issue post.
+     * Sets the description property value. The content of the service issue post. The supported value for the contentType property is html.
      *  @param ItemBody|null $value Value to set for the description property.
     */
     public function setDescription(?ItemBody $value ): void {

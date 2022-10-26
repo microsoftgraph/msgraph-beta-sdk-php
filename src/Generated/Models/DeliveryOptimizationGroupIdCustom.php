@@ -37,7 +37,7 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'groupIdCustom' => function (ParseNode $n) use ($o) { $o->setGroupIdCustom($n->getStringValue()); },
+            'groupIdCustom' => fn(ParseNode $n) => $o->setGroupIdCustom($n->getStringValue()),
         ]);
     }
 

@@ -85,12 +85,12 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'expiryDate' => function (ParseNode $n) use ($o) { $o->setExpiryDate($n->getDateTimeValue()); },
-            'issueDate' => function (ParseNode $n) use ($o) { $o->setIssueDate($n->getDateTimeValue()); },
-            'issuerName' => function (ParseNode $n) use ($o) { $o->setIssuerName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'subjectName' => function (ParseNode $n) use ($o) { $o->setSubjectName($n->getStringValue()); },
-            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
+            'expiryDate' => fn(ParseNode $n) => $o->setExpiryDate($n->getDateTimeValue()),
+            'issueDate' => fn(ParseNode $n) => $o->setIssueDate($n->getDateTimeValue()),
+            'issuerName' => fn(ParseNode $n) => $o->setIssuerName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'subjectName' => fn(ParseNode $n) => $o->setSubjectName($n->getStringValue()),
+            'thumbprint' => fn(ParseNode $n) => $o->setThumbprint($n->getStringValue()),
         ];
     }
 

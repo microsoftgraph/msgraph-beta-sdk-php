@@ -89,13 +89,13 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'endpointType' => function (ParseNode $n) use ($o) { $o->setEndpointType($n->getEnumValue(EndpointType::class)); },
-            'hidden' => function (ParseNode $n) use ($o) { $o->setHidden($n->getBooleanValue()); },
-            'identity' => function (ParseNode $n) use ($o) { $o->setIdentity($n->getObjectValue(array(IdentitySet::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'participantId' => function (ParseNode $n) use ($o) { $o->setParticipantId($n->getStringValue()); },
-            'removeFromDefaultAudioRoutingGroup' => function (ParseNode $n) use ($o) { $o->setRemoveFromDefaultAudioRoutingGroup($n->getBooleanValue()); },
-            'replacesCallId' => function (ParseNode $n) use ($o) { $o->setReplacesCallId($n->getStringValue()); },
+            'endpointType' => fn(ParseNode $n) => $o->setEndpointType($n->getEnumValue(EndpointType::class)),
+            'hidden' => fn(ParseNode $n) => $o->setHidden($n->getBooleanValue()),
+            'identity' => fn(ParseNode $n) => $o->setIdentity($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'participantId' => fn(ParseNode $n) => $o->setParticipantId($n->getStringValue()),
+            'removeFromDefaultAudioRoutingGroup' => fn(ParseNode $n) => $o->setRemoveFromDefaultAudioRoutingGroup($n->getBooleanValue()),
+            'replacesCallId' => fn(ParseNode $n) => $o->setReplacesCallId($n->getStringValue()),
         ];
     }
 

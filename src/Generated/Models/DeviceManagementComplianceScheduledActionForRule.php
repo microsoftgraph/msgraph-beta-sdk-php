@@ -42,8 +42,8 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity implements
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'ruleName' => function (ParseNode $n) use ($o) { $o->setRuleName($n->getStringValue()); },
-            'scheduledActionConfigurations' => function (ParseNode $n) use ($o) { $o->setScheduledActionConfigurations($n->getCollectionOfObjectValues(array(DeviceManagementComplianceActionItem::class, 'createFromDiscriminatorValue'))); },
+            'ruleName' => fn(ParseNode $n) => $o->setRuleName($n->getStringValue()),
+            'scheduledActionConfigurations' => fn(ParseNode $n) => $o->setScheduledActionConfigurations($n->getCollectionOfObjectValues([DeviceManagementComplianceActionItem::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -71,9 +71,9 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'categoryDeviceStateSummaries' => function (ParseNode $n) use ($o) { $o->setCategoryDeviceStateSummaries($n->getCollectionOfObjectValues(array(SecurityBaselineCategoryStateSummary::class, 'createFromDiscriminatorValue'))); },
-            'deviceStates' => function (ParseNode $n) use ($o) { $o->setDeviceStates($n->getCollectionOfObjectValues(array(SecurityBaselineDeviceState::class, 'createFromDiscriminatorValue'))); },
-            'deviceStateSummary' => function (ParseNode $n) use ($o) { $o->setDeviceStateSummary($n->getObjectValue(array(SecurityBaselineStateSummary::class, 'createFromDiscriminatorValue'))); },
+            'categoryDeviceStateSummaries' => fn(ParseNode $n) => $o->setCategoryDeviceStateSummaries($n->getCollectionOfObjectValues([SecurityBaselineCategoryStateSummary::class, 'createFromDiscriminatorValue'])),
+            'deviceStates' => fn(ParseNode $n) => $o->setDeviceStates($n->getCollectionOfObjectValues([SecurityBaselineDeviceState::class, 'createFromDiscriminatorValue'])),
+            'deviceStateSummary' => fn(ParseNode $n) => $o->setDeviceStateSummary($n->getObjectValue([SecurityBaselineStateSummary::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

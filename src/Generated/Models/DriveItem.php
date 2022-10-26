@@ -243,9 +243,9 @@ class DriveItem extends BaseItem implements Parsable
 
     /**
      * Gets the content property value. The content stream, if the item represents a file.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -272,41 +272,41 @@ class DriveItem extends BaseItem implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'activities' => function (ParseNode $n) use ($o) { $o->setActivities($n->getCollectionOfObjectValues(array(ItemActivityOLD::class, 'createFromDiscriminatorValue'))); },
-            'analytics' => function (ParseNode $n) use ($o) { $o->setAnalytics($n->getObjectValue(array(ItemAnalytics::class, 'createFromDiscriminatorValue'))); },
-            'audio' => function (ParseNode $n) use ($o) { $o->setAudio($n->getObjectValue(array(Audio::class, 'createFromDiscriminatorValue'))); },
-            'bundle' => function (ParseNode $n) use ($o) { $o->setBundle($n->getObjectValue(array(Bundle::class, 'createFromDiscriminatorValue'))); },
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(DriveItem::class, 'createFromDiscriminatorValue'))); },
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'cTag' => function (ParseNode $n) use ($o) { $o->setCTag($n->getStringValue()); },
-            'deleted' => function (ParseNode $n) use ($o) { $o->setDeleted($n->getObjectValue(array(Deleted::class, 'createFromDiscriminatorValue'))); },
-            'file' => function (ParseNode $n) use ($o) { $o->setFile($n->getObjectValue(array(File::class, 'createFromDiscriminatorValue'))); },
-            'fileSystemInfo' => function (ParseNode $n) use ($o) { $o->setFileSystemInfo($n->getObjectValue(array(FileSystemInfo::class, 'createFromDiscriminatorValue'))); },
-            'folder' => function (ParseNode $n) use ($o) { $o->setFolder($n->getObjectValue(array(Folder::class, 'createFromDiscriminatorValue'))); },
-            'image' => function (ParseNode $n) use ($o) { $o->setImage($n->getObjectValue(array(Image::class, 'createFromDiscriminatorValue'))); },
-            'listItem' => function (ParseNode $n) use ($o) { $o->setListItem($n->getObjectValue(array(ListItem::class, 'createFromDiscriminatorValue'))); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getObjectValue(array(GeoCoordinates::class, 'createFromDiscriminatorValue'))); },
-            'malware' => function (ParseNode $n) use ($o) { $o->setMalware($n->getObjectValue(array(Malware::class, 'createFromDiscriminatorValue'))); },
-            'media' => function (ParseNode $n) use ($o) { $o->setMedia($n->getObjectValue(array(Media::class, 'createFromDiscriminatorValue'))); },
-            'package' => function (ParseNode $n) use ($o) { $o->setPackage($n->getObjectValue(array(Package::class, 'createFromDiscriminatorValue'))); },
-            'pendingOperations' => function (ParseNode $n) use ($o) { $o->setPendingOperations($n->getObjectValue(array(PendingOperations::class, 'createFromDiscriminatorValue'))); },
-            'permissions' => function (ParseNode $n) use ($o) { $o->setPermissions($n->getCollectionOfObjectValues(array(Permission::class, 'createFromDiscriminatorValue'))); },
-            'photo' => function (ParseNode $n) use ($o) { $o->setPhoto($n->getObjectValue(array(Photo::class, 'createFromDiscriminatorValue'))); },
-            'publication' => function (ParseNode $n) use ($o) { $o->setPublication($n->getObjectValue(array(PublicationFacet::class, 'createFromDiscriminatorValue'))); },
-            'remoteItem' => function (ParseNode $n) use ($o) { $o->setRemoteItem($n->getObjectValue(array(RemoteItem::class, 'createFromDiscriminatorValue'))); },
-            'root' => function (ParseNode $n) use ($o) { $o->setRoot($n->getObjectValue(array(Root::class, 'createFromDiscriminatorValue'))); },
-            'searchResult' => function (ParseNode $n) use ($o) { $o->setSearchResult($n->getObjectValue(array(SearchResult::class, 'createFromDiscriminatorValue'))); },
-            'shared' => function (ParseNode $n) use ($o) { $o->setShared($n->getObjectValue(array(Shared::class, 'createFromDiscriminatorValue'))); },
-            'sharepointIds' => function (ParseNode $n) use ($o) { $o->setSharepointIds($n->getObjectValue(array(SharepointIds::class, 'createFromDiscriminatorValue'))); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'source' => function (ParseNode $n) use ($o) { $o->setSource($n->getObjectValue(array(DriveItemSource::class, 'createFromDiscriminatorValue'))); },
-            'specialFolder' => function (ParseNode $n) use ($o) { $o->setSpecialFolder($n->getObjectValue(array(SpecialFolder::class, 'createFromDiscriminatorValue'))); },
-            'subscriptions' => function (ParseNode $n) use ($o) { $o->setSubscriptions($n->getCollectionOfObjectValues(array(Subscription::class, 'createFromDiscriminatorValue'))); },
-            'thumbnails' => function (ParseNode $n) use ($o) { $o->setThumbnails($n->getCollectionOfObjectValues(array(ThumbnailSet::class, 'createFromDiscriminatorValue'))); },
-            'versions' => function (ParseNode $n) use ($o) { $o->setVersions($n->getCollectionOfObjectValues(array(DriveItemVersion::class, 'createFromDiscriminatorValue'))); },
-            'video' => function (ParseNode $n) use ($o) { $o->setVideo($n->getObjectValue(array(Video::class, 'createFromDiscriminatorValue'))); },
-            'webDavUrl' => function (ParseNode $n) use ($o) { $o->setWebDavUrl($n->getStringValue()); },
-            'workbook' => function (ParseNode $n) use ($o) { $o->setWorkbook($n->getObjectValue(array(Workbook::class, 'createFromDiscriminatorValue'))); },
+            'activities' => fn(ParseNode $n) => $o->setActivities($n->getCollectionOfObjectValues([ItemActivityOLD::class, 'createFromDiscriminatorValue'])),
+            'analytics' => fn(ParseNode $n) => $o->setAnalytics($n->getObjectValue([ItemAnalytics::class, 'createFromDiscriminatorValue'])),
+            'audio' => fn(ParseNode $n) => $o->setAudio($n->getObjectValue([Audio::class, 'createFromDiscriminatorValue'])),
+            'bundle' => fn(ParseNode $n) => $o->setBundle($n->getObjectValue([Bundle::class, 'createFromDiscriminatorValue'])),
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([DriveItem::class, 'createFromDiscriminatorValue'])),
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'cTag' => fn(ParseNode $n) => $o->setCTag($n->getStringValue()),
+            'deleted' => fn(ParseNode $n) => $o->setDeleted($n->getObjectValue([Deleted::class, 'createFromDiscriminatorValue'])),
+            'file' => fn(ParseNode $n) => $o->setFile($n->getObjectValue([File::class, 'createFromDiscriminatorValue'])),
+            'fileSystemInfo' => fn(ParseNode $n) => $o->setFileSystemInfo($n->getObjectValue([FileSystemInfo::class, 'createFromDiscriminatorValue'])),
+            'folder' => fn(ParseNode $n) => $o->setFolder($n->getObjectValue([Folder::class, 'createFromDiscriminatorValue'])),
+            'image' => fn(ParseNode $n) => $o->setImage($n->getObjectValue([Image::class, 'createFromDiscriminatorValue'])),
+            'listItem' => fn(ParseNode $n) => $o->setListItem($n->getObjectValue([ListItem::class, 'createFromDiscriminatorValue'])),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getObjectValue([GeoCoordinates::class, 'createFromDiscriminatorValue'])),
+            'malware' => fn(ParseNode $n) => $o->setMalware($n->getObjectValue([Malware::class, 'createFromDiscriminatorValue'])),
+            'media' => fn(ParseNode $n) => $o->setMedia($n->getObjectValue([Media::class, 'createFromDiscriminatorValue'])),
+            'package' => fn(ParseNode $n) => $o->setPackage($n->getObjectValue([Package::class, 'createFromDiscriminatorValue'])),
+            'pendingOperations' => fn(ParseNode $n) => $o->setPendingOperations($n->getObjectValue([PendingOperations::class, 'createFromDiscriminatorValue'])),
+            'permissions' => fn(ParseNode $n) => $o->setPermissions($n->getCollectionOfObjectValues([Permission::class, 'createFromDiscriminatorValue'])),
+            'photo' => fn(ParseNode $n) => $o->setPhoto($n->getObjectValue([Photo::class, 'createFromDiscriminatorValue'])),
+            'publication' => fn(ParseNode $n) => $o->setPublication($n->getObjectValue([PublicationFacet::class, 'createFromDiscriminatorValue'])),
+            'remoteItem' => fn(ParseNode $n) => $o->setRemoteItem($n->getObjectValue([RemoteItem::class, 'createFromDiscriminatorValue'])),
+            'root' => fn(ParseNode $n) => $o->setRoot($n->getObjectValue([Root::class, 'createFromDiscriminatorValue'])),
+            'searchResult' => fn(ParseNode $n) => $o->setSearchResult($n->getObjectValue([SearchResult::class, 'createFromDiscriminatorValue'])),
+            'shared' => fn(ParseNode $n) => $o->setShared($n->getObjectValue([Shared::class, 'createFromDiscriminatorValue'])),
+            'sharepointIds' => fn(ParseNode $n) => $o->setSharepointIds($n->getObjectValue([SharepointIds::class, 'createFromDiscriminatorValue'])),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'source' => fn(ParseNode $n) => $o->setSource($n->getObjectValue([DriveItemSource::class, 'createFromDiscriminatorValue'])),
+            'specialFolder' => fn(ParseNode $n) => $o->setSpecialFolder($n->getObjectValue([SpecialFolder::class, 'createFromDiscriminatorValue'])),
+            'subscriptions' => fn(ParseNode $n) => $o->setSubscriptions($n->getCollectionOfObjectValues([Subscription::class, 'createFromDiscriminatorValue'])),
+            'thumbnails' => fn(ParseNode $n) => $o->setThumbnails($n->getCollectionOfObjectValues([ThumbnailSet::class, 'createFromDiscriminatorValue'])),
+            'versions' => fn(ParseNode $n) => $o->setVersions($n->getCollectionOfObjectValues([DriveItemVersion::class, 'createFromDiscriminatorValue'])),
+            'video' => fn(ParseNode $n) => $o->setVideo($n->getObjectValue([Video::class, 'createFromDiscriminatorValue'])),
+            'webDavUrl' => fn(ParseNode $n) => $o->setWebDavUrl($n->getStringValue()),
+            'workbook' => fn(ParseNode $n) => $o->setWorkbook($n->getObjectValue([Workbook::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

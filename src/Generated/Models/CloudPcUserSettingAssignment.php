@@ -51,8 +51,8 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'target' => function (ParseNode $n) use ($o) { $o->setTarget($n->getObjectValue(array(CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'))); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'target' => fn(ParseNode $n) => $o->setTarget($n->getObjectValue([CloudPcManagementAssignmentTarget::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

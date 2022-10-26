@@ -60,9 +60,9 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'format' => function (ParseNode $n) use ($o) { $o->setFormat($n->getStringValue()); },
-            'overwriteResourceNamespace' => function (ParseNode $n) use ($o) { $o->setOverwriteResourceNamespace($n->getBooleanValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getStringValue()); },
+            'format' => fn(ParseNode $n) => $o->setFormat($n->getStringValue()),
+            'overwriteResourceNamespace' => fn(ParseNode $n) => $o->setOverwriteResourceNamespace($n->getBooleanValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getStringValue()),
         ];
     }
 

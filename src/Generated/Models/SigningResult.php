@@ -62,9 +62,9 @@ class SigningResult implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'signature' => function (ParseNode $n) use ($o) { $o->setSignature($n->getBinaryContent()); },
-            'signingKeyId' => function (ParseNode $n) use ($o) { $o->setSigningKeyId($n->getStringValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'signature' => fn(ParseNode $n) => $o->setSignature($n->getBinaryContent()),
+            'signingKeyId' => fn(ParseNode $n) => $o->setSigningKeyId($n->getStringValue()),
         ];
     }
 
@@ -78,9 +78,9 @@ class SigningResult implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the signature property value. The signature property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getSignature(): ?StreamInterface {
+    public function getSignature(): StreamInterface {
         return $this->signature;
     }
 

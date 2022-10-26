@@ -61,9 +61,9 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'isDowngradeJustified' => function (ParseNode $n) use ($o) { $o->setIsDowngradeJustified($n->getBooleanValue()); },
-            'justificationMessage' => function (ParseNode $n) use ($o) { $o->setJustificationMessage($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'isDowngradeJustified' => fn(ParseNode $n) => $o->setIsDowngradeJustified($n->getBooleanValue()),
+            'justificationMessage' => fn(ParseNode $n) => $o->setJustificationMessage($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

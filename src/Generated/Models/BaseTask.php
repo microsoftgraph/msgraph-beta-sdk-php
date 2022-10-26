@@ -176,22 +176,22 @@ class BaseTask extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'bodyLastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setBodyLastModifiedDateTime($n->getDateTimeValue()); },
-            'checklistItems' => function (ParseNode $n) use ($o) { $o->setChecklistItems($n->getCollectionOfObjectValues(array(ChecklistItem::class, 'createFromDiscriminatorValue'))); },
-            'completedDateTime' => function (ParseNode $n) use ($o) { $o->setCompletedDateTime($n->getDateTimeValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'dueDateTime' => function (ParseNode $n) use ($o) { $o->setDueDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
-            'extensions' => function (ParseNode $n) use ($o) { $o->setExtensions($n->getCollectionOfObjectValues(array(Extension::class, 'createFromDiscriminatorValue'))); },
-            'importance' => function (ParseNode $n) use ($o) { $o->setImportance($n->getEnumValue(Importance::class)); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'linkedResources' => function (ParseNode $n) use ($o) { $o->setLinkedResources($n->getCollectionOfObjectValues(array(LinkedResource_v2::class, 'createFromDiscriminatorValue'))); },
-            'parentList' => function (ParseNode $n) use ($o) { $o->setParentList($n->getObjectValue(array(BaseTaskList::class, 'createFromDiscriminatorValue'))); },
-            'recurrence' => function (ParseNode $n) use ($o) { $o->setRecurrence($n->getObjectValue(array(PatternedRecurrence::class, 'createFromDiscriminatorValue'))); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getObjectValue(array(DateTimeTimeZone::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(TaskStatus_v2::class)); },
-            'textBody' => function (ParseNode $n) use ($o) { $o->setTextBody($n->getStringValue()); },
-            'viewpoint' => function (ParseNode $n) use ($o) { $o->setViewpoint($n->getObjectValue(array(TaskViewpoint::class, 'createFromDiscriminatorValue'))); },
+            'bodyLastModifiedDateTime' => fn(ParseNode $n) => $o->setBodyLastModifiedDateTime($n->getDateTimeValue()),
+            'checklistItems' => fn(ParseNode $n) => $o->setChecklistItems($n->getCollectionOfObjectValues([ChecklistItem::class, 'createFromDiscriminatorValue'])),
+            'completedDateTime' => fn(ParseNode $n) => $o->setCompletedDateTime($n->getDateTimeValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'dueDateTime' => fn(ParseNode $n) => $o->setDueDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
+            'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
+            'importance' => fn(ParseNode $n) => $o->setImportance($n->getEnumValue(Importance::class)),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'linkedResources' => fn(ParseNode $n) => $o->setLinkedResources($n->getCollectionOfObjectValues([LinkedResource_v2::class, 'createFromDiscriminatorValue'])),
+            'parentList' => fn(ParseNode $n) => $o->setParentList($n->getObjectValue([BaseTaskList::class, 'createFromDiscriminatorValue'])),
+            'recurrence' => fn(ParseNode $n) => $o->setRecurrence($n->getObjectValue([PatternedRecurrence::class, 'createFromDiscriminatorValue'])),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getObjectValue([DateTimeTimeZone::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(TaskStatus_v2::class)),
+            'textBody' => fn(ParseNode $n) => $o->setTextBody($n->getStringValue()),
+            'viewpoint' => fn(ParseNode $n) => $o->setViewpoint($n->getObjectValue([TaskViewpoint::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -71,11 +71,11 @@ class UserExperienceAnalyticsInsight implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'insightId' => function (ParseNode $n) use ($o) { $o->setInsightId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsInsightSeverity::class)); },
-            'userExperienceAnalyticsMetricId' => function (ParseNode $n) use ($o) { $o->setUserExperienceAnalyticsMetricId($n->getStringValue()); },
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfObjectValues(array(UserExperienceAnalyticsInsightValue::class, 'createFromDiscriminatorValue'))); },
+            'insightId' => fn(ParseNode $n) => $o->setInsightId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsInsightSeverity::class)),
+            'userExperienceAnalyticsMetricId' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsMetricId($n->getStringValue()),
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfObjectValues([UserExperienceAnalyticsInsightValue::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

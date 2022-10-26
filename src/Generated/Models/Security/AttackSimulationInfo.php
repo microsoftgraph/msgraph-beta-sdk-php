@@ -105,11 +105,11 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'attackSimDateTime' => function (ParseNode $n) use ($o) { $o->setAttackSimDateTime($n->getDateTimeValue()); },
-            'attackSimDurationTime' => function (ParseNode $n) use ($o) { $o->setAttackSimDurationTime($n->getDateIntervalValue()); },
-            'attackSimId' => function (ParseNode $n) use ($o) { $o->setAttackSimId($n->getStringValue()); },
-            'attackSimUserId' => function (ParseNode $n) use ($o) { $o->setAttackSimUserId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'attackSimDateTime' => fn(ParseNode $n) => $o->setAttackSimDateTime($n->getDateTimeValue()),
+            'attackSimDurationTime' => fn(ParseNode $n) => $o->setAttackSimDurationTime($n->getDateIntervalValue()),
+            'attackSimId' => fn(ParseNode $n) => $o->setAttackSimId($n->getStringValue()),
+            'attackSimUserId' => fn(ParseNode $n) => $o->setAttackSimUserId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

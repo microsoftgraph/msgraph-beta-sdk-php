@@ -129,16 +129,16 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'actionFailureReason' => function (ParseNode $n) use ($o) { $o->setActionFailureReason($n->getEnumValue(VppTokenActionFailureReason::class)); },
-            'actionName' => function (ParseNode $n) use ($o) { $o->setActionName($n->getStringValue()); },
-            'actionState' => function (ParseNode $n) use ($o) { $o->setActionState($n->getEnumValue(ActionState::class)); },
-            'failedLicensesCount' => function (ParseNode $n) use ($o) { $o->setFailedLicensesCount($n->getIntegerValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'totalLicensesCount' => function (ParseNode $n) use ($o) { $o->setTotalLicensesCount($n->getIntegerValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'actionFailureReason' => fn(ParseNode $n) => $o->setActionFailureReason($n->getEnumValue(VppTokenActionFailureReason::class)),
+            'actionName' => fn(ParseNode $n) => $o->setActionName($n->getStringValue()),
+            'actionState' => fn(ParseNode $n) => $o->setActionState($n->getEnumValue(ActionState::class)),
+            'failedLicensesCount' => fn(ParseNode $n) => $o->setFailedLicensesCount($n->getIntegerValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'totalLicensesCount' => fn(ParseNode $n) => $o->setTotalLicensesCount($n->getIntegerValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
 

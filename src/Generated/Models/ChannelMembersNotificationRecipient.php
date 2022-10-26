@@ -50,8 +50,8 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'channelId' => function (ParseNode $n) use ($o) { $o->setChannelId($n->getStringValue()); },
-            'teamId' => function (ParseNode $n) use ($o) { $o->setTeamId($n->getStringValue()); },
+            'channelId' => fn(ParseNode $n) => $o->setChannelId($n->getStringValue()),
+            'teamId' => fn(ParseNode $n) => $o->setTeamId($n->getStringValue()),
         ]);
     }
 

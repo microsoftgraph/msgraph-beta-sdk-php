@@ -55,8 +55,8 @@ class UpdatePrioritiesPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'officeConfigurationPolicyIds' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationPolicyIds($n->getCollectionOfPrimitiveValues()); },
-            'officeConfigurationPriorities' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationPriorities($n->getCollectionOfPrimitiveValues()); },
+            'officeConfigurationPolicyIds' => fn(ParseNode $n) => $o->setOfficeConfigurationPolicyIds($n->getCollectionOfPrimitiveValues()),
+            'officeConfigurationPriorities' => fn(ParseNode $n) => $o->setOfficeConfigurationPriorities($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

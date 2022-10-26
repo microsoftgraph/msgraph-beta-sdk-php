@@ -71,12 +71,12 @@ class MacOSSoftwareUpdateStateSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastUpdatedDateTime' => function (ParseNode $n) use ($o) { $o->setLastUpdatedDateTime($n->getDateTimeValue()); },
-            'productKey' => function (ParseNode $n) use ($o) { $o->setProductKey($n->getStringValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(MacOSSoftwareUpdateState::class)); },
-            'updateCategory' => function (ParseNode $n) use ($o) { $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)); },
-            'updateVersion' => function (ParseNode $n) use ($o) { $o->setUpdateVersion($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastUpdatedDateTime' => fn(ParseNode $n) => $o->setLastUpdatedDateTime($n->getDateTimeValue()),
+            'productKey' => fn(ParseNode $n) => $o->setProductKey($n->getStringValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(MacOSSoftwareUpdateState::class)),
+            'updateCategory' => fn(ParseNode $n) => $o->setUpdateCategory($n->getEnumValue(MacOSSoftwareUpdateCategory::class)),
+            'updateVersion' => fn(ParseNode $n) => $o->setUpdateVersion($n->getStringValue()),
         ]);
     }
 

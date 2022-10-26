@@ -65,11 +65,11 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'elevatedCount' => function (ParseNode $n) use ($o) { $o->setElevatedCount($n->getIntegerValue()); },
-            'managedCount' => function (ParseNode $n) use ($o) { $o->setManagedCount($n->getIntegerValue()); },
-            'mfaEnabled' => function (ParseNode $n) use ($o) { $o->setMfaEnabled($n->getBooleanValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)); },
-            'usersCount' => function (ParseNode $n) use ($o) { $o->setUsersCount($n->getIntegerValue()); },
+            'elevatedCount' => fn(ParseNode $n) => $o->setElevatedCount($n->getIntegerValue()),
+            'managedCount' => fn(ParseNode $n) => $o->setManagedCount($n->getIntegerValue()),
+            'mfaEnabled' => fn(ParseNode $n) => $o->setMfaEnabled($n->getBooleanValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(RoleSummaryStatus::class)),
+            'usersCount' => fn(ParseNode $n) => $o->setUsersCount($n->getIntegerValue()),
         ]);
     }
 

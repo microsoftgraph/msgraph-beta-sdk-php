@@ -93,13 +93,13 @@ class DataSourceContainer extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'holdStatus' => function (ParseNode $n) use ($o) { $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)); },
-            'lastIndexOperation' => function (ParseNode $n) use ($o) { $o->setLastIndexOperation($n->getObjectValue(array(CaseIndexOperation::class, 'createFromDiscriminatorValue'))); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'releasedDateTime' => function (ParseNode $n) use ($o) { $o->setReleasedDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(DataSourceContainerStatus::class)); },
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'holdStatus' => fn(ParseNode $n) => $o->setHoldStatus($n->getEnumValue(DataSourceHoldStatus::class)),
+            'lastIndexOperation' => fn(ParseNode $n) => $o->setLastIndexOperation($n->getObjectValue([CaseIndexOperation::class, 'createFromDiscriminatorValue'])),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'releasedDateTime' => fn(ParseNode $n) => $o->setReleasedDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(DataSourceContainerStatus::class)),
         ]);
     }
 

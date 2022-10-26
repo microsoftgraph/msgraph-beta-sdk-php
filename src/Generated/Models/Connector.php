@@ -60,10 +60,10 @@ class Connector extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'externalIp' => function (ParseNode $n) use ($o) { $o->setExternalIp($n->getStringValue()); },
-            'machineName' => function (ParseNode $n) use ($o) { $o->setMachineName($n->getStringValue()); },
-            'memberOf' => function (ParseNode $n) use ($o) { $o->setMemberOf($n->getCollectionOfObjectValues(array(ConnectorGroup::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(ConnectorStatus::class)); },
+            'externalIp' => fn(ParseNode $n) => $o->setExternalIp($n->getStringValue()),
+            'machineName' => fn(ParseNode $n) => $o->setMachineName($n->getStringValue()),
+            'memberOf' => fn(ParseNode $n) => $o->setMemberOf($n->getCollectionOfObjectValues([ConnectorGroup::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(ConnectorStatus::class)),
         ]);
     }
 

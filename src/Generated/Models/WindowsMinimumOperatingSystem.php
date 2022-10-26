@@ -116,20 +116,20 @@ class WindowsMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'v10_0' => function (ParseNode $n) use ($o) { $o->setV10_0($n->getBooleanValue()); },
-            'v10_1607' => function (ParseNode $n) use ($o) { $o->setV10_1607($n->getBooleanValue()); },
-            'v10_1703' => function (ParseNode $n) use ($o) { $o->setV10_1703($n->getBooleanValue()); },
-            'v10_1709' => function (ParseNode $n) use ($o) { $o->setV10_1709($n->getBooleanValue()); },
-            'v10_1803' => function (ParseNode $n) use ($o) { $o->setV10_1803($n->getBooleanValue()); },
-            'v10_1809' => function (ParseNode $n) use ($o) { $o->setV10_1809($n->getBooleanValue()); },
-            'v10_1903' => function (ParseNode $n) use ($o) { $o->setV10_1903($n->getBooleanValue()); },
-            'v10_1909' => function (ParseNode $n) use ($o) { $o->setV10_1909($n->getBooleanValue()); },
-            'v10_2004' => function (ParseNode $n) use ($o) { $o->setV10_2004($n->getBooleanValue()); },
-            'v10_21H1' => function (ParseNode $n) use ($o) { $o->setV10_21H1($n->getBooleanValue()); },
-            'v10_2H20' => function (ParseNode $n) use ($o) { $o->setV10_2H20($n->getBooleanValue()); },
-            'v8_0' => function (ParseNode $n) use ($o) { $o->setV8_0($n->getBooleanValue()); },
-            'v8_1' => function (ParseNode $n) use ($o) { $o->setV8_1($n->getBooleanValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'v10_0' => fn(ParseNode $n) => $o->setV10_0($n->getBooleanValue()),
+            'v10_1607' => fn(ParseNode $n) => $o->setV10_1607($n->getBooleanValue()),
+            'v10_1703' => fn(ParseNode $n) => $o->setV10_1703($n->getBooleanValue()),
+            'v10_1709' => fn(ParseNode $n) => $o->setV10_1709($n->getBooleanValue()),
+            'v10_1803' => fn(ParseNode $n) => $o->setV10_1803($n->getBooleanValue()),
+            'v10_1809' => fn(ParseNode $n) => $o->setV10_1809($n->getBooleanValue()),
+            'v10_1903' => fn(ParseNode $n) => $o->setV10_1903($n->getBooleanValue()),
+            'v10_1909' => fn(ParseNode $n) => $o->setV10_1909($n->getBooleanValue()),
+            'v10_2004' => fn(ParseNode $n) => $o->setV10_2004($n->getBooleanValue()),
+            'v10_21H1' => fn(ParseNode $n) => $o->setV10_21H1($n->getBooleanValue()),
+            'v10_2H20' => fn(ParseNode $n) => $o->setV10_2H20($n->getBooleanValue()),
+            'v8_0' => fn(ParseNode $n) => $o->setV8_0($n->getBooleanValue()),
+            'v8_1' => fn(ParseNode $n) => $o->setV8_1($n->getBooleanValue()),
         ];
     }
 

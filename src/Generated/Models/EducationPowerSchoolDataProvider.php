@@ -107,13 +107,13 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowTeachersInMultipleSchools' => function (ParseNode $n) use ($o) { $o->setAllowTeachersInMultipleSchools($n->getBooleanValue()); },
-            'clientId' => function (ParseNode $n) use ($o) { $o->setClientId($n->getStringValue()); },
-            'clientSecret' => function (ParseNode $n) use ($o) { $o->setClientSecret($n->getStringValue()); },
-            'connectionUrl' => function (ParseNode $n) use ($o) { $o->setConnectionUrl($n->getStringValue()); },
-            'customizations' => function (ParseNode $n) use ($o) { $o->setCustomizations($n->getObjectValue(array(EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'))); },
-            'schoolsIds' => function (ParseNode $n) use ($o) { $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()); },
-            'schoolYear' => function (ParseNode $n) use ($o) { $o->setSchoolYear($n->getStringValue()); },
+            'allowTeachersInMultipleSchools' => fn(ParseNode $n) => $o->setAllowTeachersInMultipleSchools($n->getBooleanValue()),
+            'clientId' => fn(ParseNode $n) => $o->setClientId($n->getStringValue()),
+            'clientSecret' => fn(ParseNode $n) => $o->setClientSecret($n->getStringValue()),
+            'connectionUrl' => fn(ParseNode $n) => $o->setConnectionUrl($n->getStringValue()),
+            'customizations' => fn(ParseNode $n) => $o->setCustomizations($n->getObjectValue([EducationSynchronizationCustomizations::class, 'createFromDiscriminatorValue'])),
+            'schoolsIds' => fn(ParseNode $n) => $o->setSchoolsIds($n->getCollectionOfPrimitiveValues()),
+            'schoolYear' => fn(ParseNode $n) => $o->setSchoolYear($n->getStringValue()),
         ]);
     }
 

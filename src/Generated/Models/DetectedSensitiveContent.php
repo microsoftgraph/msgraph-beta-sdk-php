@@ -80,11 +80,11 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classificationAttributes' => function (ParseNode $n) use ($o) { $o->setClassificationAttributes($n->getCollectionOfObjectValues(array(ClassificationAttribute::class, 'createFromDiscriminatorValue'))); },
-            'classificationMethod' => function (ParseNode $n) use ($o) { $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)); },
-            'matches' => function (ParseNode $n) use ($o) { $o->setMatches($n->getCollectionOfObjectValues(array(SensitiveContentLocation::class, 'createFromDiscriminatorValue'))); },
-            'scope' => function (ParseNode $n) use ($o) { $o->setScope($n->getEnumValue(SensitiveTypeScope::class)); },
-            'sensitiveTypeSource' => function (ParseNode $n) use ($o) { $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)); },
+            'classificationAttributes' => fn(ParseNode $n) => $o->setClassificationAttributes($n->getCollectionOfObjectValues([ClassificationAttribute::class, 'createFromDiscriminatorValue'])),
+            'classificationMethod' => fn(ParseNode $n) => $o->setClassificationMethod($n->getEnumValue(ClassificationMethod::class)),
+            'matches' => fn(ParseNode $n) => $o->setMatches($n->getCollectionOfObjectValues([SensitiveContentLocation::class, 'createFromDiscriminatorValue'])),
+            'scope' => fn(ParseNode $n) => $o->setScope($n->getEnumValue(SensitiveTypeScope::class)),
+            'sensitiveTypeSource' => fn(ParseNode $n) => $o->setSensitiveTypeSource($n->getEnumValue(SensitiveTypeSource::class)),
         ]);
     }
 

@@ -57,11 +57,11 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            'processName' => function (ParseNode $n) use ($o) { $o->setProcessName($n->getStringValue()); },
-            'productName' => function (ParseNode $n) use ($o) { $o->setProductName($n->getStringValue()); },
-            'publisher' => function (ParseNode $n) use ($o) { $o->setPublisher($n->getStringValue()); },
-            'startupImpactInMs' => function (ParseNode $n) use ($o) { $o->setStartupImpactInMs($n->getIntegerValue()); },
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            'processName' => fn(ParseNode $n) => $o->setProcessName($n->getStringValue()),
+            'productName' => fn(ParseNode $n) => $o->setProductName($n->getStringValue()),
+            'publisher' => fn(ParseNode $n) => $o->setPublisher($n->getStringValue()),
+            'startupImpactInMs' => fn(ParseNode $n) => $o->setStartupImpactInMs($n->getIntegerValue()),
         ]);
     }
 

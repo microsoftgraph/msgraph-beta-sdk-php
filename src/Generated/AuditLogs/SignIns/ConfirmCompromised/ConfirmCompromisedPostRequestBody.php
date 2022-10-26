@@ -50,7 +50,7 @@ class ConfirmCompromisedPostRequestBody implements AdditionalDataHolder, Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'requestIds' => function (ParseNode $n) use ($o) { $o->setRequestIds($n->getCollectionOfPrimitiveValues()); },
+            'requestIds' => fn(ParseNode $n) => $o->setRequestIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -70,9 +70,9 @@ class MetricTimeSeriesDataPoint implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'dateTime' => function (ParseNode $n) use ($o) { $o->setDateTime($n->getDateTimeValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getIntegerValue()); },
+            'dateTime' => fn(ParseNode $n) => $o->setDateTime($n->getDateTimeValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'value' => fn(ParseNode $n) => $o->setValue($n->getIntegerValue()),
         ];
     }
 

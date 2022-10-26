@@ -50,8 +50,8 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentName' => function (ParseNode $n) use ($o) { $o->setContentName($n->getStringValue()); },
-            'lastModfiedBy' => function (ParseNode $n) use ($o) { $o->setLastModfiedBy($n->getStringValue()); },
+            'contentName' => fn(ParseNode $n) => $o->setContentName($n->getStringValue()),
+            'lastModfiedBy' => fn(ParseNode $n) => $o->setLastModfiedBy($n->getStringValue()),
         ]);
     }
 

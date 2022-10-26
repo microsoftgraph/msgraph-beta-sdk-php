@@ -105,14 +105,14 @@ class GroupPolicyCategory extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'children' => function (ParseNode $n) use ($o) { $o->setChildren($n->getCollectionOfObjectValues(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
-            'definitionFile' => function (ParseNode $n) use ($o) { $o->setDefinitionFile($n->getObjectValue(array(GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'))); },
-            'definitions' => function (ParseNode $n) use ($o) { $o->setDefinitions($n->getCollectionOfObjectValues(array(GroupPolicyDefinition::class, 'createFromDiscriminatorValue'))); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'ingestionSource' => function (ParseNode $n) use ($o) { $o->setIngestionSource($n->getEnumValue(IngestionSource::class)); },
-            'isRoot' => function (ParseNode $n) use ($o) { $o->setIsRoot($n->getBooleanValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'parent' => function (ParseNode $n) use ($o) { $o->setParent($n->getObjectValue(array(GroupPolicyCategory::class, 'createFromDiscriminatorValue'))); },
+            'children' => fn(ParseNode $n) => $o->setChildren($n->getCollectionOfObjectValues([GroupPolicyCategory::class, 'createFromDiscriminatorValue'])),
+            'definitionFile' => fn(ParseNode $n) => $o->setDefinitionFile($n->getObjectValue([GroupPolicyDefinitionFile::class, 'createFromDiscriminatorValue'])),
+            'definitions' => fn(ParseNode $n) => $o->setDefinitions($n->getCollectionOfObjectValues([GroupPolicyDefinition::class, 'createFromDiscriminatorValue'])),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'ingestionSource' => fn(ParseNode $n) => $o->setIngestionSource($n->getEnumValue(IngestionSource::class)),
+            'isRoot' => fn(ParseNode $n) => $o->setIsRoot($n->getBooleanValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'parent' => fn(ParseNode $n) => $o->setParent($n->getObjectValue([GroupPolicyCategory::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

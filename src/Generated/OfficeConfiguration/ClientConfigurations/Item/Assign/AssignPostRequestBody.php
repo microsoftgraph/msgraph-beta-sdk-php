@@ -51,7 +51,7 @@ class AssignPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'officeConfigurationAssignments' => function (ParseNode $n) use ($o) { $o->setOfficeConfigurationAssignments($n->getCollectionOfObjectValues(array(OfficeClientConfigurationAssignment::class, 'createFromDiscriminatorValue'))); },
+            'officeConfigurationAssignments' => fn(ParseNode $n) => $o->setOfficeConfigurationAssignments($n->getCollectionOfObjectValues([OfficeClientConfigurationAssignment::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

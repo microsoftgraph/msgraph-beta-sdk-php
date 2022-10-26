@@ -37,7 +37,7 @@ class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsabl
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'targetedAppManagementLevels' => function (ParseNode $n) use ($o) { $o->setTargetedAppManagementLevels($n->getStringValue()); },
+            'targetedAppManagementLevels' => fn(ParseNode $n) => $o->setTargetedAppManagementLevels($n->getStringValue()),
         ]);
     }
 

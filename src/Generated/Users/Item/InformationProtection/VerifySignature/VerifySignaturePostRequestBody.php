@@ -56,9 +56,9 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the digest property value. The digest property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getDigest(): ?StreamInterface {
+    public function getDigest(): StreamInterface {
         return $this->digest;
     }
 
@@ -69,17 +69,17 @@ class VerifySignaturePostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'digest' => function (ParseNode $n) use ($o) { $o->setDigest($n->getBinaryContent()); },
-            'signature' => function (ParseNode $n) use ($o) { $o->setSignature($n->getBinaryContent()); },
-            'signingKeyId' => function (ParseNode $n) use ($o) { $o->setSigningKeyId($n->getStringValue()); },
+            'digest' => fn(ParseNode $n) => $o->setDigest($n->getBinaryContent()),
+            'signature' => fn(ParseNode $n) => $o->setSignature($n->getBinaryContent()),
+            'signingKeyId' => fn(ParseNode $n) => $o->setSigningKeyId($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the signature property value. The signature property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getSignature(): ?StreamInterface {
+    public function getSignature(): StreamInterface {
         return $this->signature;
     }
 

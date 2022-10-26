@@ -33,9 +33,9 @@ class UserConfiguration extends Entity implements Parsable
 
     /**
      * Gets the binaryData property value. The binaryData property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getBinaryData(): ?StreamInterface {
+    public function getBinaryData(): StreamInterface {
         return $this->binaryData;
     }
 
@@ -46,7 +46,7 @@ class UserConfiguration extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'binaryData' => function (ParseNode $n) use ($o) { $o->setBinaryData($n->getBinaryContent()); },
+            'binaryData' => fn(ParseNode $n) => $o->setBinaryData($n->getBinaryContent()),
         ]);
     }
 

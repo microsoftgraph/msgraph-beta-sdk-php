@@ -9,17 +9,17 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationStrengthRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationMethodModes>|null $authenticationCombinations The authenticationCombinations property
+     * @var array<AuthenticationMethodModes>|null $authenticationCombinations A collection of all valid authentication method combinations in the system.
     */
     private ?array $authenticationCombinations = null;
     
     /**
-     * @var array<AuthenticationMethodModeDetail>|null $authenticationMethodModes The authenticationMethodModes property
+     * @var array<AuthenticationMethodModeDetail>|null $authenticationMethodModes Names and descriptions of all valid authentication method modes in the system.
     */
     private ?array $authenticationMethodModes = null;
     
     /**
-     * @var array<AuthenticationStrengthPolicy>|null $policies The policies property
+     * @var array<AuthenticationStrengthPolicy>|null $policies A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
     */
     private ?array $policies = null;
     
@@ -41,7 +41,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationCombinations property value. The authenticationCombinations property
+     * Gets the authenticationCombinations property value. A collection of all valid authentication method combinations in the system.
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAuthenticationCombinations(): ?array {
@@ -49,7 +49,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationMethodModes property value. The authenticationMethodModes property
+     * Gets the authenticationMethodModes property value. Names and descriptions of all valid authentication method modes in the system.
      * @return array<AuthenticationMethodModeDetail>|null
     */
     public function getAuthenticationMethodModes(): ?array {
@@ -63,14 +63,14 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationCombinations' => function (ParseNode $n) use ($o) { $o->setAuthenticationCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)); },
-            'authenticationMethodModes' => function (ParseNode $n) use ($o) { $o->setAuthenticationMethodModes($n->getCollectionOfObjectValues(array(AuthenticationMethodModeDetail::class, 'createFromDiscriminatorValue'))); },
-            'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'))); },
+            'authenticationCombinations' => fn(ParseNode $n) => $o->setAuthenticationCombinations($n->getCollectionOfEnumValues(AuthenticationMethodModes::class)),
+            'authenticationMethodModes' => fn(ParseNode $n) => $o->setAuthenticationMethodModes($n->getCollectionOfObjectValues([AuthenticationMethodModeDetail::class, 'createFromDiscriminatorValue'])),
+            'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([AuthenticationStrengthPolicy::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
     /**
-     * Gets the policies property value. The policies property
+     * Gets the policies property value. A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
      * @return array<AuthenticationStrengthPolicy>|null
     */
     public function getPolicies(): ?array {
@@ -89,7 +89,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationCombinations property value. The authenticationCombinations property
+     * Sets the authenticationCombinations property value. A collection of all valid authentication method combinations in the system.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the authenticationCombinations property.
     */
     public function setAuthenticationCombinations(?array $value ): void {
@@ -97,7 +97,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationMethodModes property value. The authenticationMethodModes property
+     * Sets the authenticationMethodModes property value. Names and descriptions of all valid authentication method modes in the system.
      *  @param array<AuthenticationMethodModeDetail>|null $value Value to set for the authenticationMethodModes property.
     */
     public function setAuthenticationMethodModes(?array $value ): void {
@@ -105,7 +105,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the policies property value. The policies property
+     * Sets the policies property value. A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
      *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the policies property.
     */
     public function setPolicies(?array $value ): void {

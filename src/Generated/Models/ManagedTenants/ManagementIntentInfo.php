@@ -66,10 +66,10 @@ class ManagementIntentInfo implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'managementIntentDisplayName' => function (ParseNode $n) use ($o) { $o->setManagementIntentDisplayName($n->getStringValue()); },
-            'managementIntentId' => function (ParseNode $n) use ($o) { $o->setManagementIntentId($n->getStringValue()); },
-            'managementTemplates' => function (ParseNode $n) use ($o) { $o->setManagementTemplates($n->getCollectionOfObjectValues(array(ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'managementIntentDisplayName' => fn(ParseNode $n) => $o->setManagementIntentDisplayName($n->getStringValue()),
+            'managementIntentId' => fn(ParseNode $n) => $o->setManagementIntentId($n->getStringValue()),
+            'managementTemplates' => fn(ParseNode $n) => $o->setManagementTemplates($n->getCollectionOfObjectValues([ManagementTemplateDetailedInfo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

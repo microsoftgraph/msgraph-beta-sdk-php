@@ -94,12 +94,12 @@ class DeviceRegistrationPolicy extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'azureADJoin' => function (ParseNode $n) use ($o) { $o->setAzureADJoin($n->getObjectValue(array(AzureAdJoinPolicy::class, 'createFromDiscriminatorValue'))); },
-            'azureADRegistration' => function (ParseNode $n) use ($o) { $o->setAzureADRegistration($n->getObjectValue(array(AzureADRegistrationPolicy::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'multiFactorAuthConfiguration' => function (ParseNode $n) use ($o) { $o->setMultiFactorAuthConfiguration($n->getEnumValue(MultiFactorAuthConfiguration::class)); },
-            'userDeviceQuota' => function (ParseNode $n) use ($o) { $o->setUserDeviceQuota($n->getIntegerValue()); },
+            'azureADJoin' => fn(ParseNode $n) => $o->setAzureADJoin($n->getObjectValue([AzureAdJoinPolicy::class, 'createFromDiscriminatorValue'])),
+            'azureADRegistration' => fn(ParseNode $n) => $o->setAzureADRegistration($n->getObjectValue([AzureADRegistrationPolicy::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'multiFactorAuthConfiguration' => fn(ParseNode $n) => $o->setMultiFactorAuthConfiguration($n->getEnumValue(MultiFactorAuthConfiguration::class)),
+            'userDeviceQuota' => fn(ParseNode $n) => $o->setUserDeviceQuota($n->getIntegerValue()),
         ]);
     }
 

@@ -50,7 +50,7 @@ class RunHuntingQueryPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'query' => function (ParseNode $n) use ($o) { $o->setQuery($n->getStringValue()); },
+            'query' => fn(ParseNode $n) => $o->setQuery($n->getStringValue()),
         ];
     }
 

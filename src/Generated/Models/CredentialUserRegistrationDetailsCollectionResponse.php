@@ -36,7 +36,7 @@ class CredentialUserRegistrationDetailsCollectionResponse extends BaseCollection
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

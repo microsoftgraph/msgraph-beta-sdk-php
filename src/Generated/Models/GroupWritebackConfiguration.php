@@ -37,7 +37,7 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'onPremisesGroupType' => function (ParseNode $n) use ($o) { $o->setOnPremisesGroupType($n->getStringValue()); },
+            'onPremisesGroupType' => fn(ParseNode $n) => $o->setOnPremisesGroupType($n->getStringValue()),
         ]);
     }
 

@@ -45,7 +45,7 @@ class External extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'connections' => function (ParseNode $n) use ($o) { $o->setConnections($n->getCollectionOfObjectValues(array(ExternalConnection::class, 'createFromDiscriminatorValue'))); },
+            'connections' => fn(ParseNode $n) => $o->setConnections($n->getCollectionOfObjectValues([ExternalConnection::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

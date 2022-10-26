@@ -105,13 +105,13 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'communicationSpeakerHealth' => function (ParseNode $n) use ($o) { $o->setCommunicationSpeakerHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'contentCameraHealth' => function (ParseNode $n) use ($o) { $o->setContentCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'displayHealthCollection' => function (ParseNode $n) use ($o) { $o->setDisplayHealthCollection($n->getCollectionOfObjectValues(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'microphoneHealth' => function (ParseNode $n) use ($o) { $o->setMicrophoneHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'roomCameraHealth' => function (ParseNode $n) use ($o) { $o->setRoomCameraHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
-            'speakerHealth' => function (ParseNode $n) use ($o) { $o->setSpeakerHealth($n->getObjectValue(array(TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'))); },
+            'communicationSpeakerHealth' => fn(ParseNode $n) => $o->setCommunicationSpeakerHealth($n->getObjectValue([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
+            'contentCameraHealth' => fn(ParseNode $n) => $o->setContentCameraHealth($n->getObjectValue([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
+            'displayHealthCollection' => fn(ParseNode $n) => $o->setDisplayHealthCollection($n->getCollectionOfObjectValues([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
+            'microphoneHealth' => fn(ParseNode $n) => $o->setMicrophoneHealth($n->getObjectValue([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'roomCameraHealth' => fn(ParseNode $n) => $o->setRoomCameraHealth($n->getObjectValue([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
+            'speakerHealth' => fn(ParseNode $n) => $o->setSpeakerHealth($n->getObjectValue([TeamworkPeripheralHealth::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

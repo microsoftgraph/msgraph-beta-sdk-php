@@ -42,8 +42,8 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'folderIdentifier' => function (ParseNode $n) use ($o) { $o->setFolderIdentifier($n->getStringValue()); },
-            'folderName' => function (ParseNode $n) use ($o) { $o->setFolderName($n->getStringValue()); },
+            'folderIdentifier' => fn(ParseNode $n) => $o->setFolderIdentifier($n->getStringValue()),
+            'folderName' => fn(ParseNode $n) => $o->setFolderName($n->getStringValue()),
         ]);
     }
 

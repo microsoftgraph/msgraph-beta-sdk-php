@@ -57,11 +57,11 @@ class MacOSDmgApp extends MobileLobApp implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'ignoreVersionDetection' => function (ParseNode $n) use ($o) { $o->setIgnoreVersionDetection($n->getBooleanValue()); },
-            'includedApps' => function (ParseNode $n) use ($o) { $o->setIncludedApps($n->getCollectionOfObjectValues(array(MacOSIncludedApp::class, 'createFromDiscriminatorValue'))); },
-            'minimumSupportedOperatingSystem' => function (ParseNode $n) use ($o) { $o->setMinimumSupportedOperatingSystem($n->getObjectValue(array(MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'))); },
-            'primaryBundleId' => function (ParseNode $n) use ($o) { $o->setPrimaryBundleId($n->getStringValue()); },
-            'primaryBundleVersion' => function (ParseNode $n) use ($o) { $o->setPrimaryBundleVersion($n->getStringValue()); },
+            'ignoreVersionDetection' => fn(ParseNode $n) => $o->setIgnoreVersionDetection($n->getBooleanValue()),
+            'includedApps' => fn(ParseNode $n) => $o->setIncludedApps($n->getCollectionOfObjectValues([MacOSIncludedApp::class, 'createFromDiscriminatorValue'])),
+            'minimumSupportedOperatingSystem' => fn(ParseNode $n) => $o->setMinimumSupportedOperatingSystem($n->getObjectValue([MacOSMinimumOperatingSystem::class, 'createFromDiscriminatorValue'])),
+            'primaryBundleId' => fn(ParseNode $n) => $o->setPrimaryBundleId($n->getStringValue()),
+            'primaryBundleVersion' => fn(ParseNode $n) => $o->setPrimaryBundleVersion($n->getStringValue()),
         ]);
     }
 

@@ -35,7 +35,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?bool $enableTopResults = null;
     
     /**
-     * @var array<EntityType>|null $entityTypes One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * @var array<EntityType>|null $entityTypes One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
     */
     private ?array $entityTypes = null;
     
@@ -65,7 +65,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?SearchAlterationOptions $queryAlterationOptions = null;
     
     /**
-     * @var string|null $region The region property
+     * @var string|null $region Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
     */
     private ?string $region = null;
     
@@ -75,7 +75,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?ResultTemplateOption $resultTemplateOptions = null;
     
     /**
-     * @var SharePointOneDriveOptions|null $sharePointOneDriveOptions The sharePointOneDriveOptions property
+     * @var SharePointOneDriveOptions|null $sharePointOneDriveOptions Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
     */
     private ?SharePointOneDriveOptions $sharePointOneDriveOptions = null;
     
@@ -157,7 +157,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      * @return array<EntityType>|null
     */
     public function getEntityTypes(): ?array {
@@ -171,23 +171,23 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'aggregationFilters' => function (ParseNode $n) use ($o) { $o->setAggregationFilters($n->getCollectionOfPrimitiveValues()); },
-            'aggregations' => function (ParseNode $n) use ($o) { $o->setAggregations($n->getCollectionOfObjectValues(array(AggregationOption::class, 'createFromDiscriminatorValue'))); },
-            'contentSources' => function (ParseNode $n) use ($o) { $o->setContentSources($n->getCollectionOfPrimitiveValues()); },
-            'enableTopResults' => function (ParseNode $n) use ($o) { $o->setEnableTopResults($n->getBooleanValue()); },
-            'entityTypes' => function (ParseNode $n) use ($o) { $o->setEntityTypes($n->getCollectionOfEnumValues(EntityType::class)); },
-            'fields' => function (ParseNode $n) use ($o) { $o->setFields($n->getCollectionOfPrimitiveValues()); },
-            'from' => function (ParseNode $n) use ($o) { $o->setFrom($n->getIntegerValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'query' => function (ParseNode $n) use ($o) { $o->setQuery($n->getObjectValue(array(SearchQuery::class, 'createFromDiscriminatorValue'))); },
-            'queryAlterationOptions' => function (ParseNode $n) use ($o) { $o->setQueryAlterationOptions($n->getObjectValue(array(SearchAlterationOptions::class, 'createFromDiscriminatorValue'))); },
-            'region' => function (ParseNode $n) use ($o) { $o->setRegion($n->getStringValue()); },
-            'resultTemplateOptions' => function (ParseNode $n) use ($o) { $o->setResultTemplateOptions($n->getObjectValue(array(ResultTemplateOption::class, 'createFromDiscriminatorValue'))); },
-            'sharePointOneDriveOptions' => function (ParseNode $n) use ($o) { $o->setSharePointOneDriveOptions($n->getObjectValue(array(SharePointOneDriveOptions::class, 'createFromDiscriminatorValue'))); },
-            'size' => function (ParseNode $n) use ($o) { $o->setSize($n->getIntegerValue()); },
-            'sortProperties' => function (ParseNode $n) use ($o) { $o->setSortProperties($n->getCollectionOfObjectValues(array(SortProperty::class, 'createFromDiscriminatorValue'))); },
-            'stored_fields' => function (ParseNode $n) use ($o) { $o->setStored_fields($n->getCollectionOfPrimitiveValues()); },
-            'trimDuplicates' => function (ParseNode $n) use ($o) { $o->setTrimDuplicates($n->getBooleanValue()); },
+            'aggregationFilters' => fn(ParseNode $n) => $o->setAggregationFilters($n->getCollectionOfPrimitiveValues()),
+            'aggregations' => fn(ParseNode $n) => $o->setAggregations($n->getCollectionOfObjectValues([AggregationOption::class, 'createFromDiscriminatorValue'])),
+            'contentSources' => fn(ParseNode $n) => $o->setContentSources($n->getCollectionOfPrimitiveValues()),
+            'enableTopResults' => fn(ParseNode $n) => $o->setEnableTopResults($n->getBooleanValue()),
+            'entityTypes' => fn(ParseNode $n) => $o->setEntityTypes($n->getCollectionOfEnumValues(EntityType::class)),
+            'fields' => fn(ParseNode $n) => $o->setFields($n->getCollectionOfPrimitiveValues()),
+            'from' => fn(ParseNode $n) => $o->setFrom($n->getIntegerValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'query' => fn(ParseNode $n) => $o->setQuery($n->getObjectValue([SearchQuery::class, 'createFromDiscriminatorValue'])),
+            'queryAlterationOptions' => fn(ParseNode $n) => $o->setQueryAlterationOptions($n->getObjectValue([SearchAlterationOptions::class, 'createFromDiscriminatorValue'])),
+            'region' => fn(ParseNode $n) => $o->setRegion($n->getStringValue()),
+            'resultTemplateOptions' => fn(ParseNode $n) => $o->setResultTemplateOptions($n->getObjectValue([ResultTemplateOption::class, 'createFromDiscriminatorValue'])),
+            'sharePointOneDriveOptions' => fn(ParseNode $n) => $o->setSharePointOneDriveOptions($n->getObjectValue([SharePointOneDriveOptions::class, 'createFromDiscriminatorValue'])),
+            'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'sortProperties' => fn(ParseNode $n) => $o->setSortProperties($n->getCollectionOfObjectValues([SortProperty::class, 'createFromDiscriminatorValue'])),
+            'stored_fields' => fn(ParseNode $n) => $o->setStored_fields($n->getCollectionOfPrimitiveValues()),
+            'trimDuplicates' => fn(ParseNode $n) => $o->setTrimDuplicates($n->getBooleanValue()),
         ];
     }
 
@@ -232,7 +232,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the region property value. The region property
+     * Gets the region property value. Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
      * @return string|null
     */
     public function getRegion(): ?string {
@@ -248,7 +248,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * Gets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
      * @return SharePointOneDriveOptions|null
     */
     public function getSharePointOneDriveOptions(): ?SharePointOneDriveOptions {
@@ -353,7 +353,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+     * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.
      *  @param array<EntityType>|null $value Value to set for the entityTypes property.
     */
     public function setEntityTypes(?array $value ): void {
@@ -401,7 +401,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the region property value. The region property
+     * Sets the region property value. Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.
      *  @param string|null $value Value to set for the region property.
     */
     public function setRegion(?string $value ): void {
@@ -417,7 +417,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the sharePointOneDriveOptions property value. The sharePointOneDriveOptions property
+     * Sets the sharePointOneDriveOptions property value. Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.
      *  @param SharePointOneDriveOptions|null $value Value to set for the sharePointOneDriveOptions property.
     */
     public function setSharePointOneDriveOptions(?SharePointOneDriveOptions $value ): void {

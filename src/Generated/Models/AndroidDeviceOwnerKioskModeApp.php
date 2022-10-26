@@ -50,8 +50,8 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'className' => function (ParseNode $n) use ($o) { $o->setClassName($n->getStringValue()); },
-            'package' => function (ParseNode $n) use ($o) { $o->setPackage($n->getStringValue()); },
+            'className' => fn(ParseNode $n) => $o->setClassName($n->getStringValue()),
+            'package' => fn(ParseNode $n) => $o->setPackage($n->getStringValue()),
         ]);
     }
 

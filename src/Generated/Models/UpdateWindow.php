@@ -62,9 +62,9 @@ class UpdateWindow implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'updateWindowEndTime' => function (ParseNode $n) use ($o) { $o->setUpdateWindowEndTime($n->getTimeValue()); },
-            'updateWindowStartTime' => function (ParseNode $n) use ($o) { $o->setUpdateWindowStartTime($n->getTimeValue()); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'updateWindowEndTime' => fn(ParseNode $n) => $o->setUpdateWindowEndTime($n->getTimeValue()),
+            'updateWindowStartTime' => fn(ParseNode $n) => $o->setUpdateWindowStartTime($n->getTimeValue()),
         ];
     }
 

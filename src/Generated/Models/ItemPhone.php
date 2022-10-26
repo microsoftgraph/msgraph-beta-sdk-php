@@ -55,9 +55,9 @@ class ItemPhone extends ItemFacet implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(PhoneType::class)); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PhoneType::class)),
         ]);
     }
 

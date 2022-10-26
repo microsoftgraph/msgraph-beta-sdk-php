@@ -79,12 +79,12 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'customQuestionAnswers' => function (ParseNode $n) use ($o) { $o->setCustomQuestionAnswers($n->getCollectionOfObjectValues(array(CustomQuestionAnswer::class, 'createFromDiscriminatorValue'))); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'firstName' => function (ParseNode $n) use ($o) { $o->setFirstName($n->getStringValue()); },
-            'lastName' => function (ParseNode $n) use ($o) { $o->setLastName($n->getStringValue()); },
-            'registrationDateTime' => function (ParseNode $n) use ($o) { $o->setRegistrationDateTime($n->getDateTimeValue()); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(MeetingRegistrantStatus::class)); },
+            'customQuestionAnswers' => fn(ParseNode $n) => $o->setCustomQuestionAnswers($n->getCollectionOfObjectValues([CustomQuestionAnswer::class, 'createFromDiscriminatorValue'])),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'firstName' => fn(ParseNode $n) => $o->setFirstName($n->getStringValue()),
+            'lastName' => fn(ParseNode $n) => $o->setLastName($n->getStringValue()),
+            'registrationDateTime' => fn(ParseNode $n) => $o->setRegistrationDateTime($n->getDateTimeValue()),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(MeetingRegistrantStatus::class)),
         ]);
     }
 

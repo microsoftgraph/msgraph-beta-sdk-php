@@ -14,7 +14,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     private ?array $authenticationContextClassReferences = null;
     
     /**
-     * @var AuthenticationStrengthRoot|null $authenticationStrengths The authenticationStrengths property
+     * @var AuthenticationStrengthRoot|null $authenticationStrengths Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
     */
     private ?AuthenticationStrengthRoot $authenticationStrengths = null;
     
@@ -29,7 +29,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     private ?array $policies = null;
     
     /**
-     * @var array<ConditionalAccessTemplate>|null $templates The templates property
+     * @var array<ConditionalAccessTemplate>|null $templates Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
     */
     private ?array $templates = null;
     
@@ -59,7 +59,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the authenticationStrengths property value. The authenticationStrengths property
+     * Gets the authenticationStrengths property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
      * @return AuthenticationStrengthRoot|null
     */
     public function getAuthenticationStrengths(): ?AuthenticationStrengthRoot {
@@ -73,11 +73,11 @@ class ConditionalAccessRoot extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationContextClassReferences' => function (ParseNode $n) use ($o) { $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues(array(AuthenticationContextClassReference::class, 'createFromDiscriminatorValue'))); },
-            'authenticationStrengths' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrengths($n->getObjectValue(array(AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'))); },
-            'namedLocations' => function (ParseNode $n) use ($o) { $o->setNamedLocations($n->getCollectionOfObjectValues(array(NamedLocation::class, 'createFromDiscriminatorValue'))); },
-            'policies' => function (ParseNode $n) use ($o) { $o->setPolicies($n->getCollectionOfObjectValues(array(ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'))); },
-            'templates' => function (ParseNode $n) use ($o) { $o->setTemplates($n->getCollectionOfObjectValues(array(ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'))); },
+            'authenticationContextClassReferences' => fn(ParseNode $n) => $o->setAuthenticationContextClassReferences($n->getCollectionOfObjectValues([AuthenticationContextClassReference::class, 'createFromDiscriminatorValue'])),
+            'authenticationStrengths' => fn(ParseNode $n) => $o->setAuthenticationStrengths($n->getObjectValue([AuthenticationStrengthRoot::class, 'createFromDiscriminatorValue'])),
+            'namedLocations' => fn(ParseNode $n) => $o->setNamedLocations($n->getCollectionOfObjectValues([NamedLocation::class, 'createFromDiscriminatorValue'])),
+            'policies' => fn(ParseNode $n) => $o->setPolicies($n->getCollectionOfObjectValues([ConditionalAccessPolicy::class, 'createFromDiscriminatorValue'])),
+            'templates' => fn(ParseNode $n) => $o->setTemplates($n->getCollectionOfObjectValues([ConditionalAccessTemplate::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -98,7 +98,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Gets the templates property value. The templates property
+     * Gets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      * @return array<ConditionalAccessTemplate>|null
     */
     public function getTemplates(): ?array {
@@ -127,7 +127,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the authenticationStrengths property value. The authenticationStrengths property
+     * Sets the authenticationStrengths property value. Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy .
      *  @param AuthenticationStrengthRoot|null $value Value to set for the authenticationStrengths property.
     */
     public function setAuthenticationStrengths(?AuthenticationStrengthRoot $value ): void {
@@ -151,7 +151,7 @@ class ConditionalAccessRoot extends Entity implements Parsable
     }
 
     /**
-     * Sets the templates property value. The templates property
+     * Sets the templates property value. Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
      *  @param array<ConditionalAccessTemplate>|null $value Value to set for the templates property.
     */
     public function setTemplates(?array $value ): void {

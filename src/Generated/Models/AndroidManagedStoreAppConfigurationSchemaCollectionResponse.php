@@ -36,7 +36,7 @@ class AndroidManagedStoreAppConfigurationSchemaCollectionResponse extends BaseCo
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(AndroidManagedStoreAppConfigurationSchema::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([AndroidManagedStoreAppConfigurationSchema::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

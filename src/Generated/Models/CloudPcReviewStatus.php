@@ -121,16 +121,16 @@ class CloudPcReviewStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'azureStorageAccountId' => function (ParseNode $n) use ($o) { $o->setAzureStorageAccountId($n->getStringValue()); },
-            'azureStorageAccountName' => function (ParseNode $n) use ($o) { $o->setAzureStorageAccountName($n->getStringValue()); },
-            'azureStorageContainerName' => function (ParseNode $n) use ($o) { $o->setAzureStorageContainerName($n->getStringValue()); },
-            'inReview' => function (ParseNode $n) use ($o) { $o->setInReview($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'restorePointDateTime' => function (ParseNode $n) use ($o) { $o->setRestorePointDateTime($n->getDateTimeValue()); },
-            'reviewStartDateTime' => function (ParseNode $n) use ($o) { $o->setReviewStartDateTime($n->getDateTimeValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
-            'subscriptionName' => function (ParseNode $n) use ($o) { $o->setSubscriptionName($n->getStringValue()); },
-            'userAccessLevel' => function (ParseNode $n) use ($o) { $o->setUserAccessLevel($n->getEnumValue(CloudPcUserAccessLevel::class)); },
+            'azureStorageAccountId' => fn(ParseNode $n) => $o->setAzureStorageAccountId($n->getStringValue()),
+            'azureStorageAccountName' => fn(ParseNode $n) => $o->setAzureStorageAccountName($n->getStringValue()),
+            'azureStorageContainerName' => fn(ParseNode $n) => $o->setAzureStorageContainerName($n->getStringValue()),
+            'inReview' => fn(ParseNode $n) => $o->setInReview($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'restorePointDateTime' => fn(ParseNode $n) => $o->setRestorePointDateTime($n->getDateTimeValue()),
+            'reviewStartDateTime' => fn(ParseNode $n) => $o->setReviewStartDateTime($n->getDateTimeValue()),
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
+            'subscriptionName' => fn(ParseNode $n) => $o->setSubscriptionName($n->getStringValue()),
+            'userAccessLevel' => fn(ParseNode $n) => $o->setUserAccessLevel($n->getEnumValue(CloudPcUserAccessLevel::class)),
         ];
     }
 

@@ -161,19 +161,19 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudPcFailurePercentage' => function (ParseNode $n) use ($o) { $o->setCloudPcFailurePercentage($n->getFloatValue()); },
-            'cloudPcRoundTripTime' => function (ParseNode $n) use ($o) { $o->setCloudPcRoundTripTime($n->getFloatValue()); },
-            'cloudPcSignInTime' => function (ParseNode $n) use ($o) { $o->setCloudPcSignInTime($n->getFloatValue()); },
-            'coreBootTime' => function (ParseNode $n) use ($o) { $o->setCoreBootTime($n->getFloatValue()); },
-            'coreSignInTime' => function (ParseNode $n) use ($o) { $o->setCoreSignInTime($n->getFloatValue()); },
-            'deviceCount' => function (ParseNode $n) use ($o) { $o->setDeviceCount($n->getIntegerValue()); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'remoteSignInTime' => function (ParseNode $n) use ($o) { $o->setRemoteSignInTime($n->getFloatValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
-            'virtualNetwork' => function (ParseNode $n) use ($o) { $o->setVirtualNetwork($n->getStringValue()); },
+            'cloudPcFailurePercentage' => fn(ParseNode $n) => $o->setCloudPcFailurePercentage($n->getFloatValue()),
+            'cloudPcRoundTripTime' => fn(ParseNode $n) => $o->setCloudPcRoundTripTime($n->getFloatValue()),
+            'cloudPcSignInTime' => fn(ParseNode $n) => $o->setCloudPcSignInTime($n->getFloatValue()),
+            'coreBootTime' => fn(ParseNode $n) => $o->setCoreBootTime($n->getFloatValue()),
+            'coreSignInTime' => fn(ParseNode $n) => $o->setCoreSignInTime($n->getFloatValue()),
+            'deviceCount' => fn(ParseNode $n) => $o->setDeviceCount($n->getIntegerValue()),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'remoteSignInTime' => fn(ParseNode $n) => $o->setRemoteSignInTime($n->getFloatValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
+            'virtualNetwork' => fn(ParseNode $n) => $o->setVirtualNetwork($n->getStringValue()),
         ]);
     }
 

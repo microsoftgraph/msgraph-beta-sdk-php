@@ -123,16 +123,16 @@ class ConnectedOrganization extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'externalSponsors' => function (ParseNode $n) use ($o) { $o->setExternalSponsors($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'identitySources' => function (ParseNode $n) use ($o) { $o->setIdentitySources($n->getCollectionOfObjectValues(array(IdentitySource::class, 'createFromDiscriminatorValue'))); },
-            'internalSponsors' => function (ParseNode $n) use ($o) { $o->setInternalSponsors($n->getCollectionOfObjectValues(array(DirectoryObject::class, 'createFromDiscriminatorValue'))); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(ConnectedOrganizationState::class)); },
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'externalSponsors' => fn(ParseNode $n) => $o->setExternalSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'identitySources' => fn(ParseNode $n) => $o->setIdentitySources($n->getCollectionOfObjectValues([IdentitySource::class, 'createFromDiscriminatorValue'])),
+            'internalSponsors' => fn(ParseNode $n) => $o->setInternalSponsors($n->getCollectionOfObjectValues([DirectoryObject::class, 'createFromDiscriminatorValue'])),
+            'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ConnectedOrganizationState::class)),
         ]);
     }
 

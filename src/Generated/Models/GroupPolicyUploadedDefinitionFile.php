@@ -59,9 +59,9 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Gets the content property value. The contents of the uploaded ADMX file.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -80,12 +80,12 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'defaultLanguageCode' => function (ParseNode $n) use ($o) { $o->setDefaultLanguageCode($n->getStringValue()); },
-            'groupPolicyOperations' => function (ParseNode $n) use ($o) { $o->setGroupPolicyOperations($n->getCollectionOfObjectValues(array(GroupPolicyOperation::class, 'createFromDiscriminatorValue'))); },
-            'groupPolicyUploadedLanguageFiles' => function (ParseNode $n) use ($o) { $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues(array(GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'))); },
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getEnumValue(GroupPolicyUploadedDefinitionFileStatus::class)); },
-            'uploadDateTime' => function (ParseNode $n) use ($o) { $o->setUploadDateTime($n->getDateTimeValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'defaultLanguageCode' => fn(ParseNode $n) => $o->setDefaultLanguageCode($n->getStringValue()),
+            'groupPolicyOperations' => fn(ParseNode $n) => $o->setGroupPolicyOperations($n->getCollectionOfObjectValues([GroupPolicyOperation::class, 'createFromDiscriminatorValue'])),
+            'groupPolicyUploadedLanguageFiles' => fn(ParseNode $n) => $o->setGroupPolicyUploadedLanguageFiles($n->getCollectionOfObjectValues([GroupPolicyUploadedLanguageFile::class, 'createFromDiscriminatorValue'])),
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getEnumValue(GroupPolicyUploadedDefinitionFileStatus::class)),
+            'uploadDateTime' => fn(ParseNode $n) => $o->setUploadDateTime($n->getDateTimeValue()),
         ]);
     }
 

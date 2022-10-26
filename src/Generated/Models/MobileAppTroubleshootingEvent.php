@@ -73,11 +73,11 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'applicationId' => function (ParseNode $n) use ($o) { $o->setApplicationId($n->getStringValue()); },
-            'appLogCollectionRequests' => function (ParseNode $n) use ($o) { $o->setAppLogCollectionRequests($n->getCollectionOfObjectValues(array(AppLogCollectionRequest::class, 'createFromDiscriminatorValue'))); },
-            'history' => function (ParseNode $n) use ($o) { $o->setHistory($n->getCollectionOfObjectValues(array(MobileAppTroubleshootingHistoryItem::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceIdentifier' => function (ParseNode $n) use ($o) { $o->setManagedDeviceIdentifier($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'applicationId' => fn(ParseNode $n) => $o->setApplicationId($n->getStringValue()),
+            'appLogCollectionRequests' => fn(ParseNode $n) => $o->setAppLogCollectionRequests($n->getCollectionOfObjectValues([AppLogCollectionRequest::class, 'createFromDiscriminatorValue'])),
+            'history' => fn(ParseNode $n) => $o->setHistory($n->getCollectionOfObjectValues([MobileAppTroubleshootingHistoryItem::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceIdentifier' => fn(ParseNode $n) => $o->setManagedDeviceIdentifier($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ]);
     }
 

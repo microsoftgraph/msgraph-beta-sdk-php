@@ -37,7 +37,7 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'values' => function (ParseNode $n) use ($o) { $o->setValues($n->getCollectionOfPrimitiveValues()); },
+            'values' => fn(ParseNode $n) => $o->setValues($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

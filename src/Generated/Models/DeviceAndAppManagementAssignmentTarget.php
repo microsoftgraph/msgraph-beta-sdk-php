@@ -88,9 +88,9 @@ class DeviceAndAppManagementAssignmentTarget implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceAndAppManagementAssignmentFilterId' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()); },
-            'deviceAndAppManagementAssignmentFilterType' => function (ParseNode $n) use ($o) { $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'deviceAndAppManagementAssignmentFilterId' => fn(ParseNode $n) => $o->setDeviceAndAppManagementAssignmentFilterId($n->getStringValue()),
+            'deviceAndAppManagementAssignmentFilterType' => fn(ParseNode $n) => $o->setDeviceAndAppManagementAssignmentFilterType($n->getEnumValue(DeviceAndAppManagementAssignmentFilterType::class)),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

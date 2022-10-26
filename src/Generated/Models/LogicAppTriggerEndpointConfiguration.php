@@ -47,9 +47,9 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'logicAppWorkflowName' => function (ParseNode $n) use ($o) { $o->setLogicAppWorkflowName($n->getStringValue()); },
-            'resourceGroupName' => function (ParseNode $n) use ($o) { $o->setResourceGroupName($n->getStringValue()); },
-            'subscriptionId' => function (ParseNode $n) use ($o) { $o->setSubscriptionId($n->getStringValue()); },
+            'logicAppWorkflowName' => fn(ParseNode $n) => $o->setLogicAppWorkflowName($n->getStringValue()),
+            'resourceGroupName' => fn(ParseNode $n) => $o->setResourceGroupName($n->getStringValue()),
+            'subscriptionId' => fn(ParseNode $n) => $o->setSubscriptionId($n->getStringValue()),
         ]);
     }
 

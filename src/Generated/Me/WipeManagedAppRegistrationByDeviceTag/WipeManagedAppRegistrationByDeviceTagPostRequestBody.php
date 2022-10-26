@@ -58,7 +58,7 @@ class WipeManagedAppRegistrationByDeviceTagPostRequestBody implements Additional
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceTag' => function (ParseNode $n) use ($o) { $o->setDeviceTag($n->getStringValue()); },
+            'deviceTag' => fn(ParseNode $n) => $o->setDeviceTag($n->getStringValue()),
         ];
     }
 

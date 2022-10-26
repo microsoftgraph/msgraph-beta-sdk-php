@@ -53,7 +53,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'airPrintDestinations' => function (ParseNode $n) use ($o) { $o->setAirPrintDestinations($n->getCollectionOfObjectValues(array(AirPrintDestination::class, 'createFromDiscriminatorValue'))); },
+            'airPrintDestinations' => fn(ParseNode $n) => $o->setAirPrintDestinations($n->getCollectionOfObjectValues([AirPrintDestination::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

@@ -76,12 +76,12 @@ class TeamworkHardwareDetail implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'macAddresses' => function (ParseNode $n) use ($o) { $o->setMacAddresses($n->getCollectionOfPrimitiveValues()); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'serialNumber' => function (ParseNode $n) use ($o) { $o->setSerialNumber($n->getStringValue()); },
-            'uniqueId' => function (ParseNode $n) use ($o) { $o->setUniqueId($n->getStringValue()); },
+            'macAddresses' => fn(ParseNode $n) => $o->setMacAddresses($n->getCollectionOfPrimitiveValues()),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'serialNumber' => fn(ParseNode $n) => $o->setSerialNumber($n->getStringValue()),
+            'uniqueId' => fn(ParseNode $n) => $o->setUniqueId($n->getStringValue()),
         ];
     }
 

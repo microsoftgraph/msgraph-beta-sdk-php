@@ -43,7 +43,7 @@ class ResumeRequestBuilder
     }
 
     /**
-     * Invoke action resume
+     * Resume a task processing result that's `inProgress`. An Azure Logic Apps system-assigned managed identity calls this API.
      * @param ResumePostRequestBody $body 
      * @param ResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -66,7 +66,7 @@ class ResumeRequestBuilder
     }
 
     /**
-     * Invoke action resume
+     * Resume a task processing result that's `inProgress`. An Azure Logic Apps system-assigned managed identity calls this API.
      * @param ResumePostRequestBody $body 
      * @param ResumeRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -76,8 +76,8 @@ class ResumeRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
             return $this->requestAdapter->sendNoContentAsync($requestInfo, $responseHandler, $errorMappings);
         } catch(Exception $ex) {

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalIdentitiesPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var bool|null $allowDeletedIdentitiesDataRemoval Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
+     * @var bool|null $allowDeletedIdentitiesDataRemoval Reserved for future use.
     */
     private ?bool $allowDeletedIdentitiesDataRemoval = null;
     
@@ -36,7 +36,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Gets the allowDeletedIdentitiesDataRemoval property value. Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
+     * Gets the allowDeletedIdentitiesDataRemoval property value. Reserved for future use.
      * @return bool|null
     */
     public function getAllowDeletedIdentitiesDataRemoval(): ?bool {
@@ -58,8 +58,8 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowDeletedIdentitiesDataRemoval' => function (ParseNode $n) use ($o) { $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()); },
-            'allowExternalIdentitiesToLeave' => function (ParseNode $n) use ($o) { $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()); },
+            'allowDeletedIdentitiesDataRemoval' => fn(ParseNode $n) => $o->setAllowDeletedIdentitiesDataRemoval($n->getBooleanValue()),
+            'allowExternalIdentitiesToLeave' => fn(ParseNode $n) => $o->setAllowExternalIdentitiesToLeave($n->getBooleanValue()),
         ]);
     }
 
@@ -74,7 +74,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     }
 
     /**
-     * Sets the allowDeletedIdentitiesDataRemoval property value. Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
+     * Sets the allowDeletedIdentitiesDataRemoval property value. Reserved for future use.
      *  @param bool|null $value Value to set for the allowDeletedIdentitiesDataRemoval property.
     */
     public function setAllowDeletedIdentitiesDataRemoval(?bool $value ): void {

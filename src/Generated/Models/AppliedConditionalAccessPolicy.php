@@ -162,18 +162,18 @@ class AppliedConditionalAccessPolicy implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'authenticationStrength' => function (ParseNode $n) use ($o) { $o->setAuthenticationStrength($n->getObjectValue(array(AuthenticationStrength::class, 'createFromDiscriminatorValue'))); },
-            'conditionsNotSatisfied' => function (ParseNode $n) use ($o) { $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
-            'conditionsSatisfied' => function (ParseNode $n) use ($o) { $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'enforcedGrantControls' => function (ParseNode $n) use ($o) { $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()); },
-            'enforcedSessionControls' => function (ParseNode $n) use ($o) { $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()); },
-            'excludeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
-            'id' => function (ParseNode $n) use ($o) { $o->setId($n->getStringValue()); },
-            'includeRulesSatisfied' => function (ParseNode $n) use ($o) { $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues(array(ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'result' => function (ParseNode $n) use ($o) { $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)); },
-            'sessionControlsNotSatisfied' => function (ParseNode $n) use ($o) { $o->setSessionControlsNotSatisfied($n->getCollectionOfPrimitiveValues()); },
+            'authenticationStrength' => fn(ParseNode $n) => $o->setAuthenticationStrength($n->getObjectValue([AuthenticationStrength::class, 'createFromDiscriminatorValue'])),
+            'conditionsNotSatisfied' => fn(ParseNode $n) => $o->setConditionsNotSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
+            'conditionsSatisfied' => fn(ParseNode $n) => $o->setConditionsSatisfied($n->getEnumValue(ConditionalAccessConditions::class)),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'enforcedGrantControls' => fn(ParseNode $n) => $o->setEnforcedGrantControls($n->getCollectionOfPrimitiveValues()),
+            'enforcedSessionControls' => fn(ParseNode $n) => $o->setEnforcedSessionControls($n->getCollectionOfPrimitiveValues()),
+            'excludeRulesSatisfied' => fn(ParseNode $n) => $o->setExcludeRulesSatisfied($n->getCollectionOfObjectValues([ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'])),
+            'id' => fn(ParseNode $n) => $o->setId($n->getStringValue()),
+            'includeRulesSatisfied' => fn(ParseNode $n) => $o->setIncludeRulesSatisfied($n->getCollectionOfObjectValues([ConditionalAccessRuleSatisfied::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'result' => fn(ParseNode $n) => $o->setResult($n->getEnumValue(AppliedConditionalAccessPolicyResult::class)),
+            'sessionControlsNotSatisfied' => fn(ParseNode $n) => $o->setSessionControlsNotSatisfied($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

@@ -75,13 +75,13 @@ class AddContentHeaderAction extends InformationProtectionAction implements Pars
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'alignment' => function (ParseNode $n) use ($o) { $o->setAlignment($n->getEnumValue(ContentAlignment::class)); },
-            'fontColor' => function (ParseNode $n) use ($o) { $o->setFontColor($n->getStringValue()); },
-            'fontName' => function (ParseNode $n) use ($o) { $o->setFontName($n->getStringValue()); },
-            'fontSize' => function (ParseNode $n) use ($o) { $o->setFontSize($n->getIntegerValue()); },
-            'margin' => function (ParseNode $n) use ($o) { $o->setMargin($n->getIntegerValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
-            'uiElementName' => function (ParseNode $n) use ($o) { $o->setUiElementName($n->getStringValue()); },
+            'alignment' => fn(ParseNode $n) => $o->setAlignment($n->getEnumValue(ContentAlignment::class)),
+            'fontColor' => fn(ParseNode $n) => $o->setFontColor($n->getStringValue()),
+            'fontName' => fn(ParseNode $n) => $o->setFontName($n->getStringValue()),
+            'fontSize' => fn(ParseNode $n) => $o->setFontSize($n->getIntegerValue()),
+            'margin' => fn(ParseNode $n) => $o->setMargin($n->getIntegerValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
+            'uiElementName' => fn(ParseNode $n) => $o->setUiElementName($n->getStringValue()),
         ]);
     }
 

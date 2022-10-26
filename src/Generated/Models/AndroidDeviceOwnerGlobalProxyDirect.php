@@ -55,9 +55,9 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy 
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'excludedHosts' => function (ParseNode $n) use ($o) { $o->setExcludedHosts($n->getCollectionOfPrimitiveValues()); },
-            'host' => function (ParseNode $n) use ($o) { $o->setHost($n->getStringValue()); },
-            'port' => function (ParseNode $n) use ($o) { $o->setPort($n->getIntegerValue()); },
+            'excludedHosts' => fn(ParseNode $n) => $o->setExcludedHosts($n->getCollectionOfPrimitiveValues()),
+            'host' => fn(ParseNode $n) => $o->setHost($n->getStringValue()),
+            'port' => fn(ParseNode $n) => $o->setPort($n->getIntegerValue()),
         ]);
     }
 

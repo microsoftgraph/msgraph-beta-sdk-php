@@ -45,7 +45,7 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'durationInDays' => function (ParseNode $n) use ($o) { $o->setDurationInDays($n->getIntegerValue()); },
+            'durationInDays' => fn(ParseNode $n) => $o->setDurationInDays($n->getIntegerValue()),
         ]);
     }
 

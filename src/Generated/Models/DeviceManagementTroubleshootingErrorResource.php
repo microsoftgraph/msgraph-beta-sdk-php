@@ -61,9 +61,9 @@ class DeviceManagementTroubleshootingErrorResource implements AdditionalDataHold
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'link' => function (ParseNode $n) use ($o) { $o->setLink($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'text' => function (ParseNode $n) use ($o) { $o->setText($n->getStringValue()); },
+            'link' => fn(ParseNode $n) => $o->setLink($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'text' => fn(ParseNode $n) => $o->setText($n->getStringValue()),
         ];
     }
 

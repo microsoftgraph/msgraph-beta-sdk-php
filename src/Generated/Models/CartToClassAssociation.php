@@ -108,13 +108,13 @@ class CartToClassAssociation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'classroomIds' => function (ParseNode $n) use ($o) { $o->setClassroomIds($n->getCollectionOfPrimitiveValues()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'deviceCartIds' => function (ParseNode $n) use ($o) { $o->setDeviceCartIds($n->getCollectionOfPrimitiveValues()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'version' => function (ParseNode $n) use ($o) { $o->setVersion($n->getIntegerValue()); },
+            'classroomIds' => fn(ParseNode $n) => $o->setClassroomIds($n->getCollectionOfPrimitiveValues()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'deviceCartIds' => fn(ParseNode $n) => $o->setDeviceCartIds($n->getCollectionOfPrimitiveValues()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'version' => fn(ParseNode $n) => $o->setVersion($n->getIntegerValue()),
         ]);
     }
 

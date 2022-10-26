@@ -38,9 +38,9 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
 
     /**
      * Gets the content property value. The content property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getContent(): ?StreamInterface {
+    public function getContent(): StreamInterface {
         return $this->content;
     }
 
@@ -59,8 +59,8 @@ class OnenoteResource extends OnenoteEntityBaseModel implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getBinaryContent()); },
-            'contentUrl' => function (ParseNode $n) use ($o) { $o->setContentUrl($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getBinaryContent()),
+            'contentUrl' => fn(ParseNode $n) => $o->setContentUrl($n->getStringValue()),
         ]);
     }
 

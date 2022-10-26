@@ -86,12 +86,12 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection implements Parsa
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'check32BitOn64System' => function (ParseNode $n) use ($o) { $o->setCheck32BitOn64System($n->getBooleanValue()); },
-            'detectionType' => function (ParseNode $n) use ($o) { $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)); },
-            'detectionValue' => function (ParseNode $n) use ($o) { $o->setDetectionValue($n->getStringValue()); },
-            'keyPath' => function (ParseNode $n) use ($o) { $o->setKeyPath($n->getStringValue()); },
-            'operator' => function (ParseNode $n) use ($o) { $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)); },
-            'valueName' => function (ParseNode $n) use ($o) { $o->setValueName($n->getStringValue()); },
+            'check32BitOn64System' => fn(ParseNode $n) => $o->setCheck32BitOn64System($n->getBooleanValue()),
+            'detectionType' => fn(ParseNode $n) => $o->setDetectionType($n->getEnumValue(Win32LobAppRegistryDetectionType::class)),
+            'detectionValue' => fn(ParseNode $n) => $o->setDetectionValue($n->getStringValue()),
+            'keyPath' => fn(ParseNode $n) => $o->setKeyPath($n->getStringValue()),
+            'operator' => fn(ParseNode $n) => $o->setOperator($n->getEnumValue(Win32LobAppDetectionOperator::class)),
+            'valueName' => fn(ParseNode $n) => $o->setValueName($n->getStringValue()),
         ]);
     }
 

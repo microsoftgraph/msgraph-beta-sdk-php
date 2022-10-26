@@ -95,11 +95,11 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'assignmentMethod' => function (ParseNode $n) use ($o) { $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)); },
-            'downgradeJustification' => function (ParseNode $n) use ($o) { $o->setDowngradeJustification($n->getObjectValue(array(DowngradeJustification::class, 'createFromDiscriminatorValue'))); },
-            'extendedProperties' => function (ParseNode $n) use ($o) { $o->setExtendedProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'labelId' => function (ParseNode $n) use ($o) { $o->setLabelId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
+            'assignmentMethod' => fn(ParseNode $n) => $o->setAssignmentMethod($n->getEnumValue(AssignmentMethod::class)),
+            'downgradeJustification' => fn(ParseNode $n) => $o->setDowngradeJustification($n->getObjectValue([DowngradeJustification::class, 'createFromDiscriminatorValue'])),
+            'extendedProperties' => fn(ParseNode $n) => $o->setExtendedProperties($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'labelId' => fn(ParseNode $n) => $o->setLabelId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
         ];
     }
 

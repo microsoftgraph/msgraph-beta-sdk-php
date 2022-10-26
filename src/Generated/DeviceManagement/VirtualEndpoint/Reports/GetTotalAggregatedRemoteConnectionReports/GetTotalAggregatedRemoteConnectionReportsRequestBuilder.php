@@ -44,7 +44,7 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder
     }
 
     /**
-     * Invoke action getTotalAggregatedRemoteConnectionReports
+     * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body 
      * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -67,7 +67,7 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder
     }
 
     /**
-     * Invoke action getTotalAggregatedRemoteConnectionReports
+     * Get the total aggregated remote connection usage of a Cloud PC during a given time span.
      * @param GetTotalAggregatedRemoteConnectionReportsPostRequestBody $body 
      * @param GetTotalAggregatedRemoteConnectionReportsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -77,8 +77,8 @@ class GetTotalAggregatedRemoteConnectionReportsRequestBuilder
         $requestInfo = $this->createPostRequestInformation($body, $requestConfiguration);
         try {
             $errorMappings = [
-                    '4XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
-                    '5XX' => array(ODataError::class, 'createFromDiscriminatorValue'),
+                    '4XX' => [ODataError::class, 'createFromDiscriminatorValue'],
+                    '5XX' => [ODataError::class, 'createFromDiscriminatorValue'],
             ];
             return $this->requestAdapter->sendPrimitiveAsync($requestInfo, StreamInterface::class, $responseHandler, $errorMappings);
         } catch(Exception $ex) {

@@ -37,7 +37,7 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'implementations' => function (ParseNode $n) use ($o) { $o->setImplementations($n->getCollectionOfPrimitiveValues()); },
+            'implementations' => fn(ParseNode $n) => $o->setImplementations($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

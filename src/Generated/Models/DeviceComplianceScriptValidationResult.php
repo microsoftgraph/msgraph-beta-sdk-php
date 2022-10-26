@@ -66,10 +66,10 @@ class DeviceComplianceScriptValidationResult implements AdditionalDataHolder, Pa
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'ruleErrors' => function (ParseNode $n) use ($o) { $o->setRuleErrors($n->getCollectionOfObjectValues(array(DeviceComplianceScriptRuleError::class, 'createFromDiscriminatorValue'))); },
-            'rules' => function (ParseNode $n) use ($o) { $o->setRules($n->getCollectionOfObjectValues(array(DeviceComplianceScriptRule::class, 'createFromDiscriminatorValue'))); },
-            'scriptErrors' => function (ParseNode $n) use ($o) { $o->setScriptErrors($n->getCollectionOfObjectValues(array(DeviceComplianceScriptError::class, 'createFromDiscriminatorValue'))); },
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'ruleErrors' => fn(ParseNode $n) => $o->setRuleErrors($n->getCollectionOfObjectValues([DeviceComplianceScriptRuleError::class, 'createFromDiscriminatorValue'])),
+            'rules' => fn(ParseNode $n) => $o->setRules($n->getCollectionOfObjectValues([DeviceComplianceScriptRule::class, 'createFromDiscriminatorValue'])),
+            'scriptErrors' => fn(ParseNode $n) => $o->setScriptErrors($n->getCollectionOfObjectValues([DeviceComplianceScriptError::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

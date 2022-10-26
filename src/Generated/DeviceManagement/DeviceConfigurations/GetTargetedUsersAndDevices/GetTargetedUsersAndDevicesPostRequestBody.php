@@ -58,7 +58,7 @@ class GetTargetedUsersAndDevicesPostRequestBody implements AdditionalDataHolder,
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceConfigurationIds' => function (ParseNode $n) use ($o) { $o->setDeviceConfigurationIds($n->getCollectionOfPrimitiveValues()); },
+            'deviceConfigurationIds' => fn(ParseNode $n) => $o->setDeviceConfigurationIds($n->getCollectionOfPrimitiveValues()),
         ];
     }
 

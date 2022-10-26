@@ -58,7 +58,7 @@ class WipeManagedAppRegistrationsByAzureAdDeviceIdPostRequestBody implements Add
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'azureAdDeviceId' => function (ParseNode $n) use ($o) { $o->setAzureAdDeviceId($n->getStringValue()); },
+            'azureAdDeviceId' => fn(ParseNode $n) => $o->setAzureAdDeviceId($n->getStringValue()),
         ];
     }
 

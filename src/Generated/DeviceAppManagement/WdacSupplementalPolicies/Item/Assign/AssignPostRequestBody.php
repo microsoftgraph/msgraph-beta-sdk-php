@@ -51,7 +51,7 @@ class AssignPostRequestBody implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'wdacPolicyAssignments' => function (ParseNode $n) use ($o) { $o->setWdacPolicyAssignments($n->getCollectionOfObjectValues(array(WindowsDefenderApplicationControlSupplementalPolicyAssignment::class, 'createFromDiscriminatorValue'))); },
+            'wdacPolicyAssignments' => fn(ParseNode $n) => $o->setWdacPolicyAssignments($n->getCollectionOfObjectValues([WindowsDefenderApplicationControlSupplementalPolicyAssignment::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

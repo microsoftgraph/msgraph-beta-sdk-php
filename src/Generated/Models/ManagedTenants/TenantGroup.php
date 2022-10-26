@@ -74,11 +74,11 @@ class TenantGroup extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allTenantsIncluded' => function (ParseNode $n) use ($o) { $o->setAllTenantsIncluded($n->getBooleanValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'managementActions' => function (ParseNode $n) use ($o) { $o->setManagementActions($n->getCollectionOfObjectValues(array(ManagementActionInfo::class, 'createFromDiscriminatorValue'))); },
-            'managementIntents' => function (ParseNode $n) use ($o) { $o->setManagementIntents($n->getCollectionOfObjectValues(array(ManagementIntentInfo::class, 'createFromDiscriminatorValue'))); },
-            'tenantIds' => function (ParseNode $n) use ($o) { $o->setTenantIds($n->getCollectionOfPrimitiveValues()); },
+            'allTenantsIncluded' => fn(ParseNode $n) => $o->setAllTenantsIncluded($n->getBooleanValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'managementActions' => fn(ParseNode $n) => $o->setManagementActions($n->getCollectionOfObjectValues([ManagementActionInfo::class, 'createFromDiscriminatorValue'])),
+            'managementIntents' => fn(ParseNode $n) => $o->setManagementIntents($n->getCollectionOfObjectValues([ManagementIntentInfo::class, 'createFromDiscriminatorValue'])),
+            'tenantIds' => fn(ParseNode $n) => $o->setTenantIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 

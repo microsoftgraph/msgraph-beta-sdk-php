@@ -38,9 +38,9 @@ class StrongAuthenticationDetail extends Entity implements Parsable
 
     /**
      * Gets the encryptedPinHashHistory property value. The encryptedPinHashHistory property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getEncryptedPinHashHistory(): ?StreamInterface {
+    public function getEncryptedPinHashHistory(): StreamInterface {
         return $this->encryptedPinHashHistory;
     }
 
@@ -51,8 +51,8 @@ class StrongAuthenticationDetail extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'encryptedPinHashHistory' => function (ParseNode $n) use ($o) { $o->setEncryptedPinHashHistory($n->getBinaryContent()); },
-            'proofupTime' => function (ParseNode $n) use ($o) { $o->setProofupTime($n->getIntegerValue()); },
+            'encryptedPinHashHistory' => fn(ParseNode $n) => $o->setEncryptedPinHashHistory($n->getBinaryContent()),
+            'proofupTime' => fn(ParseNode $n) => $o->setProofupTime($n->getIntegerValue()),
         ]);
     }
 

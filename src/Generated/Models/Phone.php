@@ -61,9 +61,9 @@ class Phone implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'number' => function (ParseNode $n) use ($o) { $o->setNumber($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(PhoneType::class)); },
+            'number' => fn(ParseNode $n) => $o->setNumber($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(PhoneType::class)),
         ];
     }
 

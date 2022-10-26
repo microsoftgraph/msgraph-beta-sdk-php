@@ -101,15 +101,15 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'cloudIdentityScore' => function (ParseNode $n) use ($o) { $o->setCloudIdentityScore($n->getFloatValue()); },
-            'cloudManagementScore' => function (ParseNode $n) use ($o) { $o->setCloudManagementScore($n->getFloatValue()); },
-            'cloudProvisioningScore' => function (ParseNode $n) use ($o) { $o->setCloudProvisioningScore($n->getFloatValue()); },
-            'healthStatus' => function (ParseNode $n) use ($o) { $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)); },
-            'manufacturer' => function (ParseNode $n) use ($o) { $o->setManufacturer($n->getStringValue()); },
-            'model' => function (ParseNode $n) use ($o) { $o->setModel($n->getStringValue()); },
-            'modelDeviceCount' => function (ParseNode $n) use ($o) { $o->setModelDeviceCount($n->getIntegerValue()); },
-            'windowsScore' => function (ParseNode $n) use ($o) { $o->setWindowsScore($n->getFloatValue()); },
-            'workFromAnywhereScore' => function (ParseNode $n) use ($o) { $o->setWorkFromAnywhereScore($n->getFloatValue()); },
+            'cloudIdentityScore' => fn(ParseNode $n) => $o->setCloudIdentityScore($n->getFloatValue()),
+            'cloudManagementScore' => fn(ParseNode $n) => $o->setCloudManagementScore($n->getFloatValue()),
+            'cloudProvisioningScore' => fn(ParseNode $n) => $o->setCloudProvisioningScore($n->getFloatValue()),
+            'healthStatus' => fn(ParseNode $n) => $o->setHealthStatus($n->getEnumValue(UserExperienceAnalyticsHealthState::class)),
+            'manufacturer' => fn(ParseNode $n) => $o->setManufacturer($n->getStringValue()),
+            'model' => fn(ParseNode $n) => $o->setModel($n->getStringValue()),
+            'modelDeviceCount' => fn(ParseNode $n) => $o->setModelDeviceCount($n->getIntegerValue()),
+            'windowsScore' => fn(ParseNode $n) => $o->setWindowsScore($n->getFloatValue()),
+            'workFromAnywhereScore' => fn(ParseNode $n) => $o->setWorkFromAnywhereScore($n->getFloatValue()),
         ]);
     }
 

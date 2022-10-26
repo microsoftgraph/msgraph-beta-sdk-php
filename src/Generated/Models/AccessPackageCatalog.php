@@ -191,20 +191,20 @@ class AccessPackageCatalog extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'accessPackageResourceRoles' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues(array(AccessPackageResourceRole::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResources' => function (ParseNode $n) use ($o) { $o->setAccessPackageResources($n->getCollectionOfObjectValues(array(AccessPackageResource::class, 'createFromDiscriminatorValue'))); },
-            'accessPackageResourceScopes' => function (ParseNode $n) use ($o) { $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues(array(AccessPackageResourceScope::class, 'createFromDiscriminatorValue'))); },
-            'accessPackages' => function (ParseNode $n) use ($o) { $o->setAccessPackages($n->getCollectionOfObjectValues(array(AccessPackage::class, 'createFromDiscriminatorValue'))); },
-            'catalogStatus' => function (ParseNode $n) use ($o) { $o->setCatalogStatus($n->getStringValue()); },
-            'catalogType' => function (ParseNode $n) use ($o) { $o->setCatalogType($n->getStringValue()); },
-            'createdBy' => function (ParseNode $n) use ($o) { $o->setCreatedBy($n->getStringValue()); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'customAccessPackageWorkflowExtensions' => function (ParseNode $n) use ($o) { $o->setCustomAccessPackageWorkflowExtensions($n->getCollectionOfObjectValues(array(CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'))); },
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isExternallyVisible' => function (ParseNode $n) use ($o) { $o->setIsExternallyVisible($n->getBooleanValue()); },
-            'modifiedBy' => function (ParseNode $n) use ($o) { $o->setModifiedBy($n->getStringValue()); },
-            'modifiedDateTime' => function (ParseNode $n) use ($o) { $o->setModifiedDateTime($n->getDateTimeValue()); },
+            'accessPackageResourceRoles' => fn(ParseNode $n) => $o->setAccessPackageResourceRoles($n->getCollectionOfObjectValues([AccessPackageResourceRole::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResources' => fn(ParseNode $n) => $o->setAccessPackageResources($n->getCollectionOfObjectValues([AccessPackageResource::class, 'createFromDiscriminatorValue'])),
+            'accessPackageResourceScopes' => fn(ParseNode $n) => $o->setAccessPackageResourceScopes($n->getCollectionOfObjectValues([AccessPackageResourceScope::class, 'createFromDiscriminatorValue'])),
+            'accessPackages' => fn(ParseNode $n) => $o->setAccessPackages($n->getCollectionOfObjectValues([AccessPackage::class, 'createFromDiscriminatorValue'])),
+            'catalogStatus' => fn(ParseNode $n) => $o->setCatalogStatus($n->getStringValue()),
+            'catalogType' => fn(ParseNode $n) => $o->setCatalogType($n->getStringValue()),
+            'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getStringValue()),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'customAccessPackageWorkflowExtensions' => fn(ParseNode $n) => $o->setCustomAccessPackageWorkflowExtensions($n->getCollectionOfObjectValues([CustomAccessPackageWorkflowExtension::class, 'createFromDiscriminatorValue'])),
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isExternallyVisible' => fn(ParseNode $n) => $o->setIsExternallyVisible($n->getBooleanValue()),
+            'modifiedBy' => fn(ParseNode $n) => $o->setModifiedBy($n->getStringValue()),
+            'modifiedDateTime' => fn(ParseNode $n) => $o->setModifiedDateTime($n->getDateTimeValue()),
         ]);
     }
 

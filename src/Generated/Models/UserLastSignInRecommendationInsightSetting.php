@@ -43,8 +43,8 @@ class UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendat
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'recommendationLookBackDuration' => function (ParseNode $n) use ($o) { $o->setRecommendationLookBackDuration($n->getDateIntervalValue()); },
-            'signInScope' => function (ParseNode $n) use ($o) { $o->setSignInScope($n->getEnumValue(UserSignInRecommendationScope::class)); },
+            'recommendationLookBackDuration' => fn(ParseNode $n) => $o->setRecommendationLookBackDuration($n->getDateIntervalValue()),
+            'signInScope' => fn(ParseNode $n) => $o->setSignInScope($n->getEnumValue(UserSignInRecommendationScope::class)),
         ]);
     }
 

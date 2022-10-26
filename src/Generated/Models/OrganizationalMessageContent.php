@@ -66,10 +66,10 @@ class OrganizationalMessageContent implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'guidedContentId' => function (ParseNode $n) use ($o) { $o->setGuidedContentId($n->getStringValue()); },
-            'logoInfo' => function (ParseNode $n) use ($o) { $o->setLogoInfo($n->getObjectValue(array(OrganizationalMessageLogo::class, 'createFromDiscriminatorValue'))); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'placementDetails' => function (ParseNode $n) use ($o) { $o->setPlacementDetails($n->getCollectionOfObjectValues(array(OrganizationalMessagePlacementDetail::class, 'createFromDiscriminatorValue'))); },
+            'guidedContentId' => fn(ParseNode $n) => $o->setGuidedContentId($n->getStringValue()),
+            'logoInfo' => fn(ParseNode $n) => $o->setLogoInfo($n->getObjectValue([OrganizationalMessageLogo::class, 'createFromDiscriminatorValue'])),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'placementDetails' => fn(ParseNode $n) => $o->setPlacementDetails($n->getCollectionOfObjectValues([OrganizationalMessagePlacementDetail::class, 'createFromDiscriminatorValue'])),
         ];
     }
 

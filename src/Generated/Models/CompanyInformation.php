@@ -143,18 +143,18 @@ class CompanyInformation extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'address' => function (ParseNode $n) use ($o) { $o->setAddress($n->getObjectValue(array(PostalAddressType::class, 'createFromDiscriminatorValue'))); },
-            'currencyCode' => function (ParseNode $n) use ($o) { $o->setCurrencyCode($n->getStringValue()); },
-            'currentFiscalYearStartDate' => function (ParseNode $n) use ($o) { $o->setCurrentFiscalYearStartDate($n->getDateValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'email' => function (ParseNode $n) use ($o) { $o->setEmail($n->getStringValue()); },
-            'faxNumber' => function (ParseNode $n) use ($o) { $o->setFaxNumber($n->getStringValue()); },
-            'industry' => function (ParseNode $n) use ($o) { $o->setIndustry($n->getStringValue()); },
-            'lastModifiedDateTime' => function (ParseNode $n) use ($o) { $o->setLastModifiedDateTime($n->getDateTimeValue()); },
-            'phoneNumber' => function (ParseNode $n) use ($o) { $o->setPhoneNumber($n->getStringValue()); },
-            'picture' => function (ParseNode $n) use ($o) { $o->setPicture($n->getBinaryContent()); },
-            'taxRegistrationNumber' => function (ParseNode $n) use ($o) { $o->setTaxRegistrationNumber($n->getStringValue()); },
-            'website' => function (ParseNode $n) use ($o) { $o->setWebsite($n->getStringValue()); },
+            'address' => fn(ParseNode $n) => $o->setAddress($n->getObjectValue([PostalAddressType::class, 'createFromDiscriminatorValue'])),
+            'currencyCode' => fn(ParseNode $n) => $o->setCurrencyCode($n->getStringValue()),
+            'currentFiscalYearStartDate' => fn(ParseNode $n) => $o->setCurrentFiscalYearStartDate($n->getDateValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'email' => fn(ParseNode $n) => $o->setEmail($n->getStringValue()),
+            'faxNumber' => fn(ParseNode $n) => $o->setFaxNumber($n->getStringValue()),
+            'industry' => fn(ParseNode $n) => $o->setIndustry($n->getStringValue()),
+            'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
+            'phoneNumber' => fn(ParseNode $n) => $o->setPhoneNumber($n->getStringValue()),
+            'picture' => fn(ParseNode $n) => $o->setPicture($n->getBinaryContent()),
+            'taxRegistrationNumber' => fn(ParseNode $n) => $o->setTaxRegistrationNumber($n->getStringValue()),
+            'website' => fn(ParseNode $n) => $o->setWebsite($n->getStringValue()),
         ]);
     }
 
@@ -184,9 +184,9 @@ class CompanyInformation extends Entity implements Parsable
 
     /**
      * Gets the picture property value. The picture property
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getPicture(): ?StreamInterface {
+    public function getPicture(): StreamInterface {
         return $this->picture;
     }
 

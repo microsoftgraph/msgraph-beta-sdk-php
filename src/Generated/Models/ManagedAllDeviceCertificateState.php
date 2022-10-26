@@ -173,18 +173,18 @@ class ManagedAllDeviceCertificateState extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'certificateExpirationDateTime' => function (ParseNode $n) use ($o) { $o->setCertificateExpirationDateTime($n->getDateTimeValue()); },
-            'certificateExtendedKeyUsages' => function (ParseNode $n) use ($o) { $o->setCertificateExtendedKeyUsages($n->getStringValue()); },
-            'certificateIssuanceDateTime' => function (ParseNode $n) use ($o) { $o->setCertificateIssuanceDateTime($n->getDateTimeValue()); },
-            'certificateIssuerName' => function (ParseNode $n) use ($o) { $o->setCertificateIssuerName($n->getStringValue()); },
-            'certificateKeyUsages' => function (ParseNode $n) use ($o) { $o->setCertificateKeyUsages($n->getIntegerValue()); },
-            'certificateRevokeStatus' => function (ParseNode $n) use ($o) { $o->setCertificateRevokeStatus($n->getEnumValue(CertificateRevocationStatus::class)); },
-            'certificateRevokeStatusLastChangeDateTime' => function (ParseNode $n) use ($o) { $o->setCertificateRevokeStatusLastChangeDateTime($n->getDateTimeValue()); },
-            'certificateSerialNumber' => function (ParseNode $n) use ($o) { $o->setCertificateSerialNumber($n->getStringValue()); },
-            'certificateSubjectName' => function (ParseNode $n) use ($o) { $o->setCertificateSubjectName($n->getStringValue()); },
-            'certificateThumbprint' => function (ParseNode $n) use ($o) { $o->setCertificateThumbprint($n->getStringValue()); },
-            'managedDeviceDisplayName' => function (ParseNode $n) use ($o) { $o->setManagedDeviceDisplayName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'certificateExpirationDateTime' => fn(ParseNode $n) => $o->setCertificateExpirationDateTime($n->getDateTimeValue()),
+            'certificateExtendedKeyUsages' => fn(ParseNode $n) => $o->setCertificateExtendedKeyUsages($n->getStringValue()),
+            'certificateIssuanceDateTime' => fn(ParseNode $n) => $o->setCertificateIssuanceDateTime($n->getDateTimeValue()),
+            'certificateIssuerName' => fn(ParseNode $n) => $o->setCertificateIssuerName($n->getStringValue()),
+            'certificateKeyUsages' => fn(ParseNode $n) => $o->setCertificateKeyUsages($n->getIntegerValue()),
+            'certificateRevokeStatus' => fn(ParseNode $n) => $o->setCertificateRevokeStatus($n->getEnumValue(CertificateRevocationStatus::class)),
+            'certificateRevokeStatusLastChangeDateTime' => fn(ParseNode $n) => $o->setCertificateRevokeStatusLastChangeDateTime($n->getDateTimeValue()),
+            'certificateSerialNumber' => fn(ParseNode $n) => $o->setCertificateSerialNumber($n->getStringValue()),
+            'certificateSubjectName' => fn(ParseNode $n) => $o->setCertificateSubjectName($n->getStringValue()),
+            'certificateThumbprint' => fn(ParseNode $n) => $o->setCertificateThumbprint($n->getStringValue()),
+            'managedDeviceDisplayName' => fn(ParseNode $n) => $o->setManagedDeviceDisplayName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

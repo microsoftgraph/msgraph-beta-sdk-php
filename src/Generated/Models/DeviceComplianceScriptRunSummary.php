@@ -74,11 +74,11 @@ class DeviceComplianceScriptRunSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'detectionScriptErrorDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()); },
-            'detectionScriptPendingDeviceCount' => function (ParseNode $n) use ($o) { $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()); },
-            'issueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setIssueDetectedDeviceCount($n->getIntegerValue()); },
-            'lastScriptRunDateTime' => function (ParseNode $n) use ($o) { $o->setLastScriptRunDateTime($n->getDateTimeValue()); },
-            'noIssueDetectedDeviceCount' => function (ParseNode $n) use ($o) { $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()); },
+            'detectionScriptErrorDeviceCount' => fn(ParseNode $n) => $o->setDetectionScriptErrorDeviceCount($n->getIntegerValue()),
+            'detectionScriptPendingDeviceCount' => fn(ParseNode $n) => $o->setDetectionScriptPendingDeviceCount($n->getIntegerValue()),
+            'issueDetectedDeviceCount' => fn(ParseNode $n) => $o->setIssueDetectedDeviceCount($n->getIntegerValue()),
+            'lastScriptRunDateTime' => fn(ParseNode $n) => $o->setLastScriptRunDateTime($n->getDateTimeValue()),
+            'noIssueDetectedDeviceCount' => fn(ParseNode $n) => $o->setNoIssueDetectedDeviceCount($n->getIntegerValue()),
         ]);
     }
 

@@ -37,7 +37,7 @@ class EdgeHomeButtonOpensCustomURL extends EdgeHomeButtonConfiguration implement
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'homeButtonCustomURL' => function (ParseNode $n) use ($o) { $o->setHomeButtonCustomURL($n->getStringValue()); },
+            'homeButtonCustomURL' => fn(ParseNode $n) => $o->setHomeButtonCustomURL($n->getStringValue()),
         ]);
     }
 

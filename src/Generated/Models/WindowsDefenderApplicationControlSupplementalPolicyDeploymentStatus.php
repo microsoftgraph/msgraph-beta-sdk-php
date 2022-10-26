@@ -107,16 +107,16 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'deploymentStatus' => function (ParseNode $n) use ($o) { $o->setDeploymentStatus($n->getEnumValue(WindowsDefenderApplicationControlSupplementalPolicyStatuses::class)); },
-            'deviceId' => function (ParseNode $n) use ($o) { $o->setDeviceId($n->getStringValue()); },
-            'deviceName' => function (ParseNode $n) use ($o) { $o->setDeviceName($n->getStringValue()); },
-            'lastSyncDateTime' => function (ParseNode $n) use ($o) { $o->setLastSyncDateTime($n->getDateTimeValue()); },
-            'osDescription' => function (ParseNode $n) use ($o) { $o->setOsDescription($n->getStringValue()); },
-            'osVersion' => function (ParseNode $n) use ($o) { $o->setOsVersion($n->getStringValue()); },
-            'policy' => function (ParseNode $n) use ($o) { $o->setPolicy($n->getObjectValue(array(WindowsDefenderApplicationControlSupplementalPolicy::class, 'createFromDiscriminatorValue'))); },
-            'policyVersion' => function (ParseNode $n) use ($o) { $o->setPolicyVersion($n->getStringValue()); },
-            'userName' => function (ParseNode $n) use ($o) { $o->setUserName($n->getStringValue()); },
-            'userPrincipalName' => function (ParseNode $n) use ($o) { $o->setUserPrincipalName($n->getStringValue()); },
+            'deploymentStatus' => fn(ParseNode $n) => $o->setDeploymentStatus($n->getEnumValue(WindowsDefenderApplicationControlSupplementalPolicyStatuses::class)),
+            'deviceId' => fn(ParseNode $n) => $o->setDeviceId($n->getStringValue()),
+            'deviceName' => fn(ParseNode $n) => $o->setDeviceName($n->getStringValue()),
+            'lastSyncDateTime' => fn(ParseNode $n) => $o->setLastSyncDateTime($n->getDateTimeValue()),
+            'osDescription' => fn(ParseNode $n) => $o->setOsDescription($n->getStringValue()),
+            'osVersion' => fn(ParseNode $n) => $o->setOsVersion($n->getStringValue()),
+            'policy' => fn(ParseNode $n) => $o->setPolicy($n->getObjectValue([WindowsDefenderApplicationControlSupplementalPolicy::class, 'createFromDiscriminatorValue'])),
+            'policyVersion' => fn(ParseNode $n) => $o->setPolicyVersion($n->getStringValue()),
+            'userName' => fn(ParseNode $n) => $o->setUserName($n->getStringValue()),
+            'userPrincipalName' => fn(ParseNode $n) => $o->setUserPrincipalName($n->getStringValue()),
         ]);
     }
 

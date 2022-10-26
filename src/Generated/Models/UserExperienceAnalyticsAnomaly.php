@@ -178,19 +178,19 @@ class UserExperienceAnalyticsAnomaly extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'anomalyFirstOccurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setAnomalyFirstOccurrenceDateTime($n->getDateTimeValue()); },
-            'anomalyId' => function (ParseNode $n) use ($o) { $o->setAnomalyId($n->getStringValue()); },
-            'anomalyLatestOccurrenceDateTime' => function (ParseNode $n) use ($o) { $o->setAnomalyLatestOccurrenceDateTime($n->getDateTimeValue()); },
-            'anomalyName' => function (ParseNode $n) use ($o) { $o->setAnomalyName($n->getStringValue()); },
-            'anomalyType' => function (ParseNode $n) use ($o) { $o->setAnomalyType($n->getEnumValue(UserExperienceAnalyticsAnomalyType::class)); },
-            'assetName' => function (ParseNode $n) use ($o) { $o->setAssetName($n->getStringValue()); },
-            'assetPublisher' => function (ParseNode $n) use ($o) { $o->setAssetPublisher($n->getStringValue()); },
-            'assetVersion' => function (ParseNode $n) use ($o) { $o->setAssetVersion($n->getStringValue()); },
-            'detectionModelId' => function (ParseNode $n) use ($o) { $o->setDetectionModelId($n->getStringValue()); },
-            'deviceImpactedCount' => function (ParseNode $n) use ($o) { $o->setDeviceImpactedCount($n->getIntegerValue()); },
-            'issueId' => function (ParseNode $n) use ($o) { $o->setIssueId($n->getStringValue()); },
-            'severity' => function (ParseNode $n) use ($o) { $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsAnomalySeverity::class)); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getEnumValue(UserExperienceAnalyticsAnomalyState::class)); },
+            'anomalyFirstOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyFirstOccurrenceDateTime($n->getDateTimeValue()),
+            'anomalyId' => fn(ParseNode $n) => $o->setAnomalyId($n->getStringValue()),
+            'anomalyLatestOccurrenceDateTime' => fn(ParseNode $n) => $o->setAnomalyLatestOccurrenceDateTime($n->getDateTimeValue()),
+            'anomalyName' => fn(ParseNode $n) => $o->setAnomalyName($n->getStringValue()),
+            'anomalyType' => fn(ParseNode $n) => $o->setAnomalyType($n->getEnumValue(UserExperienceAnalyticsAnomalyType::class)),
+            'assetName' => fn(ParseNode $n) => $o->setAssetName($n->getStringValue()),
+            'assetPublisher' => fn(ParseNode $n) => $o->setAssetPublisher($n->getStringValue()),
+            'assetVersion' => fn(ParseNode $n) => $o->setAssetVersion($n->getStringValue()),
+            'detectionModelId' => fn(ParseNode $n) => $o->setDetectionModelId($n->getStringValue()),
+            'deviceImpactedCount' => fn(ParseNode $n) => $o->setDeviceImpactedCount($n->getIntegerValue()),
+            'issueId' => fn(ParseNode $n) => $o->setIssueId($n->getStringValue()),
+            'severity' => fn(ParseNode $n) => $o->setSeverity($n->getEnumValue(UserExperienceAnalyticsAnomalySeverity::class)),
+            'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(UserExperienceAnalyticsAnomalyState::class)),
         ]);
     }
 

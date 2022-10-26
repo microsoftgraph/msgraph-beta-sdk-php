@@ -82,10 +82,10 @@ class IosBookmark implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'bookmarkFolder' => function (ParseNode $n) use ($o) { $o->setBookmarkFolder($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'url' => function (ParseNode $n) use ($o) { $o->setUrl($n->getStringValue()); },
+            'bookmarkFolder' => fn(ParseNode $n) => $o->setBookmarkFolder($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'url' => fn(ParseNode $n) => $o->setUrl($n->getStringValue()),
         ];
     }
 

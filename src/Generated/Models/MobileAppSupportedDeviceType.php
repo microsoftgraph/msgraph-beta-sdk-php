@@ -66,10 +66,10 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'maximumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMaximumOperatingSystemVersion($n->getStringValue()); },
-            'minimumOperatingSystemVersion' => function (ParseNode $n) use ($o) { $o->setMinimumOperatingSystemVersion($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getEnumValue(DeviceType::class)); },
+            'maximumOperatingSystemVersion' => fn(ParseNode $n) => $o->setMaximumOperatingSystemVersion($n->getStringValue()),
+            'minimumOperatingSystemVersion' => fn(ParseNode $n) => $o->setMinimumOperatingSystemVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getEnumValue(DeviceType::class)),
         ];
     }
 

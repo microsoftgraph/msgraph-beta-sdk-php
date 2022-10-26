@@ -50,8 +50,8 @@ class DocumentCommentReply extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'content' => function (ParseNode $n) use ($o) { $o->setContent($n->getStringValue()); },
-            'location' => function (ParseNode $n) use ($o) { $o->setLocation($n->getStringValue()); },
+            'content' => fn(ParseNode $n) => $o->setContent($n->getStringValue()),
+            'location' => fn(ParseNode $n) => $o->setLocation($n->getStringValue()),
         ]);
     }
 

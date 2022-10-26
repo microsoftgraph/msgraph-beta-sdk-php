@@ -82,10 +82,10 @@ class TeamworkSoftwareUpdateStatus implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'availableVersion' => function (ParseNode $n) use ($o) { $o->setAvailableVersion($n->getStringValue()); },
-            'currentVersion' => function (ParseNode $n) use ($o) { $o->setCurrentVersion($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'softwareFreshness' => function (ParseNode $n) use ($o) { $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)); },
+            'availableVersion' => fn(ParseNode $n) => $o->setAvailableVersion($n->getStringValue()),
+            'currentVersion' => fn(ParseNode $n) => $o->setCurrentVersion($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'softwareFreshness' => fn(ParseNode $n) => $o->setSoftwareFreshness($n->getEnumValue(TeamworkSoftwareFreshness::class)),
         ];
     }
 

@@ -51,9 +51,9 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
 
     /**
      * Gets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getCustomXml(): ?StreamInterface {
+    public function getCustomXml(): StreamInterface {
         return $this->customXml;
     }
 
@@ -72,9 +72,9 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'authenticationCertificateId' => function (ParseNode $n) use ($o) { $o->setAuthenticationCertificateId($n->getStringValue()); },
-            'customXml' => function (ParseNode $n) use ($o) { $o->setCustomXml($n->getBinaryContent()); },
-            'customXmlFileName' => function (ParseNode $n) use ($o) { $o->setCustomXmlFileName($n->getStringValue()); },
+            'authenticationCertificateId' => fn(ParseNode $n) => $o->setAuthenticationCertificateId($n->getStringValue()),
+            'customXml' => fn(ParseNode $n) => $o->setCustomXml($n->getBinaryContent()),
+            'customXmlFileName' => fn(ParseNode $n) => $o->setCustomXmlFileName($n->getStringValue()),
         ]);
     }
 

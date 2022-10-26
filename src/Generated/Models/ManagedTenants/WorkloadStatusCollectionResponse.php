@@ -37,7 +37,7 @@ class WorkloadStatusCollectionResponse extends BaseCollectionPaginationCountResp
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'value' => function (ParseNode $n) use ($o) { $o->setValue($n->getCollectionOfObjectValues(array(WorkloadStatus::class, 'createFromDiscriminatorValue'))); },
+            'value' => fn(ParseNode $n) => $o->setValue($n->getCollectionOfObjectValues([WorkloadStatus::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 

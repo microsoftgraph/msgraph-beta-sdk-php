@@ -14,7 +14,7 @@ class BookingNamedEntity extends Entity implements Parsable
     private ?string $displayName = null;
     
     /**
-     * Instantiates a new bookingNamedEntity and sets the default values.
+     * Instantiates a new BookingNamedEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -56,7 +56,7 @@ class BookingNamedEntity extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
         ]);
     }
 

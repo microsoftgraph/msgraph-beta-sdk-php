@@ -50,8 +50,8 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'contentProperties' => function (ParseNode $n) use ($o) { $o->setContentProperties($n->getObjectValue(array(ContentProperties::class, 'createFromDiscriminatorValue'))); },
-            'sharedBy' => function (ParseNode $n) use ($o) { $o->setSharedBy($n->getStringValue()); },
+            'contentProperties' => fn(ParseNode $n) => $o->setContentProperties($n->getObjectValue([ContentProperties::class, 'createFromDiscriminatorValue'])),
+            'sharedBy' => fn(ParseNode $n) => $o->setSharedBy($n->getStringValue()),
         ]);
     }
 

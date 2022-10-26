@@ -37,7 +37,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity implements Par
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'status' => function (ParseNode $n) use ($o) { $o->setStatus($n->getBooleanValue()); },
+            'status' => fn(ParseNode $n) => $o->setStatus($n->getBooleanValue()),
         ]);
     }
 

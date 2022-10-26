@@ -35,7 +35,7 @@ class PrinterShare extends PrinterBase implements Parsable
     private ?Printer $printer = null;
     
     /**
-     * @var PrinterShareViewpoint|null $viewPoint The viewPoint property
+     * @var PrinterShareViewpoint|null $viewPoint Additional data for a printer share as viewed by the signed-in user.
     */
     private ?PrinterShareViewpoint $viewPoint = null;
     
@@ -95,12 +95,12 @@ class PrinterShare extends PrinterBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowAllUsers' => function (ParseNode $n) use ($o) { $o->setAllowAllUsers($n->getBooleanValue()); },
-            'allowedGroups' => function (ParseNode $n) use ($o) { $o->setAllowedGroups($n->getCollectionOfObjectValues(array(Group::class, 'createFromDiscriminatorValue'))); },
-            'allowedUsers' => function (ParseNode $n) use ($o) { $o->setAllowedUsers($n->getCollectionOfObjectValues(array(User::class, 'createFromDiscriminatorValue'))); },
-            'createdDateTime' => function (ParseNode $n) use ($o) { $o->setCreatedDateTime($n->getDateTimeValue()); },
-            'printer' => function (ParseNode $n) use ($o) { $o->setPrinter($n->getObjectValue(array(Printer::class, 'createFromDiscriminatorValue'))); },
-            'viewPoint' => function (ParseNode $n) use ($o) { $o->setViewPoint($n->getObjectValue(array(PrinterShareViewpoint::class, 'createFromDiscriminatorValue'))); },
+            'allowAllUsers' => fn(ParseNode $n) => $o->setAllowAllUsers($n->getBooleanValue()),
+            'allowedGroups' => fn(ParseNode $n) => $o->setAllowedGroups($n->getCollectionOfObjectValues([Group::class, 'createFromDiscriminatorValue'])),
+            'allowedUsers' => fn(ParseNode $n) => $o->setAllowedUsers($n->getCollectionOfObjectValues([User::class, 'createFromDiscriminatorValue'])),
+            'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'printer' => fn(ParseNode $n) => $o->setPrinter($n->getObjectValue([Printer::class, 'createFromDiscriminatorValue'])),
+            'viewPoint' => fn(ParseNode $n) => $o->setViewPoint($n->getObjectValue([PrinterShareViewpoint::class, 'createFromDiscriminatorValue'])),
         ]);
     }
 
@@ -113,7 +113,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Gets the viewPoint property value. The viewPoint property
+     * Gets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
      * @return PrinterShareViewpoint|null
     */
     public function getViewPoint(): ?PrinterShareViewpoint {
@@ -175,7 +175,7 @@ class PrinterShare extends PrinterBase implements Parsable
     }
 
     /**
-     * Sets the viewPoint property value. The viewPoint property
+     * Sets the viewPoint property value. Additional data for a printer share as viewed by the signed-in user.
      *  @param PrinterShareViewpoint|null $value Value to set for the viewPoint property.
     */
     public function setViewPoint(?PrinterShareViewpoint $value ): void {

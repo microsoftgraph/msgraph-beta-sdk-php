@@ -105,12 +105,12 @@ class OmaSetting implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'description' => function (ParseNode $n) use ($o) { $o->setDescription($n->getStringValue()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'isEncrypted' => function (ParseNode $n) use ($o) { $o->setIsEncrypted($n->getBooleanValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'omaUri' => function (ParseNode $n) use ($o) { $o->setOmaUri($n->getStringValue()); },
-            'secretReferenceValueId' => function (ParseNode $n) use ($o) { $o->setSecretReferenceValueId($n->getStringValue()); },
+            'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'isEncrypted' => fn(ParseNode $n) => $o->setIsEncrypted($n->getBooleanValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'omaUri' => fn(ParseNode $n) => $o->setOmaUri($n->getStringValue()),
+            'secretReferenceValueId' => fn(ParseNode $n) => $o->setSecretReferenceValueId($n->getStringValue()),
         ];
     }
 

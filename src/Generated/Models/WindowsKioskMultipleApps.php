@@ -82,11 +82,11 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'allowAccessToDownloadsFolder' => function (ParseNode $n) use ($o) { $o->setAllowAccessToDownloadsFolder($n->getBooleanValue()); },
-            'apps' => function (ParseNode $n) use ($o) { $o->setApps($n->getCollectionOfObjectValues(array(WindowsKioskAppBase::class, 'createFromDiscriminatorValue'))); },
-            'disallowDesktopApps' => function (ParseNode $n) use ($o) { $o->setDisallowDesktopApps($n->getBooleanValue()); },
-            'showTaskBar' => function (ParseNode $n) use ($o) { $o->setShowTaskBar($n->getBooleanValue()); },
-            'startMenuLayoutXml' => function (ParseNode $n) use ($o) { $o->setStartMenuLayoutXml($n->getBinaryContent()); },
+            'allowAccessToDownloadsFolder' => fn(ParseNode $n) => $o->setAllowAccessToDownloadsFolder($n->getBooleanValue()),
+            'apps' => fn(ParseNode $n) => $o->setApps($n->getCollectionOfObjectValues([WindowsKioskAppBase::class, 'createFromDiscriminatorValue'])),
+            'disallowDesktopApps' => fn(ParseNode $n) => $o->setDisallowDesktopApps($n->getBooleanValue()),
+            'showTaskBar' => fn(ParseNode $n) => $o->setShowTaskBar($n->getBooleanValue()),
+            'startMenuLayoutXml' => fn(ParseNode $n) => $o->setStartMenuLayoutXml($n->getBinaryContent()),
         ]);
     }
 
@@ -100,9 +100,9 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
 
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getStartMenuLayoutXml(): ?StreamInterface {
+    public function getStartMenuLayoutXml(): StreamInterface {
         return $this->startMenuLayoutXml;
     }
 

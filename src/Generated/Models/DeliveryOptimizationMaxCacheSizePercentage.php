@@ -37,7 +37,7 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'maximumCacheSizePercentage' => function (ParseNode $n) use ($o) { $o->setMaximumCacheSizePercentage($n->getIntegerValue()); },
+            'maximumCacheSizePercentage' => fn(ParseNode $n) => $o->setMaximumCacheSizePercentage($n->getIntegerValue()),
         ]);
     }
 

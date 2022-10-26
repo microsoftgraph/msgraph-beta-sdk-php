@@ -42,8 +42,8 @@ class ExactMatchLookupJob extends ExactMatchJobBase implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'matchingRows' => function (ParseNode $n) use ($o) { $o->setMatchingRows($n->getCollectionOfObjectValues(array(LookupResultRow::class, 'createFromDiscriminatorValue'))); },
-            'state' => function (ParseNode $n) use ($o) { $o->setState($n->getStringValue()); },
+            'matchingRows' => fn(ParseNode $n) => $o->setMatchingRows($n->getCollectionOfObjectValues([LookupResultRow::class, 'createFromDiscriminatorValue'])),
+            'state' => fn(ParseNode $n) => $o->setState($n->getStringValue()),
         ]);
     }
 

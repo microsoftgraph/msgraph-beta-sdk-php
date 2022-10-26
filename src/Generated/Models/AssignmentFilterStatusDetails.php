@@ -92,12 +92,12 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'deviceProperties' => function (ParseNode $n) use ($o) { $o->setDeviceProperties($n->getCollectionOfObjectValues(array(KeyValuePair::class, 'createFromDiscriminatorValue'))); },
-            'evalutionSummaries' => function (ParseNode $n) use ($o) { $o->setEvalutionSummaries($n->getCollectionOfObjectValues(array(AssignmentFilterEvaluationSummary::class, 'createFromDiscriminatorValue'))); },
-            'managedDeviceId' => function (ParseNode $n) use ($o) { $o->setManagedDeviceId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'payloadId' => function (ParseNode $n) use ($o) { $o->setPayloadId($n->getStringValue()); },
-            'userId' => function (ParseNode $n) use ($o) { $o->setUserId($n->getStringValue()); },
+            'deviceProperties' => fn(ParseNode $n) => $o->setDeviceProperties($n->getCollectionOfObjectValues([KeyValuePair::class, 'createFromDiscriminatorValue'])),
+            'evalutionSummaries' => fn(ParseNode $n) => $o->setEvalutionSummaries($n->getCollectionOfObjectValues([AssignmentFilterEvaluationSummary::class, 'createFromDiscriminatorValue'])),
+            'managedDeviceId' => fn(ParseNode $n) => $o->setManagedDeviceId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'payloadId' => fn(ParseNode $n) => $o->setPayloadId($n->getStringValue()),
+            'userId' => fn(ParseNode $n) => $o->setUserId($n->getStringValue()),
         ];
     }
 

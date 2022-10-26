@@ -45,7 +45,7 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'gracePeriodInMinutes' => function (ParseNode $n) use ($o) { $o->setGracePeriodInMinutes($n->getIntegerValue()); },
+            'gracePeriodInMinutes' => fn(ParseNode $n) => $o->setGracePeriodInMinutes($n->getIntegerValue()),
         ]);
     }
 

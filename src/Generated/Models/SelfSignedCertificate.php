@@ -93,9 +93,9 @@ class SelfSignedCertificate implements AdditionalDataHolder, Parsable
 
     /**
      * Gets the customKeyIdentifier property value. Custom key identifier.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getCustomKeyIdentifier(): ?StreamInterface {
+    public function getCustomKeyIdentifier(): StreamInterface {
         return $this->customKeyIdentifier;
     }
 
@@ -122,24 +122,24 @@ class SelfSignedCertificate implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'customKeyIdentifier' => function (ParseNode $n) use ($o) { $o->setCustomKeyIdentifier($n->getBinaryContent()); },
-            'displayName' => function (ParseNode $n) use ($o) { $o->setDisplayName($n->getStringValue()); },
-            'endDateTime' => function (ParseNode $n) use ($o) { $o->setEndDateTime($n->getDateTimeValue()); },
-            'key' => function (ParseNode $n) use ($o) { $o->setKey($n->getBinaryContent()); },
-            'keyId' => function (ParseNode $n) use ($o) { $o->setKeyId($n->getStringValue()); },
-            '@odata.type' => function (ParseNode $n) use ($o) { $o->setOdataType($n->getStringValue()); },
-            'startDateTime' => function (ParseNode $n) use ($o) { $o->setStartDateTime($n->getDateTimeValue()); },
-            'thumbprint' => function (ParseNode $n) use ($o) { $o->setThumbprint($n->getStringValue()); },
-            'type' => function (ParseNode $n) use ($o) { $o->setType($n->getStringValue()); },
-            'usage' => function (ParseNode $n) use ($o) { $o->setUsage($n->getStringValue()); },
+            'customKeyIdentifier' => fn(ParseNode $n) => $o->setCustomKeyIdentifier($n->getBinaryContent()),
+            'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'endDateTime' => fn(ParseNode $n) => $o->setEndDateTime($n->getDateTimeValue()),
+            'key' => fn(ParseNode $n) => $o->setKey($n->getBinaryContent()),
+            'keyId' => fn(ParseNode $n) => $o->setKeyId($n->getStringValue()),
+            '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'startDateTime' => fn(ParseNode $n) => $o->setStartDateTime($n->getDateTimeValue()),
+            'thumbprint' => fn(ParseNode $n) => $o->setThumbprint($n->getStringValue()),
+            'type' => fn(ParseNode $n) => $o->setType($n->getStringValue()),
+            'usage' => fn(ParseNode $n) => $o->setUsage($n->getStringValue()),
         ];
     }
 
     /**
      * Gets the key property value. The value for the key credential. Should be a base-64 encoded value.
-     * @return StreamInterface|null
+     * @return StreamInterface
     */
-    public function getKey(): ?StreamInterface {
+    public function getKey(): StreamInterface {
         return $this->key;
     }
 

@@ -47,9 +47,9 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
-            'healthyDeviceCount' => function (ParseNode $n) use ($o) { $o->setHealthyDeviceCount($n->getIntegerValue()); },
-            'unhealthyDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnhealthyDeviceCount($n->getIntegerValue()); },
-            'unknownDeviceCount' => function (ParseNode $n) use ($o) { $o->setUnknownDeviceCount($n->getIntegerValue()); },
+            'healthyDeviceCount' => fn(ParseNode $n) => $o->setHealthyDeviceCount($n->getIntegerValue()),
+            'unhealthyDeviceCount' => fn(ParseNode $n) => $o->setUnhealthyDeviceCount($n->getIntegerValue()),
+            'unknownDeviceCount' => fn(ParseNode $n) => $o->setUnknownDeviceCount($n->getIntegerValue()),
         ]);
     }
 
