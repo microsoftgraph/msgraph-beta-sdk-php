@@ -44,7 +44,7 @@ class AospDeviceOwnerCertificateProfileBase extends DeviceConfiguration implemen
     private ?SubjectNameFormat $subjectNameFormat = null;
     
     /**
-     * Instantiates a new aospDeviceOwnerCertificateProfileBase and sets the default values.
+     * Instantiates a new AospDeviceOwnerCertificateProfileBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

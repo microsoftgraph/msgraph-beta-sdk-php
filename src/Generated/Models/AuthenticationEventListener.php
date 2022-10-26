@@ -29,7 +29,7 @@ class AuthenticationEventListener extends Entity implements Parsable
     private ?array $tags = null;
     
     /**
-     * Instantiates a new authenticationEventListener and sets the default values.
+     * Instantiates a new AuthenticationEventListener and sets the default values.
     */
     public function __construct() {
         parent::__construct();
