@@ -64,7 +64,7 @@ class UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric extends Ent
     private ?int $upgradeEligibleDeviceCount = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();

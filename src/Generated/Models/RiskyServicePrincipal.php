@@ -60,7 +60,7 @@ class RiskyServicePrincipal extends Entity implements Parsable
     private ?string $servicePrincipalType = null;
     
     /**
-     * Instantiates a new riskyServicePrincipal and sets the default values.
+     * Instantiates a new RiskyServicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -11,6 +11,8 @@ use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\ApplicationSignInDetaile
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\CredentialUserRegistrationDetails\Item\CredentialUserRegistrationDetailsItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\DailyPrintUsageRequestBuilder;
+use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\Item\PrintUsageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\DailyPrintUsageByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder as MicrosoftGraphBetaGeneratedEscapedPrintReportsDailyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsageByUser\DailyPrintUsageByUserRequestBuilder;
@@ -182,6 +184,13 @@ class ReportsRequestBuilder
     */
     public function credentialUserRegistrationDetails(): CredentialUserRegistrationDetailsRequestBuilder {
         return new CredentialUserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * The dailyPrintUsage property
+    */
+    public function dailyPrintUsage(): DailyPrintUsageRequestBuilder {
+        return new DailyPrintUsageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -370,6 +379,17 @@ class ReportsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['credentialUserRegistrationDetails%2Did'] = $id;
         return new CredentialUserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.print.reports.dailyPrintUsage.item collection
+     * @param string $id Unique identifier of the item
+     * @return PrintUsageItemRequestBuilder
+    */
+    public function dailyPrintUsageById(string $id): PrintUsageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['printUsage%2Did'] = $id;
+        return new PrintUsageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

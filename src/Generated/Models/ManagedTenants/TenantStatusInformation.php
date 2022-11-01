@@ -16,7 +16,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var DelegatedPrivilegeStatus|null $delegatedPrivilegeStatus The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+     * @var DelegatedPrivilegeStatus|null $delegatedPrivilegeStatus The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
     */
     private ?DelegatedPrivilegeStatus $delegatedPrivilegeStatus = null;
     
@@ -91,7 +91,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+     * Gets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
      * @return DelegatedPrivilegeStatus|null
     */
     public function getDelegatedPrivilegeStatus(): ?DelegatedPrivilegeStatus {
@@ -217,7 +217,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+     * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
      *  @param DelegatedPrivilegeStatus|null $value Value to set for the delegatedPrivilegeStatus property.
     */
     public function setDelegatedPrivilegeStatus(?DelegatedPrivilegeStatus $value ): void {
