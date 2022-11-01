@@ -79,7 +79,7 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $userSettings = null;
     
     /**
-     * Instantiates a new virtualEndpoint and sets the default values.
+     * Instantiates a new VirtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();

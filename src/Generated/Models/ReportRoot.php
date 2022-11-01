@@ -24,6 +24,11 @@ class ReportRoot extends Entity implements Parsable
     private ?array $credentialUserRegistrationDetails = null;
     
     /**
+     * @var array<PrintUsage>|null $dailyPrintUsage The dailyPrintUsage property
+    */
+    private ?array $dailyPrintUsage = null;
+    
+    /**
      * @var array<PrintUsageByPrinter>|null $dailyPrintUsageByPrinter The dailyPrintUsageByPrinter property
     */
     private ?array $dailyPrintUsageByPrinter = null;
@@ -115,6 +120,14 @@ class ReportRoot extends Entity implements Parsable
     }
 
     /**
+     * Gets the dailyPrintUsage property value. The dailyPrintUsage property
+     * @return array<PrintUsage>|null
+    */
+    public function getDailyPrintUsage(): ?array {
+        return $this->dailyPrintUsage;
+    }
+
+    /**
      * Gets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
      * @return array<PrintUsageByPrinter>|null
     */
@@ -156,6 +169,7 @@ class ReportRoot extends Entity implements Parsable
             'applicationSignInDetailedSummary' => fn(ParseNode $n) => $o->setApplicationSignInDetailedSummary($n->getCollectionOfObjectValues([ApplicationSignInDetailedSummary::class, 'createFromDiscriminatorValue'])),
             'authenticationMethods' => fn(ParseNode $n) => $o->setAuthenticationMethods($n->getObjectValue([AuthenticationMethodsRoot::class, 'createFromDiscriminatorValue'])),
             'credentialUserRegistrationDetails' => fn(ParseNode $n) => $o->setCredentialUserRegistrationDetails($n->getCollectionOfObjectValues([CredentialUserRegistrationDetails::class, 'createFromDiscriminatorValue'])),
+            'dailyPrintUsage' => fn(ParseNode $n) => $o->setDailyPrintUsage($n->getCollectionOfObjectValues([PrintUsage::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageByUser' => fn(ParseNode $n) => $o->setDailyPrintUsageByUser($n->getCollectionOfObjectValues([PrintUsageByUser::class, 'createFromDiscriminatorValue'])),
             'dailyPrintUsageSummariesByPrinter' => fn(ParseNode $n) => $o->setDailyPrintUsageSummariesByPrinter($n->getCollectionOfObjectValues([PrintUsageByPrinter::class, 'createFromDiscriminatorValue'])),
@@ -226,6 +240,7 @@ class ReportRoot extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->applicationSignInDetailedSummary);
         $writer->writeObjectValue('authenticationMethods', $this->authenticationMethods);
         $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->credentialUserRegistrationDetails);
+        $writer->writeCollectionOfObjectValues('dailyPrintUsage', $this->dailyPrintUsage);
         $writer->writeCollectionOfObjectValues('dailyPrintUsageByPrinter', $this->dailyPrintUsageByPrinter);
         $writer->writeCollectionOfObjectValues('dailyPrintUsageByUser', $this->dailyPrintUsageByUser);
         $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByPrinter', $this->dailyPrintUsageSummariesByPrinter);
@@ -260,6 +275,14 @@ class ReportRoot extends Entity implements Parsable
     */
     public function setCredentialUserRegistrationDetails(?array $value ): void {
         $this->credentialUserRegistrationDetails = $value;
+    }
+
+    /**
+     * Sets the dailyPrintUsage property value. The dailyPrintUsage property
+     *  @param array<PrintUsage>|null $value Value to set for the dailyPrintUsage property.
+    */
+    public function setDailyPrintUsage(?array $value ): void {
+        $this->dailyPrintUsage = $value;
     }
 
     /**

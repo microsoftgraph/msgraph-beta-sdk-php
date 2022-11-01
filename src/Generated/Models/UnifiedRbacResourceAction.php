@@ -14,9 +14,19 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     private ?string $actionVerb = null;
     
     /**
+     * @var string|null $authenticationContextId The authenticationContextId property
+    */
+    private ?string $authenticationContextId = null;
+    
+    /**
      * @var string|null $description Description for the action. Supports $filter (eq).
     */
     private ?string $description = null;
+    
+    /**
+     * @var bool|null $isAuthenticationContextSettable The isAuthenticationContextSettable property
+    */
+    private ?bool $isAuthenticationContextSettable = null;
     
     /**
      * @var string|null $name Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
@@ -59,6 +69,14 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     }
 
     /**
+     * Gets the authenticationContextId property value. The authenticationContextId property
+     * @return string|null
+    */
+    public function getAuthenticationContextId(): ?string {
+        return $this->authenticationContextId;
+    }
+
+    /**
      * Gets the description property value. Description for the action. Supports $filter (eq).
      * @return string|null
     */
@@ -74,11 +92,21 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'actionVerb' => fn(ParseNode $n) => $o->setActionVerb($n->getStringValue()),
+            'authenticationContextId' => fn(ParseNode $n) => $o->setAuthenticationContextId($n->getStringValue()),
             'description' => fn(ParseNode $n) => $o->setDescription($n->getStringValue()),
+            'isAuthenticationContextSettable' => fn(ParseNode $n) => $o->setIsAuthenticationContextSettable($n->getBooleanValue()),
             'name' => fn(ParseNode $n) => $o->setName($n->getStringValue()),
             'resourceScope' => fn(ParseNode $n) => $o->setResourceScope($n->getObjectValue([UnifiedRbacResourceScope::class, 'createFromDiscriminatorValue'])),
             'resourceScopeId' => fn(ParseNode $n) => $o->setResourceScopeId($n->getStringValue()),
         ]);
+    }
+
+    /**
+     * Gets the isAuthenticationContextSettable property value. The isAuthenticationContextSettable property
+     * @return bool|null
+    */
+    public function getIsAuthenticationContextSettable(): ?bool {
+        return $this->isAuthenticationContextSettable;
     }
 
     /**
@@ -112,7 +140,9 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('actionVerb', $this->actionVerb);
+        $writer->writeStringValue('authenticationContextId', $this->authenticationContextId);
         $writer->writeStringValue('description', $this->description);
+        $writer->writeBooleanValue('isAuthenticationContextSettable', $this->isAuthenticationContextSettable);
         $writer->writeStringValue('name', $this->name);
         $writer->writeObjectValue('resourceScope', $this->resourceScope);
         $writer->writeStringValue('resourceScopeId', $this->resourceScopeId);
@@ -127,11 +157,27 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     }
 
     /**
+     * Sets the authenticationContextId property value. The authenticationContextId property
+     *  @param string|null $value Value to set for the authenticationContextId property.
+    */
+    public function setAuthenticationContextId(?string $value ): void {
+        $this->authenticationContextId = $value;
+    }
+
+    /**
      * Sets the description property value. Description for the action. Supports $filter (eq).
      *  @param string|null $value Value to set for the description property.
     */
     public function setDescription(?string $value ): void {
         $this->description = $value;
+    }
+
+    /**
+     * Sets the isAuthenticationContextSettable property value. The isAuthenticationContextSettable property
+     *  @param bool|null $value Value to set for the isAuthenticationContextSettable property.
+    */
+    public function setIsAuthenticationContextSettable(?bool $value ): void {
+        $this->isAuthenticationContextSettable = $value;
     }
 
     /**

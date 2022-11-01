@@ -14,7 +14,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     private ?array $insights = null;
     
     /**
-     * Instantiates a new userExperienceAnalyticsOverview and sets the default values.
+     * Instantiates a new UserExperienceAnalyticsOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();

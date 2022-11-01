@@ -80,7 +80,7 @@ class ManagedEBook extends Entity implements Parsable
     private ?array $userStateSummary = null;
     
     /**
-     * Instantiates a new managedEBook and sets the default values.
+     * Instantiates a new ManagedEBook and sets the default values.
     */
     public function __construct() {
         parent::__construct();

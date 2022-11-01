@@ -69,7 +69,7 @@ class WorkbookRangeView extends Entity implements Parsable
     private ?Json $valueTypes = null;
     
     /**
-     * Instantiates a new workbookRangeView and sets the default values.
+     * Instantiates a new WorkbookRangeView and sets the default values.
     */
     public function __construct() {
         parent::__construct();

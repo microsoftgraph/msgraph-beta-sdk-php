@@ -25,6 +25,11 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?array $aggregations = null;
     
     /**
+     * @var array<CollapseProperty>|null $collapseProperties The collapseProperties property
+    */
+    private ?array $collapseProperties = null;
+    
+    /**
      * @var array<string>|null $contentSources Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
     */
     private ?array $contentSources = null;
@@ -141,6 +146,14 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the collapseProperties property value. The collapseProperties property
+     * @return array<CollapseProperty>|null
+    */
+    public function getCollapseProperties(): ?array {
+        return $this->collapseProperties;
+    }
+
+    /**
      * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
      * @return array<string>|null
     */
@@ -173,6 +186,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
         return  [
             'aggregationFilters' => fn(ParseNode $n) => $o->setAggregationFilters($n->getCollectionOfPrimitiveValues()),
             'aggregations' => fn(ParseNode $n) => $o->setAggregations($n->getCollectionOfObjectValues([AggregationOption::class, 'createFromDiscriminatorValue'])),
+            'collapseProperties' => fn(ParseNode $n) => $o->setCollapseProperties($n->getCollectionOfObjectValues([CollapseProperty::class, 'createFromDiscriminatorValue'])),
             'contentSources' => fn(ParseNode $n) => $o->setContentSources($n->getCollectionOfPrimitiveValues()),
             'enableTopResults' => fn(ParseNode $n) => $o->setEnableTopResults($n->getBooleanValue()),
             'entityTypes' => fn(ParseNode $n) => $o->setEntityTypes($n->getCollectionOfEnumValues(EntityType::class)),
@@ -294,6 +308,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('aggregationFilters', $this->aggregationFilters);
         $writer->writeCollectionOfObjectValues('aggregations', $this->aggregations);
+        $writer->writeCollectionOfObjectValues('collapseProperties', $this->collapseProperties);
         $writer->writeCollectionOfPrimitiveValues('contentSources', $this->contentSources);
         $writer->writeBooleanValue('enableTopResults', $this->enableTopResults);
         $writer->writeCollectionOfEnumValues('entityTypes', $this->entityTypes);
@@ -334,6 +349,14 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     */
     public function setAggregations(?array $value ): void {
         $this->aggregations = $value;
+    }
+
+    /**
+     * Sets the collapseProperties property value. The collapseProperties property
+     *  @param array<CollapseProperty>|null $value Value to set for the collapseProperties property.
+    */
+    public function setCollapseProperties(?array $value ): void {
+        $this->collapseProperties = $value;
     }
 
     /**

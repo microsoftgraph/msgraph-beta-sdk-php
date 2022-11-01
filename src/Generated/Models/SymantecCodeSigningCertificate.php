@@ -56,7 +56,7 @@ class SymantecCodeSigningCertificate extends Entity implements Parsable
     private ?DateTime $uploadDateTime = null;
     
     /**
-     * Instantiates a new symantecCodeSigningCertificate and sets the default values.
+     * Instantiates a new SymantecCodeSigningCertificate and sets the default values.
     */
     public function __construct() {
         parent::__construct();

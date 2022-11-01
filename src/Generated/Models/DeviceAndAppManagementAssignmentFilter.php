@@ -50,7 +50,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     private ?string $rule = null;
     
     /**
-     * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
+     * Instantiates a new DeviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
