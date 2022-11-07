@@ -85,7 +85,7 @@ class MicrosoftTunnelConfiguration extends Entity implements Parsable
     private ?array $splitDNS = null;
     
     /**
-     * Instantiates a new microsoftTunnelConfiguration and sets the default values.
+     * Instantiates a new MicrosoftTunnelConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

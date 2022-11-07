@@ -13,6 +13,8 @@ use Microsoft\Graph\Beta\Generated\Reports\ApplicationSignInDetailedSummary\Item
 use Microsoft\Graph\Beta\Generated\Reports\AuthenticationMethods\AuthenticationMethodsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\CredentialUserRegistrationDetailsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\CredentialUserRegistrationDetails\Item\CredentialUserRegistrationDetailsItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsage\DailyPrintUsageRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsage\Item\PrintUsageItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\DailyPrintUsageByPrinterRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByPrinter\Item\PrintUsageByPrinterItemRequestBuilder as MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsageByUser\DailyPrintUsageByUserRequestBuilder;
@@ -185,6 +187,13 @@ class ReportsRequestBuilder
     }
     
     /**
+     * The dailyPrintUsage property
+    */
+    public function dailyPrintUsage(): DailyPrintUsageRequestBuilder {
+        return new DailyPrintUsageRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * The dailyPrintUsageByPrinter property
     */
     public function dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
@@ -349,6 +358,17 @@ class ReportsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['credentialUserRegistrationDetails%2Did'] = $id;
         return new CredentialUserRegistrationDetailsItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsage.item collection
+     * @param string $id Unique identifier of the item
+     * @return PrintUsageItemRequestBuilder
+    */
+    public function dailyPrintUsageById(string $id): PrintUsageItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['printUsage%2Did'] = $id;
+        return new PrintUsageItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

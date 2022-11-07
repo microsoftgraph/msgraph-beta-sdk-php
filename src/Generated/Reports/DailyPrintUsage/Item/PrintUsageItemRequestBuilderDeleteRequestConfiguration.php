@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates;
+namespace Microsoft\Graph\Beta\Generated\Reports\DailyPrintUsage\Item;
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class TemplatesRequestBuilderPostRequestConfiguration 
+class PrintUsageItemRequestBuilderDeleteRequestConfiguration 
 {
     /**
      * @var array<string, string>|null $headers Request headers

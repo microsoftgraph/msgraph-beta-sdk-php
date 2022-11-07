@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpEvaluationInput implements AdditionalDataHolder, Parsable 
 {
     /**
-     * @var AccessScope|null $accessScope The accessScope property
-    */
-    private ?AccessScope $accessScope = null;
-    
-    /**
      * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     */
     private array $additionalData;
@@ -59,14 +54,6 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the accessScope property value. The accessScope property
-     * @return AccessScope|null
-    */
-    public function getAccessScope(): ?AccessScope {
-        return $this->accessScope;
-    }
-
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
@@ -97,7 +84,6 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
-            'accessScope' => fn(ParseNode $n) => $o->setAccessScope($n->getEnumValue(AccessScope::class)),
             'currentLabel' => fn(ParseNode $n) => $o->setCurrentLabel($n->getObjectValue([CurrentLabel::class, 'createFromDiscriminatorValue'])),
             'discoveredSensitiveTypes' => fn(ParseNode $n) => $o->setDiscoveredSensitiveTypes($n->getCollectionOfObjectValues([DiscoveredSensitiveType::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
@@ -117,19 +103,10 @@ class DlpEvaluationInput implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('accessScope', $this->accessScope);
         $writer->writeObjectValue('currentLabel', $this->currentLabel);
         $writer->writeCollectionOfObjectValues('discoveredSensitiveTypes', $this->discoveredSensitiveTypes);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeAdditionalData($this->additionalData);
-    }
-
-    /**
-     * Sets the accessScope property value. The accessScope property
-     *  @param AccessScope|null $value Value to set for the accessScope property.
-    */
-    public function setAccessScope(?AccessScope $value ): void {
-        $this->accessScope = $value;
     }
 
     /**

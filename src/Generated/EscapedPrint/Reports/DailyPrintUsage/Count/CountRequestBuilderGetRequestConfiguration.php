@@ -1,10 +1,10 @@
 <?php
 
-namespace Microsoft\Graph\Beta\Generated\Identity\ConditionalAccess\Templates\Item;
+namespace Microsoft\Graph\Beta\Generated\EscapedPrint\Reports\DailyPrintUsage\Count;
 
 use Microsoft\Kiota\Abstractions\RequestOption;
 
-class ConditionalAccessTemplateItemRequestBuilderPatchRequestConfiguration 
+class CountRequestBuilderGetRequestConfiguration 
 {
     /**
      * @var array<string, string>|null $headers Request headers

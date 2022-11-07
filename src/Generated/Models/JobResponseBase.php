@@ -45,7 +45,7 @@ class JobResponseBase extends Entity implements Parsable
     private ?string $type = null;
     
     /**
-     * Instantiates a new jobResponseBase and sets the default values.
+     * Instantiates a new JobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();

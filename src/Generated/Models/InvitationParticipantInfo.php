@@ -20,7 +20,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     private ?EndpointType $endpointType = null;
     
     /**
-     * @var bool|null $hidden The hidden property
+     * @var bool|null $hidden Optional. Whether to hide the participant from the roster.
     */
     private ?bool $hidden = null;
     
@@ -40,7 +40,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     private ?string $participantId = null;
     
     /**
-     * @var bool|null $removeFromDefaultAudioRoutingGroup The removeFromDefaultAudioRoutingGroup property
+     * @var bool|null $removeFromDefaultAudioRoutingGroup Optional. Whether to remove them from the main mixer.
     */
     private ?bool $removeFromDefaultAudioRoutingGroup = null;
     
@@ -100,7 +100,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the hidden property value. The hidden property
+     * Gets the hidden property value. Optional. Whether to hide the participant from the roster.
      * @return bool|null
     */
     public function getHidden(): ?bool {
@@ -132,7 +132,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * Gets the removeFromDefaultAudioRoutingGroup property value. Optional. Whether to remove them from the main mixer.
      * @return bool|null
     */
     public function getRemoveFromDefaultAudioRoutingGroup(): ?bool {
@@ -179,7 +179,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the hidden property value. The hidden property
+     * Sets the hidden property value. Optional. Whether to hide the participant from the roster.
      *  @param bool|null $value Value to set for the hidden property.
     */
     public function setHidden(?bool $value ): void {
@@ -211,7 +211,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the removeFromDefaultAudioRoutingGroup property value. The removeFromDefaultAudioRoutingGroup property
+     * Sets the removeFromDefaultAudioRoutingGroup property value. Optional. Whether to remove them from the main mixer.
      *  @param bool|null $value Value to set for the removeFromDefaultAudioRoutingGroup property.
     */
     public function setRemoveFromDefaultAudioRoutingGroup(?bool $value ): void {

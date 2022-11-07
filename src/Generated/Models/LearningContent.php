@@ -36,7 +36,7 @@ class LearningContent extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var DateInterval|null $duration The duration of the learning content in seconds. Optional.
+     * @var DateInterval|null $duration The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
     */
     private ?DateInterval $duration = null;
     
@@ -158,7 +158,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Gets the duration property value. The duration of the learning content in seconds. Optional.
+     * Gets the duration property value. The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
@@ -356,7 +356,7 @@ class LearningContent extends Entity implements Parsable
     }
 
     /**
-     * Sets the duration property value. The duration of the learning content in seconds. Optional.
+     * Sets the duration property value. The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
      *  @param DateInterval|null $value Value to set for the duration property.
     */
     public function setDuration(?DateInterval $value ): void {
