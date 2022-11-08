@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceHealthScriptDeviceStateItemRequestBuilder 
 {
     /**
-     * The managedDevice property
+     * Provides operations to manage the managedDevice property of the microsoft.graph.deviceHealthScriptDeviceState entity.
     */
     public function managedDevice(): ManagedDeviceRequestBuilder {
         return new ManagedDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class DeviceHealthScriptDeviceStateItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

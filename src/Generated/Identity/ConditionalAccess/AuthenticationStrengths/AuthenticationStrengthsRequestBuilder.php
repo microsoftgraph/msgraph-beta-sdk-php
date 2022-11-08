@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AuthenticationStrengthsRequestBuilder 
 {
     /**
-     * The authenticationMethodModes property
+     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
     */
     public function authenticationMethodModes(): AuthenticationMethodModesRequestBuilder {
         return new AuthenticationMethodModesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -34,7 +34,7 @@ class AuthenticationStrengthsRequestBuilder
     private array $pathParameters;
     
     /**
-     * The policies property
+     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
     */
     public function policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class AuthenticationStrengthsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identity.conditionalAccess.authenticationStrengths.authenticationMethodModes.item collection
+     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
      * @param string $id Unique identifier of the item
      * @return AuthenticationMethodModeDetailItemRequestBuilder
     */
@@ -139,6 +139,7 @@ class AuthenticationStrengthsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -201,7 +202,7 @@ class AuthenticationStrengthsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identity.conditionalAccess.authenticationStrengths.policies.item collection
+     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
      * @param string $id Unique identifier of the item
      * @return AuthenticationStrengthPolicyItemRequestBuilder
     */

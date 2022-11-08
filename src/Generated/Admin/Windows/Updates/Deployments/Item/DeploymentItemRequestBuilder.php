@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeploymentItemRequestBuilder 
 {
     /**
-     * The audience property
+     * Provides operations to manage the audience property of the microsoft.graph.windowsUpdates.deployment entity.
     */
     public function audience(): AudienceRequestBuilder {
         return new AudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class DeploymentItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -30,14 +30,14 @@ class GovernanceRoleSettingItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resource property
+     * Provides operations to manage the resource property of the microsoft.graph.governanceRoleSetting entity.
     */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinition property
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.governanceRoleSetting entity.
     */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class GovernanceRoleSettingItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -70,7 +70,7 @@ class WindowsDriverUpdateProfile extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * Instantiates a new WindowsDriverUpdateProfile and sets the default values.
+     * Instantiates a new windowsDriverUpdateProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();

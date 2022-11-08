@@ -21,6 +21,8 @@ use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\ImpactedResources
 use Microsoft\Graph\Beta\Generated\Directory\ImpactedResources\Item\RecommendationResourceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\InboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\InboundSharedUserProfiles\Item\InboundSharedUserProfileUserItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\Item\OnPremisesDirectorySynchronizationItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Directory\OnPremisesSynchronization\OnPremisesSynchronizationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\Item\OutboundSharedUserProfileUserItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\OutboundSharedUserProfiles\OutboundSharedUserProfilesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Directory\Recommendations\Item\RecommendationItemRequestBuilder;
@@ -40,63 +42,70 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DirectoryRequestBuilder 
 {
     /**
-     * The administrativeUnits property
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
     */
     public function administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The attributeSets property
+     * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
     */
     public function attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customSecurityAttributeDefinitions property
+     * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
     */
     public function customSecurityAttributeDefinitions(): CustomSecurityAttributeDefinitionsRequestBuilder {
         return new CustomSecurityAttributeDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deletedItems property
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
     */
     public function deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The featureRolloutPolicies property
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
     */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The federationConfigurations property
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
     */
     public function federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The impactedResources property
+     * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
     */
     public function impactedResources(): ImpactedResourcesRequestBuilder {
         return new ImpactedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The inboundSharedUserProfiles property
+     * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
     */
     public function inboundSharedUserProfiles(): InboundSharedUserProfilesRequestBuilder {
         return new InboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The outboundSharedUserProfiles property
+     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+    */
+    public function onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder {
+        return new OnPremisesSynchronizationRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
     */
     public function outboundSharedUserProfiles(): OutboundSharedUserProfilesRequestBuilder {
         return new OutboundSharedUserProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -108,7 +117,7 @@ class DirectoryRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recommendations property
+     * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
     */
     public function recommendations(): RecommendationsRequestBuilder {
         return new RecommendationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -120,7 +129,7 @@ class DirectoryRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sharedEmailDomains property
+     * Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
     */
     public function sharedEmailDomains(): SharedEmailDomainsRequestBuilder {
         return new SharedEmailDomainsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -132,7 +141,7 @@ class DirectoryRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.administrativeUnits.item collection
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return AdministrativeUnitItemRequestBuilder
     */
@@ -143,7 +152,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.attributeSets.item collection
+     * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return AttributeSetItemRequestBuilder
     */
@@ -210,11 +219,12 @@ class DirectoryRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.customSecurityAttributeDefinitions.item collection
+     * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return CustomSecurityAttributeDefinitionItemRequestBuilder
     */
@@ -225,7 +235,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.deletedItems.item collection
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return DirectoryObjectItemRequestBuilder
     */
@@ -236,7 +246,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.featureRolloutPolicies.item collection
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return FeatureRolloutPolicyItemRequestBuilder
     */
@@ -247,7 +257,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.federationConfigurations.item collection
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return IdentityProviderBaseItemRequestBuilder
     */
@@ -277,7 +287,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.impactedResources.item collection
+     * Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return RecommendationResourceItemRequestBuilder
     */
@@ -288,7 +298,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.inboundSharedUserProfiles.item collection
+     * Provides operations to manage the inboundSharedUserProfiles property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return InboundSharedUserProfileUserItemRequestBuilder
     */
@@ -299,7 +309,18 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.outboundSharedUserProfiles.item collection
+     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+     * @param string $id Unique identifier of the item
+     * @return OnPremisesDirectorySynchronizationItemRequestBuilder
+    */
+    public function onPremisesSynchronizationById(string $id): OnPremisesDirectorySynchronizationItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['onPremisesDirectorySynchronization%2Did'] = $id;
+        return new OnPremisesDirectorySynchronizationItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the outboundSharedUserProfiles property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return OutboundSharedUserProfileUserItemRequestBuilder
     */
@@ -330,7 +351,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.recommendations.item collection
+     * Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return RecommendationItemRequestBuilder
     */
@@ -341,7 +362,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.sharedEmailDomains.item collection
+     * Provides operations to manage the sharedEmailDomains property of the microsoft.graph.directory entity.
      * @param string $id Unique identifier of the item
      * @return SharedEmailDomainItemRequestBuilder
     */

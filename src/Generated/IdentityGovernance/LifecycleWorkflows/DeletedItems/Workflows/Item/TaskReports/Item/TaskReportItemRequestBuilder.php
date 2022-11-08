@@ -32,21 +32,21 @@ class TaskReportItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The task property
+     * Provides operations to manage the task property of the microsoft.graph.identityGovernance.taskReport entity.
     */
     public function task(): TaskRequestBuilder {
         return new TaskRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskDefinition property
+     * Provides operations to manage the taskDefinition property of the microsoft.graph.identityGovernance.taskReport entity.
     */
     public function taskDefinition(): TaskDefinitionRequestBuilder {
         return new TaskDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskProcessingResults property
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.
     */
     public function taskProcessingResults(): TaskProcessingResultsRequestBuilder {
         return new TaskProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -135,6 +135,7 @@ class TaskReportItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -197,7 +198,7 @@ class TaskReportItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.taskReports.item.taskProcessingResults.item collection
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.
      * @param string $id Unique identifier of the item
      * @return TaskProcessingResultItemRequestBuilder
     */

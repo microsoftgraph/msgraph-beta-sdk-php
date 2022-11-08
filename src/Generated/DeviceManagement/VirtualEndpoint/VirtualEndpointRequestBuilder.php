@@ -25,6 +25,8 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Provisioning
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Reports\ReportsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\Item\CloudPcServicePlanItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\ServicePlans\ServicePlansRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SharedUseServicePlans\Item\CloudPcSharedUseServicePlanItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SharedUseServicePlans\SharedUseServicePlansRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\Item\CloudPcSnapshotItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\Snapshots\SnapshotsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\VirtualEndpoint\SupportedRegions\Item\CloudPcSupportedRegionItemRequestBuilder;
@@ -44,56 +46,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class VirtualEndpointRequestBuilder 
 {
     /**
-     * The auditEvents property
+     * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
     */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPCs property
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
     */
     public function cloudPCs(): CloudPCsRequestBuilder {
         return new CloudPCsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The crossCloudGovernmentOrganizationMapping property
+     * Provides operations to manage the crossCloudGovernmentOrganizationMapping property of the microsoft.graph.virtualEndpoint entity.
     */
     public function crossCloudGovernmentOrganizationMapping(): CrossCloudGovernmentOrganizationMappingRequestBuilder {
         return new CrossCloudGovernmentOrganizationMappingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceImages property
+     * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
     */
     public function deviceImages(): DeviceImagesRequestBuilder {
         return new DeviceImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The externalPartnerSettings property
+     * Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
     */
     public function externalPartnerSettings(): ExternalPartnerSettingsRequestBuilder {
         return new ExternalPartnerSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The galleryImages property
+     * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
     */
     public function galleryImages(): GalleryImagesRequestBuilder {
         return new GalleryImagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The onPremisesConnections property
+     * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
     */
     public function onPremisesConnections(): OnPremisesConnectionsRequestBuilder {
         return new OnPremisesConnectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The organizationSettings property
+     * Provides operations to manage the organizationSettings property of the microsoft.graph.virtualEndpoint entity.
     */
     public function organizationSettings(): OrganizationSettingsRequestBuilder {
         return new OrganizationSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -105,14 +107,14 @@ class VirtualEndpointRequestBuilder
     private array $pathParameters;
     
     /**
-     * The provisioningPolicies property
+     * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
     */
     public function provisioningPolicies(): ProvisioningPoliciesRequestBuilder {
         return new ProvisioningPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reports property
+     * Provides operations to manage the reports property of the microsoft.graph.virtualEndpoint entity.
     */
     public function reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -124,21 +126,28 @@ class VirtualEndpointRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The servicePlans property
+     * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
     */
     public function servicePlans(): ServicePlansRequestBuilder {
         return new ServicePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The snapshots property
+     * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
+    */
+    public function sharedUseServicePlans(): SharedUseServicePlansRequestBuilder {
+        return new SharedUseServicePlansRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
     */
     public function snapshots(): SnapshotsRequestBuilder {
         return new SnapshotsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The supportedRegions property
+     * Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
     */
     public function supportedRegions(): SupportedRegionsRequestBuilder {
         return new SupportedRegionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -150,14 +159,14 @@ class VirtualEndpointRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userSettings property
+     * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
     */
     public function userSettings(): UserSettingsRequestBuilder {
         return new UserSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.auditEvents.item collection
+     * Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcAuditEventItemRequestBuilder
     */
@@ -168,7 +177,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.cloudPCs.item collection
+     * Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPCItemRequestBuilder
     */
@@ -256,6 +265,7 @@ class VirtualEndpointRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -279,7 +289,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.deviceImages.item collection
+     * Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcDeviceImageItemRequestBuilder
     */
@@ -290,7 +300,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.externalPartnerSettings.item collection
+     * Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcExternalPartnerSettingItemRequestBuilder
     */
@@ -301,7 +311,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.galleryImages.item collection
+     * Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcGalleryImageItemRequestBuilder
     */
@@ -339,7 +349,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.onPremisesConnections.item collection
+     * Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcOnPremisesConnectionItemRequestBuilder
     */
@@ -370,7 +380,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.provisioningPolicies.item collection
+     * Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcProvisioningPolicyItemRequestBuilder
     */
@@ -381,7 +391,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.servicePlans.item collection
+     * Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcServicePlanItemRequestBuilder
     */
@@ -392,7 +402,18 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.snapshots.item collection
+     * Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.
+     * @param string $id Unique identifier of the item
+     * @return CloudPcSharedUseServicePlanItemRequestBuilder
+    */
+    public function sharedUseServicePlansById(string $id): CloudPcSharedUseServicePlanItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['cloudPcSharedUseServicePlan%2Did'] = $id;
+        return new CloudPcSharedUseServicePlanItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcSnapshotItemRequestBuilder
     */
@@ -403,7 +424,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.supportedRegions.item collection
+     * Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcSupportedRegionItemRequestBuilder
     */
@@ -414,7 +435,7 @@ class VirtualEndpointRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.userSettings.item collection
+     * Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcUserSettingItemRequestBuilder
     */

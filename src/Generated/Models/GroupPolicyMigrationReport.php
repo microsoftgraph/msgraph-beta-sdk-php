@@ -55,6 +55,11 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     private ?string $ouDistinguishedName = null;
     
     /**
+     * @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration.
+    */
+    private ?array $roleScopeTagIds = null;
+    
+    /**
      * @var int|null $supportedSettingsCount The number of Group Policy Settings supported by Intune.
     */
     private ?int $supportedSettingsCount = null;
@@ -80,7 +85,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     private ?array $unsupportedGroupPolicyExtensions = null;
     
     /**
-     * Instantiates a new GroupPolicyMigrationReport and sets the default values.
+     * Instantiates a new groupPolicyMigrationReport and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -128,6 +133,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'migrationReadiness' => fn(ParseNode $n) => $o->setMigrationReadiness($n->getEnumValue(GroupPolicyMigrationReadiness::class)),
             'ouDistinguishedName' => fn(ParseNode $n) => $o->setOuDistinguishedName($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
             'supportedSettingsCount' => fn(ParseNode $n) => $o->setSupportedSettingsCount($n->getIntegerValue()),
             'supportedSettingsPercent' => fn(ParseNode $n) => $o->setSupportedSettingsPercent($n->getIntegerValue()),
             'targetedInActiveDirectory' => fn(ParseNode $n) => $o->setTargetedInActiveDirectory($n->getBooleanValue()),
@@ -193,6 +199,14 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     }
 
     /**
+     * Gets the roleScopeTagIds property value. The list of scope tags for the configuration.
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        return $this->roleScopeTagIds;
+    }
+
+    /**
      * Gets the supportedSettingsCount property value. The number of Group Policy Settings supported by Intune.
      * @return int|null
     */
@@ -247,6 +261,7 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeEnumValue('migrationReadiness', $this->migrationReadiness);
         $writer->writeStringValue('ouDistinguishedName', $this->ouDistinguishedName);
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeIntegerValue('supportedSettingsCount', $this->supportedSettingsCount);
         $writer->writeIntegerValue('supportedSettingsPercent', $this->supportedSettingsPercent);
         $writer->writeBooleanValue('targetedInActiveDirectory', $this->targetedInActiveDirectory);
@@ -324,6 +339,14 @@ class GroupPolicyMigrationReport extends Entity implements Parsable
     */
     public function setOuDistinguishedName(?string $value ): void {
         $this->ouDistinguishedName = $value;
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
+     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value ): void {
+        $this->roleScopeTagIds = $value;
     }
 
     /**

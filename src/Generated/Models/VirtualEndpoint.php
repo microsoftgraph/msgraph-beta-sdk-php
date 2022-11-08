@@ -64,6 +64,11 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $servicePlans = null;
     
     /**
+     * @var array<CloudPcSharedUseServicePlan>|null $sharedUseServicePlans The sharedUseServicePlans property
+    */
+    private ?array $sharedUseServicePlans = null;
+    
+    /**
      * @var array<CloudPcSnapshot>|null $snapshots Cloud PC snapshots.
     */
     private ?array $snapshots = null;
@@ -79,7 +84,7 @@ class VirtualEndpoint extends Entity implements Parsable
     private ?array $userSettings = null;
     
     /**
-     * Instantiates a new VirtualEndpoint and sets the default values.
+     * Instantiates a new virtualEndpoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -153,6 +158,7 @@ class VirtualEndpoint extends Entity implements Parsable
             'provisioningPolicies' => fn(ParseNode $n) => $o->setProvisioningPolicies($n->getCollectionOfObjectValues([CloudPcProvisioningPolicy::class, 'createFromDiscriminatorValue'])),
             'reports' => fn(ParseNode $n) => $o->setReports($n->getObjectValue([CloudPcReports::class, 'createFromDiscriminatorValue'])),
             'servicePlans' => fn(ParseNode $n) => $o->setServicePlans($n->getCollectionOfObjectValues([CloudPcServicePlan::class, 'createFromDiscriminatorValue'])),
+            'sharedUseServicePlans' => fn(ParseNode $n) => $o->setSharedUseServicePlans($n->getCollectionOfObjectValues([CloudPcSharedUseServicePlan::class, 'createFromDiscriminatorValue'])),
             'snapshots' => fn(ParseNode $n) => $o->setSnapshots($n->getCollectionOfObjectValues([CloudPcSnapshot::class, 'createFromDiscriminatorValue'])),
             'supportedRegions' => fn(ParseNode $n) => $o->setSupportedRegions($n->getCollectionOfObjectValues([CloudPcSupportedRegion::class, 'createFromDiscriminatorValue'])),
             'userSettings' => fn(ParseNode $n) => $o->setUserSettings($n->getCollectionOfObjectValues([CloudPcUserSetting::class, 'createFromDiscriminatorValue'])),
@@ -208,6 +214,14 @@ class VirtualEndpoint extends Entity implements Parsable
     }
 
     /**
+     * Gets the sharedUseServicePlans property value. The sharedUseServicePlans property
+     * @return array<CloudPcSharedUseServicePlan>|null
+    */
+    public function getSharedUseServicePlans(): ?array {
+        return $this->sharedUseServicePlans;
+    }
+
+    /**
      * Gets the snapshots property value. Cloud PC snapshots.
      * @return array<CloudPcSnapshot>|null
     */
@@ -248,6 +262,7 @@ class VirtualEndpoint extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('provisioningPolicies', $this->provisioningPolicies);
         $writer->writeObjectValue('reports', $this->reports);
         $writer->writeCollectionOfObjectValues('servicePlans', $this->servicePlans);
+        $writer->writeCollectionOfObjectValues('sharedUseServicePlans', $this->sharedUseServicePlans);
         $writer->writeCollectionOfObjectValues('snapshots', $this->snapshots);
         $writer->writeCollectionOfObjectValues('supportedRegions', $this->supportedRegions);
         $writer->writeCollectionOfObjectValues('userSettings', $this->userSettings);
@@ -339,6 +354,14 @@ class VirtualEndpoint extends Entity implements Parsable
     */
     public function setServicePlans(?array $value ): void {
         $this->servicePlans = $value;
+    }
+
+    /**
+     * Sets the sharedUseServicePlans property value. The sharedUseServicePlans property
+     *  @param array<CloudPcSharedUseServicePlan>|null $value Value to set for the sharedUseServicePlans property.
+    */
+    public function setSharedUseServicePlans(?array $value ): void {
+        $this->sharedUseServicePlans = $value;
     }
 
     /**

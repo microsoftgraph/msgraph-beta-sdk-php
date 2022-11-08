@@ -24,7 +24,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PrivilegedRoleItemRequestBuilder 
 {
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,28 +41,28 @@ class PrivilegedRoleItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The selfActivate property
+     * Provides operations to call the selfActivate method.
     */
     public function selfActivate(): SelfActivateRequestBuilder {
         return new SelfActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The selfDeactivate property
+     * Provides operations to call the selfDeactivate method.
     */
     public function selfDeactivate(): SelfDeactivateRequestBuilder {
         return new SelfDeactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.privilegedRole entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The summary property
+     * Provides operations to manage the summary property of the microsoft.graph.privilegedRole entity.
     */
     public function summary(): SummaryRequestBuilder {
         return new SummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -74,7 +74,7 @@ class PrivilegedRoleItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedRoles.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.privilegedRole entity.
      * @param string $id Unique identifier of the item
      * @return PrivilegedRoleAssignmentItemRequestBuilder
     */
@@ -162,6 +162,7 @@ class PrivilegedRoleItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

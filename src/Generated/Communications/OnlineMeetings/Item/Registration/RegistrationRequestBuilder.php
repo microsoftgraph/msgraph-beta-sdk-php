@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RegistrationRequestBuilder 
 {
     /**
-     * The customQuestions property
+     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
     */
     public function customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,11 +119,12 @@ class RegistrationRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.communications.onlineMeetings.item.registration.customQuestions.item collection
+     * Provides operations to manage the customQuestions property of the microsoft.graph.meetingRegistration entity.
      * @param string $id Unique identifier of the item
      * @return MeetingRegistrationQuestionItemRequestBuilder
     */

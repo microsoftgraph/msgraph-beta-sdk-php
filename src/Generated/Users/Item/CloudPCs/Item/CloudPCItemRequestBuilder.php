@@ -27,14 +27,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CloudPCItemRequestBuilder 
 {
     /**
-     * The changeUserAccountType property
+     * Provides operations to call the changeUserAccountType method.
     */
     public function changeUserAccountType(): ChangeUserAccountTypeRequestBuilder {
         return new ChangeUserAccountTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The endGracePeriod property
+     * Provides operations to call the endGracePeriod method.
     */
     public function endGracePeriod(): EndGracePeriodRequestBuilder {
         return new EndGracePeriodRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -46,21 +46,21 @@ class CloudPCItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The reboot property
+     * Provides operations to call the reboot method.
     */
     public function reboot(): RebootRequestBuilder {
         return new RebootRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The rename property
+     * Provides operations to call the rename method.
     */
     public function rename(): RenameRequestBuilder {
         return new RenameRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reprovision property
+     * Provides operations to call the reprovision method.
     */
     public function reprovision(): ReprovisionRequestBuilder {
         return new ReprovisionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -72,14 +72,14 @@ class CloudPCItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restore property
+     * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The troubleshoot property
+     * Provides operations to call the troubleshoot method.
     */
     public function troubleshoot(): TroubleshootRequestBuilder {
         return new TroubleshootRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -168,6 +168,7 @@ class CloudPCItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

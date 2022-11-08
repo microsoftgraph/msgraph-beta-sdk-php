@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceRequestItemRequestBuilder 
 {
     /**
-     * The accessPackageResource property
+     * Provides operations to manage the accessPackageResource property of the microsoft.graph.accessPackageResourceRequest entity.
     */
     public function accessPackageResource(): AccessPackageResourceRequestBuilder {
         return new AccessPackageResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class AccessPackageResourceRequestItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The requestor property
+     * Provides operations to manage the requestor property of the microsoft.graph.accessPackageResourceRequest entity.
     */
     public function requestor(): RequestorRequestBuilder {
         return new RequestorRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class AccessPackageResourceRequestItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -23,28 +23,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageAssignmentResourceRoleItemRequestBuilder 
 {
     /**
-     * The accessPackageAssignments property
+     * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     */
     public function accessPackageAssignments(): AccessPackageAssignmentsRequestBuilder {
         return new AccessPackageAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceRole property
+     * Provides operations to manage the accessPackageResourceRole property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     */
     public function accessPackageResourceRole(): AccessPackageResourceRoleRequestBuilder {
         return new AccessPackageResourceRoleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceScope property
+     * Provides operations to manage the accessPackageResourceScope property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     */
     public function accessPackageResourceScope(): AccessPackageResourceScopeRequestBuilder {
         return new AccessPackageResourceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageSubject property
+     * Provides operations to manage the accessPackageSubject property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
     */
     public function accessPackageSubject(): AccessPackageSubjectRequestBuilder {
         return new AccessPackageSubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -66,7 +66,7 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackageAssignmentResourceRoles.item.accessPackageAssignments.item collection
+     * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.accessPackageAssignmentResourceRole entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentItemRequestBuilder
     */
@@ -154,6 +154,7 @@ class AccessPackageAssignmentResourceRoleItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

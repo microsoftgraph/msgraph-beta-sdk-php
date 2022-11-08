@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PrivilegedRoleAssignmentRequestItemRequestBuilder 
 {
     /**
-     * The cancel property
+     * Provides operations to call the cancel method.
     */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class PrivilegedRoleAssignmentRequestItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleInfo property
+     * Provides operations to manage the roleInfo property of the microsoft.graph.privilegedRoleAssignmentRequest entity.
     */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class PrivilegedRoleAssignmentRequestItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

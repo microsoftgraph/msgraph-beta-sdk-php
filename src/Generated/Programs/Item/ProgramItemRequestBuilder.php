@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ProgramItemRequestBuilder 
 {
     /**
-     * The controls property
+     * Provides operations to manage the controls property of the microsoft.graph.program entity.
     */
     public function controls(): ControlsRequestBuilder {
         return new ControlsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class ProgramItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.programs.item.controls.item collection
+     * Provides operations to manage the controls property of the microsoft.graph.program entity.
      * @param string $id Unique identifier of the item
      * @return ProgramControlItemRequestBuilder
     */
@@ -130,6 +130,7 @@ class ProgramItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

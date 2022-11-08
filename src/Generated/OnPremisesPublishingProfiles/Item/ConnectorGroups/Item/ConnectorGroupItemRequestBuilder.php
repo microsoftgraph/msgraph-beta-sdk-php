@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ConnectorGroupItemRequestBuilder 
 {
     /**
-     * The applications property
+     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
     */
     public function applications(): ApplicationsRequestBuilder {
         return new ApplicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The members property
+     * Provides operations to manage the members property of the microsoft.graph.connectorGroup entity.
     */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class ConnectorGroupItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.connectorGroups.item.applications.item collection
+     * Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.
      * @param string $id Unique identifier of the item
      * @return ApplicationItemRequestBuilder
     */
@@ -139,6 +139,7 @@ class ConnectorGroupItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

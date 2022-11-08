@@ -28,28 +28,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceShellScriptItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceShellScript entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceRunStates property
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceShellScript entity.
     */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupAssignments property
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceShellScript entity.
     */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -66,7 +66,7 @@ class DeviceShellScriptItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The runSummary property
+     * Provides operations to manage the runSummary property of the microsoft.graph.deviceShellScript entity.
     */
     public function runSummary(): RunSummaryRequestBuilder {
         return new RunSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,14 +78,14 @@ class DeviceShellScriptItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userRunStates property
+     * Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.
     */
     public function userRunStates(): UserRunStatesRequestBuilder {
         return new UserRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceShellScripts.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceShellScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptAssignmentItemRequestBuilder
     */
@@ -173,6 +173,7 @@ class DeviceShellScriptItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -196,7 +197,7 @@ class DeviceShellScriptItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceShellScripts.item.deviceRunStates.item collection
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceShellScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptDeviceStateItemRequestBuilder
     */
@@ -226,7 +227,7 @@ class DeviceShellScriptItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceShellScripts.item.groupAssignments.item collection
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceShellScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptGroupAssignmentItemRequestBuilder
     */
@@ -257,7 +258,7 @@ class DeviceShellScriptItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceShellScripts.item.userRunStates.item collection
+     * Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptUserStateItemRequestBuilder
     */

@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomerPaymentJournalItemRequestBuilder 
 {
     /**
-     * The account property
+     * Provides operations to manage the account property of the microsoft.graph.customerPaymentJournal entity.
     */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customerPayments property
+     * Provides operations to manage the customerPayments property of the microsoft.graph.customerPaymentJournal entity.
     */
     public function customerPayments(): CustomerPaymentsRequestBuilder {
         return new CustomerPaymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,11 +127,12 @@ class CustomerPaymentJournalItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.customerPaymentJournals.item.customerPayments.item collection
+     * Provides operations to manage the customerPayments property of the microsoft.graph.customerPaymentJournal entity.
      * @param string $id Unique identifier of the item
      * @return CustomerPaymentItemRequestBuilder
     */

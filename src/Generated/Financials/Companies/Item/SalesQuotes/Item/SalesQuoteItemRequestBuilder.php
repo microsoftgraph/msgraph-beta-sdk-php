@@ -26,21 +26,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SalesQuoteItemRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.salesQuote entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customer property
+     * Provides operations to manage the customer property of the microsoft.graph.salesQuote entity.
     */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The makeInvoice property
+     * Provides operations to call the makeInvoice method.
     */
     public function makeInvoice(): MakeInvoiceRequestBuilder {
         return new MakeInvoiceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -52,7 +52,7 @@ class SalesQuoteItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentTerm property
+     * Provides operations to manage the paymentTerm property of the microsoft.graph.salesQuote entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -64,21 +64,21 @@ class SalesQuoteItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The salesQuoteLines property
+     * Provides operations to manage the salesQuoteLines property of the microsoft.graph.salesQuote entity.
     */
     public function salesQuoteLines(): SalesQuoteLinesRequestBuilder {
         return new SalesQuoteLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The send property
+     * Provides operations to call the send method.
     */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The shipmentMethod property
+     * Provides operations to manage the shipmentMethod property of the microsoft.graph.salesQuote entity.
     */
     public function shipmentMethod(): ShipmentMethodRequestBuilder {
         return new ShipmentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -146,6 +146,7 @@ class SalesQuoteItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class SalesQuoteItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesQuotes.item.salesQuoteLines.item collection
+     * Provides operations to manage the salesQuoteLines property of the microsoft.graph.salesQuote entity.
      * @param string $id Unique identifier of the item
      * @return SalesQuoteLineItemRequestBuilder
     */

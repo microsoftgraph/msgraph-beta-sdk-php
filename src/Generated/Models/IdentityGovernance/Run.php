@@ -11,22 +11,22 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Run extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time that the run completed. Value is null if the workflow hasn't completed. Optional.
+     * @var DateTime|null $completedDateTime The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var int|null $failedTasksCount The number of tasks that failed in the run execution. Required.
+     * @var int|null $failedTasksCount The number of tasks that failed in the run execution.
     */
     private ?int $failedTasksCount = null;
     
     /**
-     * @var int|null $failedUsersCount The number of users that failed in the run execution. Required.
+     * @var int|null $failedUsersCount The number of users that failed in the run execution.
     */
     private ?int $failedUsersCount = null;
     
     /**
-     * @var DateTime|null $lastUpdatedDateTime The datetime that the run was last updated. Optional.
+     * @var DateTime|null $lastUpdatedDateTime The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $lastUpdatedDateTime = null;
     
@@ -36,17 +36,17 @@ class Run extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var DateTime|null $scheduledDateTime The date time that the run is scheduled to be executed for a workflow. Required.
+     * @var DateTime|null $scheduledDateTime The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $scheduledDateTime = null;
     
     /**
-     * @var DateTime|null $startedDateTime The date time that the run execution started. Optional.
+     * @var DateTime|null $startedDateTime The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $startedDateTime = null;
     
     /**
-     * @var int|null $successfulUsersCount The number of successfully completed users in the run. Required.
+     * @var int|null $successfulUsersCount The number of successfully completed users in the run.
     */
     private ?int $successfulUsersCount = null;
     
@@ -61,12 +61,12 @@ class Run extends Entity implements Parsable
     private ?int $totalTasksCount = null;
     
     /**
-     * @var int|null $totalUnprocessedTasksCount The total number of unprocessed tasks in the run execution. Required.
+     * @var int|null $totalUnprocessedTasksCount The total number of unprocessed tasks in the run execution.
     */
     private ?int $totalUnprocessedTasksCount = null;
     
     /**
-     * @var int|null $totalUsersCount The total number of users in the workflow execution. Required.
+     * @var int|null $totalUsersCount The total number of users in the workflow execution.
     */
     private ?int $totalUsersCount = null;
     
@@ -98,7 +98,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The date time that the run completed. Value is null if the workflow hasn't completed. Optional.
+     * Gets the completedDateTime property value. The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -106,7 +106,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedTasksCount property value. The number of tasks that failed in the run execution. Required.
+     * Gets the failedTasksCount property value. The number of tasks that failed in the run execution.
      * @return int|null
     */
     public function getFailedTasksCount(): ?int {
@@ -114,7 +114,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedUsersCount property value. The number of users that failed in the run execution. Required.
+     * Gets the failedUsersCount property value. The number of users that failed in the run execution.
      * @return int|null
     */
     public function getFailedUsersCount(): ?int {
@@ -146,7 +146,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the lastUpdatedDateTime property value. The datetime that the run was last updated. Optional.
+     * Gets the lastUpdatedDateTime property value. The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
@@ -162,7 +162,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledDateTime property value. The date time that the run is scheduled to be executed for a workflow. Required.
+     * Gets the scheduledDateTime property value. The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getScheduledDateTime(): ?DateTime {
@@ -170,7 +170,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The date time that the run execution started. Optional.
+     * Gets the startedDateTime property value. The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -178,7 +178,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the successfulUsersCount property value. The number of successfully completed users in the run. Required.
+     * Gets the successfulUsersCount property value. The number of successfully completed users in the run.
      * @return int|null
     */
     public function getSuccessfulUsersCount(): ?int {
@@ -202,7 +202,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks in the run execution. Required.
+     * Gets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks in the run execution.
      * @return int|null
     */
     public function getTotalUnprocessedTasksCount(): ?int {
@@ -210,7 +210,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUsersCount property value. The total number of users in the workflow execution. Required.
+     * Gets the totalUsersCount property value. The total number of users in the workflow execution.
      * @return int|null
     */
     public function getTotalUsersCount(): ?int {
@@ -256,7 +256,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The date time that the run completed. Value is null if the workflow hasn't completed. Optional.
+     * Sets the completedDateTime property value. The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -264,7 +264,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedTasksCount property value. The number of tasks that failed in the run execution. Required.
+     * Sets the failedTasksCount property value. The number of tasks that failed in the run execution.
      *  @param int|null $value Value to set for the failedTasksCount property.
     */
     public function setFailedTasksCount(?int $value ): void {
@@ -272,7 +272,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedUsersCount property value. The number of users that failed in the run execution. Required.
+     * Sets the failedUsersCount property value. The number of users that failed in the run execution.
      *  @param int|null $value Value to set for the failedUsersCount property.
     */
     public function setFailedUsersCount(?int $value ): void {
@@ -280,7 +280,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the lastUpdatedDateTime property value. The datetime that the run was last updated. Optional.
+     * Sets the lastUpdatedDateTime property value. The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
     public function setLastUpdatedDateTime(?DateTime $value ): void {
@@ -296,7 +296,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledDateTime property value. The date time that the run is scheduled to be executed for a workflow. Required.
+     * Sets the scheduledDateTime property value. The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
     public function setScheduledDateTime(?DateTime $value ): void {
@@ -304,7 +304,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The date time that the run execution started. Optional.
+     * Sets the startedDateTime property value. The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {
@@ -312,7 +312,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the successfulUsersCount property value. The number of successfully completed users in the run. Required.
+     * Sets the successfulUsersCount property value. The number of successfully completed users in the run.
      *  @param int|null $value Value to set for the successfulUsersCount property.
     */
     public function setSuccessfulUsersCount(?int $value ): void {
@@ -336,7 +336,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks in the run execution. Required.
+     * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks in the run execution.
      *  @param int|null $value Value to set for the totalUnprocessedTasksCount property.
     */
     public function setTotalUnprocessedTasksCount(?int $value ): void {
@@ -344,7 +344,7 @@ class Run extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUsersCount property value. The total number of users in the workflow execution. Required.
+     * Sets the totalUsersCount property value. The total number of users in the workflow execution.
      *  @param int|null $value Value to set for the totalUsersCount property.
     */
     public function setTotalUsersCount(?int $value ): void {

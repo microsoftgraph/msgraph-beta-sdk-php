@@ -49,7 +49,7 @@ class RoleDefinition extends Entity implements Parsable
     private ?array $roleScopeTagIds = null;
     
     /**
-     * Instantiates a new RoleDefinition and sets the default values.
+     * Instantiates a new roleDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();

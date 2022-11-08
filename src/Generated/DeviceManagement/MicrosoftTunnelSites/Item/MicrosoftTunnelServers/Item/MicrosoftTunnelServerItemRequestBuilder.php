@@ -22,28 +22,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MicrosoftTunnelServerItemRequestBuilder 
 {
     /**
-     * The createServerLogCollectionRequest property
+     * Provides operations to call the createServerLogCollectionRequest method.
     */
     public function createServerLogCollectionRequest(): CreateServerLogCollectionRequestRequestBuilder {
         return new CreateServerLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The generateServerLogCollectionRequest property
+     * Provides operations to call the generateServerLogCollectionRequest method.
     */
     public function generateServerLogCollectionRequest(): GenerateServerLogCollectionRequestRequestBuilder {
         return new GenerateServerLogCollectionRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getHealthMetrics property
+     * Provides operations to call the getHealthMetrics method.
     */
     public function getHealthMetrics(): GetHealthMetricsRequestBuilder {
         return new GetHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getHealthMetricTimeSeries property
+     * Provides operations to call the getHealthMetricTimeSeries method.
     */
     public function getHealthMetricTimeSeries(): GetHealthMetricTimeSeriesRequestBuilder {
         return new GetHealthMetricTimeSeriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,6 +142,7 @@ class MicrosoftTunnelServerItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

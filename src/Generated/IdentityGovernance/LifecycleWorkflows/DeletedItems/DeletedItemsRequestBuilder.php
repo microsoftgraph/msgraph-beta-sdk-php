@@ -35,7 +35,7 @@ class DeletedItemsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The workflows property
+     * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
     */
     public function workflows(): WorkflowsRequestBuilder {
         return new WorkflowsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DeletedItemsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DeletedItemsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item collection
+     * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
      * @param string $id Unique identifier of the item
      * @return WorkflowItemRequestBuilder
     */

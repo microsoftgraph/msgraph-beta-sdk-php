@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementTemplateStepItemRequestBuilder 
 {
     /**
-     * The acceptedVersion property
+     * Provides operations to manage the acceptedVersion property of the microsoft.graph.managedTenants.managementTemplateStep entity.
     */
     public function acceptedVersion(): AcceptedVersionRequestBuilder {
         return new AcceptedVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplate property
+     * Provides operations to manage the managementTemplate property of the microsoft.graph.managedTenants.managementTemplateStep entity.
     */
     public function managementTemplate(): ManagementTemplateRequestBuilder {
         return new ManagementTemplateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class ManagementTemplateStepItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The versions property
+     * Provides operations to manage the versions property of the microsoft.graph.managedTenants.managementTemplateStep entity.
     */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -135,6 +135,7 @@ class ManagementTemplateStepItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -197,7 +198,7 @@ class ManagementTemplateStepItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateSteps.item.versions.item collection
+     * Provides operations to manage the versions property of the microsoft.graph.managedTenants.managementTemplateStep entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateStepVersionItemRequestBuilder
     */

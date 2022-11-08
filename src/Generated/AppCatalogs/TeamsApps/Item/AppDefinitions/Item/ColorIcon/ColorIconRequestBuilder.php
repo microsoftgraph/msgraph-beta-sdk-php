@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ColorIconRequestBuilder 
 {
     /**
-     * The hostedContent property
+     * Provides operations to manage the hostedContent property of the microsoft.graph.teamsAppIcon entity.
     */
     public function hostedContent(): HostedContentRequestBuilder {
         return new HostedContentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class ColorIconRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

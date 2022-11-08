@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantEmailNotificationItemRequestBuilder 
 {
     /**
-     * The alert property
+     * Provides operations to manage the alert property of the microsoft.graph.managedTenants.managedTenantEmailNotification entity.
     */
     public function alert(): AlertRequestBuilder {
         return new AlertRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class ManagedTenantEmailNotificationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

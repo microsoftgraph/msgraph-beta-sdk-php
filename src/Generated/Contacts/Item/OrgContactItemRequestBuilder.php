@@ -32,49 +32,49 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OrgContactItemRequestBuilder 
 {
     /**
-     * The checkMemberGroups property
+     * Provides operations to call the checkMemberGroups method.
     */
     public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The checkMemberObjects property
+     * Provides operations to call the checkMemberObjects method.
     */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The directReports property
+     * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
     */
     public function directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberGroups property
+     * Provides operations to call the getMemberGroups method.
     */
     public function getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberObjects property
+     * Provides operations to call the getMemberObjects method.
     */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The manager property
+     * Provides operations to manage the manager property of the microsoft.graph.orgContact entity.
     */
     public function manager(): ManagerRequestBuilder {
         return new ManagerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The memberOf property
+     * Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity.
     */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -91,21 +91,21 @@ class OrgContactItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restore property
+     * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveMemberOf property
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.
     */
     public function transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveReports property
+     * Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
     */
     public function transitiveReports(): TransitiveReportsRequestBuilder {
         return new TransitiveReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -194,6 +194,7 @@ class OrgContactItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -217,7 +218,7 @@ class OrgContactItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.contacts.item.directReports.item collection
+     * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedContactsItemDirectReportsItemDirectoryObjectItemRequestBuilder
     */
@@ -247,7 +248,7 @@ class OrgContactItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.contacts.item.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedContactsItemMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -278,7 +279,7 @@ class OrgContactItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.contacts.item.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedContactsItemTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -289,7 +290,7 @@ class OrgContactItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.contacts.item.transitiveReports.item collection
+     * Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedContactsItemTransitiveReportsItemDirectoryObjectItemRequestBuilder
     */

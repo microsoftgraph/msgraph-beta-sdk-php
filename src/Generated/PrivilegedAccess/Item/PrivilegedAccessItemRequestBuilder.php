@@ -38,35 +38,35 @@ class PrivilegedAccessItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resources property
+     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
     */
     public function resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignmentRequests property
+     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.privilegedAccess entity.
     */
     public function roleAssignmentRequests(): RoleAssignmentRequestsRequestBuilder {
         return new RoleAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignments property
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.privilegedAccess entity.
     */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinitions property
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.
     */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleSettings property
+     * Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.
     */
     public function roleSettings(): RoleSettingsRequestBuilder {
         return new RoleSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -155,6 +155,7 @@ class PrivilegedAccessItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -217,7 +218,7 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.resources.item collection
+     * Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceResourceItemRequestBuilder
     */
@@ -228,7 +229,7 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.roleAssignmentRequests.item collection
+     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.privilegedAccess entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleAssignmentRequestItemRequestBuilder
     */
@@ -239,7 +240,7 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.roleAssignments.item collection
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.privilegedAccess entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleAssignmentItemRequestBuilder
     */
@@ -250,7 +251,7 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.roleDefinitions.item collection
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleDefinitionItemRequestBuilder
     */
@@ -261,7 +262,7 @@ class PrivilegedAccessItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.roleSettings.item collection
+     * Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleSettingItemRequestBuilder
     */

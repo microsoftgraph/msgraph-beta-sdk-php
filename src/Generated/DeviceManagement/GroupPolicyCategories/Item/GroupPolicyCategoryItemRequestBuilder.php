@@ -23,28 +23,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyCategoryItemRequestBuilder 
 {
     /**
-     * The children property
+     * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
     */
     public function children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The definitionFile property
+     * Provides operations to manage the definitionFile property of the microsoft.graph.groupPolicyCategory entity.
     */
     public function definitionFile(): DefinitionFileRequestBuilder {
         return new DefinitionFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The definitions property
+     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.
     */
     public function definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The parent property
+     * Provides operations to manage the parent property of the microsoft.graph.groupPolicyCategory entity.
     */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -66,7 +66,7 @@ class GroupPolicyCategoryItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyCategories.item.children.item collection
+     * Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyCategoryItemRequestBuilder
     */
@@ -154,11 +154,12 @@ class GroupPolicyCategoryItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyCategories.item.definitions.item collection
+     * Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyDefinitionItemRequestBuilder
     */

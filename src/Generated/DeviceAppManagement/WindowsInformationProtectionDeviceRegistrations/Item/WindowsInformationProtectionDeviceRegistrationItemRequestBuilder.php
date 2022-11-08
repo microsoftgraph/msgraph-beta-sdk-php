@@ -34,7 +34,7 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The wipe property
+     * Provides operations to call the wipe method.
     */
     public function wipe(): WipeRequestBuilder {
         return new WipeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

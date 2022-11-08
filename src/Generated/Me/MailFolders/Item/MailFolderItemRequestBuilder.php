@@ -31,42 +31,42 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MailFolderItemRequestBuilder 
 {
     /**
-     * The childFolders property
+     * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
     */
     public function childFolders(): ChildFoldersRequestBuilder {
         return new ChildFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The copy property
+     * Provides operations to call the copy method.
     */
     public function copy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The messageRules property
+     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
     */
     public function messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The messages property
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The move property
+     * Provides operations to call the move method.
     */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The multiValueExtendedProperties property
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.
     */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -83,7 +83,7 @@ class MailFolderItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The singleValueExtendedProperties property
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.
     */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -95,14 +95,14 @@ class MailFolderItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userConfigurations property
+     * Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
     */
     public function userConfigurations(): UserConfigurationsRequestBuilder {
         return new UserConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.childFolders.item collection
+     * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return MailFolderItemRequestBuilder
     */
@@ -190,6 +190,7 @@ class MailFolderItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -232,7 +233,7 @@ class MailFolderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messageRules.item collection
+     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return MessageRuleItemRequestBuilder
     */
@@ -243,7 +244,7 @@ class MailFolderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return MessageItemRequestBuilder
     */
@@ -254,7 +255,7 @@ class MailFolderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
     */
@@ -285,7 +286,7 @@ class MailFolderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return SingleValueLegacyExtendedPropertyItemRequestBuilder
     */
@@ -296,7 +297,7 @@ class MailFolderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.userConfigurations.item collection
+     * Provides operations to manage the userConfigurations property of the microsoft.graph.mailFolder entity.
      * @param string $id Unique identifier of the item
      * @return UserConfigurationItemRequestBuilder
     */

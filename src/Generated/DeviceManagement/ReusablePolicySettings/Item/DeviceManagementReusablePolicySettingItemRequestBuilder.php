@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementReusablePolicySettingItemRequestBuilder 
 {
     /**
-     * The clone property
+     * Provides operations to call the clone method.
     */
     public function escapedClone(): CloneRequestBuilder {
         return new CloneRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -33,7 +33,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The referencingConfigurationPolicies property
+     * Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
     */
     public function referencingConfigurationPolicies(): ReferencingConfigurationPoliciesRequestBuilder {
         return new ReferencingConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class DeviceManagementReusablePolicySettingItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusablePolicySettings.item.referencingConfigurationPolicies.item collection
+     * Provides operations to manage the referencingConfigurationPolicies property of the microsoft.graph.deviceManagementReusablePolicySetting entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationPolicyItemRequestBuilder
     */

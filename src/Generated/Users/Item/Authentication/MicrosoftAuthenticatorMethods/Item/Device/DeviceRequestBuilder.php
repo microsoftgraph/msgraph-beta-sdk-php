@@ -37,49 +37,49 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceRequestBuilder 
 {
     /**
-     * The checkMemberGroups property
+     * Provides operations to call the checkMemberGroups method.
     */
     public function checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The checkMemberObjects property
+     * Provides operations to call the checkMemberObjects method.
     */
     public function checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The commands property
+     * Provides operations to manage the commands property of the microsoft.graph.device entity.
     */
     public function commands(): CommandsRequestBuilder {
         return new CommandsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extensions property
+     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberGroups property
+     * Provides operations to call the getMemberGroups method.
     */
     public function getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getMemberObjects property
+     * Provides operations to call the getMemberObjects method.
     */
     public function getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The memberOf property
+     * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
     */
     public function memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -91,14 +91,14 @@ class DeviceRequestBuilder
     private array $pathParameters;
     
     /**
-     * The registeredOwners property
+     * Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.
     */
     public function registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The registeredUsers property
+     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
     */
     public function registeredUsers(): RegisteredUsersRequestBuilder {
         return new RegisteredUsersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -110,14 +110,14 @@ class DeviceRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restore property
+     * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveMemberOf property
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
     */
     public function transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -129,14 +129,14 @@ class DeviceRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The usageRights property
+     * Provides operations to manage the usageRights property of the microsoft.graph.device entity.
     */
     public function usageRights(): UsageRightsRequestBuilder {
         return new UsageRightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.commands.item collection
+     * Provides operations to manage the commands property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return CommandItemRequestBuilder
     */
@@ -224,6 +224,7 @@ class DeviceRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -247,7 +248,7 @@ class DeviceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
     */
@@ -277,7 +278,7 @@ class DeviceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.memberOf.item collection
+     * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemAuthenticationMicrosoftAuthenticatorMethodsItemDeviceMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -319,7 +320,7 @@ class DeviceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.registeredUsers.item collection
+     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemAuthenticationMicrosoftAuthenticatorMethodsItemDeviceRegisteredUsersItemDirectoryObjectItemRequestBuilder
     */
@@ -330,7 +331,7 @@ class DeviceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.transitiveMemberOf.item collection
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedUsersItemAuthenticationMicrosoftAuthenticatorMethodsItemDeviceTransitiveMemberOfItemDirectoryObjectItemRequestBuilder
     */
@@ -341,7 +342,7 @@ class DeviceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.authentication.microsoftAuthenticatorMethods.item.device.usageRights.item collection
+     * Provides operations to manage the usageRights property of the microsoft.graph.device entity.
      * @param string $id Unique identifier of the item
      * @return UsageRightItemRequestBuilder
     */

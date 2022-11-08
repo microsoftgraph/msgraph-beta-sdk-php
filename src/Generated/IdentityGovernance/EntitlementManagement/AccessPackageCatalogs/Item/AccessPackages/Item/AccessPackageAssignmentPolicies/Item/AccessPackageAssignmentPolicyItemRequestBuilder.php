@@ -22,21 +22,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageAssignmentPolicyItemRequestBuilder 
 {
     /**
-     * The accessPackage property
+     * Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity.
     */
     public function accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageCatalog property
+     * Provides operations to manage the accessPackageCatalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
     */
     public function accessPackageCatalog(): AccessPackageCatalogRequestBuilder {
         return new AccessPackageCatalogRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customExtensionHandlers property
+     * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
     */
     public function customExtensionHandlers(): CustomExtensionHandlersRequestBuilder {
         return new CustomExtensionHandlersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -135,11 +135,12 @@ class AccessPackageAssignmentPolicyItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackages.item.accessPackageAssignmentPolicies.item.customExtensionHandlers.item collection
+     * Provides operations to manage the customExtensionHandlers property of the microsoft.graph.accessPackageAssignmentPolicy entity.
      * @param string $id Unique identifier of the item
      * @return CustomExtensionHandlerItemRequestBuilder
     */

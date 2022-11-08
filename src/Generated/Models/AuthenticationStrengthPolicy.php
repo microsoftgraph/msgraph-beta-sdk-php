@@ -50,7 +50,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
     private ?AuthenticationStrengthRequirements $requirementsSatisfied = null;
     
     /**
-     * Instantiates a new AuthenticationStrengthPolicy and sets the default values.
+     * Instantiates a new authenticationStrengthPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

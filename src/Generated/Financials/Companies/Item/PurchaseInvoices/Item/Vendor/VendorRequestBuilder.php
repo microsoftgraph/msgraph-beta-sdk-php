@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class VendorRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.vendor entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -35,21 +35,21 @@ class VendorRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentMethod property
+     * Provides operations to manage the paymentMethod property of the microsoft.graph.vendor entity.
     */
     public function paymentMethod(): PaymentMethodRequestBuilder {
         return new PaymentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The paymentTerm property
+     * Provides operations to manage the paymentTerm property of the microsoft.graph.vendor entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The picture property
+     * Provides operations to manage the picture property of the microsoft.graph.vendor entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -143,6 +143,7 @@ class VendorRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -205,7 +206,7 @@ class VendorRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.purchaseInvoices.item.vendor.picture.item collection
+     * Provides operations to manage the picture property of the microsoft.graph.vendor entity.
      * @param string $id Unique identifier of the item
      * @return PictureItemRequestBuilder
     */

@@ -11,7 +11,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Workflow extends WorkflowBase implements Parsable 
 {
     /**
-     * @var DateTime|null $deletedDateTime When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
+     * @var DateTime|null $deletedDateTime When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $deletedDateTime = null;
     
@@ -21,7 +21,7 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $executionScope = null;
     
     /**
-     * @var string|null $id Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
+     * @var string|null $id Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
     */
     private ?string $id = null;
     
@@ -46,7 +46,7 @@ class Workflow extends WorkflowBase implements Parsable
     private ?array $userProcessingResults = null;
     
     /**
-     * @var int|null $version The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
+     * @var int|null $version The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $version = null;
     
@@ -73,7 +73,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the deletedDateTime property value. When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
+     * Gets the deletedDateTime property value. When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
@@ -108,7 +108,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
+     * Gets the id property value. Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
      * @return string|null
     */
     public function getId(): ?string {
@@ -148,7 +148,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
+     * Gets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -181,7 +181,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the deletedDateTime property value. When the workflow was deleted. Supports $filter(lt,gt) and $orderBy.
+     * Sets the deletedDateTime property value. When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the deletedDateTime property.
     */
     public function setDeletedDateTime(?DateTime $value ): void {
@@ -197,7 +197,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the id property value. Identifier used for individually addressing a specific workflow. Supports $filter(eq, ne).
+     * Sets the id property value. Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
      *  @param string|null $value Value to set for the id property.
     */
     public function setId(?string $value ): void {
@@ -237,7 +237,7 @@ class Workflow extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq, ne).
+     * Sets the version property value. The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {

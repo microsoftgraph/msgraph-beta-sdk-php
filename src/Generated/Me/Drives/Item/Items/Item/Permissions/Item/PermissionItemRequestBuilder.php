@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PermissionItemRequestBuilder 
 {
     /**
-     * The grant property
+     * Provides operations to call the grant method.
     */
     public function grant(): GrantRequestBuilder {
         return new GrantRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class PermissionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The revokeGrants property
+     * Provides operations to call the revokeGrants method.
     */
     public function revokeGrants(): RevokeGrantsRequestBuilder {
         return new RevokeGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class PermissionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -40,11 +40,6 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     private ?string $odataType = null;
     
     /**
-     * @var int|null $otherSeverityAnomalyCount The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
-    */
-    private ?int $otherSeverityAnomalyCount = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAnomalySeverityOverview and sets the default values.
     */
     public function __construct() {
@@ -81,7 +76,6 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
             'lowSeverityAnomalyCount' => fn(ParseNode $n) => $o->setLowSeverityAnomalyCount($n->getIntegerValue()),
             'mediumSeverityAnomalyCount' => fn(ParseNode $n) => $o->setMediumSeverityAnomalyCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
-            'otherSeverityAnomalyCount' => fn(ParseNode $n) => $o->setOtherSeverityAnomalyCount($n->getIntegerValue()),
         ];
     }
 
@@ -126,14 +120,6 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     }
 
     /**
-     * Gets the otherSeverityAnomalyCount property value. The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
-     * @return int|null
-    */
-    public function getOtherSeverityAnomalyCount(): ?int {
-        return $this->otherSeverityAnomalyCount;
-    }
-
-    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -143,7 +129,6 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
         $writer->writeIntegerValue('lowSeverityAnomalyCount', $this->lowSeverityAnomalyCount);
         $writer->writeIntegerValue('mediumSeverityAnomalyCount', $this->mediumSeverityAnomalyCount);
         $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('otherSeverityAnomalyCount', $this->otherSeverityAnomalyCount);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -193,14 +178,6 @@ class UserExperienceAnalyticsAnomalySeverityOverview implements AdditionalDataHo
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
-    }
-
-    /**
-     * Sets the otherSeverityAnomalyCount property value. The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
-     *  @param int|null $value Value to set for the otherSeverityAnomalyCount property.
-    */
-    public function setOtherSeverityAnomalyCount(?int $value ): void {
-        $this->otherSeverityAnomalyCount = $value;
     }
 
 }

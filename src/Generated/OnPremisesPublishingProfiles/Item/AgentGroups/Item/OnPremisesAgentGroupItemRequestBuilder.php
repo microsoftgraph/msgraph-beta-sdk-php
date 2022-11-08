@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OnPremisesAgentGroupItemRequestBuilder 
 {
     /**
-     * The agents property
+     * Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.
     */
     public function agents(): AgentsRequestBuilder {
         return new AgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -34,7 +34,7 @@ class OnPremisesAgentGroupItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The publishedResources property
+     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
     */
     public function publishedResources(): PublishedResourcesRequestBuilder {
         return new PublishedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class OnPremisesAgentGroupItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.agentGroups.item.agents.item collection
+     * Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.
      * @param string $id Unique identifier of the item
      * @return OnPremisesAgentItemRequestBuilder
     */
@@ -139,6 +139,7 @@ class OnPremisesAgentGroupItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -201,7 +202,7 @@ class OnPremisesAgentGroupItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.agentGroups.item.publishedResources.item collection
+     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.
      * @param string $id Unique identifier of the item
      * @return PublishedResourceItemRequestBuilder
     */

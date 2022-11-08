@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementTemplateItemRequestBuilder 
 {
     /**
-     * The managementTemplateCollections property
+     * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managementTemplate entity.
     */
     public function managementTemplateCollections(): ManagementTemplateCollectionsRequestBuilder {
         return new ManagementTemplateCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managementTemplateSteps property
+     * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managementTemplate entity.
     */
     public function managementTemplateSteps(): ManagementTemplateStepsRequestBuilder {
         return new ManagementTemplateStepsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -128,6 +128,7 @@ class ManagementTemplateItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -170,7 +171,7 @@ class ManagementTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplates.item.managementTemplateCollections.item collection
+     * Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managementTemplate entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateCollectionItemRequestBuilder
     */
@@ -181,7 +182,7 @@ class ManagementTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplates.item.managementTemplateSteps.item collection
+     * Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managementTemplate entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateStepItemRequestBuilder
     */

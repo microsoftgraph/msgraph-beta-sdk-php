@@ -30,14 +30,14 @@ class SynchronizationJobItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The pause property
+     * Provides operations to call the pause method.
     */
     public function pause(): PauseRequestBuilder {
         return new PauseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The provisionOnDemand property
+     * Provides operations to call the provisionOnDemand method.
     */
     public function provisionOnDemand(): ProvisionOnDemandRequestBuilder {
         return new ProvisionOnDemandRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -49,28 +49,28 @@ class SynchronizationJobItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restart property
+     * Provides operations to call the restart method.
     */
     public function restart(): RestartRequestBuilder {
         return new RestartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The schema property
+     * Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
     */
     public function schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The start property
+     * Provides operations to call the start method.
     */
     public function start(): StartRequestBuilder {
         return new StartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The stop property
+     * Provides operations to call the stop method.
     */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -82,7 +82,7 @@ class SynchronizationJobItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateCredentials property
+     * Provides operations to call the validateCredentials method.
     */
     public function validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -166,6 +166,7 @@ class SynchronizationJobItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

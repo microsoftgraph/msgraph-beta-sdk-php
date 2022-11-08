@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceRequestBuilder 
 {
     /**
-     * The accessPackageResourceEnvironment property
+     * Provides operations to manage the accessPackageResourceEnvironment property of the microsoft.graph.accessPackageResource entity.
     */
     public function accessPackageResourceEnvironment(): AccessPackageResourceEnvironmentRequestBuilder {
         return new AccessPackageResourceEnvironmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceRoles property
+     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
     */
     public function accessPackageResourceRoles(): AccessPackageResourceRolesRequestBuilder {
         return new AccessPackageResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class AccessPackageResourceRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackageResourceRoles.item.accessPackageResource.accessPackageResourceScopes.item.accessPackageResource.accessPackageResourceRoles.item collection
+     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageResource entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceRoleItemRequestBuilder
     */
@@ -138,6 +138,7 @@ class AccessPackageResourceRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

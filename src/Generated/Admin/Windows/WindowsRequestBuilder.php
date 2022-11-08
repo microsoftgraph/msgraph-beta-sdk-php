@@ -29,7 +29,7 @@ class WindowsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updates property
+     * Provides operations to manage the updates property of the microsoft.graph.windowsUpdates.windows entity.
     */
     public function updates(): UpdatesRequestBuilder {
         return new UpdatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class WindowsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

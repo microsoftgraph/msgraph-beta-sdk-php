@@ -25,7 +25,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     private ?array $aggregations = null;
     
     /**
-     * @var array<CollapseProperty>|null $collapseProperties The collapseProperties property
+     * @var array<CollapseProperty>|null $collapseProperties Contains the ordered collection of fields and limit to collapse results. Optional.
     */
     private ?array $collapseProperties = null;
     
@@ -146,7 +146,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the collapseProperties property value. The collapseProperties property
+     * Gets the collapseProperties property value. Contains the ordered collection of fields and limit to collapse results. Optional.
      * @return array<CollapseProperty>|null
     */
     public function getCollapseProperties(): ?array {
@@ -352,7 +352,7 @@ class SearchRequest implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the collapseProperties property value. The collapseProperties property
+     * Sets the collapseProperties property value. Contains the ordered collection of fields and limit to collapse results. Optional.
      *  @param array<CollapseProperty>|null $value Value to set for the collapseProperties property.
     */
     public function setCollapseProperties(?array $value ): void {

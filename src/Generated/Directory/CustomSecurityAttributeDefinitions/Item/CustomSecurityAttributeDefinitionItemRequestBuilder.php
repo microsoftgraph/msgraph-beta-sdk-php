@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomSecurityAttributeDefinitionItemRequestBuilder 
 {
     /**
-     * The allowedValues property
+     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
     */
     public function allowedValues(): AllowedValuesRequestBuilder {
         return new AllowedValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class CustomSecurityAttributeDefinitionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.customSecurityAttributeDefinitions.item.allowedValues.item collection
+     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
      * @param string $id Unique identifier of the item
      * @return AllowedValueItemRequestBuilder
     */
@@ -130,6 +130,7 @@ class CustomSecurityAttributeDefinitionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

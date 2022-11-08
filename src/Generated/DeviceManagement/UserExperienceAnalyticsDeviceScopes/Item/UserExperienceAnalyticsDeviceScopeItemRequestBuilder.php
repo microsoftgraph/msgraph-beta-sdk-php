@@ -29,7 +29,7 @@ class UserExperienceAnalyticsDeviceScopeItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The triggerDeviceScopeAction property
+     * Provides operations to call the triggerDeviceScopeAction method.
     */
     public function triggerDeviceScopeAction(): TriggerDeviceScopeActionRequestBuilder {
         return new TriggerDeviceScopeActionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class UserExperienceAnalyticsDeviceScopeItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

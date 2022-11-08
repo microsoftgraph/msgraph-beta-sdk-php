@@ -27,28 +27,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class IosLobAppProvisioningConfigurationItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatuses property
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupAssignments property
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -70,14 +70,14 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userStatuses property
+     * Provides operations to manage the userStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.iosLobAppProvisioningConfigurations.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return IosLobAppProvisioningConfigurationAssignmentItemRequestBuilder
     */
@@ -165,6 +165,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -188,7 +189,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.iosLobAppProvisioningConfigurations.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
     */
@@ -218,7 +219,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.iosLobAppProvisioningConfigurations.item.groupAssignments.item collection
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder
     */
@@ -249,7 +250,7 @@ class IosLobAppProvisioningConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.iosLobAppProvisioningConfigurations.item.userStatuses.item collection
+     * Provides operations to manage the userStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
     */

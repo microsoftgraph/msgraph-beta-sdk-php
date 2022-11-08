@@ -24,7 +24,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomerRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.customer entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -36,21 +36,21 @@ class CustomerRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentMethod property
+     * Provides operations to manage the paymentMethod property of the microsoft.graph.customer entity.
     */
     public function paymentMethod(): PaymentMethodRequestBuilder {
         return new PaymentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The paymentTerm property
+     * Provides operations to manage the paymentTerm property of the microsoft.graph.customer entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The picture property
+     * Provides operations to manage the picture property of the microsoft.graph.customer entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -62,7 +62,7 @@ class CustomerRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The shipmentMethod property
+     * Provides operations to manage the shipmentMethod property of the microsoft.graph.customer entity.
     */
     public function shipmentMethod(): ShipmentMethodRequestBuilder {
         return new ShipmentMethodRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -151,6 +151,7 @@ class CustomerRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -213,7 +214,7 @@ class CustomerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesOrders.item.customer.picture.item collection
+     * Provides operations to manage the picture property of the microsoft.graph.customer entity.
      * @param string $id Unique identifier of the item
      * @return PictureItemRequestBuilder
     */

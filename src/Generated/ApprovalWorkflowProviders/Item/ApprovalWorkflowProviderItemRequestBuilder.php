@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ApprovalWorkflowProviderItemRequestBuilder 
 {
     /**
-     * The businessFlows property
+     * Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.
     */
     public function businessFlows(): BusinessFlowsRequestBuilder {
         return new BusinessFlowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The businessFlowsWithRequestsAwaitingMyDecision property
+     * Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.
     */
     public function businessFlowsWithRequestsAwaitingMyDecision(): BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder {
         return new BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -43,7 +43,7 @@ class ApprovalWorkflowProviderItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The policyTemplates property
+     * Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
     */
     public function policyTemplates(): PolicyTemplatesRequestBuilder {
         return new PolicyTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -60,7 +60,7 @@ class ApprovalWorkflowProviderItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.approvalWorkflowProviders.item.businessFlows.item collection
+     * Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedApprovalWorkflowProvidersItemBusinessFlowsItemBusinessFlowItemRequestBuilder
     */
@@ -71,7 +71,7 @@ class ApprovalWorkflowProviderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.approvalWorkflowProviders.item.businessFlowsWithRequestsAwaitingMyDecision.item collection
+     * Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedApprovalWorkflowProvidersItemBusinessFlowsWithRequestsAwaitingMyDecisionItemBusinessFlowItemRequestBuilder
     */
@@ -159,6 +159,7 @@ class ApprovalWorkflowProviderItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -221,7 +222,7 @@ class ApprovalWorkflowProviderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.approvalWorkflowProviders.item.policyTemplates.item collection
+     * Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
      * @param string $id Unique identifier of the item
      * @return GovernancePolicyTemplateItemRequestBuilder
     */

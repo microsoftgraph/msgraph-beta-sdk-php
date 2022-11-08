@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceHealthScriptsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enableGlobalScripts property
+     * Provides operations to call the enableGlobalScripts method.
     */
     public function enableGlobalScripts(): EnableGlobalScriptsRequestBuilder {
         return new EnableGlobalScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -116,6 +116,7 @@ class DeviceHealthScriptsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

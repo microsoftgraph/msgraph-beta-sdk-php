@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PolicySetItemRequestBuilder 
 {
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The items property
+     * Provides operations to manage the items property of the microsoft.graph.policySet entity.
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -47,7 +47,7 @@ class PolicySetItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The update property
+     * Provides operations to call the update method.
     */
     public function update(): UpdateRequestBuilder {
         return new UpdateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class PolicySetItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.policySets.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.policySet entity.
      * @param string $id Unique identifier of the item
      * @return PolicySetAssignmentItemRequestBuilder
     */
@@ -147,6 +147,7 @@ class PolicySetItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class PolicySetItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.policySets.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.policySet entity.
      * @param string $id Unique identifier of the item
      * @return PolicySetItemItemRequestBuilder
     */

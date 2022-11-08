@@ -84,6 +84,7 @@ class RecordingRequestBuilder
             }
         }
         $requestInfo->setStreamContent($body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "", $body);
         return $requestInfo;
     }
 

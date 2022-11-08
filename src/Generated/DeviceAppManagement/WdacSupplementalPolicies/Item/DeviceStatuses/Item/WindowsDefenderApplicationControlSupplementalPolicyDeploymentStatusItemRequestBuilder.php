@@ -24,7 +24,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemReq
     private array $pathParameters;
     
     /**
-     * The policy property
+     * Provides operations to manage the policy property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentStatus entity.
     */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemReq
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var bool|null $isRemovable Whether or not the app can be removed by the user.
+     * @var bool|null $isRemovable When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
     */
     private ?bool $isRemovable = null;
     
@@ -54,7 +54,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Gets the isRemovable property value. Whether or not the app can be removed by the user.
+     * Gets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
      * @return bool|null
     */
     public function getIsRemovable(): ?bool {
@@ -89,7 +89,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings implements
     }
 
     /**
-     * Sets the isRemovable property value. Whether or not the app can be removed by the user.
+     * Sets the isRemovable property value. When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
      *  @param bool|null $value Value to set for the isRemovable property.
     */
     public function setIsRemovable(?bool $value ): void {

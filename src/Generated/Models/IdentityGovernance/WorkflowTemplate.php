@@ -20,7 +20,7 @@ class WorkflowTemplate extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The display name of the workflowTemplate. Supports  orderby.
+     * @var string|null $displayName The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
     */
     private ?string $displayName = null;
     
@@ -68,7 +68,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the workflowTemplate. Supports  orderby.
+     * Gets the displayName property value. The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -136,7 +136,7 @@ class WorkflowTemplate extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the workflowTemplate. Supports  orderby.
+     * Sets the displayName property value. The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {

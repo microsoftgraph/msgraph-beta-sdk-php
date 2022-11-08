@@ -23,21 +23,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsAutopilotDeploymentProfileItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignedDevices property
+     * Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
     */
     public function assignedDevices(): AssignedDevicesRequestBuilder {
         return new AssignedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsAutopilotDeploymentProfiles.item.assignedDevices.item collection
+     * Provides operations to manage the assignedDevices property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
      * @param string $id Unique identifier of the item
      * @return WindowsAutopilotDeviceIdentityItemRequestBuilder
     */
@@ -70,7 +70,7 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsAutopilotDeploymentProfiles.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
      * @param string $id Unique identifier of the item
      * @return WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder
     */
@@ -158,6 +158,7 @@ class WindowsAutopilotDeploymentProfileItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

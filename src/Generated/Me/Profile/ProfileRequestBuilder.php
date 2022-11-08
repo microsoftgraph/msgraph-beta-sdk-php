@@ -56,84 +56,84 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ProfileRequestBuilder 
 {
     /**
-     * The account property
+     * Provides operations to manage the account property of the microsoft.graph.profile entity.
     */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The addresses property
+     * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
     */
     public function addresses(): AddressesRequestBuilder {
         return new AddressesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The anniversaries property
+     * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
     */
     public function anniversaries(): AnniversariesRequestBuilder {
         return new AnniversariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The awards property
+     * Provides operations to manage the awards property of the microsoft.graph.profile entity.
     */
     public function awards(): AwardsRequestBuilder {
         return new AwardsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The certifications property
+     * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
     */
     public function certifications(): CertificationsRequestBuilder {
         return new CertificationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The educationalActivities property
+     * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
     */
     public function educationalActivities(): EducationalActivitiesRequestBuilder {
         return new EducationalActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The emails property
+     * Provides operations to manage the emails property of the microsoft.graph.profile entity.
     */
     public function emails(): EmailsRequestBuilder {
         return new EmailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The interests property
+     * Provides operations to manage the interests property of the microsoft.graph.profile entity.
     */
     public function interests(): InterestsRequestBuilder {
         return new InterestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The languages property
+     * Provides operations to manage the languages property of the microsoft.graph.profile entity.
     */
     public function languages(): LanguagesRequestBuilder {
         return new LanguagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The names property
+     * Provides operations to manage the names property of the microsoft.graph.profile entity.
     */
     public function names(): NamesRequestBuilder {
         return new NamesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The notes property
+     * Provides operations to manage the notes property of the microsoft.graph.profile entity.
     */
     public function notes(): NotesRequestBuilder {
         return new NotesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The patents property
+     * Provides operations to manage the patents property of the microsoft.graph.profile entity.
     */
     public function patents(): PatentsRequestBuilder {
         return new PatentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -145,28 +145,28 @@ class ProfileRequestBuilder
     private array $pathParameters;
     
     /**
-     * The phones property
+     * Provides operations to manage the phones property of the microsoft.graph.profile entity.
     */
     public function phones(): PhonesRequestBuilder {
         return new PhonesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The positions property
+     * Provides operations to manage the positions property of the microsoft.graph.profile entity.
     */
     public function positions(): PositionsRequestBuilder {
         return new PositionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The projects property
+     * Provides operations to manage the projects property of the microsoft.graph.profile entity.
     */
     public function projects(): ProjectsRequestBuilder {
         return new ProjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The publications property
+     * Provides operations to manage the publications property of the microsoft.graph.profile entity.
     */
     public function publications(): PublicationsRequestBuilder {
         return new PublicationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -178,7 +178,7 @@ class ProfileRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The skills property
+     * Provides operations to manage the skills property of the microsoft.graph.profile entity.
     */
     public function skills(): SkillsRequestBuilder {
         return new SkillsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -190,21 +190,21 @@ class ProfileRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The webAccounts property
+     * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
     */
     public function webAccounts(): WebAccountsRequestBuilder {
         return new WebAccountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The websites property
+     * Provides operations to manage the websites property of the microsoft.graph.profile entity.
     */
     public function websites(): WebsitesRequestBuilder {
         return new WebsitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.account.item collection
+     * Provides operations to manage the account property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return UserAccountInformationItemRequestBuilder
     */
@@ -215,7 +215,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.addresses.item collection
+     * Provides operations to manage the addresses property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ItemAddressItemRequestBuilder
     */
@@ -226,7 +226,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.anniversaries.item collection
+     * Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonAnnualEventItemRequestBuilder
     */
@@ -237,7 +237,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.awards.item collection
+     * Provides operations to manage the awards property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonAwardItemRequestBuilder
     */
@@ -248,7 +248,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.certifications.item collection
+     * Provides operations to manage the certifications property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonCertificationItemRequestBuilder
     */
@@ -336,6 +336,7 @@ class ProfileRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -359,7 +360,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.educationalActivities.item collection
+     * Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return EducationalActivityItemRequestBuilder
     */
@@ -370,7 +371,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.emails.item collection
+     * Provides operations to manage the emails property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ItemEmailItemRequestBuilder
     */
@@ -400,7 +401,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.interests.item collection
+     * Provides operations to manage the interests property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonInterestItemRequestBuilder
     */
@@ -411,7 +412,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.languages.item collection
+     * Provides operations to manage the languages property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return LanguageProficiencyItemRequestBuilder
     */
@@ -422,7 +423,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.names.item collection
+     * Provides operations to manage the names property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonNameItemRequestBuilder
     */
@@ -433,7 +434,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.notes.item collection
+     * Provides operations to manage the notes property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonAnnotationItemRequestBuilder
     */
@@ -464,7 +465,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.patents.item collection
+     * Provides operations to manage the patents property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ItemPatentItemRequestBuilder
     */
@@ -475,7 +476,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.phones.item collection
+     * Provides operations to manage the phones property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ItemPhoneItemRequestBuilder
     */
@@ -486,7 +487,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.positions.item collection
+     * Provides operations to manage the positions property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return WorkPositionItemRequestBuilder
     */
@@ -497,7 +498,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.projects.item collection
+     * Provides operations to manage the projects property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ProjectParticipationItemRequestBuilder
     */
@@ -508,7 +509,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.publications.item collection
+     * Provides operations to manage the publications property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return ItemPublicationItemRequestBuilder
     */
@@ -519,7 +520,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.skills.item collection
+     * Provides operations to manage the skills property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return SkillProficiencyItemRequestBuilder
     */
@@ -530,7 +531,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.webAccounts.item collection
+     * Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return WebAccountItemRequestBuilder
     */
@@ -541,7 +542,7 @@ class ProfileRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.profile.websites.item collection
+     * Provides operations to manage the websites property of the microsoft.graph.profile entity.
      * @param string $id Unique identifier of the item
      * @return PersonWebsiteItemRequestBuilder
     */

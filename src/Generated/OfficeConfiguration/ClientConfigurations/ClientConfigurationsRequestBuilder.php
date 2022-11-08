@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ClientConfigurationsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class ClientConfigurationsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updatePriorities property
+     * Provides operations to call the updatePriorities method.
     */
     public function updatePriorities(): UpdatePrioritiesRequestBuilder {
         return new UpdatePrioritiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -106,6 +106,7 @@ class ClientConfigurationsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

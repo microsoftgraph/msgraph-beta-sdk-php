@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ComplianceRequestBuilder 
 {
     /**
-     * The ediscovery property
+     * Provides operations to manage the ediscovery property of the microsoft.graph.compliance entity.
     */
     public function ediscovery(): EdiscoveryRequestBuilder {
         return new EdiscoveryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -97,6 +97,7 @@ class ComplianceRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

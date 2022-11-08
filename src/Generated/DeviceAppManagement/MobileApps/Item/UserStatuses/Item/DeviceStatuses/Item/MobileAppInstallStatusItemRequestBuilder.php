@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MobileAppInstallStatusItemRequestBuilder 
 {
     /**
-     * The app property
+     * Provides operations to manage the app property of the microsoft.graph.mobileAppInstallStatus entity.
     */
     public function app(): AppRequestBuilder {
         return new AppRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class MobileAppInstallStatusItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

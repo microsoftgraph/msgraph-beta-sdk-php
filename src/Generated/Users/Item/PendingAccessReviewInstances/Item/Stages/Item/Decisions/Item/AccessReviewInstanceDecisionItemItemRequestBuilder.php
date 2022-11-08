@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessReviewInstanceDecisionItemItemRequestBuilder 
 {
     /**
-     * The insights property
+     * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
     */
     public function insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The instance property
+     * Provides operations to manage the instance property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
     */
     public function instance(): InstanceRequestBuilder {
         return new InstanceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -169,7 +170,7 @@ class AccessReviewInstanceDecisionItemItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.pendingAccessReviewInstances.item.stages.item.decisions.item.insights.item collection
+     * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceInsightItemRequestBuilder
     */

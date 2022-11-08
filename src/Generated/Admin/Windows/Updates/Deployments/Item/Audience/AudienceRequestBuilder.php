@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AudienceRequestBuilder 
 {
     /**
-     * The exclusions property
+     * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     */
     public function exclusions(): ExclusionsRequestBuilder {
         return new ExclusionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The members property
+     * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -48,14 +48,14 @@ class AudienceRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateAudience property
+     * Provides operations to call the updateAudience method.
     */
     public function updateAudience(): UpdateAudienceRequestBuilder {
         return new UpdateAudienceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateAudienceById property
+     * Provides operations to call the updateAudienceById method.
     */
     public function updateAudienceById(): UpdateAudienceByIdRequestBuilder {
         return new UpdateAudienceByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -144,6 +144,7 @@ class AudienceRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -167,7 +168,7 @@ class AudienceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.deployments.item.audience.exclusions.item collection
+     * Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceExclusionsItemUpdatableAssetItemRequestBuilder
     */
@@ -197,7 +198,7 @@ class AudienceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.deployments.item.audience.members.item collection
+     * Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAdminWindowsUpdatesDeploymentsItemAudienceMembersItemUpdatableAssetItemRequestBuilder
     */

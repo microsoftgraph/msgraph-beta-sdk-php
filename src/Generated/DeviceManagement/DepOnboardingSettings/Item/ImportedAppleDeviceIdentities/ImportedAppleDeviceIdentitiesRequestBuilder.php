@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ImportedAppleDeviceIdentitiesRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The importAppleDeviceIdentityList property
+     * Provides operations to call the importAppleDeviceIdentityList method.
     */
     public function importAppleDeviceIdentityList(): ImportAppleDeviceIdentityListRequestBuilder {
         return new ImportAppleDeviceIdentityListRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -106,6 +106,7 @@ class ImportedAppleDeviceIdentitiesRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

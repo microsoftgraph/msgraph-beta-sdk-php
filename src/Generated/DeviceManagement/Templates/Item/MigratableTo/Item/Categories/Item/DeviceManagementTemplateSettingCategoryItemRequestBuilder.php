@@ -25,7 +25,7 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recommendedSettings property
+     * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
     */
     public function recommendedSettings(): RecommendedSettingsRequestBuilder {
         return new RecommendedSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DeviceManagementTemplateSettingCategoryItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templates.item.migratableTo.item.categories.item.recommendedSettings.item collection
+     * Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementSettingInstanceItemRequestBuilder
     */

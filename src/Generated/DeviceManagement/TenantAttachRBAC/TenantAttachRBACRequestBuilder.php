@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantAttachRBACRequestBuilder 
 {
     /**
-     * The enable property
+     * Provides operations to call the enable method.
     */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class TenantAttachRBACRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

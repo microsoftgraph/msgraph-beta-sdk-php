@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ApplePushNotificationCertificateRequestBuilder 
 {
     /**
-     * The generateApplePushNotificationCertificateSigningRequest property
+     * Provides operations to call the generateApplePushNotificationCertificateSigningRequest method.
     */
     public function generateApplePushNotificationCertificateSigningRequest(): GenerateApplePushNotificationCertificateSigningRequestRequestBuilder {
         return new GenerateApplePushNotificationCertificateSigningRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class ApplePushNotificationCertificateRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

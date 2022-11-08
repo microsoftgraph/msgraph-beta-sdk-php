@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantGroupsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class TenantGroupsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The tenantSearch property
+     * Provides operations to call the tenantSearch method.
     */
     public function tenantSearch(): TenantSearchRequestBuilder {
         return new TenantSearchRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -106,6 +106,7 @@ class TenantGroupsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

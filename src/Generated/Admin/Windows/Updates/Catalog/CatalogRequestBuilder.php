@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CatalogRequestBuilder 
 {
     /**
-     * The entries property
+     * Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
     */
     public function entries(): EntriesRequestBuilder {
         return new EntriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class CatalogRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -142,7 +143,7 @@ class CatalogRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.admin.windows.updates.catalog.entries.item collection
+     * Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
      * @param string $id Unique identifier of the item
      * @return CatalogEntryItemRequestBuilder
     */

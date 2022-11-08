@@ -15,12 +15,12 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $buildNumber The build number of MacOS Line of Business (LoB) app.
+     * @var string|null $buildNumber The build number of the app.
     */
     private ?string $buildNumber = null;
     
     /**
-     * @var string|null $bundleId The Identity Name.
+     * @var string|null $bundleId The bundleId of the app.
     */
     private ?string $bundleId = null;
     
@@ -30,7 +30,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var string|null $versionNumber The version number of MacOS Line of Business (LoB) app.
+     * @var string|null $versionNumber The version number of the app.
     */
     private ?string $versionNumber = null;
     
@@ -60,7 +60,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the buildNumber property value. The build number of MacOS Line of Business (LoB) app.
+     * Gets the buildNumber property value. The build number of the app.
      * @return string|null
     */
     public function getBuildNumber(): ?string {
@@ -68,7 +68,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the bundleId property value. The Identity Name.
+     * Gets the bundleId property value. The bundleId of the app.
      * @return string|null
     */
     public function getBundleId(): ?string {
@@ -98,7 +98,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the versionNumber property value. The version number of MacOS Line of Business (LoB) app.
+     * Gets the versionNumber property value. The version number of the app.
      * @return string|null
     */
     public function getVersionNumber(): ?string {
@@ -126,7 +126,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the buildNumber property value. The build number of MacOS Line of Business (LoB) app.
+     * Sets the buildNumber property value. The build number of the app.
      *  @param string|null $value Value to set for the buildNumber property.
     */
     public function setBuildNumber(?string $value ): void {
@@ -134,7 +134,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the bundleId property value. The Identity Name.
+     * Sets the bundleId property value. The bundleId of the app.
      *  @param string|null $value Value to set for the bundleId property.
     */
     public function setBundleId(?string $value ): void {
@@ -150,7 +150,7 @@ class MacOSLobChildApp implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the versionNumber property value. The version number of MacOS Line of Business (LoB) app.
+     * Sets the versionNumber property value. The version number of the app.
      *  @param string|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?string $value ): void {

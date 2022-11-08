@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class InboundSharedUserProfileUserItemRequestBuilder 
 {
     /**
-     * The exportPersonalData property
+     * Provides operations to call the exportPersonalData method.
     */
     public function exportPersonalData(): ExportPersonalDataRequestBuilder {
         return new ExportPersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -32,7 +32,7 @@ class InboundSharedUserProfileUserItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The removePersonalData property
+     * Provides operations to call the removePersonalData method.
     */
     public function removePersonalData(): RemovePersonalDataRequestBuilder {
         return new RemovePersonalDataRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class InboundSharedUserProfileUserItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

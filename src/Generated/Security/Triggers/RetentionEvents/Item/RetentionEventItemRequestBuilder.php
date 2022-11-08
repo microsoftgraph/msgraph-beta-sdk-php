@@ -29,7 +29,7 @@ class RetentionEventItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The retentionEventType property
+     * Provides operations to manage the retentionEventType property of the microsoft.graph.security.retentionEvent entity.
     */
     public function retentionEventType(): RetentionEventTypeRequestBuilder {
         return new RetentionEventTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class RetentionEventItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

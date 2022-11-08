@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class NextVersionDefinitionRequestBuilder 
 {
     /**
-     * The category property
+     * Provides operations to manage the category property of the microsoft.graph.groupPolicyDefinition entity.
     */
     public function category(): CategoryRequestBuilder {
         return new CategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The definitionFile property
+     * Provides operations to manage the definitionFile property of the microsoft.graph.groupPolicyDefinition entity.
     */
     public function definitionFile(): DefinitionFileRequestBuilder {
         return new DefinitionFileRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,14 +42,14 @@ class NextVersionDefinitionRequestBuilder
     private array $pathParameters;
     
     /**
-     * The presentations property
+     * Provides operations to manage the presentations property of the microsoft.graph.groupPolicyDefinition entity.
     */
     public function presentations(): PresentationsRequestBuilder {
         return new PresentationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The previousVersionDefinition property
+     * Provides operations to manage the previousVersionDefinition property of the microsoft.graph.groupPolicyDefinition entity.
     */
     public function previousVersionDefinition(): PreviousVersionDefinitionRequestBuilder {
         return new PreviousVersionDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -143,6 +143,7 @@ class NextVersionDefinitionRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -205,7 +206,7 @@ class NextVersionDefinitionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyDefinitions.item.nextVersionDefinition.presentations.item collection
+     * Provides operations to manage the presentations property of the microsoft.graph.groupPolicyDefinition entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyPresentationItemRequestBuilder
     */

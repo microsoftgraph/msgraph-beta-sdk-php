@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EdiscoveryReviewSetItemRequestBuilder 
 {
     /**
-     * The addToReviewSet property
+     * Provides operations to call the addToReviewSet method.
     */
     public function addToReviewSet(): AddToReviewSetRequestBuilder {
         return new AddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The export property
+     * Provides operations to call the export method.
     */
     public function export(): ExportRequestBuilder {
         return new ExportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The files property
+     * Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
     */
     public function files(): FilesRequestBuilder {
         return new FilesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class EdiscoveryReviewSetItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The queries property
+     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
     */
     public function queries(): QueriesRequestBuilder {
         return new QueriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -144,6 +144,7 @@ class EdiscoveryReviewSetItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -167,7 +168,7 @@ class EdiscoveryReviewSetItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cases.ediscoveryCases.item.reviewSets.item.files.item collection
+     * Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
      * @param string $id Unique identifier of the item
      * @return EdiscoveryFileItemRequestBuilder
     */
@@ -217,7 +218,7 @@ class EdiscoveryReviewSetItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cases.ediscoveryCases.item.reviewSets.item.queries.item collection
+     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
      * @param string $id Unique identifier of the item
      * @return EdiscoveryReviewSetQueryItemRequestBuilder
     */

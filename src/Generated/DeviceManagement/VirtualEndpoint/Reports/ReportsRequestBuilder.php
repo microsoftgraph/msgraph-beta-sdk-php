@@ -25,28 +25,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ReportsRequestBuilder 
 {
     /**
-     * The exportJobs property
+     * Provides operations to manage the exportJobs property of the microsoft.graph.cloudPcReports entity.
     */
     public function exportJobs(): ExportJobsRequestBuilder {
         return new ExportJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getDailyAggregatedRemoteConnectionReports property
+     * Provides operations to call the getDailyAggregatedRemoteConnectionReports method.
     */
     public function getDailyAggregatedRemoteConnectionReports(): GetDailyAggregatedRemoteConnectionReportsRequestBuilder {
         return new GetDailyAggregatedRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getRemoteConnectionHistoricalReports property
+     * Provides operations to call the getRemoteConnectionHistoricalReports method.
     */
     public function getRemoteConnectionHistoricalReports(): GetRemoteConnectionHistoricalReportsRequestBuilder {
         return new GetRemoteConnectionHistoricalReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getTotalAggregatedRemoteConnectionReports property
+     * Provides operations to call the getTotalAggregatedRemoteConnectionReports method.
     */
     public function getTotalAggregatedRemoteConnectionReports(): GetTotalAggregatedRemoteConnectionReportsRequestBuilder {
         return new GetTotalAggregatedRemoteConnectionReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -145,6 +145,7 @@ class ReportsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -168,7 +169,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.virtualEndpoint.reports.exportJobs.item collection
+     * Provides operations to manage the exportJobs property of the microsoft.graph.cloudPcReports entity.
      * @param string $id Unique identifier of the item
      * @return CloudPcExportJobItemRequestBuilder
     */

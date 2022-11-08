@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageSubjectRequestBuilder 
 {
     /**
-     * The connectedOrganization property
+     * Provides operations to manage the connectedOrganization property of the microsoft.graph.accessPackageSubject entity.
     */
     public function connectedOrganization(): ConnectedOrganizationRequestBuilder {
         return new ConnectedOrganizationRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class AccessPackageSubjectRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

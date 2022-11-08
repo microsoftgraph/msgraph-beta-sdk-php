@@ -39,77 +39,77 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MessageItemRequestBuilder 
 {
     /**
-     * The attachments property
+     * Provides operations to manage the attachments property of the microsoft.graph.message entity.
     */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Content property
+     * Provides operations to manage the media for the user entity.
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The copy property
+     * Provides operations to call the copy method.
     */
     public function copy(): CopyRequestBuilder {
         return new CopyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createForward property
+     * Provides operations to call the createForward method.
     */
     public function createForward(): CreateForwardRequestBuilder {
         return new CreateForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createReply property
+     * Provides operations to call the createReply method.
     */
     public function createReply(): CreateReplyRequestBuilder {
         return new CreateReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createReplyAll property
+     * Provides operations to call the createReplyAll method.
     */
     public function createReplyAll(): CreateReplyAllRequestBuilder {
         return new CreateReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extensions property
+     * Provides operations to manage the extensions property of the microsoft.graph.message entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The forward property
+     * Provides operations to call the forward method.
     */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mentions property
+     * Provides operations to manage the mentions property of the microsoft.graph.message entity.
     */
     public function mentions(): MentionsRequestBuilder {
         return new MentionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The move property
+     * Provides operations to call the move method.
     */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The multiValueExtendedProperties property
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.
     */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -121,14 +121,14 @@ class MessageItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The reply property
+     * Provides operations to call the reply method.
     */
     public function reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The replyAll property
+     * Provides operations to call the replyAll method.
     */
     public function replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -140,21 +140,21 @@ class MessageItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The send property
+     * Provides operations to call the send method.
     */
     public function send(): SendRequestBuilder {
         return new SendRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The singleValueExtendedProperties property
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
     */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unsubscribe property
+     * Provides operations to call the unsubscribe method.
     */
     public function unsubscribe(): UnsubscribeRequestBuilder {
         return new UnsubscribeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -166,7 +166,7 @@ class MessageItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.message entity.
      * @param string $id Unique identifier of the item
      * @return AttachmentItemRequestBuilder
     */
@@ -254,6 +254,7 @@ class MessageItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -277,7 +278,7 @@ class MessageItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.message entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
     */
@@ -307,7 +308,7 @@ class MessageItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item.mentions.item collection
+     * Provides operations to manage the mentions property of the microsoft.graph.message entity.
      * @param string $id Unique identifier of the item
      * @return MentionItemRequestBuilder
     */
@@ -318,7 +319,7 @@ class MessageItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.message entity.
      * @param string $id Unique identifier of the item
      * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
     */
@@ -349,7 +350,7 @@ class MessageItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.mailFolders.item.messages.item.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
      * @param string $id Unique identifier of the item
      * @return SingleValueLegacyExtendedPropertyItemRequestBuilder
     */

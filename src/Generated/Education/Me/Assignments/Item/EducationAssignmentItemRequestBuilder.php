@@ -28,7 +28,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EducationAssignmentItemRequestBuilder 
 {
     /**
-     * The categories property
+     * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -40,7 +40,7 @@ class EducationAssignmentItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The publish property
+     * Provides operations to call the publish method.
     */
     public function publish(): PublishRequestBuilder {
         return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -52,35 +52,35 @@ class EducationAssignmentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resources property
+     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
     */
     public function resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The rubric property
+     * Provides operations to manage the rubric property of the microsoft.graph.educationAssignment entity.
     */
     public function rubric(): RubricRequestBuilder {
         return new RubricRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The setUpFeedbackResourcesFolder property
+     * Provides operations to call the setUpFeedbackResourcesFolder method.
     */
     public function setUpFeedbackResourcesFolder(): SetUpFeedbackResourcesFolderRequestBuilder {
         return new SetUpFeedbackResourcesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The setUpResourcesFolder property
+     * Provides operations to call the setUpResourcesFolder method.
     */
     public function setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
         return new SetUpResourcesFolderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The submissions property
+     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
     */
     public function submissions(): SubmissionsRequestBuilder {
         return new SubmissionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -180,6 +180,7 @@ class EducationAssignmentItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -242,7 +243,7 @@ class EducationAssignmentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.me.assignments.item.resources.item collection
+     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
      * @param string $id Unique identifier of the item
      * @return EducationAssignmentResourceItemRequestBuilder
     */
@@ -253,7 +254,7 @@ class EducationAssignmentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.me.assignments.item.submissions.item collection
+     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
      * @param string $id Unique identifier of the item
      * @return EducationSubmissionItemRequestBuilder
     */

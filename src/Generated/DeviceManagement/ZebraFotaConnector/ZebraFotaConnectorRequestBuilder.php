@@ -22,28 +22,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ZebraFotaConnectorRequestBuilder 
 {
     /**
-     * The approveFotaApps property
+     * Provides operations to call the approveFotaApps method.
     */
     public function approveFotaApps(): ApproveFotaAppsRequestBuilder {
         return new ApproveFotaAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The connect property
+     * Provides operations to call the connect method.
     */
     public function connect(): ConnectRequestBuilder {
         return new ConnectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The disconnect property
+     * Provides operations to call the disconnect method.
     */
     public function disconnect(): DisconnectRequestBuilder {
         return new DisconnectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The hasActiveDeployments property
+     * Provides operations to call the hasActiveDeployments method.
     */
     public function hasActiveDeployments(): HasActiveDeploymentsRequestBuilder {
         return new HasActiveDeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,6 +142,7 @@ class ZebraFotaConnectorRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

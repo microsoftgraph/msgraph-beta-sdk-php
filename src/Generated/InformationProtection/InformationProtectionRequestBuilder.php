@@ -31,28 +31,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class InformationProtectionRequestBuilder 
 {
     /**
-     * The bitlocker property
+     * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
     */
     public function bitlocker(): BitlockerRequestBuilder {
         return new BitlockerRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dataLossPreventionPolicies property
+     * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
     */
     public function dataLossPreventionPolicies(): DataLossPreventionPoliciesRequestBuilder {
         return new DataLossPreventionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The decryptBuffer property
+     * Provides operations to call the decryptBuffer method.
     */
     public function decryptBuffer(): DecryptBufferRequestBuilder {
         return new DecryptBufferRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The encryptBuffer property
+     * Provides operations to call the encryptBuffer method.
     */
     public function encryptBuffer(): EncryptBufferRequestBuilder {
         return new EncryptBufferRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -64,7 +64,7 @@ class InformationProtectionRequestBuilder
     private array $pathParameters;
     
     /**
-     * The policy property
+     * Provides operations to manage the policy property of the microsoft.graph.informationProtection entity.
     */
     public function policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,28 +76,28 @@ class InformationProtectionRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sensitivityLabels property
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
     */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sensitivityPolicySettings property
+     * Provides operations to manage the sensitivityPolicySettings property of the microsoft.graph.informationProtection entity.
     */
     public function sensitivityPolicySettings(): SensitivityPolicySettingsRequestBuilder {
         return new SensitivityPolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The signDigest property
+     * Provides operations to call the signDigest method.
     */
     public function signDigest(): SignDigestRequestBuilder {
         return new SignDigestRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The threatAssessmentRequests property
+     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
     */
     public function threatAssessmentRequests(): ThreatAssessmentRequestsRequestBuilder {
         return new ThreatAssessmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -109,7 +109,7 @@ class InformationProtectionRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The verifySignature property
+     * Provides operations to call the verifySignature method.
     */
     public function verifySignature(): VerifySignatureRequestBuilder {
         return new VerifySignatureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -172,11 +172,12 @@ class InformationProtectionRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.informationProtection.dataLossPreventionPolicies.item collection
+     * Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
      * @return DataLossPreventionPolicyItemRequestBuilder
     */
@@ -226,7 +227,7 @@ class InformationProtectionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.informationProtection.sensitivityLabels.item collection
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
      * @return SensitivityLabelItemRequestBuilder
     */
@@ -237,7 +238,7 @@ class InformationProtectionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.informationProtection.threatAssessmentRequests.item collection
+     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
      * @param string $id Unique identifier of the item
      * @return ThreatAssessmentRequestItemRequestBuilder
     */

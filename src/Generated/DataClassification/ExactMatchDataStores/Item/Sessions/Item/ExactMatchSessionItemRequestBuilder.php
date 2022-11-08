@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ExactMatchSessionItemRequestBuilder 
 {
     /**
-     * The cancel property
+     * Provides operations to call the cancel method.
     */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The commit property
+     * Provides operations to call the commit method.
     */
     public function commit(): CommitRequestBuilder {
         return new CommitRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,7 +41,7 @@ class ExactMatchSessionItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The renew property
+     * Provides operations to call the renew method.
     */
     public function renew(): RenewRequestBuilder {
         return new RenewRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class ExactMatchSessionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The uploadAgent property
+     * Provides operations to manage the uploadAgent property of the microsoft.graph.exactMatchSession entity.
     */
     public function uploadAgent(): UploadAgentRequestBuilder {
         return new UploadAgentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,6 +142,7 @@ class ExactMatchSessionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

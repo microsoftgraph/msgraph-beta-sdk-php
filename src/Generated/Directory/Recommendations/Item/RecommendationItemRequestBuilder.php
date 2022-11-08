@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RecommendationItemRequestBuilder 
 {
     /**
-     * The complete property
+     * Provides operations to call the complete method.
     */
     public function complete(): CompleteRequestBuilder {
         return new CompleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dismiss property
+     * Provides operations to call the dismiss method.
     */
     public function dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The impactedResources property
+     * Provides operations to manage the impactedResources property of the microsoft.graph.recommendation entity.
     */
     public function impactedResources(): ImpactedResourcesRequestBuilder {
         return new ImpactedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,14 +50,14 @@ class RecommendationItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The postpone property
+     * Provides operations to call the postpone method.
     */
     public function postpone(): PostponeRequestBuilder {
         return new PostponeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reactivate property
+     * Provides operations to call the reactivate method.
     */
     public function reactivate(): ReactivateRequestBuilder {
         return new ReactivateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -151,6 +151,7 @@ class RecommendationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -193,7 +194,7 @@ class RecommendationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.recommendations.item.impactedResources.item collection
+     * Provides operations to manage the impactedResources property of the microsoft.graph.recommendation entity.
      * @param string $id Unique identifier of the item
      * @return RecommendationResourceItemRequestBuilder
     */

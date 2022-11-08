@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class InformationProtectionRequestBuilder 
 {
     /**
-     * The labelPolicySettings property
+     * Provides operations to manage the labelPolicySettings property of the microsoft.graph.security.informationProtection entity.
     */
     public function labelPolicySettings(): LabelPolicySettingsRequestBuilder {
         return new LabelPolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class InformationProtectionRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sensitivityLabels property
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
     */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class InformationProtectionRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class InformationProtectionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.informationProtection.sensitivityLabels.item collection
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.
      * @param string $id Unique identifier of the item
      * @return SensitivityLabelItemRequestBuilder
     */

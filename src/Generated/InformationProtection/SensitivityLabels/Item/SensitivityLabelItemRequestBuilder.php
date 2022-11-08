@@ -29,7 +29,7 @@ class SensitivityLabelItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sublabels property
+     * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
     */
     public function sublabels(): SublabelsRequestBuilder {
         return new SublabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class SensitivityLabelItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -180,7 +181,7 @@ class SensitivityLabelItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.informationProtection.sensitivityLabels.item.sublabels.item collection
+     * Provides operations to manage the sublabels property of the microsoft.graph.sensitivityLabel entity.
      * @param string $id Unique identifier of the item
      * @return SensitivityLabelItemRequestBuilder
     */

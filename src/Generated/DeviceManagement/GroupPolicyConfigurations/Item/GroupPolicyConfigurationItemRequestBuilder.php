@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyConfigurationItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The definitionValues property
+     * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
     */
     public function definitionValues(): DefinitionValuesRequestBuilder {
         return new DefinitionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -55,7 +55,7 @@ class GroupPolicyConfigurationItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateDefinitionValues property
+     * Provides operations to call the updateDefinitionValues method.
     */
     public function updateDefinitionValues(): UpdateDefinitionValuesRequestBuilder {
         return new UpdateDefinitionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -67,7 +67,7 @@ class GroupPolicyConfigurationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyConfigurations.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.groupPolicyConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyConfigurationAssignmentItemRequestBuilder
     */
@@ -155,11 +155,12 @@ class GroupPolicyConfigurationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyConfigurations.item.definitionValues.item collection
+     * Provides operations to manage the definitionValues property of the microsoft.graph.groupPolicyConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyDefinitionValueItemRequestBuilder
     */

@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomExtensionHandlerItemRequestBuilder 
 {
     /**
-     * The customExtension property
+     * Provides operations to manage the customExtension property of the microsoft.graph.customExtensionHandler entity.
     */
     public function customExtension(): CustomExtensionRequestBuilder {
         return new CustomExtensionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class CustomExtensionHandlerItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

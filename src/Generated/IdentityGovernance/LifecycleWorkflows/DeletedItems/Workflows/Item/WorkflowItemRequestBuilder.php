@@ -31,21 +31,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WorkflowItemRequestBuilder 
 {
     /**
-     * The activate property
+     * Provides operations to call the activate method.
     */
     public function activate(): ActivateRequestBuilder {
         return new ActivateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createNewVersion property
+     * Provides operations to call the createNewVersion method.
     */
     public function createNewVersion(): CreateNewVersionRequestBuilder {
         return new CreateNewVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The executionScope property
+     * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function executionScope(): ExecutionScopeRequestBuilder {
         return new ExecutionScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -62,21 +62,21 @@ class WorkflowItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restore property
+     * Provides operations to call the restore method.
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The runs property
+     * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function runs(): RunsRequestBuilder {
         return new RunsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskReports property
+     * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function taskReports(): TaskReportsRequestBuilder {
         return new TaskReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -88,14 +88,14 @@ class WorkflowItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userProcessingResults property
+     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function userProcessingResults(): UserProcessingResultsRequestBuilder {
         return new UserProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The versions property
+     * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
     */
     public function versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -179,6 +179,7 @@ class WorkflowItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -202,7 +203,7 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.executionScope.item collection
+     * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
      * @return UserItemRequestBuilder
     */
@@ -252,7 +253,7 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.runs.item collection
+     * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
      * @return RunItemRequestBuilder
     */
@@ -263,7 +264,7 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.taskReports.item collection
+     * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
      * @return TaskReportItemRequestBuilder
     */
@@ -274,7 +275,7 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.userProcessingResults.item collection
+     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
      * @return UserProcessingResultItemRequestBuilder
     */
@@ -285,7 +286,7 @@ class WorkflowItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.deletedItems.workflows.item.versions.item collection
+     * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
      * @param string $id Unique identifier of the item
      * @return WorkflowVersionVersionNumberItemRequestBuilder
     */

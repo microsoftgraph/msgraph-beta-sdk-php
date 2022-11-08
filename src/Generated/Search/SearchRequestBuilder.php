@@ -25,14 +25,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SearchRequestBuilder 
 {
     /**
-     * The acronyms property
+     * Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
     */
     public function acronyms(): AcronymsRequestBuilder {
         return new AcronymsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bookmarks property
+     * Provides operations to manage the bookmarks property of the microsoft.graph.searchEntity entity.
     */
     public function bookmarks(): BookmarksRequestBuilder {
         return new BookmarksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,14 +44,14 @@ class SearchRequestBuilder
     private array $pathParameters;
     
     /**
-     * The qnas property
+     * Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
     */
     public function qnas(): QnasRequestBuilder {
         return new QnasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The query property
+     * Provides operations to call the query method.
     */
     public function query(): QueryRequestBuilder {
         return new QueryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -68,7 +68,7 @@ class SearchRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.search.acronyms.item collection
+     * Provides operations to manage the acronyms property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
      * @return AcronymItemRequestBuilder
     */
@@ -79,7 +79,7 @@ class SearchRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.search.bookmarks.item collection
+     * Provides operations to manage the bookmarks property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
      * @return BookmarkItemRequestBuilder
     */
@@ -146,6 +146,7 @@ class SearchRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class SearchRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.search.qnas.item collection
+     * Provides operations to manage the qnas property of the microsoft.graph.searchEntity entity.
      * @param string $id Unique identifier of the item
      * @return QnaItemRequestBuilder
     */

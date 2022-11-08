@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DelegatedAdminRelationshipItemRequestBuilder 
 {
     /**
-     * The accessAssignments property
+     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
     */
     public function accessAssignments(): AccessAssignmentsRequestBuilder {
         return new AccessAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The operations property
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -48,7 +48,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The requests property
+     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
     */
     public function requests(): RequestsRequestBuilder {
         return new RequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -60,7 +60,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminRelationships.item.accessAssignments.item collection
+     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminAccessAssignmentItemRequestBuilder
     */
@@ -148,6 +148,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -190,7 +191,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminRelationships.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminRelationshipOperationItemRequestBuilder
     */
@@ -221,7 +222,7 @@ class DelegatedAdminRelationshipItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminRelationships.item.requests.item collection
+     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminRelationshipRequestItemRequestBuilder
     */

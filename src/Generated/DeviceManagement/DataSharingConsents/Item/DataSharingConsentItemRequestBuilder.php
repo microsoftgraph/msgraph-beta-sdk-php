@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DataSharingConsentItemRequestBuilder 
 {
     /**
-     * The consentToDataSharing property
+     * Provides operations to call the consentToDataSharing method.
     */
     public function consentToDataSharing(): ConsentToDataSharingRequestBuilder {
         return new ConsentToDataSharingRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class DataSharingConsentItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

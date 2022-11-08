@@ -25,28 +25,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UserExperienceAnalyticsBaselineItemRequestBuilder 
 {
     /**
-     * The appHealthMetrics property
+     * Provides operations to manage the appHealthMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function appHealthMetrics(): AppHealthMetricsRequestBuilder {
         return new AppHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The batteryHealthMetrics property
+     * Provides operations to manage the batteryHealthMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function batteryHealthMetrics(): BatteryHealthMetricsRequestBuilder {
         return new BatteryHealthMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bestPracticesMetrics property
+     * Provides operations to manage the bestPracticesMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function bestPracticesMetrics(): BestPracticesMetricsRequestBuilder {
         return new BestPracticesMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceBootPerformanceMetrics property
+     * Provides operations to manage the deviceBootPerformanceMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function deviceBootPerformanceMetrics(): DeviceBootPerformanceMetricsRequestBuilder {
         return new DeviceBootPerformanceMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -58,7 +58,7 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The rebootAnalyticsMetrics property
+     * Provides operations to manage the rebootAnalyticsMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function rebootAnalyticsMetrics(): RebootAnalyticsMetricsRequestBuilder {
         return new RebootAnalyticsMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourcePerformanceMetrics property
+     * Provides operations to manage the resourcePerformanceMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function resourcePerformanceMetrics(): ResourcePerformanceMetricsRequestBuilder {
         return new ResourcePerformanceMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -82,7 +82,7 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The workFromAnywhereMetrics property
+     * Provides operations to manage the workFromAnywhereMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.
     */
     public function workFromAnywhereMetrics(): WorkFromAnywhereMetricsRequestBuilder {
         return new WorkFromAnywhereMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -166,6 +166,7 @@ class UserExperienceAnalyticsBaselineItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

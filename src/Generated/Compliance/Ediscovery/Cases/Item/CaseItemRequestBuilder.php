@@ -35,35 +35,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CaseItemRequestBuilder 
 {
     /**
-     * The close property
+     * Provides operations to call the close method.
     */
     public function close(): CloseRequestBuilder {
         return new CloseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The custodians property
+     * Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
     */
     public function custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The legalHolds property
+     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
     */
     public function legalHolds(): LegalHoldsRequestBuilder {
         return new LegalHoldsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The noncustodialDataSources property
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.
     */
     public function noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The operations property
+     * Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -75,7 +75,7 @@ class CaseItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The reopen property
+     * Provides operations to call the reopen method.
     */
     public function reopen(): ReopenRequestBuilder {
         return new ReopenRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -87,28 +87,28 @@ class CaseItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The reviewSets property
+     * Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
     */
     public function reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.ediscovery.case entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sourceCollections property
+     * Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
     */
     public function sourceCollections(): SourceCollectionsRequestBuilder {
         return new SourceCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tags property
+     * Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.
     */
     public function tags(): TagsRequestBuilder {
         return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -197,11 +197,12 @@ class CaseItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.custodians.item collection
+     * Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return CustodianItemRequestBuilder
     */
@@ -250,7 +251,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.legalHolds.item collection
+     * Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return LegalHoldItemRequestBuilder
     */
@@ -261,7 +262,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.noncustodialDataSources.item collection
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return NoncustodialDataSourceItemRequestBuilder
     */
@@ -272,7 +273,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return CaseOperationItemRequestBuilder
     */
@@ -303,7 +304,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.reviewSets.item collection
+     * Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return ReviewSetItemRequestBuilder
     */
@@ -314,7 +315,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.sourceCollections.item collection
+     * Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return SourceCollectionItemRequestBuilder
     */
@@ -325,7 +326,7 @@ class CaseItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.tags.item collection
+     * Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.
      * @param string $id Unique identifier of the item
      * @return TagItemRequestBuilder
     */

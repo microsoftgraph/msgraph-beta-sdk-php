@@ -29,7 +29,7 @@ class SynchronizationTemplateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The schema property
+     * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
     */
     public function schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class SynchronizationTemplateItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

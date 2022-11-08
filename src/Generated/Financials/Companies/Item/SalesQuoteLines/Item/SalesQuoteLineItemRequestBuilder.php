@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SalesQuoteLineItemRequestBuilder 
 {
     /**
-     * The account property
+     * Provides operations to manage the account property of the microsoft.graph.salesQuoteLine entity.
     */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The item property
+     * Provides operations to manage the item property of the microsoft.graph.salesQuoteLine entity.
     */
     public function item(): ItemRequestBuilder {
         return new ItemRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -105,6 +105,7 @@ class SalesQuoteLineItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

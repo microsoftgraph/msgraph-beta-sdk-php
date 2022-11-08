@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ItemActivityOLDItemRequestBuilder 
 {
     /**
-     * The driveItem property
+     * Provides operations to manage the driveItem property of the microsoft.graph.itemActivityOLD entity.
     */
     public function driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The listItem property
+     * Provides operations to manage the listItem property of the microsoft.graph.itemActivityOLD entity.
     */
     public function listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class ItemActivityOLDItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

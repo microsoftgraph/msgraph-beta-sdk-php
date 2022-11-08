@@ -30,7 +30,7 @@ class OutlookTaskGroupItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The taskFolders property
+     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
     */
     public function taskFolders(): TaskFoldersRequestBuilder {
         return new TaskFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class OutlookTaskGroupItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class OutlookTaskGroupItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.outlook.taskGroups.item.taskFolders.item collection
+     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookTaskGroup entity.
      * @param string $id Unique identifier of the item
      * @return OutlookTaskFolderItemRequestBuilder
     */

@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkflowVersion extends WorkflowBase implements Parsable 
 {
     /**
-     * @var int|null $versionNumber The version of the workflow.Supports $filter(eq, ne), orderby.
+     * @var int|null $versionNumber The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $versionNumber = null;
     
@@ -42,7 +42,7 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     }
 
     /**
-     * Gets the versionNumber property value. The version of the workflow.Supports $filter(eq, ne), orderby.
+     * Gets the versionNumber property value. The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getVersionNumber(): ?int {
@@ -59,7 +59,7 @@ class WorkflowVersion extends WorkflowBase implements Parsable
     }
 
     /**
-     * Sets the versionNumber property value. The version of the workflow.Supports $filter(eq, ne), orderby.
+     * Sets the versionNumber property value. The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the versionNumber property.
     */
     public function setVersionNumber(?int $value ): void {

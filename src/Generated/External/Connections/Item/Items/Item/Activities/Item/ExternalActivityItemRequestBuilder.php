@@ -24,7 +24,7 @@ class ExternalActivityItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The performedBy property
+     * Provides operations to manage the performedBy property of the microsoft.graph.externalConnectors.externalActivity entity.
     */
     public function performedBy(): PerformedByRequestBuilder {
         return new PerformedByRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class ExternalActivityItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -34,7 +34,7 @@ class OnPremisesAgent extends Entity implements Parsable
     private ?array $supportedPublishingTypes = null;
     
     /**
-     * Instantiates a new OnPremisesAgent and sets the default values.
+     * Instantiates a new onPremisesAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UserAppInstallStatusItemRequestBuilder 
 {
     /**
-     * The app property
+     * Provides operations to manage the app property of the microsoft.graph.userAppInstallStatus entity.
     */
     public function app(): AppRequestBuilder {
         return new AppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatuses property
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.userAppInstallStatus entity.
     */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class UserAppInstallStatusItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -150,7 +151,7 @@ class UserAppInstallStatusItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.userStatuses.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.userAppInstallStatus entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppInstallStatusItemRequestBuilder
     */

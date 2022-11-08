@@ -34,7 +34,7 @@ class UserInstallStateSummary extends Entity implements Parsable
     private ?string $userName = null;
     
     /**
-     * Instantiates a new UserInstallStateSummary and sets the default values.
+     * Instantiates a new userInstallStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();

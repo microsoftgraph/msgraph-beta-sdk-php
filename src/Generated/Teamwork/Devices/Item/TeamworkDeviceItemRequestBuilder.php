@@ -26,28 +26,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TeamworkDeviceItemRequestBuilder 
 {
     /**
-     * The activity property
+     * Provides operations to manage the activity property of the microsoft.graph.teamworkDevice entity.
     */
     public function activity(): ActivityRequestBuilder {
         return new ActivityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configuration property
+     * Provides operations to manage the configuration property of the microsoft.graph.teamworkDevice entity.
     */
     public function configuration(): ConfigurationRequestBuilder {
         return new ConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The health property
+     * Provides operations to manage the health property of the microsoft.graph.teamworkDevice entity.
     */
     public function health(): HealthRequestBuilder {
         return new HealthRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The operations property
+     * Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -64,21 +64,21 @@ class TeamworkDeviceItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The restart property
+     * Provides operations to call the restart method.
     */
     public function restart(): RestartRequestBuilder {
         return new RestartRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The runDiagnostics property
+     * Provides operations to call the runDiagnostics method.
     */
     public function runDiagnostics(): RunDiagnosticsRequestBuilder {
         return new RunDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateSoftware property
+     * Provides operations to call the updateSoftware method.
     */
     public function updateSoftware(): UpdateSoftwareRequestBuilder {
         return new UpdateSoftwareRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -167,6 +167,7 @@ class TeamworkDeviceItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -209,7 +210,7 @@ class TeamworkDeviceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.devices.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
      * @param string $id Unique identifier of the item
      * @return TeamworkDeviceOperationItemRequestBuilder
     */

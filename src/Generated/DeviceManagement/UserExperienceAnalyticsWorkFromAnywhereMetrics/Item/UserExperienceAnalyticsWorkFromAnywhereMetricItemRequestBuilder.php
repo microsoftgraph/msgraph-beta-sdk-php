@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder 
 {
     /**
-     * The metricDevices property
+     * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
     */
     public function metricDevices(): MetricDevicesRequestBuilder {
         return new MetricDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -161,7 +162,7 @@ class UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsWorkFromAnywhereMetrics.item.metricDevices.item collection
+     * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder
     */

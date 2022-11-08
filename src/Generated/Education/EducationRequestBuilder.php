@@ -27,14 +27,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EducationRequestBuilder 
 {
     /**
-     * The classes property
+     * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
     */
     public function classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The me property
+     * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
     */
     public function me(): MeRequestBuilder {
         return new MeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,14 +51,14 @@ class EducationRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The schools property
+     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
     */
     public function schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The synchronizationProfiles property
+     * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
     */
     public function synchronizationProfiles(): SynchronizationProfilesRequestBuilder {
         return new SynchronizationProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -70,14 +70,14 @@ class EducationRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The users property
+     * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
     */
     public function users(): UsersRequestBuilder {
         return new UsersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.classes.item collection
+     * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
      * @return EducationClassItemRequestBuilder
     */
@@ -144,6 +144,7 @@ class EducationRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -187,7 +188,7 @@ class EducationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.schools.item collection
+     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
      * @return EducationSchoolItemRequestBuilder
     */
@@ -198,7 +199,7 @@ class EducationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.synchronizationProfiles.item collection
+     * Provides operations to manage the synchronizationProfiles property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
      * @return EducationSynchronizationProfileItemRequestBuilder
     */
@@ -209,7 +210,7 @@ class EducationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.education.users.item collection
+     * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
      * @param string $id Unique identifier of the item
      * @return EducationUserItemRequestBuilder
     */

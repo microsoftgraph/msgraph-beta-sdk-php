@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsQualityUpdateProfileItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class WindowsQualityUpdateProfileItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsQualityUpdateProfiles.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.
      * @param string $id Unique identifier of the item
      * @return WindowsQualityUpdateProfileAssignmentItemRequestBuilder
     */
@@ -138,6 +138,7 @@ class WindowsQualityUpdateProfileItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

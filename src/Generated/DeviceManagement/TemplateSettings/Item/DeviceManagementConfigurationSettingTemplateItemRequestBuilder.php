@@ -30,7 +30,7 @@ class DeviceManagementConfigurationSettingTemplateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settingDefinitions property
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementConfigurationSettingTemplate entity.
     */
     public function settingDefinitions(): SettingDefinitionsRequestBuilder {
         return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DeviceManagementConfigurationSettingTemplateItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DeviceManagementConfigurationSettingTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templateSettings.item.settingDefinitions.item collection
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementConfigurationSettingTemplate entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */

@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GovernanceRoleAssignmentRequestItemRequestBuilder 
 {
     /**
-     * The cancel property
+     * Provides operations to call the cancel method.
     */
     public function cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -40,28 +40,28 @@ class GovernanceRoleAssignmentRequestItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resource property
+     * Provides operations to manage the resource property of the microsoft.graph.governanceRoleAssignmentRequest entity.
     */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinition property
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.governanceRoleAssignmentRequest entity.
     */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The subject property
+     * Provides operations to manage the subject property of the microsoft.graph.governanceRoleAssignmentRequest entity.
     */
     public function subject(): SubjectRequestBuilder {
         return new SubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateRequest property
+     * Provides operations to call the updateRequest method.
     */
     public function updateRequest(): UpdateRequestRequestBuilder {
         return new UpdateRequestRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -150,6 +150,7 @@ class GovernanceRoleAssignmentRequestItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

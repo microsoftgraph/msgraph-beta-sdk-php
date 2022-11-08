@@ -14,6 +14,11 @@ class WinGetApp extends MobileApp implements Parsable
     private ?WinGetAppInstallExperience $installExperience = null;
     
     /**
+     * @var string|null $manifestHash Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
+    */
+    private ?string $manifestHash = null;
+    
+    /**
      * @var string|null $packageIdentifier The PackageIdentifier from the WinGet source repository REST API. This also maps to the Id when using the WinGet client command line application. Required at creation time, cannot be modified on existing objects.
     */
     private ?string $packageIdentifier = null;
@@ -43,6 +48,7 @@ class WinGetApp extends MobileApp implements Parsable
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'installExperience' => fn(ParseNode $n) => $o->setInstallExperience($n->getObjectValue([WinGetAppInstallExperience::class, 'createFromDiscriminatorValue'])),
+            'manifestHash' => fn(ParseNode $n) => $o->setManifestHash($n->getStringValue()),
             'packageIdentifier' => fn(ParseNode $n) => $o->setPackageIdentifier($n->getStringValue()),
         ]);
     }
@@ -53,6 +59,14 @@ class WinGetApp extends MobileApp implements Parsable
     */
     public function getInstallExperience(): ?WinGetAppInstallExperience {
         return $this->installExperience;
+    }
+
+    /**
+     * Gets the manifestHash property value. Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
+     * @return string|null
+    */
+    public function getManifestHash(): ?string {
+        return $this->manifestHash;
     }
 
     /**
@@ -70,6 +84,7 @@ class WinGetApp extends MobileApp implements Parsable
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeObjectValue('installExperience', $this->installExperience);
+        $writer->writeStringValue('manifestHash', $this->manifestHash);
         $writer->writeStringValue('packageIdentifier', $this->packageIdentifier);
     }
 
@@ -79,6 +94,14 @@ class WinGetApp extends MobileApp implements Parsable
     */
     public function setInstallExperience(?WinGetAppInstallExperience $value ): void {
         $this->installExperience = $value;
+    }
+
+    /**
+     * Sets the manifestHash property value. Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
+     *  @param string|null $value Value to set for the manifestHash property.
+    */
+    public function setManifestHash(?string $value ): void {
+        $this->manifestHash = $value;
     }
 
     /**

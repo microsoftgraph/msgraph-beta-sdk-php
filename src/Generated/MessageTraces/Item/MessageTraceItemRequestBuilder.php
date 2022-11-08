@@ -25,7 +25,7 @@ class MessageTraceItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recipients property
+     * Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
     */
     public function recipients(): RecipientsRequestBuilder {
         return new RecipientsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class MessageTraceItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class MessageTraceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.messageTraces.item.recipients.item collection
+     * Provides operations to manage the recipients property of the microsoft.graph.messageTrace entity.
      * @param string $id Unique identifier of the item
      * @return MessageRecipientItemRequestBuilder
     */

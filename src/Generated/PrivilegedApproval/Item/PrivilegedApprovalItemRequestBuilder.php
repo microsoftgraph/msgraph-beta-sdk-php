@@ -25,7 +25,7 @@ class PrivilegedApprovalItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The request property
+     * Provides operations to manage the request property of the microsoft.graph.privilegedApproval entity.
     */
     public function request(): RequestRequestBuilder {
         return new RequestRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class PrivilegedApprovalItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleInfo property
+     * Provides operations to manage the roleInfo property of the microsoft.graph.privilegedApproval entity.
     */
     public function roleInfo(): RoleInfoRequestBuilder {
         return new RoleInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class PrivilegedApprovalItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

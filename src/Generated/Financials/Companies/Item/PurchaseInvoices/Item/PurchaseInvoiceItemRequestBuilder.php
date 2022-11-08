@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PurchaseInvoiceItemRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.purchaseInvoice entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -35,14 +35,14 @@ class PurchaseInvoiceItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The post property
+     * Provides operations to call the post method.
     */
     public function post(): PostRequestBuilder {
         return new PostRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The purchaseInvoiceLines property
+     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
     */
     public function purchaseInvoiceLines(): PurchaseInvoiceLinesRequestBuilder {
         return new PurchaseInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class PurchaseInvoiceItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The vendor property
+     * Provides operations to manage the vendor property of the microsoft.graph.purchaseInvoice entity.
     */
     public function vendor(): VendorRequestBuilder {
         return new VendorRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -122,6 +122,7 @@ class PurchaseInvoiceItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -165,7 +166,7 @@ class PurchaseInvoiceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.purchaseInvoices.item.purchaseInvoiceLines.item collection
+     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.purchaseInvoice entity.
      * @param string $id Unique identifier of the item
      * @return PurchaseInvoiceLineItemRequestBuilder
     */

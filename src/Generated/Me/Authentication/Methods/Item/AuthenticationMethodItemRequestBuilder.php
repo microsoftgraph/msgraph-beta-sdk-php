@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AuthenticationMethodItemRequestBuilder 
 {
     /**
-     * The disableSmsSignIn property
+     * Provides operations to call the disableSmsSignIn method.
     */
     public function disableSmsSignIn(): DisableSmsSignInRequestBuilder {
         return new DisableSmsSignInRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enableSmsSignIn property
+     * Provides operations to call the enableSmsSignIn method.
     */
     public function enableSmsSignIn(): EnableSmsSignInRequestBuilder {
         return new EnableSmsSignInRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -45,7 +45,7 @@ class AuthenticationMethodItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resetPassword property
+     * Provides operations to call the resetPassword method.
     */
     public function resetPassword(): ResetPasswordRequestBuilder {
         return new ResetPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -113,6 +113,7 @@ class AuthenticationMethodItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

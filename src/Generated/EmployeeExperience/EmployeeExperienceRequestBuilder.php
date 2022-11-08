@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EmployeeExperienceRequestBuilder 
 {
     /**
-     * The learningProviders property
+     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
     */
     public function learningProviders(): LearningProvidersRequestBuilder {
         return new LearningProvidersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -98,6 +98,7 @@ class EmployeeExperienceRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -121,7 +122,7 @@ class EmployeeExperienceRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.employeeExperience.learningProviders.item collection
+     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
      * @param string $id Unique identifier of the item
      * @return LearningProviderItemRequestBuilder
     */

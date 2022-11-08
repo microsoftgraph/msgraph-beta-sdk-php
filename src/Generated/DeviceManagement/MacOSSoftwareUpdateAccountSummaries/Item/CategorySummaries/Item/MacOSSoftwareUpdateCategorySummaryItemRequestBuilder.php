@@ -30,7 +30,7 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateStateSummaries property
+     * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
     */
     public function updateStateSummaries(): UpdateStateSummariesRequestBuilder {
         return new UpdateStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.macOSSoftwareUpdateAccountSummaries.item.categorySummaries.item.updateStateSummaries.item collection
+     * Provides operations to manage the updateStateSummaries property of the microsoft.graph.macOSSoftwareUpdateCategorySummary entity.
      * @param string $id Unique identifier of the item
      * @return MacOSSoftwareUpdateStateSummaryItemRequestBuilder
     */

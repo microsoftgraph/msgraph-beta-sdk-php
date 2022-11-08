@@ -30,7 +30,7 @@ class DelegatedAdminCustomerItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The serviceManagementDetails property
+     * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
     */
     public function serviceManagementDetails(): ServiceManagementDetailsRequestBuilder {
         return new ServiceManagementDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DelegatedAdminCustomerItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DelegatedAdminCustomerItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.delegatedAdminCustomers.item.serviceManagementDetails.item collection
+     * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
      * @param string $id Unique identifier of the item
      * @return DelegatedAdminServiceManagementDetailItemRequestBuilder
     */

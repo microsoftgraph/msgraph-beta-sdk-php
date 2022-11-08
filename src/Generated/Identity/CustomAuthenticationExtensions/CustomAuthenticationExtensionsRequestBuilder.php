@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomAuthenticationExtensionsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -43,7 +43,7 @@ class CustomAuthenticationExtensionsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateAuthenticationConfiguration property
+     * Provides operations to call the validateAuthenticationConfiguration method.
     */
     public function validateAuthenticationConfiguration(): ValidateAuthenticationConfigurationRequestBuilder {
         return new ValidateAuthenticationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -106,6 +106,7 @@ class CustomAuthenticationExtensionsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

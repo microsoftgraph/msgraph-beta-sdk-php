@@ -238,6 +238,9 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.bookingPerson': return new BookingPerson();
                 case '#microsoft.graph.bookingService': return new BookingService();
                 case '#microsoft.graph.bookingStaffMember': return new BookingStaffMember();
+                case '#microsoft.graph.browserSharedCookie': return new BrowserSharedCookie();
+                case '#microsoft.graph.browserSite': return new BrowserSite();
+                case '#microsoft.graph.browserSiteList': return new BrowserSiteList();
                 case '#microsoft.graph.builtInIdentityProvider': return new BuiltInIdentityProvider();
                 case '#microsoft.graph.businessFlow': return new BusinessFlow();
                 case '#microsoft.graph.businessFlowTemplate': return new BusinessFlowTemplate();
@@ -282,6 +285,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.cloudPcProvisioningPolicyAssignment': return new CloudPcProvisioningPolicyAssignment();
                 case '#microsoft.graph.cloudPcReports': return new CloudPcReports();
                 case '#microsoft.graph.cloudPcServicePlan': return new CloudPcServicePlan();
+                case '#microsoft.graph.cloudPcSharedUseServicePlan': return new CloudPcSharedUseServicePlan();
                 case '#microsoft.graph.cloudPcSnapshot': return new CloudPcSnapshot();
                 case '#microsoft.graph.cloudPcSupportedRegion': return new CloudPcSupportedRegion();
                 case '#microsoft.graph.cloudPcUserSetting': return new CloudPcUserSetting();
@@ -498,6 +502,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.driveItemVersion': return new DriveItemVersion();
                 case '#microsoft.graph.easEmailProfileConfigurationBase': return new EasEmailProfileConfigurationBase();
                 case '#microsoft.graph.eBookInstallSummary': return new EBookInstallSummary();
+                case '#microsoft.graph.edge': return new Edge();
                 case '#microsoft.graph.ediscovery.addToReviewSetOperation': return new AddToReviewSetOperation();
                 case '#microsoft.graph.ediscovery.case': return new EscapedCase();
                 case '#microsoft.graph.ediscovery.caseExportOperation': return new CaseExportOperation();
@@ -676,6 +681,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.informationProtectionPolicy': return new InformationProtectionPolicy();
                 case '#microsoft.graph.insightsSettings': return new InsightsSettings();
                 case '#microsoft.graph.internalDomainFederation': return new InternalDomainFederation();
+                case '#microsoft.graph.internetExplorerMode': return new InternetExplorerMode();
                 case '#microsoft.graph.intuneBrandingProfile': return new IntuneBrandingProfile();
                 case '#microsoft.graph.intuneBrandingProfileAssignment': return new IntuneBrandingProfileAssignment();
                 case '#microsoft.graph.invitation': return new Invitation();
@@ -761,6 +767,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.macOSImportedPFXCertificateProfile': return new MacOSImportedPFXCertificateProfile();
                 case '#microsoft.graph.macOSLobApp': return new MacOSLobApp();
                 case '#microsoft.graph.macOSMdatpApp': return new MacOSMdatpApp();
+                case '#microsoft.graph.macOSMicrosoftDefenderApp': return new MacOSMicrosoftDefenderApp();
                 case '#microsoft.graph.macOSMicrosoftEdgeApp': return new MacOSMicrosoftEdgeApp();
                 case '#microsoft.graph.macOSOfficeSuiteApp': return new MacOSOfficeSuiteApp();
                 case '#microsoft.graph.macOSPkcsCertificateProfile': return new MacOSPkcsCertificateProfile();
@@ -926,6 +933,7 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.onPremisesAgent': return new OnPremisesAgent();
                 case '#microsoft.graph.onPremisesAgentGroup': return new OnPremisesAgentGroup();
                 case '#microsoft.graph.onPremisesConditionalAccessSettings': return new OnPremisesConditionalAccessSettings();
+                case '#microsoft.graph.onPremisesDirectorySynchronization': return new OnPremisesDirectorySynchronization();
                 case '#microsoft.graph.onPremisesPublishingProfile': return new OnPremisesPublishingProfile();
                 case '#microsoft.graph.onTokenIssuanceStartCustomExtension': return new OnTokenIssuanceStartCustomExtension();
                 case '#microsoft.graph.onTokenIssuanceStartListener': return new OnTokenIssuanceStartListener();
@@ -939,8 +947,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.organizationalBranding': return new OrganizationalBranding();
                 case '#microsoft.graph.organizationalBrandingLocalization': return new OrganizationalBrandingLocalization();
                 case '#microsoft.graph.organizationalBrandingProperties': return new OrganizationalBrandingProperties();
-                case '#microsoft.graph.organizationalMessageDetail': return new OrganizationalMessageDetail();
-                case '#microsoft.graph.organizationalMessageGuidedContent': return new OrganizationalMessageGuidedContent();
                 case '#microsoft.graph.organizationSettings': return new OrganizationSettings();
                 case '#microsoft.graph.orgContact': return new OrgContact();
                 case '#microsoft.graph.outlookCategory': return new OutlookCategory();
@@ -1346,7 +1352,6 @@ class Entity implements AdditionalDataHolder, Parsable
                 case '#microsoft.graph.userExperienceAnalyticsModelScores': return new UserExperienceAnalyticsModelScores();
                 case '#microsoft.graph.userExperienceAnalyticsNotAutopilotReadyDevice': return new UserExperienceAnalyticsNotAutopilotReadyDevice();
                 case '#microsoft.graph.userExperienceAnalyticsOverview': return new UserExperienceAnalyticsOverview();
-                case '#microsoft.graph.userExperienceAnalyticsRegressionSummary': return new UserExperienceAnalyticsRegressionSummary();
                 case '#microsoft.graph.userExperienceAnalyticsRemoteConnection': return new UserExperienceAnalyticsRemoteConnection();
                 case '#microsoft.graph.userExperienceAnalyticsResourcePerformance': return new UserExperienceAnalyticsResourcePerformance();
                 case '#microsoft.graph.userExperienceAnalyticsScoreHistory': return new UserExperienceAnalyticsScoreHistory();

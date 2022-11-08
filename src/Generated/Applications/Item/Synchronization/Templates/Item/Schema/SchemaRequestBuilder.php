@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SchemaRequestBuilder 
 {
     /**
-     * The directories property
+     * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
     */
     public function directories(): DirectoriesRequestBuilder {
         return new DirectoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The parseExpression property
+     * Provides operations to call the parseExpression method.
     */
     public function parseExpression(): ParseExpressionRequestBuilder {
         return new ParseExpressionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -129,6 +129,7 @@ class SchemaRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -152,7 +153,7 @@ class SchemaRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.applications.item.synchronization.templates.item.schema.directories.item collection
+     * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
      * @param string $id Unique identifier of the item
      * @return DirectoryDefinitionItemRequestBuilder
     */

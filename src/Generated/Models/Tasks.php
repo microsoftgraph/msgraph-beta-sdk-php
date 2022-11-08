@@ -19,7 +19,7 @@ class Tasks extends Entity implements Parsable
     private ?array $lists = null;
     
     /**
-     * Instantiates a new Tasks and sets the default values.
+     * Instantiates a new tasks and sets the default values.
     */
     public function __construct() {
         parent::__construct();

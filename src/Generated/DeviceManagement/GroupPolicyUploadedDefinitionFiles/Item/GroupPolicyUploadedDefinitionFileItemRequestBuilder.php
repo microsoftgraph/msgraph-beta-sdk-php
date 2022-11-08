@@ -25,14 +25,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyUploadedDefinitionFileItemRequestBuilder 
 {
     /**
-     * The addLanguageFiles property
+     * Provides operations to call the addLanguageFiles method.
     */
     public function addLanguageFiles(): AddLanguageFilesRequestBuilder {
         return new AddLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyOperations property
+     * Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
     */
     public function groupPolicyOperations(): GroupPolicyOperationsRequestBuilder {
         return new GroupPolicyOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,14 +44,14 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The remove property
+     * Provides operations to call the remove method.
     */
     public function remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The removeLanguageFiles property
+     * Provides operations to call the removeLanguageFiles method.
     */
     public function removeLanguageFiles(): RemoveLanguageFilesRequestBuilder {
         return new RemoveLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -63,14 +63,14 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateLanguageFiles property
+     * Provides operations to call the updateLanguageFiles method.
     */
     public function updateLanguageFiles(): UpdateLanguageFilesRequestBuilder {
         return new UpdateLanguageFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The uploadNewVersion property
+     * Provides operations to call the uploadNewVersion method.
     */
     public function uploadNewVersion(): UploadNewVersionRequestBuilder {
         return new UploadNewVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -159,6 +159,7 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -201,7 +202,7 @@ class GroupPolicyUploadedDefinitionFileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyUploadedDefinitionFiles.item.groupPolicyOperations.item collection
+     * Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyOperationItemRequestBuilder
     */

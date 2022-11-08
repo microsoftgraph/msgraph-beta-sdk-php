@@ -18,22 +18,22 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     private ?CustomExtensionCallbackConfiguration $callbackConfiguration = null;
     
     /**
-     * @var User|null $createdBy The unique identifier of the Azure AD user that created the custom task extension.
+     * @var User|null $createdBy The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
     */
     private ?User $createdBy = null;
     
     /**
-     * @var DateTime|null $createdDateTime When the custom task extension was created.
+     * @var DateTime|null $createdDateTime When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $createdDateTime = null;
     
     /**
-     * @var User|null $lastModifiedBy The unique identifier of the Azure AD user that modified the custom task extension last.
+     * @var User|null $lastModifiedBy The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
     */
     private ?User $lastModifiedBy = null;
     
     /**
-     * @var DateTime|null $lastModifiedDateTime When the custom extension was last modified.
+     * @var DateTime|null $lastModifiedDateTime When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $lastModifiedDateTime = null;
     
@@ -63,7 +63,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.
+     * Gets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
      * @return User|null
     */
     public function getCreatedBy(): ?User {
@@ -71,7 +71,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. When the custom task extension was created.
+     * Gets the createdDateTime property value. When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -94,7 +94,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.
+     * Gets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
@@ -102,7 +102,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Gets the lastModifiedDateTime property value. When the custom extension was last modified.
+     * Gets the lastModifiedDateTime property value. When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
@@ -131,7 +131,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.
+     * Sets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
      *  @param User|null $value Value to set for the createdBy property.
     */
     public function setCreatedBy(?User $value ): void {
@@ -139,7 +139,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. When the custom task extension was created.
+     * Sets the createdDateTime property value. When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -147,7 +147,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.
+     * Sets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
      *  @param User|null $value Value to set for the lastModifiedBy property.
     */
     public function setLastModifiedBy(?User $value ): void {
@@ -155,7 +155,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     }
 
     /**
-     * Sets the lastModifiedDateTime property value. When the custom extension was last modified.
+     * Sets the lastModifiedDateTime property value. When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
     public function setLastModifiedDateTime(?DateTime $value ): void {

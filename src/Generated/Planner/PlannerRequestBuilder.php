@@ -26,7 +26,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PlannerRequestBuilder 
 {
     /**
-     * The buckets property
+     * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
     */
     public function buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class PlannerRequestBuilder
     private array $pathParameters;
     
     /**
-     * The plans property
+     * Provides operations to manage the plans property of the microsoft.graph.planner entity.
     */
     public function plans(): PlansRequestBuilder {
         return new PlansRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,14 +50,14 @@ class PlannerRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The rosters property
+     * Provides operations to manage the rosters property of the microsoft.graph.planner entity.
     */
     public function rosters(): RostersRequestBuilder {
         return new RostersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tasks property
+     * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -69,7 +69,7 @@ class PlannerRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.buckets.item collection
+     * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
      * @param string $id Unique identifier of the item
      * @return PlannerBucketItemRequestBuilder
     */
@@ -136,6 +136,7 @@ class PlannerRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -179,7 +180,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.plans.item collection
+     * Provides operations to manage the plans property of the microsoft.graph.planner entity.
      * @param string $id Unique identifier of the item
      * @return PlannerPlanItemRequestBuilder
     */
@@ -190,7 +191,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.rosters.item collection
+     * Provides operations to manage the rosters property of the microsoft.graph.planner entity.
      * @param string $id Unique identifier of the item
      * @return PlannerRosterItemRequestBuilder
     */
@@ -201,7 +202,7 @@ class PlannerRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.planner.tasks.item collection
+     * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
      * @param string $id Unique identifier of the item
      * @return PlannerTaskItemRequestBuilder
     */

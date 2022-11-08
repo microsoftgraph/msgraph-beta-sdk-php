@@ -26,14 +26,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AuditLogsRequestBuilder 
 {
     /**
-     * The directoryAudits property
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
     */
     public function directoryAudits(): DirectoryAuditsRequestBuilder {
         return new DirectoryAuditsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The directoryProvisioning property
+     * Provides operations to manage the directoryProvisioning property of the microsoft.graph.auditLogRoot entity.
     */
     public function directoryProvisioning(): DirectoryProvisioningRequestBuilder {
         return new DirectoryProvisioningRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -45,7 +45,7 @@ class AuditLogsRequestBuilder
     private array $pathParameters;
     
     /**
-     * The provisioning property
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
     */
     public function provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -57,7 +57,7 @@ class AuditLogsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The signIns property
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
     */
     public function signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -125,11 +125,12 @@ class AuditLogsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.auditLogs.directoryAudits.item collection
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
      * @param string $id Unique identifier of the item
      * @return DirectoryAuditItemRequestBuilder
     */
@@ -140,7 +141,7 @@ class AuditLogsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.auditLogs.directoryProvisioning.item collection
+     * Provides operations to manage the directoryProvisioning property of the microsoft.graph.auditLogRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAuditLogsDirectoryProvisioningItemProvisioningObjectSummaryItemRequestBuilder
     */
@@ -190,7 +191,7 @@ class AuditLogsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.auditLogs.provisioning.item collection
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAuditLogsProvisioningItemProvisioningObjectSummaryItemRequestBuilder
     */
@@ -201,7 +202,7 @@ class AuditLogsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.auditLogs.signIns.item collection
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
      * @param string $id Unique identifier of the item
      * @return SignInItemRequestBuilder
     */

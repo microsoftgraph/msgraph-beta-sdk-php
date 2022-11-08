@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SalesCreditMemoItemRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.salesCreditMemo entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customer property
+     * Provides operations to manage the customer property of the microsoft.graph.salesCreditMemo entity.
     */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class SalesCreditMemoItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentTerm property
+     * Provides operations to manage the paymentTerm property of the microsoft.graph.salesCreditMemo entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -54,7 +54,7 @@ class SalesCreditMemoItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The salesCreditMemoLines property
+     * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
     */
     public function salesCreditMemoLines(): SalesCreditMemoLinesRequestBuilder {
         return new SalesCreditMemoLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -122,6 +122,7 @@ class SalesCreditMemoItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -165,7 +166,7 @@ class SalesCreditMemoItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesCreditMemos.item.salesCreditMemoLines.item collection
+     * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
      * @param string $id Unique identifier of the item
      * @return SalesCreditMemoLineItemRequestBuilder
     */

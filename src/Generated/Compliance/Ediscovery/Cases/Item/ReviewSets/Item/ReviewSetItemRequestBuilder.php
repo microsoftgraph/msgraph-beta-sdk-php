@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ReviewSetItemRequestBuilder 
 {
     /**
-     * The addToReviewSet property
+     * Provides operations to call the addToReviewSet method.
     */
     public function addToReviewSet(): AddToReviewSetRequestBuilder {
         return new AddToReviewSetRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The export property
+     * Provides operations to call the export method.
     */
     public function export(): ExportRequestBuilder {
         return new ExportRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,7 +41,7 @@ class ReviewSetItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The queries property
+     * Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
     */
     public function queries(): QueriesRequestBuilder {
         return new QueriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -135,6 +135,7 @@ class ReviewSetItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -197,7 +198,7 @@ class ReviewSetItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.reviewSets.item.queries.item collection
+     * Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.
      * @param string $id Unique identifier of the item
      * @return ReviewSetQueryItemRequestBuilder
     */

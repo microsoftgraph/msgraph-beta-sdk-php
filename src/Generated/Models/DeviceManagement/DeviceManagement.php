@@ -471,16 +471,6 @@ class DeviceManagement extends Entity implements Parsable
     private ?array $oemWarrantyInformationOnboarding = null;
     
     /**
-     * @var array<OrganizationalMessageDetail>|null $organizationalMessageDetails A list of OrganizationalMessageDetails
-    */
-    private ?array $organizationalMessageDetails = null;
-    
-    /**
-     * @var array<OrganizationalMessageGuidedContent>|null $organizationalMessageGuidedContents A list of OrganizationalMessageGuidedContents
-    */
-    private ?array $organizationalMessageGuidedContents = null;
-    
-    /**
      * @var array<RemoteActionAudit>|null $remoteActionAudits The list of device remote action audits with the tenant.
     */
     private ?array $remoteActionAudits = null;
@@ -779,11 +769,6 @@ class DeviceManagement extends Entity implements Parsable
      * @var UserExperienceAnalyticsOverview|null $userExperienceAnalyticsOverview User experience analytics overview
     */
     private ?UserExperienceAnalyticsOverview $userExperienceAnalyticsOverview = null;
-    
-    /**
-     * @var UserExperienceAnalyticsRegressionSummary|null $userExperienceAnalyticsRegressionSummary User experience analytics regression summary
-    */
-    private ?UserExperienceAnalyticsRegressionSummary $userExperienceAnalyticsRegressionSummary = null;
     
     /**
      * @var array<UserExperienceAnalyticsRemoteConnection>|null $userExperienceAnalyticsRemoteConnection User experience analytics remote connection
@@ -1496,8 +1481,6 @@ class DeviceManagement extends Entity implements Parsable
             'ndesConnectors' => fn(ParseNode $n) => $o->setNdesConnectors($n->getCollectionOfObjectValues([NdesConnector::class, 'createFromDiscriminatorValue'])),
             'notificationMessageTemplates' => fn(ParseNode $n) => $o->setNotificationMessageTemplates($n->getCollectionOfObjectValues([NotificationMessageTemplate::class, 'createFromDiscriminatorValue'])),
             'oemWarrantyInformationOnboarding' => fn(ParseNode $n) => $o->setOemWarrantyInformationOnboarding($n->getCollectionOfObjectValues([OemWarrantyInformationOnboarding::class, 'createFromDiscriminatorValue'])),
-            'organizationalMessageDetails' => fn(ParseNode $n) => $o->setOrganizationalMessageDetails($n->getCollectionOfObjectValues([OrganizationalMessageDetail::class, 'createFromDiscriminatorValue'])),
-            'organizationalMessageGuidedContents' => fn(ParseNode $n) => $o->setOrganizationalMessageGuidedContents($n->getCollectionOfObjectValues([OrganizationalMessageGuidedContent::class, 'createFromDiscriminatorValue'])),
             'remoteActionAudits' => fn(ParseNode $n) => $o->setRemoteActionAudits($n->getCollectionOfObjectValues([RemoteActionAudit::class, 'createFromDiscriminatorValue'])),
             'remoteAssistancePartners' => fn(ParseNode $n) => $o->setRemoteAssistancePartners($n->getCollectionOfObjectValues([RemoteAssistancePartner::class, 'createFromDiscriminatorValue'])),
             'remoteAssistanceSettings' => fn(ParseNode $n) => $o->setRemoteAssistanceSettings($n->getObjectValue([RemoteAssistanceSettings::class, 'createFromDiscriminatorValue'])),
@@ -1558,7 +1541,6 @@ class DeviceManagement extends Entity implements Parsable
             'userExperienceAnalyticsModelScores' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsModelScores($n->getCollectionOfObjectValues([UserExperienceAnalyticsModelScores::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsNotAutopilotReadyDevice' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsNotAutopilotReadyDevice($n->getCollectionOfObjectValues([UserExperienceAnalyticsNotAutopilotReadyDevice::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsOverview' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsOverview($n->getObjectValue([UserExperienceAnalyticsOverview::class, 'createFromDiscriminatorValue'])),
-            'userExperienceAnalyticsRegressionSummary' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsRegressionSummary($n->getObjectValue([UserExperienceAnalyticsRegressionSummary::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsRemoteConnection' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsRemoteConnection($n->getCollectionOfObjectValues([UserExperienceAnalyticsRemoteConnection::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsResourcePerformance' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsResourcePerformance($n->getCollectionOfObjectValues([UserExperienceAnalyticsResourcePerformance::class, 'createFromDiscriminatorValue'])),
             'userExperienceAnalyticsScoreHistory' => fn(ParseNode $n) => $o->setUserExperienceAnalyticsScoreHistory($n->getCollectionOfObjectValues([UserExperienceAnalyticsScoreHistory::class, 'createFromDiscriminatorValue'])),
@@ -1839,22 +1821,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function getOemWarrantyInformationOnboarding(): ?array {
         return $this->oemWarrantyInformationOnboarding;
-    }
-
-    /**
-     * Gets the organizationalMessageDetails property value. A list of OrganizationalMessageDetails
-     * @return array<OrganizationalMessageDetail>|null
-    */
-    public function getOrganizationalMessageDetails(): ?array {
-        return $this->organizationalMessageDetails;
-    }
-
-    /**
-     * Gets the organizationalMessageGuidedContents property value. A list of OrganizationalMessageGuidedContents
-     * @return array<OrganizationalMessageGuidedContent>|null
-    */
-    public function getOrganizationalMessageGuidedContents(): ?array {
-        return $this->organizationalMessageGuidedContents;
     }
 
     /**
@@ -2338,14 +2304,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Gets the userExperienceAnalyticsRegressionSummary property value. User experience analytics regression summary
-     * @return UserExperienceAnalyticsRegressionSummary|null
-    */
-    public function getUserExperienceAnalyticsRegressionSummary(): ?UserExperienceAnalyticsRegressionSummary {
-        return $this->userExperienceAnalyticsRegressionSummary;
-    }
-
-    /**
      * Gets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection
      * @return array<UserExperienceAnalyticsRemoteConnection>|null
     */
@@ -2624,8 +2582,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('ndesConnectors', $this->ndesConnectors);
         $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->notificationMessageTemplates);
         $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->oemWarrantyInformationOnboarding);
-        $writer->writeCollectionOfObjectValues('organizationalMessageDetails', $this->organizationalMessageDetails);
-        $writer->writeCollectionOfObjectValues('organizationalMessageGuidedContents', $this->organizationalMessageGuidedContents);
         $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->remoteActionAudits);
         $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->remoteAssistancePartners);
         $writer->writeObjectValue('remoteAssistanceSettings', $this->remoteAssistanceSettings);
@@ -2685,7 +2641,6 @@ class DeviceManagement extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsModelScores', $this->userExperienceAnalyticsModelScores);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsNotAutopilotReadyDevice', $this->userExperienceAnalyticsNotAutopilotReadyDevice);
         $writer->writeObjectValue('userExperienceAnalyticsOverview', $this->userExperienceAnalyticsOverview);
-        $writer->writeObjectValue('userExperienceAnalyticsRegressionSummary', $this->userExperienceAnalyticsRegressionSummary);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsRemoteConnection', $this->userExperienceAnalyticsRemoteConnection);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsResourcePerformance', $this->userExperienceAnalyticsResourcePerformance);
         $writer->writeCollectionOfObjectValues('userExperienceAnalyticsScoreHistory', $this->userExperienceAnalyticsScoreHistory);
@@ -3448,22 +3403,6 @@ class DeviceManagement extends Entity implements Parsable
     }
 
     /**
-     * Sets the organizationalMessageDetails property value. A list of OrganizationalMessageDetails
-     *  @param array<OrganizationalMessageDetail>|null $value Value to set for the organizationalMessageDetails property.
-    */
-    public function setOrganizationalMessageDetails(?array $value ): void {
-        $this->organizationalMessageDetails = $value;
-    }
-
-    /**
-     * Sets the organizationalMessageGuidedContents property value. A list of OrganizationalMessageGuidedContents
-     *  @param array<OrganizationalMessageGuidedContent>|null $value Value to set for the organizationalMessageGuidedContents property.
-    */
-    public function setOrganizationalMessageGuidedContents(?array $value ): void {
-        $this->organizationalMessageGuidedContents = $value;
-    }
-
-    /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      *  @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
@@ -3941,14 +3880,6 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function setUserExperienceAnalyticsOverview(?UserExperienceAnalyticsOverview $value ): void {
         $this->userExperienceAnalyticsOverview = $value;
-    }
-
-    /**
-     * Sets the userExperienceAnalyticsRegressionSummary property value. User experience analytics regression summary
-     *  @param UserExperienceAnalyticsRegressionSummary|null $value Value to set for the userExperienceAnalyticsRegressionSummary property.
-    */
-    public function setUserExperienceAnalyticsRegressionSummary(?UserExperienceAnalyticsRegressionSummary $value ): void {
-        $this->userExperienceAnalyticsRegressionSummary = $value;
     }
 
     /**

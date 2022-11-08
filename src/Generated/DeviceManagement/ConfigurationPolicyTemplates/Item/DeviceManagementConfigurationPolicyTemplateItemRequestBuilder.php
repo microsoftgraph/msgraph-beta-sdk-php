@@ -30,7 +30,7 @@ class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settingTemplates property
+     * Provides operations to manage the settingTemplates property of the microsoft.graph.deviceManagementConfigurationPolicyTemplate entity.
     */
     public function settingTemplates(): SettingTemplatesRequestBuilder {
         return new SettingTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configurationPolicyTemplates.item.settingTemplates.item collection
+     * Provides operations to manage the settingTemplates property of the microsoft.graph.deviceManagementConfigurationPolicyTemplate entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder
     */

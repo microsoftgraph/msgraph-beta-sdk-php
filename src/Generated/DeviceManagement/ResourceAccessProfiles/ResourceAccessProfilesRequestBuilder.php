@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ResourceAccessProfilesRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -33,7 +33,7 @@ class ResourceAccessProfilesRequestBuilder
     private array $pathParameters;
     
     /**
-     * The queryByPlatformType property
+     * Provides operations to call the queryByPlatformType method.
     */
     public function queryByPlatformType(): QueryByPlatformTypeRequestBuilder {
         return new QueryByPlatformTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -106,6 +106,7 @@ class ResourceAccessProfilesRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

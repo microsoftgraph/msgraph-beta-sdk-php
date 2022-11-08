@@ -29,7 +29,7 @@ class AlertRecordItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The setPortalNotificationAsSent property
+     * Provides operations to call the setPortalNotificationAsSent method.
     */
     public function setPortalNotificationAsSent(): SetPortalNotificationAsSentRequestBuilder {
         return new SetPortalNotificationAsSentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class AlertRecordItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

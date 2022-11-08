@@ -23,21 +23,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EdiscoveryFileItemRequestBuilder 
 {
     /**
-     * The content property
+     * Provides operations to manage the media for the security entity.
     */
     public function content(): ContentRequestBuilder {
         return new ContentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The custodian property
+     * Provides operations to manage the custodian property of the microsoft.graph.security.ediscoveryFile entity.
     */
     public function custodian(): CustodianRequestBuilder {
         return new CustodianRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extractedTextContent property
+     * Provides operations to manage the media for the security entity.
     */
     public function extractedTextContent(): ExtractedTextContentRequestBuilder {
         return new ExtractedTextContentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -54,7 +54,7 @@ class EdiscoveryFileItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The tags property
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryFile entity.
     */
     public function tags(): TagsRequestBuilder {
         return new TagsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -143,6 +143,7 @@ class EdiscoveryFileItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -205,7 +206,7 @@ class EdiscoveryFileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cases.ediscoveryCases.item.reviewSets.item.files.item.tags.item collection
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryFile entity.
      * @param string $id Unique identifier of the item
      * @return EdiscoveryReviewTagItemRequestBuilder
     */

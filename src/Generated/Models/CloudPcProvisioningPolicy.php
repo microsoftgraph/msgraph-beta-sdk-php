@@ -79,6 +79,11 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     private ?string $onPremisesConnectionId = null;
     
     /**
+     * @var CloudPcProvisioningType|null $provisioningType The provisioningType property
+    */
+    private ?CloudPcProvisioningType $provisioningType = null;
+    
+    /**
      * @var CloudPcWindowsSettings|null $windowsSettings Specific Windows settings to configure while creating Cloud PCs for this provisioning policy.
     */
     private ?CloudPcWindowsSettings $windowsSettings = null;
@@ -169,6 +174,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
             'managedBy' => fn(ParseNode $n) => $o->setManagedBy($n->getEnumValue(CloudPcManagementService::class)),
             'microsoftManagedDesktop' => fn(ParseNode $n) => $o->setMicrosoftManagedDesktop($n->getObjectValue([MicrosoftManagedDesktop::class, 'createFromDiscriminatorValue'])),
             'onPremisesConnectionId' => fn(ParseNode $n) => $o->setOnPremisesConnectionId($n->getStringValue()),
+            'provisioningType' => fn(ParseNode $n) => $o->setProvisioningType($n->getEnumValue(CloudPcProvisioningType::class)),
             'windowsSettings' => fn(ParseNode $n) => $o->setWindowsSettings($n->getObjectValue([CloudPcWindowsSettings::class, 'createFromDiscriminatorValue'])),
         ]);
     }
@@ -238,6 +244,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     }
 
     /**
+     * Gets the provisioningType property value. The provisioningType property
+     * @return CloudPcProvisioningType|null
+    */
+    public function getProvisioningType(): ?CloudPcProvisioningType {
+        return $this->provisioningType;
+    }
+
+    /**
      * Gets the windowsSettings property value. Specific Windows settings to configure while creating Cloud PCs for this provisioning policy.
      * @return CloudPcWindowsSettings|null
     */
@@ -265,6 +279,7 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
         $writer->writeEnumValue('managedBy', $this->managedBy);
         $writer->writeObjectValue('microsoftManagedDesktop', $this->microsoftManagedDesktop);
         $writer->writeStringValue('onPremisesConnectionId', $this->onPremisesConnectionId);
+        $writer->writeEnumValue('provisioningType', $this->provisioningType);
         $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
     }
 
@@ -378,6 +393,14 @@ class CloudPcProvisioningPolicy extends Entity implements Parsable
     */
     public function setOnPremisesConnectionId(?string $value ): void {
         $this->onPremisesConnectionId = $value;
+    }
+
+    /**
+     * Sets the provisioningType property value. The provisioningType property
+     *  @param CloudPcProvisioningType|null $value Value to set for the provisioningType property.
+    */
+    public function setProvisioningType(?CloudPcProvisioningType $value ): void {
+        $this->provisioningType = $value;
     }
 
     /**

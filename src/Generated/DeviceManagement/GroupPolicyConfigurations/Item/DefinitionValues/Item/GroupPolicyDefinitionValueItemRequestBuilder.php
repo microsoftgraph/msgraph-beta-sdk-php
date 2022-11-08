@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyDefinitionValueItemRequestBuilder 
 {
     /**
-     * The definition property
+     * Provides operations to manage the definition property of the microsoft.graph.groupPolicyDefinitionValue entity.
     */
     public function definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -33,7 +33,7 @@ class GroupPolicyDefinitionValueItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The presentationValues property
+     * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
     */
     public function presentationValues(): PresentationValuesRequestBuilder {
         return new PresentationValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class GroupPolicyDefinitionValueItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class GroupPolicyDefinitionValueItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyConfigurations.item.definitionValues.item.presentationValues.item collection
+     * Provides operations to manage the presentationValues property of the microsoft.graph.groupPolicyDefinitionValue entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyPresentationValueItemRequestBuilder
     */

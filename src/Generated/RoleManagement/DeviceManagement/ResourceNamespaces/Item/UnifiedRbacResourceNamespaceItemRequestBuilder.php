@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UnifiedRbacResourceNamespaceItemRequestBuilder 
 {
     /**
-     * The importResourceActions property
+     * Provides operations to call the importResourceActions method.
     */
     public function importResourceActions(): ImportResourceActionsRequestBuilder {
         return new ImportResourceActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceActions property
+     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
     */
     public function resourceActions(): ResourceActionsRequestBuilder {
         return new ResourceActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class UnifiedRbacResourceNamespaceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.resourceNamespaces.item.resourceActions.item collection
+     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRbacResourceActionItemRequestBuilder
     */

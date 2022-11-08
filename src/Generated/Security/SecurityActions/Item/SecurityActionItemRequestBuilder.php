@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SecurityActionItemRequestBuilder 
 {
     /**
-     * The cancelSecurityAction property
+     * Provides operations to call the cancelSecurityAction method.
     */
     public function cancelSecurityAction(): CancelSecurityActionRequestBuilder {
         return new CancelSecurityActionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class SecurityActionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

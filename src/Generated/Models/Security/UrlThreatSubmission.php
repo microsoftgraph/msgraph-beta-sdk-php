@@ -14,7 +14,7 @@ class UrlThreatSubmission extends ThreatSubmission implements Parsable
     private ?string $webUrl = null;
     
     /**
-     * Instantiates a new UrlThreatSubmission and sets the default values.
+     * Instantiates a new urlThreatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();

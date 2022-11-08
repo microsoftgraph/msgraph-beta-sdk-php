@@ -14,6 +14,11 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     private ?string $groupId = null;
     
     /**
+     * @var string|null $servicePlanId The servicePlanId property
+    */
+    private ?string $servicePlanId = null;
+    
+    /**
      * Instantiates a new CloudPcManagementGroupAssignmentTarget and sets the default values.
     */
     public function __construct() {
@@ -38,6 +43,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
             'groupId' => fn(ParseNode $n) => $o->setGroupId($n->getStringValue()),
+            'servicePlanId' => fn(ParseNode $n) => $o->setServicePlanId($n->getStringValue()),
         ]);
     }
 
@@ -50,12 +56,21 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     }
 
     /**
+     * Gets the servicePlanId property value. The servicePlanId property
+     * @return string|null
+    */
+    public function getServicePlanId(): ?string {
+        return $this->servicePlanId;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
         $writer->writeStringValue('groupId', $this->groupId);
+        $writer->writeStringValue('servicePlanId', $this->servicePlanId);
     }
 
     /**
@@ -64,6 +79,14 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     */
     public function setGroupId(?string $value ): void {
         $this->groupId = $value;
+    }
+
+    /**
+     * Sets the servicePlanId property value. The servicePlanId property
+     *  @param string|null $value Value to set for the servicePlanId property.
+    */
+    public function setServicePlanId(?string $value ): void {
+        $this->servicePlanId = $value;
     }
 
 }

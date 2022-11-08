@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UserExperienceAnalyticsAppHealthOverviewRequestBuilder 
 {
     /**
-     * The metricValues property
+     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
     */
     public function metricValues(): MetricValuesRequestBuilder {
         return new MetricValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class UserExperienceAnalyticsAppHealthOverviewRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -161,7 +162,7 @@ class UserExperienceAnalyticsAppHealthOverviewRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthOverview.metricValues.item collection
+     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsMetricItemRequestBuilder
     */

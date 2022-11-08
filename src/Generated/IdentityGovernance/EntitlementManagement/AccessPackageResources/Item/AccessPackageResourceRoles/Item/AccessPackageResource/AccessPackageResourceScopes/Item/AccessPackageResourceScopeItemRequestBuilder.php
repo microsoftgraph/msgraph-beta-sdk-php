@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceScopeItemRequestBuilder 
 {
     /**
-     * The accessPackageResource property
+     * Provides operations to manage the accessPackageResource property of the microsoft.graph.accessPackageResourceScope entity.
     */
     public function accessPackageResource(): AccessPackageResourceRequestBuilder {
         return new AccessPackageResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class AccessPackageResourceScopeItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementTemplateCollectionItemRequestBuilder 
 {
     /**
-     * The managementTemplates property
+     * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managementTemplateCollection entity.
     */
     public function managementTemplates(): ManagementTemplatesRequestBuilder {
         return new ManagementTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class ManagementTemplateCollectionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -161,7 +162,7 @@ class ManagementTemplateCollectionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateCollections.item.managementTemplates.item collection
+     * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managementTemplateCollection entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateItemRequestBuilder
     */

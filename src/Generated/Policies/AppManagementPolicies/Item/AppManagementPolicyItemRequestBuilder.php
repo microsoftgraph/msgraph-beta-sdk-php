@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AppManagementPolicyItemRequestBuilder 
 {
     /**
-     * The appliesTo property
+     * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
     */
     public function appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class AppManagementPolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.appManagementPolicies.item.appliesTo.item collection
+     * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
      * @param string $id Unique identifier of the item
      * @return DirectoryObjectItemRequestBuilder
     */
@@ -130,6 +130,7 @@ class AppManagementPolicyItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

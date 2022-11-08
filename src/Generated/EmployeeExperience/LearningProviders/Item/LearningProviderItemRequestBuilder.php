@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class LearningProviderItemRequestBuilder 
 {
     /**
-     * The learningContents property
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
     */
     public function learningContents(): LearningContentsRequestBuilder {
         return new LearningContentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class LearningProviderItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -161,7 +162,7 @@ class LearningProviderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.employeeExperience.learningProviders.item.learningContents.item collection
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
      * @param string $id Unique identifier of the item
      * @return LearningContentItemRequestBuilder
     */

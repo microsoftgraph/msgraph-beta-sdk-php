@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MicrosoftTunnelSiteItemRequestBuilder 
 {
     /**
-     * The microsoftTunnelConfiguration property
+     * Provides operations to manage the microsoftTunnelConfiguration property of the microsoft.graph.microsoftTunnelSite entity.
     */
     public function microsoftTunnelConfiguration(): MicrosoftTunnelConfigurationRequestBuilder {
         return new MicrosoftTunnelConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftTunnelServers property
+     * Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
     */
     public function microsoftTunnelServers(): MicrosoftTunnelServersRequestBuilder {
         return new MicrosoftTunnelServersRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -46,7 +46,7 @@ class MicrosoftTunnelSiteItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The requestUpgrade property
+     * Provides operations to call the requestUpgrade method.
     */
     public function requestUpgrade(): RequestUpgradeRequestBuilder {
         return new RequestUpgradeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -135,6 +135,7 @@ class MicrosoftTunnelSiteItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -177,7 +178,7 @@ class MicrosoftTunnelSiteItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.microsoftTunnelSites.item.microsoftTunnelServers.item collection
+     * Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelServerItemRequestBuilder
     */

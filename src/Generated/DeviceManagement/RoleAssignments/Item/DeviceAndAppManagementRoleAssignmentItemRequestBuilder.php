@@ -30,7 +30,7 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleScopeTags property
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
     */
     public function roleScopeTags(): RoleScopeTagsRequestBuilder {
         return new RoleScopeTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class DeviceAndAppManagementRoleAssignmentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.roleAssignments.item.roleScopeTags.item collection
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceAndAppManagementRoleAssignment entity.
      * @param string $id Unique identifier of the item
      * @return RoleScopeTagItemRequestBuilder
     */

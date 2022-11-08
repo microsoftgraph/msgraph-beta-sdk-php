@@ -61,147 +61,147 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PoliciesRequestBuilder 
 {
     /**
-     * The accessReviewPolicy property
+     * Provides operations to manage the accessReviewPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function accessReviewPolicy(): AccessReviewPolicyRequestBuilder {
         return new AccessReviewPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The activityBasedTimeoutPolicies property
+     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function activityBasedTimeoutPolicies(): ActivityBasedTimeoutPoliciesRequestBuilder {
         return new ActivityBasedTimeoutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The adminConsentRequestPolicy property
+     * Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
         return new AdminConsentRequestPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The appManagementPolicies property
+     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authenticationFlowsPolicy property
+     * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
         return new AuthenticationFlowsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authenticationMethodsPolicy property
+     * Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authenticationStrengthPolicies property
+     * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function authenticationStrengthPolicies(): AuthenticationStrengthPoliciesRequestBuilder {
         return new AuthenticationStrengthPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authorizationPolicy property
+     * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function authorizationPolicy(): AuthorizationPolicyRequestBuilder {
         return new AuthorizationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The b2cAuthenticationMethodsPolicy property
+     * Provides operations to manage the b2cAuthenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function b2cAuthenticationMethodsPolicy(): B2cAuthenticationMethodsPolicyRequestBuilder {
         return new B2cAuthenticationMethodsPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The claimsMappingPolicies property
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The conditionalAccessPolicies property
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The crossTenantAccessPolicy property
+     * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The defaultAppManagementPolicy property
+     * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder {
         return new DefaultAppManagementPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceRegistrationPolicy property
+     * Provides operations to manage the deviceRegistrationPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function deviceRegistrationPolicy(): DeviceRegistrationPolicyRequestBuilder {
         return new DeviceRegistrationPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The directoryRoleAccessReviewPolicy property
+     * Provides operations to manage the directoryRoleAccessReviewPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function directoryRoleAccessReviewPolicy(): DirectoryRoleAccessReviewPolicyRequestBuilder {
         return new DirectoryRoleAccessReviewPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The externalIdentitiesPolicy property
+     * Provides operations to manage the externalIdentitiesPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function externalIdentitiesPolicy(): ExternalIdentitiesPolicyRequestBuilder {
         return new ExternalIdentitiesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The featureRolloutPolicies property
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The homeRealmDiscoveryPolicies property
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The identitySecurityDefaultsEnforcementPolicy property
+     * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
     */
     public function identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileAppManagementPolicies property
+     * Provides operations to manage the mobileAppManagementPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function mobileAppManagementPolicies(): MobileAppManagementPoliciesRequestBuilder {
         return new MobileAppManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileDeviceManagementPolicies property
+     * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function mobileDeviceManagementPolicies(): MobileDeviceManagementPoliciesRequestBuilder {
         return new MobileDeviceManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -213,7 +213,7 @@ class PoliciesRequestBuilder
     private array $pathParameters;
     
     /**
-     * The permissionGrantPolicies property
+     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -225,35 +225,35 @@ class PoliciesRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleManagementPolicies property
+     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function roleManagementPolicies(): RoleManagementPoliciesRequestBuilder {
         return new RoleManagementPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleManagementPolicyAssignments property
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
     */
     public function roleManagementPolicyAssignments(): RoleManagementPolicyAssignmentsRequestBuilder {
         return new RoleManagementPolicyAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The servicePrincipalCreationPolicies property
+     * Provides operations to manage the servicePrincipalCreationPolicies property of the microsoft.graph.policyRoot entity.
     */
     public function servicePrincipalCreationPolicies(): ServicePrincipalCreationPoliciesRequestBuilder {
         return new ServicePrincipalCreationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tokenIssuancePolicies property
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
     */
     public function tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tokenLifetimePolicies property
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
     */
     public function tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -265,7 +265,7 @@ class PoliciesRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.activityBasedTimeoutPolicies.item collection
+     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return ActivityBasedTimeoutPolicyItemRequestBuilder
     */
@@ -276,7 +276,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.appManagementPolicies.item collection
+     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return AppManagementPolicyItemRequestBuilder
     */
@@ -287,7 +287,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.authenticationStrengthPolicies.item collection
+     * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return AuthenticationStrengthPolicyItemRequestBuilder
     */
@@ -298,7 +298,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.authorizationPolicy.item collection
+     * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return AuthorizationPolicyItemRequestBuilder
     */
@@ -309,7 +309,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.claimsMappingPolicies.item collection
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return ClaimsMappingPolicyItemRequestBuilder
     */
@@ -320,7 +320,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.conditionalAccessPolicies.item collection
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return ConditionalAccessPolicyItemRequestBuilder
     */
@@ -387,11 +387,12 @@ class PoliciesRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.featureRolloutPolicies.item collection
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return FeatureRolloutPolicyItemRequestBuilder
     */
@@ -421,7 +422,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.homeRealmDiscoveryPolicies.item collection
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return HomeRealmDiscoveryPolicyItemRequestBuilder
     */
@@ -432,7 +433,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.mobileAppManagementPolicies.item collection
+     * Provides operations to manage the mobileAppManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedPoliciesMobileAppManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder
     */
@@ -443,7 +444,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.mobileDeviceManagementPolicies.item collection
+     * Provides operations to manage the mobileDeviceManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedPoliciesMobileDeviceManagementPoliciesItemMobilityManagementPolicyItemRequestBuilder
     */
@@ -474,7 +475,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.permissionGrantPolicies.item collection
+     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return PermissionGrantPolicyItemRequestBuilder
     */
@@ -485,7 +486,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.roleManagementPolicies.item collection
+     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleManagementPolicyItemRequestBuilder
     */
@@ -496,7 +497,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.roleManagementPolicyAssignments.item collection
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
     */
@@ -507,7 +508,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.servicePrincipalCreationPolicies.item collection
+     * Provides operations to manage the servicePrincipalCreationPolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return ServicePrincipalCreationPolicyItemRequestBuilder
     */
@@ -518,7 +519,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.tokenIssuancePolicies.item collection
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return TokenIssuancePolicyItemRequestBuilder
     */
@@ -529,7 +530,7 @@ class PoliciesRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.tokenLifetimePolicies.item collection
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
      * @param string $id Unique identifier of the item
      * @return TokenLifetimePolicyItemRequestBuilder
     */

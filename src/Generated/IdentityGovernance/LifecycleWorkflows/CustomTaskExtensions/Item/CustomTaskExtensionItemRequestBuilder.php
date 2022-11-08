@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CustomTaskExtensionItemRequestBuilder 
 {
     /**
-     * The createdBy property
+     * Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.customTaskExtension entity.
     */
     public function createdBy(): CreatedByRequestBuilder {
         return new CreatedByRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The lastModifiedBy property
+     * Provides operations to manage the lastModifiedBy property of the microsoft.graph.identityGovernance.customTaskExtension entity.
     */
     public function lastModifiedBy(): LastModifiedByRequestBuilder {
         return new LastModifiedByRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class CustomTaskExtensionItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OfficeConfigurationRequestBuilder 
 {
     /**
-     * The clientConfigurations property
+     * Provides operations to manage the clientConfigurations property of the microsoft.graph.officeConfiguration entity.
     */
     public function clientConfigurations(): ClientConfigurationsRequestBuilder {
         return new ClientConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class OfficeConfigurationRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.officeConfiguration.clientConfigurations.item collection
+     * Provides operations to manage the clientConfigurations property of the microsoft.graph.officeConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return OfficeClientConfigurationItemRequestBuilder
     */
@@ -109,6 +109,7 @@ class OfficeConfigurationRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

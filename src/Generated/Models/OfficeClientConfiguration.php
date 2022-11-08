@@ -50,7 +50,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
     private ?StreamInterface $userPreferencePayload = null;
     
     /**
-     * Instantiates a new OfficeClientConfiguration and sets the default values.
+     * Instantiates a new officeClientConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();

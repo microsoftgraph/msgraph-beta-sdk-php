@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CaseOperationItemRequestBuilder 
 {
     /**
-     * The caseExportOperation property
+     * Casts the previous resource to caseExportOperation.
     */
     public function caseExportOperation(): CaseExportOperationRequestBuilder {
         return new CaseExportOperationRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class CaseOperationItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

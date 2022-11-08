@@ -30,7 +30,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The tenants property
+     * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
     */
     public function tenants(): TenantsRequestBuilder {
         return new TenantsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -181,7 +182,7 @@ class OutboundSharedUserProfileUserItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.directory.outboundSharedUserProfiles.item.tenants.item collection
+     * Provides operations to manage the tenants property of the microsoft.graph.outboundSharedUserProfile entity.
      * @param string $id Unique identifier of the item
      * @return TenantReferenceTenantItemRequestBuilder
     */

@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ExactMatchDataStoreItemRequestBuilder 
 {
     /**
-     * The lookup property
+     * Provides operations to call the lookup method.
     */
     public function lookup(): LookupRequestBuilder {
         return new LookupRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class ExactMatchDataStoreItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sessions property
+     * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
     */
     public function sessions(): SessionsRequestBuilder {
         return new SessionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class ExactMatchDataStoreItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class ExactMatchDataStoreItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.exactMatchDataStores.item.sessions.item collection
+     * Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
      * @param string $id Unique identifier of the item
      * @return ExactMatchSessionItemRequestBuilder
     */

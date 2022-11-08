@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantAlertRuleItemRequestBuilder 
 {
     /**
-     * The alerts property
+     * Provides operations to manage the alerts property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.
     */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class ManagedTenantAlertRuleItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The ruleDefinition property
+     * Provides operations to manage the ruleDefinition property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.
     */
     public function ruleDefinition(): RuleDefinitionRequestBuilder {
         return new RuleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class ManagedTenantAlertRuleItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRules.item.alerts.item collection
+     * Provides operations to manage the alerts property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertItemRequestBuilder
     */
@@ -138,6 +138,7 @@ class ManagedTenantAlertRuleItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

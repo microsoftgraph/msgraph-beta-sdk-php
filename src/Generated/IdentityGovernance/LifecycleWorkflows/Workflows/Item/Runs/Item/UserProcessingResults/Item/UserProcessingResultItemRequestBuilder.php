@@ -31,14 +31,14 @@ class UserProcessingResultItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The subject property
+     * Provides operations to manage the subject property of the microsoft.graph.identityGovernance.userProcessingResult entity.
     */
     public function subject(): SubjectRequestBuilder {
         return new SubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskProcessingResults property
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
     */
     public function taskProcessingResults(): TaskProcessingResultsRequestBuilder {
         return new TaskProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,6 +127,7 @@ class UserProcessingResultItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -189,7 +190,7 @@ class UserProcessingResultItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflows.item.runs.item.userProcessingResults.item.taskProcessingResults.item collection
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
      * @param string $id Unique identifier of the item
      * @return TaskProcessingResultItemRequestBuilder
     */

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AuthenticationStrengthPolicyItemRequestBuilder 
 {
     /**
-     * The combinationConfigurations property
+     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
     */
     public function combinationConfigurations(): CombinationConfigurationsRequestBuilder {
         return new CombinationConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,7 +39,7 @@ class AuthenticationStrengthPolicyItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateAllowedCombinations property
+     * Provides operations to call the updateAllowedCombinations method.
     */
     public function updateAllowedCombinations(): UpdateAllowedCombinationsRequestBuilder {
         return new UpdateAllowedCombinationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class AuthenticationStrengthPolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.policies.authenticationStrengthPolicies.item.combinationConfigurations.item collection
+     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
      * @param string $id Unique identifier of the item
      * @return AuthenticationCombinationConfigurationItemRequestBuilder
     */
@@ -139,6 +139,7 @@ class AuthenticationStrengthPolicyItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

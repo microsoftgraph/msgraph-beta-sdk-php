@@ -24,7 +24,7 @@ class BusinessFlowItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recordDecisions property
+     * Provides operations to call the recordDecisions method.
     */
     public function recordDecisions(): RecordDecisionsRequestBuilder {
         return new RecordDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,6 +118,7 @@ class BusinessFlowItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

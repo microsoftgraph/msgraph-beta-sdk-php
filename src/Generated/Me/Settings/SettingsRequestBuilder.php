@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SettingsRequestBuilder 
 {
     /**
-     * The contactMergeSuggestions property
+     * Provides operations to manage the contactMergeSuggestions property of the microsoft.graph.userSettings entity.
     */
     public function contactMergeSuggestions(): ContactMergeSuggestionsRequestBuilder {
         return new ContactMergeSuggestionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The itemInsights property
+     * Provides operations to manage the itemInsights property of the microsoft.graph.userSettings entity.
     */
     public function itemInsights(): ItemInsightsRequestBuilder {
         return new ItemInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,7 +41,7 @@ class SettingsRequestBuilder
     private array $pathParameters;
     
     /**
-     * The regionalAndLanguageSettings property
+     * Provides operations to manage the regionalAndLanguageSettings property of the microsoft.graph.userSettings entity.
     */
     public function regionalAndLanguageSettings(): RegionalAndLanguageSettingsRequestBuilder {
         return new RegionalAndLanguageSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class SettingsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The shiftPreferences property
+     * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.
     */
     public function shiftPreferences(): ShiftPreferencesRequestBuilder {
         return new ShiftPreferencesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,6 +142,7 @@ class SettingsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

@@ -26,21 +26,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ThreatSubmissionRequestBuilder 
 {
     /**
-     * The emailThreats property
+     * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     */
     public function emailThreats(): EmailThreatsRequestBuilder {
         return new EmailThreatsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The emailThreatSubmissionPolicies property
+     * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
     */
     public function emailThreatSubmissionPolicies(): EmailThreatSubmissionPoliciesRequestBuilder {
         return new EmailThreatSubmissionPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The fileThreats property
+     * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     */
     public function fileThreats(): FileThreatsRequestBuilder {
         return new FileThreatsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -62,7 +62,7 @@ class ThreatSubmissionRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The urlThreats property
+     * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     */
     public function urlThreats(): UrlThreatsRequestBuilder {
         return new UrlThreatsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -125,11 +125,12 @@ class ThreatSubmissionRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.threatSubmission.emailThreats.item collection
+     * Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
      * @return EmailThreatSubmissionItemRequestBuilder
     */
@@ -140,7 +141,7 @@ class ThreatSubmissionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.threatSubmission.emailThreatSubmissionPolicies.item collection
+     * Provides operations to manage the emailThreatSubmissionPolicies property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
      * @return EmailThreatSubmissionPolicyItemRequestBuilder
     */
@@ -151,7 +152,7 @@ class ThreatSubmissionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.threatSubmission.fileThreats.item collection
+     * Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
      * @return FileThreatSubmissionItemRequestBuilder
     */
@@ -201,7 +202,7 @@ class ThreatSubmissionRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.threatSubmission.urlThreats.item collection
+     * Provides operations to manage the urlThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
      * @param string $id Unique identifier of the item
      * @return UrlThreatSubmissionItemRequestBuilder
     */

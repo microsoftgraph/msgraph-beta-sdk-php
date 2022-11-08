@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SynchronizationRequestBuilder 
 {
     /**
-     * The acquireAccessToken property
+     * Provides operations to call the acquireAccessToken method.
     */
     public function acquireAccessToken(): AcquireAccessTokenRequestBuilder {
         return new AcquireAccessTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The jobs property
+     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
     */
     public function jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -48,7 +48,7 @@ class SynchronizationRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The templates property
+     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
     */
     public function templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -137,6 +137,7 @@ class SynchronizationRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -179,7 +180,7 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.servicePrincipals.item.synchronization.jobs.item collection
+     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
      * @param string $id Unique identifier of the item
      * @return SynchronizationJobItemRequestBuilder
     */
@@ -218,7 +219,7 @@ class SynchronizationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.servicePrincipals.item.synchronization.templates.item collection
+     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
      * @param string $id Unique identifier of the item
      * @return SynchronizationTemplateItemRequestBuilder
     */

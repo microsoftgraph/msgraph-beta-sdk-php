@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder 
 {
     /**
-     * The createDownloadUrl property
+     * Provides operations to call the createDownloadUrl method.
     */
     public function createDownloadUrl(): CreateDownloadUrlRequestBuilder {
         return new CreateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The generateDownloadUrl property
+     * Provides operations to call the generateDownloadUrl method.
     */
     public function generateDownloadUrl(): GenerateDownloadUrlRequestBuilder {
         return new GenerateDownloadUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -126,6 +126,7 @@ class MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

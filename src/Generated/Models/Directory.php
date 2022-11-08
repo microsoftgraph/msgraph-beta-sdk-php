@@ -49,6 +49,11 @@ class Directory extends Entity implements Parsable
     private ?array $inboundSharedUserProfiles = null;
     
     /**
+     * @var array<OnPremisesDirectorySynchronization>|null $onPremisesSynchronization The onPremisesSynchronization property
+    */
+    private ?array $onPremisesSynchronization = null;
+    
+    /**
      * @var array<OutboundSharedUserProfile>|null $outboundSharedUserProfiles The outboundSharedUserProfiles property
     */
     private ?array $outboundSharedUserProfiles = null;
@@ -143,6 +148,7 @@ class Directory extends Entity implements Parsable
             'federationConfigurations' => fn(ParseNode $n) => $o->setFederationConfigurations($n->getCollectionOfObjectValues([IdentityProviderBase::class, 'createFromDiscriminatorValue'])),
             'impactedResources' => fn(ParseNode $n) => $o->setImpactedResources($n->getCollectionOfObjectValues([RecommendationResource::class, 'createFromDiscriminatorValue'])),
             'inboundSharedUserProfiles' => fn(ParseNode $n) => $o->setInboundSharedUserProfiles($n->getCollectionOfObjectValues([InboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
+            'onPremisesSynchronization' => fn(ParseNode $n) => $o->setOnPremisesSynchronization($n->getCollectionOfObjectValues([OnPremisesDirectorySynchronization::class, 'createFromDiscriminatorValue'])),
             'outboundSharedUserProfiles' => fn(ParseNode $n) => $o->setOutboundSharedUserProfiles($n->getCollectionOfObjectValues([OutboundSharedUserProfile::class, 'createFromDiscriminatorValue'])),
             'recommendations' => fn(ParseNode $n) => $o->setRecommendations($n->getCollectionOfObjectValues([Recommendation::class, 'createFromDiscriminatorValue'])),
             'sharedEmailDomains' => fn(ParseNode $n) => $o->setSharedEmailDomains($n->getCollectionOfObjectValues([SharedEmailDomain::class, 'createFromDiscriminatorValue'])),
@@ -163,6 +169,14 @@ class Directory extends Entity implements Parsable
     */
     public function getInboundSharedUserProfiles(): ?array {
         return $this->inboundSharedUserProfiles;
+    }
+
+    /**
+     * Gets the onPremisesSynchronization property value. The onPremisesSynchronization property
+     * @return array<OnPremisesDirectorySynchronization>|null
+    */
+    public function getOnPremisesSynchronization(): ?array {
+        return $this->onPremisesSynchronization;
     }
 
     /**
@@ -203,6 +217,7 @@ class Directory extends Entity implements Parsable
         $writer->writeCollectionOfObjectValues('federationConfigurations', $this->federationConfigurations);
         $writer->writeCollectionOfObjectValues('impactedResources', $this->impactedResources);
         $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->inboundSharedUserProfiles);
+        $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->onPremisesSynchronization);
         $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->outboundSharedUserProfiles);
         $writer->writeCollectionOfObjectValues('recommendations', $this->recommendations);
         $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->sharedEmailDomains);
@@ -270,6 +285,14 @@ class Directory extends Entity implements Parsable
     */
     public function setInboundSharedUserProfiles(?array $value ): void {
         $this->inboundSharedUserProfiles = $value;
+    }
+
+    /**
+     * Sets the onPremisesSynchronization property value. The onPremisesSynchronization property
+     *  @param array<OnPremisesDirectorySynchronization>|null $value Value to set for the onPremisesSynchronization property.
+    */
+    public function setOnPremisesSynchronization(?array $value ): void {
+        $this->onPremisesSynchronization = $value;
     }
 
     /**

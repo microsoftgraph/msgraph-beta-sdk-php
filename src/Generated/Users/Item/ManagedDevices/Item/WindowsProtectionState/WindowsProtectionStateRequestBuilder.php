@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsProtectionStateRequestBuilder 
 {
     /**
-     * The detectedMalwareState property
+     * Provides operations to manage the detectedMalwareState property of the microsoft.graph.windowsProtectionState entity.
     */
     public function detectedMalwareState(): DetectedMalwareStateRequestBuilder {
         return new DetectedMalwareStateRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,6 +119,7 @@ class WindowsProtectionStateRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -142,7 +143,7 @@ class WindowsProtectionStateRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.managedDevices.item.windowsProtectionState.detectedMalwareState.item collection
+     * Provides operations to manage the detectedMalwareState property of the microsoft.graph.windowsProtectionState entity.
      * @param string $id Unique identifier of the item
      * @return WindowsDeviceMalwareStateItemRequestBuilder
     */

@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AndroidForWorkSettingsRequestBuilder 
 {
     /**
-     * The completeSignup property
+     * Provides operations to call the completeSignup method.
     */
     public function completeSignup(): CompleteSignupRequestBuilder {
         return new CompleteSignupRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,21 +39,21 @@ class AndroidForWorkSettingsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The requestSignupUrl property
+     * Provides operations to call the requestSignupUrl method.
     */
     public function requestSignupUrl(): RequestSignupUrlRequestBuilder {
         return new RequestSignupUrlRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The syncApps property
+     * Provides operations to call the syncApps method.
     */
     public function syncApps(): SyncAppsRequestBuilder {
         return new SyncAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unbind property
+     * Provides operations to call the unbind method.
     */
     public function unbind(): UnbindRequestBuilder {
         return new UnbindRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,6 +142,7 @@ class AndroidForWorkSettingsRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

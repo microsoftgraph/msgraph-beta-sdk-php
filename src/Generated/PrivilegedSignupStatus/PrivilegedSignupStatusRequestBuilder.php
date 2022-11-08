@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PrivilegedSignupStatusRequestBuilder 
 {
     /**
-     * The completeSetup property
+     * Provides operations to call the completeSetup method.
     */
     public function completeSetup(): CompleteSetupRequestBuilder {
         return new CompleteSetupRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -48,7 +48,7 @@ class PrivilegedSignupStatusRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The signUp property
+     * Provides operations to call the signUp method.
     */
     public function signUp(): SignUpRequestBuilder {
         return new SignUpRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -124,6 +124,7 @@ class PrivilegedSignupStatusRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 

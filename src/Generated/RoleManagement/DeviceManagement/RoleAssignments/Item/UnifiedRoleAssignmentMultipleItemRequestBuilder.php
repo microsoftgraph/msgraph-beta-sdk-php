@@ -25,14 +25,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UnifiedRoleAssignmentMultipleItemRequestBuilder 
 {
     /**
-     * The appScopes property
+     * Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     */
     public function appScopes(): AppScopesRequestBuilder {
         return new AppScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The directoryScopes property
+     * Provides operations to manage the directoryScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     */
     public function directoryScopes(): DirectoryScopesRequestBuilder {
         return new DirectoryScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,7 +44,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The principals property
+     * Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     */
     public function principals(): PrincipalsRequestBuilder {
         return new PrincipalsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -56,7 +56,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleDefinition property
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -68,7 +68,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.roleAssignments.item.appScopes.item collection
+     * Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
      * @return AppScopeItemRequestBuilder
     */
@@ -156,6 +156,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
             }
         }
         $requestInfo->setContentFromParsable($this->requestAdapter, "application/json", $body);
+        $requestInfo->setContentFromScalar($this->requestAdapter, "application/json", $body);
         return $requestInfo;
     }
 
@@ -179,7 +180,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.roleAssignments.item.directoryScopes.item collection
+     * Provides operations to manage the directoryScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemDirectoryScopesItemDirectoryObjectItemRequestBuilder
     */
@@ -229,7 +230,7 @@ class UnifiedRoleAssignmentMultipleItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.roleAssignments.item.principals.item collection
+     * Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedRoleManagementDeviceManagementRoleAssignmentsItemPrincipalsItemDirectoryObjectItemRequestBuilder
     */
