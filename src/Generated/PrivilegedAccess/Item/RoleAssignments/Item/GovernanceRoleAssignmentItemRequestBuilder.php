@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GovernanceRoleAssignmentItemRequestBuilder 
 {
     /**
-     * The linkedEligibleRoleAssignment property
+     * Provides operations to manage the linkedEligibleRoleAssignment property of the microsoft.graph.governanceRoleAssignment entity.
     */
     public function linkedEligibleRoleAssignment(): LinkedEligibleRoleAssignmentRequestBuilder {
         return new LinkedEligibleRoleAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,21 +39,21 @@ class GovernanceRoleAssignmentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resource property
+     * Provides operations to manage the resource property of the microsoft.graph.governanceRoleAssignment entity.
     */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinition property
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.governanceRoleAssignment entity.
     */
     public function roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The subject property
+     * Provides operations to manage the subject property of the microsoft.graph.governanceRoleAssignment entity.
     */
     public function subject(): SubjectRequestBuilder {
         return new SubjectRequestBuilder($this->pathParameters, $this->requestAdapter);

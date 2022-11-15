@@ -30,35 +30,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DepOnboardingSettingItemRequestBuilder 
 {
     /**
-     * The defaultIosEnrollmentProfile property
+     * Provides operations to manage the defaultIosEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
     */
     public function defaultIosEnrollmentProfile(): DefaultIosEnrollmentProfileRequestBuilder {
         return new DefaultIosEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The defaultMacOsEnrollmentProfile property
+     * Provides operations to manage the defaultMacOsEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.
     */
     public function defaultMacOsEnrollmentProfile(): DefaultMacOsEnrollmentProfileRequestBuilder {
         return new DefaultMacOsEnrollmentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enrollmentProfiles property
+     * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
     */
     public function enrollmentProfiles(): EnrollmentProfilesRequestBuilder {
         return new EnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The generateEncryptionPublicKey property
+     * Provides operations to call the generateEncryptionPublicKey method.
     */
     public function generateEncryptionPublicKey(): GenerateEncryptionPublicKeyRequestBuilder {
         return new GenerateEncryptionPublicKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The importedAppleDeviceIdentities property
+     * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
     */
     public function importedAppleDeviceIdentities(): ImportedAppleDeviceIdentitiesRequestBuilder {
         return new ImportedAppleDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -75,28 +75,28 @@ class DepOnboardingSettingItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The shareForSchoolDataSyncService property
+     * Provides operations to call the shareForSchoolDataSyncService method.
     */
     public function shareForSchoolDataSyncService(): ShareForSchoolDataSyncServiceRequestBuilder {
         return new ShareForSchoolDataSyncServiceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The syncWithAppleDeviceEnrollmentProgram property
+     * Provides operations to call the syncWithAppleDeviceEnrollmentProgram method.
     */
     public function syncWithAppleDeviceEnrollmentProgram(): SyncWithAppleDeviceEnrollmentProgramRequestBuilder {
         return new SyncWithAppleDeviceEnrollmentProgramRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unshareForSchoolDataSyncService property
+     * Provides operations to call the unshareForSchoolDataSyncService method.
     */
     public function unshareForSchoolDataSyncService(): UnshareForSchoolDataSyncServiceRequestBuilder {
         return new UnshareForSchoolDataSyncServiceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The uploadDepToken property
+     * Provides operations to call the uploadDepToken method.
     */
     public function uploadDepToken(): UploadDepTokenRequestBuilder {
         return new UploadDepTokenRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -208,7 +208,7 @@ class DepOnboardingSettingItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.depOnboardingSettings.item.enrollmentProfiles.item collection
+     * Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.
      * @param string $id Unique identifier of the item
      * @return EnrollmentProfileItemRequestBuilder
     */
@@ -246,7 +246,7 @@ class DepOnboardingSettingItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.depOnboardingSettings.item.importedAppleDeviceIdentities.item collection
+     * Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
      * @param string $id Unique identifier of the item
      * @return ImportedAppleDeviceIdentityItemRequestBuilder
     */

@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UpdatableAssetsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enrollAssets property
+     * Provides operations to call the enrollAssets method.
     */
     public function enrollAssets(): EnrollAssetsRequestBuilder {
         return new EnrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enrollAssetsById property
+     * Provides operations to call the enrollAssetsById method.
     */
     public function enrollAssetsById(): EnrollAssetsByIdRequestBuilder {
         return new EnrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -55,14 +55,14 @@ class UpdatableAssetsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The unenrollAssets property
+     * Provides operations to call the unenrollAssets method.
     */
     public function unenrollAssets(): UnenrollAssetsRequestBuilder {
         return new UnenrollAssetsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unenrollAssetsById property
+     * Provides operations to call the unenrollAssetsById method.
     */
     public function unenrollAssetsById(): UnenrollAssetsByIdRequestBuilder {
         return new UnenrollAssetsByIdRequestBuilder($this->pathParameters, $this->requestAdapter);

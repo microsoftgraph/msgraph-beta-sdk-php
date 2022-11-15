@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RetentionLabelItemRequestBuilder 
 {
     /**
-     * The dispositionReviewStages property
+     * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
     */
     public function dispositionReviewStages(): DispositionReviewStagesRequestBuilder {
         return new DispositionReviewStagesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class RetentionLabelItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The retentionEventType property
+     * Provides operations to manage the retentionEventType property of the microsoft.graph.security.retentionLabel entity.
     */
     public function retentionEventType(): RetentionEventTypeRequestBuilder {
         return new RetentionEventTypeRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -150,7 +150,7 @@ class RetentionLabelItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.labels.retentionLabels.item.dispositionReviewStages.item collection
+     * Provides operations to manage the dispositionReviewStages property of the microsoft.graph.security.retentionLabel entity.
      * @param string $id Unique identifier of the item
      * @return DispositionReviewStageItemRequestBuilder
     */

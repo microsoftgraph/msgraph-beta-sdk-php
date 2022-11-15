@@ -29,7 +29,7 @@ class CloudPcDeviceImageItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The reupload property
+     * Provides operations to call the reupload method.
     */
     public function reupload(): ReuploadRequestBuilder {
         return new ReuploadRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -50,7 +50,7 @@ class ConditionalAccessPolicy extends Entity implements Parsable
     private ?ConditionalAccessPolicyState $state = null;
     
     /**
-     * Instantiates a new ConditionalAccessPolicy and sets the default values.
+     * Instantiates a new conditionalAccessPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();

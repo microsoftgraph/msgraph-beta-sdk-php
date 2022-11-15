@@ -28,14 +28,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class LifecycleWorkflowsRequestBuilder 
 {
     /**
-     * The customTaskExtensions property
+     * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function customTaskExtensions(): CustomTaskExtensionsRequestBuilder {
         return new CustomTaskExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deletedItems property
+     * Provides operations to manage the deletedItems property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -52,14 +52,14 @@ class LifecycleWorkflowsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskDefinitions property
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -71,14 +71,14 @@ class LifecycleWorkflowsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The workflows property
+     * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function workflows(): WorkflowsRequestBuilder {
         return new WorkflowsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The workflowTemplates property
+     * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     */
     public function workflowTemplates(): WorkflowTemplatesRequestBuilder {
         return new WorkflowTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -166,7 +166,7 @@ class LifecycleWorkflowsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.customTaskExtensions.item collection
+     * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
      * @return CustomTaskExtensionItemRequestBuilder
     */
@@ -235,7 +235,7 @@ class LifecycleWorkflowsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.taskDefinitions.item collection
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
      * @return TaskDefinitionItemRequestBuilder
     */
@@ -246,7 +246,7 @@ class LifecycleWorkflowsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflows.item collection
+     * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
      * @return WorkflowItemRequestBuilder
     */
@@ -257,7 +257,7 @@ class LifecycleWorkflowsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflowTemplates.item collection
+     * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
      * @param string $id Unique identifier of the item
      * @return WorkflowTemplateItemRequestBuilder
     */

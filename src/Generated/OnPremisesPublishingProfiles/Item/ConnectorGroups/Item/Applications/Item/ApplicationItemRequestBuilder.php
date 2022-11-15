@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ApplicationItemRequestBuilder 
 {
     /**
-     * The logo property
+     * Provides operations to manage the media for the onPremisesPublishingProfile entity.
     */
     public function logo(): LogoRequestBuilder {
         return new LogoRequestBuilder($this->pathParameters, $this->requestAdapter);

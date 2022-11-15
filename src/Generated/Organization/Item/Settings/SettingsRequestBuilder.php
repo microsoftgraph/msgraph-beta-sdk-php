@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SettingsRequestBuilder 
 {
     /**
-     * The contactInsights property
+     * Provides operations to manage the contactInsights property of the microsoft.graph.organizationSettings entity.
     */
     public function contactInsights(): ContactInsightsRequestBuilder {
         return new ContactInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The itemInsights property
+     * Provides operations to manage the itemInsights property of the microsoft.graph.organizationSettings entity.
     */
     public function itemInsights(): ItemInsightsRequestBuilder {
         return new ItemInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftApplicationDataAccess property
+     * Provides operations to manage the microsoftApplicationDataAccess property of the microsoft.graph.organizationSettings entity.
     */
     public function microsoftApplicationDataAccess(): MicrosoftApplicationDataAccessRequestBuilder {
         return new MicrosoftApplicationDataAccessRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,14 +50,14 @@ class SettingsRequestBuilder
     private array $pathParameters;
     
     /**
-     * The peopleInsights property
+     * Provides operations to manage the peopleInsights property of the microsoft.graph.organizationSettings entity.
     */
     public function peopleInsights(): PeopleInsightsRequestBuilder {
         return new PeopleInsightsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The profileCardProperties property
+     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
     */
     public function profileCardProperties(): ProfileCardPropertiesRequestBuilder {
         return new ProfileCardPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -213,7 +213,7 @@ class SettingsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.organization.item.settings.profileCardProperties.item collection
+     * Provides operations to manage the profileCardProperties property of the microsoft.graph.organizationSettings entity.
      * @param string $id Unique identifier of the item
      * @return ProfileCardPropertyItemRequestBuilder
     */

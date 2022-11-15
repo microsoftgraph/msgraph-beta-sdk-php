@@ -33,35 +33,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DriveItemRequestBuilder 
 {
     /**
-     * The activities property
+     * Provides operations to manage the activities property of the microsoft.graph.drive entity.
     */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bundles property
+     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
     */
     public function bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The list property
+     * Provides operations to manage the list property of the microsoft.graph.drive entity.
     */
     public function escapedList(): ListRequestBuilder {
         return new ListRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The following property
+     * Provides operations to manage the following property of the microsoft.graph.drive entity.
     */
     public function following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The items property
+     * Provides operations to manage the items property of the microsoft.graph.drive entity.
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,14 +78,14 @@ class DriveItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The root property
+     * Provides operations to manage the root property of the microsoft.graph.drive entity.
     */
     public function root(): RootRequestBuilder {
         return new RootRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The special property
+     * Provides operations to manage the special property of the microsoft.graph.drive entity.
     */
     public function special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -97,7 +97,7 @@ class DriveItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.drives.item.activities.item collection
+     * Provides operations to manage the activities property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
      * @return ItemActivityOLDItemRequestBuilder
     */
@@ -108,7 +108,7 @@ class DriveItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.drives.item.bundles.item collection
+     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedGroupsItemDrivesItemBundlesItemDriveItemItemRequestBuilder
     */
@@ -219,7 +219,7 @@ class DriveItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.drives.item.following.item collection
+     * Provides operations to manage the following property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedGroupsItemDrivesItemFollowingItemDriveItemItemRequestBuilder
     */
@@ -249,7 +249,7 @@ class DriveItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.drives.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedGroupsItemDrivesItemItemsItemDriveItemItemRequestBuilder
     */
@@ -305,7 +305,7 @@ class DriveItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.drives.item.special.item collection
+     * Provides operations to manage the special property of the microsoft.graph.drive entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedGroupsItemDrivesItemSpecialItemDriveItemItemRequestBuilder
     */

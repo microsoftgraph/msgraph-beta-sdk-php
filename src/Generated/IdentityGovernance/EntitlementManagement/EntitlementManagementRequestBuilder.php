@@ -45,84 +45,84 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EntitlementManagementRequestBuilder 
 {
     /**
-     * The accessPackageAssignmentApprovals property
+     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageAssignmentApprovals(): AccessPackageAssignmentApprovalsRequestBuilder {
         return new AccessPackageAssignmentApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentPolicies property
+     * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageAssignmentPolicies(): AccessPackageAssignmentPoliciesRequestBuilder {
         return new AccessPackageAssignmentPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentRequests property
+     * Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageAssignmentRequests(): AccessPackageAssignmentRequestsRequestBuilder {
         return new AccessPackageAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentResourceRoles property
+     * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageAssignmentResourceRoles(): AccessPackageAssignmentResourceRolesRequestBuilder {
         return new AccessPackageAssignmentResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignments property
+     * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageAssignments(): AccessPackageAssignmentsRequestBuilder {
         return new AccessPackageAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageCatalogs property
+     * Provides operations to manage the accessPackageCatalogs property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageCatalogs(): AccessPackageCatalogsRequestBuilder {
         return new AccessPackageCatalogsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceEnvironments property
+     * Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageResourceEnvironments(): AccessPackageResourceEnvironmentsRequestBuilder {
         return new AccessPackageResourceEnvironmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceRequests property
+     * Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageResourceRequests(): AccessPackageResourceRequestsRequestBuilder {
         return new AccessPackageResourceRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceRoleScopes property
+     * Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageResourceRoleScopes(): AccessPackageResourceRoleScopesRequestBuilder {
         return new AccessPackageResourceRoleScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResources property
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
         return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackages property
+     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
     */
     public function accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The connectedOrganizations property
+     * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
     */
     public function connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -139,14 +139,14 @@ class EntitlementManagementRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The subjects property
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
     */
     public function subjects(): SubjectsRequestBuilder {
         return new SubjectsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -158,7 +158,7 @@ class EntitlementManagementRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item collection
+     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return ApprovalItemRequestBuilder
     */
@@ -169,7 +169,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignmentPolicies.item collection
+     * Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentPolicyItemRequestBuilder
     */
@@ -180,7 +180,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignmentRequests.item collection
+     * Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentRequestItemRequestBuilder
     */
@@ -191,7 +191,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignmentResourceRoles.item collection
+     * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentResourceRoleItemRequestBuilder
     */
@@ -202,7 +202,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item collection
+     * Provides operations to manage the accessPackageAssignments property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentItemRequestBuilder
     */
@@ -213,7 +213,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item collection
+     * Provides operations to manage the accessPackageCatalogs property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageCatalogItemRequestBuilder
     */
@@ -224,7 +224,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageResourceEnvironments.item collection
+     * Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceEnvironmentItemRequestBuilder
     */
@@ -235,7 +235,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageResourceRequests.item collection
+     * Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceRequestItemRequestBuilder
     */
@@ -246,7 +246,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageResourceRoleScopes.item collection
+     * Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceRoleScopeItemRequestBuilder
     */
@@ -257,7 +257,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageResources.item collection
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceItemRequestBuilder
     */
@@ -268,7 +268,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackages.item collection
+     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageItemRequestBuilder
     */
@@ -279,7 +279,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.connectedOrganizations.item collection
+     * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return ConnectedOrganizationItemRequestBuilder
     */
@@ -429,7 +429,7 @@ class EntitlementManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.subjects.item collection
+     * Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageSubjectItemRequestBuilder
     */

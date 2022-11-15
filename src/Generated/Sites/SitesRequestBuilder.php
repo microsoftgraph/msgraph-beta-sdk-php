@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SitesRequestBuilder 
 {
     /**
-     * The add property
+     * Provides operations to call the add method.
     */
     public function add(): AddRequestBuilder {
         return new AddRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,7 +41,7 @@ class SitesRequestBuilder
     private array $pathParameters;
     
     /**
-     * The remove property
+     * Provides operations to call the remove method.
     */
     public function remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder($this->pathParameters, $this->requestAdapter);

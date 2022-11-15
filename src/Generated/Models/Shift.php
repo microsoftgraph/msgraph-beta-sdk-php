@@ -19,17 +19,17 @@ class Shift extends ChangeTrackedEntity implements Parsable
     private ?bool $isStagedForDeletion = null;
     
     /**
-     * @var string|null $schedulingGroupId ID of the scheduling group the shift is part of. Required.
+     * @var string|null $schedulingGroupId The schedulingGroupId property
     */
     private ?string $schedulingGroupId = null;
     
     /**
-     * @var ShiftItem|null $sharedShift The shared version of this shift that is viewable by both employees and managers. Required.
+     * @var ShiftItem|null $sharedShift The sharedShift property
     */
     private ?ShiftItem $sharedShift = null;
     
     /**
-     * @var string|null $userId ID of the user assigned to the shift. Required.
+     * @var string|null $userId The userId property
     */
     private ?string $userId = null;
     
@@ -82,7 +82,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the schedulingGroupId property value. ID of the scheduling group the shift is part of. Required.
+     * Gets the schedulingGroupId property value. The schedulingGroupId property
      * @return string|null
     */
     public function getSchedulingGroupId(): ?string {
@@ -90,7 +90,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
+     * Gets the sharedShift property value. The sharedShift property
      * @return ShiftItem|null
     */
     public function getSharedShift(): ?ShiftItem {
@@ -98,7 +98,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Gets the userId property value. ID of the user assigned to the shift. Required.
+     * Gets the userId property value. The userId property
      * @return string|null
     */
     public function getUserId(): ?string {
@@ -135,7 +135,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the schedulingGroupId property value. ID of the scheduling group the shift is part of. Required.
+     * Sets the schedulingGroupId property value. The schedulingGroupId property
      *  @param string|null $value Value to set for the schedulingGroupId property.
     */
     public function setSchedulingGroupId(?string $value ): void {
@@ -143,7 +143,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the sharedShift property value. The shared version of this shift that is viewable by both employees and managers. Required.
+     * Sets the sharedShift property value. The sharedShift property
      *  @param ShiftItem|null $value Value to set for the sharedShift property.
     */
     public function setSharedShift(?ShiftItem $value ): void {
@@ -151,7 +151,7 @@ class Shift extends ChangeTrackedEntity implements Parsable
     }
 
     /**
-     * Sets the userId property value. ID of the user assigned to the shift. Required.
+     * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
     public function setUserId(?string $value ): void {

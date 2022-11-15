@@ -5,6 +5,7 @@ namespace Microsoft\Graph\Beta\Generated\Admin;
 use Exception;
 use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
+use Microsoft\Graph\Beta\Generated\Admin\Edge\EdgeRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ReportSettings\ReportSettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\ServiceAnnouncement\ServiceAnnouncementRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Admin\Sharepoint\SharepointRequestBuilder;
@@ -22,12 +23,19 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AdminRequestBuilder 
 {
     /**
+     * Provides operations to manage the edge property of the microsoft.graph.admin entity.
+    */
+    public function edge(): EdgeRequestBuilder {
+        return new EdgeRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var array<string, mixed> $pathParameters Path parameters for the request
     */
     private array $pathParameters;
     
     /**
-     * The reportSettings property
+     * Provides operations to manage the reportSettings property of the microsoft.graph.admin entity.
     */
     public function reportSettings(): ReportSettingsRequestBuilder {
         return new ReportSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,14 +47,14 @@ class AdminRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The serviceAnnouncement property
+     * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
     */
     public function serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sharepoint property
+     * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
     */
     public function sharepoint(): SharepointRequestBuilder {
         return new SharepointRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -58,7 +66,7 @@ class AdminRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The windows property
+     * Provides operations to manage the windows property of the microsoft.graph.admin entity.
     */
     public function windows(): WindowsRequestBuilder {
         return new WindowsRequestBuilder($this->pathParameters, $this->requestAdapter);

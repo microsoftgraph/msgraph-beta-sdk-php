@@ -166,84 +166,84 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ReportsRequestBuilder 
 {
     /**
-     * The applicationSignInDetailedSummary property
+     * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
     */
     public function applicationSignInDetailedSummary(): ApplicationSignInDetailedSummaryRequestBuilder {
         return new ApplicationSignInDetailedSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The authenticationMethods property
+     * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
     */
     public function authenticationMethods(): AuthenticationMethodsRequestBuilder {
         return new AuthenticationMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The credentialUserRegistrationDetails property
+     * Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
     */
     public function credentialUserRegistrationDetails(): CredentialUserRegistrationDetailsRequestBuilder {
         return new CredentialUserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dailyPrintUsage property
+     * Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.
     */
     public function dailyPrintUsage(): DailyPrintUsageRequestBuilder {
         return new DailyPrintUsageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dailyPrintUsageByPrinter property
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
     */
     public function dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dailyPrintUsageByUser property
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
     */
     public function dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dailyPrintUsageSummariesByPrinter property
+     * Provides operations to manage the dailyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
     */
     public function dailyPrintUsageSummariesByPrinter(): DailyPrintUsageSummariesByPrinterRequestBuilder {
         return new DailyPrintUsageSummariesByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dailyPrintUsageSummariesByUser property
+     * Provides operations to manage the dailyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
     */
     public function dailyPrintUsageSummariesByUser(): DailyPrintUsageSummariesByUserRequestBuilder {
         return new DailyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The monthlyPrintUsageByPrinter property
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
     */
     public function monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The monthlyPrintUsageByUser property
+     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
     */
     public function monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The monthlyPrintUsageSummariesByPrinter property
+     * Provides operations to manage the monthlyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
     */
     public function monthlyPrintUsageSummariesByPrinter(): MonthlyPrintUsageSummariesByPrinterRequestBuilder {
         return new MonthlyPrintUsageSummariesByPrinterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The monthlyPrintUsageSummariesByUser property
+     * Provides operations to manage the monthlyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
     */
     public function monthlyPrintUsageSummariesByUser(): MonthlyPrintUsageSummariesByUserRequestBuilder {
         return new MonthlyPrintUsageSummariesByUserRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -260,7 +260,7 @@ class ReportsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The security property
+     * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
     */
     public function security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -272,14 +272,14 @@ class ReportsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userCredentialUsageDetails property
+     * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
     */
     public function userCredentialUsageDetails(): UserCredentialUsageDetailsRequestBuilder {
         return new UserCredentialUsageDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.applicationSignInDetailedSummary.item collection
+     * Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return ApplicationSignInDetailedSummaryItemRequestBuilder
     */
@@ -350,7 +350,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.credentialUserRegistrationDetails.item collection
+     * Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return CredentialUserRegistrationDetailsItemRequestBuilder
     */
@@ -361,7 +361,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsage.item collection
+     * Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return PrintUsageItemRequestBuilder
     */
@@ -372,7 +372,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsageByPrinter.item collection
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder
     */
@@ -383,7 +383,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsageByUser.item collection
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsDailyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder
     */
@@ -394,7 +394,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsageSummariesByPrinter.item collection
+     * Provides operations to manage the dailyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder
     */
@@ -405,7 +405,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.dailyPrintUsageSummariesByUser.item collection
+     * Provides operations to manage the dailyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsDailyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder
     */
@@ -1518,7 +1518,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.monthlyPrintUsageByPrinter.item collection
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByPrinterItemPrintUsageByPrinterItemRequestBuilder
     */
@@ -1529,7 +1529,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.monthlyPrintUsageByUser.item collection
+     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageByUserItemPrintUsageByUserItemRequestBuilder
     */
@@ -1540,7 +1540,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.monthlyPrintUsageSummariesByPrinter.item collection
+     * Provides operations to manage the monthlyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByPrinterItemPrintUsageByPrinterItemRequestBuilder
     */
@@ -1551,7 +1551,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.monthlyPrintUsageSummariesByUser.item collection
+     * Provides operations to manage the monthlyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedReportsMonthlyPrintUsageSummariesByUserItemPrintUsageByUserItemRequestBuilder
     */
@@ -1582,7 +1582,7 @@ class ReportsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.userCredentialUsageDetails.item collection
+     * Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
      * @param string $id Unique identifier of the item
      * @return UserCredentialUsageDetailsItemRequestBuilder
     */

@@ -38,56 +38,56 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ChatItemRequestBuilder 
 {
     /**
-     * The hideForUser property
+     * Provides operations to call the hideForUser method.
     */
     public function hideForUser(): HideForUserRequestBuilder {
         return new HideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The installedApps property
+     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
     */
     public function installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The lastMessagePreview property
+     * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.
     */
     public function lastMessagePreview(): LastMessagePreviewRequestBuilder {
         return new LastMessagePreviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The markChatReadForUser property
+     * Provides operations to call the markChatReadForUser method.
     */
     public function markChatReadForUser(): MarkChatReadForUserRequestBuilder {
         return new MarkChatReadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The markChatUnreadForUser property
+     * Provides operations to call the markChatUnreadForUser method.
     */
     public function markChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
         return new MarkChatUnreadForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The members property
+     * Provides operations to manage the members property of the microsoft.graph.chat entity.
     */
     public function members(): MembersRequestBuilder {
         return new MembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The messages property
+     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
     */
     public function messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The operations property
+     * Provides operations to manage the operations property of the microsoft.graph.chat entity.
     */
     public function operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -99,14 +99,14 @@ class ChatItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The permissionGrants property
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
     */
     public function permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The pinnedMessages property
+     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
     */
     public function pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -118,21 +118,21 @@ class ChatItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sendActivityNotification property
+     * Provides operations to call the sendActivityNotification method.
     */
     public function sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tabs property
+     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
     */
     public function tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unhideForUser property
+     * Provides operations to call the unhideForUser method.
     */
     public function unhideForUser(): UnhideForUserRequestBuilder {
         return new UnhideForUserRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -263,7 +263,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.installedApps.item collection
+     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return TeamsAppInstallationItemRequestBuilder
     */
@@ -274,7 +274,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.members.item collection
+     * Provides operations to manage the members property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return ConversationMemberItemRequestBuilder
     */
@@ -285,7 +285,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.messages.item collection
+     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return ChatMessageItemRequestBuilder
     */
@@ -296,7 +296,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.operations.item collection
+     * Provides operations to manage the operations property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return TeamsAsyncOperationItemRequestBuilder
     */
@@ -327,7 +327,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.permissionGrants.item collection
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return ResourceSpecificPermissionGrantItemRequestBuilder
     */
@@ -338,7 +338,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.pinnedMessages.item collection
+     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return PinnedChatMessageInfoItemRequestBuilder
     */
@@ -349,7 +349,7 @@ class ChatItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.chats.item.tabs.item collection
+     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
      * @param string $id Unique identifier of the item
      * @return TeamsTabItemRequestBuilder
     */

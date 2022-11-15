@@ -22,21 +22,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TimeCardItemRequestBuilder 
 {
     /**
-     * The clockOut property
+     * Provides operations to call the clockOut method.
     */
     public function clockOut(): ClockOutRequestBuilder {
         return new ClockOutRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The confirm property
+     * Provides operations to call the confirm method.
     */
     public function confirm(): ConfirmRequestBuilder {
         return new ConfirmRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The endBreak property
+     * Provides operations to call the endBreak method.
     */
     public function endBreak(): EndBreakRequestBuilder {
         return new EndBreakRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class TimeCardItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The startBreak property
+     * Provides operations to call the startBreak method.
     */
     public function startBreak(): StartBreakRequestBuilder {
         return new StartBreakRequestBuilder($this->pathParameters, $this->requestAdapter);

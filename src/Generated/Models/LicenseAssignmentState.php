@@ -16,7 +16,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var string|null $assignedByGroup The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
+     * @var string|null $assignedByGroup Indicates whether the license is directly-assigned or inherited from a group. If directly-assigned, this field is null; if inherited through a group membership, this field contains the ID of the group. Read-Only.
     */
     private ?string $assignedByGroup = null;
     
@@ -76,7 +76,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the assignedByGroup property value. The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
+     * Gets the assignedByGroup property value. Indicates whether the license is directly-assigned or inherited from a group. If directly-assigned, this field is null; if inherited through a group membership, this field contains the ID of the group. Read-Only.
      * @return string|null
     */
     public function getAssignedByGroup(): ?string {
@@ -172,7 +172,7 @@ class LicenseAssignmentState implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the assignedByGroup property value. The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
+     * Sets the assignedByGroup property value. Indicates whether the license is directly-assigned or inherited from a group. If directly-assigned, this field is null; if inherited through a group membership, this field contains the ID of the group. Read-Only.
      *  @param string|null $value Value to set for the assignedByGroup property.
     */
     public function setAssignedByGroup(?string $value ): void {

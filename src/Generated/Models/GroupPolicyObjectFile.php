@@ -35,7 +35,12 @@ class GroupPolicyObjectFile extends Entity implements Parsable
     private ?string $ouDistinguishedName = null;
     
     /**
-     * Instantiates a new GroupPolicyObjectFile and sets the default values.
+     * @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration.
+    */
+    private ?array $roleScopeTagIds = null;
+    
+    /**
+     * Instantiates a new groupPolicyObjectFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -79,6 +84,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
             'groupPolicyObjectId' => fn(ParseNode $n) => $o->setGroupPolicyObjectId($n->getStringValue()),
             'lastModifiedDateTime' => fn(ParseNode $n) => $o->setLastModifiedDateTime($n->getDateTimeValue()),
             'ouDistinguishedName' => fn(ParseNode $n) => $o->setOuDistinguishedName($n->getStringValue()),
+            'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
         ]);
     }
 
@@ -107,6 +113,14 @@ class GroupPolicyObjectFile extends Entity implements Parsable
     }
 
     /**
+     * Gets the roleScopeTagIds property value. The list of scope tags for the configuration.
+     * @return array<string>|null
+    */
+    public function getRoleScopeTagIds(): ?array {
+        return $this->roleScopeTagIds;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -117,6 +131,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
         $writer->writeStringValue('groupPolicyObjectId', $this->groupPolicyObjectId);
         $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
         $writer->writeStringValue('ouDistinguishedName', $this->ouDistinguishedName);
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
     }
 
     /**
@@ -157,6 +172,14 @@ class GroupPolicyObjectFile extends Entity implements Parsable
     */
     public function setOuDistinguishedName(?string $value ): void {
         $this->ouDistinguishedName = $value;
+    }
+
+    /**
+     * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
+     *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
+    */
+    public function setRoleScopeTagIds(?array $value ): void {
+        $this->roleScopeTagIds = $value;
     }
 
 }

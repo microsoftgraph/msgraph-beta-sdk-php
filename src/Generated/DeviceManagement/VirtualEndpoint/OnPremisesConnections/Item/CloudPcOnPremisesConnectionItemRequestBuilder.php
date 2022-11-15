@@ -30,14 +30,14 @@ class CloudPcOnPremisesConnectionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The runHealthChecks property
+     * Provides operations to call the runHealthChecks method.
     */
     public function runHealthChecks(): RunHealthChecksRequestBuilder {
         return new RunHealthChecksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateAdDomainPassword property
+     * Provides operations to call the updateAdDomainPassword method.
     */
     public function updateAdDomainPassword(): UpdateAdDomainPasswordRequestBuilder {
         return new UpdateAdDomainPasswordRequestBuilder($this->pathParameters, $this->requestAdapter);

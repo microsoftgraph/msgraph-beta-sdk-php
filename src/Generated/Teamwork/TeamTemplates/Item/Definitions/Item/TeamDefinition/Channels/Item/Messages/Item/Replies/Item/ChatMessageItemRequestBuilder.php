@@ -24,7 +24,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ChatMessageItemRequestBuilder 
 {
     /**
-     * The hostedContents property
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
     */
     public function hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,28 +41,28 @@ class ChatMessageItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The setReaction property
+     * Provides operations to call the setReaction method.
     */
     public function setReaction(): SetReactionRequestBuilder {
         return new SetReactionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The softDelete property
+     * Provides operations to call the softDelete method.
     */
     public function softDelete(): SoftDeleteRequestBuilder {
         return new SoftDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The undoSoftDelete property
+     * Provides operations to call the undoSoftDelete method.
     */
     public function undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unsetReaction property
+     * Provides operations to call the unsetReaction method.
     */
     public function unsetReaction(): UnsetReactionRequestBuilder {
         return new UnsetReactionRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -193,7 +193,7 @@ class ChatMessageItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.teamTemplates.item.definitions.item.teamDefinition.channels.item.messages.item.replies.item.hostedContents.item collection
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
      * @param string $id Unique identifier of the item
      * @return ChatMessageHostedContentItemRequestBuilder
     */

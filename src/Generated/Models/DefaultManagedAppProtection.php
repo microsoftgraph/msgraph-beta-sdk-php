@@ -209,6 +209,11 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     private ?string $minimumWarningPatchVersion = null;
     
     /**
+     * @var string|null $minimumWarningSdkVersion Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
+    */
+    private ?string $minimumWarningSdkVersion = null;
+    
+    /**
      * @var string|null $minimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
     */
     private ?string $minimumWipeCompanyPortalVersion = null;
@@ -601,6 +606,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
             'minimumRequiredSdkVersion' => fn(ParseNode $n) => $o->setMinimumRequiredSdkVersion($n->getStringValue()),
             'minimumWarningCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumWarningCompanyPortalVersion($n->getStringValue()),
             'minimumWarningPatchVersion' => fn(ParseNode $n) => $o->setMinimumWarningPatchVersion($n->getStringValue()),
+            'minimumWarningSdkVersion' => fn(ParseNode $n) => $o->setMinimumWarningSdkVersion($n->getStringValue()),
             'minimumWipeCompanyPortalVersion' => fn(ParseNode $n) => $o->setMinimumWipeCompanyPortalVersion($n->getStringValue()),
             'minimumWipePatchVersion' => fn(ParseNode $n) => $o->setMinimumWipePatchVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
@@ -671,6 +677,14 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function getMinimumWarningPatchVersion(): ?string {
         return $this->minimumWarningPatchVersion;
+    }
+
+    /**
+     * Gets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
+     * @return string|null
+    */
+    public function getMinimumWarningSdkVersion(): ?string {
+        return $this->minimumWarningSdkVersion;
     }
 
     /**
@@ -823,6 +837,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
         $writer->writeStringValue('minimumRequiredSdkVersion', $this->minimumRequiredSdkVersion);
         $writer->writeStringValue('minimumWarningCompanyPortalVersion', $this->minimumWarningCompanyPortalVersion);
         $writer->writeStringValue('minimumWarningPatchVersion', $this->minimumWarningPatchVersion);
+        $writer->writeStringValue('minimumWarningSdkVersion', $this->minimumWarningSdkVersion);
         $writer->writeStringValue('minimumWipeCompanyPortalVersion', $this->minimumWipeCompanyPortalVersion);
         $writer->writeStringValue('minimumWipePatchVersion', $this->minimumWipePatchVersion);
         $writer->writeStringValue('minimumWipeSdkVersion', $this->minimumWipeSdkVersion);
@@ -1156,6 +1171,14 @@ class DefaultManagedAppProtection extends ManagedAppProtection implements Parsab
     */
     public function setMinimumWarningPatchVersion(?string $value ): void {
         $this->minimumWarningPatchVersion = $value;
+    }
+
+    /**
+     * Sets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
+     *  @param string|null $value Value to set for the minimumWarningSdkVersion property.
+    */
+    public function setMinimumWarningSdkVersion(?string $value ): void {
+        $this->minimumWarningSdkVersion = $value;
     }
 
     /**

@@ -49,6 +49,11 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     private ?int $installProgressTimeoutInMinutes = null;
     
     /**
+     * @var bool|null $installQualityUpdates Allows quality updates installation during OOBE
+    */
+    private ?bool $installQualityUpdates = null;
+    
+    /**
      * @var array<string>|null $selectedMobileAppIds Selected applications to track the installation status
     */
     private ?array $selectedMobileAppIds = null;
@@ -151,6 +156,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
             'customErrorMessage' => fn(ParseNode $n) => $o->setCustomErrorMessage($n->getStringValue()),
             'disableUserStatusTrackingAfterFirstUser' => fn(ParseNode $n) => $o->setDisableUserStatusTrackingAfterFirstUser($n->getBooleanValue()),
             'installProgressTimeoutInMinutes' => fn(ParseNode $n) => $o->setInstallProgressTimeoutInMinutes($n->getIntegerValue()),
+            'installQualityUpdates' => fn(ParseNode $n) => $o->setInstallQualityUpdates($n->getBooleanValue()),
             'selectedMobileAppIds' => fn(ParseNode $n) => $o->setSelectedMobileAppIds($n->getCollectionOfPrimitiveValues()),
             'showInstallationProgress' => fn(ParseNode $n) => $o->setShowInstallationProgress($n->getBooleanValue()),
             'trackInstallProgressForAutopilotOnly' => fn(ParseNode $n) => $o->setTrackInstallProgressForAutopilotOnly($n->getBooleanValue()),
@@ -163,6 +169,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
         return $this->installProgressTimeoutInMinutes;
+    }
+
+    /**
+     * Gets the installQualityUpdates property value. Allows quality updates installation during OOBE
+     * @return bool|null
+    */
+    public function getInstallQualityUpdates(): ?bool {
+        return $this->installQualityUpdates;
     }
 
     /**
@@ -203,6 +217,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
         $writer->writeStringValue('customErrorMessage', $this->customErrorMessage);
         $writer->writeBooleanValue('disableUserStatusTrackingAfterFirstUser', $this->disableUserStatusTrackingAfterFirstUser);
         $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->installProgressTimeoutInMinutes);
+        $writer->writeBooleanValue('installQualityUpdates', $this->installQualityUpdates);
         $writer->writeCollectionOfPrimitiveValues('selectedMobileAppIds', $this->selectedMobileAppIds);
         $writer->writeBooleanValue('showInstallationProgress', $this->showInstallationProgress);
         $writer->writeBooleanValue('trackInstallProgressForAutopilotOnly', $this->trackInstallProgressForAutopilotOnly);
@@ -270,6 +285,14 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function setInstallProgressTimeoutInMinutes(?int $value ): void {
         $this->installProgressTimeoutInMinutes = $value;
+    }
+
+    /**
+     * Sets the installQualityUpdates property value. Allows quality updates installation during OOBE
+     *  @param bool|null $value Value to set for the installQualityUpdates property.
+    */
+    public function setInstallQualityUpdates(?bool $value ): void {
+        $this->installQualityUpdates = $value;
     }
 
     /**

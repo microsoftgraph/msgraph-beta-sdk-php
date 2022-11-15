@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder 
 {
     /**
-     * The advancedThreatProtectionOnboardingDeviceSettingStates property
+     * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
     */
     public function advancedThreatProtectionOnboardingDeviceSettingStates(): AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder {
         return new AdvancedThreatProtectionOnboardingDeviceSettingStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.advancedThreatProtectionOnboardingStateSummary.advancedThreatProtectionOnboardingDeviceSettingStates.item collection
+     * Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
      * @param string $id Unique identifier of the item
      * @return AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder
     */

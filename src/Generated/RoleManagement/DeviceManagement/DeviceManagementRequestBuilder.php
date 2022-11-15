@@ -34,21 +34,21 @@ class DeviceManagementRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceNamespaces property
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplicationMultiple entity.
     */
     public function resourceNamespaces(): ResourceNamespacesRequestBuilder {
         return new ResourceNamespacesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignments property
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
     */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinitions property
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
     */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -199,7 +199,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.resourceNamespaces.item collection
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRbacResourceNamespaceItemRequestBuilder
     */
@@ -210,7 +210,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.roleAssignments.item collection
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleAssignmentMultipleItemRequestBuilder
     */
@@ -221,7 +221,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.deviceManagement.roleDefinitions.item collection
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplicationMultiple entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleDefinitionItemRequestBuilder
     */

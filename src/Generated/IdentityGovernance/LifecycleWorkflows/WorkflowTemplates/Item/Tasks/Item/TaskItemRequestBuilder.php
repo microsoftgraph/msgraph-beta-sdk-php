@@ -30,7 +30,7 @@ class TaskItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The taskProcessingResults property
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.
     */
     public function taskProcessingResults(): TaskProcessingResultsRequestBuilder {
         return new TaskProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class TaskItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflowTemplates.item.tasks.item.taskProcessingResults.item collection
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.
      * @param string $id Unique identifier of the item
      * @return TaskProcessingResultItemRequestBuilder
     */

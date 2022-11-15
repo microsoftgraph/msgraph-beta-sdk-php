@@ -80,6 +80,11 @@ class EducationSubmission extends Entity implements Parsable
     private ?DateTime $unsubmittedDateTime = null;
     
     /**
+     * @var string|null $webUrl The deep link URL for the given submission.
+    */
+    private ?string $webUrl = null;
+    
+    /**
      * Instantiates a new educationSubmission and sets the default values.
     */
     public function __construct() {
@@ -117,6 +122,7 @@ class EducationSubmission extends Entity implements Parsable
             'submittedResources' => fn(ParseNode $n) => $o->setSubmittedResources($n->getCollectionOfObjectValues([EducationSubmissionResource::class, 'createFromDiscriminatorValue'])),
             'unsubmittedBy' => fn(ParseNode $n) => $o->setUnsubmittedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'unsubmittedDateTime' => fn(ParseNode $n) => $o->setUnsubmittedDateTime($n->getDateTimeValue()),
+            'webUrl' => fn(ParseNode $n) => $o->setWebUrl($n->getStringValue()),
         ]);
     }
 
@@ -230,6 +236,14 @@ class EducationSubmission extends Entity implements Parsable
     */
     public function getUnsubmittedDateTime(): ?DateTime {
         return $this->unsubmittedDateTime;
+    }
+
+    /**
+     * Gets the webUrl property value. The deep link URL for the given submission.
+     * @return string|null
+    */
+    public function getWebUrl(): ?string {
+        return $this->webUrl;
     }
 
     /**
@@ -354,6 +368,14 @@ class EducationSubmission extends Entity implements Parsable
     */
     public function setUnsubmittedDateTime(?DateTime $value ): void {
         $this->unsubmittedDateTime = $value;
+    }
+
+    /**
+     * Sets the webUrl property value. The deep link URL for the given submission.
+     *  @param string|null $value Value to set for the webUrl property.
+    */
+    public function setWebUrl(?string $value ): void {
+        $this->webUrl = $value;
     }
 
 }

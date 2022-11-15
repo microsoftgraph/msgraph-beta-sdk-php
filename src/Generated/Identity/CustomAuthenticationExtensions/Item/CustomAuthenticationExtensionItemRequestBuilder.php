@@ -34,7 +34,7 @@ class CustomAuthenticationExtensionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateAuthenticationConfiguration property
+     * Provides operations to call the validateAuthenticationConfiguration method.
     */
     public function validateAuthenticationConfiguration(): ValidateAuthenticationConfigurationRequestBuilder {
         return new ValidateAuthenticationConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);

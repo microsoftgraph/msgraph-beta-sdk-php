@@ -74,7 +74,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
     private ?string $virtualNetwork = null;
     
     /**
-     * Instantiates a new UserExperienceAnalyticsRemoteConnection and sets the default values.
+     * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();

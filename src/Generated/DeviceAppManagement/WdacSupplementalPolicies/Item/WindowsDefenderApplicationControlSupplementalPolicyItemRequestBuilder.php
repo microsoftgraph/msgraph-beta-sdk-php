@@ -24,28 +24,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deploySummary property
+     * Provides operations to manage the deploySummary property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     */
     public function deploySummary(): DeploySummaryRequestBuilder {
         return new DeploySummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatuses property
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -67,7 +67,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.wdacSupplementalPolicies.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $id Unique identifier of the item
      * @return WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder
     */
@@ -178,7 +178,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.wdacSupplementalPolicies.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
      * @param string $id Unique identifier of the item
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusItemRequestBuilder
     */

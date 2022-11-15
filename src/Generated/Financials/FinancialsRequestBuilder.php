@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class FinancialsRequestBuilder 
 {
     /**
-     * The companies property
+     * Provides operations to manage the companies property of the microsoft.graph.financials entity.
     */
     public function companies(): CompaniesRequestBuilder {
         return new CompaniesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class FinancialsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item collection
+     * Provides operations to manage the companies property of the microsoft.graph.financials entity.
      * @param string $id Unique identifier of the item
      * @return CompanyItemRequestBuilder
     */

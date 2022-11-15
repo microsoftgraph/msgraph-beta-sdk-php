@@ -15,7 +15,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var ConditionalAccessFilter|null $applicationFilter The applicationFilter property
+     * @var ConditionalAccessFilter|null $applicationFilter Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
     */
     private ?ConditionalAccessFilter $applicationFilter = null;
     
@@ -70,7 +70,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the applicationFilter property value. The applicationFilter property
+     * Gets the applicationFilter property value. Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
      * @return ConditionalAccessFilter|null
     */
     public function getApplicationFilter(): ?ConditionalAccessFilter {
@@ -156,7 +156,7 @@ class ConditionalAccessApplications implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the applicationFilter property value. The applicationFilter property
+     * Sets the applicationFilter property value. Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
      *  @param ConditionalAccessFilter|null $value Value to set for the applicationFilter property.
     */
     public function setApplicationFilter(?ConditionalAccessFilter $value ): void {

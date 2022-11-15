@@ -25,7 +25,7 @@ class MessageEvent extends Entity implements Parsable
     private ?MessageEventType $eventType = null;
     
     /**
-     * Instantiates a new messageEvent and sets the default values.
+     * Instantiates a new MessageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();

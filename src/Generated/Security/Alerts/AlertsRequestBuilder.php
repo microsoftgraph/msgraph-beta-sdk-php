@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AlertsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -38,7 +38,7 @@ class AlertsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateAlerts property
+     * Provides operations to call the updateAlerts method.
     */
     public function updateAlerts(): UpdateAlertsRequestBuilder {
         return new UpdateAlertsRequestBuilder($this->pathParameters, $this->requestAdapter);

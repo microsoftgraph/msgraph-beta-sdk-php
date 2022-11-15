@@ -23,7 +23,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TrustFrameworkKeySetItemRequestBuilder 
 {
     /**
-     * The generateKey property
+     * Provides operations to call the generateKey method.
     */
     public function generateKey(): GenerateKeyRequestBuilder {
         return new GenerateKeyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -40,21 +40,21 @@ class TrustFrameworkKeySetItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The uploadCertificate property
+     * Provides operations to call the uploadCertificate method.
     */
     public function uploadCertificate(): UploadCertificateRequestBuilder {
         return new UploadCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The uploadPkcs12 property
+     * Provides operations to call the uploadPkcs12 method.
     */
     public function uploadPkcs12(): UploadPkcs12RequestBuilder {
         return new UploadPkcs12RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The uploadSecret property
+     * Provides operations to call the uploadSecret method.
     */
     public function uploadSecret(): UploadSecretRequestBuilder {
         return new UploadSecretRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -9,6 +9,7 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Assignments\AssignmentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Assignments\Item\DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\CreateCopy\CreateCopyRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Reorder\ReorderRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Settings\Item\DeviceManagementConfigurationSettingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\ReusablePolicySettings\Item\ReferencingConfigurationPolicies\Item\Settings\SettingsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Models\DeviceManagementConfigurationPolicy;
@@ -24,21 +25,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementConfigurationPolicyItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The createCopy property
+     * Provides operations to call the createCopy method.
     */
     public function createCopy(): CreateCopyRequestBuilder {
         return new CreateCopyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,12 +51,19 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     private array $pathParameters;
     
     /**
+     * Provides operations to call the reorder method.
+    */
+    public function reorder(): ReorderRequestBuilder {
+        return new ReorderRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * @var RequestAdapter $requestAdapter The request adapter to use to execute the requests.
     */
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settings property
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -67,7 +75,7 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusablePolicySettings.item.referencingConfigurationPolicies.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationPolicyAssignmentItemRequestBuilder
     */
@@ -217,7 +225,7 @@ class DeviceManagementConfigurationPolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusablePolicySettings.item.referencingConfigurationPolicies.item.settings.item collection
+     * Provides operations to manage the settings property of the microsoft.graph.deviceManagementConfigurationPolicy entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingItemRequestBuilder
     */

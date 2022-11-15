@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class IncidentItemRequestBuilder 
 {
     /**
-     * The alerts property
+     * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
     */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class IncidentItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.incidents.item.alerts.item collection
+     * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
      * @param string $id Unique identifier of the item
      * @return AlertItemRequestBuilder
     */

@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementTemplateStepVersionItemRequestBuilder 
 {
     /**
-     * The acceptedFor property
+     * Provides operations to manage the acceptedFor property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     */
     public function acceptedFor(): AcceptedForRequestBuilder {
         return new AcceptedForRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deployments property
+     * Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     */
     public function deployments(): DeploymentsRequestBuilder {
         return new DeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -46,7 +46,7 @@ class ManagementTemplateStepVersionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The templateStep property
+     * Provides operations to manage the templateStep property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
     */
     public function templateStep(): TemplateStepRequestBuilder {
         return new TemplateStepRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -158,7 +158,7 @@ class ManagementTemplateStepVersionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managementTemplateStepVersions.item.deployments.item collection
+     * Provides operations to manage the deployments property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateStepDeploymentItemRequestBuilder
     */

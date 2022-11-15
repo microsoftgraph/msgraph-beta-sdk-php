@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TiIndicatorsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deleteTiIndicators property
+     * Provides operations to call the deleteTiIndicators method.
     */
     public function deleteTiIndicators(): DeleteTiIndicatorsRequestBuilder {
         return new DeleteTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deleteTiIndicatorsByExternalId property
+     * Provides operations to call the deleteTiIndicatorsByExternalId method.
     */
     public function deleteTiIndicatorsByExternalId(): DeleteTiIndicatorsByExternalIdRequestBuilder {
         return new DeleteTiIndicatorsByExternalIdRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -55,14 +55,14 @@ class TiIndicatorsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The submitTiIndicators property
+     * Provides operations to call the submitTiIndicators method.
     */
     public function submitTiIndicators(): SubmitTiIndicatorsRequestBuilder {
         return new SubmitTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateTiIndicators property
+     * Provides operations to call the updateTiIndicators method.
     */
     public function updateTiIndicators(): UpdateTiIndicatorsRequestBuilder {
         return new UpdateTiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);

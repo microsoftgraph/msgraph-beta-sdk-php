@@ -27,7 +27,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GovernanceResourceItemRequestBuilder 
 {
     /**
-     * The parent property
+     * Provides operations to manage the parent property of the microsoft.graph.governanceResource entity.
     */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,28 +44,28 @@ class GovernanceResourceItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The roleAssignmentRequests property
+     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
     */
     public function roleAssignmentRequests(): RoleAssignmentRequestsRequestBuilder {
         return new RoleAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignments property
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
     */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinitions property
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.governanceResource entity.
     */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleSettings property
+     * Provides operations to manage the roleSettings property of the microsoft.graph.governanceResource entity.
     */
     public function roleSettings(): RoleSettingsRequestBuilder {
         return new RoleSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -216,7 +216,7 @@ class GovernanceResourceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.resources.item.roleAssignmentRequests.item collection
+     * Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleAssignmentRequestItemRequestBuilder
     */
@@ -227,7 +227,7 @@ class GovernanceResourceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.resources.item.roleAssignments.item collection
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleAssignmentItemRequestBuilder
     */
@@ -238,7 +238,7 @@ class GovernanceResourceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.resources.item.roleDefinitions.item collection
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleDefinitionItemRequestBuilder
     */
@@ -249,7 +249,7 @@ class GovernanceResourceItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.privilegedAccess.item.resources.item.roleSettings.item collection
+     * Provides operations to manage the roleSettings property of the microsoft.graph.governanceResource entity.
      * @param string $id Unique identifier of the item
      * @return GovernanceRoleSettingItemRequestBuilder
     */

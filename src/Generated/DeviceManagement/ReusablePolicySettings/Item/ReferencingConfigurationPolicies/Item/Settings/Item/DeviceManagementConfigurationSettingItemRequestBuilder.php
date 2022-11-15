@@ -30,7 +30,7 @@ class DeviceManagementConfigurationSettingItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settingDefinitions property
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementConfigurationSetting entity.
     */
     public function settingDefinitions(): SettingDefinitionsRequestBuilder {
         return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class DeviceManagementConfigurationSettingItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusablePolicySettings.item.referencingConfigurationPolicies.item.settings.item.settingDefinitions.item collection
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementConfigurationSetting entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */

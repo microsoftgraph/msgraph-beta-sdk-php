@@ -181,7 +181,7 @@ class Application extends DirectoryObject implements Parsable
     private ?string $serviceManagementReference = null;
     
     /**
-     * @var ServicePrincipalLockConfiguration|null $servicePrincipalLockConfiguration The servicePrincipalLockConfiguration property
+     * @var ServicePrincipalLockConfiguration|null $servicePrincipalLockConfiguration Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
     */
     private ?ServicePrincipalLockConfiguration $servicePrincipalLockConfiguration = null;
     
@@ -241,7 +241,7 @@ class Application extends DirectoryObject implements Parsable
     private ?WindowsApplication $windows = null;
     
     /**
-     * Instantiates a new Application and sets the default values.
+     * Instantiates a new application and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -586,7 +586,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the servicePrincipalLockConfiguration property value. The servicePrincipalLockConfiguration property
+     * Gets the servicePrincipalLockConfiguration property value. Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
      * @return ServicePrincipalLockConfiguration|null
     */
     public function getServicePrincipalLockConfiguration(): ?ServicePrincipalLockConfiguration {
@@ -1008,7 +1008,7 @@ class Application extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the servicePrincipalLockConfiguration property value. The servicePrincipalLockConfiguration property
+     * Sets the servicePrincipalLockConfiguration property value. Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
      *  @param ServicePrincipalLockConfiguration|null $value Value to set for the servicePrincipalLockConfiguration property.
     */
     public function setServicePrincipalLockConfiguration(?ServicePrincipalLockConfiguration $value ): void {

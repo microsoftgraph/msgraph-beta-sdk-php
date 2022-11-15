@@ -409,7 +409,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     private ?bool $passwordBlockKeyguard = null;
     
     /**
-     * @var array<AndroidKeyguardFeature>|null $passwordBlockKeyguardFeatures List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+     * @var array<AndroidKeyguardFeature>|null $passwordBlockKeyguardFeatures List of device keyguard features to block. This collection can contain a maximum of 11 elements.
     */
     private ?array $passwordBlockKeyguardFeatures = null;
     
@@ -1480,7 +1480,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Gets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+     * Gets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 11 elements.
      * @return array<AndroidKeyguardFeature>|null
     */
     public function getPasswordBlockKeyguardFeatures(): ?array {
@@ -2694,7 +2694,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration i
     }
 
     /**
-     * Sets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+     * Sets the passwordBlockKeyguardFeatures property value. List of device keyguard features to block. This collection can contain a maximum of 11 elements.
      *  @param array<AndroidKeyguardFeature>|null $value Value to set for the passwordBlockKeyguardFeatures property.
     */
     public function setPasswordBlockKeyguardFeatures(?array $value ): void {

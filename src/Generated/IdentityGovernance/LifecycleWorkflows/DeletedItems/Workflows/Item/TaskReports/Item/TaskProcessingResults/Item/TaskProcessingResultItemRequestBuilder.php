@@ -31,21 +31,21 @@ class TaskProcessingResultItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resume property
+     * Provides operations to call the resume method.
     */
     public function resume(): ResumeRequestBuilder {
         return new ResumeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The subject property
+     * Provides operations to manage the subject property of the microsoft.graph.identityGovernance.taskProcessingResult entity.
     */
     public function subject(): SubjectRequestBuilder {
         return new SubjectRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The task property
+     * Provides operations to manage the task property of the microsoft.graph.identityGovernance.taskProcessingResult entity.
     */
     public function task(): TaskRequestBuilder {
         return new TaskRequestBuilder($this->pathParameters, $this->requestAdapter);

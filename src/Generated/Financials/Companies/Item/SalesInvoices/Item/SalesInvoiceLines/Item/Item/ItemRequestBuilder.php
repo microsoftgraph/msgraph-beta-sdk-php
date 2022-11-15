@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ItemRequestBuilder 
 {
     /**
-     * The itemCategory property
+     * Provides operations to manage the itemCategory property of the microsoft.graph.item entity.
     */
     public function itemCategory(): ItemCategoryRequestBuilder {
         return new ItemCategoryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -33,7 +33,7 @@ class ItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The picture property
+     * Provides operations to manage the picture property of the microsoft.graph.item entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -189,7 +189,7 @@ class ItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesInvoices.item.salesInvoiceLines.item.item.picture.item collection
+     * Provides operations to manage the picture property of the microsoft.graph.item entity.
      * @param string $id Unique identifier of the item
      * @return PictureItemRequestBuilder
     */

@@ -28,21 +28,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessReviewItemRequestBuilder 
 {
     /**
-     * The applyDecisions property
+     * Provides operations to call the applyDecisions method.
     */
     public function applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The decisions property
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
     */
     public function decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The myDecisions property
+     * Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
     */
     public function myDecisions(): MyDecisionsRequestBuilder {
         return new MyDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,28 +59,28 @@ class AccessReviewItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resetDecisions property
+     * Provides operations to call the resetDecisions method.
     */
     public function resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reviewers property
+     * Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
     */
     public function reviewers(): ReviewersRequestBuilder {
         return new ReviewersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sendReminder property
+     * Provides operations to call the sendReminder method.
     */
     public function sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The stop property
+     * Provides operations to call the stop method.
     */
     public function stop(): StopRequestBuilder {
         return new StopRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -173,7 +173,7 @@ class AccessReviewItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.accessReviews.item.instances.item.decisions.item collection
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAccessReviewsItemInstancesItemDecisionsItemAccessReviewDecisionItemRequestBuilder
     */
@@ -222,7 +222,7 @@ class AccessReviewItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.accessReviews.item.instances.item.myDecisions.item collection
+     * Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedAccessReviewsItemInstancesItemMyDecisionsItemAccessReviewDecisionItemRequestBuilder
     */
@@ -253,7 +253,7 @@ class AccessReviewItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.accessReviews.item.instances.item.reviewers.item collection
+     * Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
      * @param string $id Unique identifier of the item
      * @return AccessReviewReviewerItemRequestBuilder
     */

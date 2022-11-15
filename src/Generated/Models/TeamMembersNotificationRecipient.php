@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamMembersNotificationRecipient extends TeamworkNotificationRecipient implements Parsable 
 {
     /**
-     * @var string|null $teamId The team's identifier.
+     * @var string|null $teamId The unique identifier for the team whose members should receive the notification.
     */
     private ?string $teamId = null;
     
@@ -42,7 +42,7 @@ class TeamMembersNotificationRecipient extends TeamworkNotificationRecipient imp
     }
 
     /**
-     * Gets the teamId property value. The team's identifier.
+     * Gets the teamId property value. The unique identifier for the team whose members should receive the notification.
      * @return string|null
     */
     public function getTeamId(): ?string {
@@ -59,7 +59,7 @@ class TeamMembersNotificationRecipient extends TeamworkNotificationRecipient imp
     }
 
     /**
-     * Sets the teamId property value. The team's identifier.
+     * Sets the teamId property value. The unique identifier for the team whose members should receive the notification.
      *  @param string|null $value Value to set for the teamId property.
     */
     public function setTeamId(?string $value ): void {

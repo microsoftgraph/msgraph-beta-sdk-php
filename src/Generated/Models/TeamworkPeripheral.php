@@ -24,7 +24,7 @@ class TeamworkPeripheral extends Entity implements Parsable
     private ?string $vendorId = null;
     
     /**
-     * Instantiates a new TeamworkPeripheral and sets the default values.
+     * Instantiates a new teamworkPeripheral and sets the default values.
     */
     public function __construct() {
         parent::__construct();

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MessageRecipientItemRequestBuilder 
 {
     /**
-     * The events property
+     * Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
     */
     public function events(): EventsRequestBuilder {
         return new EventsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,7 +142,7 @@ class MessageRecipientItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.messageTraces.item.recipients.item.events.item collection
+     * Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.
      * @param string $id Unique identifier of the item
      * @return MessageEventItemRequestBuilder
     */

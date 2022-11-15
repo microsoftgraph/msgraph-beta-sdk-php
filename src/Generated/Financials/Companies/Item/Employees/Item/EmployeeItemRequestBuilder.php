@@ -25,7 +25,7 @@ class EmployeeItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The picture property
+     * Provides operations to manage the picture property of the microsoft.graph.employee entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class EmployeeItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.employees.item.picture.item collection
+     * Provides operations to manage the picture property of the microsoft.graph.employee entity.
      * @param string $id Unique identifier of the item
      * @return PictureItemRequestBuilder
     */

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MacOSSoftwareUpdateAccountSummaryItemRequestBuilder 
 {
     /**
-     * The categorySummaries property
+     * Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.
     */
     public function categorySummaries(): CategorySummariesRequestBuilder {
         return new CategorySummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class MacOSSoftwareUpdateAccountSummaryItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.macOSSoftwareUpdateAccountSummaries.item.categorySummaries.item collection
+     * Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.
      * @param string $id Unique identifier of the item
      * @return MacOSSoftwareUpdateCategorySummaryItemRequestBuilder
     */

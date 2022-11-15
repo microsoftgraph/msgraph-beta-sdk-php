@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class JobsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -43,7 +43,7 @@ class JobsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateCredentials property
+     * Provides operations to call the validateCredentials method.
     */
     public function validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);

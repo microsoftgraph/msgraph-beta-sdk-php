@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DimensionItemRequestBuilder 
 {
     /**
-     * The dimensionValues property
+     * Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
     */
     public function dimensionValues(): DimensionValuesRequestBuilder {
         return new DimensionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,7 +78,7 @@ class DimensionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.dimensions.item.dimensionValues.item collection
+     * Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
      * @param string $id Unique identifier of the item
      * @return DimensionValueItemRequestBuilder
     */

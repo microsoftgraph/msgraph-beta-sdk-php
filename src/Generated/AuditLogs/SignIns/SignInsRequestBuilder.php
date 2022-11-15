@@ -22,21 +22,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SignInsRequestBuilder 
 {
     /**
-     * The confirmCompromised property
+     * Provides operations to call the confirmCompromised method.
     */
     public function confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The confirmSafe property
+     * Provides operations to call the confirmSafe method.
     */
     public function confirmSafe(): ConfirmSafeRequestBuilder {
         return new ConfirmSafeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);

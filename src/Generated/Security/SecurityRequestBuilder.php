@@ -56,84 +56,84 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SecurityRequestBuilder 
 {
     /**
-     * The alerts property
+     * Provides operations to manage the alerts property of the microsoft.graph.security entity.
     */
     public function alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The alerts_v2 property
+     * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
     */
     public function alerts_v2(): Alerts_v2RequestBuilder {
         return new Alerts_v2RequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The attackSimulation property
+     * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
     */
     public function attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cases property
+     * Provides operations to manage the cases property of the microsoft.graph.security entity.
     */
     public function cases(): CasesRequestBuilder {
         return new CasesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudAppSecurityProfiles property
+     * Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function cloudAppSecurityProfiles(): CloudAppSecurityProfilesRequestBuilder {
         return new CloudAppSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The domainSecurityProfiles property
+     * Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function domainSecurityProfiles(): DomainSecurityProfilesRequestBuilder {
         return new DomainSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The fileSecurityProfiles property
+     * Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function fileSecurityProfiles(): FileSecurityProfilesRequestBuilder {
         return new FileSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The hostSecurityProfiles property
+     * Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function hostSecurityProfiles(): HostSecurityProfilesRequestBuilder {
         return new HostSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The incidents property
+     * Provides operations to manage the incidents property of the microsoft.graph.security entity.
     */
     public function incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The informationProtection property
+     * Provides operations to manage the informationProtection property of the microsoft.graph.security entity.
     */
     public function informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The ipSecurityProfiles property
+     * Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function ipSecurityProfiles(): IpSecurityProfilesRequestBuilder {
         return new IpSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The labels property
+     * Provides operations to manage the labels property of the microsoft.graph.security entity.
     */
     public function labels(): LabelsRequestBuilder {
         return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -145,7 +145,7 @@ class SecurityRequestBuilder
     private array $pathParameters;
     
     /**
-     * The providerTenantSettings property
+     * Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
     */
     public function providerTenantSettings(): ProviderTenantSettingsRequestBuilder {
         return new ProviderTenantSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -157,63 +157,63 @@ class SecurityRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The runHuntingQuery property
+     * Provides operations to call the runHuntingQuery method.
     */
     public function runHuntingQuery(): RunHuntingQueryRequestBuilder {
         return new RunHuntingQueryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The secureScoreControlProfiles property
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
     */
     public function secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The secureScores property
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
     */
     public function secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The securityActions property
+     * Provides operations to manage the securityActions property of the microsoft.graph.security entity.
     */
     public function securityActions(): SecurityActionsRequestBuilder {
         return new SecurityActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The subjectRightsRequests property
+     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
     */
     public function subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The threatSubmission property
+     * Provides operations to manage the threatSubmission property of the microsoft.graph.security entity.
     */
     public function threatSubmission(): ThreatSubmissionRequestBuilder {
         return new ThreatSubmissionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tiIndicators property
+     * Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.
     */
     public function tiIndicators(): TiIndicatorsRequestBuilder {
         return new TiIndicatorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The triggers property
+     * Provides operations to manage the triggers property of the microsoft.graph.security entity.
     */
     public function triggers(): TriggersRequestBuilder {
         return new TriggersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The triggerTypes property
+     * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
     */
     public function triggerTypes(): TriggerTypesRequestBuilder {
         return new TriggerTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -225,14 +225,14 @@ class SecurityRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userSecurityProfiles property
+     * Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.
     */
     public function userSecurityProfiles(): UserSecurityProfilesRequestBuilder {
         return new UserSecurityProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.alerts_v2.item collection
+     * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedSecurityAlerts_v2ItemAlertItemRequestBuilder
     */
@@ -243,7 +243,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.alerts.item collection
+     * Provides operations to manage the alerts property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedSecurityAlertsItemAlertItemRequestBuilder
     */
@@ -254,7 +254,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cloudAppSecurityProfiles.item collection
+     * Provides operations to manage the cloudAppSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return CloudAppSecurityProfileItemRequestBuilder
     */
@@ -325,7 +325,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.domainSecurityProfiles.item collection
+     * Provides operations to manage the domainSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return DomainSecurityProfileItemRequestBuilder
     */
@@ -336,7 +336,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.fileSecurityProfiles.item collection
+     * Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return FileSecurityProfileItemRequestBuilder
     */
@@ -366,7 +366,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.hostSecurityProfiles.item collection
+     * Provides operations to manage the hostSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return HostSecurityProfileItemRequestBuilder
     */
@@ -377,7 +377,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.incidents.item collection
+     * Provides operations to manage the incidents property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return IncidentItemRequestBuilder
     */
@@ -388,7 +388,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.ipSecurityProfiles.item collection
+     * Provides operations to manage the ipSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return IpSecurityProfileItemRequestBuilder
     */
@@ -419,7 +419,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.providerTenantSettings.item collection
+     * Provides operations to manage the providerTenantSettings property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return ProviderTenantSettingItemRequestBuilder
     */
@@ -430,7 +430,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.secureScoreControlProfiles.item collection
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return SecureScoreControlProfileItemRequestBuilder
     */
@@ -441,7 +441,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.secureScores.item collection
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return SecureScoreItemRequestBuilder
     */
@@ -452,7 +452,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.securityActions.item collection
+     * Provides operations to manage the securityActions property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return SecurityActionItemRequestBuilder
     */
@@ -463,7 +463,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.subjectRightsRequests.item collection
+     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return SubjectRightsRequestItemRequestBuilder
     */
@@ -474,7 +474,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.tiIndicators.item collection
+     * Provides operations to manage the tiIndicators property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return TiIndicatorItemRequestBuilder
     */
@@ -485,7 +485,7 @@ class SecurityRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.userSecurityProfiles.item collection
+     * Provides operations to manage the userSecurityProfiles property of the microsoft.graph.security entity.
      * @param string $id Unique identifier of the item
      * @return UserSecurityProfileItemRequestBuilder
     */

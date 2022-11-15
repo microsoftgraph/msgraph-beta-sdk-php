@@ -129,7 +129,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
     private ?bool $updateCompleteScreenDisabled = null;
     
     /**
-     * @var bool|null $userlessSharedAadModeEnabled Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+     * @var bool|null $userlessSharedAadModeEnabled Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
     */
     private ?bool $userlessSharedAadModeEnabled = null;
     
@@ -402,7 +402,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
     }
 
     /**
-     * Gets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+     * Gets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
      * @return bool|null
     */
     public function getUserlessSharedAadModeEnabled(): ?bool {
@@ -671,7 +671,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsab
     }
 
     /**
-     * Sets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+     * Sets the userlessSharedAadModeEnabled property value. Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
      *  @param bool|null $value Value to set for the userlessSharedAadModeEnabled property.
     */
     public function setUserlessSharedAadModeEnabled(?bool $value ): void {

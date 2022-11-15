@@ -32,7 +32,7 @@ class RunItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The taskProcessingResults property
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
     */
     public function taskProcessingResults(): TaskProcessingResultsRequestBuilder {
         return new TaskProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,7 +44,7 @@ class RunItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userProcessingResults property
+     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
     */
     public function userProcessingResults(): UserProcessingResultsRequestBuilder {
         return new UserProcessingResultsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -190,7 +190,7 @@ class RunItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflows.item.runs.item.taskProcessingResults.item collection
+     * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.run entity.
      * @param string $id Unique identifier of the item
      * @return TaskProcessingResultItemRequestBuilder
     */
@@ -201,7 +201,7 @@ class RunItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflows.item.runs.item.userProcessingResults.item collection
+     * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
      * @param string $id Unique identifier of the item
      * @return UserProcessingResultItemRequestBuilder
     */

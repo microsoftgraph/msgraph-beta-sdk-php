@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class NoncustodialDataSourceItemRequestBuilder 
 {
     /**
-     * The applyHold property
+     * Provides operations to call the applyHold method.
     */
     public function applyHold(): ApplyHoldRequestBuilder {
         return new ApplyHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dataSource property
+     * Provides operations to manage the dataSource property of the microsoft.graph.ediscovery.noncustodialDataSource entity.
     */
     public function dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,14 +42,14 @@ class NoncustodialDataSourceItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The release property
+     * Provides operations to call the release method.
     */
     public function release(): ReleaseRequestBuilder {
         return new ReleaseRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The removeHold property
+     * Provides operations to call the removeHold method.
     */
     public function removeHold(): RemoveHoldRequestBuilder {
         return new RemoveHoldRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -61,7 +61,7 @@ class NoncustodialDataSourceItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateIndex property
+     * Provides operations to call the updateIndex method.
     */
     public function updateIndex(): UpdateIndexRequestBuilder {
         return new UpdateIndexRequestBuilder($this->pathParameters, $this->requestAdapter);

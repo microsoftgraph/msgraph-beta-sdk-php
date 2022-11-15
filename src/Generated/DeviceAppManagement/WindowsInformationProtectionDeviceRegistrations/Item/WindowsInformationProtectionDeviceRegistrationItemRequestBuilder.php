@@ -34,7 +34,7 @@ class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The wipe property
+     * Provides operations to call the wipe method.
     */
     public function wipe(): WipeRequestBuilder {
         return new WipeRequestBuilder($this->pathParameters, $this->requestAdapter);
