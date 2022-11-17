@@ -10,31 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementExchangeAccessRule>|null $accessRules The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
-    */
-    private ?array $accessRules = null;
-    
-    /**
-     * @var OnPremisesConditionalAccessSettings|null $conditionalAccessSettings The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
-    */
-    private ?OnPremisesConditionalAccessSettings $conditionalAccessSettings = null;
-    
-    /**
-     * @var DeviceManagementExchangeAccessLevel|null $defaultAccessLevel Access Level in Exchange.
-    */
-    private ?DeviceManagementExchangeAccessLevel $defaultAccessLevel = null;
-    
-    /**
-     * @var array<DeviceManagementExchangeDeviceClass>|null $knownDeviceClasses The list of device classes known to Exchange
-    */
-    private ?array $knownDeviceClasses = null;
-    
-    /**
-     * @var StreamInterface|null $notificationContent Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
-    */
-    private ?StreamInterface $notificationContent = null;
-    
-    /**
      * Instantiates a new deviceManagementExchangeOnPremisesPolicy and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return array<DeviceManagementExchangeAccessRule>|null
     */
     public function getAccessRules(): ?array {
-        return $this->accessRules;
+        return $this->getBackingStore()->get('accessRules');
     }
 
     /**
@@ -64,7 +39,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return OnPremisesConditionalAccessSettings|null
     */
     public function getConditionalAccessSettings(): ?OnPremisesConditionalAccessSettings {
-        return $this->conditionalAccessSettings;
+        return $this->getBackingStore()->get('conditionalAccessSettings');
     }
 
     /**
@@ -72,7 +47,7 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return DeviceManagementExchangeAccessLevel|null
     */
     public function getDefaultAccessLevel(): ?DeviceManagementExchangeAccessLevel {
-        return $this->defaultAccessLevel;
+        return $this->getBackingStore()->get('defaultAccessLevel');
     }
 
     /**
@@ -95,15 +70,15 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
      * @return array<DeviceManagementExchangeDeviceClass>|null
     */
     public function getKnownDeviceClasses(): ?array {
-        return $this->knownDeviceClasses;
+        return $this->getBackingStore()->get('knownDeviceClasses');
     }
 
     /**
      * Gets the notificationContent property value. Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getNotificationContent(): StreamInterface {
-        return $this->notificationContent;
+    public function getNotificationContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('notificationContent');
     }
 
     /**
@@ -112,51 +87,51 @@ class DeviceManagementExchangeOnPremisesPolicy extends Entity implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accessRules', $this->accessRules);
-        $writer->writeObjectValue('conditionalAccessSettings', $this->conditionalAccessSettings);
-        $writer->writeEnumValue('defaultAccessLevel', $this->defaultAccessLevel);
-        $writer->writeCollectionOfObjectValues('knownDeviceClasses', $this->knownDeviceClasses);
-        $writer->writeBinaryContent('notificationContent', $this->notificationContent);
+        $writer->writeCollectionOfObjectValues('accessRules', $this->getAccessRules());
+        $writer->writeObjectValue('conditionalAccessSettings', $this->getConditionalAccessSettings());
+        $writer->writeEnumValue('defaultAccessLevel', $this->getDefaultAccessLevel());
+        $writer->writeCollectionOfObjectValues('knownDeviceClasses', $this->getKnownDeviceClasses());
+        $writer->writeBinaryContent('notificationContent', $this->getNotificationContent());
     }
 
     /**
      * Sets the accessRules property value. The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
      *  @param array<DeviceManagementExchangeAccessRule>|null $value Value to set for the accessRules property.
     */
-    public function setAccessRules(?array $value ): void {
-        $this->accessRules = $value;
+    public function setAccessRules(?array $value): void {
+        $this->getBackingStore()->set('accessRules', $value);
     }
 
     /**
      * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      *  @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
     */
-    public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value ): void {
-        $this->conditionalAccessSettings = $value;
+    public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value): void {
+        $this->getBackingStore()->set('conditionalAccessSettings', $value);
     }
 
     /**
      * Sets the defaultAccessLevel property value. Access Level in Exchange.
      *  @param DeviceManagementExchangeAccessLevel|null $value Value to set for the defaultAccessLevel property.
     */
-    public function setDefaultAccessLevel(?DeviceManagementExchangeAccessLevel $value ): void {
-        $this->defaultAccessLevel = $value;
+    public function setDefaultAccessLevel(?DeviceManagementExchangeAccessLevel $value): void {
+        $this->getBackingStore()->set('defaultAccessLevel', $value);
     }
 
     /**
      * Sets the knownDeviceClasses property value. The list of device classes known to Exchange
      *  @param array<DeviceManagementExchangeDeviceClass>|null $value Value to set for the knownDeviceClasses property.
     */
-    public function setKnownDeviceClasses(?array $value ): void {
-        $this->knownDeviceClasses = $value;
+    public function setKnownDeviceClasses(?array $value): void {
+        $this->getBackingStore()->set('knownDeviceClasses', $value);
     }
 
     /**
      * Sets the notificationContent property value. Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
      *  @param StreamInterface|null $value Value to set for the notificationContent property.
     */
-    public function setNotificationContent(?StreamInterface $value ): void {
-        $this->notificationContent = $value;
+    public function setNotificationContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('notificationContent', $value);
     }
 
 }

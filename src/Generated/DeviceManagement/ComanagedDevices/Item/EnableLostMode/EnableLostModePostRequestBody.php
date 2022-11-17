@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable 
+class EnableLostModePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $footer The footer property
-    */
-    private ?string $footer = null;
-    
-    /**
-     * @var string|null $message The message property
-    */
-    private ?string $message = null;
-    
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
-    private ?string $phoneNumber = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new enableLostModePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -49,8 +38,16 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -71,7 +68,7 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getFooter(): ?string {
-        return $this->footer;
+        return $this->getBackingStore()->get('footer');
     }
 
     /**
@@ -79,7 +76,7 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->message;
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -87,7 +84,7 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->phoneNumber;
+        return $this->getBackingStore()->get('phoneNumber');
     }
 
     /**
@@ -95,42 +92,42 @@ class EnableLostModePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('footer', $this->footer);
-        $writer->writeStringValue('message', $this->message);
-        $writer->writeStringValue('phoneNumber', $this->phoneNumber);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('footer', $this->getFooter());
+        $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('phoneNumber', $this->getPhoneNumber());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the footer property value. The footer property
      *  @param string|null $value Value to set for the footer property.
     */
-    public function setFooter(?string $value ): void {
-        $this->footer = $value;
+    public function setFooter(?string $value): void {
+        $this->getBackingStore()->set('footer', $value);
     }
 
     /**
      * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
-    public function setMessage(?string $value ): void {
-        $this->message = $value;
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
      *  @param string|null $value Value to set for the phoneNumber property.
     */
-    public function setPhoneNumber(?string $value ): void {
-        $this->phoneNumber = $value;
+    public function setPhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('phoneNumber', $value);
     }
 
 }

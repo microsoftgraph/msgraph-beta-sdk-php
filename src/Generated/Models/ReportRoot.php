@@ -9,76 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ReportRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<ApplicationSignInDetailedSummary>|null $applicationSignInDetailedSummary Represents a detailed summary of an application sign-in.
-    */
-    private ?array $applicationSignInDetailedSummary = null;
-    
-    /**
-     * @var AuthenticationMethodsRoot|null $authenticationMethods Container for navigation properties for Azure AD authentication methods resources.
-    */
-    private ?AuthenticationMethodsRoot $authenticationMethods = null;
-    
-    /**
-     * @var array<CredentialUserRegistrationDetails>|null $credentialUserRegistrationDetails Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
-    */
-    private ?array $credentialUserRegistrationDetails = null;
-    
-    /**
-     * @var array<PrintUsage>|null $dailyPrintUsage The dailyPrintUsage property
-    */
-    private ?array $dailyPrintUsage = null;
-    
-    /**
-     * @var array<PrintUsageByPrinter>|null $dailyPrintUsageByPrinter The dailyPrintUsageByPrinter property
-    */
-    private ?array $dailyPrintUsageByPrinter = null;
-    
-    /**
-     * @var array<PrintUsageByUser>|null $dailyPrintUsageByUser The dailyPrintUsageByUser property
-    */
-    private ?array $dailyPrintUsageByUser = null;
-    
-    /**
-     * @var array<PrintUsageByPrinter>|null $dailyPrintUsageSummariesByPrinter The dailyPrintUsageSummariesByPrinter property
-    */
-    private ?array $dailyPrintUsageSummariesByPrinter = null;
-    
-    /**
-     * @var array<PrintUsageByUser>|null $dailyPrintUsageSummariesByUser The dailyPrintUsageSummariesByUser property
-    */
-    private ?array $dailyPrintUsageSummariesByUser = null;
-    
-    /**
-     * @var array<PrintUsageByPrinter>|null $monthlyPrintUsageByPrinter The monthlyPrintUsageByPrinter property
-    */
-    private ?array $monthlyPrintUsageByPrinter = null;
-    
-    /**
-     * @var array<PrintUsageByUser>|null $monthlyPrintUsageByUser The monthlyPrintUsageByUser property
-    */
-    private ?array $monthlyPrintUsageByUser = null;
-    
-    /**
-     * @var array<PrintUsageByPrinter>|null $monthlyPrintUsageSummariesByPrinter The monthlyPrintUsageSummariesByPrinter property
-    */
-    private ?array $monthlyPrintUsageSummariesByPrinter = null;
-    
-    /**
-     * @var array<PrintUsageByUser>|null $monthlyPrintUsageSummariesByUser The monthlyPrintUsageSummariesByUser property
-    */
-    private ?array $monthlyPrintUsageSummariesByUser = null;
-    
-    /**
-     * @var SecurityReportsRoot|null $security Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
-    */
-    private ?SecurityReportsRoot $security = null;
-    
-    /**
-     * @var array<UserCredentialUsageDetails>|null $userCredentialUsageDetails Represents the self-service password reset (SSPR) usage for a given tenant.
-    */
-    private ?array $userCredentialUsageDetails = null;
-    
-    /**
      * Instantiates a new ReportRoot and sets the default values.
     */
     public function __construct() {
@@ -100,7 +30,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<ApplicationSignInDetailedSummary>|null
     */
     public function getApplicationSignInDetailedSummary(): ?array {
-        return $this->applicationSignInDetailedSummary;
+        return $this->getBackingStore()->get('applicationSignInDetailedSummary');
     }
 
     /**
@@ -108,7 +38,7 @@ class ReportRoot extends Entity implements Parsable
      * @return AuthenticationMethodsRoot|null
     */
     public function getAuthenticationMethods(): ?AuthenticationMethodsRoot {
-        return $this->authenticationMethods;
+        return $this->getBackingStore()->get('authenticationMethods');
     }
 
     /**
@@ -116,7 +46,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<CredentialUserRegistrationDetails>|null
     */
     public function getCredentialUserRegistrationDetails(): ?array {
-        return $this->credentialUserRegistrationDetails;
+        return $this->getBackingStore()->get('credentialUserRegistrationDetails');
     }
 
     /**
@@ -124,7 +54,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsage>|null
     */
     public function getDailyPrintUsage(): ?array {
-        return $this->dailyPrintUsage;
+        return $this->getBackingStore()->get('dailyPrintUsage');
     }
 
     /**
@@ -132,7 +62,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getDailyPrintUsageByPrinter(): ?array {
-        return $this->dailyPrintUsageByPrinter;
+        return $this->getBackingStore()->get('dailyPrintUsageByPrinter');
     }
 
     /**
@@ -140,7 +70,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getDailyPrintUsageByUser(): ?array {
-        return $this->dailyPrintUsageByUser;
+        return $this->getBackingStore()->get('dailyPrintUsageByUser');
     }
 
     /**
@@ -148,7 +78,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getDailyPrintUsageSummariesByPrinter(): ?array {
-        return $this->dailyPrintUsageSummariesByPrinter;
+        return $this->getBackingStore()->get('dailyPrintUsageSummariesByPrinter');
     }
 
     /**
@@ -156,7 +86,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getDailyPrintUsageSummariesByUser(): ?array {
-        return $this->dailyPrintUsageSummariesByUser;
+        return $this->getBackingStore()->get('dailyPrintUsageSummariesByUser');
     }
 
     /**
@@ -188,7 +118,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getMonthlyPrintUsageByPrinter(): ?array {
-        return $this->monthlyPrintUsageByPrinter;
+        return $this->getBackingStore()->get('monthlyPrintUsageByPrinter');
     }
 
     /**
@@ -196,7 +126,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getMonthlyPrintUsageByUser(): ?array {
-        return $this->monthlyPrintUsageByUser;
+        return $this->getBackingStore()->get('monthlyPrintUsageByUser');
     }
 
     /**
@@ -204,7 +134,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByPrinter>|null
     */
     public function getMonthlyPrintUsageSummariesByPrinter(): ?array {
-        return $this->monthlyPrintUsageSummariesByPrinter;
+        return $this->getBackingStore()->get('monthlyPrintUsageSummariesByPrinter');
     }
 
     /**
@@ -212,7 +142,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<PrintUsageByUser>|null
     */
     public function getMonthlyPrintUsageSummariesByUser(): ?array {
-        return $this->monthlyPrintUsageSummariesByUser;
+        return $this->getBackingStore()->get('monthlyPrintUsageSummariesByUser');
     }
 
     /**
@@ -220,7 +150,7 @@ class ReportRoot extends Entity implements Parsable
      * @return SecurityReportsRoot|null
     */
     public function getSecurity(): ?SecurityReportsRoot {
-        return $this->security;
+        return $this->getBackingStore()->get('security');
     }
 
     /**
@@ -228,7 +158,7 @@ class ReportRoot extends Entity implements Parsable
      * @return array<UserCredentialUsageDetails>|null
     */
     public function getUserCredentialUsageDetails(): ?array {
-        return $this->userCredentialUsageDetails;
+        return $this->getBackingStore()->get('userCredentialUsageDetails');
     }
 
     /**
@@ -237,132 +167,132 @@ class ReportRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->applicationSignInDetailedSummary);
-        $writer->writeObjectValue('authenticationMethods', $this->authenticationMethods);
-        $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->credentialUserRegistrationDetails);
-        $writer->writeCollectionOfObjectValues('dailyPrintUsage', $this->dailyPrintUsage);
-        $writer->writeCollectionOfObjectValues('dailyPrintUsageByPrinter', $this->dailyPrintUsageByPrinter);
-        $writer->writeCollectionOfObjectValues('dailyPrintUsageByUser', $this->dailyPrintUsageByUser);
-        $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByPrinter', $this->dailyPrintUsageSummariesByPrinter);
-        $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByUser', $this->dailyPrintUsageSummariesByUser);
-        $writer->writeCollectionOfObjectValues('monthlyPrintUsageByPrinter', $this->monthlyPrintUsageByPrinter);
-        $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->monthlyPrintUsageByUser);
-        $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->monthlyPrintUsageSummariesByPrinter);
-        $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->monthlyPrintUsageSummariesByUser);
-        $writer->writeObjectValue('security', $this->security);
-        $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->userCredentialUsageDetails);
+        $writer->writeCollectionOfObjectValues('applicationSignInDetailedSummary', $this->getApplicationSignInDetailedSummary());
+        $writer->writeObjectValue('authenticationMethods', $this->getAuthenticationMethods());
+        $writer->writeCollectionOfObjectValues('credentialUserRegistrationDetails', $this->getCredentialUserRegistrationDetails());
+        $writer->writeCollectionOfObjectValues('dailyPrintUsage', $this->getDailyPrintUsage());
+        $writer->writeCollectionOfObjectValues('dailyPrintUsageByPrinter', $this->getDailyPrintUsageByPrinter());
+        $writer->writeCollectionOfObjectValues('dailyPrintUsageByUser', $this->getDailyPrintUsageByUser());
+        $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByPrinter', $this->getDailyPrintUsageSummariesByPrinter());
+        $writer->writeCollectionOfObjectValues('dailyPrintUsageSummariesByUser', $this->getDailyPrintUsageSummariesByUser());
+        $writer->writeCollectionOfObjectValues('monthlyPrintUsageByPrinter', $this->getMonthlyPrintUsageByPrinter());
+        $writer->writeCollectionOfObjectValues('monthlyPrintUsageByUser', $this->getMonthlyPrintUsageByUser());
+        $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByPrinter', $this->getMonthlyPrintUsageSummariesByPrinter());
+        $writer->writeCollectionOfObjectValues('monthlyPrintUsageSummariesByUser', $this->getMonthlyPrintUsageSummariesByUser());
+        $writer->writeObjectValue('security', $this->getSecurity());
+        $writer->writeCollectionOfObjectValues('userCredentialUsageDetails', $this->getUserCredentialUsageDetails());
     }
 
     /**
      * Sets the applicationSignInDetailedSummary property value. Represents a detailed summary of an application sign-in.
      *  @param array<ApplicationSignInDetailedSummary>|null $value Value to set for the applicationSignInDetailedSummary property.
     */
-    public function setApplicationSignInDetailedSummary(?array $value ): void {
-        $this->applicationSignInDetailedSummary = $value;
+    public function setApplicationSignInDetailedSummary(?array $value): void {
+        $this->getBackingStore()->set('applicationSignInDetailedSummary', $value);
     }
 
     /**
      * Sets the authenticationMethods property value. Container for navigation properties for Azure AD authentication methods resources.
      *  @param AuthenticationMethodsRoot|null $value Value to set for the authenticationMethods property.
     */
-    public function setAuthenticationMethods(?AuthenticationMethodsRoot $value ): void {
-        $this->authenticationMethods = $value;
+    public function setAuthenticationMethods(?AuthenticationMethodsRoot $value): void {
+        $this->getBackingStore()->set('authenticationMethods', $value);
     }
 
     /**
      * Sets the credentialUserRegistrationDetails property value. Details of the usage of self-service password reset and multi-factor authentication (MFA) for all registered users.
      *  @param array<CredentialUserRegistrationDetails>|null $value Value to set for the credentialUserRegistrationDetails property.
     */
-    public function setCredentialUserRegistrationDetails(?array $value ): void {
-        $this->credentialUserRegistrationDetails = $value;
+    public function setCredentialUserRegistrationDetails(?array $value): void {
+        $this->getBackingStore()->set('credentialUserRegistrationDetails', $value);
     }
 
     /**
      * Sets the dailyPrintUsage property value. The dailyPrintUsage property
      *  @param array<PrintUsage>|null $value Value to set for the dailyPrintUsage property.
     */
-    public function setDailyPrintUsage(?array $value ): void {
-        $this->dailyPrintUsage = $value;
+    public function setDailyPrintUsage(?array $value): void {
+        $this->getBackingStore()->set('dailyPrintUsage', $value);
     }
 
     /**
      * Sets the dailyPrintUsageByPrinter property value. The dailyPrintUsageByPrinter property
      *  @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageByPrinter property.
     */
-    public function setDailyPrintUsageByPrinter(?array $value ): void {
-        $this->dailyPrintUsageByPrinter = $value;
+    public function setDailyPrintUsageByPrinter(?array $value): void {
+        $this->getBackingStore()->set('dailyPrintUsageByPrinter', $value);
     }
 
     /**
      * Sets the dailyPrintUsageByUser property value. The dailyPrintUsageByUser property
      *  @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageByUser property.
     */
-    public function setDailyPrintUsageByUser(?array $value ): void {
-        $this->dailyPrintUsageByUser = $value;
+    public function setDailyPrintUsageByUser(?array $value): void {
+        $this->getBackingStore()->set('dailyPrintUsageByUser', $value);
     }
 
     /**
      * Sets the dailyPrintUsageSummariesByPrinter property value. The dailyPrintUsageSummariesByPrinter property
      *  @param array<PrintUsageByPrinter>|null $value Value to set for the dailyPrintUsageSummariesByPrinter property.
     */
-    public function setDailyPrintUsageSummariesByPrinter(?array $value ): void {
-        $this->dailyPrintUsageSummariesByPrinter = $value;
+    public function setDailyPrintUsageSummariesByPrinter(?array $value): void {
+        $this->getBackingStore()->set('dailyPrintUsageSummariesByPrinter', $value);
     }
 
     /**
      * Sets the dailyPrintUsageSummariesByUser property value. The dailyPrintUsageSummariesByUser property
      *  @param array<PrintUsageByUser>|null $value Value to set for the dailyPrintUsageSummariesByUser property.
     */
-    public function setDailyPrintUsageSummariesByUser(?array $value ): void {
-        $this->dailyPrintUsageSummariesByUser = $value;
+    public function setDailyPrintUsageSummariesByUser(?array $value): void {
+        $this->getBackingStore()->set('dailyPrintUsageSummariesByUser', $value);
     }
 
     /**
      * Sets the monthlyPrintUsageByPrinter property value. The monthlyPrintUsageByPrinter property
      *  @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageByPrinter property.
     */
-    public function setMonthlyPrintUsageByPrinter(?array $value ): void {
-        $this->monthlyPrintUsageByPrinter = $value;
+    public function setMonthlyPrintUsageByPrinter(?array $value): void {
+        $this->getBackingStore()->set('monthlyPrintUsageByPrinter', $value);
     }
 
     /**
      * Sets the monthlyPrintUsageByUser property value. The monthlyPrintUsageByUser property
      *  @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageByUser property.
     */
-    public function setMonthlyPrintUsageByUser(?array $value ): void {
-        $this->monthlyPrintUsageByUser = $value;
+    public function setMonthlyPrintUsageByUser(?array $value): void {
+        $this->getBackingStore()->set('monthlyPrintUsageByUser', $value);
     }
 
     /**
      * Sets the monthlyPrintUsageSummariesByPrinter property value. The monthlyPrintUsageSummariesByPrinter property
      *  @param array<PrintUsageByPrinter>|null $value Value to set for the monthlyPrintUsageSummariesByPrinter property.
     */
-    public function setMonthlyPrintUsageSummariesByPrinter(?array $value ): void {
-        $this->monthlyPrintUsageSummariesByPrinter = $value;
+    public function setMonthlyPrintUsageSummariesByPrinter(?array $value): void {
+        $this->getBackingStore()->set('monthlyPrintUsageSummariesByPrinter', $value);
     }
 
     /**
      * Sets the monthlyPrintUsageSummariesByUser property value. The monthlyPrintUsageSummariesByUser property
      *  @param array<PrintUsageByUser>|null $value Value to set for the monthlyPrintUsageSummariesByUser property.
     */
-    public function setMonthlyPrintUsageSummariesByUser(?array $value ): void {
-        $this->monthlyPrintUsageSummariesByUser = $value;
+    public function setMonthlyPrintUsageSummariesByUser(?array $value): void {
+        $this->getBackingStore()->set('monthlyPrintUsageSummariesByUser', $value);
     }
 
     /**
      * Sets the security property value. Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
      *  @param SecurityReportsRoot|null $value Value to set for the security property.
     */
-    public function setSecurity(?SecurityReportsRoot $value ): void {
-        $this->security = $value;
+    public function setSecurity(?SecurityReportsRoot $value): void {
+        $this->getBackingStore()->set('security', $value);
     }
 
     /**
      * Sets the userCredentialUsageDetails property value. Represents the self-service password reset (SSPR) usage for a given tenant.
      *  @param array<UserCredentialUsageDetails>|null $value Value to set for the userCredentialUsageDetails property.
     */
-    public function setUserCredentialUsageDetails(?array $value ): void {
-        $this->userCredentialUsageDetails = $value;
+    public function setUserCredentialUsageDetails(?array $value): void {
+        $this->getBackingStore()->set('userCredentialUsageDetails', $value);
     }
 
 }

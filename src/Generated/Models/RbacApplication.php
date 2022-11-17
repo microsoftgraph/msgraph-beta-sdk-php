@@ -9,61 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RbacApplication extends Entity implements Parsable 
 {
     /**
-     * @var array<UnifiedRbacResourceNamespace>|null $resourceNamespaces The resourceNamespaces property
-    */
-    private ?array $resourceNamespaces = null;
-    
-    /**
-     * @var array<Approval>|null $roleAssignmentApprovals The roleAssignmentApprovals property
-    */
-    private ?array $roleAssignmentApprovals = null;
-    
-    /**
-     * @var array<UnifiedRoleAssignment>|null $roleAssignments The roleAssignments property
-    */
-    private ?array $roleAssignments = null;
-    
-    /**
-     * @var array<UnifiedRoleAssignmentScheduleInstance>|null $roleAssignmentScheduleInstances The roleAssignmentScheduleInstances property
-    */
-    private ?array $roleAssignmentScheduleInstances = null;
-    
-    /**
-     * @var array<UnifiedRoleAssignmentScheduleRequest>|null $roleAssignmentScheduleRequests The roleAssignmentScheduleRequests property
-    */
-    private ?array $roleAssignmentScheduleRequests = null;
-    
-    /**
-     * @var array<UnifiedRoleAssignmentSchedule>|null $roleAssignmentSchedules The roleAssignmentSchedules property
-    */
-    private ?array $roleAssignmentSchedules = null;
-    
-    /**
-     * @var array<UnifiedRoleDefinition>|null $roleDefinitions The roleDefinitions property
-    */
-    private ?array $roleDefinitions = null;
-    
-    /**
-     * @var array<UnifiedRoleEligibilityScheduleInstance>|null $roleEligibilityScheduleInstances The roleEligibilityScheduleInstances property
-    */
-    private ?array $roleEligibilityScheduleInstances = null;
-    
-    /**
-     * @var array<UnifiedRoleEligibilityScheduleRequest>|null $roleEligibilityScheduleRequests The roleEligibilityScheduleRequests property
-    */
-    private ?array $roleEligibilityScheduleRequests = null;
-    
-    /**
-     * @var array<UnifiedRoleEligibilitySchedule>|null $roleEligibilitySchedules The roleEligibilitySchedules property
-    */
-    private ?array $roleEligibilitySchedules = null;
-    
-    /**
-     * @var array<UnifiedRoleAssignment>|null $transitiveRoleAssignments The transitiveRoleAssignments property
-    */
-    private ?array $transitiveRoleAssignments = null;
-    
-    /**
      * Instantiates a new RbacApplication and sets the default values.
     */
     public function __construct() {
@@ -106,7 +51,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRbacResourceNamespace>|null
     */
     public function getResourceNamespaces(): ?array {
-        return $this->resourceNamespaces;
+        return $this->getBackingStore()->get('resourceNamespaces');
     }
 
     /**
@@ -114,7 +59,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<Approval>|null
     */
     public function getRoleAssignmentApprovals(): ?array {
-        return $this->roleAssignmentApprovals;
+        return $this->getBackingStore()->get('roleAssignmentApprovals');
     }
 
     /**
@@ -122,7 +67,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->roleAssignments;
+        return $this->getBackingStore()->get('roleAssignments');
     }
 
     /**
@@ -130,7 +75,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignmentScheduleInstance>|null
     */
     public function getRoleAssignmentScheduleInstances(): ?array {
-        return $this->roleAssignmentScheduleInstances;
+        return $this->getBackingStore()->get('roleAssignmentScheduleInstances');
     }
 
     /**
@@ -138,7 +83,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignmentScheduleRequest>|null
     */
     public function getRoleAssignmentScheduleRequests(): ?array {
-        return $this->roleAssignmentScheduleRequests;
+        return $this->getBackingStore()->get('roleAssignmentScheduleRequests');
     }
 
     /**
@@ -146,7 +91,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignmentSchedule>|null
     */
     public function getRoleAssignmentSchedules(): ?array {
-        return $this->roleAssignmentSchedules;
+        return $this->getBackingStore()->get('roleAssignmentSchedules');
     }
 
     /**
@@ -154,7 +99,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->roleDefinitions;
+        return $this->getBackingStore()->get('roleDefinitions');
     }
 
     /**
@@ -162,7 +107,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleEligibilityScheduleInstance>|null
     */
     public function getRoleEligibilityScheduleInstances(): ?array {
-        return $this->roleEligibilityScheduleInstances;
+        return $this->getBackingStore()->get('roleEligibilityScheduleInstances');
     }
 
     /**
@@ -170,7 +115,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleEligibilityScheduleRequest>|null
     */
     public function getRoleEligibilityScheduleRequests(): ?array {
-        return $this->roleEligibilityScheduleRequests;
+        return $this->getBackingStore()->get('roleEligibilityScheduleRequests');
     }
 
     /**
@@ -178,7 +123,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleEligibilitySchedule>|null
     */
     public function getRoleEligibilitySchedules(): ?array {
-        return $this->roleEligibilitySchedules;
+        return $this->getBackingStore()->get('roleEligibilitySchedules');
     }
 
     /**
@@ -186,7 +131,7 @@ class RbacApplication extends Entity implements Parsable
      * @return array<UnifiedRoleAssignment>|null
     */
     public function getTransitiveRoleAssignments(): ?array {
-        return $this->transitiveRoleAssignments;
+        return $this->getBackingStore()->get('transitiveRoleAssignments');
     }
 
     /**
@@ -195,105 +140,105 @@ class RbacApplication extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('resourceNamespaces', $this->resourceNamespaces);
-        $writer->writeCollectionOfObjectValues('roleAssignmentApprovals', $this->roleAssignmentApprovals);
-        $writer->writeCollectionOfObjectValues('roleAssignments', $this->roleAssignments);
-        $writer->writeCollectionOfObjectValues('roleAssignmentScheduleInstances', $this->roleAssignmentScheduleInstances);
-        $writer->writeCollectionOfObjectValues('roleAssignmentScheduleRequests', $this->roleAssignmentScheduleRequests);
-        $writer->writeCollectionOfObjectValues('roleAssignmentSchedules', $this->roleAssignmentSchedules);
-        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->roleDefinitions);
-        $writer->writeCollectionOfObjectValues('roleEligibilityScheduleInstances', $this->roleEligibilityScheduleInstances);
-        $writer->writeCollectionOfObjectValues('roleEligibilityScheduleRequests', $this->roleEligibilityScheduleRequests);
-        $writer->writeCollectionOfObjectValues('roleEligibilitySchedules', $this->roleEligibilitySchedules);
-        $writer->writeCollectionOfObjectValues('transitiveRoleAssignments', $this->transitiveRoleAssignments);
+        $writer->writeCollectionOfObjectValues('resourceNamespaces', $this->getResourceNamespaces());
+        $writer->writeCollectionOfObjectValues('roleAssignmentApprovals', $this->getRoleAssignmentApprovals());
+        $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
+        $writer->writeCollectionOfObjectValues('roleAssignmentScheduleInstances', $this->getRoleAssignmentScheduleInstances());
+        $writer->writeCollectionOfObjectValues('roleAssignmentScheduleRequests', $this->getRoleAssignmentScheduleRequests());
+        $writer->writeCollectionOfObjectValues('roleAssignmentSchedules', $this->getRoleAssignmentSchedules());
+        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
+        $writer->writeCollectionOfObjectValues('roleEligibilityScheduleInstances', $this->getRoleEligibilityScheduleInstances());
+        $writer->writeCollectionOfObjectValues('roleEligibilityScheduleRequests', $this->getRoleEligibilityScheduleRequests());
+        $writer->writeCollectionOfObjectValues('roleEligibilitySchedules', $this->getRoleEligibilitySchedules());
+        $writer->writeCollectionOfObjectValues('transitiveRoleAssignments', $this->getTransitiveRoleAssignments());
     }
 
     /**
      * Sets the resourceNamespaces property value. The resourceNamespaces property
      *  @param array<UnifiedRbacResourceNamespace>|null $value Value to set for the resourceNamespaces property.
     */
-    public function setResourceNamespaces(?array $value ): void {
-        $this->resourceNamespaces = $value;
+    public function setResourceNamespaces(?array $value): void {
+        $this->getBackingStore()->set('resourceNamespaces', $value);
     }
 
     /**
      * Sets the roleAssignmentApprovals property value. The roleAssignmentApprovals property
      *  @param array<Approval>|null $value Value to set for the roleAssignmentApprovals property.
     */
-    public function setRoleAssignmentApprovals(?array $value ): void {
-        $this->roleAssignmentApprovals = $value;
+    public function setRoleAssignmentApprovals(?array $value): void {
+        $this->getBackingStore()->set('roleAssignmentApprovals', $value);
     }
 
     /**
      * Sets the roleAssignments property value. The roleAssignments property
      *  @param array<UnifiedRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
-    public function setRoleAssignments(?array $value ): void {
-        $this->roleAssignments = $value;
+    public function setRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('roleAssignments', $value);
     }
 
     /**
      * Sets the roleAssignmentScheduleInstances property value. The roleAssignmentScheduleInstances property
      *  @param array<UnifiedRoleAssignmentScheduleInstance>|null $value Value to set for the roleAssignmentScheduleInstances property.
     */
-    public function setRoleAssignmentScheduleInstances(?array $value ): void {
-        $this->roleAssignmentScheduleInstances = $value;
+    public function setRoleAssignmentScheduleInstances(?array $value): void {
+        $this->getBackingStore()->set('roleAssignmentScheduleInstances', $value);
     }
 
     /**
      * Sets the roleAssignmentScheduleRequests property value. The roleAssignmentScheduleRequests property
      *  @param array<UnifiedRoleAssignmentScheduleRequest>|null $value Value to set for the roleAssignmentScheduleRequests property.
     */
-    public function setRoleAssignmentScheduleRequests(?array $value ): void {
-        $this->roleAssignmentScheduleRequests = $value;
+    public function setRoleAssignmentScheduleRequests(?array $value): void {
+        $this->getBackingStore()->set('roleAssignmentScheduleRequests', $value);
     }
 
     /**
      * Sets the roleAssignmentSchedules property value. The roleAssignmentSchedules property
      *  @param array<UnifiedRoleAssignmentSchedule>|null $value Value to set for the roleAssignmentSchedules property.
     */
-    public function setRoleAssignmentSchedules(?array $value ): void {
-        $this->roleAssignmentSchedules = $value;
+    public function setRoleAssignmentSchedules(?array $value): void {
+        $this->getBackingStore()->set('roleAssignmentSchedules', $value);
     }
 
     /**
      * Sets the roleDefinitions property value. The roleDefinitions property
      *  @param array<UnifiedRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
-    public function setRoleDefinitions(?array $value ): void {
-        $this->roleDefinitions = $value;
+    public function setRoleDefinitions(?array $value): void {
+        $this->getBackingStore()->set('roleDefinitions', $value);
     }
 
     /**
      * Sets the roleEligibilityScheduleInstances property value. The roleEligibilityScheduleInstances property
      *  @param array<UnifiedRoleEligibilityScheduleInstance>|null $value Value to set for the roleEligibilityScheduleInstances property.
     */
-    public function setRoleEligibilityScheduleInstances(?array $value ): void {
-        $this->roleEligibilityScheduleInstances = $value;
+    public function setRoleEligibilityScheduleInstances(?array $value): void {
+        $this->getBackingStore()->set('roleEligibilityScheduleInstances', $value);
     }
 
     /**
      * Sets the roleEligibilityScheduleRequests property value. The roleEligibilityScheduleRequests property
      *  @param array<UnifiedRoleEligibilityScheduleRequest>|null $value Value to set for the roleEligibilityScheduleRequests property.
     */
-    public function setRoleEligibilityScheduleRequests(?array $value ): void {
-        $this->roleEligibilityScheduleRequests = $value;
+    public function setRoleEligibilityScheduleRequests(?array $value): void {
+        $this->getBackingStore()->set('roleEligibilityScheduleRequests', $value);
     }
 
     /**
      * Sets the roleEligibilitySchedules property value. The roleEligibilitySchedules property
      *  @param array<UnifiedRoleEligibilitySchedule>|null $value Value to set for the roleEligibilitySchedules property.
     */
-    public function setRoleEligibilitySchedules(?array $value ): void {
-        $this->roleEligibilitySchedules = $value;
+    public function setRoleEligibilitySchedules(?array $value): void {
+        $this->getBackingStore()->set('roleEligibilitySchedules', $value);
     }
 
     /**
      * Sets the transitiveRoleAssignments property value. The transitiveRoleAssignments property
      *  @param array<UnifiedRoleAssignment>|null $value Value to set for the transitiveRoleAssignments property.
     */
-    public function setTransitiveRoleAssignments(?array $value ): void {
-        $this->transitiveRoleAssignments = $value;
+    public function setTransitiveRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('transitiveRoleAssignments', $value);
     }
 
 }

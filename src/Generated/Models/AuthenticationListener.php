@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationListener extends Entity implements Parsable 
 {
     /**
-     * @var int|null $priority The priority of the listener. Determines the order of evaluation when an event has multiple listeners. The priority is evaluated from low to high.
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var AuthenticationSourceFilter|null $sourceFilter Filter based on the source of the authentication that is used to determine whether the listener is evaluated. This is currently limited to evaluations based on application the user is authenticating to.
-    */
-    private ?AuthenticationSourceFilter $sourceFilter = null;
-    
-    /**
      * Instantiates a new authenticationListener and sets the default values.
     */
     public function __construct() {
@@ -59,7 +49,7 @@ class AuthenticationListener extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -67,7 +57,7 @@ class AuthenticationListener extends Entity implements Parsable
      * @return AuthenticationSourceFilter|null
     */
     public function getSourceFilter(): ?AuthenticationSourceFilter {
-        return $this->sourceFilter;
+        return $this->getBackingStore()->get('sourceFilter');
     }
 
     /**
@@ -76,24 +66,24 @@ class AuthenticationListener extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeObjectValue('sourceFilter', $this->sourceFilter);
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeObjectValue('sourceFilter', $this->getSourceFilter());
     }
 
     /**
      * Sets the priority property value. The priority of the listener. Determines the order of evaluation when an event has multiple listeners. The priority is evaluated from low to high.
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the sourceFilter property value. Filter based on the source of the authentication that is used to determine whether the listener is evaluated. This is currently limited to evaluations based on application the user is authenticating to.
      *  @param AuthenticationSourceFilter|null $value Value to set for the sourceFilter property.
     */
-    public function setSourceFilter(?AuthenticationSourceFilter $value ): void {
-        $this->sourceFilter = $value;
+    public function setSourceFilter(?AuthenticationSourceFilter $value): void {
+        $this->getBackingStore()->set('sourceFilter', $value);
     }
 
 }

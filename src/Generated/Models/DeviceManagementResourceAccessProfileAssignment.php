@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementResourceAccessProfileAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementResourceAccessProfileIntent|null $intent The administrator intent for the assignment of the profile.
-    */
-    private ?DeviceManagementResourceAccessProfileIntent $intent = null;
-    
-    /**
-     * @var string|null $sourceId The identifier of the source of the assignment.
-    */
-    private ?string $sourceId = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target Base type for assignment targets.
-    */
-    private ?DeviceAndAppManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new deviceManagementResourceAccessProfileAssignment and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
      * @return DeviceManagementResourceAccessProfileIntent|null
     */
     public function getIntent(): ?DeviceManagementResourceAccessProfileIntent {
-        return $this->intent;
+        return $this->getBackingStore()->get('intent');
     }
 
     /**
@@ -66,7 +51,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
      * @return string|null
     */
     public function getSourceId(): ?string {
-        return $this->sourceId;
+        return $this->getBackingStore()->get('sourceId');
     }
 
     /**
@@ -74,7 +59,7 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -83,33 +68,33 @@ class DeviceManagementResourceAccessProfileAssignment extends Entity implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('intent', $this->intent);
-        $writer->writeStringValue('sourceId', $this->sourceId);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeEnumValue('intent', $this->getIntent());
+        $writer->writeStringValue('sourceId', $this->getSourceId());
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the intent property value. The administrator intent for the assignment of the profile.
      *  @param DeviceManagementResourceAccessProfileIntent|null $value Value to set for the intent property.
     */
-    public function setIntent(?DeviceManagementResourceAccessProfileIntent $value ): void {
-        $this->intent = $value;
+    public function setIntent(?DeviceManagementResourceAccessProfileIntent $value): void {
+        $this->getBackingStore()->set('intent', $value);
     }
 
     /**
      * Sets the sourceId property value. The identifier of the source of the assignment.
      *  @param string|null $value Value to set for the sourceId property.
     */
-    public function setSourceId(?string $value ): void {
-        $this->sourceId = $value;
+    public function setSourceId(?string $value): void {
+        $this->getBackingStore()->set('sourceId', $value);
     }
 
     /**
      * Sets the target property value. Base type for assignment targets.
      *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

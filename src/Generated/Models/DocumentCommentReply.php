@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DocumentCommentReply extends Entity implements Parsable 
 {
     /**
-     * @var string|null $content The content property
-    */
-    private ?string $content = null;
-    
-    /**
-     * @var string|null $location The location property
-    */
-    private ?string $location = null;
-    
-    /**
      * Instantiates a new documentCommentReply and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DocumentCommentReply extends Entity implements Parsable
      * @return string|null
     */
     public function getContent(): ?string {
-        return $this->content;
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -60,7 +50,7 @@ class DocumentCommentReply extends Entity implements Parsable
      * @return string|null
     */
     public function getLocation(): ?string {
-        return $this->location;
+        return $this->getBackingStore()->get('location');
     }
 
     /**
@@ -69,24 +59,24 @@ class DocumentCommentReply extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('content', $this->content);
-        $writer->writeStringValue('location', $this->location);
+        $writer->writeStringValue('content', $this->getContent());
+        $writer->writeStringValue('location', $this->getLocation());
     }
 
     /**
      * Sets the content property value. The content property
      *  @param string|null $value Value to set for the content property.
     */
-    public function setContent(?string $value ): void {
-        $this->content = $value;
+    public function setContent(?string $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the location property value. The location property
      *  @param string|null $value Value to set for the location property.
     */
-    public function setLocation(?string $value ): void {
-        $this->location = $value;
+    public function setLocation(?string $value): void {
+        $this->getBackingStore()->set('location', $value);
     }
 
 }

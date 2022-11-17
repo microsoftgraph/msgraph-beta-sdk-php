@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutlookUser extends Entity implements Parsable 
 {
     /**
-     * @var array<OutlookCategory>|null $masterCategories A list of categories defined for the user.
-    */
-    private ?array $masterCategories = null;
-    
-    /**
-     * @var array<OutlookTaskFolder>|null $taskFolders The taskFolders property
-    */
-    private ?array $taskFolders = null;
-    
-    /**
-     * @var array<OutlookTaskGroup>|null $taskGroups The taskGroups property
-    */
-    private ?array $taskGroups = null;
-    
-    /**
-     * @var array<OutlookTask>|null $tasks The tasks property
-    */
-    private ?array $tasks = null;
-    
-    /**
      * Instantiates a new outlookUser and sets the default values.
     */
     public function __construct() {
@@ -64,7 +44,7 @@ class OutlookUser extends Entity implements Parsable
      * @return array<OutlookCategory>|null
     */
     public function getMasterCategories(): ?array {
-        return $this->masterCategories;
+        return $this->getBackingStore()->get('masterCategories');
     }
 
     /**
@@ -72,7 +52,7 @@ class OutlookUser extends Entity implements Parsable
      * @return array<OutlookTaskFolder>|null
     */
     public function getTaskFolders(): ?array {
-        return $this->taskFolders;
+        return $this->getBackingStore()->get('taskFolders');
     }
 
     /**
@@ -80,7 +60,7 @@ class OutlookUser extends Entity implements Parsable
      * @return array<OutlookTaskGroup>|null
     */
     public function getTaskGroups(): ?array {
-        return $this->taskGroups;
+        return $this->getBackingStore()->get('taskGroups');
     }
 
     /**
@@ -88,7 +68,7 @@ class OutlookUser extends Entity implements Parsable
      * @return array<OutlookTask>|null
     */
     public function getTasks(): ?array {
-        return $this->tasks;
+        return $this->getBackingStore()->get('tasks');
     }
 
     /**
@@ -97,42 +77,42 @@ class OutlookUser extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('masterCategories', $this->masterCategories);
-        $writer->writeCollectionOfObjectValues('taskFolders', $this->taskFolders);
-        $writer->writeCollectionOfObjectValues('taskGroups', $this->taskGroups);
-        $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
+        $writer->writeCollectionOfObjectValues('masterCategories', $this->getMasterCategories());
+        $writer->writeCollectionOfObjectValues('taskFolders', $this->getTaskFolders());
+        $writer->writeCollectionOfObjectValues('taskGroups', $this->getTaskGroups());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
     }
 
     /**
      * Sets the masterCategories property value. A list of categories defined for the user.
      *  @param array<OutlookCategory>|null $value Value to set for the masterCategories property.
     */
-    public function setMasterCategories(?array $value ): void {
-        $this->masterCategories = $value;
+    public function setMasterCategories(?array $value): void {
+        $this->getBackingStore()->set('masterCategories', $value);
     }
 
     /**
      * Sets the taskFolders property value. The taskFolders property
      *  @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
     */
-    public function setTaskFolders(?array $value ): void {
-        $this->taskFolders = $value;
+    public function setTaskFolders(?array $value): void {
+        $this->getBackingStore()->set('taskFolders', $value);
     }
 
     /**
      * Sets the taskGroups property value. The taskGroups property
      *  @param array<OutlookTaskGroup>|null $value Value to set for the taskGroups property.
     */
-    public function setTaskGroups(?array $value ): void {
-        $this->taskGroups = $value;
+    public function setTaskGroups(?array $value): void {
+        $this->getBackingStore()->set('taskGroups', $value);
     }
 
     /**
      * Sets the tasks property value. The tasks property
      *  @param array<OutlookTask>|null $value Value to set for the tasks property.
     */
-    public function setTasks(?array $value ): void {
-        $this->tasks = $value;
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
 }

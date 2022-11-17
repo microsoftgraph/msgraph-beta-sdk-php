@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class GovernanceRuleSetting implements AdditionalDataHolder, Parsable 
+class GovernanceRuleSetting implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $ruleIdentifier The id of the rule. For example, ExpirationRule and MfaRule.
-    */
-    private ?string $ruleIdentifier = null;
-    
-    /**
-     * @var string|null $setting The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
-    */
-    private ?string $setting = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new governanceRuleSetting and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.governanceRuleSetting');
     }
@@ -50,8 +39,16 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -80,7 +77,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRuleIdentifier(): ?string {
-        return $this->ruleIdentifier;
+        return $this->getBackingStore()->get('ruleIdentifier');
     }
 
     /**
@@ -88,7 +85,7 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSetting(): ?string {
-        return $this->setting;
+        return $this->getBackingStore()->get('setting');
     }
 
     /**
@@ -96,42 +93,42 @@ class GovernanceRuleSetting implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('ruleIdentifier', $this->ruleIdentifier);
-        $writer->writeStringValue('setting', $this->setting);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('ruleIdentifier', $this->getRuleIdentifier());
+        $writer->writeStringValue('setting', $this->getSetting());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the ruleIdentifier property value. The id of the rule. For example, ExpirationRule and MfaRule.
      *  @param string|null $value Value to set for the ruleIdentifier property.
     */
-    public function setRuleIdentifier(?string $value ): void {
-        $this->ruleIdentifier = $value;
+    public function setRuleIdentifier(?string $value): void {
+        $this->getBackingStore()->set('ruleIdentifier', $value);
     }
 
     /**
      * Sets the setting property value. The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
      *  @param string|null $value Value to set for the setting property.
     */
-    public function setSetting(?string $value ): void {
-        $this->setting = $value;
+    public function setSetting(?string $value): void {
+        $this->getBackingStore()->set('setting', $value);
     }
 
 }

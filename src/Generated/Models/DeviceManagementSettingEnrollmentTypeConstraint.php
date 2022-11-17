@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var array<string>|null $enrollmentTypes List of enrollment types
-    */
-    private ?array $enrollmentTypes = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingEnrollmentTypeConstraint and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementCo
      * @return array<string>|null
     */
     public function getEnrollmentTypes(): ?array {
-        return $this->enrollmentTypes;
+        return $this->getBackingStore()->get('enrollmentTypes');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingEnrollmentTypeConstraint extends DeviceManagementCo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('enrollmentTypes', $this->enrollmentTypes);
+        $writer->writeCollectionOfPrimitiveValues('enrollmentTypes', $this->getEnrollmentTypes());
     }
 
     /**
      * Sets the enrollmentTypes property value. List of enrollment types
      *  @param array<string>|null $value Value to set for the enrollmentTypes property.
     */
-    public function setEnrollmentTypes(?array $value ): void {
-        $this->enrollmentTypes = $value;
+    public function setEnrollmentTypes(?array $value): void {
+        $this->getBackingStore()->set('enrollmentTypes', $value);
     }
 
 }

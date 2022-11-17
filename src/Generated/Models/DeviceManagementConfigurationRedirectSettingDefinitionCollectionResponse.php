@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationRedirectSettingDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationRedirectSettingDefinition>|null $value The value property
-    */
-    private ?array $value = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationRedirectSettingDefinitionCollectionResponse and sets the default values.
     */
     public function __construct() {
@@ -45,7 +40,7 @@ class DeviceManagementConfigurationRedirectSettingDefinitionCollectionResponse e
      * @return array<DeviceManagementConfigurationRedirectSettingDefinition>|null
     */
     public function getValue(): ?array {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -54,15 +49,15 @@ class DeviceManagementConfigurationRedirectSettingDefinitionCollectionResponse e
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('value', $this->value);
+        $writer->writeCollectionOfObjectValues('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The value property
      *  @param array<DeviceManagementConfigurationRedirectSettingDefinition>|null $value Value to set for the value property.
     */
-    public function setValue(?array $value ): void {
-        $this->value = $value;
+    public function setValue(?array $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

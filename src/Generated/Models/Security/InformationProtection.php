@@ -10,16 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtection extends Entity implements Parsable 
 {
     /**
-     * @var InformationProtectionPolicySetting|null $labelPolicySettings Read the Microsoft Purview Information Protection policy settings for the user or organization.
-    */
-    private ?InformationProtectionPolicySetting $labelPolicySettings = null;
-    
-    /**
-     * @var array<SensitivityLabel>|null $sensitivityLabels Read the Microsoft Purview Information Protection labels for the user or organization.
-    */
-    private ?array $sensitivityLabels = null;
-    
-    /**
      * Instantiates a new informationProtection and sets the default values.
     */
     public function __construct() {
@@ -53,7 +43,7 @@ class InformationProtection extends Entity implements Parsable
      * @return InformationProtectionPolicySetting|null
     */
     public function getLabelPolicySettings(): ?InformationProtectionPolicySetting {
-        return $this->labelPolicySettings;
+        return $this->getBackingStore()->get('labelPolicySettings');
     }
 
     /**
@@ -61,7 +51,7 @@ class InformationProtection extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->sensitivityLabels;
+        return $this->getBackingStore()->get('sensitivityLabels');
     }
 
     /**
@@ -70,24 +60,24 @@ class InformationProtection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('labelPolicySettings', $this->labelPolicySettings);
-        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->sensitivityLabels);
+        $writer->writeObjectValue('labelPolicySettings', $this->getLabelPolicySettings());
+        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
     }
 
     /**
      * Sets the labelPolicySettings property value. Read the Microsoft Purview Information Protection policy settings for the user or organization.
      *  @param InformationProtectionPolicySetting|null $value Value to set for the labelPolicySettings property.
     */
-    public function setLabelPolicySettings(?InformationProtectionPolicySetting $value ): void {
-        $this->labelPolicySettings = $value;
+    public function setLabelPolicySettings(?InformationProtectionPolicySetting $value): void {
+        $this->getBackingStore()->set('labelPolicySettings', $value);
     }
 
     /**
      * Sets the sensitivityLabels property value. Read the Microsoft Purview Information Protection labels for the user or organization.
      *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
-    public function setSensitivityLabels(?array $value ): void {
-        $this->sensitivityLabels = $value;
+    public function setSensitivityLabels(?array $value): void {
+        $this->getBackingStore()->set('sensitivityLabels', $value);
     }
 
 }

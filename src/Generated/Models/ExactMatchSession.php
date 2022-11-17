@@ -9,46 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchSession extends ExactMatchSessionBase implements Parsable 
 {
     /**
-     * @var string|null $checksum The checksum property
-    */
-    private ?string $checksum = null;
-    
-    /**
-     * @var string|null $dataUploadURI The dataUploadURI property
-    */
-    private ?string $dataUploadURI = null;
-    
-    /**
-     * @var array<string>|null $fields The fields property
-    */
-    private ?array $fields = null;
-    
-    /**
-     * @var string|null $fileName The fileName property
-    */
-    private ?string $fileName = null;
-    
-    /**
-     * @var int|null $rowsPerBlock The rowsPerBlock property
-    */
-    private ?int $rowsPerBlock = null;
-    
-    /**
-     * @var string|null $salt The salt property
-    */
-    private ?string $salt = null;
-    
-    /**
-     * @var ExactMatchUploadAgent|null $uploadAgent The uploadAgent property
-    */
-    private ?ExactMatchUploadAgent $uploadAgent = null;
-    
-    /**
-     * @var string|null $uploadAgentId The uploadAgentId property
-    */
-    private ?string $uploadAgentId = null;
-    
-    /**
      * Instantiates a new ExactMatchSession and sets the default values.
     */
     public function __construct() {
@@ -70,7 +30,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getChecksum(): ?string {
-        return $this->checksum;
+        return $this->getBackingStore()->get('checksum');
     }
 
     /**
@@ -78,7 +38,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getDataUploadURI(): ?string {
-        return $this->dataUploadURI;
+        return $this->getBackingStore()->get('dataUploadURI');
     }
 
     /**
@@ -104,7 +64,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return array<string>|null
     */
     public function getFields(): ?array {
-        return $this->fields;
+        return $this->getBackingStore()->get('fields');
     }
 
     /**
@@ -112,7 +72,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->fileName;
+        return $this->getBackingStore()->get('fileName');
     }
 
     /**
@@ -120,7 +80,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return int|null
     */
     public function getRowsPerBlock(): ?int {
-        return $this->rowsPerBlock;
+        return $this->getBackingStore()->get('rowsPerBlock');
     }
 
     /**
@@ -128,7 +88,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getSalt(): ?string {
-        return $this->salt;
+        return $this->getBackingStore()->get('salt');
     }
 
     /**
@@ -136,7 +96,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return ExactMatchUploadAgent|null
     */
     public function getUploadAgent(): ?ExactMatchUploadAgent {
-        return $this->uploadAgent;
+        return $this->getBackingStore()->get('uploadAgent');
     }
 
     /**
@@ -144,7 +104,7 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
      * @return string|null
     */
     public function getUploadAgentId(): ?string {
-        return $this->uploadAgentId;
+        return $this->getBackingStore()->get('uploadAgentId');
     }
 
     /**
@@ -153,78 +113,78 @@ class ExactMatchSession extends ExactMatchSessionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('checksum', $this->checksum);
-        $writer->writeStringValue('dataUploadURI', $this->dataUploadURI);
-        $writer->writeCollectionOfPrimitiveValues('fields', $this->fields);
-        $writer->writeStringValue('fileName', $this->fileName);
-        $writer->writeIntegerValue('rowsPerBlock', $this->rowsPerBlock);
-        $writer->writeStringValue('salt', $this->salt);
-        $writer->writeObjectValue('uploadAgent', $this->uploadAgent);
-        $writer->writeStringValue('uploadAgentId', $this->uploadAgentId);
+        $writer->writeStringValue('checksum', $this->getChecksum());
+        $writer->writeStringValue('dataUploadURI', $this->getDataUploadURI());
+        $writer->writeCollectionOfPrimitiveValues('fields', $this->getFields());
+        $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeIntegerValue('rowsPerBlock', $this->getRowsPerBlock());
+        $writer->writeStringValue('salt', $this->getSalt());
+        $writer->writeObjectValue('uploadAgent', $this->getUploadAgent());
+        $writer->writeStringValue('uploadAgentId', $this->getUploadAgentId());
     }
 
     /**
      * Sets the checksum property value. The checksum property
      *  @param string|null $value Value to set for the checksum property.
     */
-    public function setChecksum(?string $value ): void {
-        $this->checksum = $value;
+    public function setChecksum(?string $value): void {
+        $this->getBackingStore()->set('checksum', $value);
     }
 
     /**
      * Sets the dataUploadURI property value. The dataUploadURI property
      *  @param string|null $value Value to set for the dataUploadURI property.
     */
-    public function setDataUploadURI(?string $value ): void {
-        $this->dataUploadURI = $value;
+    public function setDataUploadURI(?string $value): void {
+        $this->getBackingStore()->set('dataUploadURI', $value);
     }
 
     /**
      * Sets the fields property value. The fields property
      *  @param array<string>|null $value Value to set for the fields property.
     */
-    public function setFields(?array $value ): void {
-        $this->fields = $value;
+    public function setFields(?array $value): void {
+        $this->getBackingStore()->set('fields', $value);
     }
 
     /**
      * Sets the fileName property value. The fileName property
      *  @param string|null $value Value to set for the fileName property.
     */
-    public function setFileName(?string $value ): void {
-        $this->fileName = $value;
+    public function setFileName(?string $value): void {
+        $this->getBackingStore()->set('fileName', $value);
     }
 
     /**
      * Sets the rowsPerBlock property value. The rowsPerBlock property
      *  @param int|null $value Value to set for the rowsPerBlock property.
     */
-    public function setRowsPerBlock(?int $value ): void {
-        $this->rowsPerBlock = $value;
+    public function setRowsPerBlock(?int $value): void {
+        $this->getBackingStore()->set('rowsPerBlock', $value);
     }
 
     /**
      * Sets the salt property value. The salt property
      *  @param string|null $value Value to set for the salt property.
     */
-    public function setSalt(?string $value ): void {
-        $this->salt = $value;
+    public function setSalt(?string $value): void {
+        $this->getBackingStore()->set('salt', $value);
     }
 
     /**
      * Sets the uploadAgent property value. The uploadAgent property
      *  @param ExactMatchUploadAgent|null $value Value to set for the uploadAgent property.
     */
-    public function setUploadAgent(?ExactMatchUploadAgent $value ): void {
-        $this->uploadAgent = $value;
+    public function setUploadAgent(?ExactMatchUploadAgent $value): void {
+        $this->getBackingStore()->set('uploadAgent', $value);
     }
 
     /**
      * Sets the uploadAgentId property value. The uploadAgentId property
      *  @param string|null $value Value to set for the uploadAgentId property.
     */
-    public function setUploadAgentId(?string $value ): void {
-        $this->uploadAgentId = $value;
+    public function setUploadAgentId(?string $value): void {
+        $this->getBackingStore()->set('uploadAgentId', $value);
     }
 
 }

@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceScopeActionResult implements AdditionalDataHolder, Parsable 
+class DeviceScopeActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceScopeAction Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
-    */
-    private ?string $deviceScopeAction = null;
-    
-    /**
-     * @var string|null $deviceScopeId The unique identifier of the device scope the action was triggered on.
-    */
-    private ?string $deviceScopeId = null;
-    
-    /**
-     * @var string|null $failedMessage The message indicates the reason the device scope action failed to trigger.
-    */
-    private ?string $failedMessage = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DeviceScopeActionStatus|null $status Indicates the status of the attempted device scope action
-    */
-    private ?DeviceScopeActionStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceScopeActionResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceScopeActionResult');
     }
@@ -60,8 +39,16 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceScopeAction(): ?string {
-        return $this->deviceScopeAction;
+        return $this->getBackingStore()->get('deviceScopeAction');
     }
 
     /**
@@ -77,7 +64,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceScopeId(): ?string {
-        return $this->deviceScopeId;
+        return $this->getBackingStore()->get('deviceScopeId');
     }
 
     /**
@@ -85,7 +72,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getFailedMessage(): ?string {
-        return $this->failedMessage;
+        return $this->getBackingStore()->get('failedMessage');
     }
 
     /**
@@ -108,7 +95,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -116,7 +103,7 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @return DeviceScopeActionStatus|null
     */
     public function getStatus(): ?DeviceScopeActionStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -124,60 +111,60 @@ class DeviceScopeActionResult implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('deviceScopeAction', $this->deviceScopeAction);
-        $writer->writeStringValue('deviceScopeId', $this->deviceScopeId);
-        $writer->writeStringValue('failedMessage', $this->failedMessage);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('deviceScopeAction', $this->getDeviceScopeAction());
+        $writer->writeStringValue('deviceScopeId', $this->getDeviceScopeId());
+        $writer->writeStringValue('failedMessage', $this->getFailedMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceScopeAction property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      *  @param string|null $value Value to set for the deviceScopeAction property.
     */
-    public function setDeviceScopeAction(?string $value ): void {
-        $this->deviceScopeAction = $value;
+    public function setDeviceScopeAction(?string $value): void {
+        $this->getBackingStore()->set('deviceScopeAction', $value);
     }
 
     /**
      * Sets the deviceScopeId property value. The unique identifier of the device scope the action was triggered on.
      *  @param string|null $value Value to set for the deviceScopeId property.
     */
-    public function setDeviceScopeId(?string $value ): void {
-        $this->deviceScopeId = $value;
+    public function setDeviceScopeId(?string $value): void {
+        $this->getBackingStore()->set('deviceScopeId', $value);
     }
 
     /**
      * Sets the failedMessage property value. The message indicates the reason the device scope action failed to trigger.
      *  @param string|null $value Value to set for the failedMessage property.
     */
-    public function setFailedMessage(?string $value ): void {
-        $this->failedMessage = $value;
+    public function setFailedMessage(?string $value): void {
+        $this->getBackingStore()->set('failedMessage', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. Indicates the status of the attempted device scope action
      *  @param DeviceScopeActionStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DeviceScopeActionStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DeviceScopeActionStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

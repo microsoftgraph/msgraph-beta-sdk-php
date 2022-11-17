@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDevices Number of active devices within the tenant. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDevices = null;
-    
-    /**
-     * @var int|null $batteryRuntimeFair Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryRuntimeFair = null;
-    
-    /**
-     * @var int|null $batteryRuntimeGood Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryRuntimeGood = null;
-    
-    /**
-     * @var int|null $batteryRuntimePoor Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryRuntimePoor = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Recorded date time of this runtime details instance.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthRuntimeDetails and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->activeDevices;
+        return $this->getBackingStore()->get('activeDevices');
     }
 
     /**
@@ -64,7 +39,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimeFair(): ?int {
-        return $this->batteryRuntimeFair;
+        return $this->getBackingStore()->get('batteryRuntimeFair');
     }
 
     /**
@@ -72,7 +47,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimeGood(): ?int {
-        return $this->batteryRuntimeGood;
+        return $this->getBackingStore()->get('batteryRuntimeGood');
     }
 
     /**
@@ -80,7 +55,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return int|null
     */
     public function getBatteryRuntimePoor(): ?int {
-        return $this->batteryRuntimePoor;
+        return $this->getBackingStore()->get('batteryRuntimePoor');
     }
 
     /**
@@ -103,7 +78,7 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -112,51 +87,51 @@ class UserExperienceAnalyticsBatteryHealthRuntimeDetails extends Entity implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDevices', $this->activeDevices);
-        $writer->writeIntegerValue('batteryRuntimeFair', $this->batteryRuntimeFair);
-        $writer->writeIntegerValue('batteryRuntimeGood', $this->batteryRuntimeGood);
-        $writer->writeIntegerValue('batteryRuntimePoor', $this->batteryRuntimePoor);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
+        $writer->writeIntegerValue('activeDevices', $this->getActiveDevices());
+        $writer->writeIntegerValue('batteryRuntimeFair', $this->getBatteryRuntimeFair());
+        $writer->writeIntegerValue('batteryRuntimeGood', $this->getBatteryRuntimeGood());
+        $writer->writeIntegerValue('batteryRuntimePoor', $this->getBatteryRuntimePoor());
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
     }
 
     /**
      * Sets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDevices property.
     */
-    public function setActiveDevices(?int $value ): void {
-        $this->activeDevices = $value;
+    public function setActiveDevices(?int $value): void {
+        $this->getBackingStore()->set('activeDevices', $value);
     }
 
     /**
      * Sets the batteryRuntimeFair property value. Number of devices whose active runtime is greater than 3 hours but lesser than 5 hours. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryRuntimeFair property.
     */
-    public function setBatteryRuntimeFair(?int $value ): void {
-        $this->batteryRuntimeFair = $value;
+    public function setBatteryRuntimeFair(?int $value): void {
+        $this->getBackingStore()->set('batteryRuntimeFair', $value);
     }
 
     /**
      * Sets the batteryRuntimeGood property value. Number of devices  whose active runtime is greater than 5 hours. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryRuntimeGood property.
     */
-    public function setBatteryRuntimeGood(?int $value ): void {
-        $this->batteryRuntimeGood = $value;
+    public function setBatteryRuntimeGood(?int $value): void {
+        $this->getBackingStore()->set('batteryRuntimeGood', $value);
     }
 
     /**
      * Sets the batteryRuntimePoor property value. Number of devices whose active runtime is lesser than 3 hours. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryRuntimePoor property.
     */
-    public function setBatteryRuntimePoor(?int $value ): void {
-        $this->batteryRuntimePoor = $value;
+    public function setBatteryRuntimePoor(?int $value): void {
+        $this->getBackingStore()->set('batteryRuntimePoor', $value);
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Recorded date time of this runtime details instance.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
 }

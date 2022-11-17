@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosLobApp extends MobileLobApp implements Parsable 
 {
     /**
-     * @var IosDeviceType|null $applicableDeviceType Contains properties of the possible iOS device types the mobile app can run on.
-    */
-    private ?IosDeviceType $applicableDeviceType = null;
-    
-    /**
-     * @var string|null $buildNumber The build number of iOS Line of Business (LoB) app.
-    */
-    private ?string $buildNumber = null;
-    
-    /**
-     * @var string|null $bundleId The Identity Name.
-    */
-    private ?string $bundleId = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The expiration time.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $identityVersion The identity version. This property is being deprecated in 2211(November 2022)
-    */
-    private ?string $identityVersion = null;
-    
-    /**
-     * @var IosMinimumOperatingSystem|null $minimumSupportedOperatingSystem The value for the minimum applicable operating system.
-    */
-    private ?IosMinimumOperatingSystem $minimumSupportedOperatingSystem = null;
-    
-    /**
-     * @var string|null $versionNumber The version number of iOS Line of Business (LoB) app.
-    */
-    private ?string $versionNumber = null;
-    
-    /**
      * Instantiates a new IosLobApp and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return IosDeviceType|null
     */
     public function getApplicableDeviceType(): ?IosDeviceType {
-        return $this->applicableDeviceType;
+        return $this->getBackingStore()->get('applicableDeviceType');
     }
 
     /**
@@ -74,7 +39,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getBuildNumber(): ?string {
-        return $this->buildNumber;
+        return $this->getBackingStore()->get('buildNumber');
     }
 
     /**
@@ -82,7 +47,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getBundleId(): ?string {
-        return $this->bundleId;
+        return $this->getBackingStore()->get('bundleId');
     }
 
     /**
@@ -90,7 +55,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -115,7 +80,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->identityVersion;
+        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -123,7 +88,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return IosMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?IosMinimumOperatingSystem {
-        return $this->minimumSupportedOperatingSystem;
+        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
     }
 
     /**
@@ -131,7 +96,7 @@ class IosLobApp extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getVersionNumber(): ?string {
-        return $this->versionNumber;
+        return $this->getBackingStore()->get('versionNumber');
     }
 
     /**
@@ -140,69 +105,69 @@ class IosLobApp extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('applicableDeviceType', $this->applicableDeviceType);
-        $writer->writeStringValue('buildNumber', $this->buildNumber);
-        $writer->writeStringValue('bundleId', $this->bundleId);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('identityVersion', $this->identityVersion);
-        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->minimumSupportedOperatingSystem);
-        $writer->writeStringValue('versionNumber', $this->versionNumber);
+        $writer->writeObjectValue('applicableDeviceType', $this->getApplicableDeviceType());
+        $writer->writeStringValue('buildNumber', $this->getBuildNumber());
+        $writer->writeStringValue('bundleId', $this->getBundleId());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
+        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('versionNumber', $this->getVersionNumber());
     }
 
     /**
      * Sets the applicableDeviceType property value. Contains properties of the possible iOS device types the mobile app can run on.
      *  @param IosDeviceType|null $value Value to set for the applicableDeviceType property.
     */
-    public function setApplicableDeviceType(?IosDeviceType $value ): void {
-        $this->applicableDeviceType = $value;
+    public function setApplicableDeviceType(?IosDeviceType $value): void {
+        $this->getBackingStore()->set('applicableDeviceType', $value);
     }
 
     /**
      * Sets the buildNumber property value. The build number of iOS Line of Business (LoB) app.
      *  @param string|null $value Value to set for the buildNumber property.
     */
-    public function setBuildNumber(?string $value ): void {
-        $this->buildNumber = $value;
+    public function setBuildNumber(?string $value): void {
+        $this->getBackingStore()->set('buildNumber', $value);
     }
 
     /**
      * Sets the bundleId property value. The Identity Name.
      *  @param string|null $value Value to set for the bundleId property.
     */
-    public function setBundleId(?string $value ): void {
-        $this->bundleId = $value;
+    public function setBundleId(?string $value): void {
+        $this->getBackingStore()->set('bundleId', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. The expiration time.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
      *  @param string|null $value Value to set for the identityVersion property.
     */
-    public function setIdentityVersion(?string $value ): void {
-        $this->identityVersion = $value;
+    public function setIdentityVersion(?string $value): void {
+        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
      *  @param IosMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
-    public function setMinimumSupportedOperatingSystem(?IosMinimumOperatingSystem $value ): void {
-        $this->minimumSupportedOperatingSystem = $value;
+    public function setMinimumSupportedOperatingSystem(?IosMinimumOperatingSystem $value): void {
+        $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
     }
 
     /**
      * Sets the versionNumber property value. The version number of iOS Line of Business (LoB) app.
      *  @param string|null $value Value to set for the versionNumber property.
     */
-    public function setVersionNumber(?string $value ): void {
-        $this->versionNumber = $value;
+    public function setVersionNumber(?string $value): void {
+        $this->getBackingStore()->set('versionNumber', $value);
     }
 
 }

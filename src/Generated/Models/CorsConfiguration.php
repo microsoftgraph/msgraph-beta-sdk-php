@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CorsConfiguration implements AdditionalDataHolder, Parsable 
+class CorsConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $allowedHeaders The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
-    */
-    private ?array $allowedHeaders = null;
-    
-    /**
-     * @var array<string>|null $allowedMethods The HTTP request methods that the origin domain may use for a CORS request.
-    */
-    private ?array $allowedMethods = null;
-    
-    /**
-     * @var array<string>|null $allowedOrigins The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
-    */
-    private ?array $allowedOrigins = null;
-    
-    /**
-     * @var int|null $maxAgeInSeconds The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
-    */
-    private ?int $maxAgeInSeconds = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $resource Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
-    */
-    private ?string $resource = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new corsConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.corsConfiguration');
     }
@@ -65,8 +39,8 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -74,7 +48,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAllowedHeaders(): ?array {
-        return $this->allowedHeaders;
+        return $this->getBackingStore()->get('allowedHeaders');
     }
 
     /**
@@ -82,7 +56,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAllowedMethods(): ?array {
-        return $this->allowedMethods;
+        return $this->getBackingStore()->get('allowedMethods');
     }
 
     /**
@@ -90,7 +64,15 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAllowedOrigins(): ?array {
-        return $this->allowedOrigins;
+        return $this->getBackingStore()->get('allowedOrigins');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -114,7 +96,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getMaxAgeInSeconds(): ?int {
-        return $this->maxAgeInSeconds;
+        return $this->getBackingStore()->get('maxAgeInSeconds');
     }
 
     /**
@@ -122,7 +104,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -130,7 +112,7 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getResource(): ?string {
-        return $this->resource;
+        return $this->getBackingStore()->get('resource');
     }
 
     /**
@@ -138,69 +120,69 @@ class CorsConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('allowedHeaders', $this->allowedHeaders);
-        $writer->writeCollectionOfPrimitiveValues('allowedMethods', $this->allowedMethods);
-        $writer->writeCollectionOfPrimitiveValues('allowedOrigins', $this->allowedOrigins);
-        $writer->writeIntegerValue('maxAgeInSeconds', $this->maxAgeInSeconds);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('resource', $this->resource);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('allowedHeaders', $this->getAllowedHeaders());
+        $writer->writeCollectionOfPrimitiveValues('allowedMethods', $this->getAllowedMethods());
+        $writer->writeCollectionOfPrimitiveValues('allowedOrigins', $this->getAllowedOrigins());
+        $writer->writeIntegerValue('maxAgeInSeconds', $this->getMaxAgeInSeconds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('resource', $this->getResource());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowedHeaders property value. The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.
      *  @param array<string>|null $value Value to set for the allowedHeaders property.
     */
-    public function setAllowedHeaders(?array $value ): void {
-        $this->allowedHeaders = $value;
+    public function setAllowedHeaders(?array $value): void {
+        $this->getBackingStore()->set('allowedHeaders', $value);
     }
 
     /**
      * Sets the allowedMethods property value. The HTTP request methods that the origin domain may use for a CORS request.
      *  @param array<string>|null $value Value to set for the allowedMethods property.
     */
-    public function setAllowedMethods(?array $value ): void {
-        $this->allowedMethods = $value;
+    public function setAllowedMethods(?array $value): void {
+        $this->getBackingStore()->set('allowedMethods', $value);
     }
 
     /**
      * Sets the allowedOrigins property value. The origin domains that are permitted to make a request against the service via CORS. The origin domain is the domain from which the request originates. The origin must be an exact case-sensitive match with the origin that the user age sends to the service.
      *  @param array<string>|null $value Value to set for the allowedOrigins property.
     */
-    public function setAllowedOrigins(?array $value ): void {
-        $this->allowedOrigins = $value;
+    public function setAllowedOrigins(?array $value): void {
+        $this->getBackingStore()->set('allowedOrigins', $value);
     }
 
     /**
      * Sets the maxAgeInSeconds property value. The maximum amount of time that a browser should cache the response to the preflight OPTIONS request.
      *  @param int|null $value Value to set for the maxAgeInSeconds property.
     */
-    public function setMaxAgeInSeconds(?int $value ): void {
-        $this->maxAgeInSeconds = $value;
+    public function setMaxAgeInSeconds(?int $value): void {
+        $this->getBackingStore()->set('maxAgeInSeconds', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the resource property value. Resource within the application segment for which CORS permissions are granted. / grants permission for whole app segment.
      *  @param string|null $value Value to set for the resource property.
     */
-    public function setResource(?string $value ): void {
-        $this->resource = $value;
+    public function setResource(?string $value): void {
+        $this->getBackingStore()->set('resource', $value);
     }
 
 }

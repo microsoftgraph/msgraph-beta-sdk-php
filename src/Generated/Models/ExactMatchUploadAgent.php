@@ -10,16 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchUploadAgent extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $creationDateTime The creationDateTime property
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
      * Instantiates a new exactMatchUploadAgent and sets the default values.
     */
     public function __construct() {
@@ -41,7 +31,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -49,7 +39,7 @@ class ExactMatchUploadAgent extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -70,24 +60,24 @@ class ExactMatchUploadAgent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeStringValue('description', $this->description);
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
     }
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
 }

@@ -11,881 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagement extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $accountMoveCompletionDateTime The date & time when tenant data moved between scaleunits.
-    */
-    private ?DateTime $accountMoveCompletionDateTime = null;
-    
-    /**
-     * @var AdminConsent|null $adminConsent Admin consent information.
-    */
-    private ?AdminConsent $adminConsent = null;
-    
-    /**
-     * @var AdvancedThreatProtectionOnboardingStateSummary|null $advancedThreatProtectionOnboardingStateSummary The summary state of ATP onboarding state for this account.
-    */
-    private ?AdvancedThreatProtectionOnboardingStateSummary $advancedThreatProtectionOnboardingStateSummary = null;
-    
-    /**
-     * @var array<AndroidDeviceOwnerEnrollmentProfile>|null $androidDeviceOwnerEnrollmentProfiles Android device owner enrollment profile entities.
-    */
-    private ?array $androidDeviceOwnerEnrollmentProfiles = null;
-    
-    /**
-     * @var array<AndroidForWorkAppConfigurationSchema>|null $androidForWorkAppConfigurationSchemas Android for Work app configuration schema entities.
-    */
-    private ?array $androidForWorkAppConfigurationSchemas = null;
-    
-    /**
-     * @var array<AndroidForWorkEnrollmentProfile>|null $androidForWorkEnrollmentProfiles Android for Work enrollment profile entities.
-    */
-    private ?array $androidForWorkEnrollmentProfiles = null;
-    
-    /**
-     * @var AndroidForWorkSettings|null $androidForWorkSettings The singleton Android for Work settings entity.
-    */
-    private ?AndroidForWorkSettings $androidForWorkSettings = null;
-    
-    /**
-     * @var AndroidManagedStoreAccountEnterpriseSettings|null $androidManagedStoreAccountEnterpriseSettings The singleton Android managed store account enterprise settings entity.
-    */
-    private ?AndroidManagedStoreAccountEnterpriseSettings $androidManagedStoreAccountEnterpriseSettings = null;
-    
-    /**
-     * @var array<AndroidManagedStoreAppConfigurationSchema>|null $androidManagedStoreAppConfigurationSchemas Android Enterprise app configuration schema entities.
-    */
-    private ?array $androidManagedStoreAppConfigurationSchemas = null;
-    
-    /**
-     * @var ApplePushNotificationCertificate|null $applePushNotificationCertificate Apple push notification certificate.
-    */
-    private ?ApplePushNotificationCertificate $applePushNotificationCertificate = null;
-    
-    /**
-     * @var array<AppleUserInitiatedEnrollmentProfile>|null $appleUserInitiatedEnrollmentProfiles Apple user initiated enrollment profiles
-    */
-    private ?array $appleUserInitiatedEnrollmentProfiles = null;
-    
-    /**
-     * @var array<DeviceAndAppManagementAssignmentFilter>|null $assignmentFilters The list of assignment filters
-    */
-    private ?array $assignmentFilters = null;
-    
-    /**
-     * @var array<AuditEvent>|null $auditEvents The Audit Events
-    */
-    private ?array $auditEvents = null;
-    
-    /**
-     * @var array<DeviceManagementAutopilotEvent>|null $autopilotEvents The list of autopilot events for the tenant.
-    */
-    private ?array $autopilotEvents = null;
-    
-    /**
-     * @var array<CartToClassAssociation>|null $cartToClassAssociations The Cart To Class Associations.
-    */
-    private ?array $cartToClassAssociations = null;
-    
-    /**
-     * @var array<DeviceManagementSettingCategory>|null $categories The available categories
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var array<CertificateConnectorDetails>|null $certificateConnectorDetails Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
-    */
-    private ?array $certificateConnectorDetails = null;
-    
-    /**
-     * @var array<ChromeOSOnboardingSettings>|null $chromeOSOnboardingSettings Collection of ChromeOSOnboardingSettings settings associated with account.
-    */
-    private ?array $chromeOSOnboardingSettings = null;
-    
-    /**
-     * @var array<CloudPCConnectivityIssue>|null $cloudPCConnectivityIssues The list of CloudPC Connectivity Issue.
-    */
-    private ?array $cloudPCConnectivityIssues = null;
-    
-    /**
-     * @var array<ManagedDevice>|null $comanagedDevices The list of co-managed devices report
-    */
-    private ?array $comanagedDevices = null;
-    
-    /**
-     * @var array<ComanagementEligibleDevice>|null $comanagementEligibleDevices The list of co-management eligible devices report
-    */
-    private ?array $comanagementEligibleDevices = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationCategory>|null $complianceCategories List of all compliance categories
-    */
-    private ?array $complianceCategories = null;
-    
-    /**
-     * @var array<ComplianceManagementPartner>|null $complianceManagementPartners The list of Compliance Management Partners configured by the tenant.
-    */
-    private ?array $complianceManagementPartners = null;
-    
-    /**
-     * @var array<DeviceManagementCompliancePolicy>|null $compliancePolicies List of all compliance policies
-    */
-    private ?array $compliancePolicies = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingDefinition>|null $complianceSettings List of all ComplianceSettings
-    */
-    private ?array $complianceSettings = null;
-    
-    /**
-     * @var OnPremisesConditionalAccessSettings|null $conditionalAccessSettings The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
-    */
-    private ?OnPremisesConditionalAccessSettings $conditionalAccessSettings = null;
-    
-    /**
-     * @var array<ConfigManagerCollection>|null $configManagerCollections A list of ConfigManagerCollection
-    */
-    private ?array $configManagerCollections = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationCategory>|null $configurationCategories List of all Configuration Categories
-    */
-    private ?array $configurationCategories = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationPolicy>|null $configurationPolicies List of all Configuration policies
-    */
-    private ?array $configurationPolicies = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationPolicyTemplate>|null $configurationPolicyTemplates List of all templates
-    */
-    private ?array $configurationPolicyTemplates = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingDefinition>|null $configurationSettings List of all ConfigurationSettings
-    */
-    private ?array $configurationSettings = null;
-    
-    /**
-     * @var DataProcessorServiceForWindowsFeaturesOnboarding|null $dataProcessorServiceForWindowsFeaturesOnboarding A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
-    */
-    private ?DataProcessorServiceForWindowsFeaturesOnboarding $dataProcessorServiceForWindowsFeaturesOnboarding = null;
-    
-    /**
-     * @var array<DataSharingConsent>|null $dataSharingConsents Data sharing consents.
-    */
-    private ?array $dataSharingConsents = null;
-    
-    /**
-     * @var array<DepOnboardingSetting>|null $depOnboardingSettings This collections of multiple DEP tokens per-tenant.
-    */
-    private ?array $depOnboardingSettings = null;
-    
-    /**
-     * @var array<DeviceManagementDerivedCredentialSettings>|null $derivedCredentials Collection of Derived credential settings associated with account.
-    */
-    private ?array $derivedCredentials = null;
-    
-    /**
-     * @var array<DetectedApp>|null $detectedApps The list of detected apps associated with a device.
-    */
-    private ?array $detectedApps = null;
-    
-    /**
-     * @var array<DeviceCategory>|null $deviceCategories The list of device categories with the tenant.
-    */
-    private ?array $deviceCategories = null;
-    
-    /**
-     * @var array<DeviceCompliancePolicy>|null $deviceCompliancePolicies The device compliance policies.
-    */
-    private ?array $deviceCompliancePolicies = null;
-    
-    /**
-     * @var DeviceCompliancePolicyDeviceStateSummary|null $deviceCompliancePolicyDeviceStateSummary The device compliance state summary for this account.
-    */
-    private ?DeviceCompliancePolicyDeviceStateSummary $deviceCompliancePolicyDeviceStateSummary = null;
-    
-    /**
-     * @var array<DeviceCompliancePolicySettingStateSummary>|null $deviceCompliancePolicySettingStateSummaries The summary states of compliance policy settings for this account.
-    */
-    private ?array $deviceCompliancePolicySettingStateSummaries = null;
-    
-    /**
-     * @var DateTime|null $deviceComplianceReportSummarizationDateTime The last requested time of device compliance reporting for this account. This property is read-only.
-    */
-    private ?DateTime $deviceComplianceReportSummarizationDateTime = null;
-    
-    /**
-     * @var array<DeviceComplianceScript>|null $deviceComplianceScripts The list of device compliance scripts associated with the tenant.
-    */
-    private ?array $deviceComplianceScripts = null;
-    
-    /**
-     * @var array<DeviceConfigurationConflictSummary>|null $deviceConfigurationConflictSummary Summary of policies in conflict state for this account.
-    */
-    private ?array $deviceConfigurationConflictSummary = null;
-    
-    /**
-     * @var DeviceConfigurationDeviceStateSummary|null $deviceConfigurationDeviceStateSummaries The device configuration device state summary for this account.
-    */
-    private ?DeviceConfigurationDeviceStateSummary $deviceConfigurationDeviceStateSummaries = null;
-    
-    /**
-     * @var array<RestrictedAppsViolation>|null $deviceConfigurationRestrictedAppsViolations Restricted apps violations for this account.
-    */
-    private ?array $deviceConfigurationRestrictedAppsViolations = null;
-    
-    /**
-     * @var array<DeviceConfiguration>|null $deviceConfigurations The device configurations.
-    */
-    private ?array $deviceConfigurations = null;
-    
-    /**
-     * @var array<ManagedAllDeviceCertificateState>|null $deviceConfigurationsAllManagedDeviceCertificateStates Summary of all certificates for all devices.
-    */
-    private ?array $deviceConfigurationsAllManagedDeviceCertificateStates = null;
-    
-    /**
-     * @var DeviceConfigurationUserStateSummary|null $deviceConfigurationUserStateSummaries The device configuration user state summary for this account.
-    */
-    private ?DeviceConfigurationUserStateSummary $deviceConfigurationUserStateSummaries = null;
-    
-    /**
-     * @var array<DeviceCustomAttributeShellScript>|null $deviceCustomAttributeShellScripts The list of device custom attribute shell scripts associated with the tenant.
-    */
-    private ?array $deviceCustomAttributeShellScripts = null;
-    
-    /**
-     * @var array<DeviceEnrollmentConfiguration>|null $deviceEnrollmentConfigurations The list of device enrollment configurations
-    */
-    private ?array $deviceEnrollmentConfigurations = null;
-    
-    /**
-     * @var array<DeviceHealthScript>|null $deviceHealthScripts The list of device health scripts associated with the tenant.
-    */
-    private ?array $deviceHealthScripts = null;
-    
-    /**
-     * @var array<DeviceManagementPartner>|null $deviceManagementPartners The list of Device Management Partners configured by the tenant.
-    */
-    private ?array $deviceManagementPartners = null;
-    
-    /**
-     * @var array<DeviceManagementScript>|null $deviceManagementScripts The list of device management scripts associated with the tenant.
-    */
-    private ?array $deviceManagementScripts = null;
-    
-    /**
-     * @var DeviceProtectionOverview|null $deviceProtectionOverview Device protection overview.
-    */
-    private ?DeviceProtectionOverview $deviceProtectionOverview = null;
-    
-    /**
-     * @var array<DeviceShellScript>|null $deviceShellScripts The list of device shell scripts associated with the tenant.
-    */
-    private ?array $deviceShellScripts = null;
-    
-    /**
-     * @var array<DeviceManagementDomainJoinConnector>|null $domainJoinConnectors A list of connector objects.
-    */
-    private ?array $domainJoinConnectors = null;
-    
-    /**
-     * @var array<EmbeddedSIMActivationCodePool>|null $embeddedSIMActivationCodePools The embedded SIM activation code pools created by this account.
-    */
-    private ?array $embeddedSIMActivationCodePools = null;
-    
-    /**
-     * @var array<DeviceManagementExchangeConnector>|null $exchangeConnectors The list of Exchange Connectors configured by the tenant.
-    */
-    private ?array $exchangeConnectors = null;
-    
-    /**
-     * @var array<DeviceManagementExchangeOnPremisesPolicy>|null $exchangeOnPremisesPolicies The list of Exchange On Premisis policies configured by the tenant.
-    */
-    private ?array $exchangeOnPremisesPolicies = null;
-    
-    /**
-     * @var DeviceManagementExchangeOnPremisesPolicy|null $exchangeOnPremisesPolicy The policy which controls mobile device access to Exchange On Premises
-    */
-    private ?DeviceManagementExchangeOnPremisesPolicy $exchangeOnPremisesPolicy = null;
-    
-    /**
-     * @var array<GroupPolicyCategory>|null $groupPolicyCategories The available group policy categories for this account.
-    */
-    private ?array $groupPolicyCategories = null;
-    
-    /**
-     * @var array<GroupPolicyConfiguration>|null $groupPolicyConfigurations The group policy configurations created by this account.
-    */
-    private ?array $groupPolicyConfigurations = null;
-    
-    /**
-     * @var array<GroupPolicyDefinitionFile>|null $groupPolicyDefinitionFiles The available group policy definition files for this account.
-    */
-    private ?array $groupPolicyDefinitionFiles = null;
-    
-    /**
-     * @var array<GroupPolicyDefinition>|null $groupPolicyDefinitions The available group policy definitions for this account.
-    */
-    private ?array $groupPolicyDefinitions = null;
-    
-    /**
-     * @var array<GroupPolicyMigrationReport>|null $groupPolicyMigrationReports A list of Group Policy migration reports.
-    */
-    private ?array $groupPolicyMigrationReports = null;
-    
-    /**
-     * @var array<GroupPolicyObjectFile>|null $groupPolicyObjectFiles A list of Group Policy Object files uploaded.
-    */
-    private ?array $groupPolicyObjectFiles = null;
-    
-    /**
-     * @var array<GroupPolicyUploadedDefinitionFile>|null $groupPolicyUploadedDefinitionFiles The available group policy uploaded definition files for this account.
-    */
-    private ?array $groupPolicyUploadedDefinitionFiles = null;
-    
-    /**
-     * @var array<ImportedDeviceIdentity>|null $importedDeviceIdentities The imported device identities.
-    */
-    private ?array $importedDeviceIdentities = null;
-    
-    /**
-     * @var array<ImportedWindowsAutopilotDeviceIdentity>|null $importedWindowsAutopilotDeviceIdentities Collection of imported Windows autopilot devices.
-    */
-    private ?array $importedWindowsAutopilotDeviceIdentities = null;
-    
-    /**
-     * @var array<DeviceManagementIntent>|null $intents The device management intents
-    */
-    private ?array $intents = null;
-    
-    /**
-     * @var string|null $intuneAccountId Intune Account ID for given tenant
-    */
-    private ?string $intuneAccountId = null;
-    
-    /**
-     * @var IntuneBrand|null $intuneBrand intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
-    */
-    private ?IntuneBrand $intuneBrand = null;
-    
-    /**
-     * @var array<IntuneBrandingProfile>|null $intuneBrandingProfiles Intune branding profiles targeted to AAD groups
-    */
-    private ?array $intuneBrandingProfiles = null;
-    
-    /**
-     * @var array<IosUpdateDeviceStatus>|null $iosUpdateStatuses The IOS software update installation statuses for this account.
-    */
-    private ?array $iosUpdateStatuses = null;
-    
-    /**
-     * @var DateTime|null $lastReportAggregationDateTime The last modified time of reporting for this account. This property is read-only.
-    */
-    private ?DateTime $lastReportAggregationDateTime = null;
-    
-    /**
-     * @var bool|null $legacyPcManangementEnabled The property to enable Non-MDM managed legacy PC management for this account. This property is read-only.
-    */
-    private ?bool $legacyPcManangementEnabled = null;
-    
-    /**
-     * @var array<MacOSSoftwareUpdateAccountSummary>|null $macOSSoftwareUpdateAccountSummaries The MacOS software update account summaries for this account.
-    */
-    private ?array $macOSSoftwareUpdateAccountSummaries = null;
-    
-    /**
-     * @var ManagedDeviceCleanupSettings|null $managedDeviceCleanupSettings Device cleanup rule
-    */
-    private ?ManagedDeviceCleanupSettings $managedDeviceCleanupSettings = null;
-    
-    /**
-     * @var array<ManagedDeviceEncryptionState>|null $managedDeviceEncryptionStates Encryption report for devices in this account
-    */
-    private ?array $managedDeviceEncryptionStates = null;
-    
-    /**
-     * @var ManagedDeviceOverview|null $managedDeviceOverview Device overview
-    */
-    private ?ManagedDeviceOverview $managedDeviceOverview = null;
-    
-    /**
-     * @var array<ManagedDevice>|null $managedDevices The list of managed devices.
-    */
-    private ?array $managedDevices = null;
-    
-    /**
-     * @var int|null $maximumDepTokens Maximum number of DEP tokens allowed per-tenant.
-    */
-    private ?int $maximumDepTokens = null;
-    
-    /**
-     * @var array<MicrosoftTunnelConfiguration>|null $microsoftTunnelConfigurations Collection of MicrosoftTunnelConfiguration settings associated with account.
-    */
-    private ?array $microsoftTunnelConfigurations = null;
-    
-    /**
-     * @var array<MicrosoftTunnelHealthThreshold>|null $microsoftTunnelHealthThresholds Collection of MicrosoftTunnelHealthThreshold settings associated with account.
-    */
-    private ?array $microsoftTunnelHealthThresholds = null;
-    
-    /**
-     * @var array<MicrosoftTunnelServerLogCollectionResponse>|null $microsoftTunnelServerLogCollectionResponses Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
-    */
-    private ?array $microsoftTunnelServerLogCollectionResponses = null;
-    
-    /**
-     * @var array<MicrosoftTunnelSite>|null $microsoftTunnelSites Collection of MicrosoftTunnelSite settings associated with account.
-    */
-    private ?array $microsoftTunnelSites = null;
-    
-    /**
-     * @var array<MobileAppTroubleshootingEvent>|null $mobileAppTroubleshootingEvents The collection property of MobileAppTroubleshootingEvent.
-    */
-    private ?array $mobileAppTroubleshootingEvents = null;
-    
-    /**
-     * @var array<MobileThreatDefenseConnector>|null $mobileThreatDefenseConnectors The list of Mobile threat Defense connectors configured by the tenant.
-    */
-    private ?array $mobileThreatDefenseConnectors = null;
-    
-    /**
-     * @var Monitoring|null $monitoring The monitoring property
-    */
-    private ?Monitoring $monitoring = null;
-    
-    /**
-     * @var array<NdesConnector>|null $ndesConnectors The collection of Ndes connectors for this account.
-    */
-    private ?array $ndesConnectors = null;
-    
-    /**
-     * @var array<NotificationMessageTemplate>|null $notificationMessageTemplates The Notification Message Templates.
-    */
-    private ?array $notificationMessageTemplates = null;
-    
-    /**
-     * @var array<OemWarrantyInformationOnboarding>|null $oemWarrantyInformationOnboarding List of OEM Warranty Statuses
-    */
-    private ?array $oemWarrantyInformationOnboarding = null;
-    
-    /**
-     * @var array<RemoteActionAudit>|null $remoteActionAudits The list of device remote action audits with the tenant.
-    */
-    private ?array $remoteActionAudits = null;
-    
-    /**
-     * @var array<RemoteAssistancePartner>|null $remoteAssistancePartners The remote assist partners.
-    */
-    private ?array $remoteAssistancePartners = null;
-    
-    /**
-     * @var RemoteAssistanceSettings|null $remoteAssistanceSettings The remote assistance settings singleton
-    */
-    private ?RemoteAssistanceSettings $remoteAssistanceSettings = null;
-    
-    /**
-     * @var DeviceManagementReports|null $reports Reports singleton
-    */
-    private ?DeviceManagementReports $reports = null;
-    
-    /**
-     * @var array<DeviceManagementResourceAccessProfileBase>|null $resourceAccessProfiles Collection of resource access settings associated with account.
-    */
-    private ?array $resourceAccessProfiles = null;
-    
-    /**
-     * @var array<ResourceOperation>|null $resourceOperations The Resource Operations.
-    */
-    private ?array $resourceOperations = null;
-    
-    /**
-     * @var array<DeviceManagementReusablePolicySetting>|null $reusablePolicySettings List of all reusable settings that can be referred in a policy
-    */
-    private ?array $reusablePolicySettings = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingDefinition>|null $reusableSettings List of all reusable settings
-    */
-    private ?array $reusableSettings = null;
-    
-    /**
-     * @var array<DeviceAndAppManagementRoleAssignment>|null $roleAssignments The Role Assignments.
-    */
-    private ?array $roleAssignments = null;
-    
-    /**
-     * @var array<RoleDefinition>|null $roleDefinitions The Role Definitions.
-    */
-    private ?array $roleDefinitions = null;
-    
-    /**
-     * @var array<RoleScopeTag>|null $roleScopeTags The Role Scope Tags.
-    */
-    private ?array $roleScopeTags = null;
-    
-    /**
-     * @var array<DeviceManagementSettingDefinition>|null $settingDefinitions The device management intent setting definitions
-    */
-    private ?array $settingDefinitions = null;
-    
-    /**
-     * @var DeviceManagementSettings|null $settings Account level settings.
-    */
-    private ?DeviceManagementSettings $settings = null;
-    
-    /**
-     * @var SoftwareUpdateStatusSummary|null $softwareUpdateStatusSummary The software update status summary.
-    */
-    private ?SoftwareUpdateStatusSummary $softwareUpdateStatusSummary = null;
-    
-    /**
-     * @var DeviceManagementSubscriptions|null $subscriptions Tenant mobile device management subscriptions.
-    */
-    private ?DeviceManagementSubscriptions $subscriptions = null;
-    
-    /**
-     * @var DeviceManagementSubscriptionState|null $subscriptionState Tenant mobile device management subscription state.
-    */
-    private ?DeviceManagementSubscriptionState $subscriptionState = null;
-    
-    /**
-     * @var array<TelecomExpenseManagementPartner>|null $telecomExpenseManagementPartners The telecom expense management partners.
-    */
-    private ?array $telecomExpenseManagementPartners = null;
-    
-    /**
-     * @var array<DeviceManagementTemplate>|null $templates The available templates
-    */
-    private ?array $templates = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingTemplate>|null $templateSettings List of all TemplateSettings
-    */
-    private ?array $templateSettings = null;
-    
-    /**
-     * @var TenantAttachRBAC|null $tenantAttachRBAC TenantAttach RBAC Enablement
-    */
-    private ?TenantAttachRBAC $tenantAttachRBAC = null;
-    
-    /**
-     * @var array<TermsAndConditions>|null $termsAndConditions The terms and conditions associated with device management of the company.
-    */
-    private ?array $termsAndConditions = null;
-    
-    /**
-     * @var array<DeviceManagementTroubleshootingEvent>|null $troubleshootingEvents The list of troubleshooting events for the tenant.
-    */
-    private ?array $troubleshootingEvents = null;
-    
-    /**
-     * @var bool|null $unlicensedAdminstratorsEnabled When enabled, users assigned as administrators via Role Assignment Memberships do not require an assigned Intune license. Prior to this, only Intune licensed users were granted permissions with an Intune role unless they were assigned a role via Azure Active Directory. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators are unaffected, do not have to be direct members, nor does the 350 member limit apply. This property is read-only.
-    */
-    private ?bool $unlicensedAdminstratorsEnabled = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAnomaly>|null $userExperienceAnalyticsAnomaly The user experience analytics anomaly entity contains anomaly details.
-    */
-    private ?array $userExperienceAnalyticsAnomaly = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAnomalyDevice>|null $userExperienceAnalyticsAnomalyDevice The user experience analytics anomaly entity contains device details.
-    */
-    private ?array $userExperienceAnalyticsAnomalyDevice = null;
-    
-    /**
-     * @var UserExperienceAnalyticsAnomalySeverityOverview|null $userExperienceAnalyticsAnomalySeverityOverview The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
-    */
-    private ?UserExperienceAnalyticsAnomalySeverityOverview $userExperienceAnalyticsAnomalySeverityOverview = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $userExperienceAnalyticsAppHealthApplicationPerformance User experience analytics appHealth Application Performance
-    */
-    private ?array $userExperienceAnalyticsAppHealthApplicationPerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion User experience analytics appHealth Application Performance by App Version
-    */
-    private ?array $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails User experience analytics appHealth Application Performance by App Version details
-    */
-    private ?array $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId User experience analytics appHealth Application Performance by App Version Device Id
-    */
-    private ?array $userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null $userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion User experience analytics appHealth Application Performance by OS Version
-    */
-    private ?array $userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null $userExperienceAnalyticsAppHealthDeviceModelPerformance User experience analytics appHealth Model Performance
-    */
-    private ?array $userExperienceAnalyticsAppHealthDeviceModelPerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthDevicePerformance>|null $userExperienceAnalyticsAppHealthDevicePerformance User experience analytics appHealth Device Performance
-    */
-    private ?array $userExperienceAnalyticsAppHealthDevicePerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null $userExperienceAnalyticsAppHealthDevicePerformanceDetails User experience analytics device performance details
-    */
-    private ?array $userExperienceAnalyticsAppHealthDevicePerformanceDetails = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null $userExperienceAnalyticsAppHealthOSVersionPerformance User experience analytics appHealth OS version Performance
-    */
-    private ?array $userExperienceAnalyticsAppHealthOSVersionPerformance = null;
-    
-    /**
-     * @var UserExperienceAnalyticsCategory|null $userExperienceAnalyticsAppHealthOverview User experience analytics appHealth overview
-    */
-    private ?UserExperienceAnalyticsCategory $userExperienceAnalyticsAppHealthOverview = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBaseline>|null $userExperienceAnalyticsBaselines User experience analytics baselines
-    */
-    private ?array $userExperienceAnalyticsBaselines = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthAppImpact>|null $userExperienceAnalyticsBatteryHealthAppImpact User Experience Analytics Battery Health App Impact
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthAppImpact = null;
-    
-    /**
-     * @var UserExperienceAnalyticsBatteryHealthCapacityDetails|null $userExperienceAnalyticsBatteryHealthCapacityDetails User Experience Analytics Battery Health Capacity Details
-    */
-    private ?UserExperienceAnalyticsBatteryHealthCapacityDetails $userExperienceAnalyticsBatteryHealthCapacityDetails = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null $userExperienceAnalyticsBatteryHealthDeviceAppImpact User Experience Analytics Battery Health Device App Impact
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthDeviceAppImpact = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null $userExperienceAnalyticsBatteryHealthDevicePerformance User Experience Analytics Battery Health Device Performance
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthDevicePerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory User Experience Analytics Battery Health Device Runtime History
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null $userExperienceAnalyticsBatteryHealthModelPerformance User Experience Analytics Battery Health Model Performance
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthModelPerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null $userExperienceAnalyticsBatteryHealthOsPerformance User Experience Analytics Battery Health Os Performance
-    */
-    private ?array $userExperienceAnalyticsBatteryHealthOsPerformance = null;
-    
-    /**
-     * @var UserExperienceAnalyticsBatteryHealthRuntimeDetails|null $userExperienceAnalyticsBatteryHealthRuntimeDetails User Experience Analytics Battery Health Runtime Details
-    */
-    private ?UserExperienceAnalyticsBatteryHealthRuntimeDetails $userExperienceAnalyticsBatteryHealthRuntimeDetails = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsCategory>|null $userExperienceAnalyticsCategories User experience analytics categories
-    */
-    private ?array $userExperienceAnalyticsCategories = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsMetricHistory>|null $userExperienceAnalyticsDeviceMetricHistory User experience analytics device metric history
-    */
-    private ?array $userExperienceAnalyticsDeviceMetricHistory = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDevicePerformance>|null $userExperienceAnalyticsDevicePerformance User experience analytics device performance
-    */
-    private ?array $userExperienceAnalyticsDevicePerformance = null;
-    
-    /**
-     * @var UserExperienceAnalyticsDeviceScope|null $userExperienceAnalyticsDeviceScope The user experience analytics device scope entity endpoint to trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
-    */
-    private ?UserExperienceAnalyticsDeviceScope $userExperienceAnalyticsDeviceScope = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceScope>|null $userExperienceAnalyticsDeviceScopes The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
-    */
-    private ?array $userExperienceAnalyticsDeviceScopes = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceScores>|null $userExperienceAnalyticsDeviceScores User experience analytics device scores
-    */
-    private ?array $userExperienceAnalyticsDeviceScores = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceStartupHistory>|null $userExperienceAnalyticsDeviceStartupHistory User experience analytics device Startup History
-    */
-    private ?array $userExperienceAnalyticsDeviceStartupHistory = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceStartupProcess>|null $userExperienceAnalyticsDeviceStartupProcesses User experience analytics device Startup Processes
-    */
-    private ?array $userExperienceAnalyticsDeviceStartupProcesses = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null $userExperienceAnalyticsDeviceStartupProcessPerformance User experience analytics device Startup Process Performance
-    */
-    private ?array $userExperienceAnalyticsDeviceStartupProcessPerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null $userExperienceAnalyticsDevicesWithoutCloudIdentity User experience analytics devices without cloud identity.
-    */
-    private ?array $userExperienceAnalyticsDevicesWithoutCloudIdentity = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsImpactingProcess>|null $userExperienceAnalyticsImpactingProcess User experience analytics impacting process
-    */
-    private ?array $userExperienceAnalyticsImpactingProcess = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsMetricHistory>|null $userExperienceAnalyticsMetricHistory User experience analytics metric history
-    */
-    private ?array $userExperienceAnalyticsMetricHistory = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsModelScores>|null $userExperienceAnalyticsModelScores User experience analytics model scores
-    */
-    private ?array $userExperienceAnalyticsModelScores = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null $userExperienceAnalyticsNotAutopilotReadyDevice User experience analytics devices not Windows Autopilot ready.
-    */
-    private ?array $userExperienceAnalyticsNotAutopilotReadyDevice = null;
-    
-    /**
-     * @var UserExperienceAnalyticsOverview|null $userExperienceAnalyticsOverview User experience analytics overview
-    */
-    private ?UserExperienceAnalyticsOverview $userExperienceAnalyticsOverview = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsRemoteConnection>|null $userExperienceAnalyticsRemoteConnection User experience analytics remote connection
-    */
-    private ?array $userExperienceAnalyticsRemoteConnection = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsResourcePerformance>|null $userExperienceAnalyticsResourcePerformance User experience analytics resource performance
-    */
-    private ?array $userExperienceAnalyticsResourcePerformance = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsScoreHistory>|null $userExperienceAnalyticsScoreHistory User experience analytics device Startup Score History
-    */
-    private ?array $userExperienceAnalyticsScoreHistory = null;
-    
-    /**
-     * @var UserExperienceAnalyticsSettings|null $userExperienceAnalyticsSettings User experience analytics device settings
-    */
-    private ?UserExperienceAnalyticsSettings $userExperienceAnalyticsSettings = null;
-    
-    /**
-     * @var UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric User experience analytics work from anywhere hardware readiness metrics.
-    */
-    private ?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null $userExperienceAnalyticsWorkFromAnywhereMetrics User experience analytics work from anywhere metrics.
-    */
-    private ?array $userExperienceAnalyticsWorkFromAnywhereMetrics = null;
-    
-    /**
-     * @var array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null $userExperienceAnalyticsWorkFromAnywhereModelPerformance The user experience analytics work from anywhere model performance
-    */
-    private ?array $userExperienceAnalyticsWorkFromAnywhereModelPerformance = null;
-    
-    /**
-     * @var array<UserPFXCertificate>|null $userPfxCertificates Collection of PFX certificates associated with a user.
-    */
-    private ?array $userPfxCertificates = null;
-    
-    /**
-     * @var VirtualEndpoint|null $virtualEndpoint The virtualEndpoint property
-    */
-    private ?VirtualEndpoint $virtualEndpoint = null;
-    
-    /**
-     * @var array<WindowsAutopilotDeploymentProfile>|null $windowsAutopilotDeploymentProfiles Windows auto pilot deployment profiles
-    */
-    private ?array $windowsAutopilotDeploymentProfiles = null;
-    
-    /**
-     * @var array<WindowsAutopilotDeviceIdentity>|null $windowsAutopilotDeviceIdentities The Windows autopilot device identities contained collection.
-    */
-    private ?array $windowsAutopilotDeviceIdentities = null;
-    
-    /**
-     * @var WindowsAutopilotSettings|null $windowsAutopilotSettings The Windows autopilot account settings.
-    */
-    private ?WindowsAutopilotSettings $windowsAutopilotSettings = null;
-    
-    /**
-     * @var array<WindowsDriverUpdateProfile>|null $windowsDriverUpdateProfiles A collection of windows driver update profiles
-    */
-    private ?array $windowsDriverUpdateProfiles = null;
-    
-    /**
-     * @var array<WindowsFeatureUpdateProfile>|null $windowsFeatureUpdateProfiles A collection of windows feature update profiles
-    */
-    private ?array $windowsFeatureUpdateProfiles = null;
-    
-    /**
-     * @var array<WindowsInformationProtectionAppLearningSummary>|null $windowsInformationProtectionAppLearningSummaries The windows information protection app learning summaries.
-    */
-    private ?array $windowsInformationProtectionAppLearningSummaries = null;
-    
-    /**
-     * @var array<WindowsInformationProtectionNetworkLearningSummary>|null $windowsInformationProtectionNetworkLearningSummaries The windows information protection network learning summaries.
-    */
-    private ?array $windowsInformationProtectionNetworkLearningSummaries = null;
-    
-    /**
-     * @var array<WindowsMalwareInformation>|null $windowsMalwareInformation The list of affected malware in the tenant.
-    */
-    private ?array $windowsMalwareInformation = null;
-    
-    /**
-     * @var WindowsMalwareOverview|null $windowsMalwareOverview Malware overview for windows devices.
-    */
-    private ?WindowsMalwareOverview $windowsMalwareOverview = null;
-    
-    /**
-     * @var array<WindowsQualityUpdateProfile>|null $windowsQualityUpdateProfiles A collection of windows quality update profiles
-    */
-    private ?array $windowsQualityUpdateProfiles = null;
-    
-    /**
-     * @var array<WindowsUpdateCatalogItem>|null $windowsUpdateCatalogItems A collection of windows update catalog items (fetaure updates item , quality updates item)
-    */
-    private ?array $windowsUpdateCatalogItems = null;
-    
-    /**
-     * @var array<ZebraFotaArtifact>|null $zebraFotaArtifacts The Collection of ZebraFotaArtifacts.
-    */
-    private ?array $zebraFotaArtifacts = null;
-    
-    /**
-     * @var ZebraFotaConnector|null $zebraFotaConnector The singleton ZebraFotaConnector associated with account.
-    */
-    private ?ZebraFotaConnector $zebraFotaConnector = null;
-    
-    /**
-     * @var array<ZebraFotaDeployment>|null $zebraFotaDeployments Collection of ZebraFotaDeployments associated with account.
-    */
-    private ?array $zebraFotaDeployments = null;
-    
-    /**
      * Instantiates a new DeviceManagement and sets the default values.
     */
     public function __construct() {
@@ -907,7 +32,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAccountMoveCompletionDateTime(): ?DateTime {
-        return $this->accountMoveCompletionDateTime;
+        return $this->getBackingStore()->get('accountMoveCompletionDateTime');
     }
 
     /**
@@ -915,7 +40,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return AdminConsent|null
     */
     public function getAdminConsent(): ?AdminConsent {
-        return $this->adminConsent;
+        return $this->getBackingStore()->get('adminConsent');
     }
 
     /**
@@ -923,7 +48,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return AdvancedThreatProtectionOnboardingStateSummary|null
     */
     public function getAdvancedThreatProtectionOnboardingStateSummary(): ?AdvancedThreatProtectionOnboardingStateSummary {
-        return $this->advancedThreatProtectionOnboardingStateSummary;
+        return $this->getBackingStore()->get('advancedThreatProtectionOnboardingStateSummary');
     }
 
     /**
@@ -931,7 +56,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidDeviceOwnerEnrollmentProfile>|null
     */
     public function getAndroidDeviceOwnerEnrollmentProfiles(): ?array {
-        return $this->androidDeviceOwnerEnrollmentProfiles;
+        return $this->getBackingStore()->get('androidDeviceOwnerEnrollmentProfiles');
     }
 
     /**
@@ -939,7 +64,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidForWorkAppConfigurationSchema>|null
     */
     public function getAndroidForWorkAppConfigurationSchemas(): ?array {
-        return $this->androidForWorkAppConfigurationSchemas;
+        return $this->getBackingStore()->get('androidForWorkAppConfigurationSchemas');
     }
 
     /**
@@ -947,7 +72,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidForWorkEnrollmentProfile>|null
     */
     public function getAndroidForWorkEnrollmentProfiles(): ?array {
-        return $this->androidForWorkEnrollmentProfiles;
+        return $this->getBackingStore()->get('androidForWorkEnrollmentProfiles');
     }
 
     /**
@@ -955,7 +80,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return AndroidForWorkSettings|null
     */
     public function getAndroidForWorkSettings(): ?AndroidForWorkSettings {
-        return $this->androidForWorkSettings;
+        return $this->getBackingStore()->get('androidForWorkSettings');
     }
 
     /**
@@ -963,7 +88,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return AndroidManagedStoreAccountEnterpriseSettings|null
     */
     public function getAndroidManagedStoreAccountEnterpriseSettings(): ?AndroidManagedStoreAccountEnterpriseSettings {
-        return $this->androidManagedStoreAccountEnterpriseSettings;
+        return $this->getBackingStore()->get('androidManagedStoreAccountEnterpriseSettings');
     }
 
     /**
@@ -971,7 +96,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AndroidManagedStoreAppConfigurationSchema>|null
     */
     public function getAndroidManagedStoreAppConfigurationSchemas(): ?array {
-        return $this->androidManagedStoreAppConfigurationSchemas;
+        return $this->getBackingStore()->get('androidManagedStoreAppConfigurationSchemas');
     }
 
     /**
@@ -979,7 +104,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return ApplePushNotificationCertificate|null
     */
     public function getApplePushNotificationCertificate(): ?ApplePushNotificationCertificate {
-        return $this->applePushNotificationCertificate;
+        return $this->getBackingStore()->get('applePushNotificationCertificate');
     }
 
     /**
@@ -987,7 +112,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AppleUserInitiatedEnrollmentProfile>|null
     */
     public function getAppleUserInitiatedEnrollmentProfiles(): ?array {
-        return $this->appleUserInitiatedEnrollmentProfiles;
+        return $this->getBackingStore()->get('appleUserInitiatedEnrollmentProfiles');
     }
 
     /**
@@ -995,7 +120,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceAndAppManagementAssignmentFilter>|null
     */
     public function getAssignmentFilters(): ?array {
-        return $this->assignmentFilters;
+        return $this->getBackingStore()->get('assignmentFilters');
     }
 
     /**
@@ -1003,7 +128,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<AuditEvent>|null
     */
     public function getAuditEvents(): ?array {
-        return $this->auditEvents;
+        return $this->getBackingStore()->get('auditEvents');
     }
 
     /**
@@ -1011,7 +136,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementAutopilotEvent>|null
     */
     public function getAutopilotEvents(): ?array {
-        return $this->autopilotEvents;
+        return $this->getBackingStore()->get('autopilotEvents');
     }
 
     /**
@@ -1019,7 +144,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CartToClassAssociation>|null
     */
     public function getCartToClassAssociations(): ?array {
-        return $this->cartToClassAssociations;
+        return $this->getBackingStore()->get('cartToClassAssociations');
     }
 
     /**
@@ -1027,7 +152,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementSettingCategory>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -1035,7 +160,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CertificateConnectorDetails>|null
     */
     public function getCertificateConnectorDetails(): ?array {
-        return $this->certificateConnectorDetails;
+        return $this->getBackingStore()->get('certificateConnectorDetails');
     }
 
     /**
@@ -1043,7 +168,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ChromeOSOnboardingSettings>|null
     */
     public function getChromeOSOnboardingSettings(): ?array {
-        return $this->chromeOSOnboardingSettings;
+        return $this->getBackingStore()->get('chromeOSOnboardingSettings');
     }
 
     /**
@@ -1051,7 +176,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<CloudPCConnectivityIssue>|null
     */
     public function getCloudPCConnectivityIssues(): ?array {
-        return $this->cloudPCConnectivityIssues;
+        return $this->getBackingStore()->get('cloudPCConnectivityIssues');
     }
 
     /**
@@ -1059,7 +184,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDevice>|null
     */
     public function getComanagedDevices(): ?array {
-        return $this->comanagedDevices;
+        return $this->getBackingStore()->get('comanagedDevices');
     }
 
     /**
@@ -1067,7 +192,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ComanagementEligibleDevice>|null
     */
     public function getComanagementEligibleDevices(): ?array {
-        return $this->comanagementEligibleDevices;
+        return $this->getBackingStore()->get('comanagementEligibleDevices');
     }
 
     /**
@@ -1075,7 +200,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationCategory>|null
     */
     public function getComplianceCategories(): ?array {
-        return $this->complianceCategories;
+        return $this->getBackingStore()->get('complianceCategories');
     }
 
     /**
@@ -1083,7 +208,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ComplianceManagementPartner>|null
     */
     public function getComplianceManagementPartners(): ?array {
-        return $this->complianceManagementPartners;
+        return $this->getBackingStore()->get('complianceManagementPartners');
     }
 
     /**
@@ -1091,7 +216,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementCompliancePolicy>|null
     */
     public function getCompliancePolicies(): ?array {
-        return $this->compliancePolicies;
+        return $this->getBackingStore()->get('compliancePolicies');
     }
 
     /**
@@ -1099,7 +224,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getComplianceSettings(): ?array {
-        return $this->complianceSettings;
+        return $this->getBackingStore()->get('complianceSettings');
     }
 
     /**
@@ -1107,7 +232,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return OnPremisesConditionalAccessSettings|null
     */
     public function getConditionalAccessSettings(): ?OnPremisesConditionalAccessSettings {
-        return $this->conditionalAccessSettings;
+        return $this->getBackingStore()->get('conditionalAccessSettings');
     }
 
     /**
@@ -1115,7 +240,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ConfigManagerCollection>|null
     */
     public function getConfigManagerCollections(): ?array {
-        return $this->configManagerCollections;
+        return $this->getBackingStore()->get('configManagerCollections');
     }
 
     /**
@@ -1123,7 +248,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationCategory>|null
     */
     public function getConfigurationCategories(): ?array {
-        return $this->configurationCategories;
+        return $this->getBackingStore()->get('configurationCategories');
     }
 
     /**
@@ -1131,7 +256,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicy>|null
     */
     public function getConfigurationPolicies(): ?array {
-        return $this->configurationPolicies;
+        return $this->getBackingStore()->get('configurationPolicies');
     }
 
     /**
@@ -1139,7 +264,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicyTemplate>|null
     */
     public function getConfigurationPolicyTemplates(): ?array {
-        return $this->configurationPolicyTemplates;
+        return $this->getBackingStore()->get('configurationPolicyTemplates');
     }
 
     /**
@@ -1147,7 +272,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getConfigurationSettings(): ?array {
-        return $this->configurationSettings;
+        return $this->getBackingStore()->get('configurationSettings');
     }
 
     /**
@@ -1155,7 +280,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DataProcessorServiceForWindowsFeaturesOnboarding|null
     */
     public function getDataProcessorServiceForWindowsFeaturesOnboarding(): ?DataProcessorServiceForWindowsFeaturesOnboarding {
-        return $this->dataProcessorServiceForWindowsFeaturesOnboarding;
+        return $this->getBackingStore()->get('dataProcessorServiceForWindowsFeaturesOnboarding');
     }
 
     /**
@@ -1163,7 +288,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DataSharingConsent>|null
     */
     public function getDataSharingConsents(): ?array {
-        return $this->dataSharingConsents;
+        return $this->getBackingStore()->get('dataSharingConsents');
     }
 
     /**
@@ -1171,7 +296,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DepOnboardingSetting>|null
     */
     public function getDepOnboardingSettings(): ?array {
-        return $this->depOnboardingSettings;
+        return $this->getBackingStore()->get('depOnboardingSettings');
     }
 
     /**
@@ -1179,7 +304,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementDerivedCredentialSettings>|null
     */
     public function getDerivedCredentials(): ?array {
-        return $this->derivedCredentials;
+        return $this->getBackingStore()->get('derivedCredentials');
     }
 
     /**
@@ -1187,7 +312,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DetectedApp>|null
     */
     public function getDetectedApps(): ?array {
-        return $this->detectedApps;
+        return $this->getBackingStore()->get('detectedApps');
     }
 
     /**
@@ -1195,7 +320,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCategory>|null
     */
     public function getDeviceCategories(): ?array {
-        return $this->deviceCategories;
+        return $this->getBackingStore()->get('deviceCategories');
     }
 
     /**
@@ -1203,7 +328,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCompliancePolicy>|null
     */
     public function getDeviceCompliancePolicies(): ?array {
-        return $this->deviceCompliancePolicies;
+        return $this->getBackingStore()->get('deviceCompliancePolicies');
     }
 
     /**
@@ -1211,7 +336,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceCompliancePolicyDeviceStateSummary|null
     */
     public function getDeviceCompliancePolicyDeviceStateSummary(): ?DeviceCompliancePolicyDeviceStateSummary {
-        return $this->deviceCompliancePolicyDeviceStateSummary;
+        return $this->getBackingStore()->get('deviceCompliancePolicyDeviceStateSummary');
     }
 
     /**
@@ -1219,7 +344,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCompliancePolicySettingStateSummary>|null
     */
     public function getDeviceCompliancePolicySettingStateSummaries(): ?array {
-        return $this->deviceCompliancePolicySettingStateSummaries;
+        return $this->getBackingStore()->get('deviceCompliancePolicySettingStateSummaries');
     }
 
     /**
@@ -1227,7 +352,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeviceComplianceReportSummarizationDateTime(): ?DateTime {
-        return $this->deviceComplianceReportSummarizationDateTime;
+        return $this->getBackingStore()->get('deviceComplianceReportSummarizationDateTime');
     }
 
     /**
@@ -1235,7 +360,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceComplianceScript>|null
     */
     public function getDeviceComplianceScripts(): ?array {
-        return $this->deviceComplianceScripts;
+        return $this->getBackingStore()->get('deviceComplianceScripts');
     }
 
     /**
@@ -1243,7 +368,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceConfigurationConflictSummary>|null
     */
     public function getDeviceConfigurationConflictSummary(): ?array {
-        return $this->deviceConfigurationConflictSummary;
+        return $this->getBackingStore()->get('deviceConfigurationConflictSummary');
     }
 
     /**
@@ -1251,7 +376,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceConfigurationDeviceStateSummary|null
     */
     public function getDeviceConfigurationDeviceStateSummaries(): ?DeviceConfigurationDeviceStateSummary {
-        return $this->deviceConfigurationDeviceStateSummaries;
+        return $this->getBackingStore()->get('deviceConfigurationDeviceStateSummaries');
     }
 
     /**
@@ -1259,7 +384,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RestrictedAppsViolation>|null
     */
     public function getDeviceConfigurationRestrictedAppsViolations(): ?array {
-        return $this->deviceConfigurationRestrictedAppsViolations;
+        return $this->getBackingStore()->get('deviceConfigurationRestrictedAppsViolations');
     }
 
     /**
@@ -1267,7 +392,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceConfiguration>|null
     */
     public function getDeviceConfigurations(): ?array {
-        return $this->deviceConfigurations;
+        return $this->getBackingStore()->get('deviceConfigurations');
     }
 
     /**
@@ -1275,7 +400,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedAllDeviceCertificateState>|null
     */
     public function getDeviceConfigurationsAllManagedDeviceCertificateStates(): ?array {
-        return $this->deviceConfigurationsAllManagedDeviceCertificateStates;
+        return $this->getBackingStore()->get('deviceConfigurationsAllManagedDeviceCertificateStates');
     }
 
     /**
@@ -1283,7 +408,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceConfigurationUserStateSummary|null
     */
     public function getDeviceConfigurationUserStateSummaries(): ?DeviceConfigurationUserStateSummary {
-        return $this->deviceConfigurationUserStateSummaries;
+        return $this->getBackingStore()->get('deviceConfigurationUserStateSummaries');
     }
 
     /**
@@ -1291,7 +416,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceCustomAttributeShellScript>|null
     */
     public function getDeviceCustomAttributeShellScripts(): ?array {
-        return $this->deviceCustomAttributeShellScripts;
+        return $this->getBackingStore()->get('deviceCustomAttributeShellScripts');
     }
 
     /**
@@ -1299,7 +424,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceEnrollmentConfiguration>|null
     */
     public function getDeviceEnrollmentConfigurations(): ?array {
-        return $this->deviceEnrollmentConfigurations;
+        return $this->getBackingStore()->get('deviceEnrollmentConfigurations');
     }
 
     /**
@@ -1307,7 +432,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceHealthScript>|null
     */
     public function getDeviceHealthScripts(): ?array {
-        return $this->deviceHealthScripts;
+        return $this->getBackingStore()->get('deviceHealthScripts');
     }
 
     /**
@@ -1315,7 +440,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementPartner>|null
     */
     public function getDeviceManagementPartners(): ?array {
-        return $this->deviceManagementPartners;
+        return $this->getBackingStore()->get('deviceManagementPartners');
     }
 
     /**
@@ -1323,7 +448,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementScript>|null
     */
     public function getDeviceManagementScripts(): ?array {
-        return $this->deviceManagementScripts;
+        return $this->getBackingStore()->get('deviceManagementScripts');
     }
 
     /**
@@ -1331,7 +456,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceProtectionOverview|null
     */
     public function getDeviceProtectionOverview(): ?DeviceProtectionOverview {
-        return $this->deviceProtectionOverview;
+        return $this->getBackingStore()->get('deviceProtectionOverview');
     }
 
     /**
@@ -1339,7 +464,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceShellScript>|null
     */
     public function getDeviceShellScripts(): ?array {
-        return $this->deviceShellScripts;
+        return $this->getBackingStore()->get('deviceShellScripts');
     }
 
     /**
@@ -1347,7 +472,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementDomainJoinConnector>|null
     */
     public function getDomainJoinConnectors(): ?array {
-        return $this->domainJoinConnectors;
+        return $this->getBackingStore()->get('domainJoinConnectors');
     }
 
     /**
@@ -1355,7 +480,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCodePool>|null
     */
     public function getEmbeddedSIMActivationCodePools(): ?array {
-        return $this->embeddedSIMActivationCodePools;
+        return $this->getBackingStore()->get('embeddedSIMActivationCodePools');
     }
 
     /**
@@ -1363,7 +488,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementExchangeConnector>|null
     */
     public function getExchangeConnectors(): ?array {
-        return $this->exchangeConnectors;
+        return $this->getBackingStore()->get('exchangeConnectors');
     }
 
     /**
@@ -1371,7 +496,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementExchangeOnPremisesPolicy>|null
     */
     public function getExchangeOnPremisesPolicies(): ?array {
-        return $this->exchangeOnPremisesPolicies;
+        return $this->getBackingStore()->get('exchangeOnPremisesPolicies');
     }
 
     /**
@@ -1379,7 +504,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementExchangeOnPremisesPolicy|null
     */
     public function getExchangeOnPremisesPolicy(): ?DeviceManagementExchangeOnPremisesPolicy {
-        return $this->exchangeOnPremisesPolicy;
+        return $this->getBackingStore()->get('exchangeOnPremisesPolicy');
     }
 
     /**
@@ -1572,7 +697,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyCategory>|null
     */
     public function getGroupPolicyCategories(): ?array {
-        return $this->groupPolicyCategories;
+        return $this->getBackingStore()->get('groupPolicyCategories');
     }
 
     /**
@@ -1580,7 +705,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyConfiguration>|null
     */
     public function getGroupPolicyConfigurations(): ?array {
-        return $this->groupPolicyConfigurations;
+        return $this->getBackingStore()->get('groupPolicyConfigurations');
     }
 
     /**
@@ -1588,7 +713,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyDefinitionFile>|null
     */
     public function getGroupPolicyDefinitionFiles(): ?array {
-        return $this->groupPolicyDefinitionFiles;
+        return $this->getBackingStore()->get('groupPolicyDefinitionFiles');
     }
 
     /**
@@ -1596,7 +721,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyDefinition>|null
     */
     public function getGroupPolicyDefinitions(): ?array {
-        return $this->groupPolicyDefinitions;
+        return $this->getBackingStore()->get('groupPolicyDefinitions');
     }
 
     /**
@@ -1604,7 +729,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyMigrationReport>|null
     */
     public function getGroupPolicyMigrationReports(): ?array {
-        return $this->groupPolicyMigrationReports;
+        return $this->getBackingStore()->get('groupPolicyMigrationReports');
     }
 
     /**
@@ -1612,7 +737,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyObjectFile>|null
     */
     public function getGroupPolicyObjectFiles(): ?array {
-        return $this->groupPolicyObjectFiles;
+        return $this->getBackingStore()->get('groupPolicyObjectFiles');
     }
 
     /**
@@ -1620,7 +745,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<GroupPolicyUploadedDefinitionFile>|null
     */
     public function getGroupPolicyUploadedDefinitionFiles(): ?array {
-        return $this->groupPolicyUploadedDefinitionFiles;
+        return $this->getBackingStore()->get('groupPolicyUploadedDefinitionFiles');
     }
 
     /**
@@ -1628,7 +753,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ImportedDeviceIdentity>|null
     */
     public function getImportedDeviceIdentities(): ?array {
-        return $this->importedDeviceIdentities;
+        return $this->getBackingStore()->get('importedDeviceIdentities');
     }
 
     /**
@@ -1636,7 +761,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ImportedWindowsAutopilotDeviceIdentity>|null
     */
     public function getImportedWindowsAutopilotDeviceIdentities(): ?array {
-        return $this->importedWindowsAutopilotDeviceIdentities;
+        return $this->getBackingStore()->get('importedWindowsAutopilotDeviceIdentities');
     }
 
     /**
@@ -1644,7 +769,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementIntent>|null
     */
     public function getIntents(): ?array {
-        return $this->intents;
+        return $this->getBackingStore()->get('intents');
     }
 
     /**
@@ -1652,7 +777,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return string|null
     */
     public function getIntuneAccountId(): ?string {
-        return $this->intuneAccountId;
+        return $this->getBackingStore()->get('intuneAccountId');
     }
 
     /**
@@ -1660,7 +785,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return IntuneBrand|null
     */
     public function getIntuneBrand(): ?IntuneBrand {
-        return $this->intuneBrand;
+        return $this->getBackingStore()->get('intuneBrand');
     }
 
     /**
@@ -1668,7 +793,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<IntuneBrandingProfile>|null
     */
     public function getIntuneBrandingProfiles(): ?array {
-        return $this->intuneBrandingProfiles;
+        return $this->getBackingStore()->get('intuneBrandingProfiles');
     }
 
     /**
@@ -1676,7 +801,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<IosUpdateDeviceStatus>|null
     */
     public function getIosUpdateStatuses(): ?array {
-        return $this->iosUpdateStatuses;
+        return $this->getBackingStore()->get('iosUpdateStatuses');
     }
 
     /**
@@ -1684,7 +809,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportAggregationDateTime(): ?DateTime {
-        return $this->lastReportAggregationDateTime;
+        return $this->getBackingStore()->get('lastReportAggregationDateTime');
     }
 
     /**
@@ -1692,7 +817,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return bool|null
     */
     public function getLegacyPcManangementEnabled(): ?bool {
-        return $this->legacyPcManangementEnabled;
+        return $this->getBackingStore()->get('legacyPcManangementEnabled');
     }
 
     /**
@@ -1700,7 +825,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MacOSSoftwareUpdateAccountSummary>|null
     */
     public function getMacOSSoftwareUpdateAccountSummaries(): ?array {
-        return $this->macOSSoftwareUpdateAccountSummaries;
+        return $this->getBackingStore()->get('macOSSoftwareUpdateAccountSummaries');
     }
 
     /**
@@ -1708,7 +833,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return ManagedDeviceCleanupSettings|null
     */
     public function getManagedDeviceCleanupSettings(): ?ManagedDeviceCleanupSettings {
-        return $this->managedDeviceCleanupSettings;
+        return $this->getBackingStore()->get('managedDeviceCleanupSettings');
     }
 
     /**
@@ -1716,7 +841,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDeviceEncryptionState>|null
     */
     public function getManagedDeviceEncryptionStates(): ?array {
-        return $this->managedDeviceEncryptionStates;
+        return $this->getBackingStore()->get('managedDeviceEncryptionStates');
     }
 
     /**
@@ -1724,7 +849,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return ManagedDeviceOverview|null
     */
     public function getManagedDeviceOverview(): ?ManagedDeviceOverview {
-        return $this->managedDeviceOverview;
+        return $this->getBackingStore()->get('managedDeviceOverview');
     }
 
     /**
@@ -1732,7 +857,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ManagedDevice>|null
     */
     public function getManagedDevices(): ?array {
-        return $this->managedDevices;
+        return $this->getBackingStore()->get('managedDevices');
     }
 
     /**
@@ -1740,7 +865,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return int|null
     */
     public function getMaximumDepTokens(): ?int {
-        return $this->maximumDepTokens;
+        return $this->getBackingStore()->get('maximumDepTokens');
     }
 
     /**
@@ -1748,7 +873,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelConfiguration>|null
     */
     public function getMicrosoftTunnelConfigurations(): ?array {
-        return $this->microsoftTunnelConfigurations;
+        return $this->getBackingStore()->get('microsoftTunnelConfigurations');
     }
 
     /**
@@ -1756,7 +881,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelHealthThreshold>|null
     */
     public function getMicrosoftTunnelHealthThresholds(): ?array {
-        return $this->microsoftTunnelHealthThresholds;
+        return $this->getBackingStore()->get('microsoftTunnelHealthThresholds');
     }
 
     /**
@@ -1764,7 +889,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelServerLogCollectionResponse>|null
     */
     public function getMicrosoftTunnelServerLogCollectionResponses(): ?array {
-        return $this->microsoftTunnelServerLogCollectionResponses;
+        return $this->getBackingStore()->get('microsoftTunnelServerLogCollectionResponses');
     }
 
     /**
@@ -1772,7 +897,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MicrosoftTunnelSite>|null
     */
     public function getMicrosoftTunnelSites(): ?array {
-        return $this->microsoftTunnelSites;
+        return $this->getBackingStore()->get('microsoftTunnelSites');
     }
 
     /**
@@ -1780,7 +905,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MobileAppTroubleshootingEvent>|null
     */
     public function getMobileAppTroubleshootingEvents(): ?array {
-        return $this->mobileAppTroubleshootingEvents;
+        return $this->getBackingStore()->get('mobileAppTroubleshootingEvents');
     }
 
     /**
@@ -1788,7 +913,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<MobileThreatDefenseConnector>|null
     */
     public function getMobileThreatDefenseConnectors(): ?array {
-        return $this->mobileThreatDefenseConnectors;
+        return $this->getBackingStore()->get('mobileThreatDefenseConnectors');
     }
 
     /**
@@ -1796,7 +921,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return Monitoring|null
     */
     public function getMonitoring(): ?Monitoring {
-        return $this->monitoring;
+        return $this->getBackingStore()->get('monitoring');
     }
 
     /**
@@ -1804,7 +929,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<NdesConnector>|null
     */
     public function getNdesConnectors(): ?array {
-        return $this->ndesConnectors;
+        return $this->getBackingStore()->get('ndesConnectors');
     }
 
     /**
@@ -1812,7 +937,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<NotificationMessageTemplate>|null
     */
     public function getNotificationMessageTemplates(): ?array {
-        return $this->notificationMessageTemplates;
+        return $this->getBackingStore()->get('notificationMessageTemplates');
     }
 
     /**
@@ -1820,7 +945,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<OemWarrantyInformationOnboarding>|null
     */
     public function getOemWarrantyInformationOnboarding(): ?array {
-        return $this->oemWarrantyInformationOnboarding;
+        return $this->getBackingStore()->get('oemWarrantyInformationOnboarding');
     }
 
     /**
@@ -1828,7 +953,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RemoteActionAudit>|null
     */
     public function getRemoteActionAudits(): ?array {
-        return $this->remoteActionAudits;
+        return $this->getBackingStore()->get('remoteActionAudits');
     }
 
     /**
@@ -1836,7 +961,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RemoteAssistancePartner>|null
     */
     public function getRemoteAssistancePartners(): ?array {
-        return $this->remoteAssistancePartners;
+        return $this->getBackingStore()->get('remoteAssistancePartners');
     }
 
     /**
@@ -1844,7 +969,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return RemoteAssistanceSettings|null
     */
     public function getRemoteAssistanceSettings(): ?RemoteAssistanceSettings {
-        return $this->remoteAssistanceSettings;
+        return $this->getBackingStore()->get('remoteAssistanceSettings');
     }
 
     /**
@@ -1852,7 +977,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementReports|null
     */
     public function getReports(): ?DeviceManagementReports {
-        return $this->reports;
+        return $this->getBackingStore()->get('reports');
     }
 
     /**
@@ -1860,7 +985,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementResourceAccessProfileBase>|null
     */
     public function getResourceAccessProfiles(): ?array {
-        return $this->resourceAccessProfiles;
+        return $this->getBackingStore()->get('resourceAccessProfiles');
     }
 
     /**
@@ -1868,7 +993,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ResourceOperation>|null
     */
     public function getResourceOperations(): ?array {
-        return $this->resourceOperations;
+        return $this->getBackingStore()->get('resourceOperations');
     }
 
     /**
@@ -1876,7 +1001,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementReusablePolicySetting>|null
     */
     public function getReusablePolicySettings(): ?array {
-        return $this->reusablePolicySettings;
+        return $this->getBackingStore()->get('reusablePolicySettings');
     }
 
     /**
@@ -1884,7 +1009,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getReusableSettings(): ?array {
-        return $this->reusableSettings;
+        return $this->getBackingStore()->get('reusableSettings');
     }
 
     /**
@@ -1892,7 +1017,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceAndAppManagementRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->roleAssignments;
+        return $this->getBackingStore()->get('roleAssignments');
     }
 
     /**
@@ -1900,7 +1025,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->roleDefinitions;
+        return $this->getBackingStore()->get('roleDefinitions');
     }
 
     /**
@@ -1908,7 +1033,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<RoleScopeTag>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->roleScopeTags;
+        return $this->getBackingStore()->get('roleScopeTags');
     }
 
     /**
@@ -1916,7 +1041,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->settingDefinitions;
+        return $this->getBackingStore()->get('settingDefinitions');
     }
 
     /**
@@ -1924,7 +1049,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSettings|null
     */
     public function getSettings(): ?DeviceManagementSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -1932,7 +1057,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return SoftwareUpdateStatusSummary|null
     */
     public function getSoftwareUpdateStatusSummary(): ?SoftwareUpdateStatusSummary {
-        return $this->softwareUpdateStatusSummary;
+        return $this->getBackingStore()->get('softwareUpdateStatusSummary');
     }
 
     /**
@@ -1940,7 +1065,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSubscriptions|null
     */
     public function getSubscriptions(): ?DeviceManagementSubscriptions {
-        return $this->subscriptions;
+        return $this->getBackingStore()->get('subscriptions');
     }
 
     /**
@@ -1948,7 +1073,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return DeviceManagementSubscriptionState|null
     */
     public function getSubscriptionState(): ?DeviceManagementSubscriptionState {
-        return $this->subscriptionState;
+        return $this->getBackingStore()->get('subscriptionState');
     }
 
     /**
@@ -1956,7 +1081,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<TelecomExpenseManagementPartner>|null
     */
     public function getTelecomExpenseManagementPartners(): ?array {
-        return $this->telecomExpenseManagementPartners;
+        return $this->getBackingStore()->get('telecomExpenseManagementPartners');
     }
 
     /**
@@ -1964,7 +1089,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementTemplate>|null
     */
     public function getTemplates(): ?array {
-        return $this->templates;
+        return $this->getBackingStore()->get('templates');
     }
 
     /**
@@ -1972,7 +1097,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingTemplate>|null
     */
     public function getTemplateSettings(): ?array {
-        return $this->templateSettings;
+        return $this->getBackingStore()->get('templateSettings');
     }
 
     /**
@@ -1980,7 +1105,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return TenantAttachRBAC|null
     */
     public function getTenantAttachRBAC(): ?TenantAttachRBAC {
-        return $this->tenantAttachRBAC;
+        return $this->getBackingStore()->get('tenantAttachRBAC');
     }
 
     /**
@@ -1988,7 +1113,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<TermsAndConditions>|null
     */
     public function getTermsAndConditions(): ?array {
-        return $this->termsAndConditions;
+        return $this->getBackingStore()->get('termsAndConditions');
     }
 
     /**
@@ -1996,7 +1121,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<DeviceManagementTroubleshootingEvent>|null
     */
     public function getTroubleshootingEvents(): ?array {
-        return $this->troubleshootingEvents;
+        return $this->getBackingStore()->get('troubleshootingEvents');
     }
 
     /**
@@ -2004,7 +1129,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return bool|null
     */
     public function getUnlicensedAdminstratorsEnabled(): ?bool {
-        return $this->unlicensedAdminstratorsEnabled;
+        return $this->getBackingStore()->get('unlicensedAdminstratorsEnabled');
     }
 
     /**
@@ -2012,7 +1137,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAnomaly>|null
     */
     public function getUserExperienceAnalyticsAnomaly(): ?array {
-        return $this->userExperienceAnalyticsAnomaly;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAnomaly');
     }
 
     /**
@@ -2020,7 +1145,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAnomalyDevice>|null
     */
     public function getUserExperienceAnalyticsAnomalyDevice(): ?array {
-        return $this->userExperienceAnalyticsAnomalyDevice;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalyDevice');
     }
 
     /**
@@ -2028,7 +1153,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsAnomalySeverityOverview|null
     */
     public function getUserExperienceAnalyticsAnomalySeverityOverview(): ?UserExperienceAnalyticsAnomalySeverityOverview {
-        return $this->userExperienceAnalyticsAnomalySeverityOverview;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAnomalySeverityOverview');
     }
 
     /**
@@ -2036,7 +1161,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformance(): ?array {
-        return $this->userExperienceAnalyticsAppHealthApplicationPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformance');
     }
 
     /**
@@ -2044,7 +1169,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): ?array {
-        return $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion');
     }
 
     /**
@@ -2052,7 +1177,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): ?array {
-        return $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails');
     }
 
     /**
@@ -2060,7 +1185,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): ?array {
-        return $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId');
     }
 
     /**
@@ -2068,7 +1193,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null
     */
     public function getUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): ?array {
-        return $this->userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion');
     }
 
     /**
@@ -2076,7 +1201,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthDeviceModelPerformance(): ?array {
-        return $this->userExperienceAnalyticsAppHealthDeviceModelPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDeviceModelPerformance');
     }
 
     /**
@@ -2084,7 +1209,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthDevicePerformance(): ?array {
-        return $this->userExperienceAnalyticsAppHealthDevicePerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformance');
     }
 
     /**
@@ -2092,7 +1217,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null
     */
     public function getUserExperienceAnalyticsAppHealthDevicePerformanceDetails(): ?array {
-        return $this->userExperienceAnalyticsAppHealthDevicePerformanceDetails;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthDevicePerformanceDetails');
     }
 
     /**
@@ -2100,7 +1225,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null
     */
     public function getUserExperienceAnalyticsAppHealthOSVersionPerformance(): ?array {
-        return $this->userExperienceAnalyticsAppHealthOSVersionPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOSVersionPerformance');
     }
 
     /**
@@ -2108,7 +1233,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsCategory|null
     */
     public function getUserExperienceAnalyticsAppHealthOverview(): ?UserExperienceAnalyticsCategory {
-        return $this->userExperienceAnalyticsAppHealthOverview;
+        return $this->getBackingStore()->get('userExperienceAnalyticsAppHealthOverview');
     }
 
     /**
@@ -2116,7 +1241,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBaseline>|null
     */
     public function getUserExperienceAnalyticsBaselines(): ?array {
-        return $this->userExperienceAnalyticsBaselines;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBaselines');
     }
 
     /**
@@ -2124,7 +1249,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthAppImpact>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthAppImpact(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthAppImpact;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthAppImpact');
     }
 
     /**
@@ -2132,7 +1257,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsBatteryHealthCapacityDetails|null
     */
     public function getUserExperienceAnalyticsBatteryHealthCapacityDetails(): ?UserExperienceAnalyticsBatteryHealthCapacityDetails {
-        return $this->userExperienceAnalyticsBatteryHealthCapacityDetails;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthCapacityDetails');
     }
 
     /**
@@ -2140,7 +1265,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDeviceAppImpact(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthDeviceAppImpact;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceAppImpact');
     }
 
     /**
@@ -2148,7 +1273,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDevicePerformance(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthDevicePerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDevicePerformance');
     }
 
     /**
@@ -2156,7 +1281,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory');
     }
 
     /**
@@ -2164,7 +1289,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthModelPerformance(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthModelPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthModelPerformance');
     }
 
     /**
@@ -2172,7 +1297,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null
     */
     public function getUserExperienceAnalyticsBatteryHealthOsPerformance(): ?array {
-        return $this->userExperienceAnalyticsBatteryHealthOsPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthOsPerformance');
     }
 
     /**
@@ -2180,7 +1305,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsBatteryHealthRuntimeDetails|null
     */
     public function getUserExperienceAnalyticsBatteryHealthRuntimeDetails(): ?UserExperienceAnalyticsBatteryHealthRuntimeDetails {
-        return $this->userExperienceAnalyticsBatteryHealthRuntimeDetails;
+        return $this->getBackingStore()->get('userExperienceAnalyticsBatteryHealthRuntimeDetails');
     }
 
     /**
@@ -2188,7 +1313,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsCategory>|null
     */
     public function getUserExperienceAnalyticsCategories(): ?array {
-        return $this->userExperienceAnalyticsCategories;
+        return $this->getBackingStore()->get('userExperienceAnalyticsCategories');
     }
 
     /**
@@ -2196,7 +1321,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsMetricHistory>|null
     */
     public function getUserExperienceAnalyticsDeviceMetricHistory(): ?array {
-        return $this->userExperienceAnalyticsDeviceMetricHistory;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceMetricHistory');
     }
 
     /**
@@ -2204,7 +1329,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDevicePerformance>|null
     */
     public function getUserExperienceAnalyticsDevicePerformance(): ?array {
-        return $this->userExperienceAnalyticsDevicePerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDevicePerformance');
     }
 
     /**
@@ -2212,7 +1337,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsDeviceScope|null
     */
     public function getUserExperienceAnalyticsDeviceScope(): ?UserExperienceAnalyticsDeviceScope {
-        return $this->userExperienceAnalyticsDeviceScope;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScope');
     }
 
     /**
@@ -2220,7 +1345,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceScope>|null
     */
     public function getUserExperienceAnalyticsDeviceScopes(): ?array {
-        return $this->userExperienceAnalyticsDeviceScopes;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScopes');
     }
 
     /**
@@ -2228,7 +1353,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceScores>|null
     */
     public function getUserExperienceAnalyticsDeviceScores(): ?array {
-        return $this->userExperienceAnalyticsDeviceScores;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceScores');
     }
 
     /**
@@ -2236,7 +1361,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupHistory>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupHistory(): ?array {
-        return $this->userExperienceAnalyticsDeviceStartupHistory;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupHistory');
     }
 
     /**
@@ -2244,7 +1369,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupProcess>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupProcesses(): ?array {
-        return $this->userExperienceAnalyticsDeviceStartupProcesses;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcesses');
     }
 
     /**
@@ -2252,7 +1377,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null
     */
     public function getUserExperienceAnalyticsDeviceStartupProcessPerformance(): ?array {
-        return $this->userExperienceAnalyticsDeviceStartupProcessPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDeviceStartupProcessPerformance');
     }
 
     /**
@@ -2260,7 +1385,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null
     */
     public function getUserExperienceAnalyticsDevicesWithoutCloudIdentity(): ?array {
-        return $this->userExperienceAnalyticsDevicesWithoutCloudIdentity;
+        return $this->getBackingStore()->get('userExperienceAnalyticsDevicesWithoutCloudIdentity');
     }
 
     /**
@@ -2268,7 +1393,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsImpactingProcess>|null
     */
     public function getUserExperienceAnalyticsImpactingProcess(): ?array {
-        return $this->userExperienceAnalyticsImpactingProcess;
+        return $this->getBackingStore()->get('userExperienceAnalyticsImpactingProcess');
     }
 
     /**
@@ -2276,7 +1401,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsMetricHistory>|null
     */
     public function getUserExperienceAnalyticsMetricHistory(): ?array {
-        return $this->userExperienceAnalyticsMetricHistory;
+        return $this->getBackingStore()->get('userExperienceAnalyticsMetricHistory');
     }
 
     /**
@@ -2284,7 +1409,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsModelScores>|null
     */
     public function getUserExperienceAnalyticsModelScores(): ?array {
-        return $this->userExperienceAnalyticsModelScores;
+        return $this->getBackingStore()->get('userExperienceAnalyticsModelScores');
     }
 
     /**
@@ -2292,7 +1417,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null
     */
     public function getUserExperienceAnalyticsNotAutopilotReadyDevice(): ?array {
-        return $this->userExperienceAnalyticsNotAutopilotReadyDevice;
+        return $this->getBackingStore()->get('userExperienceAnalyticsNotAutopilotReadyDevice');
     }
 
     /**
@@ -2300,7 +1425,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsOverview|null
     */
     public function getUserExperienceAnalyticsOverview(): ?UserExperienceAnalyticsOverview {
-        return $this->userExperienceAnalyticsOverview;
+        return $this->getBackingStore()->get('userExperienceAnalyticsOverview');
     }
 
     /**
@@ -2308,7 +1433,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsRemoteConnection>|null
     */
     public function getUserExperienceAnalyticsRemoteConnection(): ?array {
-        return $this->userExperienceAnalyticsRemoteConnection;
+        return $this->getBackingStore()->get('userExperienceAnalyticsRemoteConnection');
     }
 
     /**
@@ -2316,7 +1441,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsResourcePerformance>|null
     */
     public function getUserExperienceAnalyticsResourcePerformance(): ?array {
-        return $this->userExperienceAnalyticsResourcePerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsResourcePerformance');
     }
 
     /**
@@ -2324,7 +1449,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsScoreHistory>|null
     */
     public function getUserExperienceAnalyticsScoreHistory(): ?array {
-        return $this->userExperienceAnalyticsScoreHistory;
+        return $this->getBackingStore()->get('userExperienceAnalyticsScoreHistory');
     }
 
     /**
@@ -2332,7 +1457,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsSettings|null
     */
     public function getUserExperienceAnalyticsSettings(): ?UserExperienceAnalyticsSettings {
-        return $this->userExperienceAnalyticsSettings;
+        return $this->getBackingStore()->get('userExperienceAnalyticsSettings');
     }
 
     /**
@@ -2340,7 +1465,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): ?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric {
-        return $this->userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric;
+        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric');
     }
 
     /**
@@ -2348,7 +1473,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereMetrics(): ?array {
-        return $this->userExperienceAnalyticsWorkFromAnywhereMetrics;
+        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereMetrics');
     }
 
     /**
@@ -2356,7 +1481,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null
     */
     public function getUserExperienceAnalyticsWorkFromAnywhereModelPerformance(): ?array {
-        return $this->userExperienceAnalyticsWorkFromAnywhereModelPerformance;
+        return $this->getBackingStore()->get('userExperienceAnalyticsWorkFromAnywhereModelPerformance');
     }
 
     /**
@@ -2364,7 +1489,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<UserPFXCertificate>|null
     */
     public function getUserPfxCertificates(): ?array {
-        return $this->userPfxCertificates;
+        return $this->getBackingStore()->get('userPfxCertificates');
     }
 
     /**
@@ -2372,7 +1497,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return VirtualEndpoint|null
     */
     public function getVirtualEndpoint(): ?VirtualEndpoint {
-        return $this->virtualEndpoint;
+        return $this->getBackingStore()->get('virtualEndpoint');
     }
 
     /**
@@ -2380,7 +1505,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsAutopilotDeploymentProfile>|null
     */
     public function getWindowsAutopilotDeploymentProfiles(): ?array {
-        return $this->windowsAutopilotDeploymentProfiles;
+        return $this->getBackingStore()->get('windowsAutopilotDeploymentProfiles');
     }
 
     /**
@@ -2388,7 +1513,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsAutopilotDeviceIdentity>|null
     */
     public function getWindowsAutopilotDeviceIdentities(): ?array {
-        return $this->windowsAutopilotDeviceIdentities;
+        return $this->getBackingStore()->get('windowsAutopilotDeviceIdentities');
     }
 
     /**
@@ -2396,7 +1521,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return WindowsAutopilotSettings|null
     */
     public function getWindowsAutopilotSettings(): ?WindowsAutopilotSettings {
-        return $this->windowsAutopilotSettings;
+        return $this->getBackingStore()->get('windowsAutopilotSettings');
     }
 
     /**
@@ -2404,7 +1529,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsDriverUpdateProfile>|null
     */
     public function getWindowsDriverUpdateProfiles(): ?array {
-        return $this->windowsDriverUpdateProfiles;
+        return $this->getBackingStore()->get('windowsDriverUpdateProfiles');
     }
 
     /**
@@ -2412,7 +1537,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsFeatureUpdateProfile>|null
     */
     public function getWindowsFeatureUpdateProfiles(): ?array {
-        return $this->windowsFeatureUpdateProfiles;
+        return $this->getBackingStore()->get('windowsFeatureUpdateProfiles');
     }
 
     /**
@@ -2420,7 +1545,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsInformationProtectionAppLearningSummary>|null
     */
     public function getWindowsInformationProtectionAppLearningSummaries(): ?array {
-        return $this->windowsInformationProtectionAppLearningSummaries;
+        return $this->getBackingStore()->get('windowsInformationProtectionAppLearningSummaries');
     }
 
     /**
@@ -2428,7 +1553,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsInformationProtectionNetworkLearningSummary>|null
     */
     public function getWindowsInformationProtectionNetworkLearningSummaries(): ?array {
-        return $this->windowsInformationProtectionNetworkLearningSummaries;
+        return $this->getBackingStore()->get('windowsInformationProtectionNetworkLearningSummaries');
     }
 
     /**
@@ -2436,7 +1561,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsMalwareInformation>|null
     */
     public function getWindowsMalwareInformation(): ?array {
-        return $this->windowsMalwareInformation;
+        return $this->getBackingStore()->get('windowsMalwareInformation');
     }
 
     /**
@@ -2444,7 +1569,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return WindowsMalwareOverview|null
     */
     public function getWindowsMalwareOverview(): ?WindowsMalwareOverview {
-        return $this->windowsMalwareOverview;
+        return $this->getBackingStore()->get('windowsMalwareOverview');
     }
 
     /**
@@ -2452,7 +1577,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsQualityUpdateProfile>|null
     */
     public function getWindowsQualityUpdateProfiles(): ?array {
-        return $this->windowsQualityUpdateProfiles;
+        return $this->getBackingStore()->get('windowsQualityUpdateProfiles');
     }
 
     /**
@@ -2460,7 +1585,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<WindowsUpdateCatalogItem>|null
     */
     public function getWindowsUpdateCatalogItems(): ?array {
-        return $this->windowsUpdateCatalogItems;
+        return $this->getBackingStore()->get('windowsUpdateCatalogItems');
     }
 
     /**
@@ -2468,7 +1593,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ZebraFotaArtifact>|null
     */
     public function getZebraFotaArtifacts(): ?array {
-        return $this->zebraFotaArtifacts;
+        return $this->getBackingStore()->get('zebraFotaArtifacts');
     }
 
     /**
@@ -2476,7 +1601,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return ZebraFotaConnector|null
     */
     public function getZebraFotaConnector(): ?ZebraFotaConnector {
-        return $this->zebraFotaConnector;
+        return $this->getBackingStore()->get('zebraFotaConnector');
     }
 
     /**
@@ -2484,7 +1609,7 @@ class DeviceManagement extends Entity implements Parsable
      * @return array<ZebraFotaDeployment>|null
     */
     public function getZebraFotaDeployments(): ?array {
-        return $this->zebraFotaDeployments;
+        return $this->getBackingStore()->get('zebraFotaDeployments');
     }
 
     /**
@@ -2493,1577 +1618,1577 @@ class DeviceManagement extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('accountMoveCompletionDateTime', $this->accountMoveCompletionDateTime);
-        $writer->writeObjectValue('adminConsent', $this->adminConsent);
-        $writer->writeObjectValue('advancedThreatProtectionOnboardingStateSummary', $this->advancedThreatProtectionOnboardingStateSummary);
-        $writer->writeCollectionOfObjectValues('androidDeviceOwnerEnrollmentProfiles', $this->androidDeviceOwnerEnrollmentProfiles);
-        $writer->writeCollectionOfObjectValues('androidForWorkAppConfigurationSchemas', $this->androidForWorkAppConfigurationSchemas);
-        $writer->writeCollectionOfObjectValues('androidForWorkEnrollmentProfiles', $this->androidForWorkEnrollmentProfiles);
-        $writer->writeObjectValue('androidForWorkSettings', $this->androidForWorkSettings);
-        $writer->writeObjectValue('androidManagedStoreAccountEnterpriseSettings', $this->androidManagedStoreAccountEnterpriseSettings);
-        $writer->writeCollectionOfObjectValues('androidManagedStoreAppConfigurationSchemas', $this->androidManagedStoreAppConfigurationSchemas);
-        $writer->writeObjectValue('applePushNotificationCertificate', $this->applePushNotificationCertificate);
-        $writer->writeCollectionOfObjectValues('appleUserInitiatedEnrollmentProfiles', $this->appleUserInitiatedEnrollmentProfiles);
-        $writer->writeCollectionOfObjectValues('assignmentFilters', $this->assignmentFilters);
-        $writer->writeCollectionOfObjectValues('auditEvents', $this->auditEvents);
-        $writer->writeCollectionOfObjectValues('autopilotEvents', $this->autopilotEvents);
-        $writer->writeCollectionOfObjectValues('cartToClassAssociations', $this->cartToClassAssociations);
-        $writer->writeCollectionOfObjectValues('categories', $this->categories);
-        $writer->writeCollectionOfObjectValues('certificateConnectorDetails', $this->certificateConnectorDetails);
-        $writer->writeCollectionOfObjectValues('chromeOSOnboardingSettings', $this->chromeOSOnboardingSettings);
-        $writer->writeCollectionOfObjectValues('cloudPCConnectivityIssues', $this->cloudPCConnectivityIssues);
-        $writer->writeCollectionOfObjectValues('comanagedDevices', $this->comanagedDevices);
-        $writer->writeCollectionOfObjectValues('comanagementEligibleDevices', $this->comanagementEligibleDevices);
-        $writer->writeCollectionOfObjectValues('complianceCategories', $this->complianceCategories);
-        $writer->writeCollectionOfObjectValues('complianceManagementPartners', $this->complianceManagementPartners);
-        $writer->writeCollectionOfObjectValues('compliancePolicies', $this->compliancePolicies);
-        $writer->writeCollectionOfObjectValues('complianceSettings', $this->complianceSettings);
-        $writer->writeObjectValue('conditionalAccessSettings', $this->conditionalAccessSettings);
-        $writer->writeCollectionOfObjectValues('configManagerCollections', $this->configManagerCollections);
-        $writer->writeCollectionOfObjectValues('configurationCategories', $this->configurationCategories);
-        $writer->writeCollectionOfObjectValues('configurationPolicies', $this->configurationPolicies);
-        $writer->writeCollectionOfObjectValues('configurationPolicyTemplates', $this->configurationPolicyTemplates);
-        $writer->writeCollectionOfObjectValues('configurationSettings', $this->configurationSettings);
-        $writer->writeObjectValue('dataProcessorServiceForWindowsFeaturesOnboarding', $this->dataProcessorServiceForWindowsFeaturesOnboarding);
-        $writer->writeCollectionOfObjectValues('dataSharingConsents', $this->dataSharingConsents);
-        $writer->writeCollectionOfObjectValues('depOnboardingSettings', $this->depOnboardingSettings);
-        $writer->writeCollectionOfObjectValues('derivedCredentials', $this->derivedCredentials);
-        $writer->writeCollectionOfObjectValues('detectedApps', $this->detectedApps);
-        $writer->writeCollectionOfObjectValues('deviceCategories', $this->deviceCategories);
-        $writer->writeCollectionOfObjectValues('deviceCompliancePolicies', $this->deviceCompliancePolicies);
-        $writer->writeObjectValue('deviceCompliancePolicyDeviceStateSummary', $this->deviceCompliancePolicyDeviceStateSummary);
-        $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->deviceCompliancePolicySettingStateSummaries);
-        $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->deviceComplianceScripts);
-        $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->deviceConfigurationConflictSummary);
-        $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->deviceConfigurationDeviceStateSummaries);
-        $writer->writeCollectionOfObjectValues('deviceConfigurationRestrictedAppsViolations', $this->deviceConfigurationRestrictedAppsViolations);
-        $writer->writeCollectionOfObjectValues('deviceConfigurations', $this->deviceConfigurations);
-        $writer->writeCollectionOfObjectValues('deviceConfigurationsAllManagedDeviceCertificateStates', $this->deviceConfigurationsAllManagedDeviceCertificateStates);
-        $writer->writeObjectValue('deviceConfigurationUserStateSummaries', $this->deviceConfigurationUserStateSummaries);
-        $writer->writeCollectionOfObjectValues('deviceCustomAttributeShellScripts', $this->deviceCustomAttributeShellScripts);
-        $writer->writeCollectionOfObjectValues('deviceEnrollmentConfigurations', $this->deviceEnrollmentConfigurations);
-        $writer->writeCollectionOfObjectValues('deviceHealthScripts', $this->deviceHealthScripts);
-        $writer->writeCollectionOfObjectValues('deviceManagementPartners', $this->deviceManagementPartners);
-        $writer->writeCollectionOfObjectValues('deviceManagementScripts', $this->deviceManagementScripts);
-        $writer->writeObjectValue('deviceProtectionOverview', $this->deviceProtectionOverview);
-        $writer->writeCollectionOfObjectValues('deviceShellScripts', $this->deviceShellScripts);
-        $writer->writeCollectionOfObjectValues('domainJoinConnectors', $this->domainJoinConnectors);
-        $writer->writeCollectionOfObjectValues('embeddedSIMActivationCodePools', $this->embeddedSIMActivationCodePools);
-        $writer->writeCollectionOfObjectValues('exchangeConnectors', $this->exchangeConnectors);
-        $writer->writeCollectionOfObjectValues('exchangeOnPremisesPolicies', $this->exchangeOnPremisesPolicies);
-        $writer->writeObjectValue('exchangeOnPremisesPolicy', $this->exchangeOnPremisesPolicy);
-        $writer->writeCollectionOfObjectValues('groupPolicyCategories', $this->groupPolicyCategories);
-        $writer->writeCollectionOfObjectValues('groupPolicyConfigurations', $this->groupPolicyConfigurations);
-        $writer->writeCollectionOfObjectValues('groupPolicyDefinitionFiles', $this->groupPolicyDefinitionFiles);
-        $writer->writeCollectionOfObjectValues('groupPolicyDefinitions', $this->groupPolicyDefinitions);
-        $writer->writeCollectionOfObjectValues('groupPolicyMigrationReports', $this->groupPolicyMigrationReports);
-        $writer->writeCollectionOfObjectValues('groupPolicyObjectFiles', $this->groupPolicyObjectFiles);
-        $writer->writeCollectionOfObjectValues('groupPolicyUploadedDefinitionFiles', $this->groupPolicyUploadedDefinitionFiles);
-        $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->importedDeviceIdentities);
-        $writer->writeCollectionOfObjectValues('importedWindowsAutopilotDeviceIdentities', $this->importedWindowsAutopilotDeviceIdentities);
-        $writer->writeCollectionOfObjectValues('intents', $this->intents);
-        $writer->writeStringValue('intuneAccountId', $this->intuneAccountId);
-        $writer->writeObjectValue('intuneBrand', $this->intuneBrand);
-        $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->intuneBrandingProfiles);
-        $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->iosUpdateStatuses);
-        $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->macOSSoftwareUpdateAccountSummaries);
-        $writer->writeObjectValue('managedDeviceCleanupSettings', $this->managedDeviceCleanupSettings);
-        $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->managedDeviceEncryptionStates);
-        $writer->writeObjectValue('managedDeviceOverview', $this->managedDeviceOverview);
-        $writer->writeCollectionOfObjectValues('managedDevices', $this->managedDevices);
-        $writer->writeIntegerValue('maximumDepTokens', $this->maximumDepTokens);
-        $writer->writeCollectionOfObjectValues('microsoftTunnelConfigurations', $this->microsoftTunnelConfigurations);
-        $writer->writeCollectionOfObjectValues('microsoftTunnelHealthThresholds', $this->microsoftTunnelHealthThresholds);
-        $writer->writeCollectionOfObjectValues('microsoftTunnelServerLogCollectionResponses', $this->microsoftTunnelServerLogCollectionResponses);
-        $writer->writeCollectionOfObjectValues('microsoftTunnelSites', $this->microsoftTunnelSites);
-        $writer->writeCollectionOfObjectValues('mobileAppTroubleshootingEvents', $this->mobileAppTroubleshootingEvents);
-        $writer->writeCollectionOfObjectValues('mobileThreatDefenseConnectors', $this->mobileThreatDefenseConnectors);
-        $writer->writeObjectValue('monitoring', $this->monitoring);
-        $writer->writeCollectionOfObjectValues('ndesConnectors', $this->ndesConnectors);
-        $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->notificationMessageTemplates);
-        $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->oemWarrantyInformationOnboarding);
-        $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->remoteActionAudits);
-        $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->remoteAssistancePartners);
-        $writer->writeObjectValue('remoteAssistanceSettings', $this->remoteAssistanceSettings);
-        $writer->writeObjectValue('reports', $this->reports);
-        $writer->writeCollectionOfObjectValues('resourceAccessProfiles', $this->resourceAccessProfiles);
-        $writer->writeCollectionOfObjectValues('resourceOperations', $this->resourceOperations);
-        $writer->writeCollectionOfObjectValues('reusablePolicySettings', $this->reusablePolicySettings);
-        $writer->writeCollectionOfObjectValues('reusableSettings', $this->reusableSettings);
-        $writer->writeCollectionOfObjectValues('roleAssignments', $this->roleAssignments);
-        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->roleDefinitions);
-        $writer->writeCollectionOfObjectValues('roleScopeTags', $this->roleScopeTags);
-        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->settingDefinitions);
-        $writer->writeObjectValue('settings', $this->settings);
-        $writer->writeObjectValue('softwareUpdateStatusSummary', $this->softwareUpdateStatusSummary);
-        $writer->writeEnumValue('subscriptions', $this->subscriptions);
-        $writer->writeEnumValue('subscriptionState', $this->subscriptionState);
-        $writer->writeCollectionOfObjectValues('telecomExpenseManagementPartners', $this->telecomExpenseManagementPartners);
-        $writer->writeCollectionOfObjectValues('templates', $this->templates);
-        $writer->writeCollectionOfObjectValues('templateSettings', $this->templateSettings);
-        $writer->writeObjectValue('tenantAttachRBAC', $this->tenantAttachRBAC);
-        $writer->writeCollectionOfObjectValues('termsAndConditions', $this->termsAndConditions);
-        $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->troubleshootingEvents);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomaly', $this->userExperienceAnalyticsAnomaly);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomalyDevice', $this->userExperienceAnalyticsAnomalyDevice);
-        $writer->writeObjectValue('userExperienceAnalyticsAnomalySeverityOverview', $this->userExperienceAnalyticsAnomalySeverityOverview);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->userExperienceAnalyticsAppHealthApplicationPerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion', $this->userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDeviceModelPerformance', $this->userExperienceAnalyticsAppHealthDeviceModelPerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDevicePerformance', $this->userExperienceAnalyticsAppHealthDevicePerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDevicePerformanceDetails', $this->userExperienceAnalyticsAppHealthDevicePerformanceDetails);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthOSVersionPerformance', $this->userExperienceAnalyticsAppHealthOSVersionPerformance);
-        $writer->writeObjectValue('userExperienceAnalyticsAppHealthOverview', $this->userExperienceAnalyticsAppHealthOverview);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBaselines', $this->userExperienceAnalyticsBaselines);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthAppImpact', $this->userExperienceAnalyticsBatteryHealthAppImpact);
-        $writer->writeObjectValue('userExperienceAnalyticsBatteryHealthCapacityDetails', $this->userExperienceAnalyticsBatteryHealthCapacityDetails);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDeviceAppImpact', $this->userExperienceAnalyticsBatteryHealthDeviceAppImpact);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDevicePerformance', $this->userExperienceAnalyticsBatteryHealthDevicePerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory', $this->userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthModelPerformance', $this->userExperienceAnalyticsBatteryHealthModelPerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthOsPerformance', $this->userExperienceAnalyticsBatteryHealthOsPerformance);
-        $writer->writeObjectValue('userExperienceAnalyticsBatteryHealthRuntimeDetails', $this->userExperienceAnalyticsBatteryHealthRuntimeDetails);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsCategories', $this->userExperienceAnalyticsCategories);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceMetricHistory', $this->userExperienceAnalyticsDeviceMetricHistory);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicePerformance', $this->userExperienceAnalyticsDevicePerformance);
-        $writer->writeObjectValue('userExperienceAnalyticsDeviceScope', $this->userExperienceAnalyticsDeviceScope);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceScopes', $this->userExperienceAnalyticsDeviceScopes);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceScores', $this->userExperienceAnalyticsDeviceScores);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupHistory', $this->userExperienceAnalyticsDeviceStartupHistory);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcesses', $this->userExperienceAnalyticsDeviceStartupProcesses);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcessPerformance', $this->userExperienceAnalyticsDeviceStartupProcessPerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicesWithoutCloudIdentity', $this->userExperienceAnalyticsDevicesWithoutCloudIdentity);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsImpactingProcess', $this->userExperienceAnalyticsImpactingProcess);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsMetricHistory', $this->userExperienceAnalyticsMetricHistory);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsModelScores', $this->userExperienceAnalyticsModelScores);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsNotAutopilotReadyDevice', $this->userExperienceAnalyticsNotAutopilotReadyDevice);
-        $writer->writeObjectValue('userExperienceAnalyticsOverview', $this->userExperienceAnalyticsOverview);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsRemoteConnection', $this->userExperienceAnalyticsRemoteConnection);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsResourcePerformance', $this->userExperienceAnalyticsResourcePerformance);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsScoreHistory', $this->userExperienceAnalyticsScoreHistory);
-        $writer->writeObjectValue('userExperienceAnalyticsSettings', $this->userExperienceAnalyticsSettings);
-        $writer->writeObjectValue('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric', $this->userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsWorkFromAnywhereMetrics', $this->userExperienceAnalyticsWorkFromAnywhereMetrics);
-        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsWorkFromAnywhereModelPerformance', $this->userExperienceAnalyticsWorkFromAnywhereModelPerformance);
-        $writer->writeCollectionOfObjectValues('userPfxCertificates', $this->userPfxCertificates);
-        $writer->writeObjectValue('virtualEndpoint', $this->virtualEndpoint);
-        $writer->writeCollectionOfObjectValues('windowsAutopilotDeploymentProfiles', $this->windowsAutopilotDeploymentProfiles);
-        $writer->writeCollectionOfObjectValues('windowsAutopilotDeviceIdentities', $this->windowsAutopilotDeviceIdentities);
-        $writer->writeObjectValue('windowsAutopilotSettings', $this->windowsAutopilotSettings);
-        $writer->writeCollectionOfObjectValues('windowsDriverUpdateProfiles', $this->windowsDriverUpdateProfiles);
-        $writer->writeCollectionOfObjectValues('windowsFeatureUpdateProfiles', $this->windowsFeatureUpdateProfiles);
-        $writer->writeCollectionOfObjectValues('windowsInformationProtectionAppLearningSummaries', $this->windowsInformationProtectionAppLearningSummaries);
-        $writer->writeCollectionOfObjectValues('windowsInformationProtectionNetworkLearningSummaries', $this->windowsInformationProtectionNetworkLearningSummaries);
-        $writer->writeCollectionOfObjectValues('windowsMalwareInformation', $this->windowsMalwareInformation);
-        $writer->writeObjectValue('windowsMalwareOverview', $this->windowsMalwareOverview);
-        $writer->writeCollectionOfObjectValues('windowsQualityUpdateProfiles', $this->windowsQualityUpdateProfiles);
-        $writer->writeCollectionOfObjectValues('windowsUpdateCatalogItems', $this->windowsUpdateCatalogItems);
-        $writer->writeCollectionOfObjectValues('zebraFotaArtifacts', $this->zebraFotaArtifacts);
-        $writer->writeObjectValue('zebraFotaConnector', $this->zebraFotaConnector);
-        $writer->writeCollectionOfObjectValues('zebraFotaDeployments', $this->zebraFotaDeployments);
+        $writer->writeDateTimeValue('accountMoveCompletionDateTime', $this->getAccountMoveCompletionDateTime());
+        $writer->writeObjectValue('adminConsent', $this->getAdminConsent());
+        $writer->writeObjectValue('advancedThreatProtectionOnboardingStateSummary', $this->getAdvancedThreatProtectionOnboardingStateSummary());
+        $writer->writeCollectionOfObjectValues('androidDeviceOwnerEnrollmentProfiles', $this->getAndroidDeviceOwnerEnrollmentProfiles());
+        $writer->writeCollectionOfObjectValues('androidForWorkAppConfigurationSchemas', $this->getAndroidForWorkAppConfigurationSchemas());
+        $writer->writeCollectionOfObjectValues('androidForWorkEnrollmentProfiles', $this->getAndroidForWorkEnrollmentProfiles());
+        $writer->writeObjectValue('androidForWorkSettings', $this->getAndroidForWorkSettings());
+        $writer->writeObjectValue('androidManagedStoreAccountEnterpriseSettings', $this->getAndroidManagedStoreAccountEnterpriseSettings());
+        $writer->writeCollectionOfObjectValues('androidManagedStoreAppConfigurationSchemas', $this->getAndroidManagedStoreAppConfigurationSchemas());
+        $writer->writeObjectValue('applePushNotificationCertificate', $this->getApplePushNotificationCertificate());
+        $writer->writeCollectionOfObjectValues('appleUserInitiatedEnrollmentProfiles', $this->getAppleUserInitiatedEnrollmentProfiles());
+        $writer->writeCollectionOfObjectValues('assignmentFilters', $this->getAssignmentFilters());
+        $writer->writeCollectionOfObjectValues('auditEvents', $this->getAuditEvents());
+        $writer->writeCollectionOfObjectValues('autopilotEvents', $this->getAutopilotEvents());
+        $writer->writeCollectionOfObjectValues('cartToClassAssociations', $this->getCartToClassAssociations());
+        $writer->writeCollectionOfObjectValues('categories', $this->getCategories());
+        $writer->writeCollectionOfObjectValues('certificateConnectorDetails', $this->getCertificateConnectorDetails());
+        $writer->writeCollectionOfObjectValues('chromeOSOnboardingSettings', $this->getChromeOSOnboardingSettings());
+        $writer->writeCollectionOfObjectValues('cloudPCConnectivityIssues', $this->getCloudPCConnectivityIssues());
+        $writer->writeCollectionOfObjectValues('comanagedDevices', $this->getComanagedDevices());
+        $writer->writeCollectionOfObjectValues('comanagementEligibleDevices', $this->getComanagementEligibleDevices());
+        $writer->writeCollectionOfObjectValues('complianceCategories', $this->getComplianceCategories());
+        $writer->writeCollectionOfObjectValues('complianceManagementPartners', $this->getComplianceManagementPartners());
+        $writer->writeCollectionOfObjectValues('compliancePolicies', $this->getCompliancePolicies());
+        $writer->writeCollectionOfObjectValues('complianceSettings', $this->getComplianceSettings());
+        $writer->writeObjectValue('conditionalAccessSettings', $this->getConditionalAccessSettings());
+        $writer->writeCollectionOfObjectValues('configManagerCollections', $this->getConfigManagerCollections());
+        $writer->writeCollectionOfObjectValues('configurationCategories', $this->getConfigurationCategories());
+        $writer->writeCollectionOfObjectValues('configurationPolicies', $this->getConfigurationPolicies());
+        $writer->writeCollectionOfObjectValues('configurationPolicyTemplates', $this->getConfigurationPolicyTemplates());
+        $writer->writeCollectionOfObjectValues('configurationSettings', $this->getConfigurationSettings());
+        $writer->writeObjectValue('dataProcessorServiceForWindowsFeaturesOnboarding', $this->getDataProcessorServiceForWindowsFeaturesOnboarding());
+        $writer->writeCollectionOfObjectValues('dataSharingConsents', $this->getDataSharingConsents());
+        $writer->writeCollectionOfObjectValues('depOnboardingSettings', $this->getDepOnboardingSettings());
+        $writer->writeCollectionOfObjectValues('derivedCredentials', $this->getDerivedCredentials());
+        $writer->writeCollectionOfObjectValues('detectedApps', $this->getDetectedApps());
+        $writer->writeCollectionOfObjectValues('deviceCategories', $this->getDeviceCategories());
+        $writer->writeCollectionOfObjectValues('deviceCompliancePolicies', $this->getDeviceCompliancePolicies());
+        $writer->writeObjectValue('deviceCompliancePolicyDeviceStateSummary', $this->getDeviceCompliancePolicyDeviceStateSummary());
+        $writer->writeCollectionOfObjectValues('deviceCompliancePolicySettingStateSummaries', $this->getDeviceCompliancePolicySettingStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceComplianceScripts', $this->getDeviceComplianceScripts());
+        $writer->writeCollectionOfObjectValues('deviceConfigurationConflictSummary', $this->getDeviceConfigurationConflictSummary());
+        $writer->writeObjectValue('deviceConfigurationDeviceStateSummaries', $this->getDeviceConfigurationDeviceStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceConfigurationRestrictedAppsViolations', $this->getDeviceConfigurationRestrictedAppsViolations());
+        $writer->writeCollectionOfObjectValues('deviceConfigurations', $this->getDeviceConfigurations());
+        $writer->writeCollectionOfObjectValues('deviceConfigurationsAllManagedDeviceCertificateStates', $this->getDeviceConfigurationsAllManagedDeviceCertificateStates());
+        $writer->writeObjectValue('deviceConfigurationUserStateSummaries', $this->getDeviceConfigurationUserStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceCustomAttributeShellScripts', $this->getDeviceCustomAttributeShellScripts());
+        $writer->writeCollectionOfObjectValues('deviceEnrollmentConfigurations', $this->getDeviceEnrollmentConfigurations());
+        $writer->writeCollectionOfObjectValues('deviceHealthScripts', $this->getDeviceHealthScripts());
+        $writer->writeCollectionOfObjectValues('deviceManagementPartners', $this->getDeviceManagementPartners());
+        $writer->writeCollectionOfObjectValues('deviceManagementScripts', $this->getDeviceManagementScripts());
+        $writer->writeObjectValue('deviceProtectionOverview', $this->getDeviceProtectionOverview());
+        $writer->writeCollectionOfObjectValues('deviceShellScripts', $this->getDeviceShellScripts());
+        $writer->writeCollectionOfObjectValues('domainJoinConnectors', $this->getDomainJoinConnectors());
+        $writer->writeCollectionOfObjectValues('embeddedSIMActivationCodePools', $this->getEmbeddedSIMActivationCodePools());
+        $writer->writeCollectionOfObjectValues('exchangeConnectors', $this->getExchangeConnectors());
+        $writer->writeCollectionOfObjectValues('exchangeOnPremisesPolicies', $this->getExchangeOnPremisesPolicies());
+        $writer->writeObjectValue('exchangeOnPremisesPolicy', $this->getExchangeOnPremisesPolicy());
+        $writer->writeCollectionOfObjectValues('groupPolicyCategories', $this->getGroupPolicyCategories());
+        $writer->writeCollectionOfObjectValues('groupPolicyConfigurations', $this->getGroupPolicyConfigurations());
+        $writer->writeCollectionOfObjectValues('groupPolicyDefinitionFiles', $this->getGroupPolicyDefinitionFiles());
+        $writer->writeCollectionOfObjectValues('groupPolicyDefinitions', $this->getGroupPolicyDefinitions());
+        $writer->writeCollectionOfObjectValues('groupPolicyMigrationReports', $this->getGroupPolicyMigrationReports());
+        $writer->writeCollectionOfObjectValues('groupPolicyObjectFiles', $this->getGroupPolicyObjectFiles());
+        $writer->writeCollectionOfObjectValues('groupPolicyUploadedDefinitionFiles', $this->getGroupPolicyUploadedDefinitionFiles());
+        $writer->writeCollectionOfObjectValues('importedDeviceIdentities', $this->getImportedDeviceIdentities());
+        $writer->writeCollectionOfObjectValues('importedWindowsAutopilotDeviceIdentities', $this->getImportedWindowsAutopilotDeviceIdentities());
+        $writer->writeCollectionOfObjectValues('intents', $this->getIntents());
+        $writer->writeStringValue('intuneAccountId', $this->getIntuneAccountId());
+        $writer->writeObjectValue('intuneBrand', $this->getIntuneBrand());
+        $writer->writeCollectionOfObjectValues('intuneBrandingProfiles', $this->getIntuneBrandingProfiles());
+        $writer->writeCollectionOfObjectValues('iosUpdateStatuses', $this->getIosUpdateStatuses());
+        $writer->writeCollectionOfObjectValues('macOSSoftwareUpdateAccountSummaries', $this->getMacOSSoftwareUpdateAccountSummaries());
+        $writer->writeObjectValue('managedDeviceCleanupSettings', $this->getManagedDeviceCleanupSettings());
+        $writer->writeCollectionOfObjectValues('managedDeviceEncryptionStates', $this->getManagedDeviceEncryptionStates());
+        $writer->writeObjectValue('managedDeviceOverview', $this->getManagedDeviceOverview());
+        $writer->writeCollectionOfObjectValues('managedDevices', $this->getManagedDevices());
+        $writer->writeIntegerValue('maximumDepTokens', $this->getMaximumDepTokens());
+        $writer->writeCollectionOfObjectValues('microsoftTunnelConfigurations', $this->getMicrosoftTunnelConfigurations());
+        $writer->writeCollectionOfObjectValues('microsoftTunnelHealthThresholds', $this->getMicrosoftTunnelHealthThresholds());
+        $writer->writeCollectionOfObjectValues('microsoftTunnelServerLogCollectionResponses', $this->getMicrosoftTunnelServerLogCollectionResponses());
+        $writer->writeCollectionOfObjectValues('microsoftTunnelSites', $this->getMicrosoftTunnelSites());
+        $writer->writeCollectionOfObjectValues('mobileAppTroubleshootingEvents', $this->getMobileAppTroubleshootingEvents());
+        $writer->writeCollectionOfObjectValues('mobileThreatDefenseConnectors', $this->getMobileThreatDefenseConnectors());
+        $writer->writeObjectValue('monitoring', $this->getMonitoring());
+        $writer->writeCollectionOfObjectValues('ndesConnectors', $this->getNdesConnectors());
+        $writer->writeCollectionOfObjectValues('notificationMessageTemplates', $this->getNotificationMessageTemplates());
+        $writer->writeCollectionOfObjectValues('oemWarrantyInformationOnboarding', $this->getOemWarrantyInformationOnboarding());
+        $writer->writeCollectionOfObjectValues('remoteActionAudits', $this->getRemoteActionAudits());
+        $writer->writeCollectionOfObjectValues('remoteAssistancePartners', $this->getRemoteAssistancePartners());
+        $writer->writeObjectValue('remoteAssistanceSettings', $this->getRemoteAssistanceSettings());
+        $writer->writeObjectValue('reports', $this->getReports());
+        $writer->writeCollectionOfObjectValues('resourceAccessProfiles', $this->getResourceAccessProfiles());
+        $writer->writeCollectionOfObjectValues('resourceOperations', $this->getResourceOperations());
+        $writer->writeCollectionOfObjectValues('reusablePolicySettings', $this->getReusablePolicySettings());
+        $writer->writeCollectionOfObjectValues('reusableSettings', $this->getReusableSettings());
+        $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
+        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
+        $writer->writeCollectionOfObjectValues('roleScopeTags', $this->getRoleScopeTags());
+        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
+        $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeObjectValue('softwareUpdateStatusSummary', $this->getSoftwareUpdateStatusSummary());
+        $writer->writeEnumValue('subscriptions', $this->getSubscriptions());
+        $writer->writeEnumValue('subscriptionState', $this->getSubscriptionState());
+        $writer->writeCollectionOfObjectValues('telecomExpenseManagementPartners', $this->getTelecomExpenseManagementPartners());
+        $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
+        $writer->writeCollectionOfObjectValues('templateSettings', $this->getTemplateSettings());
+        $writer->writeObjectValue('tenantAttachRBAC', $this->getTenantAttachRBAC());
+        $writer->writeCollectionOfObjectValues('termsAndConditions', $this->getTermsAndConditions());
+        $writer->writeCollectionOfObjectValues('troubleshootingEvents', $this->getTroubleshootingEvents());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomaly', $this->getUserExperienceAnalyticsAnomaly());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAnomalyDevice', $this->getUserExperienceAnalyticsAnomalyDevice());
+        $writer->writeObjectValue('userExperienceAnalyticsAnomalySeverityOverview', $this->getUserExperienceAnalyticsAnomalySeverityOverview());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformance', $this->getUserExperienceAnalyticsAppHealthApplicationPerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $this->getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $this->getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId', $this->getUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion', $this->getUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDeviceModelPerformance', $this->getUserExperienceAnalyticsAppHealthDeviceModelPerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDevicePerformance', $this->getUserExperienceAnalyticsAppHealthDevicePerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthDevicePerformanceDetails', $this->getUserExperienceAnalyticsAppHealthDevicePerformanceDetails());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsAppHealthOSVersionPerformance', $this->getUserExperienceAnalyticsAppHealthOSVersionPerformance());
+        $writer->writeObjectValue('userExperienceAnalyticsAppHealthOverview', $this->getUserExperienceAnalyticsAppHealthOverview());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBaselines', $this->getUserExperienceAnalyticsBaselines());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthAppImpact', $this->getUserExperienceAnalyticsBatteryHealthAppImpact());
+        $writer->writeObjectValue('userExperienceAnalyticsBatteryHealthCapacityDetails', $this->getUserExperienceAnalyticsBatteryHealthCapacityDetails());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDeviceAppImpact', $this->getUserExperienceAnalyticsBatteryHealthDeviceAppImpact());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDevicePerformance', $this->getUserExperienceAnalyticsBatteryHealthDevicePerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory', $this->getUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthModelPerformance', $this->getUserExperienceAnalyticsBatteryHealthModelPerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsBatteryHealthOsPerformance', $this->getUserExperienceAnalyticsBatteryHealthOsPerformance());
+        $writer->writeObjectValue('userExperienceAnalyticsBatteryHealthRuntimeDetails', $this->getUserExperienceAnalyticsBatteryHealthRuntimeDetails());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsCategories', $this->getUserExperienceAnalyticsCategories());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceMetricHistory', $this->getUserExperienceAnalyticsDeviceMetricHistory());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicePerformance', $this->getUserExperienceAnalyticsDevicePerformance());
+        $writer->writeObjectValue('userExperienceAnalyticsDeviceScope', $this->getUserExperienceAnalyticsDeviceScope());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceScopes', $this->getUserExperienceAnalyticsDeviceScopes());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceScores', $this->getUserExperienceAnalyticsDeviceScores());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupHistory', $this->getUserExperienceAnalyticsDeviceStartupHistory());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcesses', $this->getUserExperienceAnalyticsDeviceStartupProcesses());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDeviceStartupProcessPerformance', $this->getUserExperienceAnalyticsDeviceStartupProcessPerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsDevicesWithoutCloudIdentity', $this->getUserExperienceAnalyticsDevicesWithoutCloudIdentity());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsImpactingProcess', $this->getUserExperienceAnalyticsImpactingProcess());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsMetricHistory', $this->getUserExperienceAnalyticsMetricHistory());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsModelScores', $this->getUserExperienceAnalyticsModelScores());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsNotAutopilotReadyDevice', $this->getUserExperienceAnalyticsNotAutopilotReadyDevice());
+        $writer->writeObjectValue('userExperienceAnalyticsOverview', $this->getUserExperienceAnalyticsOverview());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsRemoteConnection', $this->getUserExperienceAnalyticsRemoteConnection());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsResourcePerformance', $this->getUserExperienceAnalyticsResourcePerformance());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsScoreHistory', $this->getUserExperienceAnalyticsScoreHistory());
+        $writer->writeObjectValue('userExperienceAnalyticsSettings', $this->getUserExperienceAnalyticsSettings());
+        $writer->writeObjectValue('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric', $this->getUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsWorkFromAnywhereMetrics', $this->getUserExperienceAnalyticsWorkFromAnywhereMetrics());
+        $writer->writeCollectionOfObjectValues('userExperienceAnalyticsWorkFromAnywhereModelPerformance', $this->getUserExperienceAnalyticsWorkFromAnywhereModelPerformance());
+        $writer->writeCollectionOfObjectValues('userPfxCertificates', $this->getUserPfxCertificates());
+        $writer->writeObjectValue('virtualEndpoint', $this->getVirtualEndpoint());
+        $writer->writeCollectionOfObjectValues('windowsAutopilotDeploymentProfiles', $this->getWindowsAutopilotDeploymentProfiles());
+        $writer->writeCollectionOfObjectValues('windowsAutopilotDeviceIdentities', $this->getWindowsAutopilotDeviceIdentities());
+        $writer->writeObjectValue('windowsAutopilotSettings', $this->getWindowsAutopilotSettings());
+        $writer->writeCollectionOfObjectValues('windowsDriverUpdateProfiles', $this->getWindowsDriverUpdateProfiles());
+        $writer->writeCollectionOfObjectValues('windowsFeatureUpdateProfiles', $this->getWindowsFeatureUpdateProfiles());
+        $writer->writeCollectionOfObjectValues('windowsInformationProtectionAppLearningSummaries', $this->getWindowsInformationProtectionAppLearningSummaries());
+        $writer->writeCollectionOfObjectValues('windowsInformationProtectionNetworkLearningSummaries', $this->getWindowsInformationProtectionNetworkLearningSummaries());
+        $writer->writeCollectionOfObjectValues('windowsMalwareInformation', $this->getWindowsMalwareInformation());
+        $writer->writeObjectValue('windowsMalwareOverview', $this->getWindowsMalwareOverview());
+        $writer->writeCollectionOfObjectValues('windowsQualityUpdateProfiles', $this->getWindowsQualityUpdateProfiles());
+        $writer->writeCollectionOfObjectValues('windowsUpdateCatalogItems', $this->getWindowsUpdateCatalogItems());
+        $writer->writeCollectionOfObjectValues('zebraFotaArtifacts', $this->getZebraFotaArtifacts());
+        $writer->writeObjectValue('zebraFotaConnector', $this->getZebraFotaConnector());
+        $writer->writeCollectionOfObjectValues('zebraFotaDeployments', $this->getZebraFotaDeployments());
     }
 
     /**
      * Sets the accountMoveCompletionDateTime property value. The date & time when tenant data moved between scaleunits.
      *  @param DateTime|null $value Value to set for the accountMoveCompletionDateTime property.
     */
-    public function setAccountMoveCompletionDateTime(?DateTime $value ): void {
-        $this->accountMoveCompletionDateTime = $value;
+    public function setAccountMoveCompletionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('accountMoveCompletionDateTime', $value);
     }
 
     /**
      * Sets the adminConsent property value. Admin consent information.
      *  @param AdminConsent|null $value Value to set for the adminConsent property.
     */
-    public function setAdminConsent(?AdminConsent $value ): void {
-        $this->adminConsent = $value;
+    public function setAdminConsent(?AdminConsent $value): void {
+        $this->getBackingStore()->set('adminConsent', $value);
     }
 
     /**
      * Sets the advancedThreatProtectionOnboardingStateSummary property value. The summary state of ATP onboarding state for this account.
      *  @param AdvancedThreatProtectionOnboardingStateSummary|null $value Value to set for the advancedThreatProtectionOnboardingStateSummary property.
     */
-    public function setAdvancedThreatProtectionOnboardingStateSummary(?AdvancedThreatProtectionOnboardingStateSummary $value ): void {
-        $this->advancedThreatProtectionOnboardingStateSummary = $value;
+    public function setAdvancedThreatProtectionOnboardingStateSummary(?AdvancedThreatProtectionOnboardingStateSummary $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionOnboardingStateSummary', $value);
     }
 
     /**
      * Sets the androidDeviceOwnerEnrollmentProfiles property value. Android device owner enrollment profile entities.
      *  @param array<AndroidDeviceOwnerEnrollmentProfile>|null $value Value to set for the androidDeviceOwnerEnrollmentProfiles property.
     */
-    public function setAndroidDeviceOwnerEnrollmentProfiles(?array $value ): void {
-        $this->androidDeviceOwnerEnrollmentProfiles = $value;
+    public function setAndroidDeviceOwnerEnrollmentProfiles(?array $value): void {
+        $this->getBackingStore()->set('androidDeviceOwnerEnrollmentProfiles', $value);
     }
 
     /**
      * Sets the androidForWorkAppConfigurationSchemas property value. Android for Work app configuration schema entities.
      *  @param array<AndroidForWorkAppConfigurationSchema>|null $value Value to set for the androidForWorkAppConfigurationSchemas property.
     */
-    public function setAndroidForWorkAppConfigurationSchemas(?array $value ): void {
-        $this->androidForWorkAppConfigurationSchemas = $value;
+    public function setAndroidForWorkAppConfigurationSchemas(?array $value): void {
+        $this->getBackingStore()->set('androidForWorkAppConfigurationSchemas', $value);
     }
 
     /**
      * Sets the androidForWorkEnrollmentProfiles property value. Android for Work enrollment profile entities.
      *  @param array<AndroidForWorkEnrollmentProfile>|null $value Value to set for the androidForWorkEnrollmentProfiles property.
     */
-    public function setAndroidForWorkEnrollmentProfiles(?array $value ): void {
-        $this->androidForWorkEnrollmentProfiles = $value;
+    public function setAndroidForWorkEnrollmentProfiles(?array $value): void {
+        $this->getBackingStore()->set('androidForWorkEnrollmentProfiles', $value);
     }
 
     /**
      * Sets the androidForWorkSettings property value. The singleton Android for Work settings entity.
      *  @param AndroidForWorkSettings|null $value Value to set for the androidForWorkSettings property.
     */
-    public function setAndroidForWorkSettings(?AndroidForWorkSettings $value ): void {
-        $this->androidForWorkSettings = $value;
+    public function setAndroidForWorkSettings(?AndroidForWorkSettings $value): void {
+        $this->getBackingStore()->set('androidForWorkSettings', $value);
     }
 
     /**
      * Sets the androidManagedStoreAccountEnterpriseSettings property value. The singleton Android managed store account enterprise settings entity.
      *  @param AndroidManagedStoreAccountEnterpriseSettings|null $value Value to set for the androidManagedStoreAccountEnterpriseSettings property.
     */
-    public function setAndroidManagedStoreAccountEnterpriseSettings(?AndroidManagedStoreAccountEnterpriseSettings $value ): void {
-        $this->androidManagedStoreAccountEnterpriseSettings = $value;
+    public function setAndroidManagedStoreAccountEnterpriseSettings(?AndroidManagedStoreAccountEnterpriseSettings $value): void {
+        $this->getBackingStore()->set('androidManagedStoreAccountEnterpriseSettings', $value);
     }
 
     /**
      * Sets the androidManagedStoreAppConfigurationSchemas property value. Android Enterprise app configuration schema entities.
      *  @param array<AndroidManagedStoreAppConfigurationSchema>|null $value Value to set for the androidManagedStoreAppConfigurationSchemas property.
     */
-    public function setAndroidManagedStoreAppConfigurationSchemas(?array $value ): void {
-        $this->androidManagedStoreAppConfigurationSchemas = $value;
+    public function setAndroidManagedStoreAppConfigurationSchemas(?array $value): void {
+        $this->getBackingStore()->set('androidManagedStoreAppConfigurationSchemas', $value);
     }
 
     /**
      * Sets the applePushNotificationCertificate property value. Apple push notification certificate.
      *  @param ApplePushNotificationCertificate|null $value Value to set for the applePushNotificationCertificate property.
     */
-    public function setApplePushNotificationCertificate(?ApplePushNotificationCertificate $value ): void {
-        $this->applePushNotificationCertificate = $value;
+    public function setApplePushNotificationCertificate(?ApplePushNotificationCertificate $value): void {
+        $this->getBackingStore()->set('applePushNotificationCertificate', $value);
     }
 
     /**
      * Sets the appleUserInitiatedEnrollmentProfiles property value. Apple user initiated enrollment profiles
      *  @param array<AppleUserInitiatedEnrollmentProfile>|null $value Value to set for the appleUserInitiatedEnrollmentProfiles property.
     */
-    public function setAppleUserInitiatedEnrollmentProfiles(?array $value ): void {
-        $this->appleUserInitiatedEnrollmentProfiles = $value;
+    public function setAppleUserInitiatedEnrollmentProfiles(?array $value): void {
+        $this->getBackingStore()->set('appleUserInitiatedEnrollmentProfiles', $value);
     }
 
     /**
      * Sets the assignmentFilters property value. The list of assignment filters
      *  @param array<DeviceAndAppManagementAssignmentFilter>|null $value Value to set for the assignmentFilters property.
     */
-    public function setAssignmentFilters(?array $value ): void {
-        $this->assignmentFilters = $value;
+    public function setAssignmentFilters(?array $value): void {
+        $this->getBackingStore()->set('assignmentFilters', $value);
     }
 
     /**
      * Sets the auditEvents property value. The Audit Events
      *  @param array<AuditEvent>|null $value Value to set for the auditEvents property.
     */
-    public function setAuditEvents(?array $value ): void {
-        $this->auditEvents = $value;
+    public function setAuditEvents(?array $value): void {
+        $this->getBackingStore()->set('auditEvents', $value);
     }
 
     /**
      * Sets the autopilotEvents property value. The list of autopilot events for the tenant.
      *  @param array<DeviceManagementAutopilotEvent>|null $value Value to set for the autopilotEvents property.
     */
-    public function setAutopilotEvents(?array $value ): void {
-        $this->autopilotEvents = $value;
+    public function setAutopilotEvents(?array $value): void {
+        $this->getBackingStore()->set('autopilotEvents', $value);
     }
 
     /**
      * Sets the cartToClassAssociations property value. The Cart To Class Associations.
      *  @param array<CartToClassAssociation>|null $value Value to set for the cartToClassAssociations property.
     */
-    public function setCartToClassAssociations(?array $value ): void {
-        $this->cartToClassAssociations = $value;
+    public function setCartToClassAssociations(?array $value): void {
+        $this->getBackingStore()->set('cartToClassAssociations', $value);
     }
 
     /**
      * Sets the categories property value. The available categories
      *  @param array<DeviceManagementSettingCategory>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the certificateConnectorDetails property value. Collection of certificate connector details, each associated with a corresponding Intune Certificate Connector.
      *  @param array<CertificateConnectorDetails>|null $value Value to set for the certificateConnectorDetails property.
     */
-    public function setCertificateConnectorDetails(?array $value ): void {
-        $this->certificateConnectorDetails = $value;
+    public function setCertificateConnectorDetails(?array $value): void {
+        $this->getBackingStore()->set('certificateConnectorDetails', $value);
     }
 
     /**
      * Sets the chromeOSOnboardingSettings property value. Collection of ChromeOSOnboardingSettings settings associated with account.
      *  @param array<ChromeOSOnboardingSettings>|null $value Value to set for the chromeOSOnboardingSettings property.
     */
-    public function setChromeOSOnboardingSettings(?array $value ): void {
-        $this->chromeOSOnboardingSettings = $value;
+    public function setChromeOSOnboardingSettings(?array $value): void {
+        $this->getBackingStore()->set('chromeOSOnboardingSettings', $value);
     }
 
     /**
      * Sets the cloudPCConnectivityIssues property value. The list of CloudPC Connectivity Issue.
      *  @param array<CloudPCConnectivityIssue>|null $value Value to set for the cloudPCConnectivityIssues property.
     */
-    public function setCloudPCConnectivityIssues(?array $value ): void {
-        $this->cloudPCConnectivityIssues = $value;
+    public function setCloudPCConnectivityIssues(?array $value): void {
+        $this->getBackingStore()->set('cloudPCConnectivityIssues', $value);
     }
 
     /**
      * Sets the comanagedDevices property value. The list of co-managed devices report
      *  @param array<ManagedDevice>|null $value Value to set for the comanagedDevices property.
     */
-    public function setComanagedDevices(?array $value ): void {
-        $this->comanagedDevices = $value;
+    public function setComanagedDevices(?array $value): void {
+        $this->getBackingStore()->set('comanagedDevices', $value);
     }
 
     /**
      * Sets the comanagementEligibleDevices property value. The list of co-management eligible devices report
      *  @param array<ComanagementEligibleDevice>|null $value Value to set for the comanagementEligibleDevices property.
     */
-    public function setComanagementEligibleDevices(?array $value ): void {
-        $this->comanagementEligibleDevices = $value;
+    public function setComanagementEligibleDevices(?array $value): void {
+        $this->getBackingStore()->set('comanagementEligibleDevices', $value);
     }
 
     /**
      * Sets the complianceCategories property value. List of all compliance categories
      *  @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the complianceCategories property.
     */
-    public function setComplianceCategories(?array $value ): void {
-        $this->complianceCategories = $value;
+    public function setComplianceCategories(?array $value): void {
+        $this->getBackingStore()->set('complianceCategories', $value);
     }
 
     /**
      * Sets the complianceManagementPartners property value. The list of Compliance Management Partners configured by the tenant.
      *  @param array<ComplianceManagementPartner>|null $value Value to set for the complianceManagementPartners property.
     */
-    public function setComplianceManagementPartners(?array $value ): void {
-        $this->complianceManagementPartners = $value;
+    public function setComplianceManagementPartners(?array $value): void {
+        $this->getBackingStore()->set('complianceManagementPartners', $value);
     }
 
     /**
      * Sets the compliancePolicies property value. List of all compliance policies
      *  @param array<DeviceManagementCompliancePolicy>|null $value Value to set for the compliancePolicies property.
     */
-    public function setCompliancePolicies(?array $value ): void {
-        $this->compliancePolicies = $value;
+    public function setCompliancePolicies(?array $value): void {
+        $this->getBackingStore()->set('compliancePolicies', $value);
     }
 
     /**
      * Sets the complianceSettings property value. List of all ComplianceSettings
      *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the complianceSettings property.
     */
-    public function setComplianceSettings(?array $value ): void {
-        $this->complianceSettings = $value;
+    public function setComplianceSettings(?array $value): void {
+        $this->getBackingStore()->set('complianceSettings', $value);
     }
 
     /**
      * Sets the conditionalAccessSettings property value. The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access
      *  @param OnPremisesConditionalAccessSettings|null $value Value to set for the conditionalAccessSettings property.
     */
-    public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value ): void {
-        $this->conditionalAccessSettings = $value;
+    public function setConditionalAccessSettings(?OnPremisesConditionalAccessSettings $value): void {
+        $this->getBackingStore()->set('conditionalAccessSettings', $value);
     }
 
     /**
      * Sets the configManagerCollections property value. A list of ConfigManagerCollection
      *  @param array<ConfigManagerCollection>|null $value Value to set for the configManagerCollections property.
     */
-    public function setConfigManagerCollections(?array $value ): void {
-        $this->configManagerCollections = $value;
+    public function setConfigManagerCollections(?array $value): void {
+        $this->getBackingStore()->set('configManagerCollections', $value);
     }
 
     /**
      * Sets the configurationCategories property value. List of all Configuration Categories
      *  @param array<DeviceManagementConfigurationCategory>|null $value Value to set for the configurationCategories property.
     */
-    public function setConfigurationCategories(?array $value ): void {
-        $this->configurationCategories = $value;
+    public function setConfigurationCategories(?array $value): void {
+        $this->getBackingStore()->set('configurationCategories', $value);
     }
 
     /**
      * Sets the configurationPolicies property value. List of all Configuration policies
      *  @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the configurationPolicies property.
     */
-    public function setConfigurationPolicies(?array $value ): void {
-        $this->configurationPolicies = $value;
+    public function setConfigurationPolicies(?array $value): void {
+        $this->getBackingStore()->set('configurationPolicies', $value);
     }
 
     /**
      * Sets the configurationPolicyTemplates property value. List of all templates
      *  @param array<DeviceManagementConfigurationPolicyTemplate>|null $value Value to set for the configurationPolicyTemplates property.
     */
-    public function setConfigurationPolicyTemplates(?array $value ): void {
-        $this->configurationPolicyTemplates = $value;
+    public function setConfigurationPolicyTemplates(?array $value): void {
+        $this->getBackingStore()->set('configurationPolicyTemplates', $value);
     }
 
     /**
      * Sets the configurationSettings property value. List of all ConfigurationSettings
      *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the configurationSettings property.
     */
-    public function setConfigurationSettings(?array $value ): void {
-        $this->configurationSettings = $value;
+    public function setConfigurationSettings(?array $value): void {
+        $this->getBackingStore()->set('configurationSettings', $value);
     }
 
     /**
      * Sets the dataProcessorServiceForWindowsFeaturesOnboarding property value. A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
      *  @param DataProcessorServiceForWindowsFeaturesOnboarding|null $value Value to set for the dataProcessorServiceForWindowsFeaturesOnboarding property.
     */
-    public function setDataProcessorServiceForWindowsFeaturesOnboarding(?DataProcessorServiceForWindowsFeaturesOnboarding $value ): void {
-        $this->dataProcessorServiceForWindowsFeaturesOnboarding = $value;
+    public function setDataProcessorServiceForWindowsFeaturesOnboarding(?DataProcessorServiceForWindowsFeaturesOnboarding $value): void {
+        $this->getBackingStore()->set('dataProcessorServiceForWindowsFeaturesOnboarding', $value);
     }
 
     /**
      * Sets the dataSharingConsents property value. Data sharing consents.
      *  @param array<DataSharingConsent>|null $value Value to set for the dataSharingConsents property.
     */
-    public function setDataSharingConsents(?array $value ): void {
-        $this->dataSharingConsents = $value;
+    public function setDataSharingConsents(?array $value): void {
+        $this->getBackingStore()->set('dataSharingConsents', $value);
     }
 
     /**
      * Sets the depOnboardingSettings property value. This collections of multiple DEP tokens per-tenant.
      *  @param array<DepOnboardingSetting>|null $value Value to set for the depOnboardingSettings property.
     */
-    public function setDepOnboardingSettings(?array $value ): void {
-        $this->depOnboardingSettings = $value;
+    public function setDepOnboardingSettings(?array $value): void {
+        $this->getBackingStore()->set('depOnboardingSettings', $value);
     }
 
     /**
      * Sets the derivedCredentials property value. Collection of Derived credential settings associated with account.
      *  @param array<DeviceManagementDerivedCredentialSettings>|null $value Value to set for the derivedCredentials property.
     */
-    public function setDerivedCredentials(?array $value ): void {
-        $this->derivedCredentials = $value;
+    public function setDerivedCredentials(?array $value): void {
+        $this->getBackingStore()->set('derivedCredentials', $value);
     }
 
     /**
      * Sets the detectedApps property value. The list of detected apps associated with a device.
      *  @param array<DetectedApp>|null $value Value to set for the detectedApps property.
     */
-    public function setDetectedApps(?array $value ): void {
-        $this->detectedApps = $value;
+    public function setDetectedApps(?array $value): void {
+        $this->getBackingStore()->set('detectedApps', $value);
     }
 
     /**
      * Sets the deviceCategories property value. The list of device categories with the tenant.
      *  @param array<DeviceCategory>|null $value Value to set for the deviceCategories property.
     */
-    public function setDeviceCategories(?array $value ): void {
-        $this->deviceCategories = $value;
+    public function setDeviceCategories(?array $value): void {
+        $this->getBackingStore()->set('deviceCategories', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicies property value. The device compliance policies.
      *  @param array<DeviceCompliancePolicy>|null $value Value to set for the deviceCompliancePolicies property.
     */
-    public function setDeviceCompliancePolicies(?array $value ): void {
-        $this->deviceCompliancePolicies = $value;
+    public function setDeviceCompliancePolicies(?array $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicies', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicyDeviceStateSummary property value. The device compliance state summary for this account.
      *  @param DeviceCompliancePolicyDeviceStateSummary|null $value Value to set for the deviceCompliancePolicyDeviceStateSummary property.
     */
-    public function setDeviceCompliancePolicyDeviceStateSummary(?DeviceCompliancePolicyDeviceStateSummary $value ): void {
-        $this->deviceCompliancePolicyDeviceStateSummary = $value;
+    public function setDeviceCompliancePolicyDeviceStateSummary(?DeviceCompliancePolicyDeviceStateSummary $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicyDeviceStateSummary', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicySettingStateSummaries property value. The summary states of compliance policy settings for this account.
      *  @param array<DeviceCompliancePolicySettingStateSummary>|null $value Value to set for the deviceCompliancePolicySettingStateSummaries property.
     */
-    public function setDeviceCompliancePolicySettingStateSummaries(?array $value ): void {
-        $this->deviceCompliancePolicySettingStateSummaries = $value;
+    public function setDeviceCompliancePolicySettingStateSummaries(?array $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicySettingStateSummaries', $value);
     }
 
     /**
      * Sets the deviceComplianceReportSummarizationDateTime property value. The last requested time of device compliance reporting for this account. This property is read-only.
      *  @param DateTime|null $value Value to set for the deviceComplianceReportSummarizationDateTime property.
     */
-    public function setDeviceComplianceReportSummarizationDateTime(?DateTime $value ): void {
-        $this->deviceComplianceReportSummarizationDateTime = $value;
+    public function setDeviceComplianceReportSummarizationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deviceComplianceReportSummarizationDateTime', $value);
     }
 
     /**
      * Sets the deviceComplianceScripts property value. The list of device compliance scripts associated with the tenant.
      *  @param array<DeviceComplianceScript>|null $value Value to set for the deviceComplianceScripts property.
     */
-    public function setDeviceComplianceScripts(?array $value ): void {
-        $this->deviceComplianceScripts = $value;
+    public function setDeviceComplianceScripts(?array $value): void {
+        $this->getBackingStore()->set('deviceComplianceScripts', $value);
     }
 
     /**
      * Sets the deviceConfigurationConflictSummary property value. Summary of policies in conflict state for this account.
      *  @param array<DeviceConfigurationConflictSummary>|null $value Value to set for the deviceConfigurationConflictSummary property.
     */
-    public function setDeviceConfigurationConflictSummary(?array $value ): void {
-        $this->deviceConfigurationConflictSummary = $value;
+    public function setDeviceConfigurationConflictSummary(?array $value): void {
+        $this->getBackingStore()->set('deviceConfigurationConflictSummary', $value);
     }
 
     /**
      * Sets the deviceConfigurationDeviceStateSummaries property value. The device configuration device state summary for this account.
      *  @param DeviceConfigurationDeviceStateSummary|null $value Value to set for the deviceConfigurationDeviceStateSummaries property.
     */
-    public function setDeviceConfigurationDeviceStateSummaries(?DeviceConfigurationDeviceStateSummary $value ): void {
-        $this->deviceConfigurationDeviceStateSummaries = $value;
+    public function setDeviceConfigurationDeviceStateSummaries(?DeviceConfigurationDeviceStateSummary $value): void {
+        $this->getBackingStore()->set('deviceConfigurationDeviceStateSummaries', $value);
     }
 
     /**
      * Sets the deviceConfigurationRestrictedAppsViolations property value. Restricted apps violations for this account.
      *  @param array<RestrictedAppsViolation>|null $value Value to set for the deviceConfigurationRestrictedAppsViolations property.
     */
-    public function setDeviceConfigurationRestrictedAppsViolations(?array $value ): void {
-        $this->deviceConfigurationRestrictedAppsViolations = $value;
+    public function setDeviceConfigurationRestrictedAppsViolations(?array $value): void {
+        $this->getBackingStore()->set('deviceConfigurationRestrictedAppsViolations', $value);
     }
 
     /**
      * Sets the deviceConfigurations property value. The device configurations.
      *  @param array<DeviceConfiguration>|null $value Value to set for the deviceConfigurations property.
     */
-    public function setDeviceConfigurations(?array $value ): void {
-        $this->deviceConfigurations = $value;
+    public function setDeviceConfigurations(?array $value): void {
+        $this->getBackingStore()->set('deviceConfigurations', $value);
     }
 
     /**
      * Sets the deviceConfigurationsAllManagedDeviceCertificateStates property value. Summary of all certificates for all devices.
      *  @param array<ManagedAllDeviceCertificateState>|null $value Value to set for the deviceConfigurationsAllManagedDeviceCertificateStates property.
     */
-    public function setDeviceConfigurationsAllManagedDeviceCertificateStates(?array $value ): void {
-        $this->deviceConfigurationsAllManagedDeviceCertificateStates = $value;
+    public function setDeviceConfigurationsAllManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('deviceConfigurationsAllManagedDeviceCertificateStates', $value);
     }
 
     /**
      * Sets the deviceConfigurationUserStateSummaries property value. The device configuration user state summary for this account.
      *  @param DeviceConfigurationUserStateSummary|null $value Value to set for the deviceConfigurationUserStateSummaries property.
     */
-    public function setDeviceConfigurationUserStateSummaries(?DeviceConfigurationUserStateSummary $value ): void {
-        $this->deviceConfigurationUserStateSummaries = $value;
+    public function setDeviceConfigurationUserStateSummaries(?DeviceConfigurationUserStateSummary $value): void {
+        $this->getBackingStore()->set('deviceConfigurationUserStateSummaries', $value);
     }
 
     /**
      * Sets the deviceCustomAttributeShellScripts property value. The list of device custom attribute shell scripts associated with the tenant.
      *  @param array<DeviceCustomAttributeShellScript>|null $value Value to set for the deviceCustomAttributeShellScripts property.
     */
-    public function setDeviceCustomAttributeShellScripts(?array $value ): void {
-        $this->deviceCustomAttributeShellScripts = $value;
+    public function setDeviceCustomAttributeShellScripts(?array $value): void {
+        $this->getBackingStore()->set('deviceCustomAttributeShellScripts', $value);
     }
 
     /**
      * Sets the deviceEnrollmentConfigurations property value. The list of device enrollment configurations
      *  @param array<DeviceEnrollmentConfiguration>|null $value Value to set for the deviceEnrollmentConfigurations property.
     */
-    public function setDeviceEnrollmentConfigurations(?array $value ): void {
-        $this->deviceEnrollmentConfigurations = $value;
+    public function setDeviceEnrollmentConfigurations(?array $value): void {
+        $this->getBackingStore()->set('deviceEnrollmentConfigurations', $value);
     }
 
     /**
      * Sets the deviceHealthScripts property value. The list of device health scripts associated with the tenant.
      *  @param array<DeviceHealthScript>|null $value Value to set for the deviceHealthScripts property.
     */
-    public function setDeviceHealthScripts(?array $value ): void {
-        $this->deviceHealthScripts = $value;
+    public function setDeviceHealthScripts(?array $value): void {
+        $this->getBackingStore()->set('deviceHealthScripts', $value);
     }
 
     /**
      * Sets the deviceManagementPartners property value. The list of Device Management Partners configured by the tenant.
      *  @param array<DeviceManagementPartner>|null $value Value to set for the deviceManagementPartners property.
     */
-    public function setDeviceManagementPartners(?array $value ): void {
-        $this->deviceManagementPartners = $value;
+    public function setDeviceManagementPartners(?array $value): void {
+        $this->getBackingStore()->set('deviceManagementPartners', $value);
     }
 
     /**
      * Sets the deviceManagementScripts property value. The list of device management scripts associated with the tenant.
      *  @param array<DeviceManagementScript>|null $value Value to set for the deviceManagementScripts property.
     */
-    public function setDeviceManagementScripts(?array $value ): void {
-        $this->deviceManagementScripts = $value;
+    public function setDeviceManagementScripts(?array $value): void {
+        $this->getBackingStore()->set('deviceManagementScripts', $value);
     }
 
     /**
      * Sets the deviceProtectionOverview property value. Device protection overview.
      *  @param DeviceProtectionOverview|null $value Value to set for the deviceProtectionOverview property.
     */
-    public function setDeviceProtectionOverview(?DeviceProtectionOverview $value ): void {
-        $this->deviceProtectionOverview = $value;
+    public function setDeviceProtectionOverview(?DeviceProtectionOverview $value): void {
+        $this->getBackingStore()->set('deviceProtectionOverview', $value);
     }
 
     /**
      * Sets the deviceShellScripts property value. The list of device shell scripts associated with the tenant.
      *  @param array<DeviceShellScript>|null $value Value to set for the deviceShellScripts property.
     */
-    public function setDeviceShellScripts(?array $value ): void {
-        $this->deviceShellScripts = $value;
+    public function setDeviceShellScripts(?array $value): void {
+        $this->getBackingStore()->set('deviceShellScripts', $value);
     }
 
     /**
      * Sets the domainJoinConnectors property value. A list of connector objects.
      *  @param array<DeviceManagementDomainJoinConnector>|null $value Value to set for the domainJoinConnectors property.
     */
-    public function setDomainJoinConnectors(?array $value ): void {
-        $this->domainJoinConnectors = $value;
+    public function setDomainJoinConnectors(?array $value): void {
+        $this->getBackingStore()->set('domainJoinConnectors', $value);
     }
 
     /**
      * Sets the embeddedSIMActivationCodePools property value. The embedded SIM activation code pools created by this account.
      *  @param array<EmbeddedSIMActivationCodePool>|null $value Value to set for the embeddedSIMActivationCodePools property.
     */
-    public function setEmbeddedSIMActivationCodePools(?array $value ): void {
-        $this->embeddedSIMActivationCodePools = $value;
+    public function setEmbeddedSIMActivationCodePools(?array $value): void {
+        $this->getBackingStore()->set('embeddedSIMActivationCodePools', $value);
     }
 
     /**
      * Sets the exchangeConnectors property value. The list of Exchange Connectors configured by the tenant.
      *  @param array<DeviceManagementExchangeConnector>|null $value Value to set for the exchangeConnectors property.
     */
-    public function setExchangeConnectors(?array $value ): void {
-        $this->exchangeConnectors = $value;
+    public function setExchangeConnectors(?array $value): void {
+        $this->getBackingStore()->set('exchangeConnectors', $value);
     }
 
     /**
      * Sets the exchangeOnPremisesPolicies property value. The list of Exchange On Premisis policies configured by the tenant.
      *  @param array<DeviceManagementExchangeOnPremisesPolicy>|null $value Value to set for the exchangeOnPremisesPolicies property.
     */
-    public function setExchangeOnPremisesPolicies(?array $value ): void {
-        $this->exchangeOnPremisesPolicies = $value;
+    public function setExchangeOnPremisesPolicies(?array $value): void {
+        $this->getBackingStore()->set('exchangeOnPremisesPolicies', $value);
     }
 
     /**
      * Sets the exchangeOnPremisesPolicy property value. The policy which controls mobile device access to Exchange On Premises
      *  @param DeviceManagementExchangeOnPremisesPolicy|null $value Value to set for the exchangeOnPremisesPolicy property.
     */
-    public function setExchangeOnPremisesPolicy(?DeviceManagementExchangeOnPremisesPolicy $value ): void {
-        $this->exchangeOnPremisesPolicy = $value;
+    public function setExchangeOnPremisesPolicy(?DeviceManagementExchangeOnPremisesPolicy $value): void {
+        $this->getBackingStore()->set('exchangeOnPremisesPolicy', $value);
     }
 
     /**
      * Sets the groupPolicyCategories property value. The available group policy categories for this account.
      *  @param array<GroupPolicyCategory>|null $value Value to set for the groupPolicyCategories property.
     */
-    public function setGroupPolicyCategories(?array $value ): void {
-        $this->groupPolicyCategories = $value;
+    public function setGroupPolicyCategories(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyCategories', $value);
     }
 
     /**
      * Sets the groupPolicyConfigurations property value. The group policy configurations created by this account.
      *  @param array<GroupPolicyConfiguration>|null $value Value to set for the groupPolicyConfigurations property.
     */
-    public function setGroupPolicyConfigurations(?array $value ): void {
-        $this->groupPolicyConfigurations = $value;
+    public function setGroupPolicyConfigurations(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyConfigurations', $value);
     }
 
     /**
      * Sets the groupPolicyDefinitionFiles property value. The available group policy definition files for this account.
      *  @param array<GroupPolicyDefinitionFile>|null $value Value to set for the groupPolicyDefinitionFiles property.
     */
-    public function setGroupPolicyDefinitionFiles(?array $value ): void {
-        $this->groupPolicyDefinitionFiles = $value;
+    public function setGroupPolicyDefinitionFiles(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyDefinitionFiles', $value);
     }
 
     /**
      * Sets the groupPolicyDefinitions property value. The available group policy definitions for this account.
      *  @param array<GroupPolicyDefinition>|null $value Value to set for the groupPolicyDefinitions property.
     */
-    public function setGroupPolicyDefinitions(?array $value ): void {
-        $this->groupPolicyDefinitions = $value;
+    public function setGroupPolicyDefinitions(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyDefinitions', $value);
     }
 
     /**
      * Sets the groupPolicyMigrationReports property value. A list of Group Policy migration reports.
      *  @param array<GroupPolicyMigrationReport>|null $value Value to set for the groupPolicyMigrationReports property.
     */
-    public function setGroupPolicyMigrationReports(?array $value ): void {
-        $this->groupPolicyMigrationReports = $value;
+    public function setGroupPolicyMigrationReports(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyMigrationReports', $value);
     }
 
     /**
      * Sets the groupPolicyObjectFiles property value. A list of Group Policy Object files uploaded.
      *  @param array<GroupPolicyObjectFile>|null $value Value to set for the groupPolicyObjectFiles property.
     */
-    public function setGroupPolicyObjectFiles(?array $value ): void {
-        $this->groupPolicyObjectFiles = $value;
+    public function setGroupPolicyObjectFiles(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyObjectFiles', $value);
     }
 
     /**
      * Sets the groupPolicyUploadedDefinitionFiles property value. The available group policy uploaded definition files for this account.
      *  @param array<GroupPolicyUploadedDefinitionFile>|null $value Value to set for the groupPolicyUploadedDefinitionFiles property.
     */
-    public function setGroupPolicyUploadedDefinitionFiles(?array $value ): void {
-        $this->groupPolicyUploadedDefinitionFiles = $value;
+    public function setGroupPolicyUploadedDefinitionFiles(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyUploadedDefinitionFiles', $value);
     }
 
     /**
      * Sets the importedDeviceIdentities property value. The imported device identities.
      *  @param array<ImportedDeviceIdentity>|null $value Value to set for the importedDeviceIdentities property.
     */
-    public function setImportedDeviceIdentities(?array $value ): void {
-        $this->importedDeviceIdentities = $value;
+    public function setImportedDeviceIdentities(?array $value): void {
+        $this->getBackingStore()->set('importedDeviceIdentities', $value);
     }
 
     /**
      * Sets the importedWindowsAutopilotDeviceIdentities property value. Collection of imported Windows autopilot devices.
      *  @param array<ImportedWindowsAutopilotDeviceIdentity>|null $value Value to set for the importedWindowsAutopilotDeviceIdentities property.
     */
-    public function setImportedWindowsAutopilotDeviceIdentities(?array $value ): void {
-        $this->importedWindowsAutopilotDeviceIdentities = $value;
+    public function setImportedWindowsAutopilotDeviceIdentities(?array $value): void {
+        $this->getBackingStore()->set('importedWindowsAutopilotDeviceIdentities', $value);
     }
 
     /**
      * Sets the intents property value. The device management intents
      *  @param array<DeviceManagementIntent>|null $value Value to set for the intents property.
     */
-    public function setIntents(?array $value ): void {
-        $this->intents = $value;
+    public function setIntents(?array $value): void {
+        $this->getBackingStore()->set('intents', $value);
     }
 
     /**
      * Sets the intuneAccountId property value. Intune Account ID for given tenant
      *  @param string|null $value Value to set for the intuneAccountId property.
     */
-    public function setIntuneAccountId(?string $value ): void {
-        $this->intuneAccountId = $value;
+    public function setIntuneAccountId(?string $value): void {
+        $this->getBackingStore()->set('intuneAccountId', $value);
     }
 
     /**
      * Sets the intuneBrand property value. intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
      *  @param IntuneBrand|null $value Value to set for the intuneBrand property.
     */
-    public function setIntuneBrand(?IntuneBrand $value ): void {
-        $this->intuneBrand = $value;
+    public function setIntuneBrand(?IntuneBrand $value): void {
+        $this->getBackingStore()->set('intuneBrand', $value);
     }
 
     /**
      * Sets the intuneBrandingProfiles property value. Intune branding profiles targeted to AAD groups
      *  @param array<IntuneBrandingProfile>|null $value Value to set for the intuneBrandingProfiles property.
     */
-    public function setIntuneBrandingProfiles(?array $value ): void {
-        $this->intuneBrandingProfiles = $value;
+    public function setIntuneBrandingProfiles(?array $value): void {
+        $this->getBackingStore()->set('intuneBrandingProfiles', $value);
     }
 
     /**
      * Sets the iosUpdateStatuses property value. The IOS software update installation statuses for this account.
      *  @param array<IosUpdateDeviceStatus>|null $value Value to set for the iosUpdateStatuses property.
     */
-    public function setIosUpdateStatuses(?array $value ): void {
-        $this->iosUpdateStatuses = $value;
+    public function setIosUpdateStatuses(?array $value): void {
+        $this->getBackingStore()->set('iosUpdateStatuses', $value);
     }
 
     /**
      * Sets the lastReportAggregationDateTime property value. The last modified time of reporting for this account. This property is read-only.
      *  @param DateTime|null $value Value to set for the lastReportAggregationDateTime property.
     */
-    public function setLastReportAggregationDateTime(?DateTime $value ): void {
-        $this->lastReportAggregationDateTime = $value;
+    public function setLastReportAggregationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastReportAggregationDateTime', $value);
     }
 
     /**
      * Sets the legacyPcManangementEnabled property value. The property to enable Non-MDM managed legacy PC management for this account. This property is read-only.
      *  @param bool|null $value Value to set for the legacyPcManangementEnabled property.
     */
-    public function setLegacyPcManangementEnabled(?bool $value ): void {
-        $this->legacyPcManangementEnabled = $value;
+    public function setLegacyPcManangementEnabled(?bool $value): void {
+        $this->getBackingStore()->set('legacyPcManangementEnabled', $value);
     }
 
     /**
      * Sets the macOSSoftwareUpdateAccountSummaries property value. The MacOS software update account summaries for this account.
      *  @param array<MacOSSoftwareUpdateAccountSummary>|null $value Value to set for the macOSSoftwareUpdateAccountSummaries property.
     */
-    public function setMacOSSoftwareUpdateAccountSummaries(?array $value ): void {
-        $this->macOSSoftwareUpdateAccountSummaries = $value;
+    public function setMacOSSoftwareUpdateAccountSummaries(?array $value): void {
+        $this->getBackingStore()->set('macOSSoftwareUpdateAccountSummaries', $value);
     }
 
     /**
      * Sets the managedDeviceCleanupSettings property value. Device cleanup rule
      *  @param ManagedDeviceCleanupSettings|null $value Value to set for the managedDeviceCleanupSettings property.
     */
-    public function setManagedDeviceCleanupSettings(?ManagedDeviceCleanupSettings $value ): void {
-        $this->managedDeviceCleanupSettings = $value;
+    public function setManagedDeviceCleanupSettings(?ManagedDeviceCleanupSettings $value): void {
+        $this->getBackingStore()->set('managedDeviceCleanupSettings', $value);
     }
 
     /**
      * Sets the managedDeviceEncryptionStates property value. Encryption report for devices in this account
      *  @param array<ManagedDeviceEncryptionState>|null $value Value to set for the managedDeviceEncryptionStates property.
     */
-    public function setManagedDeviceEncryptionStates(?array $value ): void {
-        $this->managedDeviceEncryptionStates = $value;
+    public function setManagedDeviceEncryptionStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceEncryptionStates', $value);
     }
 
     /**
      * Sets the managedDeviceOverview property value. Device overview
      *  @param ManagedDeviceOverview|null $value Value to set for the managedDeviceOverview property.
     */
-    public function setManagedDeviceOverview(?ManagedDeviceOverview $value ): void {
-        $this->managedDeviceOverview = $value;
+    public function setManagedDeviceOverview(?ManagedDeviceOverview $value): void {
+        $this->getBackingStore()->set('managedDeviceOverview', $value);
     }
 
     /**
      * Sets the managedDevices property value. The list of managed devices.
      *  @param array<ManagedDevice>|null $value Value to set for the managedDevices property.
     */
-    public function setManagedDevices(?array $value ): void {
-        $this->managedDevices = $value;
+    public function setManagedDevices(?array $value): void {
+        $this->getBackingStore()->set('managedDevices', $value);
     }
 
     /**
      * Sets the maximumDepTokens property value. Maximum number of DEP tokens allowed per-tenant.
      *  @param int|null $value Value to set for the maximumDepTokens property.
     */
-    public function setMaximumDepTokens(?int $value ): void {
-        $this->maximumDepTokens = $value;
+    public function setMaximumDepTokens(?int $value): void {
+        $this->getBackingStore()->set('maximumDepTokens', $value);
     }
 
     /**
      * Sets the microsoftTunnelConfigurations property value. Collection of MicrosoftTunnelConfiguration settings associated with account.
      *  @param array<MicrosoftTunnelConfiguration>|null $value Value to set for the microsoftTunnelConfigurations property.
     */
-    public function setMicrosoftTunnelConfigurations(?array $value ): void {
-        $this->microsoftTunnelConfigurations = $value;
+    public function setMicrosoftTunnelConfigurations(?array $value): void {
+        $this->getBackingStore()->set('microsoftTunnelConfigurations', $value);
     }
 
     /**
      * Sets the microsoftTunnelHealthThresholds property value. Collection of MicrosoftTunnelHealthThreshold settings associated with account.
      *  @param array<MicrosoftTunnelHealthThreshold>|null $value Value to set for the microsoftTunnelHealthThresholds property.
     */
-    public function setMicrosoftTunnelHealthThresholds(?array $value ): void {
-        $this->microsoftTunnelHealthThresholds = $value;
+    public function setMicrosoftTunnelHealthThresholds(?array $value): void {
+        $this->getBackingStore()->set('microsoftTunnelHealthThresholds', $value);
     }
 
     /**
      * Sets the microsoftTunnelServerLogCollectionResponses property value. Collection of MicrosoftTunnelServerLogCollectionResponse settings associated with account.
      *  @param array<MicrosoftTunnelServerLogCollectionResponse>|null $value Value to set for the microsoftTunnelServerLogCollectionResponses property.
     */
-    public function setMicrosoftTunnelServerLogCollectionResponses(?array $value ): void {
-        $this->microsoftTunnelServerLogCollectionResponses = $value;
+    public function setMicrosoftTunnelServerLogCollectionResponses(?array $value): void {
+        $this->getBackingStore()->set('microsoftTunnelServerLogCollectionResponses', $value);
     }
 
     /**
      * Sets the microsoftTunnelSites property value. Collection of MicrosoftTunnelSite settings associated with account.
      *  @param array<MicrosoftTunnelSite>|null $value Value to set for the microsoftTunnelSites property.
     */
-    public function setMicrosoftTunnelSites(?array $value ): void {
-        $this->microsoftTunnelSites = $value;
+    public function setMicrosoftTunnelSites(?array $value): void {
+        $this->getBackingStore()->set('microsoftTunnelSites', $value);
     }
 
     /**
      * Sets the mobileAppTroubleshootingEvents property value. The collection property of MobileAppTroubleshootingEvent.
      *  @param array<MobileAppTroubleshootingEvent>|null $value Value to set for the mobileAppTroubleshootingEvents property.
     */
-    public function setMobileAppTroubleshootingEvents(?array $value ): void {
-        $this->mobileAppTroubleshootingEvents = $value;
+    public function setMobileAppTroubleshootingEvents(?array $value): void {
+        $this->getBackingStore()->set('mobileAppTroubleshootingEvents', $value);
     }
 
     /**
      * Sets the mobileThreatDefenseConnectors property value. The list of Mobile threat Defense connectors configured by the tenant.
      *  @param array<MobileThreatDefenseConnector>|null $value Value to set for the mobileThreatDefenseConnectors property.
     */
-    public function setMobileThreatDefenseConnectors(?array $value ): void {
-        $this->mobileThreatDefenseConnectors = $value;
+    public function setMobileThreatDefenseConnectors(?array $value): void {
+        $this->getBackingStore()->set('mobileThreatDefenseConnectors', $value);
     }
 
     /**
      * Sets the monitoring property value. The monitoring property
      *  @param Monitoring|null $value Value to set for the monitoring property.
     */
-    public function setMonitoring(?Monitoring $value ): void {
-        $this->monitoring = $value;
+    public function setMonitoring(?Monitoring $value): void {
+        $this->getBackingStore()->set('monitoring', $value);
     }
 
     /**
      * Sets the ndesConnectors property value. The collection of Ndes connectors for this account.
      *  @param array<NdesConnector>|null $value Value to set for the ndesConnectors property.
     */
-    public function setNdesConnectors(?array $value ): void {
-        $this->ndesConnectors = $value;
+    public function setNdesConnectors(?array $value): void {
+        $this->getBackingStore()->set('ndesConnectors', $value);
     }
 
     /**
      * Sets the notificationMessageTemplates property value. The Notification Message Templates.
      *  @param array<NotificationMessageTemplate>|null $value Value to set for the notificationMessageTemplates property.
     */
-    public function setNotificationMessageTemplates(?array $value ): void {
-        $this->notificationMessageTemplates = $value;
+    public function setNotificationMessageTemplates(?array $value): void {
+        $this->getBackingStore()->set('notificationMessageTemplates', $value);
     }
 
     /**
      * Sets the oemWarrantyInformationOnboarding property value. List of OEM Warranty Statuses
      *  @param array<OemWarrantyInformationOnboarding>|null $value Value to set for the oemWarrantyInformationOnboarding property.
     */
-    public function setOemWarrantyInformationOnboarding(?array $value ): void {
-        $this->oemWarrantyInformationOnboarding = $value;
+    public function setOemWarrantyInformationOnboarding(?array $value): void {
+        $this->getBackingStore()->set('oemWarrantyInformationOnboarding', $value);
     }
 
     /**
      * Sets the remoteActionAudits property value. The list of device remote action audits with the tenant.
      *  @param array<RemoteActionAudit>|null $value Value to set for the remoteActionAudits property.
     */
-    public function setRemoteActionAudits(?array $value ): void {
-        $this->remoteActionAudits = $value;
+    public function setRemoteActionAudits(?array $value): void {
+        $this->getBackingStore()->set('remoteActionAudits', $value);
     }
 
     /**
      * Sets the remoteAssistancePartners property value. The remote assist partners.
      *  @param array<RemoteAssistancePartner>|null $value Value to set for the remoteAssistancePartners property.
     */
-    public function setRemoteAssistancePartners(?array $value ): void {
-        $this->remoteAssistancePartners = $value;
+    public function setRemoteAssistancePartners(?array $value): void {
+        $this->getBackingStore()->set('remoteAssistancePartners', $value);
     }
 
     /**
      * Sets the remoteAssistanceSettings property value. The remote assistance settings singleton
      *  @param RemoteAssistanceSettings|null $value Value to set for the remoteAssistanceSettings property.
     */
-    public function setRemoteAssistanceSettings(?RemoteAssistanceSettings $value ): void {
-        $this->remoteAssistanceSettings = $value;
+    public function setRemoteAssistanceSettings(?RemoteAssistanceSettings $value): void {
+        $this->getBackingStore()->set('remoteAssistanceSettings', $value);
     }
 
     /**
      * Sets the reports property value. Reports singleton
      *  @param DeviceManagementReports|null $value Value to set for the reports property.
     */
-    public function setReports(?DeviceManagementReports $value ): void {
-        $this->reports = $value;
+    public function setReports(?DeviceManagementReports $value): void {
+        $this->getBackingStore()->set('reports', $value);
     }
 
     /**
      * Sets the resourceAccessProfiles property value. Collection of resource access settings associated with account.
      *  @param array<DeviceManagementResourceAccessProfileBase>|null $value Value to set for the resourceAccessProfiles property.
     */
-    public function setResourceAccessProfiles(?array $value ): void {
-        $this->resourceAccessProfiles = $value;
+    public function setResourceAccessProfiles(?array $value): void {
+        $this->getBackingStore()->set('resourceAccessProfiles', $value);
     }
 
     /**
      * Sets the resourceOperations property value. The Resource Operations.
      *  @param array<ResourceOperation>|null $value Value to set for the resourceOperations property.
     */
-    public function setResourceOperations(?array $value ): void {
-        $this->resourceOperations = $value;
+    public function setResourceOperations(?array $value): void {
+        $this->getBackingStore()->set('resourceOperations', $value);
     }
 
     /**
      * Sets the reusablePolicySettings property value. List of all reusable settings that can be referred in a policy
      *  @param array<DeviceManagementReusablePolicySetting>|null $value Value to set for the reusablePolicySettings property.
     */
-    public function setReusablePolicySettings(?array $value ): void {
-        $this->reusablePolicySettings = $value;
+    public function setReusablePolicySettings(?array $value): void {
+        $this->getBackingStore()->set('reusablePolicySettings', $value);
     }
 
     /**
      * Sets the reusableSettings property value. List of all reusable settings
      *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the reusableSettings property.
     */
-    public function setReusableSettings(?array $value ): void {
-        $this->reusableSettings = $value;
+    public function setReusableSettings(?array $value): void {
+        $this->getBackingStore()->set('reusableSettings', $value);
     }
 
     /**
      * Sets the roleAssignments property value. The Role Assignments.
      *  @param array<DeviceAndAppManagementRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
-    public function setRoleAssignments(?array $value ): void {
-        $this->roleAssignments = $value;
+    public function setRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('roleAssignments', $value);
     }
 
     /**
      * Sets the roleDefinitions property value. The Role Definitions.
      *  @param array<RoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
-    public function setRoleDefinitions(?array $value ): void {
-        $this->roleDefinitions = $value;
+    public function setRoleDefinitions(?array $value): void {
+        $this->getBackingStore()->set('roleDefinitions', $value);
     }
 
     /**
      * Sets the roleScopeTags property value. The Role Scope Tags.
      *  @param array<RoleScopeTag>|null $value Value to set for the roleScopeTags property.
     */
-    public function setRoleScopeTags(?array $value ): void {
-        $this->roleScopeTags = $value;
+    public function setRoleScopeTags(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
     /**
      * Sets the settingDefinitions property value. The device management intent setting definitions
      *  @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
-    public function setSettingDefinitions(?array $value ): void {
-        $this->settingDefinitions = $value;
+    public function setSettingDefinitions(?array $value): void {
+        $this->getBackingStore()->set('settingDefinitions', $value);
     }
 
     /**
      * Sets the settings property value. Account level settings.
      *  @param DeviceManagementSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?DeviceManagementSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?DeviceManagementSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the softwareUpdateStatusSummary property value. The software update status summary.
      *  @param SoftwareUpdateStatusSummary|null $value Value to set for the softwareUpdateStatusSummary property.
     */
-    public function setSoftwareUpdateStatusSummary(?SoftwareUpdateStatusSummary $value ): void {
-        $this->softwareUpdateStatusSummary = $value;
+    public function setSoftwareUpdateStatusSummary(?SoftwareUpdateStatusSummary $value): void {
+        $this->getBackingStore()->set('softwareUpdateStatusSummary', $value);
     }
 
     /**
      * Sets the subscriptions property value. Tenant mobile device management subscriptions.
      *  @param DeviceManagementSubscriptions|null $value Value to set for the subscriptions property.
     */
-    public function setSubscriptions(?DeviceManagementSubscriptions $value ): void {
-        $this->subscriptions = $value;
+    public function setSubscriptions(?DeviceManagementSubscriptions $value): void {
+        $this->getBackingStore()->set('subscriptions', $value);
     }
 
     /**
      * Sets the subscriptionState property value. Tenant mobile device management subscription state.
      *  @param DeviceManagementSubscriptionState|null $value Value to set for the subscriptionState property.
     */
-    public function setSubscriptionState(?DeviceManagementSubscriptionState $value ): void {
-        $this->subscriptionState = $value;
+    public function setSubscriptionState(?DeviceManagementSubscriptionState $value): void {
+        $this->getBackingStore()->set('subscriptionState', $value);
     }
 
     /**
      * Sets the telecomExpenseManagementPartners property value. The telecom expense management partners.
      *  @param array<TelecomExpenseManagementPartner>|null $value Value to set for the telecomExpenseManagementPartners property.
     */
-    public function setTelecomExpenseManagementPartners(?array $value ): void {
-        $this->telecomExpenseManagementPartners = $value;
+    public function setTelecomExpenseManagementPartners(?array $value): void {
+        $this->getBackingStore()->set('telecomExpenseManagementPartners', $value);
     }
 
     /**
      * Sets the templates property value. The available templates
      *  @param array<DeviceManagementTemplate>|null $value Value to set for the templates property.
     */
-    public function setTemplates(?array $value ): void {
-        $this->templates = $value;
+    public function setTemplates(?array $value): void {
+        $this->getBackingStore()->set('templates', $value);
     }
 
     /**
      * Sets the templateSettings property value. List of all TemplateSettings
      *  @param array<DeviceManagementConfigurationSettingTemplate>|null $value Value to set for the templateSettings property.
     */
-    public function setTemplateSettings(?array $value ): void {
-        $this->templateSettings = $value;
+    public function setTemplateSettings(?array $value): void {
+        $this->getBackingStore()->set('templateSettings', $value);
     }
 
     /**
      * Sets the tenantAttachRBAC property value. TenantAttach RBAC Enablement
      *  @param TenantAttachRBAC|null $value Value to set for the tenantAttachRBAC property.
     */
-    public function setTenantAttachRBAC(?TenantAttachRBAC $value ): void {
-        $this->tenantAttachRBAC = $value;
+    public function setTenantAttachRBAC(?TenantAttachRBAC $value): void {
+        $this->getBackingStore()->set('tenantAttachRBAC', $value);
     }
 
     /**
      * Sets the termsAndConditions property value. The terms and conditions associated with device management of the company.
      *  @param array<TermsAndConditions>|null $value Value to set for the termsAndConditions property.
     */
-    public function setTermsAndConditions(?array $value ): void {
-        $this->termsAndConditions = $value;
+    public function setTermsAndConditions(?array $value): void {
+        $this->getBackingStore()->set('termsAndConditions', $value);
     }
 
     /**
      * Sets the troubleshootingEvents property value. The list of troubleshooting events for the tenant.
      *  @param array<DeviceManagementTroubleshootingEvent>|null $value Value to set for the troubleshootingEvents property.
     */
-    public function setTroubleshootingEvents(?array $value ): void {
-        $this->troubleshootingEvents = $value;
+    public function setTroubleshootingEvents(?array $value): void {
+        $this->getBackingStore()->set('troubleshootingEvents', $value);
     }
 
     /**
      * Sets the unlicensedAdminstratorsEnabled property value. When enabled, users assigned as administrators via Role Assignment Memberships do not require an assigned Intune license. Prior to this, only Intune licensed users were granted permissions with an Intune role unless they were assigned a role via Azure Active Directory. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators are unaffected, do not have to be direct members, nor does the 350 member limit apply. This property is read-only.
      *  @param bool|null $value Value to set for the unlicensedAdminstratorsEnabled property.
     */
-    public function setUnlicensedAdminstratorsEnabled(?bool $value ): void {
-        $this->unlicensedAdminstratorsEnabled = $value;
+    public function setUnlicensedAdminstratorsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('unlicensedAdminstratorsEnabled', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAnomaly property value. The user experience analytics anomaly entity contains anomaly details.
      *  @param array<UserExperienceAnalyticsAnomaly>|null $value Value to set for the userExperienceAnalyticsAnomaly property.
     */
-    public function setUserExperienceAnalyticsAnomaly(?array $value ): void {
-        $this->userExperienceAnalyticsAnomaly = $value;
+    public function setUserExperienceAnalyticsAnomaly(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAnomaly', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAnomalyDevice property value. The user experience analytics anomaly entity contains device details.
      *  @param array<UserExperienceAnalyticsAnomalyDevice>|null $value Value to set for the userExperienceAnalyticsAnomalyDevice property.
     */
-    public function setUserExperienceAnalyticsAnomalyDevice(?array $value ): void {
-        $this->userExperienceAnalyticsAnomalyDevice = $value;
+    public function setUserExperienceAnalyticsAnomalyDevice(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAnomalyDevice', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAnomalySeverityOverview property value. The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
      *  @param UserExperienceAnalyticsAnomalySeverityOverview|null $value Value to set for the userExperienceAnalyticsAnomalySeverityOverview property.
     */
-    public function setUserExperienceAnalyticsAnomalySeverityOverview(?UserExperienceAnalyticsAnomalySeverityOverview $value ): void {
-        $this->userExperienceAnalyticsAnomalySeverityOverview = $value;
+    public function setUserExperienceAnalyticsAnomalySeverityOverview(?UserExperienceAnalyticsAnomalySeverityOverview $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAnomalySeverityOverview', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformance property value. User experience analytics appHealth Application Performance
      *  @param array<UserExperienceAnalyticsAppHealthApplicationPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformance property.
     */
-    public function setUserExperienceAnalyticsAppHealthApplicationPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthApplicationPerformance = $value;
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property value. User experience analytics appHealth Application Performance by App Version
      *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property.
     */
-    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion = $value;
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property value. User experience analytics appHealth Application Performance by App Version details
      *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property.
     */
-    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails = $value;
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property value. User experience analytics appHealth Application Performance by App Version Device Id
      *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property.
     */
-    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId = $value;
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property value. User experience analytics appHealth Application Performance by OS Version
      *  @param array<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion>|null $value Value to set for the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property.
     */
-    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion = $value;
+    public function setUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDeviceModelPerformance property value. User experience analytics appHealth Model Performance
      *  @param array<UserExperienceAnalyticsAppHealthDeviceModelPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDeviceModelPerformance property.
     */
-    public function setUserExperienceAnalyticsAppHealthDeviceModelPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthDeviceModelPerformance = $value;
+    public function setUserExperienceAnalyticsAppHealthDeviceModelPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDeviceModelPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDevicePerformance property value. User experience analytics appHealth Device Performance
      *  @param array<UserExperienceAnalyticsAppHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformance property.
     */
-    public function setUserExperienceAnalyticsAppHealthDevicePerformance(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthDevicePerformance = $value;
+    public function setUserExperienceAnalyticsAppHealthDevicePerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDevicePerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthDevicePerformanceDetails property value. User experience analytics device performance details
      *  @param array<UserExperienceAnalyticsAppHealthDevicePerformanceDetails>|null $value Value to set for the userExperienceAnalyticsAppHealthDevicePerformanceDetails property.
     */
-    public function setUserExperienceAnalyticsAppHealthDevicePerformanceDetails(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthDevicePerformanceDetails = $value;
+    public function setUserExperienceAnalyticsAppHealthDevicePerformanceDetails(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthDevicePerformanceDetails', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthOSVersionPerformance property value. User experience analytics appHealth OS version Performance
      *  @param array<UserExperienceAnalyticsAppHealthOSVersionPerformance>|null $value Value to set for the userExperienceAnalyticsAppHealthOSVersionPerformance property.
     */
-    public function setUserExperienceAnalyticsAppHealthOSVersionPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsAppHealthOSVersionPerformance = $value;
+    public function setUserExperienceAnalyticsAppHealthOSVersionPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthOSVersionPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsAppHealthOverview property value. User experience analytics appHealth overview
      *  @param UserExperienceAnalyticsCategory|null $value Value to set for the userExperienceAnalyticsAppHealthOverview property.
     */
-    public function setUserExperienceAnalyticsAppHealthOverview(?UserExperienceAnalyticsCategory $value ): void {
-        $this->userExperienceAnalyticsAppHealthOverview = $value;
+    public function setUserExperienceAnalyticsAppHealthOverview(?UserExperienceAnalyticsCategory $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsAppHealthOverview', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBaselines property value. User experience analytics baselines
      *  @param array<UserExperienceAnalyticsBaseline>|null $value Value to set for the userExperienceAnalyticsBaselines property.
     */
-    public function setUserExperienceAnalyticsBaselines(?array $value ): void {
-        $this->userExperienceAnalyticsBaselines = $value;
+    public function setUserExperienceAnalyticsBaselines(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBaselines', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthAppImpact property value. User Experience Analytics Battery Health App Impact
      *  @param array<UserExperienceAnalyticsBatteryHealthAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthAppImpact property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthAppImpact(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthAppImpact = $value;
+    public function setUserExperienceAnalyticsBatteryHealthAppImpact(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthAppImpact', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthCapacityDetails property value. User Experience Analytics Battery Health Capacity Details
      *  @param UserExperienceAnalyticsBatteryHealthCapacityDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthCapacityDetails property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthCapacityDetails(?UserExperienceAnalyticsBatteryHealthCapacityDetails $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthCapacityDetails = $value;
+    public function setUserExperienceAnalyticsBatteryHealthCapacityDetails(?UserExperienceAnalyticsBatteryHealthCapacityDetails $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthCapacityDetails', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDeviceAppImpact property value. User Experience Analytics Battery Health Device App Impact
      *  @param array<UserExperienceAnalyticsBatteryHealthDeviceAppImpact>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceAppImpact property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthDeviceAppImpact(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthDeviceAppImpact = $value;
+    public function setUserExperienceAnalyticsBatteryHealthDeviceAppImpact(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDeviceAppImpact', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDevicePerformance property value. User Experience Analytics Battery Health Device Performance
      *  @param array<UserExperienceAnalyticsBatteryHealthDevicePerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDevicePerformance property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthDevicePerformance(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthDevicePerformance = $value;
+    public function setUserExperienceAnalyticsBatteryHealthDevicePerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDevicePerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property value. User Experience Analytics Battery Health Device Runtime History
      *  @param array<UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory>|null $value Value to set for the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory = $value;
+    public function setUserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthModelPerformance property value. User Experience Analytics Battery Health Model Performance
      *  @param array<UserExperienceAnalyticsBatteryHealthModelPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthModelPerformance property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthModelPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthModelPerformance = $value;
+    public function setUserExperienceAnalyticsBatteryHealthModelPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthModelPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthOsPerformance property value. User Experience Analytics Battery Health Os Performance
      *  @param array<UserExperienceAnalyticsBatteryHealthOsPerformance>|null $value Value to set for the userExperienceAnalyticsBatteryHealthOsPerformance property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthOsPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthOsPerformance = $value;
+    public function setUserExperienceAnalyticsBatteryHealthOsPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthOsPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsBatteryHealthRuntimeDetails property value. User Experience Analytics Battery Health Runtime Details
      *  @param UserExperienceAnalyticsBatteryHealthRuntimeDetails|null $value Value to set for the userExperienceAnalyticsBatteryHealthRuntimeDetails property.
     */
-    public function setUserExperienceAnalyticsBatteryHealthRuntimeDetails(?UserExperienceAnalyticsBatteryHealthRuntimeDetails $value ): void {
-        $this->userExperienceAnalyticsBatteryHealthRuntimeDetails = $value;
+    public function setUserExperienceAnalyticsBatteryHealthRuntimeDetails(?UserExperienceAnalyticsBatteryHealthRuntimeDetails $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsBatteryHealthRuntimeDetails', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsCategories property value. User experience analytics categories
      *  @param array<UserExperienceAnalyticsCategory>|null $value Value to set for the userExperienceAnalyticsCategories property.
     */
-    public function setUserExperienceAnalyticsCategories(?array $value ): void {
-        $this->userExperienceAnalyticsCategories = $value;
+    public function setUserExperienceAnalyticsCategories(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsCategories', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceMetricHistory property value. User experience analytics device metric history
      *  @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsDeviceMetricHistory property.
     */
-    public function setUserExperienceAnalyticsDeviceMetricHistory(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceMetricHistory = $value;
+    public function setUserExperienceAnalyticsDeviceMetricHistory(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceMetricHistory', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDevicePerformance property value. User experience analytics device performance
      *  @param array<UserExperienceAnalyticsDevicePerformance>|null $value Value to set for the userExperienceAnalyticsDevicePerformance property.
     */
-    public function setUserExperienceAnalyticsDevicePerformance(?array $value ): void {
-        $this->userExperienceAnalyticsDevicePerformance = $value;
+    public function setUserExperienceAnalyticsDevicePerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDevicePerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceScope property value. The user experience analytics device scope entity endpoint to trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      *  @param UserExperienceAnalyticsDeviceScope|null $value Value to set for the userExperienceAnalyticsDeviceScope property.
     */
-    public function setUserExperienceAnalyticsDeviceScope(?UserExperienceAnalyticsDeviceScope $value ): void {
-        $this->userExperienceAnalyticsDeviceScope = $value;
+    public function setUserExperienceAnalyticsDeviceScope(?UserExperienceAnalyticsDeviceScope $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceScope', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceScopes property value. The user experience analytics device scope entity contains device scope configuration use to apply filtering on the endpoint analytics reports.
      *  @param array<UserExperienceAnalyticsDeviceScope>|null $value Value to set for the userExperienceAnalyticsDeviceScopes property.
     */
-    public function setUserExperienceAnalyticsDeviceScopes(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceScopes = $value;
+    public function setUserExperienceAnalyticsDeviceScopes(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceScopes', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceScores property value. User experience analytics device scores
      *  @param array<UserExperienceAnalyticsDeviceScores>|null $value Value to set for the userExperienceAnalyticsDeviceScores property.
     */
-    public function setUserExperienceAnalyticsDeviceScores(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceScores = $value;
+    public function setUserExperienceAnalyticsDeviceScores(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceScores', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupHistory property value. User experience analytics device Startup History
      *  @param array<UserExperienceAnalyticsDeviceStartupHistory>|null $value Value to set for the userExperienceAnalyticsDeviceStartupHistory property.
     */
-    public function setUserExperienceAnalyticsDeviceStartupHistory(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceStartupHistory = $value;
+    public function setUserExperienceAnalyticsDeviceStartupHistory(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupHistory', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupProcesses property value. User experience analytics device Startup Processes
      *  @param array<UserExperienceAnalyticsDeviceStartupProcess>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcesses property.
     */
-    public function setUserExperienceAnalyticsDeviceStartupProcesses(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceStartupProcesses = $value;
+    public function setUserExperienceAnalyticsDeviceStartupProcesses(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupProcesses', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDeviceStartupProcessPerformance property value. User experience analytics device Startup Process Performance
      *  @param array<UserExperienceAnalyticsDeviceStartupProcessPerformance>|null $value Value to set for the userExperienceAnalyticsDeviceStartupProcessPerformance property.
     */
-    public function setUserExperienceAnalyticsDeviceStartupProcessPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsDeviceStartupProcessPerformance = $value;
+    public function setUserExperienceAnalyticsDeviceStartupProcessPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDeviceStartupProcessPerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsDevicesWithoutCloudIdentity property value. User experience analytics devices without cloud identity.
      *  @param array<UserExperienceAnalyticsDeviceWithoutCloudIdentity>|null $value Value to set for the userExperienceAnalyticsDevicesWithoutCloudIdentity property.
     */
-    public function setUserExperienceAnalyticsDevicesWithoutCloudIdentity(?array $value ): void {
-        $this->userExperienceAnalyticsDevicesWithoutCloudIdentity = $value;
+    public function setUserExperienceAnalyticsDevicesWithoutCloudIdentity(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsDevicesWithoutCloudIdentity', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsImpactingProcess property value. User experience analytics impacting process
      *  @param array<UserExperienceAnalyticsImpactingProcess>|null $value Value to set for the userExperienceAnalyticsImpactingProcess property.
     */
-    public function setUserExperienceAnalyticsImpactingProcess(?array $value ): void {
-        $this->userExperienceAnalyticsImpactingProcess = $value;
+    public function setUserExperienceAnalyticsImpactingProcess(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsImpactingProcess', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsMetricHistory property value. User experience analytics metric history
      *  @param array<UserExperienceAnalyticsMetricHistory>|null $value Value to set for the userExperienceAnalyticsMetricHistory property.
     */
-    public function setUserExperienceAnalyticsMetricHistory(?array $value ): void {
-        $this->userExperienceAnalyticsMetricHistory = $value;
+    public function setUserExperienceAnalyticsMetricHistory(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsMetricHistory', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsModelScores property value. User experience analytics model scores
      *  @param array<UserExperienceAnalyticsModelScores>|null $value Value to set for the userExperienceAnalyticsModelScores property.
     */
-    public function setUserExperienceAnalyticsModelScores(?array $value ): void {
-        $this->userExperienceAnalyticsModelScores = $value;
+    public function setUserExperienceAnalyticsModelScores(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsModelScores', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsNotAutopilotReadyDevice property value. User experience analytics devices not Windows Autopilot ready.
      *  @param array<UserExperienceAnalyticsNotAutopilotReadyDevice>|null $value Value to set for the userExperienceAnalyticsNotAutopilotReadyDevice property.
     */
-    public function setUserExperienceAnalyticsNotAutopilotReadyDevice(?array $value ): void {
-        $this->userExperienceAnalyticsNotAutopilotReadyDevice = $value;
+    public function setUserExperienceAnalyticsNotAutopilotReadyDevice(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsNotAutopilotReadyDevice', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsOverview property value. User experience analytics overview
      *  @param UserExperienceAnalyticsOverview|null $value Value to set for the userExperienceAnalyticsOverview property.
     */
-    public function setUserExperienceAnalyticsOverview(?UserExperienceAnalyticsOverview $value ): void {
-        $this->userExperienceAnalyticsOverview = $value;
+    public function setUserExperienceAnalyticsOverview(?UserExperienceAnalyticsOverview $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsOverview', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsRemoteConnection property value. User experience analytics remote connection
      *  @param array<UserExperienceAnalyticsRemoteConnection>|null $value Value to set for the userExperienceAnalyticsRemoteConnection property.
     */
-    public function setUserExperienceAnalyticsRemoteConnection(?array $value ): void {
-        $this->userExperienceAnalyticsRemoteConnection = $value;
+    public function setUserExperienceAnalyticsRemoteConnection(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsRemoteConnection', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsResourcePerformance property value. User experience analytics resource performance
      *  @param array<UserExperienceAnalyticsResourcePerformance>|null $value Value to set for the userExperienceAnalyticsResourcePerformance property.
     */
-    public function setUserExperienceAnalyticsResourcePerformance(?array $value ): void {
-        $this->userExperienceAnalyticsResourcePerformance = $value;
+    public function setUserExperienceAnalyticsResourcePerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsResourcePerformance', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsScoreHistory property value. User experience analytics device Startup Score History
      *  @param array<UserExperienceAnalyticsScoreHistory>|null $value Value to set for the userExperienceAnalyticsScoreHistory property.
     */
-    public function setUserExperienceAnalyticsScoreHistory(?array $value ): void {
-        $this->userExperienceAnalyticsScoreHistory = $value;
+    public function setUserExperienceAnalyticsScoreHistory(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsScoreHistory', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsSettings property value. User experience analytics device settings
      *  @param UserExperienceAnalyticsSettings|null $value Value to set for the userExperienceAnalyticsSettings property.
     */
-    public function setUserExperienceAnalyticsSettings(?UserExperienceAnalyticsSettings $value ): void {
-        $this->userExperienceAnalyticsSettings = $value;
+    public function setUserExperienceAnalyticsSettings(?UserExperienceAnalyticsSettings $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsSettings', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property value. User experience analytics work from anywhere hardware readiness metrics.
      *  @param UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property.
     */
-    public function setUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $value ): void {
-        $this->userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric = $value;
+    public function setUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(?UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereMetrics property value. User experience analytics work from anywhere metrics.
      *  @param array<UserExperienceAnalyticsWorkFromAnywhereMetric>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereMetrics property.
     */
-    public function setUserExperienceAnalyticsWorkFromAnywhereMetrics(?array $value ): void {
-        $this->userExperienceAnalyticsWorkFromAnywhereMetrics = $value;
+    public function setUserExperienceAnalyticsWorkFromAnywhereMetrics(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereMetrics', $value);
     }
 
     /**
      * Sets the userExperienceAnalyticsWorkFromAnywhereModelPerformance property value. The user experience analytics work from anywhere model performance
      *  @param array<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>|null $value Value to set for the userExperienceAnalyticsWorkFromAnywhereModelPerformance property.
     */
-    public function setUserExperienceAnalyticsWorkFromAnywhereModelPerformance(?array $value ): void {
-        $this->userExperienceAnalyticsWorkFromAnywhereModelPerformance = $value;
+    public function setUserExperienceAnalyticsWorkFromAnywhereModelPerformance(?array $value): void {
+        $this->getBackingStore()->set('userExperienceAnalyticsWorkFromAnywhereModelPerformance', $value);
     }
 
     /**
      * Sets the userPfxCertificates property value. Collection of PFX certificates associated with a user.
      *  @param array<UserPFXCertificate>|null $value Value to set for the userPfxCertificates property.
     */
-    public function setUserPfxCertificates(?array $value ): void {
-        $this->userPfxCertificates = $value;
+    public function setUserPfxCertificates(?array $value): void {
+        $this->getBackingStore()->set('userPfxCertificates', $value);
     }
 
     /**
      * Sets the virtualEndpoint property value. The virtualEndpoint property
      *  @param VirtualEndpoint|null $value Value to set for the virtualEndpoint property.
     */
-    public function setVirtualEndpoint(?VirtualEndpoint $value ): void {
-        $this->virtualEndpoint = $value;
+    public function setVirtualEndpoint(?VirtualEndpoint $value): void {
+        $this->getBackingStore()->set('virtualEndpoint', $value);
     }
 
     /**
      * Sets the windowsAutopilotDeploymentProfiles property value. Windows auto pilot deployment profiles
      *  @param array<WindowsAutopilotDeploymentProfile>|null $value Value to set for the windowsAutopilotDeploymentProfiles property.
     */
-    public function setWindowsAutopilotDeploymentProfiles(?array $value ): void {
-        $this->windowsAutopilotDeploymentProfiles = $value;
+    public function setWindowsAutopilotDeploymentProfiles(?array $value): void {
+        $this->getBackingStore()->set('windowsAutopilotDeploymentProfiles', $value);
     }
 
     /**
      * Sets the windowsAutopilotDeviceIdentities property value. The Windows autopilot device identities contained collection.
      *  @param array<WindowsAutopilotDeviceIdentity>|null $value Value to set for the windowsAutopilotDeviceIdentities property.
     */
-    public function setWindowsAutopilotDeviceIdentities(?array $value ): void {
-        $this->windowsAutopilotDeviceIdentities = $value;
+    public function setWindowsAutopilotDeviceIdentities(?array $value): void {
+        $this->getBackingStore()->set('windowsAutopilotDeviceIdentities', $value);
     }
 
     /**
      * Sets the windowsAutopilotSettings property value. The Windows autopilot account settings.
      *  @param WindowsAutopilotSettings|null $value Value to set for the windowsAutopilotSettings property.
     */
-    public function setWindowsAutopilotSettings(?WindowsAutopilotSettings $value ): void {
-        $this->windowsAutopilotSettings = $value;
+    public function setWindowsAutopilotSettings(?WindowsAutopilotSettings $value): void {
+        $this->getBackingStore()->set('windowsAutopilotSettings', $value);
     }
 
     /**
      * Sets the windowsDriverUpdateProfiles property value. A collection of windows driver update profiles
      *  @param array<WindowsDriverUpdateProfile>|null $value Value to set for the windowsDriverUpdateProfiles property.
     */
-    public function setWindowsDriverUpdateProfiles(?array $value ): void {
-        $this->windowsDriverUpdateProfiles = $value;
+    public function setWindowsDriverUpdateProfiles(?array $value): void {
+        $this->getBackingStore()->set('windowsDriverUpdateProfiles', $value);
     }
 
     /**
      * Sets the windowsFeatureUpdateProfiles property value. A collection of windows feature update profiles
      *  @param array<WindowsFeatureUpdateProfile>|null $value Value to set for the windowsFeatureUpdateProfiles property.
     */
-    public function setWindowsFeatureUpdateProfiles(?array $value ): void {
-        $this->windowsFeatureUpdateProfiles = $value;
+    public function setWindowsFeatureUpdateProfiles(?array $value): void {
+        $this->getBackingStore()->set('windowsFeatureUpdateProfiles', $value);
     }
 
     /**
      * Sets the windowsInformationProtectionAppLearningSummaries property value. The windows information protection app learning summaries.
      *  @param array<WindowsInformationProtectionAppLearningSummary>|null $value Value to set for the windowsInformationProtectionAppLearningSummaries property.
     */
-    public function setWindowsInformationProtectionAppLearningSummaries(?array $value ): void {
-        $this->windowsInformationProtectionAppLearningSummaries = $value;
+    public function setWindowsInformationProtectionAppLearningSummaries(?array $value): void {
+        $this->getBackingStore()->set('windowsInformationProtectionAppLearningSummaries', $value);
     }
 
     /**
      * Sets the windowsInformationProtectionNetworkLearningSummaries property value. The windows information protection network learning summaries.
      *  @param array<WindowsInformationProtectionNetworkLearningSummary>|null $value Value to set for the windowsInformationProtectionNetworkLearningSummaries property.
     */
-    public function setWindowsInformationProtectionNetworkLearningSummaries(?array $value ): void {
-        $this->windowsInformationProtectionNetworkLearningSummaries = $value;
+    public function setWindowsInformationProtectionNetworkLearningSummaries(?array $value): void {
+        $this->getBackingStore()->set('windowsInformationProtectionNetworkLearningSummaries', $value);
     }
 
     /**
      * Sets the windowsMalwareInformation property value. The list of affected malware in the tenant.
      *  @param array<WindowsMalwareInformation>|null $value Value to set for the windowsMalwareInformation property.
     */
-    public function setWindowsMalwareInformation(?array $value ): void {
-        $this->windowsMalwareInformation = $value;
+    public function setWindowsMalwareInformation(?array $value): void {
+        $this->getBackingStore()->set('windowsMalwareInformation', $value);
     }
 
     /**
      * Sets the windowsMalwareOverview property value. Malware overview for windows devices.
      *  @param WindowsMalwareOverview|null $value Value to set for the windowsMalwareOverview property.
     */
-    public function setWindowsMalwareOverview(?WindowsMalwareOverview $value ): void {
-        $this->windowsMalwareOverview = $value;
+    public function setWindowsMalwareOverview(?WindowsMalwareOverview $value): void {
+        $this->getBackingStore()->set('windowsMalwareOverview', $value);
     }
 
     /**
      * Sets the windowsQualityUpdateProfiles property value. A collection of windows quality update profiles
      *  @param array<WindowsQualityUpdateProfile>|null $value Value to set for the windowsQualityUpdateProfiles property.
     */
-    public function setWindowsQualityUpdateProfiles(?array $value ): void {
-        $this->windowsQualityUpdateProfiles = $value;
+    public function setWindowsQualityUpdateProfiles(?array $value): void {
+        $this->getBackingStore()->set('windowsQualityUpdateProfiles', $value);
     }
 
     /**
      * Sets the windowsUpdateCatalogItems property value. A collection of windows update catalog items (fetaure updates item , quality updates item)
      *  @param array<WindowsUpdateCatalogItem>|null $value Value to set for the windowsUpdateCatalogItems property.
     */
-    public function setWindowsUpdateCatalogItems(?array $value ): void {
-        $this->windowsUpdateCatalogItems = $value;
+    public function setWindowsUpdateCatalogItems(?array $value): void {
+        $this->getBackingStore()->set('windowsUpdateCatalogItems', $value);
     }
 
     /**
      * Sets the zebraFotaArtifacts property value. The Collection of ZebraFotaArtifacts.
      *  @param array<ZebraFotaArtifact>|null $value Value to set for the zebraFotaArtifacts property.
     */
-    public function setZebraFotaArtifacts(?array $value ): void {
-        $this->zebraFotaArtifacts = $value;
+    public function setZebraFotaArtifacts(?array $value): void {
+        $this->getBackingStore()->set('zebraFotaArtifacts', $value);
     }
 
     /**
      * Sets the zebraFotaConnector property value. The singleton ZebraFotaConnector associated with account.
      *  @param ZebraFotaConnector|null $value Value to set for the zebraFotaConnector property.
     */
-    public function setZebraFotaConnector(?ZebraFotaConnector $value ): void {
-        $this->zebraFotaConnector = $value;
+    public function setZebraFotaConnector(?ZebraFotaConnector $value): void {
+        $this->getBackingStore()->set('zebraFotaConnector', $value);
     }
 
     /**
      * Sets the zebraFotaDeployments property value. Collection of ZebraFotaDeployments associated with account.
      *  @param array<ZebraFotaDeployment>|null $value Value to set for the zebraFotaDeployments property.
     */
-    public function setZebraFotaDeployments(?array $value ): void {
-        $this->zebraFotaDeployments = $value;
+    public function setZebraFotaDeployments(?array $value): void {
+        $this->getBackingStore()->set('zebraFotaDeployments', $value);
     }
 
 }

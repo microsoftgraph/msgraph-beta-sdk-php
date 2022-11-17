@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable 
 {
     /**
-     * @var DateTime|null $endDateTime Time that the roleEligibilityScheduleInstance will expire.
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var string|null $memberType Membership type of the assignment. It can either be Inherited, Direct, or Group.
-    */
-    private ?string $memberType = null;
-    
-    /**
-     * @var string|null $roleEligibilityScheduleId Identifier of the parent roleEligibilitySchedule for this instance.
-    */
-    private ?string $roleEligibilityScheduleId = null;
-    
-    /**
-     * @var DateTime|null $startDateTime Time that the roleEligibilityScheduleInstance will start.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
      * Instantiates a new unifiedRoleEligibilityScheduleInstance and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -73,7 +53,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @return string|null
     */
     public function getMemberType(): ?string {
-        return $this->memberType;
+        return $this->getBackingStore()->get('memberType');
     }
 
     /**
@@ -81,7 +61,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @return string|null
     */
     public function getRoleEligibilityScheduleId(): ?string {
-        return $this->roleEligibilityScheduleId;
+        return $this->getBackingStore()->get('roleEligibilityScheduleId');
     }
 
     /**
@@ -89,7 +69,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -98,42 +78,42 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeStringValue('memberType', $this->memberType);
-        $writer->writeStringValue('roleEligibilityScheduleId', $this->roleEligibilityScheduleId);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('memberType', $this->getMemberType());
+        $writer->writeStringValue('roleEligibilityScheduleId', $this->getRoleEligibilityScheduleId());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
     }
 
     /**
      * Sets the endDateTime property value. Time that the roleEligibilityScheduleInstance will expire.
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the memberType property value. Membership type of the assignment. It can either be Inherited, Direct, or Group.
      *  @param string|null $value Value to set for the memberType property.
     */
-    public function setMemberType(?string $value ): void {
-        $this->memberType = $value;
+    public function setMemberType(?string $value): void {
+        $this->getBackingStore()->set('memberType', $value);
     }
 
     /**
      * Sets the roleEligibilityScheduleId property value. Identifier of the parent roleEligibilitySchedule for this instance.
      *  @param string|null $value Value to set for the roleEligibilityScheduleId property.
     */
-    public function setRoleEligibilityScheduleId(?string $value ): void {
-        $this->roleEligibilityScheduleId = $value;
+    public function setRoleEligibilityScheduleId(?string $value): void {
+        $this->getBackingStore()->set('roleEligibilityScheduleId', $value);
     }
 
     /**
      * Sets the startDateTime property value. Time that the roleEligibilityScheduleInstance will start.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
 }

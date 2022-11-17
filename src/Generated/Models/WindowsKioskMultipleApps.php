@@ -10,31 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $allowAccessToDownloadsFolder This setting allows access to Downloads folder in file explorer.
-    */
-    private ?bool $allowAccessToDownloadsFolder = null;
-    
-    /**
-     * @var array<WindowsKioskAppBase>|null $apps These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
-    */
-    private ?array $apps = null;
-    
-    /**
-     * @var bool|null $disallowDesktopApps This setting indicates that desktop apps are allowed. Default to true.
-    */
-    private ?bool $disallowDesktopApps = null;
-    
-    /**
-     * @var bool|null $showTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
-    */
-    private ?bool $showTaskBar = null;
-    
-    /**
-     * @var StreamInterface|null $startMenuLayoutXml Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-    */
-    private ?StreamInterface $startMenuLayoutXml = null;
-    
-    /**
      * Instantiates a new WindowsKioskMultipleApps and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getAllowAccessToDownloadsFolder(): ?bool {
-        return $this->allowAccessToDownloadsFolder;
+        return $this->getBackingStore()->get('allowAccessToDownloadsFolder');
     }
 
     /**
@@ -64,7 +39,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return array<WindowsKioskAppBase>|null
     */
     public function getApps(): ?array {
-        return $this->apps;
+        return $this->getBackingStore()->get('apps');
     }
 
     /**
@@ -72,7 +47,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getDisallowDesktopApps(): ?bool {
-        return $this->disallowDesktopApps;
+        return $this->getBackingStore()->get('disallowDesktopApps');
     }
 
     /**
@@ -95,15 +70,15 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
      * @return bool|null
     */
     public function getShowTaskBar(): ?bool {
-        return $this->showTaskBar;
+        return $this->getBackingStore()->get('showTaskBar');
     }
 
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getStartMenuLayoutXml(): StreamInterface {
-        return $this->startMenuLayoutXml;
+    public function getStartMenuLayoutXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('startMenuLayoutXml');
     }
 
     /**
@@ -112,51 +87,51 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowAccessToDownloadsFolder', $this->allowAccessToDownloadsFolder);
-        $writer->writeCollectionOfObjectValues('apps', $this->apps);
-        $writer->writeBooleanValue('disallowDesktopApps', $this->disallowDesktopApps);
-        $writer->writeBooleanValue('showTaskBar', $this->showTaskBar);
-        $writer->writeBinaryContent('startMenuLayoutXml', $this->startMenuLayoutXml);
+        $writer->writeBooleanValue('allowAccessToDownloadsFolder', $this->getAllowAccessToDownloadsFolder());
+        $writer->writeCollectionOfObjectValues('apps', $this->getApps());
+        $writer->writeBooleanValue('disallowDesktopApps', $this->getDisallowDesktopApps());
+        $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
+        $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
     }
 
     /**
      * Sets the allowAccessToDownloadsFolder property value. This setting allows access to Downloads folder in file explorer.
      *  @param bool|null $value Value to set for the allowAccessToDownloadsFolder property.
     */
-    public function setAllowAccessToDownloadsFolder(?bool $value ): void {
-        $this->allowAccessToDownloadsFolder = $value;
+    public function setAllowAccessToDownloadsFolder(?bool $value): void {
+        $this->getBackingStore()->set('allowAccessToDownloadsFolder', $value);
     }
 
     /**
      * Sets the apps property value. These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
      *  @param array<WindowsKioskAppBase>|null $value Value to set for the apps property.
     */
-    public function setApps(?array $value ): void {
-        $this->apps = $value;
+    public function setApps(?array $value): void {
+        $this->getBackingStore()->set('apps', $value);
     }
 
     /**
      * Sets the disallowDesktopApps property value. This setting indicates that desktop apps are allowed. Default to true.
      *  @param bool|null $value Value to set for the disallowDesktopApps property.
     */
-    public function setDisallowDesktopApps(?bool $value ): void {
-        $this->disallowDesktopApps = $value;
+    public function setDisallowDesktopApps(?bool $value): void {
+        $this->getBackingStore()->set('disallowDesktopApps', $value);
     }
 
     /**
      * Sets the showTaskBar property value. This setting allows the admin to specify whether the Task Bar is shown or not.
      *  @param bool|null $value Value to set for the showTaskBar property.
     */
-    public function setShowTaskBar(?bool $value ): void {
-        $this->showTaskBar = $value;
+    public function setShowTaskBar(?bool $value): void {
+        $this->getBackingStore()->set('showTaskBar', $value);
     }
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
      *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
-    public function setStartMenuLayoutXml(?StreamInterface $value ): void {
-        $this->startMenuLayoutXml = $value;
+    public function setStartMenuLayoutXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('startMenuLayoutXml', $value);
     }
 
 }

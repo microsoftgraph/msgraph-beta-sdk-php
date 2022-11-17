@@ -11,66 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcDevice extends Entity implements Parsable 
 {
     /**
-     * @var string|null $cloudPcStatus The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
-    */
-    private ?string $cloudPcStatus = null;
-    
-    /**
-     * @var string|null $deviceSpecification The specification of the cloud PC device. Required. Read-only.
-    */
-    private ?string $deviceSpecification = null;
-    
-    /**
-     * @var string|null $displayName The display name  of the cloud PC device. Required. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId The managed device identifier of the cloud PC device. Optional. Read-only.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $managedDeviceName The managed device display name of the cloud PC device. Optional. Read-only.
-    */
-    private ?string $managedDeviceName = null;
-    
-    /**
-     * @var string|null $provisioningPolicyId The provisioning policy identifier for the cloud PC device. Required. Read-only.
-    */
-    private ?string $provisioningPolicyId = null;
-    
-    /**
-     * @var string|null $servicePlanName The service plan name of the cloud PC device. Required. Read-only.
-    */
-    private ?string $servicePlanName = null;
-    
-    /**
-     * @var string|null $servicePlanType The service plan type of the cloud PC device. Required. Read-only.
-    */
-    private ?string $servicePlanType = null;
-    
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantDisplayName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new cloudPcDevice and sets the default values.
     */
     public function __construct() {
@@ -92,7 +32,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getCloudPcStatus(): ?string {
-        return $this->cloudPcStatus;
+        return $this->getBackingStore()->get('cloudPcStatus');
     }
 
     /**
@@ -100,7 +40,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceSpecification(): ?string {
-        return $this->deviceSpecification;
+        return $this->getBackingStore()->get('deviceSpecification');
     }
 
     /**
@@ -108,7 +48,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -138,7 +78,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -146,7 +86,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -154,7 +94,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->managedDeviceName;
+        return $this->getBackingStore()->get('managedDeviceName');
     }
 
     /**
@@ -162,7 +102,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getProvisioningPolicyId(): ?string {
-        return $this->provisioningPolicyId;
+        return $this->getBackingStore()->get('provisioningPolicyId');
     }
 
     /**
@@ -170,7 +110,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getServicePlanName(): ?string {
-        return $this->servicePlanName;
+        return $this->getBackingStore()->get('servicePlanName');
     }
 
     /**
@@ -178,7 +118,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getServicePlanType(): ?string {
-        return $this->servicePlanType;
+        return $this->getBackingStore()->get('servicePlanType');
     }
 
     /**
@@ -186,7 +126,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->tenantDisplayName;
+        return $this->getBackingStore()->get('tenantDisplayName');
     }
 
     /**
@@ -194,7 +134,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -202,7 +142,7 @@ class CloudPcDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -211,114 +151,114 @@ class CloudPcDevice extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('cloudPcStatus', $this->cloudPcStatus);
-        $writer->writeStringValue('deviceSpecification', $this->deviceSpecification);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('managedDeviceName', $this->managedDeviceName);
-        $writer->writeStringValue('provisioningPolicyId', $this->provisioningPolicyId);
-        $writer->writeStringValue('servicePlanName', $this->servicePlanName);
-        $writer->writeStringValue('servicePlanType', $this->servicePlanType);
-        $writer->writeStringValue('tenantDisplayName', $this->tenantDisplayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('cloudPcStatus', $this->getCloudPcStatus());
+        $writer->writeStringValue('deviceSpecification', $this->getDeviceSpecification());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('provisioningPolicyId', $this->getProvisioningPolicyId());
+        $writer->writeStringValue('servicePlanName', $this->getServicePlanName());
+        $writer->writeStringValue('servicePlanType', $this->getServicePlanType());
+        $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the cloudPcStatus property value. The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
      *  @param string|null $value Value to set for the cloudPcStatus property.
     */
-    public function setCloudPcStatus(?string $value ): void {
-        $this->cloudPcStatus = $value;
+    public function setCloudPcStatus(?string $value): void {
+        $this->getBackingStore()->set('cloudPcStatus', $value);
     }
 
     /**
      * Sets the deviceSpecification property value. The specification of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the deviceSpecification property.
     */
-    public function setDeviceSpecification(?string $value ): void {
-        $this->deviceSpecification = $value;
+    public function setDeviceSpecification(?string $value): void {
+        $this->getBackingStore()->set('deviceSpecification', $value);
     }
 
     /**
      * Sets the displayName property value. The display name  of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. The managed device identifier of the cloud PC device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the managedDeviceName property value. The managed device display name of the cloud PC device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceName property.
     */
-    public function setManagedDeviceName(?string $value ): void {
-        $this->managedDeviceName = $value;
+    public function setManagedDeviceName(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceName', $value);
     }
 
     /**
      * Sets the provisioningPolicyId property value. The provisioning policy identifier for the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the provisioningPolicyId property.
     */
-    public function setProvisioningPolicyId(?string $value ): void {
-        $this->provisioningPolicyId = $value;
+    public function setProvisioningPolicyId(?string $value): void {
+        $this->getBackingStore()->set('provisioningPolicyId', $value);
     }
 
     /**
      * Sets the servicePlanName property value. The service plan name of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the servicePlanName property.
     */
-    public function setServicePlanName(?string $value ): void {
-        $this->servicePlanName = $value;
+    public function setServicePlanName(?string $value): void {
+        $this->getBackingStore()->set('servicePlanName', $value);
     }
 
     /**
      * Sets the servicePlanType property value. The service plan type of the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the servicePlanType property.
     */
-    public function setServicePlanType(?string $value ): void {
-        $this->servicePlanType = $value;
+    public function setServicePlanType(?string $value): void {
+        $this->getBackingStore()->set('servicePlanType', $value);
     }
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantDisplayName property.
     */
-    public function setTenantDisplayName(?string $value ): void {
-        $this->tenantDisplayName = $value;
+    public function setTenantDisplayName(?string $value): void {
+        $this->getBackingStore()->set('tenantDisplayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

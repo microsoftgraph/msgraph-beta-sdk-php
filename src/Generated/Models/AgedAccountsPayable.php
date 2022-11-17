@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class AgedAccountsPayable extends Entity implements Parsable 
 {
     /**
-     * @var Date|null $agedAsOfDate The agedAsOfDate property
-    */
-    private ?Date $agedAsOfDate = null;
-    
-    /**
-     * @var string|null $balanceDue The balanceDue property
-    */
-    private ?string $balanceDue = null;
-    
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
-    private ?string $currencyCode = null;
-    
-    /**
-     * @var string|null $currentAmount The currentAmount property
-    */
-    private ?string $currentAmount = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $period1Amount The period1Amount property
-    */
-    private ?string $period1Amount = null;
-    
-    /**
-     * @var string|null $period2Amount The period2Amount property
-    */
-    private ?string $period2Amount = null;
-    
-    /**
-     * @var string|null $period3Amount The period3Amount property
-    */
-    private ?string $period3Amount = null;
-    
-    /**
-     * @var string|null $periodLengthFilter The periodLengthFilter property
-    */
-    private ?string $periodLengthFilter = null;
-    
-    /**
-     * @var string|null $vendorNumber The vendorNumber property
-    */
-    private ?string $vendorNumber = null;
-    
-    /**
      * Instantiates a new agedAccountsPayable and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return Date|null
     */
     public function getAgedAsOfDate(): ?Date {
-        return $this->agedAsOfDate;
+        return $this->getBackingStore()->get('agedAsOfDate');
     }
 
     /**
@@ -89,7 +39,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getBalanceDue(): ?string {
-        return $this->balanceDue;
+        return $this->getBackingStore()->get('balanceDue');
     }
 
     /**
@@ -97,7 +47,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->currencyCode;
+        return $this->getBackingStore()->get('currencyCode');
     }
 
     /**
@@ -105,7 +55,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrentAmount(): ?string {
-        return $this->currentAmount;
+        return $this->getBackingStore()->get('currentAmount');
     }
 
     /**
@@ -133,7 +83,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -141,7 +91,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getPeriod1Amount(): ?string {
-        return $this->period1Amount;
+        return $this->getBackingStore()->get('period1Amount');
     }
 
     /**
@@ -149,7 +99,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getPeriod2Amount(): ?string {
-        return $this->period2Amount;
+        return $this->getBackingStore()->get('period2Amount');
     }
 
     /**
@@ -157,7 +107,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getPeriod3Amount(): ?string {
-        return $this->period3Amount;
+        return $this->getBackingStore()->get('period3Amount');
     }
 
     /**
@@ -165,7 +115,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getPeriodLengthFilter(): ?string {
-        return $this->periodLengthFilter;
+        return $this->getBackingStore()->get('periodLengthFilter');
     }
 
     /**
@@ -173,7 +123,7 @@ class AgedAccountsPayable extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorNumber(): ?string {
-        return $this->vendorNumber;
+        return $this->getBackingStore()->get('vendorNumber');
     }
 
     /**
@@ -182,96 +132,96 @@ class AgedAccountsPayable extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateValue('agedAsOfDate', $this->agedAsOfDate);
-        $writer->writeStringValue('balanceDue', $this->balanceDue);
-        $writer->writeStringValue('currencyCode', $this->currencyCode);
-        $writer->writeStringValue('currentAmount', $this->currentAmount);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('period1Amount', $this->period1Amount);
-        $writer->writeStringValue('period2Amount', $this->period2Amount);
-        $writer->writeStringValue('period3Amount', $this->period3Amount);
-        $writer->writeStringValue('periodLengthFilter', $this->periodLengthFilter);
-        $writer->writeStringValue('vendorNumber', $this->vendorNumber);
+        $writer->writeDateValue('agedAsOfDate', $this->getAgedAsOfDate());
+        $writer->writeStringValue('balanceDue', $this->getBalanceDue());
+        $writer->writeStringValue('currencyCode', $this->getCurrencyCode());
+        $writer->writeStringValue('currentAmount', $this->getCurrentAmount());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('period1Amount', $this->getPeriod1Amount());
+        $writer->writeStringValue('period2Amount', $this->getPeriod2Amount());
+        $writer->writeStringValue('period3Amount', $this->getPeriod3Amount());
+        $writer->writeStringValue('periodLengthFilter', $this->getPeriodLengthFilter());
+        $writer->writeStringValue('vendorNumber', $this->getVendorNumber());
     }
 
     /**
      * Sets the agedAsOfDate property value. The agedAsOfDate property
      *  @param Date|null $value Value to set for the agedAsOfDate property.
     */
-    public function setAgedAsOfDate(?Date $value ): void {
-        $this->agedAsOfDate = $value;
+    public function setAgedAsOfDate(?Date $value): void {
+        $this->getBackingStore()->set('agedAsOfDate', $value);
     }
 
     /**
      * Sets the balanceDue property value. The balanceDue property
      *  @param string|null $value Value to set for the balanceDue property.
     */
-    public function setBalanceDue(?string $value ): void {
-        $this->balanceDue = $value;
+    public function setBalanceDue(?string $value): void {
+        $this->getBackingStore()->set('balanceDue', $value);
     }
 
     /**
      * Sets the currencyCode property value. The currencyCode property
      *  @param string|null $value Value to set for the currencyCode property.
     */
-    public function setCurrencyCode(?string $value ): void {
-        $this->currencyCode = $value;
+    public function setCurrencyCode(?string $value): void {
+        $this->getBackingStore()->set('currencyCode', $value);
     }
 
     /**
      * Sets the currentAmount property value. The currentAmount property
      *  @param string|null $value Value to set for the currentAmount property.
     */
-    public function setCurrentAmount(?string $value ): void {
-        $this->currentAmount = $value;
+    public function setCurrentAmount(?string $value): void {
+        $this->getBackingStore()->set('currentAmount', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the period1Amount property value. The period1Amount property
      *  @param string|null $value Value to set for the period1Amount property.
     */
-    public function setPeriod1Amount(?string $value ): void {
-        $this->period1Amount = $value;
+    public function setPeriod1Amount(?string $value): void {
+        $this->getBackingStore()->set('period1Amount', $value);
     }
 
     /**
      * Sets the period2Amount property value. The period2Amount property
      *  @param string|null $value Value to set for the period2Amount property.
     */
-    public function setPeriod2Amount(?string $value ): void {
-        $this->period2Amount = $value;
+    public function setPeriod2Amount(?string $value): void {
+        $this->getBackingStore()->set('period2Amount', $value);
     }
 
     /**
      * Sets the period3Amount property value. The period3Amount property
      *  @param string|null $value Value to set for the period3Amount property.
     */
-    public function setPeriod3Amount(?string $value ): void {
-        $this->period3Amount = $value;
+    public function setPeriod3Amount(?string $value): void {
+        $this->getBackingStore()->set('period3Amount', $value);
     }
 
     /**
      * Sets the periodLengthFilter property value. The periodLengthFilter property
      *  @param string|null $value Value to set for the periodLengthFilter property.
     */
-    public function setPeriodLengthFilter(?string $value ): void {
-        $this->periodLengthFilter = $value;
+    public function setPeriodLengthFilter(?string $value): void {
+        $this->getBackingStore()->set('periodLengthFilter', $value);
     }
 
     /**
      * Sets the vendorNumber property value. The vendorNumber property
      *  @param string|null $value Value to set for the vendorNumber property.
     */
-    public function setVendorNumber(?string $value ): void {
-        $this->vendorNumber = $value;
+    public function setVendorNumber(?string $value): void {
+        $this->getBackingStore()->set('vendorNumber', $value);
     }
 
 }

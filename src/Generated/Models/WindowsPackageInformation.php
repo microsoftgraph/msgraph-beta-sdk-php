@@ -6,58 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WindowsPackageInformation implements AdditionalDataHolder, Parsable 
+class WindowsPackageInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var WindowsArchitecture|null $applicableArchitecture Contains properties for Windows architecture.
-    */
-    private ?WindowsArchitecture $applicableArchitecture = null;
-    
-    /**
-     * @var string|null $displayName The Display Name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $identityName The Identity Name.
-    */
-    private ?string $identityName = null;
-    
-    /**
-     * @var string|null $identityPublisher The Identity Publisher.
-    */
-    private ?string $identityPublisher = null;
-    
-    /**
-     * @var string|null $identityResourceIdentifier The Identity Resource Identifier.
-    */
-    private ?string $identityResourceIdentifier = null;
-    
-    /**
-     * @var string|null $identityVersion The Identity Version.
-    */
-    private ?string $identityVersion = null;
-    
-    /**
-     * @var WindowsMinimumOperatingSystem|null $minimumSupportedOperatingSystem The value for the minimum applicable operating system.
-    */
-    private ?WindowsMinimumOperatingSystem $minimumSupportedOperatingSystem = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new windowsPackageInformation and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.windowsPackageInformation');
     }
@@ -75,8 +39,8 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -84,7 +48,15 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return WindowsArchitecture|null
     */
     public function getApplicableArchitecture(): ?WindowsArchitecture {
-        return $this->applicableArchitecture;
+        return $this->getBackingStore()->get('applicableArchitecture');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -92,7 +64,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -118,7 +90,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIdentityName(): ?string {
-        return $this->identityName;
+        return $this->getBackingStore()->get('identityName');
     }
 
     /**
@@ -126,7 +98,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIdentityPublisher(): ?string {
-        return $this->identityPublisher;
+        return $this->getBackingStore()->get('identityPublisher');
     }
 
     /**
@@ -134,7 +106,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIdentityResourceIdentifier(): ?string {
-        return $this->identityResourceIdentifier;
+        return $this->getBackingStore()->get('identityResourceIdentifier');
     }
 
     /**
@@ -142,7 +114,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->identityVersion;
+        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -150,7 +122,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
-        return $this->minimumSupportedOperatingSystem;
+        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
     }
 
     /**
@@ -158,7 +130,7 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -166,87 +138,87 @@ class WindowsPackageInformation implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('applicableArchitecture', $this->applicableArchitecture);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('identityName', $this->identityName);
-        $writer->writeStringValue('identityPublisher', $this->identityPublisher);
-        $writer->writeStringValue('identityResourceIdentifier', $this->identityResourceIdentifier);
-        $writer->writeStringValue('identityVersion', $this->identityVersion);
-        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->minimumSupportedOperatingSystem);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('applicableArchitecture', $this->getApplicableArchitecture());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('identityName', $this->getIdentityName());
+        $writer->writeStringValue('identityPublisher', $this->getIdentityPublisher());
+        $writer->writeStringValue('identityResourceIdentifier', $this->getIdentityResourceIdentifier());
+        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
+        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the applicableArchitecture property value. Contains properties for Windows architecture.
      *  @param WindowsArchitecture|null $value Value to set for the applicableArchitecture property.
     */
-    public function setApplicableArchitecture(?WindowsArchitecture $value ): void {
-        $this->applicableArchitecture = $value;
+    public function setApplicableArchitecture(?WindowsArchitecture $value): void {
+        $this->getBackingStore()->set('applicableArchitecture', $value);
     }
 
     /**
      * Sets the displayName property value. The Display Name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the identityName property value. The Identity Name.
      *  @param string|null $value Value to set for the identityName property.
     */
-    public function setIdentityName(?string $value ): void {
-        $this->identityName = $value;
+    public function setIdentityName(?string $value): void {
+        $this->getBackingStore()->set('identityName', $value);
     }
 
     /**
      * Sets the identityPublisher property value. The Identity Publisher.
      *  @param string|null $value Value to set for the identityPublisher property.
     */
-    public function setIdentityPublisher(?string $value ): void {
-        $this->identityPublisher = $value;
+    public function setIdentityPublisher(?string $value): void {
+        $this->getBackingStore()->set('identityPublisher', $value);
     }
 
     /**
      * Sets the identityResourceIdentifier property value. The Identity Resource Identifier.
      *  @param string|null $value Value to set for the identityResourceIdentifier property.
     */
-    public function setIdentityResourceIdentifier(?string $value ): void {
-        $this->identityResourceIdentifier = $value;
+    public function setIdentityResourceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('identityResourceIdentifier', $value);
     }
 
     /**
      * Sets the identityVersion property value. The Identity Version.
      *  @param string|null $value Value to set for the identityVersion property.
     */
-    public function setIdentityVersion(?string $value ): void {
-        $this->identityVersion = $value;
+    public function setIdentityVersion(?string $value): void {
+        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The value for the minimum applicable operating system.
      *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
-    public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value ): void {
-        $this->minimumSupportedOperatingSystem = $value;
+    public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
+        $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

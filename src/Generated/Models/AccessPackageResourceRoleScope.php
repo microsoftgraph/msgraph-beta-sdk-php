@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceRoleScope extends Entity implements Parsable 
 {
     /**
-     * @var AccessPackageResourceRole|null $accessPackageResourceRole Read-only. Nullable. Supports $expand.
-    */
-    private ?AccessPackageResourceRole $accessPackageResourceRole = null;
-    
-    /**
-     * @var AccessPackageResourceScope|null $accessPackageResourceScope The accessPackageResourceScope property
-    */
-    private ?AccessPackageResourceScope $accessPackageResourceScope = null;
-    
-    /**
-     * @var string|null $createdBy The createdBy property
-    */
-    private ?string $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $modifiedBy The modifiedBy property
-    */
-    private ?string $modifiedBy = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
      * Instantiates a new accessPackageResourceRoleScope and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return AccessPackageResourceRole|null
     */
     public function getAccessPackageResourceRole(): ?AccessPackageResourceRole {
-        return $this->accessPackageResourceRole;
+        return $this->getBackingStore()->get('accessPackageResourceRole');
     }
 
     /**
@@ -69,7 +39,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return AccessPackageResourceScope|null
     */
     public function getAccessPackageResourceScope(): ?AccessPackageResourceScope {
-        return $this->accessPackageResourceScope;
+        return $this->getBackingStore()->get('accessPackageResourceScope');
     }
 
     /**
@@ -77,7 +47,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -85,7 +55,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -109,7 +79,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->modifiedBy;
+        return $this->getBackingStore()->get('modifiedBy');
     }
 
     /**
@@ -117,7 +87,7 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -126,60 +96,60 @@ class AccessPackageResourceRoleScope extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessPackageResourceRole', $this->accessPackageResourceRole);
-        $writer->writeObjectValue('accessPackageResourceScope', $this->accessPackageResourceScope);
-        $writer->writeStringValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('modifiedBy', $this->modifiedBy);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
+        $writer->writeObjectValue('accessPackageResourceRole', $this->getAccessPackageResourceRole());
+        $writer->writeObjectValue('accessPackageResourceScope', $this->getAccessPackageResourceScope());
+        $writer->writeStringValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
     }
 
     /**
      * Sets the accessPackageResourceRole property value. Read-only. Nullable. Supports $expand.
      *  @param AccessPackageResourceRole|null $value Value to set for the accessPackageResourceRole property.
     */
-    public function setAccessPackageResourceRole(?AccessPackageResourceRole $value ): void {
-        $this->accessPackageResourceRole = $value;
+    public function setAccessPackageResourceRole(?AccessPackageResourceRole $value): void {
+        $this->getBackingStore()->set('accessPackageResourceRole', $value);
     }
 
     /**
      * Sets the accessPackageResourceScope property value. The accessPackageResourceScope property
      *  @param AccessPackageResourceScope|null $value Value to set for the accessPackageResourceScope property.
     */
-    public function setAccessPackageResourceScope(?AccessPackageResourceScope $value ): void {
-        $this->accessPackageResourceScope = $value;
+    public function setAccessPackageResourceScope(?AccessPackageResourceScope $value): void {
+        $this->getBackingStore()->set('accessPackageResourceScope', $value);
     }
 
     /**
      * Sets the createdBy property value. The createdBy property
      *  @param string|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?string $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?string $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the modifiedBy property value. The modifiedBy property
      *  @param string|null $value Value to set for the modifiedBy property.
     */
-    public function setModifiedBy(?string $value ): void {
-        $this->modifiedBy = $value;
+    public function setModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('modifiedBy', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
 }

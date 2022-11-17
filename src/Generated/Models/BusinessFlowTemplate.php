@@ -9,12 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessFlowTemplate extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The name of the business flow template
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * Instantiates a new BusinessFlowTemplate and sets the default values.
+     * Instantiates a new businessFlowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -35,7 +30,7 @@ class BusinessFlowTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -55,15 +50,15 @@ class BusinessFlowTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the displayName property value. The name of the business flow template
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

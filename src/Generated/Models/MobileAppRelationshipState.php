@@ -7,63 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MobileAppRelationshipState implements AdditionalDataHolder, Parsable 
+class MobileAppRelationshipState implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceId The corresponding device id.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var int|null $errorCode The error code for install or uninstall failures of target app.
-    */
-    private ?int $errorCode = null;
-    
-    /**
-     * @var ResultantAppState|null $installState A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
-    */
-    private ?ResultantAppState $installState = null;
-    
-    /**
-     * @var ResultantAppStateDetail|null $installStateDetail Enum indicating additional details regarding why an application has a particular install state.
-    */
-    private ?ResultantAppStateDetail $installStateDetail = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<string>|null $sourceIds The collection of source mobile app's ids.
-    */
-    private ?array $sourceIds = null;
-    
-    /**
-     * @var string|null $targetDisplayName The related target app's display name.
-    */
-    private ?string $targetDisplayName = null;
-    
-    /**
-     * @var string|null $targetId The related target app's id.
-    */
-    private ?string $targetId = null;
-    
-    /**
-     * @var DateTime|null $targetLastSyncDateTime The last sync time of the target app.
-    */
-    private ?DateTime $targetLastSyncDateTime = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new mobileAppRelationshipState and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.mobileAppRelationshipState');
     }
@@ -81,8 +40,16 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -90,7 +57,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -98,7 +65,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -125,7 +92,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return ResultantAppState|null
     */
     public function getInstallState(): ?ResultantAppState {
-        return $this->installState;
+        return $this->getBackingStore()->get('installState');
     }
 
     /**
@@ -133,7 +100,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return ResultantAppStateDetail|null
     */
     public function getInstallStateDetail(): ?ResultantAppStateDetail {
-        return $this->installStateDetail;
+        return $this->getBackingStore()->get('installStateDetail');
     }
 
     /**
@@ -141,7 +108,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -149,7 +116,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getSourceIds(): ?array {
-        return $this->sourceIds;
+        return $this->getBackingStore()->get('sourceIds');
     }
 
     /**
@@ -157,7 +124,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTargetDisplayName(): ?string {
-        return $this->targetDisplayName;
+        return $this->getBackingStore()->get('targetDisplayName');
     }
 
     /**
@@ -165,7 +132,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTargetId(): ?string {
-        return $this->targetId;
+        return $this->getBackingStore()->get('targetId');
     }
 
     /**
@@ -173,7 +140,7 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getTargetLastSyncDateTime(): ?DateTime {
-        return $this->targetLastSyncDateTime;
+        return $this->getBackingStore()->get('targetLastSyncDateTime');
     }
 
     /**
@@ -181,96 +148,96 @@ class MobileAppRelationshipState implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
-        $writer->writeEnumValue('installState', $this->installState);
-        $writer->writeEnumValue('installStateDetail', $this->installStateDetail);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('sourceIds', $this->sourceIds);
-        $writer->writeStringValue('targetDisplayName', $this->targetDisplayName);
-        $writer->writeStringValue('targetId', $this->targetId);
-        $writer->writeDateTimeValue('targetLastSyncDateTime', $this->targetLastSyncDateTime);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeEnumValue('installState', $this->getInstallState());
+        $writer->writeEnumValue('installStateDetail', $this->getInstallStateDetail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfPrimitiveValues('sourceIds', $this->getSourceIds());
+        $writer->writeStringValue('targetDisplayName', $this->getTargetDisplayName());
+        $writer->writeStringValue('targetId', $this->getTargetId());
+        $writer->writeDateTimeValue('targetLastSyncDateTime', $this->getTargetLastSyncDateTime());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceId property value. The corresponding device id.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the errorCode property value. The error code for install or uninstall failures of target app.
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the installState property value. A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.
      *  @param ResultantAppState|null $value Value to set for the installState property.
     */
-    public function setInstallState(?ResultantAppState $value ): void {
-        $this->installState = $value;
+    public function setInstallState(?ResultantAppState $value): void {
+        $this->getBackingStore()->set('installState', $value);
     }
 
     /**
      * Sets the installStateDetail property value. Enum indicating additional details regarding why an application has a particular install state.
      *  @param ResultantAppStateDetail|null $value Value to set for the installStateDetail property.
     */
-    public function setInstallStateDetail(?ResultantAppStateDetail $value ): void {
-        $this->installStateDetail = $value;
+    public function setInstallStateDetail(?ResultantAppStateDetail $value): void {
+        $this->getBackingStore()->set('installStateDetail', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the sourceIds property value. The collection of source mobile app's ids.
      *  @param array<string>|null $value Value to set for the sourceIds property.
     */
-    public function setSourceIds(?array $value ): void {
-        $this->sourceIds = $value;
+    public function setSourceIds(?array $value): void {
+        $this->getBackingStore()->set('sourceIds', $value);
     }
 
     /**
      * Sets the targetDisplayName property value. The related target app's display name.
      *  @param string|null $value Value to set for the targetDisplayName property.
     */
-    public function setTargetDisplayName(?string $value ): void {
-        $this->targetDisplayName = $value;
+    public function setTargetDisplayName(?string $value): void {
+        $this->getBackingStore()->set('targetDisplayName', $value);
     }
 
     /**
      * Sets the targetId property value. The related target app's id.
      *  @param string|null $value Value to set for the targetId property.
     */
-    public function setTargetId(?string $value ): void {
-        $this->targetId = $value;
+    public function setTargetId(?string $value): void {
+        $this->getBackingStore()->set('targetId', $value);
     }
 
     /**
      * Sets the targetLastSyncDateTime property value. The last sync time of the target app.
      *  @param DateTime|null $value Value to set for the targetLastSyncDateTime property.
     */
-    public function setTargetLastSyncDateTime(?DateTime $value ): void {
-        $this->targetLastSyncDateTime = $value;
+    public function setTargetLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('targetLastSyncDateTime', $value);
     }
 
 }

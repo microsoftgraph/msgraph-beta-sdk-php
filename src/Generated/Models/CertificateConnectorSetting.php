@@ -7,53 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CertificateConnectorSetting implements AdditionalDataHolder, Parsable 
+class CertificateConnectorSetting implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $certExpiryTime Certificate expire time
-    */
-    private ?DateTime $certExpiryTime = null;
-    
-    /**
-     * @var string|null $connectorVersion Version of certificate connector
-    */
-    private ?string $connectorVersion = null;
-    
-    /**
-     * @var string|null $enrollmentError Certificate connector enrollment error
-    */
-    private ?string $enrollmentError = null;
-    
-    /**
-     * @var DateTime|null $lastConnectorConnectionTime Last time certificate connector connected
-    */
-    private ?DateTime $lastConnectorConnectionTime = null;
-    
-    /**
-     * @var int|null $lastUploadVersion Version of last uploaded certificate connector
-    */
-    private ?int $lastUploadVersion = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $status Certificate connector status
-    */
-    private ?int $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new certificateConnectorSetting and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.certificateConnectorSetting');
     }
@@ -71,8 +40,16 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +57,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getCertExpiryTime(): ?DateTime {
-        return $this->certExpiryTime;
+        return $this->getBackingStore()->get('certExpiryTime');
     }
 
     /**
@@ -88,7 +65,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getConnectorVersion(): ?string {
-        return $this->connectorVersion;
+        return $this->getBackingStore()->get('connectorVersion');
     }
 
     /**
@@ -96,7 +73,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getEnrollmentError(): ?string {
-        return $this->enrollmentError;
+        return $this->getBackingStore()->get('enrollmentError');
     }
 
     /**
@@ -121,7 +98,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastConnectorConnectionTime(): ?DateTime {
-        return $this->lastConnectorConnectionTime;
+        return $this->getBackingStore()->get('lastConnectorConnectionTime');
     }
 
     /**
@@ -129,7 +106,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getLastUploadVersion(): ?int {
-        return $this->lastUploadVersion;
+        return $this->getBackingStore()->get('lastUploadVersion');
     }
 
     /**
@@ -137,7 +114,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -145,7 +122,7 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getStatus(): ?int {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -153,78 +130,78 @@ class CertificateConnectorSetting implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('certExpiryTime', $this->certExpiryTime);
-        $writer->writeStringValue('connectorVersion', $this->connectorVersion);
-        $writer->writeStringValue('enrollmentError', $this->enrollmentError);
-        $writer->writeDateTimeValue('lastConnectorConnectionTime', $this->lastConnectorConnectionTime);
-        $writer->writeIntegerValue('lastUploadVersion', $this->lastUploadVersion);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('certExpiryTime', $this->getCertExpiryTime());
+        $writer->writeStringValue('connectorVersion', $this->getConnectorVersion());
+        $writer->writeStringValue('enrollmentError', $this->getEnrollmentError());
+        $writer->writeDateTimeValue('lastConnectorConnectionTime', $this->getLastConnectorConnectionTime());
+        $writer->writeIntegerValue('lastUploadVersion', $this->getLastUploadVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the certExpiryTime property value. Certificate expire time
      *  @param DateTime|null $value Value to set for the certExpiryTime property.
     */
-    public function setCertExpiryTime(?DateTime $value ): void {
-        $this->certExpiryTime = $value;
+    public function setCertExpiryTime(?DateTime $value): void {
+        $this->getBackingStore()->set('certExpiryTime', $value);
     }
 
     /**
      * Sets the connectorVersion property value. Version of certificate connector
      *  @param string|null $value Value to set for the connectorVersion property.
     */
-    public function setConnectorVersion(?string $value ): void {
-        $this->connectorVersion = $value;
+    public function setConnectorVersion(?string $value): void {
+        $this->getBackingStore()->set('connectorVersion', $value);
     }
 
     /**
      * Sets the enrollmentError property value. Certificate connector enrollment error
      *  @param string|null $value Value to set for the enrollmentError property.
     */
-    public function setEnrollmentError(?string $value ): void {
-        $this->enrollmentError = $value;
+    public function setEnrollmentError(?string $value): void {
+        $this->getBackingStore()->set('enrollmentError', $value);
     }
 
     /**
      * Sets the lastConnectorConnectionTime property value. Last time certificate connector connected
      *  @param DateTime|null $value Value to set for the lastConnectorConnectionTime property.
     */
-    public function setLastConnectorConnectionTime(?DateTime $value ): void {
-        $this->lastConnectorConnectionTime = $value;
+    public function setLastConnectorConnectionTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastConnectorConnectionTime', $value);
     }
 
     /**
      * Sets the lastUploadVersion property value. Version of last uploaded certificate connector
      *  @param int|null $value Value to set for the lastUploadVersion property.
     */
-    public function setLastUploadVersion(?int $value ): void {
-        $this->lastUploadVersion = $value;
+    public function setLastUploadVersion(?int $value): void {
+        $this->getBackingStore()->set('lastUploadVersion', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. Certificate connector status
      *  @param int|null $value Value to set for the status property.
     */
-    public function setStatus(?int $value ): void {
-        $this->status = $value;
+    public function setStatus(?int $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

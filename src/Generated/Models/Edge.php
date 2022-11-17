@@ -9,12 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Edge extends Entity implements Parsable 
 {
     /**
-     * @var InternetExplorerMode|null $internetExplorerMode A container for Internet Explorer mode resources.
-    */
-    private ?InternetExplorerMode $internetExplorerMode = null;
-    
-    /**
-     * Instantiates a new edge and sets the default values.
+     * Instantiates a new Edge and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +41,7 @@ class Edge extends Entity implements Parsable
      * @return InternetExplorerMode|null
     */
     public function getInternetExplorerMode(): ?InternetExplorerMode {
-        return $this->internetExplorerMode;
+        return $this->getBackingStore()->get('internetExplorerMode');
     }
 
     /**
@@ -55,15 +50,15 @@ class Edge extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('internetExplorerMode', $this->internetExplorerMode);
+        $writer->writeObjectValue('internetExplorerMode', $this->getInternetExplorerMode());
     }
 
     /**
      * Sets the internetExplorerMode property value. A container for Internet Explorer mode resources.
      *  @param InternetExplorerMode|null $value Value to set for the internetExplorerMode property.
     */
-    public function setInternetExplorerMode(?InternetExplorerMode $value ): void {
-        $this->internetExplorerMode = $value;
+    public function setInternetExplorerMode(?InternetExplorerMode $value): void {
+        $this->getBackingStore()->set('internetExplorerMode', $value);
     }
 
 }

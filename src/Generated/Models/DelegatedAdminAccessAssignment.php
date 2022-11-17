@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminAccessAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DelegatedAdminAccessContainer|null $accessContainer The accessContainer property
-    */
-    private ?DelegatedAdminAccessContainer $accessContainer = null;
-    
-    /**
-     * @var DelegatedAdminAccessDetails|null $accessDetails The accessDetails property
-    */
-    private ?DelegatedAdminAccessDetails $accessDetails = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var DelegatedAdminAccessAssignmentStatus|null $status The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
-    */
-    private ?DelegatedAdminAccessAssignmentStatus $status = null;
-    
-    /**
      * Instantiates a new delegatedAdminAccessAssignment and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @return DelegatedAdminAccessContainer|null
     */
     public function getAccessContainer(): ?DelegatedAdminAccessContainer {
-        return $this->accessContainer;
+        return $this->getBackingStore()->get('accessContainer');
     }
 
     /**
@@ -64,7 +39,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @return DelegatedAdminAccessDetails|null
     */
     public function getAccessDetails(): ?DelegatedAdminAccessDetails {
-        return $this->accessDetails;
+        return $this->getBackingStore()->get('accessDetails');
     }
 
     /**
@@ -72,7 +47,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -95,7 +70,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -103,7 +78,7 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
      * @return DelegatedAdminAccessAssignmentStatus|null
     */
     public function getStatus(): ?DelegatedAdminAccessAssignmentStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -112,51 +87,51 @@ class DelegatedAdminAccessAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessContainer', $this->accessContainer);
-        $writer->writeObjectValue('accessDetails', $this->accessDetails);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeObjectValue('accessContainer', $this->getAccessContainer());
+        $writer->writeObjectValue('accessDetails', $this->getAccessDetails());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the accessContainer property value. The accessContainer property
      *  @param DelegatedAdminAccessContainer|null $value Value to set for the accessContainer property.
     */
-    public function setAccessContainer(?DelegatedAdminAccessContainer $value ): void {
-        $this->accessContainer = $value;
+    public function setAccessContainer(?DelegatedAdminAccessContainer $value): void {
+        $this->getBackingStore()->set('accessContainer', $value);
     }
 
     /**
      * Sets the accessDetails property value. The accessDetails property
      *  @param DelegatedAdminAccessDetails|null $value Value to set for the accessDetails property.
     */
-    public function setAccessDetails(?DelegatedAdminAccessDetails $value ): void {
-        $this->accessDetails = $value;
+    public function setAccessDetails(?DelegatedAdminAccessDetails $value): void {
+        $this->getBackingStore()->set('accessDetails', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
      *  @param DelegatedAdminAccessAssignmentStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DelegatedAdminAccessAssignmentStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DelegatedAdminAccessAssignmentStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

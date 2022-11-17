@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class LookupPostRequestBody implements AdditionalDataHolder, Parsable 
+class LookupPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $key The key property
-    */
-    private ?string $key = null;
-    
-    /**
-     * @var array<string>|null $resultColumnNames The resultColumnNames property
-    */
-    private ?array $resultColumnNames = null;
-    
-    /**
-     * @var array<string>|null $values The values property
-    */
-    private ?array $values = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new lookupPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -49,8 +38,16 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -71,7 +68,7 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getKey(): ?string {
-        return $this->key;
+        return $this->getBackingStore()->get('key');
     }
 
     /**
@@ -79,7 +76,7 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getResultColumnNames(): ?array {
-        return $this->resultColumnNames;
+        return $this->getBackingStore()->get('resultColumnNames');
     }
 
     /**
@@ -87,7 +84,7 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getValues(): ?array {
-        return $this->values;
+        return $this->getBackingStore()->get('values');
     }
 
     /**
@@ -95,42 +92,42 @@ class LookupPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('key', $this->key);
-        $writer->writeCollectionOfPrimitiveValues('resultColumnNames', $this->resultColumnNames);
-        $writer->writeCollectionOfPrimitiveValues('values', $this->values);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('key', $this->getKey());
+        $writer->writeCollectionOfPrimitiveValues('resultColumnNames', $this->getResultColumnNames());
+        $writer->writeCollectionOfPrimitiveValues('values', $this->getValues());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the key property value. The key property
      *  @param string|null $value Value to set for the key property.
     */
-    public function setKey(?string $value ): void {
-        $this->key = $value;
+    public function setKey(?string $value): void {
+        $this->getBackingStore()->set('key', $value);
     }
 
     /**
      * Sets the resultColumnNames property value. The resultColumnNames property
      *  @param array<string>|null $value Value to set for the resultColumnNames property.
     */
-    public function setResultColumnNames(?array $value ): void {
-        $this->resultColumnNames = $value;
+    public function setResultColumnNames(?array $value): void {
+        $this->getBackingStore()->set('resultColumnNames', $value);
     }
 
     /**
      * Sets the values property value. The values property
      *  @param array<string>|null $value Value to set for the values property.
     */
-    public function setValues(?array $value ): void {
-        $this->values = $value;
+    public function setValues(?array $value): void {
+        $this->getBackingStore()->set('values', $value);
     }
 
 }

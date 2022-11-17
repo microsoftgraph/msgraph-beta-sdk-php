@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule implements Parsable 
 {
     /**
-     * @var Date|null $date The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    */
-    private ?Date $date = null;
-    
-    /**
      * Instantiates a new DeviceHealthScriptRunOnceSchedule and sets the default values.
     */
     public function __construct() {
@@ -36,7 +31,7 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
      * @return Date|null
     */
     public function getDate(): ?Date {
-        return $this->date;
+        return $this->getBackingStore()->get('date');
     }
 
     /**
@@ -56,15 +51,15 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateValue('date', $this->date);
+        $writer->writeDateValue('date', $this->getDate());
     }
 
     /**
      * Sets the date property value. The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
      *  @param Date|null $value Value to set for the date property.
     */
-    public function setDate(?Date $value ): void {
-        $this->date = $value;
+    public function setDate(?Date $value): void {
+        $this->getBackingStore()->set('date', $value);
     }
 
 }

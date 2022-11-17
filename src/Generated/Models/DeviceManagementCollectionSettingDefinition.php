@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
     /**
-     * @var string|null $elementDefinitionId The Setting Definition ID that describes what each element of the collection looks like
-    */
-    private ?string $elementDefinitionId = null;
-    
-    /**
      * Instantiates a new DeviceManagementCollectionSettingDefinition and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
      * @return string|null
     */
     public function getElementDefinitionId(): ?string {
-        return $this->elementDefinitionId;
+        return $this->getBackingStore()->get('elementDefinitionId');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('elementDefinitionId', $this->elementDefinitionId);
+        $writer->writeStringValue('elementDefinitionId', $this->getElementDefinitionId());
     }
 
     /**
      * Sets the elementDefinitionId property value. The Setting Definition ID that describes what each element of the collection looks like
      *  @param string|null $value Value to set for the elementDefinitionId property.
     */
-    public function setElementDefinitionId(?string $value ): void {
-        $this->elementDefinitionId = $value;
+    public function setElementDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('elementDefinitionId', $value);
     }
 
 }

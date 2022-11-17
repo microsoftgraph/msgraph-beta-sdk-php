@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LookupResultRow extends Entity implements Parsable 
 {
     /**
-     * @var string|null $row The row property
-    */
-    private ?string $row = null;
-    
-    /**
      * Instantiates a new lookupResultRow and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class LookupResultRow extends Entity implements Parsable
      * @return string|null
     */
     public function getRow(): ?string {
-        return $this->row;
+        return $this->getBackingStore()->get('row');
     }
 
     /**
@@ -55,15 +50,15 @@ class LookupResultRow extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('row', $this->row);
+        $writer->writeStringValue('row', $this->getRow());
     }
 
     /**
      * Sets the row property value. The row property
      *  @param string|null $value Value to set for the row property.
     */
-    public function setRow(?string $value ): void {
-        $this->row = $value;
+    public function setRow(?string $value): void {
+        $this->getBackingStore()->set('row', $value);
     }
 
 }

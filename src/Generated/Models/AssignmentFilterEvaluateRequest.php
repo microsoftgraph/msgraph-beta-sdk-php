@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable 
+class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<string>|null $orderBy Order the devices should be sorted in. Default is ascending on device name.
-    */
-    private ?array $orderBy = null;
-    
-    /**
-     * @var DevicePlatformType|null $platform Supported platform types.
-    */
-    private ?DevicePlatformType $platform = null;
-    
-    /**
-     * @var string|null $rule Rule definition of the Assignment Filter.
-    */
-    private ?string $rule = null;
-    
-    /**
-     * @var string|null $search Search keyword applied to scope found devices.
-    */
-    private ?string $search = null;
-    
-    /**
-     * @var int|null $skip Number of records to skip. Default value is 0
-    */
-    private ?int $skip = null;
-    
-    /**
-     * @var int|null $top Limit of records per request. Default value is 100, if provided less than 0 or greater than 100
-    */
-    private ?int $top = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new assignmentFilterEvaluateRequest and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.assignmentFilterEvaluateRequest');
     }
@@ -70,8 +39,16 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -96,7 +73,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -104,7 +81,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getOrderBy(): ?array {
-        return $this->orderBy;
+        return $this->getBackingStore()->get('orderBy');
     }
 
     /**
@@ -112,7 +89,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -120,7 +97,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRule(): ?string {
-        return $this->rule;
+        return $this->getBackingStore()->get('rule');
     }
 
     /**
@@ -128,7 +105,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSearch(): ?string {
-        return $this->search;
+        return $this->getBackingStore()->get('search');
     }
 
     /**
@@ -136,7 +113,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSkip(): ?int {
-        return $this->skip;
+        return $this->getBackingStore()->get('skip');
     }
 
     /**
@@ -144,7 +121,7 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTop(): ?int {
-        return $this->top;
+        return $this->getBackingStore()->get('top');
     }
 
     /**
@@ -152,78 +129,78 @@ class AssignmentFilterEvaluateRequest implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('orderBy', $this->orderBy);
-        $writer->writeEnumValue('platform', $this->platform);
-        $writer->writeStringValue('rule', $this->rule);
-        $writer->writeStringValue('search', $this->search);
-        $writer->writeIntegerValue('skip', $this->skip);
-        $writer->writeIntegerValue('top', $this->top);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
+        $writer->writeEnumValue('platform', $this->getPlatform());
+        $writer->writeStringValue('rule', $this->getRule());
+        $writer->writeStringValue('search', $this->getSearch());
+        $writer->writeIntegerValue('skip', $this->getSkip());
+        $writer->writeIntegerValue('top', $this->getTop());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the orderBy property value. Order the devices should be sorted in. Default is ascending on device name.
      *  @param array<string>|null $value Value to set for the orderBy property.
     */
-    public function setOrderBy(?array $value ): void {
-        $this->orderBy = $value;
+    public function setOrderBy(?array $value): void {
+        $this->getBackingStore()->set('orderBy', $value);
     }
 
     /**
      * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
-    public function setPlatform(?DevicePlatformType $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**
      * Sets the rule property value. Rule definition of the Assignment Filter.
      *  @param string|null $value Value to set for the rule property.
     */
-    public function setRule(?string $value ): void {
-        $this->rule = $value;
+    public function setRule(?string $value): void {
+        $this->getBackingStore()->set('rule', $value);
     }
 
     /**
      * Sets the search property value. Search keyword applied to scope found devices.
      *  @param string|null $value Value to set for the search property.
     */
-    public function setSearch(?string $value ): void {
-        $this->search = $value;
+    public function setSearch(?string $value): void {
+        $this->getBackingStore()->set('search', $value);
     }
 
     /**
      * Sets the skip property value. Number of records to skip. Default value is 0
      *  @param int|null $value Value to set for the skip property.
     */
-    public function setSkip(?int $value ): void {
-        $this->skip = $value;
+    public function setSkip(?int $value): void {
+        $this->getBackingStore()->set('skip', $value);
     }
 
     /**
      * Sets the top property value. Limit of records per request. Default value is 100, if provided less than 0 or greater than 100
      *  @param int|null $value Value to set for the top property.
     */
-    public function setTop(?int $value ): void {
-        $this->top = $value;
+    public function setTop(?int $value): void {
+        $this->getBackingStore()->set('top', $value);
     }
 
 }

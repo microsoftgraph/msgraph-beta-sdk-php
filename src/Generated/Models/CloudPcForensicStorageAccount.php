@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcForensicStorageAccount extends Entity implements Parsable 
 {
     /**
-     * @var string|null $storageAccountId The ID of the storage account.
-    */
-    private ?string $storageAccountId = null;
-    
-    /**
-     * @var string|null $storageAccountName The name of the storage account.
-    */
-    private ?string $storageAccountName = null;
-    
-    /**
      * Instantiates a new cloudPcForensicStorageAccount and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
      * @return string|null
     */
     public function getStorageAccountId(): ?string {
-        return $this->storageAccountId;
+        return $this->getBackingStore()->get('storageAccountId');
     }
 
     /**
@@ -60,7 +50,7 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
      * @return string|null
     */
     public function getStorageAccountName(): ?string {
-        return $this->storageAccountName;
+        return $this->getBackingStore()->get('storageAccountName');
     }
 
     /**
@@ -69,24 +59,24 @@ class CloudPcForensicStorageAccount extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('storageAccountId', $this->storageAccountId);
-        $writer->writeStringValue('storageAccountName', $this->storageAccountName);
+        $writer->writeStringValue('storageAccountId', $this->getStorageAccountId());
+        $writer->writeStringValue('storageAccountName', $this->getStorageAccountName());
     }
 
     /**
      * Sets the storageAccountId property value. The ID of the storage account.
      *  @param string|null $value Value to set for the storageAccountId property.
     */
-    public function setStorageAccountId(?string $value ): void {
-        $this->storageAccountId = $value;
+    public function setStorageAccountId(?string $value): void {
+        $this->getBackingStore()->set('storageAccountId', $value);
     }
 
     /**
      * Sets the storageAccountName property value. The name of the storage account.
      *  @param string|null $value Value to set for the storageAccountName property.
     */
-    public function setStorageAccountName(?string $value ): void {
-        $this->storageAccountName = $value;
+    public function setStorageAccountName(?string $value): void {
+        $this->getBackingStore()->set('storageAccountName', $value);
     }
 
 }

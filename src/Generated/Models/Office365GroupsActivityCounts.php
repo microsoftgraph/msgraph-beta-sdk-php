@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityCounts extends Entity implements Parsable 
 {
     /**
-     * @var int|null $exchangeEmailsReceived The number of emails received by Group mailboxes.
-    */
-    private ?int $exchangeEmailsReceived = null;
-    
-    /**
-     * @var Date|null $reportDate The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
-    */
-    private ?Date $reportDate = null;
-    
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
-    private ?string $reportPeriod = null;
-    
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
-    private ?Date $reportRefreshDate = null;
-    
-    /**
-     * @var int|null $yammerMessagesLiked The number of messages liked in Yammer groups.
-    */
-    private ?int $yammerMessagesLiked = null;
-    
-    /**
-     * @var int|null $yammerMessagesPosted The number of messages posted to Yammer groups.
-    */
-    private ?int $yammerMessagesPosted = null;
-    
-    /**
-     * @var int|null $yammerMessagesRead The number of messages read in Yammer groups.
-    */
-    private ?int $yammerMessagesRead = null;
-    
-    /**
      * Instantiates a new Office365GroupsActivityCounts and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeEmailsReceived(): ?int {
-        return $this->exchangeEmailsReceived;
+        return $this->getBackingStore()->get('exchangeEmailsReceived');
     }
 
     /**
@@ -91,7 +56,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->reportDate;
+        return $this->getBackingStore()->get('reportDate');
     }
 
     /**
@@ -99,7 +64,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->reportPeriod;
+        return $this->getBackingStore()->get('reportPeriod');
     }
 
     /**
@@ -107,7 +72,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->reportRefreshDate;
+        return $this->getBackingStore()->get('reportRefreshDate');
     }
 
     /**
@@ -115,7 +80,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesLiked(): ?int {
-        return $this->yammerMessagesLiked;
+        return $this->getBackingStore()->get('yammerMessagesLiked');
     }
 
     /**
@@ -123,7 +88,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesPosted(): ?int {
-        return $this->yammerMessagesPosted;
+        return $this->getBackingStore()->get('yammerMessagesPosted');
     }
 
     /**
@@ -131,7 +96,7 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerMessagesRead(): ?int {
-        return $this->yammerMessagesRead;
+        return $this->getBackingStore()->get('yammerMessagesRead');
     }
 
     /**
@@ -140,69 +105,69 @@ class Office365GroupsActivityCounts extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('exchangeEmailsReceived', $this->exchangeEmailsReceived);
-        $writer->writeDateValue('reportDate', $this->reportDate);
-        $writer->writeStringValue('reportPeriod', $this->reportPeriod);
-        $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
-        $writer->writeIntegerValue('yammerMessagesLiked', $this->yammerMessagesLiked);
-        $writer->writeIntegerValue('yammerMessagesPosted', $this->yammerMessagesPosted);
-        $writer->writeIntegerValue('yammerMessagesRead', $this->yammerMessagesRead);
+        $writer->writeIntegerValue('exchangeEmailsReceived', $this->getExchangeEmailsReceived());
+        $writer->writeDateValue('reportDate', $this->getReportDate());
+        $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
+        $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('yammerMessagesLiked', $this->getYammerMessagesLiked());
+        $writer->writeIntegerValue('yammerMessagesPosted', $this->getYammerMessagesPosted());
+        $writer->writeIntegerValue('yammerMessagesRead', $this->getYammerMessagesRead());
     }
 
     /**
      * Sets the exchangeEmailsReceived property value. The number of emails received by Group mailboxes.
      *  @param int|null $value Value to set for the exchangeEmailsReceived property.
     */
-    public function setExchangeEmailsReceived(?int $value ): void {
-        $this->exchangeEmailsReceived = $value;
+    public function setExchangeEmailsReceived(?int $value): void {
+        $this->getBackingStore()->set('exchangeEmailsReceived', $value);
     }
 
     /**
      * Sets the reportDate property value. The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
      *  @param Date|null $value Value to set for the reportDate property.
     */
-    public function setReportDate(?Date $value ): void {
-        $this->reportDate = $value;
+    public function setReportDate(?Date $value): void {
+        $this->getBackingStore()->set('reportDate', $value);
     }
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
      *  @param string|null $value Value to set for the reportPeriod property.
     */
-    public function setReportPeriod(?string $value ): void {
-        $this->reportPeriod = $value;
+    public function setReportPeriod(?string $value): void {
+        $this->getBackingStore()->set('reportPeriod', $value);
     }
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
      *  @param Date|null $value Value to set for the reportRefreshDate property.
     */
-    public function setReportRefreshDate(?Date $value ): void {
-        $this->reportRefreshDate = $value;
+    public function setReportRefreshDate(?Date $value): void {
+        $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
      * Sets the yammerMessagesLiked property value. The number of messages liked in Yammer groups.
      *  @param int|null $value Value to set for the yammerMessagesLiked property.
     */
-    public function setYammerMessagesLiked(?int $value ): void {
-        $this->yammerMessagesLiked = $value;
+    public function setYammerMessagesLiked(?int $value): void {
+        $this->getBackingStore()->set('yammerMessagesLiked', $value);
     }
 
     /**
      * Sets the yammerMessagesPosted property value. The number of messages posted to Yammer groups.
      *  @param int|null $value Value to set for the yammerMessagesPosted property.
     */
-    public function setYammerMessagesPosted(?int $value ): void {
-        $this->yammerMessagesPosted = $value;
+    public function setYammerMessagesPosted(?int $value): void {
+        $this->getBackingStore()->set('yammerMessagesPosted', $value);
     }
 
     /**
      * Sets the yammerMessagesRead property value. The number of messages read in Yammer groups.
      *  @param int|null $value Value to set for the yammerMessagesRead property.
     */
-    public function setYammerMessagesRead(?int $value ): void {
-        $this->yammerMessagesRead = $value;
+    public function setYammerMessagesRead(?int $value): void {
+        $this->getBackingStore()->set('yammerMessagesRead', $value);
     }
 
 }

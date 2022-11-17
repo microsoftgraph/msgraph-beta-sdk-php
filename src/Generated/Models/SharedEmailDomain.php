@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SharedEmailDomain extends Entity implements Parsable 
 {
     /**
-     * @var string|null $provisioningStatus The provisioningStatus property
-    */
-    private ?string $provisioningStatus = null;
-    
-    /**
      * Instantiates a new sharedEmailDomain and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class SharedEmailDomain extends Entity implements Parsable
      * @return string|null
     */
     public function getProvisioningStatus(): ?string {
-        return $this->provisioningStatus;
+        return $this->getBackingStore()->get('provisioningStatus');
     }
 
     /**
@@ -55,15 +50,15 @@ class SharedEmailDomain extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('provisioningStatus', $this->provisioningStatus);
+        $writer->writeStringValue('provisioningStatus', $this->getProvisioningStatus());
     }
 
     /**
      * Sets the provisioningStatus property value. The provisioningStatus property
      *  @param string|null $value Value to set for the provisioningStatus property.
     */
-    public function setProvisioningStatus(?string $value ): void {
-        $this->provisioningStatus = $value;
+    public function setProvisioningStatus(?string $value): void {
+        $this->getBackingStore()->set('provisioningStatus', $value);
     }
 
 }

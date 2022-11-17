@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoteActionAudit extends Entity implements Parsable 
 {
     /**
-     * @var RemoteAction|null $action Remote actions Intune supports.
-    */
-    private ?RemoteAction $action = null;
-    
-    /**
-     * @var ActionState|null $actionState The actionState property
-    */
-    private ?ActionState $actionState = null;
-    
-    /**
-     * @var string|null $deviceDisplayName Intune device name.
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var string|null $deviceIMEI IMEI of the device.
-    */
-    private ?string $deviceIMEI = null;
-    
-    /**
-     * @var string|null $deviceOwnerUserPrincipalName Upn of the device owner.
-    */
-    private ?string $deviceOwnerUserPrincipalName = null;
-    
-    /**
-     * @var string|null $initiatedByUserPrincipalName User who initiated the device action, format is UPN.
-    */
-    private ?string $initiatedByUserPrincipalName = null;
-    
-    /**
-     * @var string|null $managedDeviceId Action target.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var DateTime|null $requestDateTime Time when the action was issued, given in UTC.
-    */
-    private ?DateTime $requestDateTime = null;
-    
-    /**
-     * @var string|null $userName [deprecated] Please use InitiatedByUserPrincipalName instead.
-    */
-    private ?string $userName = null;
-    
-    /**
      * Instantiates a new remoteActionAudit and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return RemoteAction|null
     */
     public function getAction(): ?RemoteAction {
-        return $this->action;
+        return $this->getBackingStore()->get('action');
     }
 
     /**
@@ -84,7 +39,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
-        return $this->actionState;
+        return $this->getBackingStore()->get('actionState');
     }
 
     /**
@@ -92,7 +47,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -100,7 +55,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceIMEI(): ?string {
-        return $this->deviceIMEI;
+        return $this->getBackingStore()->get('deviceIMEI');
     }
 
     /**
@@ -108,7 +63,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceOwnerUserPrincipalName(): ?string {
-        return $this->deviceOwnerUserPrincipalName;
+        return $this->getBackingStore()->get('deviceOwnerUserPrincipalName');
     }
 
     /**
@@ -135,7 +90,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getInitiatedByUserPrincipalName(): ?string {
-        return $this->initiatedByUserPrincipalName;
+        return $this->getBackingStore()->get('initiatedByUserPrincipalName');
     }
 
     /**
@@ -143,7 +98,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -151,7 +106,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
-        return $this->requestDateTime;
+        return $this->getBackingStore()->get('requestDateTime');
     }
 
     /**
@@ -159,7 +114,7 @@ class RemoteActionAudit extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -168,87 +123,87 @@ class RemoteActionAudit extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('action', $this->action);
-        $writer->writeEnumValue('actionState', $this->actionState);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeStringValue('deviceIMEI', $this->deviceIMEI);
-        $writer->writeStringValue('deviceOwnerUserPrincipalName', $this->deviceOwnerUserPrincipalName);
-        $writer->writeStringValue('initiatedByUserPrincipalName', $this->initiatedByUserPrincipalName);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeDateTimeValue('requestDateTime', $this->requestDateTime);
-        $writer->writeStringValue('userName', $this->userName);
+        $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeEnumValue('actionState', $this->getActionState());
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeStringValue('deviceIMEI', $this->getDeviceIMEI());
+        $writer->writeStringValue('deviceOwnerUserPrincipalName', $this->getDeviceOwnerUserPrincipalName());
+        $writer->writeStringValue('initiatedByUserPrincipalName', $this->getInitiatedByUserPrincipalName());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
+        $writer->writeStringValue('userName', $this->getUserName());
     }
 
     /**
      * Sets the action property value. Remote actions Intune supports.
      *  @param RemoteAction|null $value Value to set for the action property.
     */
-    public function setAction(?RemoteAction $value ): void {
-        $this->action = $value;
+    public function setAction(?RemoteAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
      * Sets the actionState property value. The actionState property
      *  @param ActionState|null $value Value to set for the actionState property.
     */
-    public function setActionState(?ActionState $value ): void {
-        $this->actionState = $value;
+    public function setActionState(?ActionState $value): void {
+        $this->getBackingStore()->set('actionState', $value);
     }
 
     /**
      * Sets the deviceDisplayName property value. Intune device name.
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the deviceIMEI property value. IMEI of the device.
      *  @param string|null $value Value to set for the deviceIMEI property.
     */
-    public function setDeviceIMEI(?string $value ): void {
-        $this->deviceIMEI = $value;
+    public function setDeviceIMEI(?string $value): void {
+        $this->getBackingStore()->set('deviceIMEI', $value);
     }
 
     /**
      * Sets the deviceOwnerUserPrincipalName property value. Upn of the device owner.
      *  @param string|null $value Value to set for the deviceOwnerUserPrincipalName property.
     */
-    public function setDeviceOwnerUserPrincipalName(?string $value ): void {
-        $this->deviceOwnerUserPrincipalName = $value;
+    public function setDeviceOwnerUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('deviceOwnerUserPrincipalName', $value);
     }
 
     /**
      * Sets the initiatedByUserPrincipalName property value. User who initiated the device action, format is UPN.
      *  @param string|null $value Value to set for the initiatedByUserPrincipalName property.
     */
-    public function setInitiatedByUserPrincipalName(?string $value ): void {
-        $this->initiatedByUserPrincipalName = $value;
+    public function setInitiatedByUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('initiatedByUserPrincipalName', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Action target.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the requestDateTime property value. Time when the action was issued, given in UTC.
      *  @param DateTime|null $value Value to set for the requestDateTime property.
     */
-    public function setRequestDateTime(?DateTime $value ): void {
-        $this->requestDateTime = $value;
+    public function setRequestDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('requestDateTime', $value);
     }
 
     /**
      * Sets the userName property value. [deprecated] Please use InitiatedByUserPrincipalName instead.
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
 }

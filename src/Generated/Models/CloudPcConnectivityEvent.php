@@ -7,48 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable 
+class CloudPcConnectivityEvent implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $eventDateTime Indicates the date and time when this event was created. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $eventDateTime = null;
-    
-    /**
-     * @var string|null $eventName Name of the event.
-    */
-    private ?string $eventName = null;
-    
-    /**
-     * @var CloudPcConnectivityEventResult|null $eventResult The eventResult property
-    */
-    private ?CloudPcConnectivityEventResult $eventResult = null;
-    
-    /**
-     * @var CloudPcConnectivityEventType|null $eventType The eventType property
-    */
-    private ?CloudPcConnectivityEventType $eventType = null;
-    
-    /**
-     * @var string|null $message Additional message for this event.
-    */
-    private ?string $message = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new cloudPcConnectivityEvent and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.cloudPcConnectivityEvent');
     }
@@ -66,8 +40,16 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -75,7 +57,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->eventDateTime;
+        return $this->getBackingStore()->get('eventDateTime');
     }
 
     /**
@@ -83,7 +65,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getEventName(): ?string {
-        return $this->eventName;
+        return $this->getBackingStore()->get('eventName');
     }
 
     /**
@@ -91,7 +73,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return CloudPcConnectivityEventResult|null
     */
     public function getEventResult(): ?CloudPcConnectivityEventResult {
-        return $this->eventResult;
+        return $this->getBackingStore()->get('eventResult');
     }
 
     /**
@@ -99,7 +81,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return CloudPcConnectivityEventType|null
     */
     public function getEventType(): ?CloudPcConnectivityEventType {
-        return $this->eventType;
+        return $this->getBackingStore()->get('eventType');
     }
 
     /**
@@ -123,7 +105,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->message;
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -131,7 +113,7 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -139,69 +121,69 @@ class CloudPcConnectivityEvent implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
-        $writer->writeStringValue('eventName', $this->eventName);
-        $writer->writeEnumValue('eventResult', $this->eventResult);
-        $writer->writeEnumValue('eventType', $this->eventType);
-        $writer->writeStringValue('message', $this->message);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeStringValue('eventName', $this->getEventName());
+        $writer->writeEnumValue('eventResult', $this->getEventResult());
+        $writer->writeEnumValue('eventType', $this->getEventType());
+        $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the eventDateTime property value. Indicates the date and time when this event was created. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setEventDateTime(?DateTime $value ): void {
-        $this->eventDateTime = $value;
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
      * Sets the eventName property value. Name of the event.
      *  @param string|null $value Value to set for the eventName property.
     */
-    public function setEventName(?string $value ): void {
-        $this->eventName = $value;
+    public function setEventName(?string $value): void {
+        $this->getBackingStore()->set('eventName', $value);
     }
 
     /**
      * Sets the eventResult property value. The eventResult property
      *  @param CloudPcConnectivityEventResult|null $value Value to set for the eventResult property.
     */
-    public function setEventResult(?CloudPcConnectivityEventResult $value ): void {
-        $this->eventResult = $value;
+    public function setEventResult(?CloudPcConnectivityEventResult $value): void {
+        $this->getBackingStore()->set('eventResult', $value);
     }
 
     /**
      * Sets the eventType property value. The eventType property
      *  @param CloudPcConnectivityEventType|null $value Value to set for the eventType property.
     */
-    public function setEventType(?CloudPcConnectivityEventType $value ): void {
-        $this->eventType = $value;
+    public function setEventType(?CloudPcConnectivityEventType $value): void {
+        $this->getBackingStore()->set('eventType', $value);
     }
 
     /**
      * Sets the message property value. Additional message for this event.
      *  @param string|null $value Value to set for the message property.
     */
-    public function setMessage(?string $value ): void {
-        $this->message = $value;
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

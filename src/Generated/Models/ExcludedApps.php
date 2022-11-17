@@ -6,98 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ExcludedApps implements AdditionalDataHolder, Parsable 
+class ExcludedApps implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var bool|null $access The value for if MS Office Access should be excluded or not.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?bool $access = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $bing The value for if Microsoft Search as default should be excluded or not.
-    */
-    private ?bool $bing = null;
-    
-    /**
-     * @var bool|null $excel The value for if MS Office Excel should be excluded or not.
-    */
-    private ?bool $excel = null;
-    
-    /**
-     * @var bool|null $groove The value for if MS Office OneDrive for Business - Groove should be excluded or not.
-    */
-    private ?bool $groove = null;
-    
-    /**
-     * @var bool|null $infoPath The value for if MS Office InfoPath should be excluded or not.
-    */
-    private ?bool $infoPath = null;
-    
-    /**
-     * @var bool|null $lync The value for if MS Office Skype for Business - Lync should be excluded or not.
-    */
-    private ?bool $lync = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var bool|null $oneDrive The value for if MS Office OneDrive should be excluded or not.
-    */
-    private ?bool $oneDrive = null;
-    
-    /**
-     * @var bool|null $oneNote The value for if MS Office OneNote should be excluded or not.
-    */
-    private ?bool $oneNote = null;
-    
-    /**
-     * @var bool|null $outlook The value for if MS Office Outlook should be excluded or not.
-    */
-    private ?bool $outlook = null;
-    
-    /**
-     * @var bool|null $powerPoint The value for if MS Office PowerPoint should be excluded or not.
-    */
-    private ?bool $powerPoint = null;
-    
-    /**
-     * @var bool|null $publisher The value for if MS Office Publisher should be excluded or not.
-    */
-    private ?bool $publisher = null;
-    
-    /**
-     * @var bool|null $sharePointDesigner The value for if MS Office SharePointDesigner should be excluded or not.
-    */
-    private ?bool $sharePointDesigner = null;
-    
-    /**
-     * @var bool|null $teams The value for if MS Office Teams should be excluded or not.
-    */
-    private ?bool $teams = null;
-    
-    /**
-     * @var bool|null $visio The value for if MS Office Visio should be excluded or not.
-    */
-    private ?bool $visio = null;
-    
-    /**
-     * @var bool|null $word The value for if MS Office Word should be excluded or not.
-    */
-    private ?bool $word = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new excludedApps and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.excludedApps');
     }
@@ -116,15 +40,23 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAccess(): ?bool {
-        return $this->access;
+        return $this->getBackingStore()->get('access');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -132,7 +64,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getBing(): ?bool {
-        return $this->bing;
+        return $this->getBackingStore()->get('bing');
     }
 
     /**
@@ -140,7 +72,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getExcel(): ?bool {
-        return $this->excel;
+        return $this->getBackingStore()->get('excel');
     }
 
     /**
@@ -174,7 +106,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getGroove(): ?bool {
-        return $this->groove;
+        return $this->getBackingStore()->get('groove');
     }
 
     /**
@@ -182,7 +114,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getInfoPath(): ?bool {
-        return $this->infoPath;
+        return $this->getBackingStore()->get('infoPath');
     }
 
     /**
@@ -190,7 +122,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getLync(): ?bool {
-        return $this->lync;
+        return $this->getBackingStore()->get('lync');
     }
 
     /**
@@ -198,7 +130,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -206,7 +138,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getOneDrive(): ?bool {
-        return $this->oneDrive;
+        return $this->getBackingStore()->get('oneDrive');
     }
 
     /**
@@ -214,7 +146,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getOneNote(): ?bool {
-        return $this->oneNote;
+        return $this->getBackingStore()->get('oneNote');
     }
 
     /**
@@ -222,7 +154,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getOutlook(): ?bool {
-        return $this->outlook;
+        return $this->getBackingStore()->get('outlook');
     }
 
     /**
@@ -230,7 +162,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getPowerPoint(): ?bool {
-        return $this->powerPoint;
+        return $this->getBackingStore()->get('powerPoint');
     }
 
     /**
@@ -238,7 +170,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getPublisher(): ?bool {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -246,7 +178,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getSharePointDesigner(): ?bool {
-        return $this->sharePointDesigner;
+        return $this->getBackingStore()->get('sharePointDesigner');
     }
 
     /**
@@ -254,7 +186,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getTeams(): ?bool {
-        return $this->teams;
+        return $this->getBackingStore()->get('teams');
     }
 
     /**
@@ -262,7 +194,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getVisio(): ?bool {
-        return $this->visio;
+        return $this->getBackingStore()->get('visio');
     }
 
     /**
@@ -270,7 +202,7 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getWord(): ?bool {
-        return $this->word;
+        return $this->getBackingStore()->get('word');
     }
 
     /**
@@ -278,159 +210,159 @@ class ExcludedApps implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('access', $this->access);
-        $writer->writeBooleanValue('bing', $this->bing);
-        $writer->writeBooleanValue('excel', $this->excel);
-        $writer->writeBooleanValue('groove', $this->groove);
-        $writer->writeBooleanValue('infoPath', $this->infoPath);
-        $writer->writeBooleanValue('lync', $this->lync);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeBooleanValue('oneDrive', $this->oneDrive);
-        $writer->writeBooleanValue('oneNote', $this->oneNote);
-        $writer->writeBooleanValue('outlook', $this->outlook);
-        $writer->writeBooleanValue('powerPoint', $this->powerPoint);
-        $writer->writeBooleanValue('publisher', $this->publisher);
-        $writer->writeBooleanValue('sharePointDesigner', $this->sharePointDesigner);
-        $writer->writeBooleanValue('teams', $this->teams);
-        $writer->writeBooleanValue('visio', $this->visio);
-        $writer->writeBooleanValue('word', $this->word);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('access', $this->getAccess());
+        $writer->writeBooleanValue('bing', $this->getBing());
+        $writer->writeBooleanValue('excel', $this->getExcel());
+        $writer->writeBooleanValue('groove', $this->getGroove());
+        $writer->writeBooleanValue('infoPath', $this->getInfoPath());
+        $writer->writeBooleanValue('lync', $this->getLync());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('oneDrive', $this->getOneDrive());
+        $writer->writeBooleanValue('oneNote', $this->getOneNote());
+        $writer->writeBooleanValue('outlook', $this->getOutlook());
+        $writer->writeBooleanValue('powerPoint', $this->getPowerPoint());
+        $writer->writeBooleanValue('publisher', $this->getPublisher());
+        $writer->writeBooleanValue('sharePointDesigner', $this->getSharePointDesigner());
+        $writer->writeBooleanValue('teams', $this->getTeams());
+        $writer->writeBooleanValue('visio', $this->getVisio());
+        $writer->writeBooleanValue('word', $this->getWord());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the access property value. The value for if MS Office Access should be excluded or not.
      *  @param bool|null $value Value to set for the access property.
     */
-    public function setAccess(?bool $value ): void {
-        $this->access = $value;
+    public function setAccess(?bool $value): void {
+        $this->getBackingStore()->set('access', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the bing property value. The value for if Microsoft Search as default should be excluded or not.
      *  @param bool|null $value Value to set for the bing property.
     */
-    public function setBing(?bool $value ): void {
-        $this->bing = $value;
+    public function setBing(?bool $value): void {
+        $this->getBackingStore()->set('bing', $value);
     }
 
     /**
      * Sets the excel property value. The value for if MS Office Excel should be excluded or not.
      *  @param bool|null $value Value to set for the excel property.
     */
-    public function setExcel(?bool $value ): void {
-        $this->excel = $value;
+    public function setExcel(?bool $value): void {
+        $this->getBackingStore()->set('excel', $value);
     }
 
     /**
      * Sets the groove property value. The value for if MS Office OneDrive for Business - Groove should be excluded or not.
      *  @param bool|null $value Value to set for the groove property.
     */
-    public function setGroove(?bool $value ): void {
-        $this->groove = $value;
+    public function setGroove(?bool $value): void {
+        $this->getBackingStore()->set('groove', $value);
     }
 
     /**
      * Sets the infoPath property value. The value for if MS Office InfoPath should be excluded or not.
      *  @param bool|null $value Value to set for the infoPath property.
     */
-    public function setInfoPath(?bool $value ): void {
-        $this->infoPath = $value;
+    public function setInfoPath(?bool $value): void {
+        $this->getBackingStore()->set('infoPath', $value);
     }
 
     /**
      * Sets the lync property value. The value for if MS Office Skype for Business - Lync should be excluded or not.
      *  @param bool|null $value Value to set for the lync property.
     */
-    public function setLync(?bool $value ): void {
-        $this->lync = $value;
+    public function setLync(?bool $value): void {
+        $this->getBackingStore()->set('lync', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the oneDrive property value. The value for if MS Office OneDrive should be excluded or not.
      *  @param bool|null $value Value to set for the oneDrive property.
     */
-    public function setOneDrive(?bool $value ): void {
-        $this->oneDrive = $value;
+    public function setOneDrive(?bool $value): void {
+        $this->getBackingStore()->set('oneDrive', $value);
     }
 
     /**
      * Sets the oneNote property value. The value for if MS Office OneNote should be excluded or not.
      *  @param bool|null $value Value to set for the oneNote property.
     */
-    public function setOneNote(?bool $value ): void {
-        $this->oneNote = $value;
+    public function setOneNote(?bool $value): void {
+        $this->getBackingStore()->set('oneNote', $value);
     }
 
     /**
      * Sets the outlook property value. The value for if MS Office Outlook should be excluded or not.
      *  @param bool|null $value Value to set for the outlook property.
     */
-    public function setOutlook(?bool $value ): void {
-        $this->outlook = $value;
+    public function setOutlook(?bool $value): void {
+        $this->getBackingStore()->set('outlook', $value);
     }
 
     /**
      * Sets the powerPoint property value. The value for if MS Office PowerPoint should be excluded or not.
      *  @param bool|null $value Value to set for the powerPoint property.
     */
-    public function setPowerPoint(?bool $value ): void {
-        $this->powerPoint = $value;
+    public function setPowerPoint(?bool $value): void {
+        $this->getBackingStore()->set('powerPoint', $value);
     }
 
     /**
      * Sets the publisher property value. The value for if MS Office Publisher should be excluded or not.
      *  @param bool|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?bool $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?bool $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the sharePointDesigner property value. The value for if MS Office SharePointDesigner should be excluded or not.
      *  @param bool|null $value Value to set for the sharePointDesigner property.
     */
-    public function setSharePointDesigner(?bool $value ): void {
-        $this->sharePointDesigner = $value;
+    public function setSharePointDesigner(?bool $value): void {
+        $this->getBackingStore()->set('sharePointDesigner', $value);
     }
 
     /**
      * Sets the teams property value. The value for if MS Office Teams should be excluded or not.
      *  @param bool|null $value Value to set for the teams property.
     */
-    public function setTeams(?bool $value ): void {
-        $this->teams = $value;
+    public function setTeams(?bool $value): void {
+        $this->getBackingStore()->set('teams', $value);
     }
 
     /**
      * Sets the visio property value. The value for if MS Office Visio should be excluded or not.
      *  @param bool|null $value Value to set for the visio property.
     */
-    public function setVisio(?bool $value ): void {
-        $this->visio = $value;
+    public function setVisio(?bool $value): void {
+        $this->getBackingStore()->set('visio', $value);
     }
 
     /**
      * Sets the word property value. The value for if MS Office Word should be excluded or not.
      *  @param bool|null $value Value to set for the word property.
     */
-    public function setWord(?bool $value ): void {
-        $this->word = $value;
+    public function setWord(?bool $value): void {
+        $this->getBackingStore()->set('word', $value);
     }
 
 }

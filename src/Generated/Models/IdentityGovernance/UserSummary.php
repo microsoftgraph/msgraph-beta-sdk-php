@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UserSummary implements AdditionalDataHolder, Parsable 
+class UserSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $failedTasks The number of failed tasks for users in a user summary.
-    */
-    private ?int $failedTasks = null;
-    
-    /**
-     * @var int|null $failedUsers The number of failed users in a user summary.
-    */
-    private ?int $failedUsers = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $successfulUsers The number of successful users in a user summary.
-    */
-    private ?int $successfulUsers = null;
-    
-    /**
-     * @var int|null $totalTasks The total tasks of users in a user summary.
-    */
-    private ?int $totalTasks = null;
-    
-    /**
-     * @var int|null $totalUsers The total number of users in a user summary
-    */
-    private ?int $totalUsers = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new userSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.identityGovernance.userSummary');
     }
@@ -65,8 +39,16 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedTasks(): ?int {
-        return $this->failedTasks;
+        return $this->getBackingStore()->get('failedTasks');
     }
 
     /**
@@ -82,7 +64,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedUsers(): ?int {
-        return $this->failedUsers;
+        return $this->getBackingStore()->get('failedUsers');
     }
 
     /**
@@ -106,7 +88,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -114,7 +96,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSuccessfulUsers(): ?int {
-        return $this->successfulUsers;
+        return $this->getBackingStore()->get('successfulUsers');
     }
 
     /**
@@ -122,7 +104,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalTasks(): ?int {
-        return $this->totalTasks;
+        return $this->getBackingStore()->get('totalTasks');
     }
 
     /**
@@ -130,7 +112,7 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalUsers(): ?int {
-        return $this->totalUsers;
+        return $this->getBackingStore()->get('totalUsers');
     }
 
     /**
@@ -138,69 +120,69 @@ class UserSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('failedTasks', $this->failedTasks);
-        $writer->writeIntegerValue('failedUsers', $this->failedUsers);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('successfulUsers', $this->successfulUsers);
-        $writer->writeIntegerValue('totalTasks', $this->totalTasks);
-        $writer->writeIntegerValue('totalUsers', $this->totalUsers);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('failedTasks', $this->getFailedTasks());
+        $writer->writeIntegerValue('failedUsers', $this->getFailedUsers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('successfulUsers', $this->getSuccessfulUsers());
+        $writer->writeIntegerValue('totalTasks', $this->getTotalTasks());
+        $writer->writeIntegerValue('totalUsers', $this->getTotalUsers());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the failedTasks property value. The number of failed tasks for users in a user summary.
      *  @param int|null $value Value to set for the failedTasks property.
     */
-    public function setFailedTasks(?int $value ): void {
-        $this->failedTasks = $value;
+    public function setFailedTasks(?int $value): void {
+        $this->getBackingStore()->set('failedTasks', $value);
     }
 
     /**
      * Sets the failedUsers property value. The number of failed users in a user summary.
      *  @param int|null $value Value to set for the failedUsers property.
     */
-    public function setFailedUsers(?int $value ): void {
-        $this->failedUsers = $value;
+    public function setFailedUsers(?int $value): void {
+        $this->getBackingStore()->set('failedUsers', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the successfulUsers property value. The number of successful users in a user summary.
      *  @param int|null $value Value to set for the successfulUsers property.
     */
-    public function setSuccessfulUsers(?int $value ): void {
-        $this->successfulUsers = $value;
+    public function setSuccessfulUsers(?int $value): void {
+        $this->getBackingStore()->set('successfulUsers', $value);
     }
 
     /**
      * Sets the totalTasks property value. The total tasks of users in a user summary.
      *  @param int|null $value Value to set for the totalTasks property.
     */
-    public function setTotalTasks(?int $value ): void {
-        $this->totalTasks = $value;
+    public function setTotalTasks(?int $value): void {
+        $this->getBackingStore()->set('totalTasks', $value);
     }
 
     /**
      * Sets the totalUsers property value. The total number of users in a user summary
      *  @param int|null $value Value to set for the totalUsers property.
     */
-    public function setTotalUsers(?int $value ): void {
-        $this->totalUsers = $value;
+    public function setTotalUsers(?int $value): void {
+        $this->getBackingStore()->set('totalUsers', $value);
     }
 
 }

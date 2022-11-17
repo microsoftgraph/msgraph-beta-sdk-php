@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementDerivedCredentialSettings extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name for the profile.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $helpUrl The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
-    */
-    private ?string $helpUrl = null;
-    
-    /**
-     * @var DeviceManagementDerivedCredentialIssuer|null $issuer Supported values for the derived credential issuer.
-    */
-    private ?DeviceManagementDerivedCredentialIssuer $issuer = null;
-    
-    /**
-     * @var DeviceManagementDerivedCredentialNotificationType|null $notificationType Supported values for the notification type to use.
-    */
-    private ?DeviceManagementDerivedCredentialNotificationType $notificationType = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage The nominal percentage of time before certificate renewal is initiated by the client.
-    */
-    private ?int $renewalThresholdPercentage = null;
-    
-    /**
      * Instantiates a new deviceManagementDerivedCredentialSettings and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -78,7 +53,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return string|null
     */
     public function getHelpUrl(): ?string {
-        return $this->helpUrl;
+        return $this->getBackingStore()->get('helpUrl');
     }
 
     /**
@@ -86,7 +61,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return DeviceManagementDerivedCredentialIssuer|null
     */
     public function getIssuer(): ?DeviceManagementDerivedCredentialIssuer {
-        return $this->issuer;
+        return $this->getBackingStore()->get('issuer');
     }
 
     /**
@@ -94,7 +69,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return DeviceManagementDerivedCredentialNotificationType|null
     */
     public function getNotificationType(): ?DeviceManagementDerivedCredentialNotificationType {
-        return $this->notificationType;
+        return $this->getBackingStore()->get('notificationType');
     }
 
     /**
@@ -102,7 +77,7 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
+        return $this->getBackingStore()->get('renewalThresholdPercentage');
     }
 
     /**
@@ -111,51 +86,51 @@ class DeviceManagementDerivedCredentialSettings extends Entity implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('helpUrl', $this->helpUrl);
-        $writer->writeEnumValue('issuer', $this->issuer);
-        $writer->writeEnumValue('notificationType', $this->notificationType);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('helpUrl', $this->getHelpUrl());
+        $writer->writeEnumValue('issuer', $this->getIssuer());
+        $writer->writeEnumValue('notificationType', $this->getNotificationType());
+        $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
     }
 
     /**
      * Sets the displayName property value. The display name for the profile.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the helpUrl property value. The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
      *  @param string|null $value Value to set for the helpUrl property.
     */
-    public function setHelpUrl(?string $value ): void {
-        $this->helpUrl = $value;
+    public function setHelpUrl(?string $value): void {
+        $this->getBackingStore()->set('helpUrl', $value);
     }
 
     /**
      * Sets the issuer property value. Supported values for the derived credential issuer.
      *  @param DeviceManagementDerivedCredentialIssuer|null $value Value to set for the issuer property.
     */
-    public function setIssuer(?DeviceManagementDerivedCredentialIssuer $value ): void {
-        $this->issuer = $value;
+    public function setIssuer(?DeviceManagementDerivedCredentialIssuer $value): void {
+        $this->getBackingStore()->set('issuer', $value);
     }
 
     /**
      * Sets the notificationType property value. Supported values for the notification type to use.
      *  @param DeviceManagementDerivedCredentialNotificationType|null $value Value to set for the notificationType property.
     */
-    public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value ): void {
-        $this->notificationType = $value;
+    public function setNotificationType(?DeviceManagementDerivedCredentialNotificationType $value): void {
+        $this->getBackingStore()->set('notificationType', $value);
     }
 
     /**
      * Sets the renewalThresholdPercentage property value. The nominal percentage of time before certificate renewal is initiated by the client.
      *  @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
+    public function setRenewalThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('renewalThresholdPercentage', $value);
     }
 
 }

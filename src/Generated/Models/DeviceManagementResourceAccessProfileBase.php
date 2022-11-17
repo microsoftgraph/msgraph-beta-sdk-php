@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementResourceAccessProfileBase extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementResourceAccessProfileAssignment>|null $assignments The list of assignments for the device configuration profile.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime DateTime profile was created
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var string|null $description Profile description
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Profile display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime DateTime profile was last modified
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds Scope Tags
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var int|null $version Version of the profile
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new deviceManagementResourceAccessProfileBase and sets the default values.
     */
     public function __construct() {
@@ -77,7 +42,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return array<DeviceManagementResourceAccessProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -85,7 +50,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -93,7 +58,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -101,7 +66,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -126,7 +91,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -134,7 +99,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -142,7 +107,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -151,69 +116,69 @@ class DeviceManagementResourceAccessProfileBase extends Entity implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeIntegerValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeIntegerValue('version', $this->getVersion());
     }
 
     /**
      * Sets the assignments property value. The list of assignments for the device configuration profile.
      *  @param array<DeviceManagementResourceAccessProfileAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the creationDateTime property value. DateTime profile was created
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the description property value. Profile description
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Profile display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime profile was last modified
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. Scope Tags
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the version property value. Version of the profile
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

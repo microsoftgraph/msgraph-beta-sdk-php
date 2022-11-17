@@ -11,66 +11,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class JournalLine extends Entity implements Parsable 
 {
     /**
-     * @var Account|null $account The account property
-    */
-    private ?Account $account = null;
-    
-    /**
-     * @var string|null $accountId The accountId property
-    */
-    private ?string $accountId = null;
-    
-    /**
-     * @var string|null $accountNumber The accountNumber property
-    */
-    private ?string $accountNumber = null;
-    
-    /**
-     * @var string|null $amount The amount property
-    */
-    private ?string $amount = null;
-    
-    /**
-     * @var string|null $comment The comment property
-    */
-    private ?string $comment = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $documentNumber The documentNumber property
-    */
-    private ?string $documentNumber = null;
-    
-    /**
-     * @var string|null $externalDocumentNumber The externalDocumentNumber property
-    */
-    private ?string $externalDocumentNumber = null;
-    
-    /**
-     * @var string|null $journalDisplayName The journalDisplayName property
-    */
-    private ?string $journalDisplayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var int|null $lineNumber The lineNumber property
-    */
-    private ?int $lineNumber = null;
-    
-    /**
-     * @var Date|null $postingDate The postingDate property
-    */
-    private ?Date $postingDate = null;
-    
-    /**
      * Instantiates a new journalLine and sets the default values.
     */
     public function __construct() {
@@ -92,7 +32,7 @@ class JournalLine extends Entity implements Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->account;
+        return $this->getBackingStore()->get('account');
     }
 
     /**
@@ -100,7 +40,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->accountId;
+        return $this->getBackingStore()->get('accountId');
     }
 
     /**
@@ -108,7 +48,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountNumber(): ?string {
-        return $this->accountNumber;
+        return $this->getBackingStore()->get('accountNumber');
     }
 
     /**
@@ -116,7 +56,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAmount(): ?string {
-        return $this->amount;
+        return $this->getBackingStore()->get('amount');
     }
 
     /**
@@ -124,7 +64,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getComment(): ?string {
-        return $this->comment;
+        return $this->getBackingStore()->get('comment');
     }
 
     /**
@@ -132,7 +72,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -140,7 +80,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDocumentNumber(): ?string {
-        return $this->documentNumber;
+        return $this->getBackingStore()->get('documentNumber');
     }
 
     /**
@@ -148,7 +88,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalDocumentNumber(): ?string {
-        return $this->externalDocumentNumber;
+        return $this->getBackingStore()->get('externalDocumentNumber');
     }
 
     /**
@@ -178,7 +118,7 @@ class JournalLine extends Entity implements Parsable
      * @return string|null
     */
     public function getJournalDisplayName(): ?string {
-        return $this->journalDisplayName;
+        return $this->getBackingStore()->get('journalDisplayName');
     }
 
     /**
@@ -186,7 +126,7 @@ class JournalLine extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -194,7 +134,7 @@ class JournalLine extends Entity implements Parsable
      * @return int|null
     */
     public function getLineNumber(): ?int {
-        return $this->lineNumber;
+        return $this->getBackingStore()->get('lineNumber');
     }
 
     /**
@@ -202,7 +142,7 @@ class JournalLine extends Entity implements Parsable
      * @return Date|null
     */
     public function getPostingDate(): ?Date {
-        return $this->postingDate;
+        return $this->getBackingStore()->get('postingDate');
     }
 
     /**
@@ -211,114 +151,114 @@ class JournalLine extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('account', $this->account);
-        $writer->writeStringValue('accountId', $this->accountId);
-        $writer->writeStringValue('accountNumber', $this->accountNumber);
-        $writer->writeStringValue('amount', $this->amount);
-        $writer->writeStringValue('comment', $this->comment);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('documentNumber', $this->documentNumber);
-        $writer->writeStringValue('externalDocumentNumber', $this->externalDocumentNumber);
-        $writer->writeStringValue('journalDisplayName', $this->journalDisplayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeIntegerValue('lineNumber', $this->lineNumber);
-        $writer->writeDateValue('postingDate', $this->postingDate);
+        $writer->writeObjectValue('account', $this->getAccount());
+        $writer->writeStringValue('accountId', $this->getAccountId());
+        $writer->writeStringValue('accountNumber', $this->getAccountNumber());
+        $writer->writeStringValue('amount', $this->getAmount());
+        $writer->writeStringValue('comment', $this->getComment());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('documentNumber', $this->getDocumentNumber());
+        $writer->writeStringValue('externalDocumentNumber', $this->getExternalDocumentNumber());
+        $writer->writeStringValue('journalDisplayName', $this->getJournalDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeIntegerValue('lineNumber', $this->getLineNumber());
+        $writer->writeDateValue('postingDate', $this->getPostingDate());
     }
 
     /**
      * Sets the account property value. The account property
      *  @param Account|null $value Value to set for the account property.
     */
-    public function setAccount(?Account $value ): void {
-        $this->account = $value;
+    public function setAccount(?Account $value): void {
+        $this->getBackingStore()->set('account', $value);
     }
 
     /**
      * Sets the accountId property value. The accountId property
      *  @param string|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value ): void {
-        $this->accountId = $value;
+    public function setAccountId(?string $value): void {
+        $this->getBackingStore()->set('accountId', $value);
     }
 
     /**
      * Sets the accountNumber property value. The accountNumber property
      *  @param string|null $value Value to set for the accountNumber property.
     */
-    public function setAccountNumber(?string $value ): void {
-        $this->accountNumber = $value;
+    public function setAccountNumber(?string $value): void {
+        $this->getBackingStore()->set('accountNumber', $value);
     }
 
     /**
      * Sets the amount property value. The amount property
      *  @param string|null $value Value to set for the amount property.
     */
-    public function setAmount(?string $value ): void {
-        $this->amount = $value;
+    public function setAmount(?string $value): void {
+        $this->getBackingStore()->set('amount', $value);
     }
 
     /**
      * Sets the comment property value. The comment property
      *  @param string|null $value Value to set for the comment property.
     */
-    public function setComment(?string $value ): void {
-        $this->comment = $value;
+    public function setComment(?string $value): void {
+        $this->getBackingStore()->set('comment', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the documentNumber property value. The documentNumber property
      *  @param string|null $value Value to set for the documentNumber property.
     */
-    public function setDocumentNumber(?string $value ): void {
-        $this->documentNumber = $value;
+    public function setDocumentNumber(?string $value): void {
+        $this->getBackingStore()->set('documentNumber', $value);
     }
 
     /**
      * Sets the externalDocumentNumber property value. The externalDocumentNumber property
      *  @param string|null $value Value to set for the externalDocumentNumber property.
     */
-    public function setExternalDocumentNumber(?string $value ): void {
-        $this->externalDocumentNumber = $value;
+    public function setExternalDocumentNumber(?string $value): void {
+        $this->getBackingStore()->set('externalDocumentNumber', $value);
     }
 
     /**
      * Sets the journalDisplayName property value. The journalDisplayName property
      *  @param string|null $value Value to set for the journalDisplayName property.
     */
-    public function setJournalDisplayName(?string $value ): void {
-        $this->journalDisplayName = $value;
+    public function setJournalDisplayName(?string $value): void {
+        $this->getBackingStore()->set('journalDisplayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the lineNumber property value. The lineNumber property
      *  @param int|null $value Value to set for the lineNumber property.
     */
-    public function setLineNumber(?int $value ): void {
-        $this->lineNumber = $value;
+    public function setLineNumber(?int $value): void {
+        $this->getBackingStore()->set('lineNumber', $value);
     }
 
     /**
      * Sets the postingDate property value. The postingDate property
      *  @param Date|null $value Value to set for the postingDate property.
     */
-    public function setPostingDate(?Date $value ): void {
-        $this->postingDate = $value;
+    public function setPostingDate(?Date $value): void {
+        $this->getBackingStore()->set('postingDate', $value);
     }
 
 }

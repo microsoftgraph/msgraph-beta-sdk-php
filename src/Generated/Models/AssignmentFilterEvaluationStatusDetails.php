@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable 
 {
     /**
-     * @var string|null $payloadId PayloadId on which filter has been applied.
-    */
-    private ?string $payloadId = null;
-    
-    /**
      * Instantiates a new assignmentFilterEvaluationStatusDetails and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->payloadId;
+        return $this->getBackingStore()->get('payloadId');
     }
 
     /**
@@ -55,15 +50,15 @@ class AssignmentFilterEvaluationStatusDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('payloadId', $this->payloadId);
+        $writer->writeStringValue('payloadId', $this->getPayloadId());
     }
 
     /**
      * Sets the payloadId property value. PayloadId on which filter has been applied.
      *  @param string|null $value Value to set for the payloadId property.
     */
-    public function setPayloadId(?string $value ): void {
-        $this->payloadId = $value;
+    public function setPayloadId(?string $value): void {
+        $this->getBackingStore()->set('payloadId', $value);
     }
 
 }

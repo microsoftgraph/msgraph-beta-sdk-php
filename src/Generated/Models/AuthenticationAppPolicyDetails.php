@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable 
+class AuthenticationAppPolicyDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AuthenticationAppAdminConfiguration|null $adminConfiguration The adminConfiguration property
-    */
-    private ?AuthenticationAppAdminConfiguration $adminConfiguration = null;
-    
-    /**
-     * @var AuthenticationAppEvaluation|null $authenticationEvaluation The authenticationEvaluation property
-    */
-    private ?AuthenticationAppEvaluation $authenticationEvaluation = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $policyName The policyName property
-    */
-    private ?string $policyName = null;
-    
-    /**
-     * @var AuthenticationAppPolicyStatus|null $status The status property
-    */
-    private ?AuthenticationAppPolicyStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new authenticationAppPolicyDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.authenticationAppPolicyDetails');
     }
@@ -60,8 +39,8 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +48,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @return AuthenticationAppAdminConfiguration|null
     */
     public function getAdminConfiguration(): ?AuthenticationAppAdminConfiguration {
-        return $this->adminConfiguration;
+        return $this->getBackingStore()->get('adminConfiguration');
     }
 
     /**
@@ -77,7 +56,15 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @return AuthenticationAppEvaluation|null
     */
     public function getAuthenticationEvaluation(): ?AuthenticationAppEvaluation {
-        return $this->authenticationEvaluation;
+        return $this->getBackingStore()->get('authenticationEvaluation');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -100,7 +87,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +95,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->policyName;
+        return $this->getBackingStore()->get('policyName');
     }
 
     /**
@@ -116,7 +103,7 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @return AuthenticationAppPolicyStatus|null
     */
     public function getStatus(): ?AuthenticationAppPolicyStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -124,60 +111,60 @@ class AuthenticationAppPolicyDetails implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('adminConfiguration', $this->adminConfiguration);
-        $writer->writeEnumValue('authenticationEvaluation', $this->authenticationEvaluation);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('policyName', $this->policyName);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('adminConfiguration', $this->getAdminConfiguration());
+        $writer->writeEnumValue('authenticationEvaluation', $this->getAuthenticationEvaluation());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('policyName', $this->getPolicyName());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the adminConfiguration property value. The adminConfiguration property
      *  @param AuthenticationAppAdminConfiguration|null $value Value to set for the adminConfiguration property.
     */
-    public function setAdminConfiguration(?AuthenticationAppAdminConfiguration $value ): void {
-        $this->adminConfiguration = $value;
+    public function setAdminConfiguration(?AuthenticationAppAdminConfiguration $value): void {
+        $this->getBackingStore()->set('adminConfiguration', $value);
     }
 
     /**
      * Sets the authenticationEvaluation property value. The authenticationEvaluation property
      *  @param AuthenticationAppEvaluation|null $value Value to set for the authenticationEvaluation property.
     */
-    public function setAuthenticationEvaluation(?AuthenticationAppEvaluation $value ): void {
-        $this->authenticationEvaluation = $value;
+    public function setAuthenticationEvaluation(?AuthenticationAppEvaluation $value): void {
+        $this->getBackingStore()->set('authenticationEvaluation', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the policyName property value. The policyName property
      *  @param string|null $value Value to set for the policyName property.
     */
-    public function setPolicyName(?string $value ): void {
-        $this->policyName = $value;
+    public function setPolicyName(?string $value): void {
+        $this->getBackingStore()->set('policyName', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param AuthenticationAppPolicyStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?AuthenticationAppPolicyStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?AuthenticationAppPolicyStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

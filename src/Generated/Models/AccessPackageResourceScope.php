@@ -9,46 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceScope extends Entity implements Parsable 
 {
     /**
-     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
-    */
-    private ?AccessPackageResource $accessPackageResource = null;
-    
-    /**
-     * @var string|null $description The description of the scope.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the scope.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isRootScope True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
-    */
-    private ?bool $isRootScope = null;
-    
-    /**
-     * @var string|null $originId The unique identifier for the scope in the resource as defined in the origin system.
-    */
-    private ?string $originId = null;
-    
-    /**
-     * @var string|null $originSystem The origin system for the scope.
-    */
-    private ?string $originSystem = null;
-    
-    /**
-     * @var string|null $roleOriginId The origin system for the role, if different.
-    */
-    private ?string $roleOriginId = null;
-    
-    /**
-     * @var string|null $url A resource locator for the scope.
-    */
-    private ?string $url = null;
-    
-    /**
      * Instantiates a new accessPackageResourceScope and sets the default values.
     */
     public function __construct() {
@@ -70,7 +30,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
-        return $this->accessPackageResource;
+        return $this->getBackingStore()->get('accessPackageResource');
     }
 
     /**
@@ -78,7 +38,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -86,7 +46,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -112,7 +72,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRootScope(): ?bool {
-        return $this->isRootScope;
+        return $this->getBackingStore()->get('isRootScope');
     }
 
     /**
@@ -120,7 +80,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->originId;
+        return $this->getBackingStore()->get('originId');
     }
 
     /**
@@ -128,7 +88,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->originSystem;
+        return $this->getBackingStore()->get('originSystem');
     }
 
     /**
@@ -136,7 +96,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleOriginId(): ?string {
-        return $this->roleOriginId;
+        return $this->getBackingStore()->get('roleOriginId');
     }
 
     /**
@@ -144,7 +104,7 @@ class AccessPackageResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->url;
+        return $this->getBackingStore()->get('url');
     }
 
     /**
@@ -153,78 +113,78 @@ class AccessPackageResourceScope extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessPackageResource', $this->accessPackageResource);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isRootScope', $this->isRootScope);
-        $writer->writeStringValue('originId', $this->originId);
-        $writer->writeStringValue('originSystem', $this->originSystem);
-        $writer->writeStringValue('roleOriginId', $this->roleOriginId);
-        $writer->writeStringValue('url', $this->url);
+        $writer->writeObjectValue('accessPackageResource', $this->getAccessPackageResource());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isRootScope', $this->getIsRootScope());
+        $writer->writeStringValue('originId', $this->getOriginId());
+        $writer->writeStringValue('originSystem', $this->getOriginSystem());
+        $writer->writeStringValue('roleOriginId', $this->getRoleOriginId());
+        $writer->writeStringValue('url', $this->getUrl());
     }
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
-    public function setAccessPackageResource(?AccessPackageResource $value ): void {
-        $this->accessPackageResource = $value;
+    public function setAccessPackageResource(?AccessPackageResource $value): void {
+        $this->getBackingStore()->set('accessPackageResource', $value);
     }
 
     /**
      * Sets the description property value. The description of the scope.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the scope.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isRootScope property value. True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
      *  @param bool|null $value Value to set for the isRootScope property.
     */
-    public function setIsRootScope(?bool $value ): void {
-        $this->isRootScope = $value;
+    public function setIsRootScope(?bool $value): void {
+        $this->getBackingStore()->set('isRootScope', $value);
     }
 
     /**
      * Sets the originId property value. The unique identifier for the scope in the resource as defined in the origin system.
      *  @param string|null $value Value to set for the originId property.
     */
-    public function setOriginId(?string $value ): void {
-        $this->originId = $value;
+    public function setOriginId(?string $value): void {
+        $this->getBackingStore()->set('originId', $value);
     }
 
     /**
      * Sets the originSystem property value. The origin system for the scope.
      *  @param string|null $value Value to set for the originSystem property.
     */
-    public function setOriginSystem(?string $value ): void {
-        $this->originSystem = $value;
+    public function setOriginSystem(?string $value): void {
+        $this->getBackingStore()->set('originSystem', $value);
     }
 
     /**
      * Sets the roleOriginId property value. The origin system for the role, if different.
      *  @param string|null $value Value to set for the roleOriginId property.
     */
-    public function setRoleOriginId(?string $value ): void {
-        $this->roleOriginId = $value;
+    public function setRoleOriginId(?string $value): void {
+        $this->getBackingStore()->set('roleOriginId', $value);
     }
 
     /**
      * Sets the url property value. A resource locator for the scope.
      *  @param string|null $value Value to set for the url property.
     */
-    public function setUrl(?string $value ): void {
-        $this->url = $value;
+    public function setUrl(?string $value): void {
+        $this->getBackingStore()->set('url', $value);
     }
 
 }

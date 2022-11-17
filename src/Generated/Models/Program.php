@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Program extends Entity implements Parsable 
 {
     /**
-     * @var array<ProgramControl>|null $controls Controls associated with the program.
-    */
-    private ?array $controls = null;
-    
-    /**
-     * @var string|null $description The description of the program.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The name of the program.  Required on create.
-    */
-    private ?string $displayName = null;
-    
-    /**
      * Instantiates a new Program and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class Program extends Entity implements Parsable
      * @return array<ProgramControl>|null
     */
     public function getControls(): ?array {
-        return $this->controls;
+        return $this->getBackingStore()->get('controls');
     }
 
     /**
@@ -53,7 +38,7 @@ class Program extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -61,7 +46,7 @@ class Program extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -83,33 +68,33 @@ class Program extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('controls', $this->controls);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeCollectionOfObjectValues('controls', $this->getControls());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the controls property value. Controls associated with the program.
      *  @param array<ProgramControl>|null $value Value to set for the controls property.
     */
-    public function setControls(?array $value ): void {
-        $this->controls = $value;
+    public function setControls(?array $value): void {
+        $this->getBackingStore()->set('controls', $value);
     }
 
     /**
      * Sets the description property value. The description of the program.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the program.  Required on create.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

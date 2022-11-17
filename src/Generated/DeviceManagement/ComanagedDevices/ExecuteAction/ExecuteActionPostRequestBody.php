@@ -7,73 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable 
+class ExecuteActionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var ManagedDeviceRemoteAction|null $actionName The actionName property
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?ManagedDeviceRemoteAction $actionName = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $carrierUrl The carrierUrl property
-    */
-    private ?string $carrierUrl = null;
-    
-    /**
-     * @var string|null $deprovisionReason The deprovisionReason property
-    */
-    private ?string $deprovisionReason = null;
-    
-    /**
-     * @var array<string>|null $deviceIds The deviceIds property
-    */
-    private ?array $deviceIds = null;
-    
-    /**
-     * @var string|null $deviceName The deviceName property
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var bool|null $keepEnrollmentData The keepEnrollmentData property
-    */
-    private ?bool $keepEnrollmentData = null;
-    
-    /**
-     * @var bool|null $keepUserData The keepUserData property
-    */
-    private ?bool $keepUserData = null;
-    
-    /**
-     * @var string|null $notificationBody The notificationBody property
-    */
-    private ?string $notificationBody = null;
-    
-    /**
-     * @var string|null $notificationTitle The notificationTitle property
-    */
-    private ?string $notificationTitle = null;
-    
-    /**
-     * @var string|null $organizationalUnitPath The organizationalUnitPath property
-    */
-    private ?string $organizationalUnitPath = null;
-    
-    /**
-     * @var bool|null $persistEsimDataPlan The persistEsimDataPlan property
-    */
-    private ?bool $persistEsimDataPlan = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new executeActionPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -91,15 +40,23 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return ManagedDeviceRemoteAction|null
     */
     public function getActionName(): ?ManagedDeviceRemoteAction {
-        return $this->actionName;
+        return $this->getBackingStore()->get('actionName');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -107,7 +64,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
-        return $this->carrierUrl;
+        return $this->getBackingStore()->get('carrierUrl');
     }
 
     /**
@@ -115,7 +72,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeprovisionReason(): ?string {
-        return $this->deprovisionReason;
+        return $this->getBackingStore()->get('deprovisionReason');
     }
 
     /**
@@ -123,7 +80,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDeviceIds(): ?array {
-        return $this->deviceIds;
+        return $this->getBackingStore()->get('deviceIds');
     }
 
     /**
@@ -131,7 +88,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -160,7 +117,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getKeepEnrollmentData(): ?bool {
-        return $this->keepEnrollmentData;
+        return $this->getBackingStore()->get('keepEnrollmentData');
     }
 
     /**
@@ -168,7 +125,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getKeepUserData(): ?bool {
-        return $this->keepUserData;
+        return $this->getBackingStore()->get('keepUserData');
     }
 
     /**
@@ -176,7 +133,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNotificationBody(): ?string {
-        return $this->notificationBody;
+        return $this->getBackingStore()->get('notificationBody');
     }
 
     /**
@@ -184,7 +141,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
-        return $this->notificationTitle;
+        return $this->getBackingStore()->get('notificationTitle');
     }
 
     /**
@@ -192,7 +149,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOrganizationalUnitPath(): ?string {
-        return $this->organizationalUnitPath;
+        return $this->getBackingStore()->get('organizationalUnitPath');
     }
 
     /**
@@ -200,7 +157,7 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getPersistEsimDataPlan(): ?bool {
-        return $this->persistEsimDataPlan;
+        return $this->getBackingStore()->get('persistEsimDataPlan');
     }
 
     /**
@@ -208,114 +165,114 @@ class ExecuteActionPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('actionName', $this->actionName);
-        $writer->writeStringValue('carrierUrl', $this->carrierUrl);
-        $writer->writeStringValue('deprovisionReason', $this->deprovisionReason);
-        $writer->writeCollectionOfPrimitiveValues('deviceIds', $this->deviceIds);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeBooleanValue('keepEnrollmentData', $this->keepEnrollmentData);
-        $writer->writeBooleanValue('keepUserData', $this->keepUserData);
-        $writer->writeStringValue('notificationBody', $this->notificationBody);
-        $writer->writeStringValue('notificationTitle', $this->notificationTitle);
-        $writer->writeStringValue('organizationalUnitPath', $this->organizationalUnitPath);
-        $writer->writeBooleanValue('persistEsimDataPlan', $this->persistEsimDataPlan);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('actionName', $this->getActionName());
+        $writer->writeStringValue('carrierUrl', $this->getCarrierUrl());
+        $writer->writeStringValue('deprovisionReason', $this->getDeprovisionReason());
+        $writer->writeCollectionOfPrimitiveValues('deviceIds', $this->getDeviceIds());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeBooleanValue('keepEnrollmentData', $this->getKeepEnrollmentData());
+        $writer->writeBooleanValue('keepUserData', $this->getKeepUserData());
+        $writer->writeStringValue('notificationBody', $this->getNotificationBody());
+        $writer->writeStringValue('notificationTitle', $this->getNotificationTitle());
+        $writer->writeStringValue('organizationalUnitPath', $this->getOrganizationalUnitPath());
+        $writer->writeBooleanValue('persistEsimDataPlan', $this->getPersistEsimDataPlan());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actionName property value. The actionName property
      *  @param ManagedDeviceRemoteAction|null $value Value to set for the actionName property.
     */
-    public function setActionName(?ManagedDeviceRemoteAction $value ): void {
-        $this->actionName = $value;
+    public function setActionName(?ManagedDeviceRemoteAction $value): void {
+        $this->getBackingStore()->set('actionName', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the carrierUrl property value. The carrierUrl property
      *  @param string|null $value Value to set for the carrierUrl property.
     */
-    public function setCarrierUrl(?string $value ): void {
-        $this->carrierUrl = $value;
+    public function setCarrierUrl(?string $value): void {
+        $this->getBackingStore()->set('carrierUrl', $value);
     }
 
     /**
      * Sets the deprovisionReason property value. The deprovisionReason property
      *  @param string|null $value Value to set for the deprovisionReason property.
     */
-    public function setDeprovisionReason(?string $value ): void {
-        $this->deprovisionReason = $value;
+    public function setDeprovisionReason(?string $value): void {
+        $this->getBackingStore()->set('deprovisionReason', $value);
     }
 
     /**
      * Sets the deviceIds property value. The deviceIds property
      *  @param array<string>|null $value Value to set for the deviceIds property.
     */
-    public function setDeviceIds(?array $value ): void {
-        $this->deviceIds = $value;
+    public function setDeviceIds(?array $value): void {
+        $this->getBackingStore()->set('deviceIds', $value);
     }
 
     /**
      * Sets the deviceName property value. The deviceName property
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the keepEnrollmentData property value. The keepEnrollmentData property
      *  @param bool|null $value Value to set for the keepEnrollmentData property.
     */
-    public function setKeepEnrollmentData(?bool $value ): void {
-        $this->keepEnrollmentData = $value;
+    public function setKeepEnrollmentData(?bool $value): void {
+        $this->getBackingStore()->set('keepEnrollmentData', $value);
     }
 
     /**
      * Sets the keepUserData property value. The keepUserData property
      *  @param bool|null $value Value to set for the keepUserData property.
     */
-    public function setKeepUserData(?bool $value ): void {
-        $this->keepUserData = $value;
+    public function setKeepUserData(?bool $value): void {
+        $this->getBackingStore()->set('keepUserData', $value);
     }
 
     /**
      * Sets the notificationBody property value. The notificationBody property
      *  @param string|null $value Value to set for the notificationBody property.
     */
-    public function setNotificationBody(?string $value ): void {
-        $this->notificationBody = $value;
+    public function setNotificationBody(?string $value): void {
+        $this->getBackingStore()->set('notificationBody', $value);
     }
 
     /**
      * Sets the notificationTitle property value. The notificationTitle property
      *  @param string|null $value Value to set for the notificationTitle property.
     */
-    public function setNotificationTitle(?string $value ): void {
-        $this->notificationTitle = $value;
+    public function setNotificationTitle(?string $value): void {
+        $this->getBackingStore()->set('notificationTitle', $value);
     }
 
     /**
      * Sets the organizationalUnitPath property value. The organizationalUnitPath property
      *  @param string|null $value Value to set for the organizationalUnitPath property.
     */
-    public function setOrganizationalUnitPath(?string $value ): void {
-        $this->organizationalUnitPath = $value;
+    public function setOrganizationalUnitPath(?string $value): void {
+        $this->getBackingStore()->set('organizationalUnitPath', $value);
     }
 
     /**
      * Sets the persistEsimDataPlan property value. The persistEsimDataPlan property
      *  @param bool|null $value Value to set for the persistEsimDataPlan property.
     */
-    public function setPersistEsimDataPlan(?bool $value ): void {
-        $this->persistEsimDataPlan = $value;
+    public function setPersistEsimDataPlan(?bool $value): void {
+        $this->getBackingStore()->set('persistEsimDataPlan', $value);
     }
 
 }

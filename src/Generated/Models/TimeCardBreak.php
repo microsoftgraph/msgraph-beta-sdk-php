@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TimeCardBreak implements AdditionalDataHolder, Parsable 
+class TimeCardBreak implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $breakId ID of the timeCardBreak.
-    */
-    private ?string $breakId = null;
-    
-    /**
-     * @var TimeCardEvent|null $end The start event of the timeCardBreak.
-    */
-    private ?TimeCardEvent $end = null;
-    
-    /**
-     * @var ItemBody|null $notes Notes about the timeCardBreak.
-    */
-    private ?ItemBody $notes = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var TimeCardEvent|null $start The start property
-    */
-    private ?TimeCardEvent $start = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new timeCardBreak and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.timeCardBreak');
     }
@@ -60,8 +39,16 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getBreakId(): ?string {
-        return $this->breakId;
+        return $this->getBackingStore()->get('breakId');
     }
 
     /**
@@ -77,7 +64,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @return TimeCardEvent|null
     */
     public function getEnd(): ?TimeCardEvent {
-        return $this->end;
+        return $this->getBackingStore()->get('end');
     }
 
     /**
@@ -100,7 +87,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -108,7 +95,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -116,7 +103,7 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @return TimeCardEvent|null
     */
     public function getStart(): ?TimeCardEvent {
-        return $this->start;
+        return $this->getBackingStore()->get('start');
     }
 
     /**
@@ -124,60 +111,60 @@ class TimeCardBreak implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('breakId', $this->breakId);
-        $writer->writeObjectValue('end', $this->end);
-        $writer->writeObjectValue('notes', $this->notes);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('start', $this->start);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('breakId', $this->getBreakId());
+        $writer->writeObjectValue('end', $this->getEnd());
+        $writer->writeObjectValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('start', $this->getStart());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the breakId property value. ID of the timeCardBreak.
      *  @param string|null $value Value to set for the breakId property.
     */
-    public function setBreakId(?string $value ): void {
-        $this->breakId = $value;
+    public function setBreakId(?string $value): void {
+        $this->getBackingStore()->set('breakId', $value);
     }
 
     /**
      * Sets the end property value. The start event of the timeCardBreak.
      *  @param TimeCardEvent|null $value Value to set for the end property.
     */
-    public function setEnd(?TimeCardEvent $value ): void {
-        $this->end = $value;
+    public function setEnd(?TimeCardEvent $value): void {
+        $this->getBackingStore()->set('end', $value);
     }
 
     /**
      * Sets the notes property value. Notes about the timeCardBreak.
      *  @param ItemBody|null $value Value to set for the notes property.
     */
-    public function setNotes(?ItemBody $value ): void {
-        $this->notes = $value;
+    public function setNotes(?ItemBody $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the start property value. The start property
      *  @param TimeCardEvent|null $value Value to set for the start property.
     */
-    public function setStart(?TimeCardEvent $value ): void {
-        $this->start = $value;
+    public function setStart(?TimeCardEvent $value): void {
+        $this->getBackingStore()->set('start', $value);
     }
 
 }

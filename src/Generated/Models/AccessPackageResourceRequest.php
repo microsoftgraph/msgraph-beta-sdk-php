@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceRequest extends Entity implements Parsable 
 {
     /**
-     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
-    */
-    private ?AccessPackageResource $accessPackageResource = null;
-    
-    /**
-     * @var string|null $catalogId The unique ID of the access package catalog.
-    */
-    private ?string $catalogId = null;
-    
-    /**
-     * @var bool|null $executeImmediately The executeImmediately property
-    */
-    private ?bool $executeImmediately = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var bool|null $isValidationOnly If set, does not add the resource.
-    */
-    private ?bool $isValidationOnly = null;
-    
-    /**
-     * @var string|null $justification The requestor's justification for adding or removing the resource.
-    */
-    private ?string $justification = null;
-    
-    /**
-     * @var AccessPackageSubject|null $requestor Read-only. Nullable. Supports $expand.
-    */
-    private ?AccessPackageSubject $requestor = null;
-    
-    /**
-     * @var string|null $requestState The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
-    */
-    private ?string $requestState = null;
-    
-    /**
-     * @var string|null $requestStatus The requestStatus property
-    */
-    private ?string $requestStatus = null;
-    
-    /**
-     * @var string|null $requestType Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
-    */
-    private ?string $requestType = null;
-    
-    /**
      * Instantiates a new accessPackageResourceRequest and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
-        return $this->accessPackageResource;
+        return $this->getBackingStore()->get('accessPackageResource');
     }
 
     /**
@@ -89,7 +39,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogId(): ?string {
-        return $this->catalogId;
+        return $this->getBackingStore()->get('catalogId');
     }
 
     /**
@@ -97,7 +47,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getExecuteImmediately(): ?bool {
-        return $this->executeImmediately;
+        return $this->getBackingStore()->get('executeImmediately');
     }
 
     /**
@@ -105,7 +55,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -133,7 +83,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsValidationOnly(): ?bool {
-        return $this->isValidationOnly;
+        return $this->getBackingStore()->get('isValidationOnly');
     }
 
     /**
@@ -141,7 +91,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->justification;
+        return $this->getBackingStore()->get('justification');
     }
 
     /**
@@ -149,7 +99,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return AccessPackageSubject|null
     */
     public function getRequestor(): ?AccessPackageSubject {
-        return $this->requestor;
+        return $this->getBackingStore()->get('requestor');
     }
 
     /**
@@ -157,7 +107,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestState(): ?string {
-        return $this->requestState;
+        return $this->getBackingStore()->get('requestState');
     }
 
     /**
@@ -165,7 +115,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestStatus(): ?string {
-        return $this->requestStatus;
+        return $this->getBackingStore()->get('requestStatus');
     }
 
     /**
@@ -173,7 +123,7 @@ class AccessPackageResourceRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestType(): ?string {
-        return $this->requestType;
+        return $this->getBackingStore()->get('requestType');
     }
 
     /**
@@ -182,96 +132,96 @@ class AccessPackageResourceRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessPackageResource', $this->accessPackageResource);
-        $writer->writeStringValue('catalogId', $this->catalogId);
-        $writer->writeBooleanValue('executeImmediately', $this->executeImmediately);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeBooleanValue('isValidationOnly', $this->isValidationOnly);
-        $writer->writeStringValue('justification', $this->justification);
-        $writer->writeObjectValue('requestor', $this->requestor);
-        $writer->writeStringValue('requestState', $this->requestState);
-        $writer->writeStringValue('requestStatus', $this->requestStatus);
-        $writer->writeStringValue('requestType', $this->requestType);
+        $writer->writeObjectValue('accessPackageResource', $this->getAccessPackageResource());
+        $writer->writeStringValue('catalogId', $this->getCatalogId());
+        $writer->writeBooleanValue('executeImmediately', $this->getExecuteImmediately());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeBooleanValue('isValidationOnly', $this->getIsValidationOnly());
+        $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeObjectValue('requestor', $this->getRequestor());
+        $writer->writeStringValue('requestState', $this->getRequestState());
+        $writer->writeStringValue('requestStatus', $this->getRequestStatus());
+        $writer->writeStringValue('requestType', $this->getRequestType());
     }
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
-    public function setAccessPackageResource(?AccessPackageResource $value ): void {
-        $this->accessPackageResource = $value;
+    public function setAccessPackageResource(?AccessPackageResource $value): void {
+        $this->getBackingStore()->set('accessPackageResource', $value);
     }
 
     /**
      * Sets the catalogId property value. The unique ID of the access package catalog.
      *  @param string|null $value Value to set for the catalogId property.
     */
-    public function setCatalogId(?string $value ): void {
-        $this->catalogId = $value;
+    public function setCatalogId(?string $value): void {
+        $this->getBackingStore()->set('catalogId', $value);
     }
 
     /**
      * Sets the executeImmediately property value. The executeImmediately property
      *  @param bool|null $value Value to set for the executeImmediately property.
     */
-    public function setExecuteImmediately(?bool $value ): void {
-        $this->executeImmediately = $value;
+    public function setExecuteImmediately(?bool $value): void {
+        $this->getBackingStore()->set('executeImmediately', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the isValidationOnly property value. If set, does not add the resource.
      *  @param bool|null $value Value to set for the isValidationOnly property.
     */
-    public function setIsValidationOnly(?bool $value ): void {
-        $this->isValidationOnly = $value;
+    public function setIsValidationOnly(?bool $value): void {
+        $this->getBackingStore()->set('isValidationOnly', $value);
     }
 
     /**
      * Sets the justification property value. The requestor's justification for adding or removing the resource.
      *  @param string|null $value Value to set for the justification property.
     */
-    public function setJustification(?string $value ): void {
-        $this->justification = $value;
+    public function setJustification(?string $value): void {
+        $this->getBackingStore()->set('justification', $value);
     }
 
     /**
      * Sets the requestor property value. Read-only. Nullable. Supports $expand.
      *  @param AccessPackageSubject|null $value Value to set for the requestor property.
     */
-    public function setRequestor(?AccessPackageSubject $value ): void {
-        $this->requestor = $value;
+    public function setRequestor(?AccessPackageSubject $value): void {
+        $this->getBackingStore()->set('requestor', $value);
     }
 
     /**
      * Sets the requestState property value. The outcome of whether the service was able to add the resource to the catalog.  The value is Delivered if the resource was added or removed. Read-Only.
      *  @param string|null $value Value to set for the requestState property.
     */
-    public function setRequestState(?string $value ): void {
-        $this->requestState = $value;
+    public function setRequestState(?string $value): void {
+        $this->getBackingStore()->set('requestState', $value);
     }
 
     /**
      * Sets the requestStatus property value. The requestStatus property
      *  @param string|null $value Value to set for the requestStatus property.
     */
-    public function setRequestStatus(?string $value ): void {
-        $this->requestStatus = $value;
+    public function setRequestStatus(?string $value): void {
+        $this->getBackingStore()->set('requestStatus', $value);
     }
 
     /**
      * Sets the requestType property value. Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
      *  @param string|null $value Value to set for the requestType property.
     */
-    public function setRequestType(?string $value ): void {
-        $this->requestType = $value;
+    public function setRequestType(?string $value): void {
+        $this->getBackingStore()->set('requestType', $value);
     }
 
 }

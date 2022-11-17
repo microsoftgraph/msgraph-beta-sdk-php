@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * @var string|null $errorCode Error code for the failure, empty if no failure.
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var RunState|null $runState Indicates the type of execution status of the device management script.
-    */
-    private ?RunState $runState = null;
-    
-    /**
      * Instantiates a new MobileAppTroubleshootingAppPolicyCreationHistory and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubles
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -60,7 +50,7 @@ class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubles
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
-        return $this->runState;
+        return $this->getBackingStore()->get('runState');
     }
 
     /**
@@ -69,24 +59,24 @@ class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubles
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeEnumValue('runState', $this->runState);
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeEnumValue('runState', $this->getRunState());
     }
 
     /**
      * Sets the errorCode property value. Error code for the failure, empty if no failure.
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
-    public function setRunState(?RunState $value ): void {
-        $this->runState = $value;
+    public function setRunState(?RunState $value): void {
+        $this->getBackingStore()->set('runState', $value);
     }
 
 }

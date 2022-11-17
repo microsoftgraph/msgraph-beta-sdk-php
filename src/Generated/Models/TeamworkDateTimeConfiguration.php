@@ -6,49 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Microsoft\Kiota\Abstractions\Types\Time;
 
-class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkDateTimeConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $dateFormat The date format for the device.
-    */
-    private ?string $dateFormat = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var Time|null $officeHoursEndTime The time of the day when the device is turned off.
-    */
-    private ?Time $officeHoursEndTime = null;
-    
-    /**
-     * @var Time|null $officeHoursStartTime The time of the day when the device is turned on.
-    */
-    private ?Time $officeHoursStartTime = null;
-    
-    /**
-     * @var string|null $timeFormat The time format for the device.
-    */
-    private ?string $timeFormat = null;
-    
-    /**
-     * @var string|null $timeZone The time zone to which the office hours apply.
-    */
-    private ?string $timeZone = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkDateTimeConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkDateTimeConfiguration');
     }
@@ -66,8 +40,16 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -75,7 +57,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDateFormat(): ?string {
-        return $this->dateFormat;
+        return $this->getBackingStore()->get('dateFormat');
     }
 
     /**
@@ -99,7 +81,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -107,7 +89,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return Time|null
     */
     public function getOfficeHoursEndTime(): ?Time {
-        return $this->officeHoursEndTime;
+        return $this->getBackingStore()->get('officeHoursEndTime');
     }
 
     /**
@@ -115,7 +97,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return Time|null
     */
     public function getOfficeHoursStartTime(): ?Time {
-        return $this->officeHoursStartTime;
+        return $this->getBackingStore()->get('officeHoursStartTime');
     }
 
     /**
@@ -123,7 +105,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTimeFormat(): ?string {
-        return $this->timeFormat;
+        return $this->getBackingStore()->get('timeFormat');
     }
 
     /**
@@ -131,7 +113,7 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTimeZone(): ?string {
-        return $this->timeZone;
+        return $this->getBackingStore()->get('timeZone');
     }
 
     /**
@@ -139,69 +121,69 @@ class TeamworkDateTimeConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('dateFormat', $this->dateFormat);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeTimeValue('officeHoursEndTime', $this->officeHoursEndTime);
-        $writer->writeTimeValue('officeHoursStartTime', $this->officeHoursStartTime);
-        $writer->writeStringValue('timeFormat', $this->timeFormat);
-        $writer->writeStringValue('timeZone', $this->timeZone);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('dateFormat', $this->getDateFormat());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeTimeValue('officeHoursEndTime', $this->getOfficeHoursEndTime());
+        $writer->writeTimeValue('officeHoursStartTime', $this->getOfficeHoursStartTime());
+        $writer->writeStringValue('timeFormat', $this->getTimeFormat());
+        $writer->writeStringValue('timeZone', $this->getTimeZone());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the dateFormat property value. The date format for the device.
      *  @param string|null $value Value to set for the dateFormat property.
     */
-    public function setDateFormat(?string $value ): void {
-        $this->dateFormat = $value;
+    public function setDateFormat(?string $value): void {
+        $this->getBackingStore()->set('dateFormat', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the officeHoursEndTime property value. The time of the day when the device is turned off.
      *  @param Time|null $value Value to set for the officeHoursEndTime property.
     */
-    public function setOfficeHoursEndTime(?Time $value ): void {
-        $this->officeHoursEndTime = $value;
+    public function setOfficeHoursEndTime(?Time $value): void {
+        $this->getBackingStore()->set('officeHoursEndTime', $value);
     }
 
     /**
      * Sets the officeHoursStartTime property value. The time of the day when the device is turned on.
      *  @param Time|null $value Value to set for the officeHoursStartTime property.
     */
-    public function setOfficeHoursStartTime(?Time $value ): void {
-        $this->officeHoursStartTime = $value;
+    public function setOfficeHoursStartTime(?Time $value): void {
+        $this->getBackingStore()->set('officeHoursStartTime', $value);
     }
 
     /**
      * Sets the timeFormat property value. The time format for the device.
      *  @param string|null $value Value to set for the timeFormat property.
     */
-    public function setTimeFormat(?string $value ): void {
-        $this->timeFormat = $value;
+    public function setTimeFormat(?string $value): void {
+        $this->getBackingStore()->set('timeFormat', $value);
     }
 
     /**
      * Sets the timeZone property value. The time zone to which the office hours apply.
      *  @param string|null $value Value to set for the timeZone property.
     */
-    public function setTimeZone(?string $value ): void {
-        $this->timeZone = $value;
+    public function setTimeZone(?string $value): void {
+        $this->getBackingStore()->set('timeZone', $value);
     }
 
 }

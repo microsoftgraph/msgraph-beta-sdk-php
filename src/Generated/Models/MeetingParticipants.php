@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MeetingParticipants implements AdditionalDataHolder, Parsable 
+class MeetingParticipants implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<MeetingParticipantInfo>|null $attendees Information of the meeting attendees.
-    */
-    private ?array $attendees = null;
-    
-    /**
-     * @var array<MeetingParticipantInfo>|null $contributors The contributors property
-    */
-    private ?array $contributors = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var MeetingParticipantInfo|null $organizer Information of the meeting organizer.
-    */
-    private ?MeetingParticipantInfo $organizer = null;
-    
-    /**
-     * @var array<MeetingParticipantInfo>|null $producers The producers property
-    */
-    private ?array $producers = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new meetingParticipants and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.meetingParticipants');
     }
@@ -60,8 +39,8 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +48,15 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return array<MeetingParticipantInfo>|null
     */
     public function getAttendees(): ?array {
-        return $this->attendees;
+        return $this->getBackingStore()->get('attendees');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -77,7 +64,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return array<MeetingParticipantInfo>|null
     */
     public function getContributors(): ?array {
-        return $this->contributors;
+        return $this->getBackingStore()->get('contributors');
     }
 
     /**
@@ -100,7 +87,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +95,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return MeetingParticipantInfo|null
     */
     public function getOrganizer(): ?MeetingParticipantInfo {
-        return $this->organizer;
+        return $this->getBackingStore()->get('organizer');
     }
 
     /**
@@ -116,7 +103,7 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @return array<MeetingParticipantInfo>|null
     */
     public function getProducers(): ?array {
-        return $this->producers;
+        return $this->getBackingStore()->get('producers');
     }
 
     /**
@@ -124,60 +111,60 @@ class MeetingParticipants implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('attendees', $this->attendees);
-        $writer->writeCollectionOfObjectValues('contributors', $this->contributors);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('organizer', $this->organizer);
-        $writer->writeCollectionOfObjectValues('producers', $this->producers);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('attendees', $this->getAttendees());
+        $writer->writeCollectionOfObjectValues('contributors', $this->getContributors());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('organizer', $this->getOrganizer());
+        $writer->writeCollectionOfObjectValues('producers', $this->getProducers());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the attendees property value. Information of the meeting attendees.
      *  @param array<MeetingParticipantInfo>|null $value Value to set for the attendees property.
     */
-    public function setAttendees(?array $value ): void {
-        $this->attendees = $value;
+    public function setAttendees(?array $value): void {
+        $this->getBackingStore()->set('attendees', $value);
     }
 
     /**
      * Sets the contributors property value. The contributors property
      *  @param array<MeetingParticipantInfo>|null $value Value to set for the contributors property.
     */
-    public function setContributors(?array $value ): void {
-        $this->contributors = $value;
+    public function setContributors(?array $value): void {
+        $this->getBackingStore()->set('contributors', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the organizer property value. Information of the meeting organizer.
      *  @param MeetingParticipantInfo|null $value Value to set for the organizer property.
     */
-    public function setOrganizer(?MeetingParticipantInfo $value ): void {
-        $this->organizer = $value;
+    public function setOrganizer(?MeetingParticipantInfo $value): void {
+        $this->getBackingStore()->set('organizer', $value);
     }
 
     /**
      * Sets the producers property value. The producers property
      *  @param array<MeetingParticipantInfo>|null $value Value to set for the producers property.
     */
-    public function setProducers(?array $value ): void {
-        $this->producers = $value;
+    public function setProducers(?array $value): void {
+        $this->getBackingStore()->set('producers', $value);
     }
 
 }

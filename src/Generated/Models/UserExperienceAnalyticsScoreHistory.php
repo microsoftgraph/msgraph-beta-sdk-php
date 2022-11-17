@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $startupDateTime The user experience analytics device startup date time.
-    */
-    private ?DateTime $startupDateTime = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsScoreHistory and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartupDateTime(): ?DateTime {
-        return $this->startupDateTime;
+        return $this->getBackingStore()->get('startupDateTime');
     }
 
     /**
@@ -56,15 +51,15 @@ class UserExperienceAnalyticsScoreHistory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('startupDateTime', $this->startupDateTime);
+        $writer->writeDateTimeValue('startupDateTime', $this->getStartupDateTime());
     }
 
     /**
      * Sets the startupDateTime property value. The user experience analytics device startup date time.
      *  @param DateTime|null $value Value to set for the startupDateTime property.
     */
-    public function setStartupDateTime(?DateTime $value ): void {
-        $this->startupDateTime = $value;
+    public function setStartupDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startupDateTime', $value);
     }
 
 }

@@ -7,68 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable 
+class OfficeClientCheckinStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $appliedPolicies List of policies delivered to the device as last checkin.
-    */
-    private ?array $appliedPolicies = null;
-    
-    /**
-     * @var DateTime|null $checkinDateTime Last device check-in time in UTC.
-    */
-    private ?DateTime $checkinDateTime = null;
-    
-    /**
-     * @var string|null $deviceName Device name trying to check-in.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $devicePlatform Device platform trying to check-in.
-    */
-    private ?string $devicePlatform = null;
-    
-    /**
-     * @var string|null $devicePlatformVersion Device platform version trying to check-in.
-    */
-    private ?string $devicePlatformVersion = null;
-    
-    /**
-     * @var string|null $errorMessage Error message if any associated for the last checkin.
-    */
-    private ?string $errorMessage = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $userId User identifier using the device.
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userPrincipalName User principal name using the device.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * @var bool|null $wasSuccessful If the last checkin was successful.
-    */
-    private ?bool $wasSuccessful = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new officeClientCheckinStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.officeClientCheckinStatus');
     }
@@ -86,8 +40,8 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -95,7 +49,15 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAppliedPolicies(): ?array {
-        return $this->appliedPolicies;
+        return $this->getBackingStore()->get('appliedPolicies');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -103,7 +65,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getCheckinDateTime(): ?DateTime {
-        return $this->checkinDateTime;
+        return $this->getBackingStore()->get('checkinDateTime');
     }
 
     /**
@@ -111,7 +73,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -119,7 +81,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDevicePlatform(): ?string {
-        return $this->devicePlatform;
+        return $this->getBackingStore()->get('devicePlatform');
     }
 
     /**
@@ -127,7 +89,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDevicePlatformVersion(): ?string {
-        return $this->devicePlatformVersion;
+        return $this->getBackingStore()->get('devicePlatformVersion');
     }
 
     /**
@@ -135,7 +97,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->errorMessage;
+        return $this->getBackingStore()->get('errorMessage');
     }
 
     /**
@@ -163,7 +125,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -171,7 +133,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -179,7 +141,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -187,7 +149,7 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getWasSuccessful(): ?bool {
-        return $this->wasSuccessful;
+        return $this->getBackingStore()->get('wasSuccessful');
     }
 
     /**
@@ -195,105 +157,105 @@ class OfficeClientCheckinStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('appliedPolicies', $this->appliedPolicies);
-        $writer->writeDateTimeValue('checkinDateTime', $this->checkinDateTime);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('devicePlatform', $this->devicePlatform);
-        $writer->writeStringValue('devicePlatformVersion', $this->devicePlatformVersion);
-        $writer->writeStringValue('errorMessage', $this->errorMessage);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeBooleanValue('wasSuccessful', $this->wasSuccessful);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('appliedPolicies', $this->getAppliedPolicies());
+        $writer->writeDateTimeValue('checkinDateTime', $this->getCheckinDateTime());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('devicePlatform', $this->getDevicePlatform());
+        $writer->writeStringValue('devicePlatformVersion', $this->getDevicePlatformVersion());
+        $writer->writeStringValue('errorMessage', $this->getErrorMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeBooleanValue('wasSuccessful', $this->getWasSuccessful());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appliedPolicies property value. List of policies delivered to the device as last checkin.
      *  @param array<string>|null $value Value to set for the appliedPolicies property.
     */
-    public function setAppliedPolicies(?array $value ): void {
-        $this->appliedPolicies = $value;
+    public function setAppliedPolicies(?array $value): void {
+        $this->getBackingStore()->set('appliedPolicies', $value);
     }
 
     /**
      * Sets the checkinDateTime property value. Last device check-in time in UTC.
      *  @param DateTime|null $value Value to set for the checkinDateTime property.
     */
-    public function setCheckinDateTime(?DateTime $value ): void {
-        $this->checkinDateTime = $value;
+    public function setCheckinDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('checkinDateTime', $value);
     }
 
     /**
      * Sets the deviceName property value. Device name trying to check-in.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the devicePlatform property value. Device platform trying to check-in.
      *  @param string|null $value Value to set for the devicePlatform property.
     */
-    public function setDevicePlatform(?string $value ): void {
-        $this->devicePlatform = $value;
+    public function setDevicePlatform(?string $value): void {
+        $this->getBackingStore()->set('devicePlatform', $value);
     }
 
     /**
      * Sets the devicePlatformVersion property value. Device platform version trying to check-in.
      *  @param string|null $value Value to set for the devicePlatformVersion property.
     */
-    public function setDevicePlatformVersion(?string $value ): void {
-        $this->devicePlatformVersion = $value;
+    public function setDevicePlatformVersion(?string $value): void {
+        $this->getBackingStore()->set('devicePlatformVersion', $value);
     }
 
     /**
      * Sets the errorMessage property value. Error message if any associated for the last checkin.
      *  @param string|null $value Value to set for the errorMessage property.
     */
-    public function setErrorMessage(?string $value ): void {
-        $this->errorMessage = $value;
+    public function setErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('errorMessage', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the userId property value. User identifier using the device.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User principal name using the device.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
     /**
      * Sets the wasSuccessful property value. If the last checkin was successful.
      *  @param bool|null $value Value to set for the wasSuccessful property.
     */
-    public function setWasSuccessful(?bool $value ): void {
-        $this->wasSuccessful = $value;
+    public function setWasSuccessful(?bool $value): void {
+        $this->getBackingStore()->set('wasSuccessful', $value);
     }
 
 }

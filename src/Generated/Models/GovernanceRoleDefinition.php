@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceRoleDefinition extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name of the role definition.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $externalId The external id of the role definition.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var GovernanceResource|null $resource Read-only. The associated resource for the role definition.
-    */
-    private ?GovernanceResource $resource = null;
-    
-    /**
-     * @var string|null $resourceId Required. The id of the resource associated with the role definition.
-    */
-    private ?string $resourceId = null;
-    
-    /**
-     * @var GovernanceRoleSetting|null $roleSetting The associated role setting for the role definition.
-    */
-    private ?GovernanceRoleSetting $roleSetting = null;
-    
-    /**
-     * @var string|null $templateId The templateId property
-    */
-    private ?string $templateId = null;
-    
-    /**
      * Instantiates a new governanceRoleDefinition and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -68,7 +38,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -92,7 +62,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return GovernanceResource|null
     */
     public function getResource(): ?GovernanceResource {
-        return $this->resource;
+        return $this->getBackingStore()->get('resource');
     }
 
     /**
@@ -100,7 +70,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->resourceId;
+        return $this->getBackingStore()->get('resourceId');
     }
 
     /**
@@ -108,7 +78,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return GovernanceRoleSetting|null
     */
     public function getRoleSetting(): ?GovernanceRoleSetting {
-        return $this->roleSetting;
+        return $this->getBackingStore()->get('roleSetting');
     }
 
     /**
@@ -116,7 +86,7 @@ class GovernanceRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -125,60 +95,60 @@ class GovernanceRoleDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeObjectValue('resource', $this->resource);
-        $writer->writeStringValue('resourceId', $this->resourceId);
-        $writer->writeObjectValue('roleSetting', $this->roleSetting);
-        $writer->writeStringValue('templateId', $this->templateId);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeObjectValue('resource', $this->getResource());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeObjectValue('roleSetting', $this->getRoleSetting());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
     }
 
     /**
      * Sets the displayName property value. The display name of the role definition.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the externalId property value. The external id of the role definition.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the resource property value. Read-only. The associated resource for the role definition.
      *  @param GovernanceResource|null $value Value to set for the resource property.
     */
-    public function setResource(?GovernanceResource $value ): void {
-        $this->resource = $value;
+    public function setResource(?GovernanceResource $value): void {
+        $this->getBackingStore()->set('resource', $value);
     }
 
     /**
      * Sets the resourceId property value. Required. The id of the resource associated with the role definition.
      *  @param string|null $value Value to set for the resourceId property.
     */
-    public function setResourceId(?string $value ): void {
-        $this->resourceId = $value;
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
     /**
      * Sets the roleSetting property value. The associated role setting for the role definition.
      *  @param GovernanceRoleSetting|null $value Value to set for the roleSetting property.
     */
-    public function setRoleSetting(?GovernanceRoleSetting $value ): void {
-        $this->roleSetting = $value;
+    public function setRoleSetting(?GovernanceRoleSetting $value): void {
+        $this->getBackingStore()->set('roleSetting', $value);
     }
 
     /**
      * Sets the templateId property value. The templateId property
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
 }

@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable 
+class LoginPageTextVisibilitySettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $hideAccountResetCredentials Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form.
-    */
-    private ?bool $hideAccountResetCredentials = null;
-    
-    /**
-     * @var bool|null $hideCannotAccessYourAccount Option to hide the self-service password reset (SSPR) 'Can't access your account?' hyperlink on the sign-in form.
-    */
-    private ?bool $hideCannotAccessYourAccount = null;
-    
-    /**
-     * @var bool|null $hideForgotMyPassword Option to hide the self-service password reset (SSPR) 'Forgot my password' hyperlink on the sign-in form.
-    */
-    private ?bool $hideForgotMyPassword = null;
-    
-    /**
-     * @var bool|null $hidePrivacyAndCookies Option to hide the 'Privacy & Cookies' hyperlink in the footer.
-    */
-    private ?bool $hidePrivacyAndCookies = null;
-    
-    /**
-     * @var bool|null $hideResetItNow Option to hide the self-service password reset (SSPR) 'reset it now' hyperlink on the sign-in form.
-    */
-    private ?bool $hideResetItNow = null;
-    
-    /**
-     * @var bool|null $hideTermsOfUse Option to hide the 'Terms of Use' hyperlink in the footer.
-    */
-    private ?bool $hideTermsOfUse = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new loginPageTextVisibilitySettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.loginPageTextVisibilitySettings');
     }
@@ -70,8 +39,16 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -96,7 +73,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHideAccountResetCredentials(): ?bool {
-        return $this->hideAccountResetCredentials;
+        return $this->getBackingStore()->get('hideAccountResetCredentials');
     }
 
     /**
@@ -104,7 +81,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHideCannotAccessYourAccount(): ?bool {
-        return $this->hideCannotAccessYourAccount;
+        return $this->getBackingStore()->get('hideCannotAccessYourAccount');
     }
 
     /**
@@ -112,7 +89,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHideForgotMyPassword(): ?bool {
-        return $this->hideForgotMyPassword;
+        return $this->getBackingStore()->get('hideForgotMyPassword');
     }
 
     /**
@@ -120,7 +97,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHidePrivacyAndCookies(): ?bool {
-        return $this->hidePrivacyAndCookies;
+        return $this->getBackingStore()->get('hidePrivacyAndCookies');
     }
 
     /**
@@ -128,7 +105,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHideResetItNow(): ?bool {
-        return $this->hideResetItNow;
+        return $this->getBackingStore()->get('hideResetItNow');
     }
 
     /**
@@ -136,7 +113,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHideTermsOfUse(): ?bool {
-        return $this->hideTermsOfUse;
+        return $this->getBackingStore()->get('hideTermsOfUse');
     }
 
     /**
@@ -144,7 +121,7 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -152,78 +129,78 @@ class LoginPageTextVisibilitySettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('hideAccountResetCredentials', $this->hideAccountResetCredentials);
-        $writer->writeBooleanValue('hideCannotAccessYourAccount', $this->hideCannotAccessYourAccount);
-        $writer->writeBooleanValue('hideForgotMyPassword', $this->hideForgotMyPassword);
-        $writer->writeBooleanValue('hidePrivacyAndCookies', $this->hidePrivacyAndCookies);
-        $writer->writeBooleanValue('hideResetItNow', $this->hideResetItNow);
-        $writer->writeBooleanValue('hideTermsOfUse', $this->hideTermsOfUse);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('hideAccountResetCredentials', $this->getHideAccountResetCredentials());
+        $writer->writeBooleanValue('hideCannotAccessYourAccount', $this->getHideCannotAccessYourAccount());
+        $writer->writeBooleanValue('hideForgotMyPassword', $this->getHideForgotMyPassword());
+        $writer->writeBooleanValue('hidePrivacyAndCookies', $this->getHidePrivacyAndCookies());
+        $writer->writeBooleanValue('hideResetItNow', $this->getHideResetItNow());
+        $writer->writeBooleanValue('hideTermsOfUse', $this->getHideTermsOfUse());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the hideAccountResetCredentials property value. Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form.
      *  @param bool|null $value Value to set for the hideAccountResetCredentials property.
     */
-    public function setHideAccountResetCredentials(?bool $value ): void {
-        $this->hideAccountResetCredentials = $value;
+    public function setHideAccountResetCredentials(?bool $value): void {
+        $this->getBackingStore()->set('hideAccountResetCredentials', $value);
     }
 
     /**
      * Sets the hideCannotAccessYourAccount property value. Option to hide the self-service password reset (SSPR) 'Can't access your account?' hyperlink on the sign-in form.
      *  @param bool|null $value Value to set for the hideCannotAccessYourAccount property.
     */
-    public function setHideCannotAccessYourAccount(?bool $value ): void {
-        $this->hideCannotAccessYourAccount = $value;
+    public function setHideCannotAccessYourAccount(?bool $value): void {
+        $this->getBackingStore()->set('hideCannotAccessYourAccount', $value);
     }
 
     /**
      * Sets the hideForgotMyPassword property value. Option to hide the self-service password reset (SSPR) 'Forgot my password' hyperlink on the sign-in form.
      *  @param bool|null $value Value to set for the hideForgotMyPassword property.
     */
-    public function setHideForgotMyPassword(?bool $value ): void {
-        $this->hideForgotMyPassword = $value;
+    public function setHideForgotMyPassword(?bool $value): void {
+        $this->getBackingStore()->set('hideForgotMyPassword', $value);
     }
 
     /**
      * Sets the hidePrivacyAndCookies property value. Option to hide the 'Privacy & Cookies' hyperlink in the footer.
      *  @param bool|null $value Value to set for the hidePrivacyAndCookies property.
     */
-    public function setHidePrivacyAndCookies(?bool $value ): void {
-        $this->hidePrivacyAndCookies = $value;
+    public function setHidePrivacyAndCookies(?bool $value): void {
+        $this->getBackingStore()->set('hidePrivacyAndCookies', $value);
     }
 
     /**
      * Sets the hideResetItNow property value. Option to hide the self-service password reset (SSPR) 'reset it now' hyperlink on the sign-in form.
      *  @param bool|null $value Value to set for the hideResetItNow property.
     */
-    public function setHideResetItNow(?bool $value ): void {
-        $this->hideResetItNow = $value;
+    public function setHideResetItNow(?bool $value): void {
+        $this->getBackingStore()->set('hideResetItNow', $value);
     }
 
     /**
      * Sets the hideTermsOfUse property value. Option to hide the 'Terms of Use' hyperlink in the footer.
      *  @param bool|null $value Value to set for the hideTermsOfUse property.
     */
-    public function setHideTermsOfUse(?bool $value ): void {
-        $this->hideTermsOfUse = $value;
+    public function setHideTermsOfUse(?bool $value): void {
+        $this->getBackingStore()->set('hideTermsOfUse', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

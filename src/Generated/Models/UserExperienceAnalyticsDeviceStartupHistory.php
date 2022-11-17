@@ -10,86 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Parsable 
 {
     /**
-     * @var int|null $coreBootTimeInMs The user experience analytics device core boot time in milliseconds.
-    */
-    private ?int $coreBootTimeInMs = null;
-    
-    /**
-     * @var int|null $coreLoginTimeInMs The user experience analytics device core login time in milliseconds.
-    */
-    private ?int $coreLoginTimeInMs = null;
-    
-    /**
-     * @var string|null $deviceId The user experience analytics device id.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var int|null $featureUpdateBootTimeInMs The user experience analytics device feature update time in milliseconds.
-    */
-    private ?int $featureUpdateBootTimeInMs = null;
-    
-    /**
-     * @var int|null $groupPolicyBootTimeInMs The User experience analytics Device group policy boot time in milliseconds.
-    */
-    private ?int $groupPolicyBootTimeInMs = null;
-    
-    /**
-     * @var int|null $groupPolicyLoginTimeInMs The User experience analytics Device group policy login time in milliseconds.
-    */
-    private ?int $groupPolicyLoginTimeInMs = null;
-    
-    /**
-     * @var bool|null $isFeatureUpdate The user experience analytics device boot record is a feature update.
-    */
-    private ?bool $isFeatureUpdate = null;
-    
-    /**
-     * @var bool|null $isFirstLogin The user experience analytics device first login.
-    */
-    private ?bool $isFirstLogin = null;
-    
-    /**
-     * @var string|null $operatingSystemVersion The user experience analytics device boot record's operating system version.
-    */
-    private ?string $operatingSystemVersion = null;
-    
-    /**
-     * @var int|null $responsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds.
-    */
-    private ?int $responsiveDesktopTimeInMs = null;
-    
-    /**
-     * @var UserExperienceAnalyticsOperatingSystemRestartCategory|null $restartCategory Operating System restart category
-    */
-    private ?UserExperienceAnalyticsOperatingSystemRestartCategory $restartCategory = null;
-    
-    /**
-     * @var string|null $restartFaultBucket OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
-    */
-    private ?string $restartFaultBucket = null;
-    
-    /**
-     * @var string|null $restartStopCode OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
-    */
-    private ?string $restartStopCode = null;
-    
-    /**
-     * @var DateTime|null $startTime The user experience analytics device boot start time.
-    */
-    private ?DateTime $startTime = null;
-    
-    /**
-     * @var int|null $totalBootTimeInMs The user experience analytics device total boot time in milliseconds.
-    */
-    private ?int $totalBootTimeInMs = null;
-    
-    /**
-     * @var int|null $totalLoginTimeInMs The user experience analytics device total login time in milliseconds.
-    */
-    private ?int $totalLoginTimeInMs = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsDeviceStartupHistory and sets the default values.
     */
     public function __construct() {
@@ -111,7 +31,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getCoreBootTimeInMs(): ?int {
-        return $this->coreBootTimeInMs;
+        return $this->getBackingStore()->get('coreBootTimeInMs');
     }
 
     /**
@@ -119,7 +39,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getCoreLoginTimeInMs(): ?int {
-        return $this->coreLoginTimeInMs;
+        return $this->getBackingStore()->get('coreLoginTimeInMs');
     }
 
     /**
@@ -127,7 +47,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -135,7 +55,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getFeatureUpdateBootTimeInMs(): ?int {
-        return $this->featureUpdateBootTimeInMs;
+        return $this->getBackingStore()->get('featureUpdateBootTimeInMs');
     }
 
     /**
@@ -169,7 +89,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getGroupPolicyBootTimeInMs(): ?int {
-        return $this->groupPolicyBootTimeInMs;
+        return $this->getBackingStore()->get('groupPolicyBootTimeInMs');
     }
 
     /**
@@ -177,7 +97,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getGroupPolicyLoginTimeInMs(): ?int {
-        return $this->groupPolicyLoginTimeInMs;
+        return $this->getBackingStore()->get('groupPolicyLoginTimeInMs');
     }
 
     /**
@@ -185,7 +105,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return bool|null
     */
     public function getIsFeatureUpdate(): ?bool {
-        return $this->isFeatureUpdate;
+        return $this->getBackingStore()->get('isFeatureUpdate');
     }
 
     /**
@@ -193,7 +113,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return bool|null
     */
     public function getIsFirstLogin(): ?bool {
-        return $this->isFirstLogin;
+        return $this->getBackingStore()->get('isFirstLogin');
     }
 
     /**
@@ -201,7 +121,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return string|null
     */
     public function getOperatingSystemVersion(): ?string {
-        return $this->operatingSystemVersion;
+        return $this->getBackingStore()->get('operatingSystemVersion');
     }
 
     /**
@@ -209,7 +129,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getResponsiveDesktopTimeInMs(): ?int {
-        return $this->responsiveDesktopTimeInMs;
+        return $this->getBackingStore()->get('responsiveDesktopTimeInMs');
     }
 
     /**
@@ -217,7 +137,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return UserExperienceAnalyticsOperatingSystemRestartCategory|null
     */
     public function getRestartCategory(): ?UserExperienceAnalyticsOperatingSystemRestartCategory {
-        return $this->restartCategory;
+        return $this->getBackingStore()->get('restartCategory');
     }
 
     /**
@@ -225,7 +145,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return string|null
     */
     public function getRestartFaultBucket(): ?string {
-        return $this->restartFaultBucket;
+        return $this->getBackingStore()->get('restartFaultBucket');
     }
 
     /**
@@ -233,7 +153,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return string|null
     */
     public function getRestartStopCode(): ?string {
-        return $this->restartStopCode;
+        return $this->getBackingStore()->get('restartStopCode');
     }
 
     /**
@@ -241,7 +161,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return DateTime|null
     */
     public function getStartTime(): ?DateTime {
-        return $this->startTime;
+        return $this->getBackingStore()->get('startTime');
     }
 
     /**
@@ -249,7 +169,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getTotalBootTimeInMs(): ?int {
-        return $this->totalBootTimeInMs;
+        return $this->getBackingStore()->get('totalBootTimeInMs');
     }
 
     /**
@@ -257,7 +177,7 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
      * @return int|null
     */
     public function getTotalLoginTimeInMs(): ?int {
-        return $this->totalLoginTimeInMs;
+        return $this->getBackingStore()->get('totalLoginTimeInMs');
     }
 
     /**
@@ -266,150 +186,150 @@ class UserExperienceAnalyticsDeviceStartupHistory extends Entity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('coreBootTimeInMs', $this->coreBootTimeInMs);
-        $writer->writeIntegerValue('coreLoginTimeInMs', $this->coreLoginTimeInMs);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeIntegerValue('featureUpdateBootTimeInMs', $this->featureUpdateBootTimeInMs);
-        $writer->writeIntegerValue('groupPolicyBootTimeInMs', $this->groupPolicyBootTimeInMs);
-        $writer->writeIntegerValue('groupPolicyLoginTimeInMs', $this->groupPolicyLoginTimeInMs);
-        $writer->writeBooleanValue('isFeatureUpdate', $this->isFeatureUpdate);
-        $writer->writeBooleanValue('isFirstLogin', $this->isFirstLogin);
-        $writer->writeStringValue('operatingSystemVersion', $this->operatingSystemVersion);
-        $writer->writeIntegerValue('responsiveDesktopTimeInMs', $this->responsiveDesktopTimeInMs);
-        $writer->writeEnumValue('restartCategory', $this->restartCategory);
-        $writer->writeStringValue('restartFaultBucket', $this->restartFaultBucket);
-        $writer->writeStringValue('restartStopCode', $this->restartStopCode);
-        $writer->writeDateTimeValue('startTime', $this->startTime);
-        $writer->writeIntegerValue('totalBootTimeInMs', $this->totalBootTimeInMs);
-        $writer->writeIntegerValue('totalLoginTimeInMs', $this->totalLoginTimeInMs);
+        $writer->writeIntegerValue('coreBootTimeInMs', $this->getCoreBootTimeInMs());
+        $writer->writeIntegerValue('coreLoginTimeInMs', $this->getCoreLoginTimeInMs());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeIntegerValue('featureUpdateBootTimeInMs', $this->getFeatureUpdateBootTimeInMs());
+        $writer->writeIntegerValue('groupPolicyBootTimeInMs', $this->getGroupPolicyBootTimeInMs());
+        $writer->writeIntegerValue('groupPolicyLoginTimeInMs', $this->getGroupPolicyLoginTimeInMs());
+        $writer->writeBooleanValue('isFeatureUpdate', $this->getIsFeatureUpdate());
+        $writer->writeBooleanValue('isFirstLogin', $this->getIsFirstLogin());
+        $writer->writeStringValue('operatingSystemVersion', $this->getOperatingSystemVersion());
+        $writer->writeIntegerValue('responsiveDesktopTimeInMs', $this->getResponsiveDesktopTimeInMs());
+        $writer->writeEnumValue('restartCategory', $this->getRestartCategory());
+        $writer->writeStringValue('restartFaultBucket', $this->getRestartFaultBucket());
+        $writer->writeStringValue('restartStopCode', $this->getRestartStopCode());
+        $writer->writeDateTimeValue('startTime', $this->getStartTime());
+        $writer->writeIntegerValue('totalBootTimeInMs', $this->getTotalBootTimeInMs());
+        $writer->writeIntegerValue('totalLoginTimeInMs', $this->getTotalLoginTimeInMs());
     }
 
     /**
      * Sets the coreBootTimeInMs property value. The user experience analytics device core boot time in milliseconds.
      *  @param int|null $value Value to set for the coreBootTimeInMs property.
     */
-    public function setCoreBootTimeInMs(?int $value ): void {
-        $this->coreBootTimeInMs = $value;
+    public function setCoreBootTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('coreBootTimeInMs', $value);
     }
 
     /**
      * Sets the coreLoginTimeInMs property value. The user experience analytics device core login time in milliseconds.
      *  @param int|null $value Value to set for the coreLoginTimeInMs property.
     */
-    public function setCoreLoginTimeInMs(?int $value ): void {
-        $this->coreLoginTimeInMs = $value;
+    public function setCoreLoginTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('coreLoginTimeInMs', $value);
     }
 
     /**
      * Sets the deviceId property value. The user experience analytics device id.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the featureUpdateBootTimeInMs property value. The user experience analytics device feature update time in milliseconds.
      *  @param int|null $value Value to set for the featureUpdateBootTimeInMs property.
     */
-    public function setFeatureUpdateBootTimeInMs(?int $value ): void {
-        $this->featureUpdateBootTimeInMs = $value;
+    public function setFeatureUpdateBootTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('featureUpdateBootTimeInMs', $value);
     }
 
     /**
      * Sets the groupPolicyBootTimeInMs property value. The User experience analytics Device group policy boot time in milliseconds.
      *  @param int|null $value Value to set for the groupPolicyBootTimeInMs property.
     */
-    public function setGroupPolicyBootTimeInMs(?int $value ): void {
-        $this->groupPolicyBootTimeInMs = $value;
+    public function setGroupPolicyBootTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('groupPolicyBootTimeInMs', $value);
     }
 
     /**
      * Sets the groupPolicyLoginTimeInMs property value. The User experience analytics Device group policy login time in milliseconds.
      *  @param int|null $value Value to set for the groupPolicyLoginTimeInMs property.
     */
-    public function setGroupPolicyLoginTimeInMs(?int $value ): void {
-        $this->groupPolicyLoginTimeInMs = $value;
+    public function setGroupPolicyLoginTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('groupPolicyLoginTimeInMs', $value);
     }
 
     /**
      * Sets the isFeatureUpdate property value. The user experience analytics device boot record is a feature update.
      *  @param bool|null $value Value to set for the isFeatureUpdate property.
     */
-    public function setIsFeatureUpdate(?bool $value ): void {
-        $this->isFeatureUpdate = $value;
+    public function setIsFeatureUpdate(?bool $value): void {
+        $this->getBackingStore()->set('isFeatureUpdate', $value);
     }
 
     /**
      * Sets the isFirstLogin property value. The user experience analytics device first login.
      *  @param bool|null $value Value to set for the isFirstLogin property.
     */
-    public function setIsFirstLogin(?bool $value ): void {
-        $this->isFirstLogin = $value;
+    public function setIsFirstLogin(?bool $value): void {
+        $this->getBackingStore()->set('isFirstLogin', $value);
     }
 
     /**
      * Sets the operatingSystemVersion property value. The user experience analytics device boot record's operating system version.
      *  @param string|null $value Value to set for the operatingSystemVersion property.
     */
-    public function setOperatingSystemVersion(?string $value ): void {
-        $this->operatingSystemVersion = $value;
+    public function setOperatingSystemVersion(?string $value): void {
+        $this->getBackingStore()->set('operatingSystemVersion', $value);
     }
 
     /**
      * Sets the responsiveDesktopTimeInMs property value. The user experience analytics responsive desktop time in milliseconds.
      *  @param int|null $value Value to set for the responsiveDesktopTimeInMs property.
     */
-    public function setResponsiveDesktopTimeInMs(?int $value ): void {
-        $this->responsiveDesktopTimeInMs = $value;
+    public function setResponsiveDesktopTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('responsiveDesktopTimeInMs', $value);
     }
 
     /**
      * Sets the restartCategory property value. Operating System restart category
      *  @param UserExperienceAnalyticsOperatingSystemRestartCategory|null $value Value to set for the restartCategory property.
     */
-    public function setRestartCategory(?UserExperienceAnalyticsOperatingSystemRestartCategory $value ): void {
-        $this->restartCategory = $value;
+    public function setRestartCategory(?UserExperienceAnalyticsOperatingSystemRestartCategory $value): void {
+        $this->getBackingStore()->set('restartCategory', $value);
     }
 
     /**
      * Sets the restartFaultBucket property value. OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
      *  @param string|null $value Value to set for the restartFaultBucket property.
     */
-    public function setRestartFaultBucket(?string $value ): void {
-        $this->restartFaultBucket = $value;
+    public function setRestartFaultBucket(?string $value): void {
+        $this->getBackingStore()->set('restartFaultBucket', $value);
     }
 
     /**
      * Sets the restartStopCode property value. OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
      *  @param string|null $value Value to set for the restartStopCode property.
     */
-    public function setRestartStopCode(?string $value ): void {
-        $this->restartStopCode = $value;
+    public function setRestartStopCode(?string $value): void {
+        $this->getBackingStore()->set('restartStopCode', $value);
     }
 
     /**
      * Sets the startTime property value. The user experience analytics device boot start time.
      *  @param DateTime|null $value Value to set for the startTime property.
     */
-    public function setStartTime(?DateTime $value ): void {
-        $this->startTime = $value;
+    public function setStartTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startTime', $value);
     }
 
     /**
      * Sets the totalBootTimeInMs property value. The user experience analytics device total boot time in milliseconds.
      *  @param int|null $value Value to set for the totalBootTimeInMs property.
     */
-    public function setTotalBootTimeInMs(?int $value ): void {
-        $this->totalBootTimeInMs = $value;
+    public function setTotalBootTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('totalBootTimeInMs', $value);
     }
 
     /**
      * Sets the totalLoginTimeInMs property value. The user experience analytics device total login time in milliseconds.
      *  @param int|null $value Value to set for the totalLoginTimeInMs property.
     */
-    public function setTotalLoginTimeInMs(?int $value ): void {
-        $this->totalLoginTimeInMs = $value;
+    public function setTotalLoginTimeInMs(?int $value): void {
+        $this->getBackingStore()->set('totalLoginTimeInMs', $value);
     }
 
 }

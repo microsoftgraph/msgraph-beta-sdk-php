@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable 
+class SelfActivatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $duration The duration property
-    */
-    private ?string $duration = null;
-    
-    /**
-     * @var string|null $reason The reason property
-    */
-    private ?string $reason = null;
-    
-    /**
-     * @var string|null $ticketNumber The ticketNumber property
-    */
-    private ?string $ticketNumber = null;
-    
-    /**
-     * @var string|null $ticketSystem The ticketSystem property
-    */
-    private ?string $ticketSystem = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new selfActivatePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -54,8 +38,16 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -63,7 +55,7 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDuration(): ?string {
-        return $this->duration;
+        return $this->getBackingStore()->get('duration');
     }
 
     /**
@@ -85,7 +77,7 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -93,7 +85,7 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTicketNumber(): ?string {
-        return $this->ticketNumber;
+        return $this->getBackingStore()->get('ticketNumber');
     }
 
     /**
@@ -101,7 +93,7 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTicketSystem(): ?string {
-        return $this->ticketSystem;
+        return $this->getBackingStore()->get('ticketSystem');
     }
 
     /**
@@ -109,51 +101,51 @@ class SelfActivatePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('duration', $this->duration);
-        $writer->writeStringValue('reason', $this->reason);
-        $writer->writeStringValue('ticketNumber', $this->ticketNumber);
-        $writer->writeStringValue('ticketSystem', $this->ticketSystem);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('duration', $this->getDuration());
+        $writer->writeStringValue('reason', $this->getReason());
+        $writer->writeStringValue('ticketNumber', $this->getTicketNumber());
+        $writer->writeStringValue('ticketSystem', $this->getTicketSystem());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the duration property value. The duration property
      *  @param string|null $value Value to set for the duration property.
     */
-    public function setDuration(?string $value ): void {
-        $this->duration = $value;
+    public function setDuration(?string $value): void {
+        $this->getBackingStore()->set('duration', $value);
     }
 
     /**
      * Sets the reason property value. The reason property
      *  @param string|null $value Value to set for the reason property.
     */
-    public function setReason(?string $value ): void {
-        $this->reason = $value;
+    public function setReason(?string $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
     /**
      * Sets the ticketNumber property value. The ticketNumber property
      *  @param string|null $value Value to set for the ticketNumber property.
     */
-    public function setTicketNumber(?string $value ): void {
-        $this->ticketNumber = $value;
+    public function setTicketNumber(?string $value): void {
+        $this->getBackingStore()->set('ticketNumber', $value);
     }
 
     /**
      * Sets the ticketSystem property value. The ticketSystem property
      *  @param string|null $value Value to set for the ticketSystem property.
     */
-    public function setTicketSystem(?string $value ): void {
-        $this->ticketSystem = $value;
+    public function setTicketSystem(?string $value): void {
+        $this->getBackingStore()->set('ticketSystem', $value);
     }
 
 }

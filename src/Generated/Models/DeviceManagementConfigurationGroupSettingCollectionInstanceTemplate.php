@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * @var bool|null $allowUnmanagedValues Linked policy may append values which are not present in the template.
-    */
-    private ?bool $allowUnmanagedValues = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationGroupSettingValueTemplate>|null $groupSettingCollectionValueTemplate Group Setting Collection Value Template
-    */
-    private ?array $groupSettingCollectionValueTemplate = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
      * @return bool|null
     */
     public function getAllowUnmanagedValues(): ?bool {
-        return $this->allowUnmanagedValues;
+        return $this->getBackingStore()->get('allowUnmanagedValues');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
      * @return array<DeviceManagementConfigurationGroupSettingValueTemplate>|null
     */
     public function getGroupSettingCollectionValueTemplate(): ?array {
-        return $this->groupSettingCollectionValueTemplate;
+        return $this->getBackingStore()->get('groupSettingCollectionValueTemplate');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate extend
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowUnmanagedValues', $this->allowUnmanagedValues);
-        $writer->writeCollectionOfObjectValues('groupSettingCollectionValueTemplate', $this->groupSettingCollectionValueTemplate);
+        $writer->writeBooleanValue('allowUnmanagedValues', $this->getAllowUnmanagedValues());
+        $writer->writeCollectionOfObjectValues('groupSettingCollectionValueTemplate', $this->getGroupSettingCollectionValueTemplate());
     }
 
     /**
      * Sets the allowUnmanagedValues property value. Linked policy may append values which are not present in the template.
      *  @param bool|null $value Value to set for the allowUnmanagedValues property.
     */
-    public function setAllowUnmanagedValues(?bool $value ): void {
-        $this->allowUnmanagedValues = $value;
+    public function setAllowUnmanagedValues(?bool $value): void {
+        $this->getBackingStore()->set('allowUnmanagedValues', $value);
     }
 
     /**
      * Sets the groupSettingCollectionValueTemplate property value. Group Setting Collection Value Template
      *  @param array<DeviceManagementConfigurationGroupSettingValueTemplate>|null $value Value to set for the groupSettingCollectionValueTemplate property.
     */
-    public function setGroupSettingCollectionValueTemplate(?array $value ): void {
-        $this->groupSettingCollectionValueTemplate = $value;
+    public function setGroupSettingCollectionValueTemplate(?array $value): void {
+        $this->getBackingStore()->set('groupSettingCollectionValueTemplate', $value);
     }
 
 }

@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmbeddedSIMActivationCodePool extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activationCodeCount The total count of activation codes which belong to this pool.
-    */
-    private ?int $activationCodeCount = null;
-    
-    /**
-     * @var array<EmbeddedSIMActivationCode>|null $activationCodes The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
-    */
-    private ?array $activationCodes = null;
-    
-    /**
-     * @var array<EmbeddedSIMActivationCodePoolAssignment>|null $assignments Navigational property to a list of targets to which this pool is assigned.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The time the embedded SIM activation code pool was created. Generated service side.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var array<EmbeddedSIMDeviceState>|null $deviceStates Navigational property to a list of device states for this pool.
-    */
-    private ?array $deviceStates = null;
-    
-    /**
-     * @var string|null $displayName The admin defined name of the embedded SIM activation code pool.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The time the embedded SIM activation code pool was last modified. Updated service side.
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
      * Instantiates a new embeddedSIMActivationCodePool and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return int|null
     */
     public function getActivationCodeCount(): ?int {
-        return $this->activationCodeCount;
+        return $this->getBackingStore()->get('activationCodeCount');
     }
 
     /**
@@ -74,7 +39,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCode>|null
     */
     public function getActivationCodes(): ?array {
-        return $this->activationCodes;
+        return $this->getBackingStore()->get('activationCodes');
     }
 
     /**
@@ -82,7 +47,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMActivationCodePoolAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -90,7 +55,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -98,7 +63,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return array<EmbeddedSIMDeviceState>|null
     */
     public function getDeviceStates(): ?array {
-        return $this->deviceStates;
+        return $this->getBackingStore()->get('deviceStates');
     }
 
     /**
@@ -106,7 +71,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -131,7 +96,7 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -140,69 +105,69 @@ class EmbeddedSIMActivationCodePool extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activationCodeCount', $this->activationCodeCount);
-        $writer->writeCollectionOfObjectValues('activationCodes', $this->activationCodes);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeCollectionOfObjectValues('deviceStates', $this->deviceStates);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
+        $writer->writeIntegerValue('activationCodeCount', $this->getActivationCodeCount());
+        $writer->writeCollectionOfObjectValues('activationCodes', $this->getActivationCodes());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('deviceStates', $this->getDeviceStates());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
     }
 
     /**
      * Sets the activationCodeCount property value. The total count of activation codes which belong to this pool.
      *  @param int|null $value Value to set for the activationCodeCount property.
     */
-    public function setActivationCodeCount(?int $value ): void {
-        $this->activationCodeCount = $value;
+    public function setActivationCodeCount(?int $value): void {
+        $this->getBackingStore()->set('activationCodeCount', $value);
     }
 
     /**
      * Sets the activationCodes property value. The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
      *  @param array<EmbeddedSIMActivationCode>|null $value Value to set for the activationCodes property.
     */
-    public function setActivationCodes(?array $value ): void {
-        $this->activationCodes = $value;
+    public function setActivationCodes(?array $value): void {
+        $this->getBackingStore()->set('activationCodes', $value);
     }
 
     /**
      * Sets the assignments property value. Navigational property to a list of targets to which this pool is assigned.
      *  @param array<EmbeddedSIMActivationCodePoolAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The time the embedded SIM activation code pool was created. Generated service side.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deviceStates property value. Navigational property to a list of device states for this pool.
      *  @param array<EmbeddedSIMDeviceState>|null $value Value to set for the deviceStates property.
     */
-    public function setDeviceStates(?array $value ): void {
-        $this->deviceStates = $value;
+    public function setDeviceStates(?array $value): void {
+        $this->getBackingStore()->set('deviceStates', $value);
     }
 
     /**
      * Sets the displayName property value. The admin defined name of the embedded SIM activation code pool.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The time the embedded SIM activation code pool was last modified. Updated service side.
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
 }

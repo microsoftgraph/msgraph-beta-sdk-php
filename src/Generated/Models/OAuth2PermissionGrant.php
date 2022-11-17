@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OAuth2PermissionGrant extends Entity implements Parsable 
 {
     /**
-     * @var string|null $clientId The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).
-    */
-    private ?string $clientId = null;
-    
-    /**
-     * @var string|null $consentType Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
-    */
-    private ?string $consentType = null;
-    
-    /**
-     * @var DateTime|null $expiryTime Currently, the end time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
-    */
-    private ?DateTime $expiryTime = null;
-    
-    /**
-     * @var string|null $principalId The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. Supports $filter (eq only).
-    */
-    private ?string $principalId = null;
-    
-    /**
-     * @var string|null $resourceId The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. Supports $filter (eq only).
-    */
-    private ?string $resourceId = null;
-    
-    /**
-     * @var string|null $scope A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal. Must not exceed 3850 characters in length.
-    */
-    private ?string $scope = null;
-    
-    /**
-     * @var DateTime|null $startTime Currently, the start time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
-    */
-    private ?DateTime $startTime = null;
-    
-    /**
      * Instantiates a new oAuth2PermissionGrant and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return string|null
     */
     public function getClientId(): ?string {
-        return $this->clientId;
+        return $this->getBackingStore()->get('clientId');
     }
 
     /**
@@ -74,7 +39,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return string|null
     */
     public function getConsentType(): ?string {
-        return $this->consentType;
+        return $this->getBackingStore()->get('consentType');
     }
 
     /**
@@ -82,7 +47,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpiryTime(): ?DateTime {
-        return $this->expiryTime;
+        return $this->getBackingStore()->get('expiryTime');
     }
 
     /**
@@ -107,7 +72,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return string|null
     */
     public function getPrincipalId(): ?string {
-        return $this->principalId;
+        return $this->getBackingStore()->get('principalId');
     }
 
     /**
@@ -115,7 +80,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->resourceId;
+        return $this->getBackingStore()->get('resourceId');
     }
 
     /**
@@ -123,7 +88,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -131,7 +96,7 @@ class OAuth2PermissionGrant extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartTime(): ?DateTime {
-        return $this->startTime;
+        return $this->getBackingStore()->get('startTime');
     }
 
     /**
@@ -140,69 +105,69 @@ class OAuth2PermissionGrant extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('clientId', $this->clientId);
-        $writer->writeStringValue('consentType', $this->consentType);
-        $writer->writeDateTimeValue('expiryTime', $this->expiryTime);
-        $writer->writeStringValue('principalId', $this->principalId);
-        $writer->writeStringValue('resourceId', $this->resourceId);
-        $writer->writeStringValue('scope', $this->scope);
-        $writer->writeDateTimeValue('startTime', $this->startTime);
+        $writer->writeStringValue('clientId', $this->getClientId());
+        $writer->writeStringValue('consentType', $this->getConsentType());
+        $writer->writeDateTimeValue('expiryTime', $this->getExpiryTime());
+        $writer->writeStringValue('principalId', $this->getPrincipalId());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeStringValue('scope', $this->getScope());
+        $writer->writeDateTimeValue('startTime', $this->getStartTime());
     }
 
     /**
      * Sets the clientId property value. The id of the client service principal for the application which is authorized to act on behalf of a signed-in user when accessing an API. Required. Supports $filter (eq only).
      *  @param string|null $value Value to set for the clientId property.
     */
-    public function setClientId(?string $value ): void {
-        $this->clientId = $value;
+    public function setClientId(?string $value): void {
+        $this->getBackingStore()->set('clientId', $value);
     }
 
     /**
      * Sets the consentType property value. Indicates whether authorization is granted for the client application to impersonate all users or only a specific user. AllPrincipals indicates authorization to impersonate all users. Principal indicates authorization to impersonate a specific user. Consent on behalf of all users can be granted by an administrator. Non-admin users may be authorized to consent on behalf of themselves in some cases, for some delegated permissions. Required. Supports $filter (eq only).
      *  @param string|null $value Value to set for the consentType property.
     */
-    public function setConsentType(?string $value ): void {
-        $this->consentType = $value;
+    public function setConsentType(?string $value): void {
+        $this->getBackingStore()->set('consentType', $value);
     }
 
     /**
      * Sets the expiryTime property value. Currently, the end time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
      *  @param DateTime|null $value Value to set for the expiryTime property.
     */
-    public function setExpiryTime(?DateTime $value ): void {
-        $this->expiryTime = $value;
+    public function setExpiryTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expiryTime', $value);
     }
 
     /**
      * Sets the principalId property value. The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. Supports $filter (eq only).
      *  @param string|null $value Value to set for the principalId property.
     */
-    public function setPrincipalId(?string $value ): void {
-        $this->principalId = $value;
+    public function setPrincipalId(?string $value): void {
+        $this->getBackingStore()->set('principalId', $value);
     }
 
     /**
      * Sets the resourceId property value. The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. Supports $filter (eq only).
      *  @param string|null $value Value to set for the resourceId property.
     */
-    public function setResourceId(?string $value ): void {
-        $this->resourceId = $value;
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
     /**
      * Sets the scope property value. A space-separated list of the claim values for delegated permissions which should be included in access tokens for the resource application (the API). For example, openid User.Read GroupMember.Read.All. Each claim value should match the value field of one of the delegated permissions defined by the API, listed in the publishedPermissionScopes property of the resource service principal. Must not exceed 3850 characters in length.
      *  @param string|null $value Value to set for the scope property.
     */
-    public function setScope(?string $value ): void {
-        $this->scope = $value;
+    public function setScope(?string $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the startTime property value. Currently, the start time value is ignored, but a value is required when creating an oAuth2PermissionGrant. Required.
      *  @param DateTime|null $value Value to set for the startTime property.
     */
-    public function setStartTime(?DateTime $value ): void {
-        $this->startTime = $value;
+    public function setStartTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startTime', $value);
     }
 
 }

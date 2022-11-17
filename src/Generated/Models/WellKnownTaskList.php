@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WellKnownTaskList extends BaseTaskList implements Parsable 
 {
     /**
-     * @var WellKnownListName_v2|null $wellKnownListName The wellKnownListName property
-    */
-    private ?WellKnownListName_v2 $wellKnownListName = null;
-    
-    /**
      * Instantiates a new WellKnownTaskList and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
      * @return WellKnownListName_v2|null
     */
     public function getWellKnownListName(): ?WellKnownListName_v2 {
-        return $this->wellKnownListName;
+        return $this->getBackingStore()->get('wellKnownListName');
     }
 
     /**
@@ -55,15 +50,15 @@ class WellKnownTaskList extends BaseTaskList implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('wellKnownListName', $this->wellKnownListName);
+        $writer->writeEnumValue('wellKnownListName', $this->getWellKnownListName());
     }
 
     /**
      * Sets the wellKnownListName property value. The wellKnownListName property
      *  @param WellKnownListName_v2|null $value Value to set for the wellKnownListName property.
     */
-    public function setWellKnownListName(?WellKnownListName_v2 $value ): void {
-        $this->wellKnownListName = $value;
+    public function setWellKnownListName(?WellKnownListName_v2 $value): void {
+        $this->getBackingStore()->set('wellKnownListName', $value);
     }
 
 }

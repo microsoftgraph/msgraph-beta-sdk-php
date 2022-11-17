@@ -10,11 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var StreamInterface|null $configurationXml Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-    */
-    private ?StreamInterface $configurationXml = null;
-    
-    /**
      * Instantiates a new AndroidOmaCpConfiguration and sets the default values.
     */
     public function __construct() {
@@ -33,10 +28,10 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
 
     /**
      * Gets the configurationXml property value. Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getConfigurationXml(): StreamInterface {
-        return $this->configurationXml;
+    public function getConfigurationXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('configurationXml');
     }
 
     /**
@@ -56,15 +51,15 @@ class AndroidOmaCpConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('configurationXml', $this->configurationXml);
+        $writer->writeBinaryContent('configurationXml', $this->getConfigurationXml());
     }
 
     /**
      * Sets the configurationXml property value. Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
      *  @param StreamInterface|null $value Value to set for the configurationXml property.
     */
-    public function setConfigurationXml(?StreamInterface $value ): void {
-        $this->configurationXml = $value;
+    public function setConfigurationXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('configurationXml', $value);
     }
 
 }

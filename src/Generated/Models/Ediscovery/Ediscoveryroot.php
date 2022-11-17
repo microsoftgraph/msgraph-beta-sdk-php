@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Ediscoveryroot extends Entity implements Parsable 
 {
     /**
-     * @var array<EscapedCase>|null $cases The cases property
-    */
-    private ?array $cases = null;
-    
-    /**
      * Instantiates a new Ediscoveryroot and sets the default values.
     */
     public function __construct() {
@@ -36,7 +31,7 @@ class Ediscoveryroot extends Entity implements Parsable
      * @return array<EscapedCase>|null
     */
     public function getCases(): ?array {
-        return $this->cases;
+        return $this->getBackingStore()->get('cases');
     }
 
     /**
@@ -56,15 +51,15 @@ class Ediscoveryroot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('cases', $this->cases);
+        $writer->writeCollectionOfObjectValues('cases', $this->getCases());
     }
 
     /**
      * Sets the cases property value. The cases property
      *  @param array<EscapedCase>|null $value Value to set for the cases property.
     */
-    public function setCases(?array $value ): void {
-        $this->cases = $value;
+    public function setCases(?array $value): void {
+        $this->getBackingStore()->set('cases', $value);
     }
 
 }

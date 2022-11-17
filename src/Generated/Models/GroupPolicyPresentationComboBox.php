@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var string|null $defaultValue Localized default string displayed in the combo box. The default value is empty.
-    */
-    private ?string $defaultValue = null;
-    
-    /**
-     * @var int|null $maxLength An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
-    */
-    private ?int $maxLength = null;
-    
-    /**
-     * @var bool|null $required Specifies whether a value must be specified for the parameter. The default value is false.
-    */
-    private ?bool $required = null;
-    
-    /**
-     * @var array<string>|null $suggestions Localized strings listed in the drop-down list of the combo box. The default value is empty.
-    */
-    private ?array $suggestions = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationComboBox and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -72,7 +52,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return int|null
     */
     public function getMaxLength(): ?int {
-        return $this->maxLength;
+        return $this->getBackingStore()->get('maxLength');
     }
 
     /**
@@ -80,7 +60,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->required;
+        return $this->getBackingStore()->get('required');
     }
 
     /**
@@ -88,7 +68,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
      * @return array<string>|null
     */
     public function getSuggestions(): ?array {
-        return $this->suggestions;
+        return $this->getBackingStore()->get('suggestions');
     }
 
     /**
@@ -97,42 +77,42 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('defaultValue', $this->defaultValue);
-        $writer->writeIntegerValue('maxLength', $this->maxLength);
-        $writer->writeBooleanValue('required', $this->required);
-        $writer->writeCollectionOfPrimitiveValues('suggestions', $this->suggestions);
+        $writer->writeStringValue('defaultValue', $this->getDefaultValue());
+        $writer->writeIntegerValue('maxLength', $this->getMaxLength());
+        $writer->writeBooleanValue('required', $this->getRequired());
+        $writer->writeCollectionOfPrimitiveValues('suggestions', $this->getSuggestions());
     }
 
     /**
      * Sets the defaultValue property value. Localized default string displayed in the combo box. The default value is empty.
      *  @param string|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?string $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?string $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
     /**
      * Sets the maxLength property value. An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
      *  @param int|null $value Value to set for the maxLength property.
     */
-    public function setMaxLength(?int $value ): void {
-        $this->maxLength = $value;
+    public function setMaxLength(?int $value): void {
+        $this->getBackingStore()->set('maxLength', $value);
     }
 
     /**
      * Sets the required property value. Specifies whether a value must be specified for the parameter. The default value is false.
      *  @param bool|null $value Value to set for the required property.
     */
-    public function setRequired(?bool $value ): void {
-        $this->required = $value;
+    public function setRequired(?bool $value): void {
+        $this->getBackingStore()->set('required', $value);
     }
 
     /**
      * Sets the suggestions property value. Localized strings listed in the drop-down list of the combo box. The default value is empty.
      *  @param array<string>|null $value Value to set for the suggestions property.
     */
-    public function setSuggestions(?array $value ): void {
-        $this->suggestions = $value;
+    public function setSuggestions(?array $value): void {
+        $this->getBackingStore()->set('suggestions', $value);
     }
 
 }

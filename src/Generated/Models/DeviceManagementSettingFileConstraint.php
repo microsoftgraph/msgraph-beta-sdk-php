@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var array<string>|null $supportedExtensions Acceptable file extensions to upload for this setting
-    */
-    private ?array $supportedExtensions = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingFileConstraint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
      * @return array<string>|null
     */
     public function getSupportedExtensions(): ?array {
-        return $this->supportedExtensions;
+        return $this->getBackingStore()->get('supportedExtensions');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('supportedExtensions', $this->supportedExtensions);
+        $writer->writeCollectionOfPrimitiveValues('supportedExtensions', $this->getSupportedExtensions());
     }
 
     /**
      * Sets the supportedExtensions property value. Acceptable file extensions to upload for this setting
      *  @param array<string>|null $value Value to set for the supportedExtensions property.
     */
-    public function setSupportedExtensions(?array $value ): void {
-        $this->supportedExtensions = $value;
+    public function setSupportedExtensions(?array $value): void {
+        $this->getBackingStore()->set('supportedExtensions', $value);
     }
 
 }

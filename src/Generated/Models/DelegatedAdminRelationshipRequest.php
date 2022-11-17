@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminRelationshipRequest extends Entity implements Parsable 
 {
     /**
-     * @var DelegatedAdminRelationshipRequestAction|null $action The action property
-    */
-    private ?DelegatedAdminRelationshipRequestAction $action = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var DelegatedAdminRelationshipRequestStatus|null $status The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
-    */
-    private ?DelegatedAdminRelationshipRequestStatus $status = null;
-    
-    /**
      * Instantiates a new delegatedAdminRelationshipRequest and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
      * @return DelegatedAdminRelationshipRequestAction|null
     */
     public function getAction(): ?DelegatedAdminRelationshipRequestAction {
-        return $this->action;
+        return $this->getBackingStore()->get('action');
     }
 
     /**
@@ -59,7 +39,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -81,7 +61,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -89,7 +69,7 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
      * @return DelegatedAdminRelationshipRequestStatus|null
     */
     public function getStatus(): ?DelegatedAdminRelationshipRequestStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -98,42 +78,42 @@ class DelegatedAdminRelationshipRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('action', $this->action);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the action property value. The action property
      *  @param DelegatedAdminRelationshipRequestAction|null $value Value to set for the action property.
     */
-    public function setAction(?DelegatedAdminRelationshipRequestAction $value ): void {
-        $this->action = $value;
+    public function setAction(?DelegatedAdminRelationshipRequestAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time in ISO 8601 format and in UTC time when the relationship request was created. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time in ISO 8601 format and UTC time when this relationship request was last modified. Read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
      *  @param DelegatedAdminRelationshipRequestStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DelegatedAdminRelationshipRequestStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DelegatedAdminRelationshipRequestStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

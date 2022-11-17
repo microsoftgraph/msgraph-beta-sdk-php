@@ -9,111 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $bluetooth Possible values of a property
-    */
-    private ?Enablement $bluetooth = null;
-    
-    /**
-     * @var Enablement|null $bootFromBuiltInNetworkAdapters Possible values of a property
-    */
-    private ?Enablement $bootFromBuiltInNetworkAdapters = null;
-    
-    /**
-     * @var Enablement|null $bootFromExternalMedia Possible values of a property
-    */
-    private ?Enablement $bootFromExternalMedia = null;
-    
-    /**
-     * @var Enablement|null $cameras Possible values of a property
-    */
-    private ?Enablement $cameras = null;
-    
-    /**
-     * @var ChangeUefiSettingsPermission|null $changeUefiSettingsPermission Defines the permission level granted to users to enable them change Uefi settings
-    */
-    private ?ChangeUefiSettingsPermission $changeUefiSettingsPermission = null;
-    
-    /**
-     * @var Enablement|null $frontCamera Possible values of a property
-    */
-    private ?Enablement $frontCamera = null;
-    
-    /**
-     * @var Enablement|null $infraredCamera Possible values of a property
-    */
-    private ?Enablement $infraredCamera = null;
-    
-    /**
-     * @var Enablement|null $microphone Possible values of a property
-    */
-    private ?Enablement $microphone = null;
-    
-    /**
-     * @var Enablement|null $microphonesAndSpeakers Possible values of a property
-    */
-    private ?Enablement $microphonesAndSpeakers = null;
-    
-    /**
-     * @var Enablement|null $nearFieldCommunication Possible values of a property
-    */
-    private ?Enablement $nearFieldCommunication = null;
-    
-    /**
-     * @var Enablement|null $radios Possible values of a property
-    */
-    private ?Enablement $radios = null;
-    
-    /**
-     * @var Enablement|null $rearCamera Possible values of a property
-    */
-    private ?Enablement $rearCamera = null;
-    
-    /**
-     * @var Enablement|null $sdCard Possible values of a property
-    */
-    private ?Enablement $sdCard = null;
-    
-    /**
-     * @var Enablement|null $simultaneousMultiThreading Possible values of a property
-    */
-    private ?Enablement $simultaneousMultiThreading = null;
-    
-    /**
-     * @var Enablement|null $usbTypeAPort Possible values of a property
-    */
-    private ?Enablement $usbTypeAPort = null;
-    
-    /**
-     * @var Enablement|null $virtualizationOfCpuAndIO Possible values of a property
-    */
-    private ?Enablement $virtualizationOfCpuAndIO = null;
-    
-    /**
-     * @var Enablement|null $wakeOnLAN Possible values of a property
-    */
-    private ?Enablement $wakeOnLAN = null;
-    
-    /**
-     * @var Enablement|null $wakeOnPower Possible values of a property
-    */
-    private ?Enablement $wakeOnPower = null;
-    
-    /**
-     * @var Enablement|null $wiFi Possible values of a property
-    */
-    private ?Enablement $wiFi = null;
-    
-    /**
-     * @var Enablement|null $windowsPlatformBinaryTable Possible values of a property
-    */
-    private ?Enablement $windowsPlatformBinaryTable = null;
-    
-    /**
-     * @var Enablement|null $wirelessWideAreaNetwork Possible values of a property
-    */
-    private ?Enablement $wirelessWideAreaNetwork = null;
-    
-    /**
      * Instantiates a new Windows10DeviceFirmwareConfigurationInterface and sets the default values.
     */
     public function __construct() {
@@ -135,7 +30,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBluetooth(): ?Enablement {
-        return $this->bluetooth;
+        return $this->getBackingStore()->get('bluetooth');
     }
 
     /**
@@ -143,7 +38,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBootFromBuiltInNetworkAdapters(): ?Enablement {
-        return $this->bootFromBuiltInNetworkAdapters;
+        return $this->getBackingStore()->get('bootFromBuiltInNetworkAdapters');
     }
 
     /**
@@ -151,7 +46,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getBootFromExternalMedia(): ?Enablement {
-        return $this->bootFromExternalMedia;
+        return $this->getBackingStore()->get('bootFromExternalMedia');
     }
 
     /**
@@ -159,7 +54,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getCameras(): ?Enablement {
-        return $this->cameras;
+        return $this->getBackingStore()->get('cameras');
     }
 
     /**
@@ -167,7 +62,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return ChangeUefiSettingsPermission|null
     */
     public function getChangeUefiSettingsPermission(): ?ChangeUefiSettingsPermission {
-        return $this->changeUefiSettingsPermission;
+        return $this->getBackingStore()->get('changeUefiSettingsPermission');
     }
 
     /**
@@ -206,7 +101,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getFrontCamera(): ?Enablement {
-        return $this->frontCamera;
+        return $this->getBackingStore()->get('frontCamera');
     }
 
     /**
@@ -214,7 +109,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getInfraredCamera(): ?Enablement {
-        return $this->infraredCamera;
+        return $this->getBackingStore()->get('infraredCamera');
     }
 
     /**
@@ -222,7 +117,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getMicrophone(): ?Enablement {
-        return $this->microphone;
+        return $this->getBackingStore()->get('microphone');
     }
 
     /**
@@ -230,7 +125,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getMicrophonesAndSpeakers(): ?Enablement {
-        return $this->microphonesAndSpeakers;
+        return $this->getBackingStore()->get('microphonesAndSpeakers');
     }
 
     /**
@@ -238,7 +133,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getNearFieldCommunication(): ?Enablement {
-        return $this->nearFieldCommunication;
+        return $this->getBackingStore()->get('nearFieldCommunication');
     }
 
     /**
@@ -246,7 +141,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getRadios(): ?Enablement {
-        return $this->radios;
+        return $this->getBackingStore()->get('radios');
     }
 
     /**
@@ -254,7 +149,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getRearCamera(): ?Enablement {
-        return $this->rearCamera;
+        return $this->getBackingStore()->get('rearCamera');
     }
 
     /**
@@ -262,7 +157,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getSdCard(): ?Enablement {
-        return $this->sdCard;
+        return $this->getBackingStore()->get('sdCard');
     }
 
     /**
@@ -270,7 +165,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getSimultaneousMultiThreading(): ?Enablement {
-        return $this->simultaneousMultiThreading;
+        return $this->getBackingStore()->get('simultaneousMultiThreading');
     }
 
     /**
@@ -278,7 +173,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getUsbTypeAPort(): ?Enablement {
-        return $this->usbTypeAPort;
+        return $this->getBackingStore()->get('usbTypeAPort');
     }
 
     /**
@@ -286,7 +181,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getVirtualizationOfCpuAndIO(): ?Enablement {
-        return $this->virtualizationOfCpuAndIO;
+        return $this->getBackingStore()->get('virtualizationOfCpuAndIO');
     }
 
     /**
@@ -294,7 +189,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWakeOnLAN(): ?Enablement {
-        return $this->wakeOnLAN;
+        return $this->getBackingStore()->get('wakeOnLAN');
     }
 
     /**
@@ -302,7 +197,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWakeOnPower(): ?Enablement {
-        return $this->wakeOnPower;
+        return $this->getBackingStore()->get('wakeOnPower');
     }
 
     /**
@@ -310,7 +205,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWiFi(): ?Enablement {
-        return $this->wiFi;
+        return $this->getBackingStore()->get('wiFi');
     }
 
     /**
@@ -318,7 +213,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWindowsPlatformBinaryTable(): ?Enablement {
-        return $this->windowsPlatformBinaryTable;
+        return $this->getBackingStore()->get('windowsPlatformBinaryTable');
     }
 
     /**
@@ -326,7 +221,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
      * @return Enablement|null
     */
     public function getWirelessWideAreaNetwork(): ?Enablement {
-        return $this->wirelessWideAreaNetwork;
+        return $this->getBackingStore()->get('wirelessWideAreaNetwork');
     }
 
     /**
@@ -335,195 +230,195 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('bluetooth', $this->bluetooth);
-        $writer->writeEnumValue('bootFromBuiltInNetworkAdapters', $this->bootFromBuiltInNetworkAdapters);
-        $writer->writeEnumValue('bootFromExternalMedia', $this->bootFromExternalMedia);
-        $writer->writeEnumValue('cameras', $this->cameras);
-        $writer->writeEnumValue('changeUefiSettingsPermission', $this->changeUefiSettingsPermission);
-        $writer->writeEnumValue('frontCamera', $this->frontCamera);
-        $writer->writeEnumValue('infraredCamera', $this->infraredCamera);
-        $writer->writeEnumValue('microphone', $this->microphone);
-        $writer->writeEnumValue('microphonesAndSpeakers', $this->microphonesAndSpeakers);
-        $writer->writeEnumValue('nearFieldCommunication', $this->nearFieldCommunication);
-        $writer->writeEnumValue('radios', $this->radios);
-        $writer->writeEnumValue('rearCamera', $this->rearCamera);
-        $writer->writeEnumValue('sdCard', $this->sdCard);
-        $writer->writeEnumValue('simultaneousMultiThreading', $this->simultaneousMultiThreading);
-        $writer->writeEnumValue('usbTypeAPort', $this->usbTypeAPort);
-        $writer->writeEnumValue('virtualizationOfCpuAndIO', $this->virtualizationOfCpuAndIO);
-        $writer->writeEnumValue('wakeOnLAN', $this->wakeOnLAN);
-        $writer->writeEnumValue('wakeOnPower', $this->wakeOnPower);
-        $writer->writeEnumValue('wiFi', $this->wiFi);
-        $writer->writeEnumValue('windowsPlatformBinaryTable', $this->windowsPlatformBinaryTable);
-        $writer->writeEnumValue('wirelessWideAreaNetwork', $this->wirelessWideAreaNetwork);
+        $writer->writeEnumValue('bluetooth', $this->getBluetooth());
+        $writer->writeEnumValue('bootFromBuiltInNetworkAdapters', $this->getBootFromBuiltInNetworkAdapters());
+        $writer->writeEnumValue('bootFromExternalMedia', $this->getBootFromExternalMedia());
+        $writer->writeEnumValue('cameras', $this->getCameras());
+        $writer->writeEnumValue('changeUefiSettingsPermission', $this->getChangeUefiSettingsPermission());
+        $writer->writeEnumValue('frontCamera', $this->getFrontCamera());
+        $writer->writeEnumValue('infraredCamera', $this->getInfraredCamera());
+        $writer->writeEnumValue('microphone', $this->getMicrophone());
+        $writer->writeEnumValue('microphonesAndSpeakers', $this->getMicrophonesAndSpeakers());
+        $writer->writeEnumValue('nearFieldCommunication', $this->getNearFieldCommunication());
+        $writer->writeEnumValue('radios', $this->getRadios());
+        $writer->writeEnumValue('rearCamera', $this->getRearCamera());
+        $writer->writeEnumValue('sdCard', $this->getSdCard());
+        $writer->writeEnumValue('simultaneousMultiThreading', $this->getSimultaneousMultiThreading());
+        $writer->writeEnumValue('usbTypeAPort', $this->getUsbTypeAPort());
+        $writer->writeEnumValue('virtualizationOfCpuAndIO', $this->getVirtualizationOfCpuAndIO());
+        $writer->writeEnumValue('wakeOnLAN', $this->getWakeOnLAN());
+        $writer->writeEnumValue('wakeOnPower', $this->getWakeOnPower());
+        $writer->writeEnumValue('wiFi', $this->getWiFi());
+        $writer->writeEnumValue('windowsPlatformBinaryTable', $this->getWindowsPlatformBinaryTable());
+        $writer->writeEnumValue('wirelessWideAreaNetwork', $this->getWirelessWideAreaNetwork());
     }
 
     /**
      * Sets the bluetooth property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bluetooth property.
     */
-    public function setBluetooth(?Enablement $value ): void {
-        $this->bluetooth = $value;
+    public function setBluetooth(?Enablement $value): void {
+        $this->getBackingStore()->set('bluetooth', $value);
     }
 
     /**
      * Sets the bootFromBuiltInNetworkAdapters property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bootFromBuiltInNetworkAdapters property.
     */
-    public function setBootFromBuiltInNetworkAdapters(?Enablement $value ): void {
-        $this->bootFromBuiltInNetworkAdapters = $value;
+    public function setBootFromBuiltInNetworkAdapters(?Enablement $value): void {
+        $this->getBackingStore()->set('bootFromBuiltInNetworkAdapters', $value);
     }
 
     /**
      * Sets the bootFromExternalMedia property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the bootFromExternalMedia property.
     */
-    public function setBootFromExternalMedia(?Enablement $value ): void {
-        $this->bootFromExternalMedia = $value;
+    public function setBootFromExternalMedia(?Enablement $value): void {
+        $this->getBackingStore()->set('bootFromExternalMedia', $value);
     }
 
     /**
      * Sets the cameras property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the cameras property.
     */
-    public function setCameras(?Enablement $value ): void {
-        $this->cameras = $value;
+    public function setCameras(?Enablement $value): void {
+        $this->getBackingStore()->set('cameras', $value);
     }
 
     /**
      * Sets the changeUefiSettingsPermission property value. Defines the permission level granted to users to enable them change Uefi settings
      *  @param ChangeUefiSettingsPermission|null $value Value to set for the changeUefiSettingsPermission property.
     */
-    public function setChangeUefiSettingsPermission(?ChangeUefiSettingsPermission $value ): void {
-        $this->changeUefiSettingsPermission = $value;
+    public function setChangeUefiSettingsPermission(?ChangeUefiSettingsPermission $value): void {
+        $this->getBackingStore()->set('changeUefiSettingsPermission', $value);
     }
 
     /**
      * Sets the frontCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the frontCamera property.
     */
-    public function setFrontCamera(?Enablement $value ): void {
-        $this->frontCamera = $value;
+    public function setFrontCamera(?Enablement $value): void {
+        $this->getBackingStore()->set('frontCamera', $value);
     }
 
     /**
      * Sets the infraredCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the infraredCamera property.
     */
-    public function setInfraredCamera(?Enablement $value ): void {
-        $this->infraredCamera = $value;
+    public function setInfraredCamera(?Enablement $value): void {
+        $this->getBackingStore()->set('infraredCamera', $value);
     }
 
     /**
      * Sets the microphone property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the microphone property.
     */
-    public function setMicrophone(?Enablement $value ): void {
-        $this->microphone = $value;
+    public function setMicrophone(?Enablement $value): void {
+        $this->getBackingStore()->set('microphone', $value);
     }
 
     /**
      * Sets the microphonesAndSpeakers property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the microphonesAndSpeakers property.
     */
-    public function setMicrophonesAndSpeakers(?Enablement $value ): void {
-        $this->microphonesAndSpeakers = $value;
+    public function setMicrophonesAndSpeakers(?Enablement $value): void {
+        $this->getBackingStore()->set('microphonesAndSpeakers', $value);
     }
 
     /**
      * Sets the nearFieldCommunication property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the nearFieldCommunication property.
     */
-    public function setNearFieldCommunication(?Enablement $value ): void {
-        $this->nearFieldCommunication = $value;
+    public function setNearFieldCommunication(?Enablement $value): void {
+        $this->getBackingStore()->set('nearFieldCommunication', $value);
     }
 
     /**
      * Sets the radios property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the radios property.
     */
-    public function setRadios(?Enablement $value ): void {
-        $this->radios = $value;
+    public function setRadios(?Enablement $value): void {
+        $this->getBackingStore()->set('radios', $value);
     }
 
     /**
      * Sets the rearCamera property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the rearCamera property.
     */
-    public function setRearCamera(?Enablement $value ): void {
-        $this->rearCamera = $value;
+    public function setRearCamera(?Enablement $value): void {
+        $this->getBackingStore()->set('rearCamera', $value);
     }
 
     /**
      * Sets the sdCard property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the sdCard property.
     */
-    public function setSdCard(?Enablement $value ): void {
-        $this->sdCard = $value;
+    public function setSdCard(?Enablement $value): void {
+        $this->getBackingStore()->set('sdCard', $value);
     }
 
     /**
      * Sets the simultaneousMultiThreading property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the simultaneousMultiThreading property.
     */
-    public function setSimultaneousMultiThreading(?Enablement $value ): void {
-        $this->simultaneousMultiThreading = $value;
+    public function setSimultaneousMultiThreading(?Enablement $value): void {
+        $this->getBackingStore()->set('simultaneousMultiThreading', $value);
     }
 
     /**
      * Sets the usbTypeAPort property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the usbTypeAPort property.
     */
-    public function setUsbTypeAPort(?Enablement $value ): void {
-        $this->usbTypeAPort = $value;
+    public function setUsbTypeAPort(?Enablement $value): void {
+        $this->getBackingStore()->set('usbTypeAPort', $value);
     }
 
     /**
      * Sets the virtualizationOfCpuAndIO property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the virtualizationOfCpuAndIO property.
     */
-    public function setVirtualizationOfCpuAndIO(?Enablement $value ): void {
-        $this->virtualizationOfCpuAndIO = $value;
+    public function setVirtualizationOfCpuAndIO(?Enablement $value): void {
+        $this->getBackingStore()->set('virtualizationOfCpuAndIO', $value);
     }
 
     /**
      * Sets the wakeOnLAN property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wakeOnLAN property.
     */
-    public function setWakeOnLAN(?Enablement $value ): void {
-        $this->wakeOnLAN = $value;
+    public function setWakeOnLAN(?Enablement $value): void {
+        $this->getBackingStore()->set('wakeOnLAN', $value);
     }
 
     /**
      * Sets the wakeOnPower property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wakeOnPower property.
     */
-    public function setWakeOnPower(?Enablement $value ): void {
-        $this->wakeOnPower = $value;
+    public function setWakeOnPower(?Enablement $value): void {
+        $this->getBackingStore()->set('wakeOnPower', $value);
     }
 
     /**
      * Sets the wiFi property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wiFi property.
     */
-    public function setWiFi(?Enablement $value ): void {
-        $this->wiFi = $value;
+    public function setWiFi(?Enablement $value): void {
+        $this->getBackingStore()->set('wiFi', $value);
     }
 
     /**
      * Sets the windowsPlatformBinaryTable property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the windowsPlatformBinaryTable property.
     */
-    public function setWindowsPlatformBinaryTable(?Enablement $value ): void {
-        $this->windowsPlatformBinaryTable = $value;
+    public function setWindowsPlatformBinaryTable(?Enablement $value): void {
+        $this->getBackingStore()->set('windowsPlatformBinaryTable', $value);
     }
 
     /**
      * Sets the wirelessWideAreaNetwork property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the wirelessWideAreaNetwork property.
     */
-    public function setWirelessWideAreaNetwork(?Enablement $value ): void {
-        $this->wirelessWideAreaNetwork = $value;
+    public function setWirelessWideAreaNetwork(?Enablement $value): void {
+        $this->getBackingStore()->set('wirelessWideAreaNetwork', $value);
     }
 
 }

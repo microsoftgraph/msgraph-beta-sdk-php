@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantCustomizedInformation extends Entity implements Parsable 
 {
     /**
-     * @var array<TenantContactInformation>|null $contacts The collection of contacts for the managed tenant. Optional.
-    */
-    private ?array $contacts = null;
-    
-    /**
-     * @var string|null $displayName The display name for the managed tenant. Required. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $website The website for the managed tenant. Required.
-    */
-    private ?string $website = null;
-    
-    /**
      * Instantiates a new tenantCustomizedInformation and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @return array<TenantContactInformation>|null
     */
     public function getContacts(): ?array {
-        return $this->contacts;
+        return $this->getBackingStore()->get('contacts');
     }
 
     /**
@@ -59,7 +39,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -81,7 +61,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -89,7 +69,7 @@ class TenantCustomizedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getWebsite(): ?string {
-        return $this->website;
+        return $this->getBackingStore()->get('website');
     }
 
     /**
@@ -98,42 +78,42 @@ class TenantCustomizedInformation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('contacts', $this->contacts);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('website', $this->website);
+        $writer->writeCollectionOfObjectValues('contacts', $this->getContacts());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('website', $this->getWebsite());
     }
 
     /**
      * Sets the contacts property value. The collection of contacts for the managed tenant. Optional.
      *  @param array<TenantContactInformation>|null $value Value to set for the contacts property.
     */
-    public function setContacts(?array $value ): void {
-        $this->contacts = $value;
+    public function setContacts(?array $value): void {
+        $this->getBackingStore()->set('contacts', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the website property value. The website for the managed tenant. Required.
      *  @param string|null $value Value to set for the website property.
     */
-    public function setWebsite(?string $value ): void {
-        $this->website = $value;
+    public function setWebsite(?string $value): void {
+        $this->getBackingStore()->set('website', $value);
     }
 
 }

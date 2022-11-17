@@ -7,53 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AuthenticationDetail implements AdditionalDataHolder, Parsable 
+class AuthenticationDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $authenticationMethod The type of authentication method used to perform this step of authentication. Possible values: Password, SMS, Voice, Authenticator App, Software OATH token, Satisfied by token, Previously satisfied.
-    */
-    private ?string $authenticationMethod = null;
-    
-    /**
-     * @var string|null $authenticationMethodDetail Details about the authentication method used to perform this authentication step. For example, phone number (for SMS and voice), device name (for Authenticator app), and password source (e.g. cloud, AD FS, PTA, PHS).
-    */
-    private ?string $authenticationMethodDetail = null;
-    
-    /**
-     * @var DateTime|null $authenticationStepDateTime Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $authenticationStepDateTime = null;
-    
-    /**
-     * @var string|null $authenticationStepRequirement The step of authentication that this satisfied. For example, primary authentication, or multi-factor authentication.
-    */
-    private ?string $authenticationStepRequirement = null;
-    
-    /**
-     * @var string|null $authenticationStepResultDetail Details about why the step succeeded or failed. For examples, user is blocked, fraud code entered, no phone input - timed out, phone unreachable, or claim in token.
-    */
-    private ?string $authenticationStepResultDetail = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var bool|null $succeeded Indicates the status of the authentication step. Possible values: succeeded, failed.
-    */
-    private ?bool $succeeded = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new authenticationDetail and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.authenticationDetail');
     }
@@ -71,8 +40,8 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -80,7 +49,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAuthenticationMethod(): ?string {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -88,7 +57,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAuthenticationMethodDetail(): ?string {
-        return $this->authenticationMethodDetail;
+        return $this->getBackingStore()->get('authenticationMethodDetail');
     }
 
     /**
@@ -96,7 +65,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getAuthenticationStepDateTime(): ?DateTime {
-        return $this->authenticationStepDateTime;
+        return $this->getBackingStore()->get('authenticationStepDateTime');
     }
 
     /**
@@ -104,7 +73,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAuthenticationStepRequirement(): ?string {
-        return $this->authenticationStepRequirement;
+        return $this->getBackingStore()->get('authenticationStepRequirement');
     }
 
     /**
@@ -112,7 +81,15 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAuthenticationStepResultDetail(): ?string {
-        return $this->authenticationStepResultDetail;
+        return $this->getBackingStore()->get('authenticationStepResultDetail');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -137,7 +114,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -145,7 +122,7 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getSucceeded(): ?bool {
-        return $this->succeeded;
+        return $this->getBackingStore()->get('succeeded');
     }
 
     /**
@@ -153,78 +130,78 @@ class AuthenticationDetail implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeStringValue('authenticationMethodDetail', $this->authenticationMethodDetail);
-        $writer->writeDateTimeValue('authenticationStepDateTime', $this->authenticationStepDateTime);
-        $writer->writeStringValue('authenticationStepRequirement', $this->authenticationStepRequirement);
-        $writer->writeStringValue('authenticationStepResultDetail', $this->authenticationStepResultDetail);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeBooleanValue('succeeded', $this->succeeded);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeStringValue('authenticationMethodDetail', $this->getAuthenticationMethodDetail());
+        $writer->writeDateTimeValue('authenticationStepDateTime', $this->getAuthenticationStepDateTime());
+        $writer->writeStringValue('authenticationStepRequirement', $this->getAuthenticationStepRequirement());
+        $writer->writeStringValue('authenticationStepResultDetail', $this->getAuthenticationStepResultDetail());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('succeeded', $this->getSucceeded());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the authenticationMethod property value. The type of authentication method used to perform this step of authentication. Possible values: Password, SMS, Voice, Authenticator App, Software OATH token, Satisfied by token, Previously satisfied.
      *  @param string|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?string $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?string $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the authenticationMethodDetail property value. Details about the authentication method used to perform this authentication step. For example, phone number (for SMS and voice), device name (for Authenticator app), and password source (e.g. cloud, AD FS, PTA, PHS).
      *  @param string|null $value Value to set for the authenticationMethodDetail property.
     */
-    public function setAuthenticationMethodDetail(?string $value ): void {
-        $this->authenticationMethodDetail = $value;
+    public function setAuthenticationMethodDetail(?string $value): void {
+        $this->getBackingStore()->set('authenticationMethodDetail', $value);
     }
 
     /**
      * Sets the authenticationStepDateTime property value. Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the authenticationStepDateTime property.
     */
-    public function setAuthenticationStepDateTime(?DateTime $value ): void {
-        $this->authenticationStepDateTime = $value;
+    public function setAuthenticationStepDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('authenticationStepDateTime', $value);
     }
 
     /**
      * Sets the authenticationStepRequirement property value. The step of authentication that this satisfied. For example, primary authentication, or multi-factor authentication.
      *  @param string|null $value Value to set for the authenticationStepRequirement property.
     */
-    public function setAuthenticationStepRequirement(?string $value ): void {
-        $this->authenticationStepRequirement = $value;
+    public function setAuthenticationStepRequirement(?string $value): void {
+        $this->getBackingStore()->set('authenticationStepRequirement', $value);
     }
 
     /**
      * Sets the authenticationStepResultDetail property value. Details about why the step succeeded or failed. For examples, user is blocked, fraud code entered, no phone input - timed out, phone unreachable, or claim in token.
      *  @param string|null $value Value to set for the authenticationStepResultDetail property.
     */
-    public function setAuthenticationStepResultDetail(?string $value ): void {
-        $this->authenticationStepResultDetail = $value;
+    public function setAuthenticationStepResultDetail(?string $value): void {
+        $this->getBackingStore()->set('authenticationStepResultDetail', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the succeeded property value. Indicates the status of the authentication step. Possible values: succeeded, failed.
      *  @param bool|null $value Value to set for the succeeded property.
     */
-    public function setSucceeded(?bool $value ): void {
-        $this->succeeded = $value;
+    public function setSucceeded(?bool $value): void {
+        $this->getBackingStore()->set('succeeded', $value);
     }
 
 }

@@ -7,33 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<GroupPolicyDefinitionValue>|null $added The added property
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?array $added = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $deletedIds The deletedIds property
-    */
-    private ?array $deletedIds = null;
-    
-    /**
-     * @var array<GroupPolicyDefinitionValue>|null $updated The updated property
-    */
-    private ?array $updated = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateDefinitionValuesPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -51,15 +40,23 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Par
      * @return array<GroupPolicyDefinitionValue>|null
     */
     public function getAdded(): ?array {
-        return $this->added;
+        return $this->getBackingStore()->get('added');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -67,7 +64,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Par
      * @return array<string>|null
     */
     public function getDeletedIds(): ?array {
-        return $this->deletedIds;
+        return $this->getBackingStore()->get('deletedIds');
     }
 
     /**
@@ -88,7 +85,7 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Par
      * @return array<GroupPolicyDefinitionValue>|null
     */
     public function getUpdated(): ?array {
-        return $this->updated;
+        return $this->getBackingStore()->get('updated');
     }
 
     /**
@@ -96,42 +93,42 @@ class UpdateDefinitionValuesPostRequestBody implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('added', $this->added);
-        $writer->writeCollectionOfPrimitiveValues('deletedIds', $this->deletedIds);
-        $writer->writeCollectionOfObjectValues('updated', $this->updated);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('added', $this->getAdded());
+        $writer->writeCollectionOfPrimitiveValues('deletedIds', $this->getDeletedIds());
+        $writer->writeCollectionOfObjectValues('updated', $this->getUpdated());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the added property value. The added property
      *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the added property.
     */
-    public function setAdded(?array $value ): void {
-        $this->added = $value;
+    public function setAdded(?array $value): void {
+        $this->getBackingStore()->set('added', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deletedIds property value. The deletedIds property
      *  @param array<string>|null $value Value to set for the deletedIds property.
     */
-    public function setDeletedIds(?array $value ): void {
-        $this->deletedIds = $value;
+    public function setDeletedIds(?array $value): void {
+        $this->getBackingStore()->set('deletedIds', $value);
     }
 
     /**
      * Sets the updated property value. The updated property
      *  @param array<GroupPolicyDefinitionValue>|null $value Value to set for the updated property.
     */
-    public function setUpdated(?array $value ): void {
-        $this->updated = $value;
+    public function setUpdated(?array $value): void {
+        $this->getBackingStore()->set('updated', $value);
     }
 
 }

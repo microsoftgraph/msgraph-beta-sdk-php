@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDevices Number of active devices within the tenant. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDevices = null;
-    
-    /**
-     * @var int|null $batteryCapacityFair Number of devices whose battery maximum capacity is greater than 50% but lesser than 80%. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryCapacityFair = null;
-    
-    /**
-     * @var int|null $batteryCapacityGood Number of devices whose battery maximum capacity is greater than 80%. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryCapacityGood = null;
-    
-    /**
-     * @var int|null $batteryCapacityPoor Number of devices whose battery maximum capacity is lesser than 50%. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryCapacityPoor = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Recorded date time of this capacity details instance.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthCapacityDetails and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->activeDevices;
+        return $this->getBackingStore()->get('activeDevices');
     }
 
     /**
@@ -64,7 +39,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityFair(): ?int {
-        return $this->batteryCapacityFair;
+        return $this->getBackingStore()->get('batteryCapacityFair');
     }
 
     /**
@@ -72,7 +47,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityGood(): ?int {
-        return $this->batteryCapacityGood;
+        return $this->getBackingStore()->get('batteryCapacityGood');
     }
 
     /**
@@ -80,7 +55,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return int|null
     */
     public function getBatteryCapacityPoor(): ?int {
-        return $this->batteryCapacityPoor;
+        return $this->getBackingStore()->get('batteryCapacityPoor');
     }
 
     /**
@@ -103,7 +78,7 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -112,51 +87,51 @@ class UserExperienceAnalyticsBatteryHealthCapacityDetails extends Entity impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDevices', $this->activeDevices);
-        $writer->writeIntegerValue('batteryCapacityFair', $this->batteryCapacityFair);
-        $writer->writeIntegerValue('batteryCapacityGood', $this->batteryCapacityGood);
-        $writer->writeIntegerValue('batteryCapacityPoor', $this->batteryCapacityPoor);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
+        $writer->writeIntegerValue('activeDevices', $this->getActiveDevices());
+        $writer->writeIntegerValue('batteryCapacityFair', $this->getBatteryCapacityFair());
+        $writer->writeIntegerValue('batteryCapacityGood', $this->getBatteryCapacityGood());
+        $writer->writeIntegerValue('batteryCapacityPoor', $this->getBatteryCapacityPoor());
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
     }
 
     /**
      * Sets the activeDevices property value. Number of active devices within the tenant. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDevices property.
     */
-    public function setActiveDevices(?int $value ): void {
-        $this->activeDevices = $value;
+    public function setActiveDevices(?int $value): void {
+        $this->getBackingStore()->set('activeDevices', $value);
     }
 
     /**
      * Sets the batteryCapacityFair property value. Number of devices whose battery maximum capacity is greater than 50% but lesser than 80%. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryCapacityFair property.
     */
-    public function setBatteryCapacityFair(?int $value ): void {
-        $this->batteryCapacityFair = $value;
+    public function setBatteryCapacityFair(?int $value): void {
+        $this->getBackingStore()->set('batteryCapacityFair', $value);
     }
 
     /**
      * Sets the batteryCapacityGood property value. Number of devices whose battery maximum capacity is greater than 80%. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryCapacityGood property.
     */
-    public function setBatteryCapacityGood(?int $value ): void {
-        $this->batteryCapacityGood = $value;
+    public function setBatteryCapacityGood(?int $value): void {
+        $this->getBackingStore()->set('batteryCapacityGood', $value);
     }
 
     /**
      * Sets the batteryCapacityPoor property value. Number of devices whose battery maximum capacity is lesser than 50%. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryCapacityPoor property.
     */
-    public function setBatteryCapacityPoor(?int $value ): void {
-        $this->batteryCapacityPoor = $value;
+    public function setBatteryCapacityPoor(?int $value): void {
+        $this->getBackingStore()->set('batteryCapacityPoor', $value);
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Recorded date time of this capacity details instance.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
 }

@@ -7,33 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ResumePostRequestBody implements AdditionalDataHolder, Parsable 
+class ResumePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var CustomTaskExtensionCallbackData|null $data The data property
-    */
-    private ?CustomTaskExtensionCallbackData $data = null;
-    
-    /**
-     * @var string|null $source The source property
-    */
-    private ?string $source = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new resumePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -50,8 +39,16 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +56,7 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
      * @return CustomTaskExtensionCallbackData|null
     */
     public function getData(): ?CustomTaskExtensionCallbackData {
-        return $this->data;
+        return $this->getBackingStore()->get('data');
     }
 
     /**
@@ -80,7 +77,7 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSource(): ?string {
-        return $this->source;
+        return $this->getBackingStore()->get('source');
     }
 
     /**
@@ -88,7 +85,7 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -96,42 +93,42 @@ class ResumePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('data', $this->data);
-        $writer->writeStringValue('source', $this->source);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('data', $this->getData());
+        $writer->writeStringValue('source', $this->getSource());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the data property value. The data property
      *  @param CustomTaskExtensionCallbackData|null $value Value to set for the data property.
     */
-    public function setData(?CustomTaskExtensionCallbackData $value ): void {
-        $this->data = $value;
+    public function setData(?CustomTaskExtensionCallbackData $value): void {
+        $this->getBackingStore()->set('data', $value);
     }
 
     /**
      * Sets the source property value. The source property
      *  @param string|null $value Value to set for the source property.
     */
-    public function setSource(?string $value ): void {
-        $this->source = $value;
+    public function setSource(?string $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -10,46 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistration extends MeetingRegistrationBase implements Parsable 
 {
     /**
-     * @var array<MeetingRegistrationQuestion>|null $customQuestions Custom registration questions.
-    */
-    private ?array $customQuestions = null;
-    
-    /**
-     * @var string|null $description The description of the meeting.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var DateTime|null $endDateTime The meeting end time in UTC.
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var int|null $registrationPageViewCount The number of times the registration page has been visited. Read-only.
-    */
-    private ?int $registrationPageViewCount = null;
-    
-    /**
-     * @var string|null $registrationPageWebUrl The URL of the registration page. Read-only.
-    */
-    private ?string $registrationPageWebUrl = null;
-    
-    /**
-     * @var array<MeetingSpeaker>|null $speakers The meeting speaker's information.
-    */
-    private ?array $speakers = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The meeting start time in UTC.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $subject The subject of the meeting.
-    */
-    private ?string $subject = null;
-    
-    /**
      * Instantiates a new MeetingRegistration and sets the default values.
     */
     public function __construct() {
@@ -71,7 +31,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return array<MeetingRegistrationQuestion>|null
     */
     public function getCustomQuestions(): ?array {
-        return $this->customQuestions;
+        return $this->getBackingStore()->get('customQuestions');
     }
 
     /**
@@ -79,7 +39,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -87,7 +47,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -113,7 +73,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return int|null
     */
     public function getRegistrationPageViewCount(): ?int {
-        return $this->registrationPageViewCount;
+        return $this->getBackingStore()->get('registrationPageViewCount');
     }
 
     /**
@@ -121,7 +81,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getRegistrationPageWebUrl(): ?string {
-        return $this->registrationPageWebUrl;
+        return $this->getBackingStore()->get('registrationPageWebUrl');
     }
 
     /**
@@ -129,7 +89,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return array<MeetingSpeaker>|null
     */
     public function getSpeakers(): ?array {
-        return $this->speakers;
+        return $this->getBackingStore()->get('speakers');
     }
 
     /**
@@ -137,7 +97,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -145,7 +105,7 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -154,78 +114,78 @@ class MeetingRegistration extends MeetingRegistrationBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('customQuestions', $this->customQuestions);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeIntegerValue('registrationPageViewCount', $this->registrationPageViewCount);
-        $writer->writeStringValue('registrationPageWebUrl', $this->registrationPageWebUrl);
-        $writer->writeCollectionOfObjectValues('speakers', $this->speakers);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('subject', $this->subject);
+        $writer->writeCollectionOfObjectValues('customQuestions', $this->getCustomQuestions());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeIntegerValue('registrationPageViewCount', $this->getRegistrationPageViewCount());
+        $writer->writeStringValue('registrationPageWebUrl', $this->getRegistrationPageWebUrl());
+        $writer->writeCollectionOfObjectValues('speakers', $this->getSpeakers());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('subject', $this->getSubject());
     }
 
     /**
      * Sets the customQuestions property value. Custom registration questions.
      *  @param array<MeetingRegistrationQuestion>|null $value Value to set for the customQuestions property.
     */
-    public function setCustomQuestions(?array $value ): void {
-        $this->customQuestions = $value;
+    public function setCustomQuestions(?array $value): void {
+        $this->getBackingStore()->set('customQuestions', $value);
     }
 
     /**
      * Sets the description property value. The description of the meeting.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the endDateTime property value. The meeting end time in UTC.
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the registrationPageViewCount property value. The number of times the registration page has been visited. Read-only.
      *  @param int|null $value Value to set for the registrationPageViewCount property.
     */
-    public function setRegistrationPageViewCount(?int $value ): void {
-        $this->registrationPageViewCount = $value;
+    public function setRegistrationPageViewCount(?int $value): void {
+        $this->getBackingStore()->set('registrationPageViewCount', $value);
     }
 
     /**
      * Sets the registrationPageWebUrl property value. The URL of the registration page. Read-only.
      *  @param string|null $value Value to set for the registrationPageWebUrl property.
     */
-    public function setRegistrationPageWebUrl(?string $value ): void {
-        $this->registrationPageWebUrl = $value;
+    public function setRegistrationPageWebUrl(?string $value): void {
+        $this->getBackingStore()->set('registrationPageWebUrl', $value);
     }
 
     /**
      * Sets the speakers property value. The meeting speaker's information.
      *  @param array<MeetingSpeaker>|null $value Value to set for the speakers property.
     */
-    public function setSpeakers(?array $value ): void {
-        $this->speakers = $value;
+    public function setSpeakers(?array $value): void {
+        $this->getBackingStore()->set('speakers', $value);
     }
 
     /**
      * Sets the startDateTime property value. The meeting start time in UTC.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the subject property value. The subject of the meeting.
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
 }

@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable 
+class UserRegistrationMethodSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $totalUserCount Total number of users in the tenant.
-    */
-    private ?int $totalUserCount = null;
-    
-    /**
-     * @var array<UserRegistrationMethodCount>|null $userRegistrationMethodCounts Number of users registered for each authentication method.
-    */
-    private ?array $userRegistrationMethodCounts = null;
-    
-    /**
-     * @var IncludedUserRoles|null $userRoles User role type. Possible values are: all, privilegedAdmin, admin, user.
-    */
-    private ?IncludedUserRoles $userRoles = null;
-    
-    /**
-     * @var IncludedUserTypes|null $userTypes User type. Possible values are: all, member, guest.
-    */
-    private ?IncludedUserTypes $userTypes = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new UserRegistrationMethodSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.userRegistrationMethodSummary');
     }
@@ -60,8 +39,16 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -84,7 +71,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -92,7 +79,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
-        return $this->totalUserCount;
+        return $this->getBackingStore()->get('totalUserCount');
     }
 
     /**
@@ -100,7 +87,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @return array<UserRegistrationMethodCount>|null
     */
     public function getUserRegistrationMethodCounts(): ?array {
-        return $this->userRegistrationMethodCounts;
+        return $this->getBackingStore()->get('userRegistrationMethodCounts');
     }
 
     /**
@@ -108,7 +95,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @return IncludedUserRoles|null
     */
     public function getUserRoles(): ?IncludedUserRoles {
-        return $this->userRoles;
+        return $this->getBackingStore()->get('userRoles');
     }
 
     /**
@@ -116,7 +103,7 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @return IncludedUserTypes|null
     */
     public function getUserTypes(): ?IncludedUserTypes {
-        return $this->userTypes;
+        return $this->getBackingStore()->get('userTypes');
     }
 
     /**
@@ -124,60 +111,60 @@ class UserRegistrationMethodSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('totalUserCount', $this->totalUserCount);
-        $writer->writeCollectionOfObjectValues('userRegistrationMethodCounts', $this->userRegistrationMethodCounts);
-        $writer->writeEnumValue('userRoles', $this->userRoles);
-        $writer->writeEnumValue('userTypes', $this->userTypes);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
+        $writer->writeCollectionOfObjectValues('userRegistrationMethodCounts', $this->getUserRegistrationMethodCounts());
+        $writer->writeEnumValue('userRoles', $this->getUserRoles());
+        $writer->writeEnumValue('userTypes', $this->getUserTypes());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the totalUserCount property value. Total number of users in the tenant.
      *  @param int|null $value Value to set for the totalUserCount property.
     */
-    public function setTotalUserCount(?int $value ): void {
-        $this->totalUserCount = $value;
+    public function setTotalUserCount(?int $value): void {
+        $this->getBackingStore()->set('totalUserCount', $value);
     }
 
     /**
      * Sets the userRegistrationMethodCounts property value. Number of users registered for each authentication method.
      *  @param array<UserRegistrationMethodCount>|null $value Value to set for the userRegistrationMethodCounts property.
     */
-    public function setUserRegistrationMethodCounts(?array $value ): void {
-        $this->userRegistrationMethodCounts = $value;
+    public function setUserRegistrationMethodCounts(?array $value): void {
+        $this->getBackingStore()->set('userRegistrationMethodCounts', $value);
     }
 
     /**
      * Sets the userRoles property value. User role type. Possible values are: all, privilegedAdmin, admin, user.
      *  @param IncludedUserRoles|null $value Value to set for the userRoles property.
     */
-    public function setUserRoles(?IncludedUserRoles $value ): void {
-        $this->userRoles = $value;
+    public function setUserRoles(?IncludedUserRoles $value): void {
+        $this->getBackingStore()->set('userRoles', $value);
     }
 
     /**
      * Sets the userTypes property value. User type. Possible values are: all, member, guest.
      *  @param IncludedUserTypes|null $value Value to set for the userTypes property.
     */
-    public function setUserTypes(?IncludedUserTypes $value ): void {
-        $this->userTypes = $value;
+    public function setUserTypes(?IncludedUserTypes $value): void {
+        $this->getBackingStore()->set('userTypes', $value);
     }
 
 }

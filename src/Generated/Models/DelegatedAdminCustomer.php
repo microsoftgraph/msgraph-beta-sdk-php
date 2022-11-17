@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminCustomer extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The Azure AD display name of the customer tenant. Read-only. Supports $orderBy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<DelegatedAdminServiceManagementDetail>|null $serviceManagementDetails Contains the management details of a service in the customer tenant that's managed by delegated administration.
-    */
-    private ?array $serviceManagementDetails = null;
-    
-    /**
-     * @var string|null $tenantId The Azure AD-assigned tenant ID of the customer. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new delegatedAdminCustomer and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class DelegatedAdminCustomer extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class DelegatedAdminCustomer extends Entity implements Parsable
      * @return array<DelegatedAdminServiceManagementDetail>|null
     */
     public function getServiceManagementDetails(): ?array {
-        return $this->serviceManagementDetails;
+        return $this->getBackingStore()->get('serviceManagementDetails');
     }
 
     /**
@@ -74,7 +59,7 @@ class DelegatedAdminCustomer extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -83,33 +68,33 @@ class DelegatedAdminCustomer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('serviceManagementDetails', $this->serviceManagementDetails);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('serviceManagementDetails', $this->getServiceManagementDetails());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the displayName property value. The Azure AD display name of the customer tenant. Read-only. Supports $orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the serviceManagementDetails property value. Contains the management details of a service in the customer tenant that's managed by delegated administration.
      *  @param array<DelegatedAdminServiceManagementDetail>|null $value Value to set for the serviceManagementDetails property.
     */
-    public function setServiceManagementDetails(?array $value ): void {
-        $this->serviceManagementDetails = $value;
+    public function setServiceManagementDetails(?array $value): void {
+        $this->getBackingStore()->set('serviceManagementDetails', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure AD-assigned tenant ID of the customer. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

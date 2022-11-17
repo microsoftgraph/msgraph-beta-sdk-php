@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectGroup extends LabelActionBase implements Parsable 
 {
     /**
-     * @var bool|null $allowEmailFromGuestUsers The allowEmailFromGuestUsers property
-    */
-    private ?bool $allowEmailFromGuestUsers = null;
-    
-    /**
-     * @var bool|null $allowGuestUsers The allowGuestUsers property
-    */
-    private ?bool $allowGuestUsers = null;
-    
-    /**
-     * @var GroupPrivacy|null $privacy The privacy property
-    */
-    private ?GroupPrivacy $privacy = null;
-    
-    /**
      * Instantiates a new ProtectGroup and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getAllowEmailFromGuestUsers(): ?bool {
-        return $this->allowEmailFromGuestUsers;
+        return $this->getBackingStore()->get('allowEmailFromGuestUsers');
     }
 
     /**
@@ -53,7 +38,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getAllowGuestUsers(): ?bool {
-        return $this->allowGuestUsers;
+        return $this->getBackingStore()->get('allowGuestUsers');
     }
 
     /**
@@ -74,7 +59,7 @@ class ProtectGroup extends LabelActionBase implements Parsable
      * @return GroupPrivacy|null
     */
     public function getPrivacy(): ?GroupPrivacy {
-        return $this->privacy;
+        return $this->getBackingStore()->get('privacy');
     }
 
     /**
@@ -83,33 +68,33 @@ class ProtectGroup extends LabelActionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowEmailFromGuestUsers', $this->allowEmailFromGuestUsers);
-        $writer->writeBooleanValue('allowGuestUsers', $this->allowGuestUsers);
-        $writer->writeEnumValue('privacy', $this->privacy);
+        $writer->writeBooleanValue('allowEmailFromGuestUsers', $this->getAllowEmailFromGuestUsers());
+        $writer->writeBooleanValue('allowGuestUsers', $this->getAllowGuestUsers());
+        $writer->writeEnumValue('privacy', $this->getPrivacy());
     }
 
     /**
      * Sets the allowEmailFromGuestUsers property value. The allowEmailFromGuestUsers property
      *  @param bool|null $value Value to set for the allowEmailFromGuestUsers property.
     */
-    public function setAllowEmailFromGuestUsers(?bool $value ): void {
-        $this->allowEmailFromGuestUsers = $value;
+    public function setAllowEmailFromGuestUsers(?bool $value): void {
+        $this->getBackingStore()->set('allowEmailFromGuestUsers', $value);
     }
 
     /**
      * Sets the allowGuestUsers property value. The allowGuestUsers property
      *  @param bool|null $value Value to set for the allowGuestUsers property.
     */
-    public function setAllowGuestUsers(?bool $value ): void {
-        $this->allowGuestUsers = $value;
+    public function setAllowGuestUsers(?bool $value): void {
+        $this->getBackingStore()->set('allowGuestUsers', $value);
     }
 
     /**
      * Sets the privacy property value. The privacy property
      *  @param GroupPrivacy|null $value Value to set for the privacy property.
     */
-    public function setPrivacy(?GroupPrivacy $value ): void {
-        $this->privacy = $value;
+    public function setPrivacy(?GroupPrivacy $value): void {
+        $this->getBackingStore()->set('privacy', $value);
     }
 
 }

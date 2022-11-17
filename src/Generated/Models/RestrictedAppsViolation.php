@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RestrictedAppsViolation extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceConfigurationId Device configuration profile unique identifier, must be Guid
-    */
-    private ?string $deviceConfigurationId = null;
-    
-    /**
-     * @var string|null $deviceConfigurationName Device configuration profile name
-    */
-    private ?string $deviceConfigurationName = null;
-    
-    /**
-     * @var string|null $deviceName Device name
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $managedDeviceId Managed device unique identifier, must be Guid
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var PolicyPlatformType|null $platformType Supported platform types for policies.
-    */
-    private ?PolicyPlatformType $platformType = null;
-    
-    /**
-     * @var array<ManagedDeviceReportedApp>|null $restrictedApps List of violated restricted apps
-    */
-    private ?array $restrictedApps = null;
-    
-    /**
-     * @var RestrictedAppsState|null $restrictedAppsState Restricted apps state
-    */
-    private ?RestrictedAppsState $restrictedAppsState = null;
-    
-    /**
-     * @var string|null $userId User unique identifier, must be Guid
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userName User name
-    */
-    private ?string $userName = null;
-    
-    /**
      * Instantiates a new restrictedAppsViolation and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceConfigurationId(): ?string {
-        return $this->deviceConfigurationId;
+        return $this->getBackingStore()->get('deviceConfigurationId');
     }
 
     /**
@@ -83,7 +38,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceConfigurationName(): ?string {
-        return $this->deviceConfigurationName;
+        return $this->getBackingStore()->get('deviceConfigurationName');
     }
 
     /**
@@ -91,7 +46,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -118,7 +73,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -126,7 +81,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return PolicyPlatformType|null
     */
     public function getPlatformType(): ?PolicyPlatformType {
-        return $this->platformType;
+        return $this->getBackingStore()->get('platformType');
     }
 
     /**
@@ -134,7 +89,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return array<ManagedDeviceReportedApp>|null
     */
     public function getRestrictedApps(): ?array {
-        return $this->restrictedApps;
+        return $this->getBackingStore()->get('restrictedApps');
     }
 
     /**
@@ -142,7 +97,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return RestrictedAppsState|null
     */
     public function getRestrictedAppsState(): ?RestrictedAppsState {
-        return $this->restrictedAppsState;
+        return $this->getBackingStore()->get('restrictedAppsState');
     }
 
     /**
@@ -150,7 +105,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -158,7 +113,7 @@ class RestrictedAppsViolation extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -167,87 +122,87 @@ class RestrictedAppsViolation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceConfigurationId', $this->deviceConfigurationId);
-        $writer->writeStringValue('deviceConfigurationName', $this->deviceConfigurationName);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeEnumValue('platformType', $this->platformType);
-        $writer->writeCollectionOfObjectValues('restrictedApps', $this->restrictedApps);
-        $writer->writeEnumValue('restrictedAppsState', $this->restrictedAppsState);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userName', $this->userName);
+        $writer->writeStringValue('deviceConfigurationId', $this->getDeviceConfigurationId());
+        $writer->writeStringValue('deviceConfigurationName', $this->getDeviceConfigurationName());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeEnumValue('platformType', $this->getPlatformType());
+        $writer->writeCollectionOfObjectValues('restrictedApps', $this->getRestrictedApps());
+        $writer->writeEnumValue('restrictedAppsState', $this->getRestrictedAppsState());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userName', $this->getUserName());
     }
 
     /**
      * Sets the deviceConfigurationId property value. Device configuration profile unique identifier, must be Guid
      *  @param string|null $value Value to set for the deviceConfigurationId property.
     */
-    public function setDeviceConfigurationId(?string $value ): void {
-        $this->deviceConfigurationId = $value;
+    public function setDeviceConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('deviceConfigurationId', $value);
     }
 
     /**
      * Sets the deviceConfigurationName property value. Device configuration profile name
      *  @param string|null $value Value to set for the deviceConfigurationName property.
     */
-    public function setDeviceConfigurationName(?string $value ): void {
-        $this->deviceConfigurationName = $value;
+    public function setDeviceConfigurationName(?string $value): void {
+        $this->getBackingStore()->set('deviceConfigurationName', $value);
     }
 
     /**
      * Sets the deviceName property value. Device name
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Managed device unique identifier, must be Guid
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the platformType property value. Supported platform types for policies.
      *  @param PolicyPlatformType|null $value Value to set for the platformType property.
     */
-    public function setPlatformType(?PolicyPlatformType $value ): void {
-        $this->platformType = $value;
+    public function setPlatformType(?PolicyPlatformType $value): void {
+        $this->getBackingStore()->set('platformType', $value);
     }
 
     /**
      * Sets the restrictedApps property value. List of violated restricted apps
      *  @param array<ManagedDeviceReportedApp>|null $value Value to set for the restrictedApps property.
     */
-    public function setRestrictedApps(?array $value ): void {
-        $this->restrictedApps = $value;
+    public function setRestrictedApps(?array $value): void {
+        $this->getBackingStore()->set('restrictedApps', $value);
     }
 
     /**
      * Sets the restrictedAppsState property value. Restricted apps state
      *  @param RestrictedAppsState|null $value Value to set for the restrictedAppsState property.
     */
-    public function setRestrictedAppsState(?RestrictedAppsState $value ): void {
-        $this->restrictedAppsState = $value;
+    public function setRestrictedAppsState(?RestrictedAppsState $value): void {
+        $this->getBackingStore()->set('restrictedAppsState', $value);
     }
 
     /**
      * Sets the userId property value. User unique identifier, must be Guid
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userName property value. User name
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
 }

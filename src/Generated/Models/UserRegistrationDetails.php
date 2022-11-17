@@ -9,66 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * @var DefaultMfaMethodType|null $defaultMfaMethod The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
-    */
-    private ?DefaultMfaMethodType $defaultMfaMethod = null;
-    
-    /**
-     * @var bool|null $isAdmin Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
-    */
-    private ?bool $isAdmin = null;
-    
-    /**
-     * @var bool|null $isMfaCapable Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
-    */
-    private ?bool $isMfaCapable = null;
-    
-    /**
-     * @var bool|null $isMfaRegistered Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq).
-    */
-    private ?bool $isMfaRegistered = null;
-    
-    /**
-     * @var bool|null $isPasswordlessCapable Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
-    */
-    private ?bool $isPasswordlessCapable = null;
-    
-    /**
-     * @var bool|null $isSsprCapable Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
-    */
-    private ?bool $isSsprCapable = null;
-    
-    /**
-     * @var bool|null $isSsprEnabled Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
-    */
-    private ?bool $isSsprEnabled = null;
-    
-    /**
-     * @var bool|null $isSsprRegistered Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
-    */
-    private ?bool $isSsprRegistered = null;
-    
-    /**
-     * @var array<string>|null $methodsRegistered Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
-    */
-    private ?array $methodsRegistered = null;
-    
-    /**
-     * @var string|null $userDisplayName The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
-    */
-    private ?string $userDisplayName = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderBy.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * @var SignInUserType|null $userType Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
-    */
-    private ?SignInUserType $userType = null;
-    
-    /**
      * Instantiates a new userRegistrationDetails and sets the default values.
     */
     public function __construct() {
@@ -90,7 +30,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return DefaultMfaMethodType|null
     */
     public function getDefaultMfaMethod(): ?DefaultMfaMethodType {
-        return $this->defaultMfaMethod;
+        return $this->getBackingStore()->get('defaultMfaMethod');
     }
 
     /**
@@ -120,7 +60,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAdmin(): ?bool {
-        return $this->isAdmin;
+        return $this->getBackingStore()->get('isAdmin');
     }
 
     /**
@@ -128,7 +68,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaCapable(): ?bool {
-        return $this->isMfaCapable;
+        return $this->getBackingStore()->get('isMfaCapable');
     }
 
     /**
@@ -136,7 +76,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaRegistered(): ?bool {
-        return $this->isMfaRegistered;
+        return $this->getBackingStore()->get('isMfaRegistered');
     }
 
     /**
@@ -144,7 +84,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsPasswordlessCapable(): ?bool {
-        return $this->isPasswordlessCapable;
+        return $this->getBackingStore()->get('isPasswordlessCapable');
     }
 
     /**
@@ -152,7 +92,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprCapable(): ?bool {
-        return $this->isSsprCapable;
+        return $this->getBackingStore()->get('isSsprCapable');
     }
 
     /**
@@ -160,7 +100,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprEnabled(): ?bool {
-        return $this->isSsprEnabled;
+        return $this->getBackingStore()->get('isSsprEnabled');
     }
 
     /**
@@ -168,7 +108,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSsprRegistered(): ?bool {
-        return $this->isSsprRegistered;
+        return $this->getBackingStore()->get('isSsprRegistered');
     }
 
     /**
@@ -176,7 +116,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getMethodsRegistered(): ?array {
-        return $this->methodsRegistered;
+        return $this->getBackingStore()->get('methodsRegistered');
     }
 
     /**
@@ -184,7 +124,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->userDisplayName;
+        return $this->getBackingStore()->get('userDisplayName');
     }
 
     /**
@@ -192,7 +132,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -200,7 +140,7 @@ class UserRegistrationDetails extends Entity implements Parsable
      * @return SignInUserType|null
     */
     public function getUserType(): ?SignInUserType {
-        return $this->userType;
+        return $this->getBackingStore()->get('userType');
     }
 
     /**
@@ -209,114 +149,114 @@ class UserRegistrationDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('defaultMfaMethod', $this->defaultMfaMethod);
-        $writer->writeBooleanValue('isAdmin', $this->isAdmin);
-        $writer->writeBooleanValue('isMfaCapable', $this->isMfaCapable);
-        $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
-        $writer->writeBooleanValue('isPasswordlessCapable', $this->isPasswordlessCapable);
-        $writer->writeBooleanValue('isSsprCapable', $this->isSsprCapable);
-        $writer->writeBooleanValue('isSsprEnabled', $this->isSsprEnabled);
-        $writer->writeBooleanValue('isSsprRegistered', $this->isSsprRegistered);
-        $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->methodsRegistered);
-        $writer->writeStringValue('userDisplayName', $this->userDisplayName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeEnumValue('userType', $this->userType);
+        $writer->writeEnumValue('defaultMfaMethod', $this->getDefaultMfaMethod());
+        $writer->writeBooleanValue('isAdmin', $this->getIsAdmin());
+        $writer->writeBooleanValue('isMfaCapable', $this->getIsMfaCapable());
+        $writer->writeBooleanValue('isMfaRegistered', $this->getIsMfaRegistered());
+        $writer->writeBooleanValue('isPasswordlessCapable', $this->getIsPasswordlessCapable());
+        $writer->writeBooleanValue('isSsprCapable', $this->getIsSsprCapable());
+        $writer->writeBooleanValue('isSsprEnabled', $this->getIsSsprEnabled());
+        $writer->writeBooleanValue('isSsprRegistered', $this->getIsSsprRegistered());
+        $writer->writeCollectionOfPrimitiveValues('methodsRegistered', $this->getMethodsRegistered());
+        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeEnumValue('userType', $this->getUserType());
     }
 
     /**
      * Sets the defaultMfaMethod property value. The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
      *  @param DefaultMfaMethodType|null $value Value to set for the defaultMfaMethod property.
     */
-    public function setDefaultMfaMethod(?DefaultMfaMethodType $value ): void {
-        $this->defaultMfaMethod = $value;
+    public function setDefaultMfaMethod(?DefaultMfaMethodType $value): void {
+        $this->getBackingStore()->set('defaultMfaMethod', $value);
     }
 
     /**
      * Sets the isAdmin property value. Whether the user has an admin role in the tenant. This value can be used to check the authentication methods that privileged accounts are registered for and capable of.
      *  @param bool|null $value Value to set for the isAdmin property.
     */
-    public function setIsAdmin(?bool $value ): void {
-        $this->isAdmin = $value;
+    public function setIsAdmin(?bool $value): void {
+        $this->getBackingStore()->set('isAdmin', $value);
     }
 
     /**
      * Sets the isMfaCapable property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
      *  @param bool|null $value Value to set for the isMfaCapable property.
     */
-    public function setIsMfaCapable(?bool $value ): void {
-        $this->isMfaCapable = $value;
+    public function setIsMfaCapable(?bool $value): void {
+        $this->getBackingStore()->set('isMfaCapable', $value);
     }
 
     /**
      * Sets the isMfaRegistered property value. Whether the user has registered a strong authentication method for multi-factor authentication. The method may not necessarily be allowed by the authentication methods policy.  Supports $filter (eq).
      *  @param bool|null $value Value to set for the isMfaRegistered property.
     */
-    public function setIsMfaRegistered(?bool $value ): void {
-        $this->isMfaRegistered = $value;
+    public function setIsMfaRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isMfaRegistered', $value);
     }
 
     /**
      * Sets the isPasswordlessCapable property value. Whether the user has registered a passwordless strong authentication method (including FIDO2, Windows Hello for Business, and Microsoft Authenticator (Passwordless)) that is allowed by the authentication methods policy. Supports $filter (eq).
      *  @param bool|null $value Value to set for the isPasswordlessCapable property.
     */
-    public function setIsPasswordlessCapable(?bool $value ): void {
-        $this->isPasswordlessCapable = $value;
+    public function setIsPasswordlessCapable(?bool $value): void {
+        $this->getBackingStore()->set('isPasswordlessCapable', $value);
     }
 
     /**
      * Sets the isSsprCapable property value. Whether the user has registered the required number of authentication methods for self-service password reset and the user is allowed to perform self-service password reset by policy. Supports $filter (eq).
      *  @param bool|null $value Value to set for the isSsprCapable property.
     */
-    public function setIsSsprCapable(?bool $value ): void {
-        $this->isSsprCapable = $value;
+    public function setIsSsprCapable(?bool $value): void {
+        $this->getBackingStore()->set('isSsprCapable', $value);
     }
 
     /**
      * Sets the isSsprEnabled property value. Whether the user is allowed to perform self-service password reset by policy. The user may not necessarily have registered the required number of authentication methods for self-service password reset. Supports $filter (eq).
      *  @param bool|null $value Value to set for the isSsprEnabled property.
     */
-    public function setIsSsprEnabled(?bool $value ): void {
-        $this->isSsprEnabled = $value;
+    public function setIsSsprEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isSsprEnabled', $value);
     }
 
     /**
      * Sets the isSsprRegistered property value. Whether the user has registered the required number of authentication methods for self-service password reset. The user may not necessarily be allowed to perform self-service password reset by policy. Supports $filter (eq).
      *  @param bool|null $value Value to set for the isSsprRegistered property.
     */
-    public function setIsSsprRegistered(?bool $value ): void {
-        $this->isSsprRegistered = $value;
+    public function setIsSsprRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isSsprRegistered', $value);
     }
 
     /**
      * Sets the methodsRegistered property value. Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
      *  @param array<string>|null $value Value to set for the methodsRegistered property.
     */
-    public function setMethodsRegistered(?array $value ): void {
-        $this->methodsRegistered = $value;
+    public function setMethodsRegistered(?array $value): void {
+        $this->getBackingStore()->set('methodsRegistered', $value);
     }
 
     /**
      * Sets the userDisplayName property value. The user display name, such as Adele Vance. Supports $filter (eq, startsWith) and $orderBy.
      *  @param string|null $value Value to set for the userDisplayName property.
     */
-    public function setUserDisplayName(?string $value ): void {
-        $this->userDisplayName = $value;
+    public function setUserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('userDisplayName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user principal name, such as AdeleV@contoso.com. Supports $filter (eq, startsWith) and $orderBy.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
     /**
      * Sets the userType property value. Identifies whether the user is a member or guest in the tenant. The possible values are: member, guest, unknownFutureValue.
      *  @param SignInUserType|null $value Value to set for the userType property.
     */
-    public function setUserType(?SignInUserType $value ): void {
-        $this->userType = $value;
+    public function setUserType(?SignInUserType $value): void {
+        $this->getBackingStore()->set('userType', $value);
     }
 
 }

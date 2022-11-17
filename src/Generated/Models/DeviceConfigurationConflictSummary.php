@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationConflictSummary extends Entity implements Parsable 
 {
     /**
-     * @var array<SettingSource>|null $conflictingDeviceConfigurations The set of policies in conflict with the given setting
-    */
-    private ?array $conflictingDeviceConfigurations = null;
-    
-    /**
-     * @var array<string>|null $contributingSettings The set of settings in conflict with the given policies
-    */
-    private ?array $contributingSettings = null;
-    
-    /**
-     * @var int|null $deviceCheckinsImpacted The count of checkins impacted by the conflicting policies and settings
-    */
-    private ?int $deviceCheckinsImpacted = null;
-    
-    /**
      * Instantiates a new deviceConfigurationConflictSummary and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return array<SettingSource>|null
     */
     public function getConflictingDeviceConfigurations(): ?array {
-        return $this->conflictingDeviceConfigurations;
+        return $this->getBackingStore()->get('conflictingDeviceConfigurations');
     }
 
     /**
@@ -53,7 +38,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getContributingSettings(): ?array {
-        return $this->contributingSettings;
+        return $this->getBackingStore()->get('contributingSettings');
     }
 
     /**
@@ -61,7 +46,7 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceCheckinsImpacted(): ?int {
-        return $this->deviceCheckinsImpacted;
+        return $this->getBackingStore()->get('deviceCheckinsImpacted');
     }
 
     /**
@@ -83,33 +68,33 @@ class DeviceConfigurationConflictSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('conflictingDeviceConfigurations', $this->conflictingDeviceConfigurations);
-        $writer->writeCollectionOfPrimitiveValues('contributingSettings', $this->contributingSettings);
-        $writer->writeIntegerValue('deviceCheckinsImpacted', $this->deviceCheckinsImpacted);
+        $writer->writeCollectionOfObjectValues('conflictingDeviceConfigurations', $this->getConflictingDeviceConfigurations());
+        $writer->writeCollectionOfPrimitiveValues('contributingSettings', $this->getContributingSettings());
+        $writer->writeIntegerValue('deviceCheckinsImpacted', $this->getDeviceCheckinsImpacted());
     }
 
     /**
      * Sets the conflictingDeviceConfigurations property value. The set of policies in conflict with the given setting
      *  @param array<SettingSource>|null $value Value to set for the conflictingDeviceConfigurations property.
     */
-    public function setConflictingDeviceConfigurations(?array $value ): void {
-        $this->conflictingDeviceConfigurations = $value;
+    public function setConflictingDeviceConfigurations(?array $value): void {
+        $this->getBackingStore()->set('conflictingDeviceConfigurations', $value);
     }
 
     /**
      * Sets the contributingSettings property value. The set of settings in conflict with the given policies
      *  @param array<string>|null $value Value to set for the contributingSettings property.
     */
-    public function setContributingSettings(?array $value ): void {
-        $this->contributingSettings = $value;
+    public function setContributingSettings(?array $value): void {
+        $this->getBackingStore()->set('contributingSettings', $value);
     }
 
     /**
      * Sets the deviceCheckinsImpacted property value. The count of checkins impacted by the conflicting policies and settings
      *  @param int|null $value Value to set for the deviceCheckinsImpacted property.
     */
-    public function setDeviceCheckinsImpacted(?int $value ): void {
-        $this->deviceCheckinsImpacted = $value;
+    public function setDeviceCheckinsImpacted(?int $value): void {
+        $this->getBackingStore()->set('deviceCheckinsImpacted', $value);
     }
 
 }

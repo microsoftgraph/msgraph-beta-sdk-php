@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistrantBase extends Entity implements Parsable 
 {
     /**
-     * @var string|null $joinWebUrl A unique web URL for the registrant to join the meeting. Read-only.
-    */
-    private ?string $joinWebUrl = null;
-    
-    /**
      * Instantiates a new meetingRegistrantBase and sets the default values.
     */
     public function __construct() {
@@ -54,7 +49,7 @@ class MeetingRegistrantBase extends Entity implements Parsable
      * @return string|null
     */
     public function getJoinWebUrl(): ?string {
-        return $this->joinWebUrl;
+        return $this->getBackingStore()->get('joinWebUrl');
     }
 
     /**
@@ -63,15 +58,15 @@ class MeetingRegistrantBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('joinWebUrl', $this->joinWebUrl);
+        $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
     }
 
     /**
      * Sets the joinWebUrl property value. A unique web URL for the registrant to join the meeting. Read-only.
      *  @param string|null $value Value to set for the joinWebUrl property.
     */
-    public function setJoinWebUrl(?string $value ): void {
-        $this->joinWebUrl = $value;
+    public function setJoinWebUrl(?string $value): void {
+        $this->getBackingStore()->set('joinWebUrl', $value);
     }
 
 }

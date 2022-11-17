@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupWritebackConfiguration extends WritebackConfiguration implements Parsable 
 {
     /**
-     * @var string|null $onPremisesGroupType Indicates the target on-premise group type the cloud object will be written back as. Nullable. The possible values are: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup.If the cloud group is a unified (Microsoft 365) group, this property can be one of the following: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup. Azure AD security groups can be written back as universalSecurityGroup. If isEnabled or the NewUnifiedGroupWritebackDefault group setting is true but this property is not explicitly configured: Microsoft 365 groups will be written back as universalDistributionGroup by defaultSecurity groups will be written back as universalSecurityGroup by default
-    */
-    private ?string $onPremisesGroupType = null;
-    
-    /**
      * Instantiates a new GroupWritebackConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
      * @return string|null
     */
     public function getOnPremisesGroupType(): ?string {
-        return $this->onPremisesGroupType;
+        return $this->getBackingStore()->get('onPremisesGroupType');
     }
 
     /**
@@ -55,15 +50,15 @@ class GroupWritebackConfiguration extends WritebackConfiguration implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('onPremisesGroupType', $this->onPremisesGroupType);
+        $writer->writeStringValue('onPremisesGroupType', $this->getOnPremisesGroupType());
     }
 
     /**
      * Sets the onPremisesGroupType property value. Indicates the target on-premise group type the cloud object will be written back as. Nullable. The possible values are: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup.If the cloud group is a unified (Microsoft 365) group, this property can be one of the following: universalDistributionGroup, universalSecurityGroup, universalMailEnabledSecurityGroup. Azure AD security groups can be written back as universalSecurityGroup. If isEnabled or the NewUnifiedGroupWritebackDefault group setting is true but this property is not explicitly configured: Microsoft 365 groups will be written back as universalDistributionGroup by defaultSecurity groups will be written back as universalSecurityGroup by default
      *  @param string|null $value Value to set for the onPremisesGroupType property.
     */
-    public function setOnPremisesGroupType(?string $value ): void {
-        $this->onPremisesGroupType = $value;
+    public function setOnPremisesGroupType(?string $value): void {
+        $this->getBackingStore()->set('onPremisesGroupType', $value);
     }
 
 }

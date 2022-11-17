@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity implements Parsable 
 {
     /**
-     * @var string|null $appDisplayName The friendly name of the application for which the event occurred.
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
-    private ?string $appPublisher = null;
-    
-    /**
-     * @var string|null $appVersion The version of the application.
-    */
-    private ?string $appVersion = null;
-    
-    /**
-     * @var string|null $deviceDisplayName The name of the device.
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var DateTime|null $eventDateTime The time the event occurred.
-    */
-    private ?DateTime $eventDateTime = null;
-    
-    /**
-     * @var string|null $eventType The type of the event.
-    */
-    private ?string $eventType = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAppHealthDevicePerformanceDetails and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -74,7 +39,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->appPublisher;
+        return $this->getBackingStore()->get('appPublisher');
     }
 
     /**
@@ -82,7 +47,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->appVersion;
+        return $this->getBackingStore()->get('appVersion');
     }
 
     /**
@@ -90,7 +55,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -98,7 +63,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -106,7 +71,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->eventDateTime;
+        return $this->getBackingStore()->get('eventDateTime');
     }
 
     /**
@@ -114,7 +79,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
      * @return string|null
     */
     public function getEventType(): ?string {
-        return $this->eventType;
+        return $this->getBackingStore()->get('eventType');
     }
 
     /**
@@ -140,69 +105,69 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeStringValue('appPublisher', $this->appPublisher);
-        $writer->writeStringValue('appVersion', $this->appVersion);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
-        $writer->writeStringValue('eventType', $this->eventType);
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeStringValue('appPublisher', $this->getAppPublisher());
+        $writer->writeStringValue('appVersion', $this->getAppVersion());
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeStringValue('eventType', $this->getEventType());
     }
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application for which the event occurred.
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
      *  @param string|null $value Value to set for the appPublisher property.
     */
-    public function setAppPublisher(?string $value ): void {
-        $this->appPublisher = $value;
+    public function setAppPublisher(?string $value): void {
+        $this->getBackingStore()->set('appPublisher', $value);
     }
 
     /**
      * Sets the appVersion property value. The version of the application.
      *  @param string|null $value Value to set for the appVersion property.
     */
-    public function setAppVersion(?string $value ): void {
-        $this->appVersion = $value;
+    public function setAppVersion(?string $value): void {
+        $this->getBackingStore()->set('appVersion', $value);
     }
 
     /**
      * Sets the deviceDisplayName property value. The name of the device.
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the deviceId property value. The id of the device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the eventDateTime property value. The time the event occurred.
      *  @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setEventDateTime(?DateTime $value ): void {
-        $this->eventDateTime = $value;
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
      * Sets the eventType property value. The type of the event.
      *  @param string|null $value Value to set for the eventType property.
     */
-    public function setEventType(?string $value ): void {
-        $this->eventType = $value;
+    public function setEventType(?string $value): void {
+        $this->getBackingStore()->set('eventType', $value);
     }
 
 }

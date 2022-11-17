@@ -7,78 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UnmanagedDevice implements AdditionalDataHolder, Parsable 
+class UnmanagedDevice implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceName Device name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $domain Domain.
-    */
-    private ?string $domain = null;
-    
-    /**
-     * @var string|null $ipAddress IP address.
-    */
-    private ?string $ipAddress = null;
-    
-    /**
-     * @var string|null $lastLoggedOnUser Last logged on user.
-    */
-    private ?string $lastLoggedOnUser = null;
-    
-    /**
-     * @var DateTime|null $lastSeenDateTime Last seen date and time.
-    */
-    private ?DateTime $lastSeenDateTime = null;
-    
-    /**
-     * @var string|null $location Location.
-    */
-    private ?string $location = null;
-    
-    /**
-     * @var string|null $macAddress MAC address.
-    */
-    private ?string $macAddress = null;
-    
-    /**
-     * @var string|null $manufacturer Manufacturer.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model Model.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $os Operating system.
-    */
-    private ?string $os = null;
-    
-    /**
-     * @var string|null $osVersion Operating system version.
-    */
-    private ?string $osVersion = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new unmanagedDevice and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.unmanagedDevice');
     }
@@ -96,8 +40,16 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -105,7 +57,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -113,7 +65,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDomain(): ?string {
-        return $this->domain;
+        return $this->getBackingStore()->get('domain');
     }
 
     /**
@@ -143,7 +95,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->ipAddress;
+        return $this->getBackingStore()->get('ipAddress');
     }
 
     /**
@@ -151,7 +103,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLastLoggedOnUser(): ?string {
-        return $this->lastLoggedOnUser;
+        return $this->getBackingStore()->get('lastLoggedOnUser');
     }
 
     /**
@@ -159,7 +111,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->lastSeenDateTime;
+        return $this->getBackingStore()->get('lastSeenDateTime');
     }
 
     /**
@@ -167,7 +119,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLocation(): ?string {
-        return $this->location;
+        return $this->getBackingStore()->get('location');
     }
 
     /**
@@ -175,7 +127,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMacAddress(): ?string {
-        return $this->macAddress;
+        return $this->getBackingStore()->get('macAddress');
     }
 
     /**
@@ -183,7 +135,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -191,7 +143,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -199,7 +151,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -207,7 +159,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOs(): ?string {
-        return $this->os;
+        return $this->getBackingStore()->get('os');
     }
 
     /**
@@ -215,7 +167,7 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -223,123 +175,123 @@ class UnmanagedDevice implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('domain', $this->domain);
-        $writer->writeStringValue('ipAddress', $this->ipAddress);
-        $writer->writeStringValue('lastLoggedOnUser', $this->lastLoggedOnUser);
-        $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
-        $writer->writeStringValue('location', $this->location);
-        $writer->writeStringValue('macAddress', $this->macAddress);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('os', $this->os);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('domain', $this->getDomain());
+        $writer->writeStringValue('ipAddress', $this->getIpAddress());
+        $writer->writeStringValue('lastLoggedOnUser', $this->getLastLoggedOnUser());
+        $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('location', $this->getLocation());
+        $writer->writeStringValue('macAddress', $this->getMacAddress());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('os', $this->getOs());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceName property value. Device name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the domain property value. Domain.
      *  @param string|null $value Value to set for the domain property.
     */
-    public function setDomain(?string $value ): void {
-        $this->domain = $value;
+    public function setDomain(?string $value): void {
+        $this->getBackingStore()->set('domain', $value);
     }
 
     /**
      * Sets the ipAddress property value. IP address.
      *  @param string|null $value Value to set for the ipAddress property.
     */
-    public function setIpAddress(?string $value ): void {
-        $this->ipAddress = $value;
+    public function setIpAddress(?string $value): void {
+        $this->getBackingStore()->set('ipAddress', $value);
     }
 
     /**
      * Sets the lastLoggedOnUser property value. Last logged on user.
      *  @param string|null $value Value to set for the lastLoggedOnUser property.
     */
-    public function setLastLoggedOnUser(?string $value ): void {
-        $this->lastLoggedOnUser = $value;
+    public function setLastLoggedOnUser(?string $value): void {
+        $this->getBackingStore()->set('lastLoggedOnUser', $value);
     }
 
     /**
      * Sets the lastSeenDateTime property value. Last seen date and time.
      *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
-    public function setLastSeenDateTime(?DateTime $value ): void {
-        $this->lastSeenDateTime = $value;
+    public function setLastSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSeenDateTime', $value);
     }
 
     /**
      * Sets the location property value. Location.
      *  @param string|null $value Value to set for the location property.
     */
-    public function setLocation(?string $value ): void {
-        $this->location = $value;
+    public function setLocation(?string $value): void {
+        $this->getBackingStore()->set('location', $value);
     }
 
     /**
      * Sets the macAddress property value. MAC address.
      *  @param string|null $value Value to set for the macAddress property.
     */
-    public function setMacAddress(?string $value ): void {
-        $this->macAddress = $value;
+    public function setMacAddress(?string $value): void {
+        $this->getBackingStore()->set('macAddress', $value);
     }
 
     /**
      * Sets the manufacturer property value. Manufacturer.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. Model.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the os property value. Operating system.
      *  @param string|null $value Value to set for the os property.
     */
-    public function setOs(?string $value ): void {
-        $this->os = $value;
+    public function setOs(?string $value): void {
+        $this->getBackingStore()->set('os', $value);
     }
 
     /**
      * Sets the osVersion property value. Operating system version.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
 }

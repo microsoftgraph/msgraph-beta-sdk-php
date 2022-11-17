@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleDefinition extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only).
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<UnifiedRoleDefinition>|null $inheritsPermissionsFrom Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
-    */
-    private ?array $inheritsPermissionsFrom = null;
-    
-    /**
-     * @var bool|null $isBuiltIn Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq operator only).
-    */
-    private ?bool $isBuiltIn = null;
-    
-    /**
-     * @var bool|null $isEnabled Flag indicating if the role is enabled for assignment. If false the role is not available for assignment. Read-only when isBuiltIn is true.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var array<string>|null $resourceScopes List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
-    */
-    private ?array $resourceScopes = null;
-    
-    /**
-     * @var array<UnifiedRolePermission>|null $rolePermissions List of permissions included in the role. Read-only when isBuiltIn is true. Required.
-    */
-    private ?array $rolePermissions = null;
-    
-    /**
-     * @var string|null $templateId Custom template identifier that can be set when isBuiltIn is false. This identifier is typically used if one needs an identifier to be the same across different directories. Read-only when isBuiltIn is true.
-    */
-    private ?string $templateId = null;
-    
-    /**
-     * @var string|null $version Indicates version of the unifiedRoleDefinition. Read-only when isBuiltIn is true.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new unifiedRoleDefinition and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -83,7 +38,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -110,7 +65,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<UnifiedRoleDefinition>|null
     */
     public function getInheritsPermissionsFrom(): ?array {
-        return $this->inheritsPermissionsFrom;
+        return $this->getBackingStore()->get('inheritsPermissionsFrom');
     }
 
     /**
@@ -118,7 +73,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->isBuiltIn;
+        return $this->getBackingStore()->get('isBuiltIn');
     }
 
     /**
@@ -126,7 +81,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -134,7 +89,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getResourceScopes(): ?array {
-        return $this->resourceScopes;
+        return $this->getBackingStore()->get('resourceScopes');
     }
 
     /**
@@ -142,7 +97,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return array<UnifiedRolePermission>|null
     */
     public function getRolePermissions(): ?array {
-        return $this->rolePermissions;
+        return $this->getBackingStore()->get('rolePermissions');
     }
 
     /**
@@ -150,7 +105,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -158,7 +113,7 @@ class UnifiedRoleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -167,87 +122,87 @@ class UnifiedRoleDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('inheritsPermissionsFrom', $this->inheritsPermissionsFrom);
-        $writer->writeBooleanValue('isBuiltIn', $this->isBuiltIn);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->resourceScopes);
-        $writer->writeCollectionOfObjectValues('rolePermissions', $this->rolePermissions);
-        $writer->writeStringValue('templateId', $this->templateId);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('inheritsPermissionsFrom', $this->getInheritsPermissionsFrom());
+        $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->getResourceScopes());
+        $writer->writeCollectionOfObjectValues('rolePermissions', $this->getRolePermissions());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the description property value. The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the unifiedRoleDefinition. Read-only when isBuiltIn is true. Required.  Supports $filter (eq and startsWith operators only).
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the inheritsPermissionsFrom property value. Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.
      *  @param array<UnifiedRoleDefinition>|null $value Value to set for the inheritsPermissionsFrom property.
     */
-    public function setInheritsPermissionsFrom(?array $value ): void {
-        $this->inheritsPermissionsFrom = $value;
+    public function setInheritsPermissionsFrom(?array $value): void {
+        $this->getBackingStore()->set('inheritsPermissionsFrom', $value);
     }
 
     /**
      * Sets the isBuiltIn property value. Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq operator only).
      *  @param bool|null $value Value to set for the isBuiltIn property.
     */
-    public function setIsBuiltIn(?bool $value ): void {
-        $this->isBuiltIn = $value;
+    public function setIsBuiltIn(?bool $value): void {
+        $this->getBackingStore()->set('isBuiltIn', $value);
     }
 
     /**
      * Sets the isEnabled property value. Flag indicating if the role is enabled for assignment. If false the role is not available for assignment. Read-only when isBuiltIn is true.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the resourceScopes property value. List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
      *  @param array<string>|null $value Value to set for the resourceScopes property.
     */
-    public function setResourceScopes(?array $value ): void {
-        $this->resourceScopes = $value;
+    public function setResourceScopes(?array $value): void {
+        $this->getBackingStore()->set('resourceScopes', $value);
     }
 
     /**
      * Sets the rolePermissions property value. List of permissions included in the role. Read-only when isBuiltIn is true. Required.
      *  @param array<UnifiedRolePermission>|null $value Value to set for the rolePermissions property.
     */
-    public function setRolePermissions(?array $value ): void {
-        $this->rolePermissions = $value;
+    public function setRolePermissions(?array $value): void {
+        $this->getBackingStore()->set('rolePermissions', $value);
     }
 
     /**
      * Sets the templateId property value. Custom template identifier that can be set when isBuiltIn is false. This identifier is typically used if one needs an identifier to be the same across different directories. Read-only when isBuiltIn is true.
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
     /**
      * Sets the version property value. Indicates version of the unifiedRoleDefinition. Read-only when isBuiltIn is true.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

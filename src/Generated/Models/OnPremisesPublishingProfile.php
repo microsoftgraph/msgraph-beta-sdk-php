@@ -9,42 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesPublishingProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<OnPremisesAgentGroup>|null $agentGroups List of existing onPremisesAgentGroup objects. Read-only. Nullable.
-    */
-    private ?array $agentGroups = null;
-    
-    /**
-     * @var array<OnPremisesAgent>|null $agents List of existing onPremisesAgent objects. Read-only. Nullable.
-    */
-    private ?array $agents = null;
-    
-    /**
-     * @var array<ConnectorGroup>|null $connectorGroups List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
-    */
-    private ?array $connectorGroups = null;
-    
-    /**
-     * @var array<Connector>|null $connectors List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
-    */
-    private ?array $connectors = null;
-    
-    /**
-     * @var HybridAgentUpdaterConfiguration|null $hybridAgentUpdaterConfiguration Represents a hybridAgentUpdaterConfiguration object.
-    */
-    private ?HybridAgentUpdaterConfiguration $hybridAgentUpdaterConfiguration = null;
-    
-    /**
-     * @var bool|null $isEnabled Represents if Azure AD Application Proxy is enabled for the tenant.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var array<PublishedResource>|null $publishedResources List of existing publishedResource objects. Read-only. Nullable.
-    */
-    private ?array $publishedResources = null;
-    
-    /**
-     * Instantiates a new OnPremisesPublishingProfile and sets the default values.
+     * Instantiates a new onPremisesPublishingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -65,7 +30,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<OnPremisesAgentGroup>|null
     */
     public function getAgentGroups(): ?array {
-        return $this->agentGroups;
+        return $this->getBackingStore()->get('agentGroups');
     }
 
     /**
@@ -73,7 +38,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<OnPremisesAgent>|null
     */
     public function getAgents(): ?array {
-        return $this->agents;
+        return $this->getBackingStore()->get('agents');
     }
 
     /**
@@ -81,7 +46,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<ConnectorGroup>|null
     */
     public function getConnectorGroups(): ?array {
-        return $this->connectorGroups;
+        return $this->getBackingStore()->get('connectorGroups');
     }
 
     /**
@@ -89,7 +54,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<Connector>|null
     */
     public function getConnectors(): ?array {
-        return $this->connectors;
+        return $this->getBackingStore()->get('connectors');
     }
 
     /**
@@ -114,7 +79,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return HybridAgentUpdaterConfiguration|null
     */
     public function getHybridAgentUpdaterConfiguration(): ?HybridAgentUpdaterConfiguration {
-        return $this->hybridAgentUpdaterConfiguration;
+        return $this->getBackingStore()->get('hybridAgentUpdaterConfiguration');
     }
 
     /**
@@ -122,7 +87,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -130,7 +95,7 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
      * @return array<PublishedResource>|null
     */
     public function getPublishedResources(): ?array {
-        return $this->publishedResources;
+        return $this->getBackingStore()->get('publishedResources');
     }
 
     /**
@@ -139,69 +104,69 @@ class OnPremisesPublishingProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('agentGroups', $this->agentGroups);
-        $writer->writeCollectionOfObjectValues('agents', $this->agents);
-        $writer->writeCollectionOfObjectValues('connectorGroups', $this->connectorGroups);
-        $writer->writeCollectionOfObjectValues('connectors', $this->connectors);
-        $writer->writeObjectValue('hybridAgentUpdaterConfiguration', $this->hybridAgentUpdaterConfiguration);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeCollectionOfObjectValues('publishedResources', $this->publishedResources);
+        $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
+        $writer->writeCollectionOfObjectValues('agents', $this->getAgents());
+        $writer->writeCollectionOfObjectValues('connectorGroups', $this->getConnectorGroups());
+        $writer->writeCollectionOfObjectValues('connectors', $this->getConnectors());
+        $writer->writeObjectValue('hybridAgentUpdaterConfiguration', $this->getHybridAgentUpdaterConfiguration());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
     }
 
     /**
      * Sets the agentGroups property value. List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      *  @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
     */
-    public function setAgentGroups(?array $value ): void {
-        $this->agentGroups = $value;
+    public function setAgentGroups(?array $value): void {
+        $this->getBackingStore()->set('agentGroups', $value);
     }
 
     /**
      * Sets the agents property value. List of existing onPremisesAgent objects. Read-only. Nullable.
      *  @param array<OnPremisesAgent>|null $value Value to set for the agents property.
     */
-    public function setAgents(?array $value ): void {
-        $this->agents = $value;
+    public function setAgents(?array $value): void {
+        $this->getBackingStore()->set('agents', $value);
     }
 
     /**
      * Sets the connectorGroups property value. List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      *  @param array<ConnectorGroup>|null $value Value to set for the connectorGroups property.
     */
-    public function setConnectorGroups(?array $value ): void {
-        $this->connectorGroups = $value;
+    public function setConnectorGroups(?array $value): void {
+        $this->getBackingStore()->set('connectorGroups', $value);
     }
 
     /**
      * Sets the connectors property value. List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
      *  @param array<Connector>|null $value Value to set for the connectors property.
     */
-    public function setConnectors(?array $value ): void {
-        $this->connectors = $value;
+    public function setConnectors(?array $value): void {
+        $this->getBackingStore()->set('connectors', $value);
     }
 
     /**
      * Sets the hybridAgentUpdaterConfiguration property value. Represents a hybridAgentUpdaterConfiguration object.
      *  @param HybridAgentUpdaterConfiguration|null $value Value to set for the hybridAgentUpdaterConfiguration property.
     */
-    public function setHybridAgentUpdaterConfiguration(?HybridAgentUpdaterConfiguration $value ): void {
-        $this->hybridAgentUpdaterConfiguration = $value;
+    public function setHybridAgentUpdaterConfiguration(?HybridAgentUpdaterConfiguration $value): void {
+        $this->getBackingStore()->set('hybridAgentUpdaterConfiguration', $value);
     }
 
     /**
      * Sets the isEnabled property value. Represents if Azure AD Application Proxy is enabled for the tenant.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the publishedResources property value. List of existing publishedResource objects. Read-only. Nullable.
      *  @param array<PublishedResource>|null $value Value to set for the publishedResources property.
     */
-    public function setPublishedResources(?array $value ): void {
-        $this->publishedResources = $value;
+    public function setPublishedResources(?array $value): void {
+        $this->getBackingStore()->set('publishedResources', $value);
     }
 
 }

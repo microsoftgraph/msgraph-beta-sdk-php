@@ -8,33 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsable 
+class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $managedDeviceIds The managedDeviceIds property
-    */
-    private ?array $managedDeviceIds = null;
-    
-    /**
-     * @var DateTime|null $restorePointDateTime The restorePointDateTime property
-    */
-    private ?DateTime $restorePointDateTime = null;
-    
-    /**
-     * @var RestoreTimeRange|null $timeRange The timeRange property
-    */
-    private ?RestoreTimeRange $timeRange = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new bulkRestoreCloudPcPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -51,8 +40,16 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -73,7 +70,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
-        return $this->managedDeviceIds;
+        return $this->getBackingStore()->get('managedDeviceIds');
     }
 
     /**
@@ -81,7 +78,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
      * @return DateTime|null
     */
     public function getRestorePointDateTime(): ?DateTime {
-        return $this->restorePointDateTime;
+        return $this->getBackingStore()->get('restorePointDateTime');
     }
 
     /**
@@ -89,7 +86,7 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
      * @return RestoreTimeRange|null
     */
     public function getTimeRange(): ?RestoreTimeRange {
-        return $this->timeRange;
+        return $this->getBackingStore()->get('timeRange');
     }
 
     /**
@@ -97,42 +94,42 @@ class BulkRestoreCloudPcPostRequestBody implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('managedDeviceIds', $this->managedDeviceIds);
-        $writer->writeDateTimeValue('restorePointDateTime', $this->restorePointDateTime);
-        $writer->writeEnumValue('timeRange', $this->timeRange);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('managedDeviceIds', $this->getManagedDeviceIds());
+        $writer->writeDateTimeValue('restorePointDateTime', $this->getRestorePointDateTime());
+        $writer->writeEnumValue('timeRange', $this->getTimeRange());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the managedDeviceIds property value. The managedDeviceIds property
      *  @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
-    public function setManagedDeviceIds(?array $value ): void {
-        $this->managedDeviceIds = $value;
+    public function setManagedDeviceIds(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceIds', $value);
     }
 
     /**
      * Sets the restorePointDateTime property value. The restorePointDateTime property
      *  @param DateTime|null $value Value to set for the restorePointDateTime property.
     */
-    public function setRestorePointDateTime(?DateTime $value ): void {
-        $this->restorePointDateTime = $value;
+    public function setRestorePointDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('restorePointDateTime', $value);
     }
 
     /**
      * Sets the timeRange property value. The timeRange property
      *  @param RestoreTimeRange|null $value Value to set for the timeRange property.
     */
-    public function setTimeRange(?RestoreTimeRange $value ): void {
-        $this->timeRange = $value;
+    public function setTimeRange(?RestoreTimeRange $value): void {
+        $this->getBackingStore()->set('timeRange', $value);
     }
 
 }

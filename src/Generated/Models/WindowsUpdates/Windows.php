@@ -10,12 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows extends Entity implements Parsable 
 {
     /**
-     * @var Updates|null $updates Entity that acts as a container for the functionality of the Windows Update for Business deployment service. Read-only.
-    */
-    private ?Updates $updates = null;
-    
-    /**
-     * Instantiates a new windows and sets the default values.
+     * Instantiates a new Windows and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -47,7 +42,7 @@ class Windows extends Entity implements Parsable
      * @return Updates|null
     */
     public function getUpdates(): ?Updates {
-        return $this->updates;
+        return $this->getBackingStore()->get('updates');
     }
 
     /**
@@ -56,15 +51,15 @@ class Windows extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('updates', $this->updates);
+        $writer->writeObjectValue('updates', $this->getUpdates());
     }
 
     /**
      * Sets the updates property value. Entity that acts as a container for the functionality of the Windows Update for Business deployment service. Read-only.
      *  @param Updates|null $value Value to set for the updates property.
     */
-    public function setUpdates(?Updates $value ): void {
-        $this->updates = $value;
+    public function setUpdates(?Updates $value): void {
+        $this->getBackingStore()->set('updates', $value);
     }
 
 }

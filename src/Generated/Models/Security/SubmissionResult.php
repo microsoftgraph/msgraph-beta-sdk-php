@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SubmissionResult implements AdditionalDataHolder, Parsable 
+class SubmissionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var SubmissionResultCategory|null $category The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.
-    */
-    private ?SubmissionResultCategory $category = null;
-    
-    /**
-     * @var SubmissionResultDetail|null $detail Specifies the additional details provided by Microsoft to substantiate their analysis result.
-    */
-    private ?SubmissionResultDetail $detail = null;
-    
-    /**
-     * @var array<SubmissionDetectedFile>|null $detectedFiles Specifies the files detected by Microsoft in the submitted emails.
-    */
-    private ?array $detectedFiles = null;
-    
-    /**
-     * @var array<string>|null $detectedUrls Specifes the URLs detected by Microsoft in the submitted email.
-    */
-    private ?array $detectedUrls = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var UserMailboxSetting|null $userMailboxSetting Specifies the setting for user mailbox denoted by a comma-separated string.
-    */
-    private ?UserMailboxSetting $userMailboxSetting = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new submissionResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.security.submissionResult');
     }
@@ -65,8 +39,16 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return SubmissionResultCategory|null
     */
     public function getCategory(): ?SubmissionResultCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -82,7 +64,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return SubmissionResultDetail|null
     */
     public function getDetail(): ?SubmissionResultDetail {
-        return $this->detail;
+        return $this->getBackingStore()->get('detail');
     }
 
     /**
@@ -90,7 +72,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return array<SubmissionDetectedFile>|null
     */
     public function getDetectedFiles(): ?array {
-        return $this->detectedFiles;
+        return $this->getBackingStore()->get('detectedFiles');
     }
 
     /**
@@ -98,7 +80,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDetectedUrls(): ?array {
-        return $this->detectedUrls;
+        return $this->getBackingStore()->get('detectedUrls');
     }
 
     /**
@@ -122,7 +104,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -130,7 +112,7 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @return UserMailboxSetting|null
     */
     public function getUserMailboxSetting(): ?UserMailboxSetting {
-        return $this->userMailboxSetting;
+        return $this->getBackingStore()->get('userMailboxSetting');
     }
 
     /**
@@ -138,69 +120,69 @@ class SubmissionResult implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeEnumValue('detail', $this->detail);
-        $writer->writeCollectionOfObjectValues('detectedFiles', $this->detectedFiles);
-        $writer->writeCollectionOfPrimitiveValues('detectedUrls', $this->detectedUrls);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('userMailboxSetting', $this->userMailboxSetting);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeEnumValue('detail', $this->getDetail());
+        $writer->writeCollectionOfObjectValues('detectedFiles', $this->getDetectedFiles());
+        $writer->writeCollectionOfPrimitiveValues('detectedUrls', $this->getDetectedUrls());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('userMailboxSetting', $this->getUserMailboxSetting());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the category property value. The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.
      *  @param SubmissionResultCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?SubmissionResultCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?SubmissionResultCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the detail property value. Specifies the additional details provided by Microsoft to substantiate their analysis result.
      *  @param SubmissionResultDetail|null $value Value to set for the detail property.
     */
-    public function setDetail(?SubmissionResultDetail $value ): void {
-        $this->detail = $value;
+    public function setDetail(?SubmissionResultDetail $value): void {
+        $this->getBackingStore()->set('detail', $value);
     }
 
     /**
      * Sets the detectedFiles property value. Specifies the files detected by Microsoft in the submitted emails.
      *  @param array<SubmissionDetectedFile>|null $value Value to set for the detectedFiles property.
     */
-    public function setDetectedFiles(?array $value ): void {
-        $this->detectedFiles = $value;
+    public function setDetectedFiles(?array $value): void {
+        $this->getBackingStore()->set('detectedFiles', $value);
     }
 
     /**
      * Sets the detectedUrls property value. Specifes the URLs detected by Microsoft in the submitted email.
      *  @param array<string>|null $value Value to set for the detectedUrls property.
     */
-    public function setDetectedUrls(?array $value ): void {
-        $this->detectedUrls = $value;
+    public function setDetectedUrls(?array $value): void {
+        $this->getBackingStore()->set('detectedUrls', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the userMailboxSetting property value. Specifies the setting for user mailbox denoted by a comma-separated string.
      *  @param UserMailboxSetting|null $value Value to set for the userMailboxSetting property.
     */
-    public function setUserMailboxSetting(?UserMailboxSetting $value ): void {
-        $this->userMailboxSetting = $value;
+    public function setUserMailboxSetting(?UserMailboxSetting $value): void {
+        $this->getBackingStore()->set('userMailboxSetting', $value);
     }
 
 }

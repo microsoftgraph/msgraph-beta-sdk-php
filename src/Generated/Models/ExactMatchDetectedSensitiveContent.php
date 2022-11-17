@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
     /**
-     * @var array<SensitiveContentLocation>|null $matches The matches property
-    */
-    private ?array $matches = null;
-    
-    /**
      * Instantiates a new ExactMatchDetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
      * @return array<SensitiveContentLocation>|null
     */
     public function getMatches(): ?array {
-        return $this->matches;
+        return $this->getBackingStore()->get('matches');
     }
 
     /**
@@ -55,15 +50,15 @@ class ExactMatchDetectedSensitiveContent extends DetectedSensitiveContentBase im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('matches', $this->matches);
+        $writer->writeCollectionOfObjectValues('matches', $this->getMatches());
     }
 
     /**
      * Sets the matches property value. The matches property
      *  @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
     */
-    public function setMatches(?array $value ): void {
-        $this->matches = $value;
+    public function setMatches(?array $value): void {
+        $this->getBackingStore()->set('matches', $value);
     }
 
 }

@@ -10,21 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateCatalogItem extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name for the catalog item.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $endOfSupportDate The last supported date for a catalog item
-    */
-    private ?DateTime $endOfSupportDate = null;
-    
-    /**
-     * @var DateTime|null $releaseDateTime The date the catalog item was released
-    */
-    private ?DateTime $releaseDateTime = null;
-    
-    /**
      * Instantiates a new windowsUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
@@ -54,7 +39,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -62,7 +47,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndOfSupportDate(): ?DateTime {
-        return $this->endOfSupportDate;
+        return $this->getBackingStore()->get('endOfSupportDate');
     }
 
     /**
@@ -83,7 +68,7 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->releaseDateTime;
+        return $this->getBackingStore()->get('releaseDateTime');
     }
 
     /**
@@ -92,33 +77,33 @@ class WindowsUpdateCatalogItem extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('endOfSupportDate', $this->endOfSupportDate);
-        $writer->writeDateTimeValue('releaseDateTime', $this->releaseDateTime);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('endOfSupportDate', $this->getEndOfSupportDate());
+        $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
     }
 
     /**
      * Sets the displayName property value. The display name for the catalog item.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the endOfSupportDate property value. The last supported date for a catalog item
      *  @param DateTime|null $value Value to set for the endOfSupportDate property.
     */
-    public function setEndOfSupportDate(?DateTime $value ): void {
-        $this->endOfSupportDate = $value;
+    public function setEndOfSupportDate(?DateTime $value): void {
+        $this->getBackingStore()->set('endOfSupportDate', $value);
     }
 
     /**
      * Sets the releaseDateTime property value. The date the catalog item was released
      *  @param DateTime|null $value Value to set for the releaseDateTime property.
     */
-    public function setReleaseDateTime(?DateTime $value ): void {
-        $this->releaseDateTime = $value;
+    public function setReleaseDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('releaseDateTime', $value);
     }
 
 }

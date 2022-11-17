@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, Parsable 
+class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $folderIdentifier Unique identifier for the folder
-    */
-    private ?string $folderIdentifier = null;
-    
-    /**
-     * @var string|null $folderName Display name for the folder
-    */
-    private ?string $folderName = null;
-    
-    /**
-     * @var array<AndroidDeviceOwnerKioskModeFolderItem>|null $items Items to be added to managed folder. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $items = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new androidDeviceOwnerKioskModeManagedFolder and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.androidDeviceOwnerKioskModeManagedFolder');
     }
@@ -55,8 +39,16 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getFolderIdentifier(): ?string {
-        return $this->folderIdentifier;
+        return $this->getBackingStore()->get('folderIdentifier');
     }
 
     /**
@@ -86,7 +78,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getFolderName(): ?string {
-        return $this->folderName;
+        return $this->getBackingStore()->get('folderName');
     }
 
     /**
@@ -94,7 +86,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return array<AndroidDeviceOwnerKioskModeFolderItem>|null
     */
     public function getItems(): ?array {
-        return $this->items;
+        return $this->getBackingStore()->get('items');
     }
 
     /**
@@ -102,7 +94,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +102,51 @@ class AndroidDeviceOwnerKioskModeManagedFolder implements AdditionalDataHolder, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('folderIdentifier', $this->folderIdentifier);
-        $writer->writeStringValue('folderName', $this->folderName);
-        $writer->writeCollectionOfObjectValues('items', $this->items);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('folderIdentifier', $this->getFolderIdentifier());
+        $writer->writeStringValue('folderName', $this->getFolderName());
+        $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the folderIdentifier property value. Unique identifier for the folder
      *  @param string|null $value Value to set for the folderIdentifier property.
     */
-    public function setFolderIdentifier(?string $value ): void {
-        $this->folderIdentifier = $value;
+    public function setFolderIdentifier(?string $value): void {
+        $this->getBackingStore()->set('folderIdentifier', $value);
     }
 
     /**
      * Sets the folderName property value. Display name for the folder
      *  @param string|null $value Value to set for the folderName property.
     */
-    public function setFolderName(?string $value ): void {
-        $this->folderName = $value;
+    public function setFolderName(?string $value): void {
+        $this->getBackingStore()->set('folderName', $value);
     }
 
     /**
      * Sets the items property value. Items to be added to managed folder. This collection can contain a maximum of 500 elements.
      *  @param array<AndroidDeviceOwnerKioskModeFolderItem>|null $value Value to set for the items property.
     */
-    public function setItems(?array $value ): void {
-        $this->items = $value;
+    public function setItems(?array $value): void {
+        $this->getBackingStore()->set('items', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

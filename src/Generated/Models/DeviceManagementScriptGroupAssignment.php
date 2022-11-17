@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementScriptGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $targetGroupId The Id of the Azure Active Directory group we are targeting the script to.
-    */
-    private ?string $targetGroupId = null;
-    
-    /**
      * Instantiates a new deviceManagementScriptGroupAssignment and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementScriptGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->targetGroupId;
+        return $this->getBackingStore()->get('targetGroupId');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementScriptGroupAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetGroupId', $this->targetGroupId);
+        $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 
     /**
      * Sets the targetGroupId property value. The Id of the Azure Active Directory group we are targeting the script to.
      *  @param string|null $value Value to set for the targetGroupId property.
     */
-    public function setTargetGroupId(?string $value ): void {
-        $this->targetGroupId = $value;
+    public function setTargetGroupId(?string $value): void {
+        $this->getBackingStore()->set('targetGroupId', $value);
     }
 
 }

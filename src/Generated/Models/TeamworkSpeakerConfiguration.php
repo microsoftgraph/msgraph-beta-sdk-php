@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkSpeakerConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var TeamworkPeripheral|null $defaultCommunicationSpeaker The defaultCommunicationSpeaker property
-    */
-    private ?TeamworkPeripheral $defaultCommunicationSpeaker = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $defaultSpeaker The defaultSpeaker property
-    */
-    private ?TeamworkPeripheral $defaultSpeaker = null;
-    
-    /**
-     * @var bool|null $isCommunicationSpeakerOptional True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional.
-    */
-    private ?bool $isCommunicationSpeakerOptional = null;
-    
-    /**
-     * @var bool|null $isSpeakerOptional True if the configured speaker is optional. Used to compute the health state if the speaker is not optional.
-    */
-    private ?bool $isSpeakerOptional = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<TeamworkPeripheral>|null $speakers The speakers property
-    */
-    private ?array $speakers = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkSpeakerConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkSpeakerConfiguration');
     }
@@ -65,8 +39,16 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getDefaultCommunicationSpeaker(): ?TeamworkPeripheral {
-        return $this->defaultCommunicationSpeaker;
+        return $this->getBackingStore()->get('defaultCommunicationSpeaker');
     }
 
     /**
@@ -82,7 +64,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getDefaultSpeaker(): ?TeamworkPeripheral {
-        return $this->defaultSpeaker;
+        return $this->getBackingStore()->get('defaultSpeaker');
     }
 
     /**
@@ -106,7 +88,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsCommunicationSpeakerOptional(): ?bool {
-        return $this->isCommunicationSpeakerOptional;
+        return $this->getBackingStore()->get('isCommunicationSpeakerOptional');
     }
 
     /**
@@ -114,7 +96,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsSpeakerOptional(): ?bool {
-        return $this->isSpeakerOptional;
+        return $this->getBackingStore()->get('isSpeakerOptional');
     }
 
     /**
@@ -122,7 +104,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -130,7 +112,7 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @return array<TeamworkPeripheral>|null
     */
     public function getSpeakers(): ?array {
-        return $this->speakers;
+        return $this->getBackingStore()->get('speakers');
     }
 
     /**
@@ -138,69 +120,69 @@ class TeamworkSpeakerConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('defaultCommunicationSpeaker', $this->defaultCommunicationSpeaker);
-        $writer->writeObjectValue('defaultSpeaker', $this->defaultSpeaker);
-        $writer->writeBooleanValue('isCommunicationSpeakerOptional', $this->isCommunicationSpeakerOptional);
-        $writer->writeBooleanValue('isSpeakerOptional', $this->isSpeakerOptional);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('speakers', $this->speakers);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('defaultCommunicationSpeaker', $this->getDefaultCommunicationSpeaker());
+        $writer->writeObjectValue('defaultSpeaker', $this->getDefaultSpeaker());
+        $writer->writeBooleanValue('isCommunicationSpeakerOptional', $this->getIsCommunicationSpeakerOptional());
+        $writer->writeBooleanValue('isSpeakerOptional', $this->getIsSpeakerOptional());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('speakers', $this->getSpeakers());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the defaultCommunicationSpeaker property value. The defaultCommunicationSpeaker property
      *  @param TeamworkPeripheral|null $value Value to set for the defaultCommunicationSpeaker property.
     */
-    public function setDefaultCommunicationSpeaker(?TeamworkPeripheral $value ): void {
-        $this->defaultCommunicationSpeaker = $value;
+    public function setDefaultCommunicationSpeaker(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('defaultCommunicationSpeaker', $value);
     }
 
     /**
      * Sets the defaultSpeaker property value. The defaultSpeaker property
      *  @param TeamworkPeripheral|null $value Value to set for the defaultSpeaker property.
     */
-    public function setDefaultSpeaker(?TeamworkPeripheral $value ): void {
-        $this->defaultSpeaker = $value;
+    public function setDefaultSpeaker(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('defaultSpeaker', $value);
     }
 
     /**
      * Sets the isCommunicationSpeakerOptional property value. True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional.
      *  @param bool|null $value Value to set for the isCommunicationSpeakerOptional property.
     */
-    public function setIsCommunicationSpeakerOptional(?bool $value ): void {
-        $this->isCommunicationSpeakerOptional = $value;
+    public function setIsCommunicationSpeakerOptional(?bool $value): void {
+        $this->getBackingStore()->set('isCommunicationSpeakerOptional', $value);
     }
 
     /**
      * Sets the isSpeakerOptional property value. True if the configured speaker is optional. Used to compute the health state if the speaker is not optional.
      *  @param bool|null $value Value to set for the isSpeakerOptional property.
     */
-    public function setIsSpeakerOptional(?bool $value ): void {
-        $this->isSpeakerOptional = $value;
+    public function setIsSpeakerOptional(?bool $value): void {
+        $this->getBackingStore()->set('isSpeakerOptional', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the speakers property value. The speakers property
      *  @param array<TeamworkPeripheral>|null $value Value to set for the speakers property.
     */
-    public function setSpeakers(?array $value ): void {
-        $this->speakers = $value;
+    public function setSpeakers(?array $value): void {
+        $this->getBackingStore()->set('speakers', $value);
     }
 
 }

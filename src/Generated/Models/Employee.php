@@ -11,96 +11,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Employee extends Entity implements Parsable 
 {
     /**
-     * @var PostalAddressType|null $address The address property
-    */
-    private ?PostalAddressType $address = null;
-    
-    /**
-     * @var Date|null $birthDate The birthDate property
-    */
-    private ?Date $birthDate = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $email The email property
-    */
-    private ?string $email = null;
-    
-    /**
-     * @var Date|null $employmentDate The employmentDate property
-    */
-    private ?Date $employmentDate = null;
-    
-    /**
-     * @var string|null $givenName The givenName property
-    */
-    private ?string $givenName = null;
-    
-    /**
-     * @var string|null $jobTitle The jobTitle property
-    */
-    private ?string $jobTitle = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $middleName The middleName property
-    */
-    private ?string $middleName = null;
-    
-    /**
-     * @var string|null $mobilePhone The mobilePhone property
-    */
-    private ?string $mobilePhone = null;
-    
-    /**
-     * @var string|null $number The number property
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var string|null $personalEmail The personalEmail property
-    */
-    private ?string $personalEmail = null;
-    
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
-    private ?string $phoneNumber = null;
-    
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
-    private ?array $picture = null;
-    
-    /**
-     * @var string|null $statisticsGroupCode The statisticsGroupCode property
-    */
-    private ?string $statisticsGroupCode = null;
-    
-    /**
-     * @var string|null $status The status property
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var string|null $surname The surname property
-    */
-    private ?string $surname = null;
-    
-    /**
-     * @var Date|null $terminationDate The terminationDate property
-    */
-    private ?Date $terminationDate = null;
-    
-    /**
      * Instantiates a new employee and sets the default values.
     */
     public function __construct() {
@@ -122,7 +32,7 @@ class Employee extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getAddress(): ?PostalAddressType {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
     }
 
     /**
@@ -130,7 +40,7 @@ class Employee extends Entity implements Parsable
      * @return Date|null
     */
     public function getBirthDate(): ?Date {
-        return $this->birthDate;
+        return $this->getBackingStore()->get('birthDate');
     }
 
     /**
@@ -138,7 +48,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -146,7 +56,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -154,7 +64,7 @@ class Employee extends Entity implements Parsable
      * @return Date|null
     */
     public function getEmploymentDate(): ?Date {
-        return $this->employmentDate;
+        return $this->getBackingStore()->get('employmentDate');
     }
 
     /**
@@ -190,7 +100,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getGivenName(): ?string {
-        return $this->givenName;
+        return $this->getBackingStore()->get('givenName');
     }
 
     /**
@@ -198,7 +108,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getJobTitle(): ?string {
-        return $this->jobTitle;
+        return $this->getBackingStore()->get('jobTitle');
     }
 
     /**
@@ -206,7 +116,7 @@ class Employee extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -214,7 +124,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getMiddleName(): ?string {
-        return $this->middleName;
+        return $this->getBackingStore()->get('middleName');
     }
 
     /**
@@ -222,7 +132,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getMobilePhone(): ?string {
-        return $this->mobilePhone;
+        return $this->getBackingStore()->get('mobilePhone');
     }
 
     /**
@@ -230,7 +140,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -238,7 +148,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getPersonalEmail(): ?string {
-        return $this->personalEmail;
+        return $this->getBackingStore()->get('personalEmail');
     }
 
     /**
@@ -246,7 +156,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->phoneNumber;
+        return $this->getBackingStore()->get('phoneNumber');
     }
 
     /**
@@ -254,7 +164,7 @@ class Employee extends Entity implements Parsable
      * @return array<Picture>|null
     */
     public function getPicture(): ?array {
-        return $this->picture;
+        return $this->getBackingStore()->get('picture');
     }
 
     /**
@@ -262,7 +172,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getStatisticsGroupCode(): ?string {
-        return $this->statisticsGroupCode;
+        return $this->getBackingStore()->get('statisticsGroupCode');
     }
 
     /**
@@ -270,7 +180,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -278,7 +188,7 @@ class Employee extends Entity implements Parsable
      * @return string|null
     */
     public function getSurname(): ?string {
-        return $this->surname;
+        return $this->getBackingStore()->get('surname');
     }
 
     /**
@@ -286,7 +196,7 @@ class Employee extends Entity implements Parsable
      * @return Date|null
     */
     public function getTerminationDate(): ?Date {
-        return $this->terminationDate;
+        return $this->getBackingStore()->get('terminationDate');
     }
 
     /**
@@ -295,168 +205,168 @@ class Employee extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('address', $this->address);
-        $writer->writeDateValue('birthDate', $this->birthDate);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('email', $this->email);
-        $writer->writeDateValue('employmentDate', $this->employmentDate);
-        $writer->writeStringValue('givenName', $this->givenName);
-        $writer->writeStringValue('jobTitle', $this->jobTitle);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('middleName', $this->middleName);
-        $writer->writeStringValue('mobilePhone', $this->mobilePhone);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeStringValue('personalEmail', $this->personalEmail);
-        $writer->writeStringValue('phoneNumber', $this->phoneNumber);
-        $writer->writeCollectionOfObjectValues('picture', $this->picture);
-        $writer->writeStringValue('statisticsGroupCode', $this->statisticsGroupCode);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('surname', $this->surname);
-        $writer->writeDateValue('terminationDate', $this->terminationDate);
+        $writer->writeObjectValue('address', $this->getAddress());
+        $writer->writeDateValue('birthDate', $this->getBirthDate());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeDateValue('employmentDate', $this->getEmploymentDate());
+        $writer->writeStringValue('givenName', $this->getGivenName());
+        $writer->writeStringValue('jobTitle', $this->getJobTitle());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('middleName', $this->getMiddleName());
+        $writer->writeStringValue('mobilePhone', $this->getMobilePhone());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeStringValue('personalEmail', $this->getPersonalEmail());
+        $writer->writeStringValue('phoneNumber', $this->getPhoneNumber());
+        $writer->writeCollectionOfObjectValues('picture', $this->getPicture());
+        $writer->writeStringValue('statisticsGroupCode', $this->getStatisticsGroupCode());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeStringValue('surname', $this->getSurname());
+        $writer->writeDateValue('terminationDate', $this->getTerminationDate());
     }
 
     /**
      * Sets the address property value. The address property
      *  @param PostalAddressType|null $value Value to set for the address property.
     */
-    public function setAddress(?PostalAddressType $value ): void {
-        $this->address = $value;
+    public function setAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('address', $value);
     }
 
     /**
      * Sets the birthDate property value. The birthDate property
      *  @param Date|null $value Value to set for the birthDate property.
     */
-    public function setBirthDate(?Date $value ): void {
-        $this->birthDate = $value;
+    public function setBirthDate(?Date $value): void {
+        $this->getBackingStore()->set('birthDate', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the email property value. The email property
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
      * Sets the employmentDate property value. The employmentDate property
      *  @param Date|null $value Value to set for the employmentDate property.
     */
-    public function setEmploymentDate(?Date $value ): void {
-        $this->employmentDate = $value;
+    public function setEmploymentDate(?Date $value): void {
+        $this->getBackingStore()->set('employmentDate', $value);
     }
 
     /**
      * Sets the givenName property value. The givenName property
      *  @param string|null $value Value to set for the givenName property.
     */
-    public function setGivenName(?string $value ): void {
-        $this->givenName = $value;
+    public function setGivenName(?string $value): void {
+        $this->getBackingStore()->set('givenName', $value);
     }
 
     /**
      * Sets the jobTitle property value. The jobTitle property
      *  @param string|null $value Value to set for the jobTitle property.
     */
-    public function setJobTitle(?string $value ): void {
-        $this->jobTitle = $value;
+    public function setJobTitle(?string $value): void {
+        $this->getBackingStore()->set('jobTitle', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the middleName property value. The middleName property
      *  @param string|null $value Value to set for the middleName property.
     */
-    public function setMiddleName(?string $value ): void {
-        $this->middleName = $value;
+    public function setMiddleName(?string $value): void {
+        $this->getBackingStore()->set('middleName', $value);
     }
 
     /**
      * Sets the mobilePhone property value. The mobilePhone property
      *  @param string|null $value Value to set for the mobilePhone property.
     */
-    public function setMobilePhone(?string $value ): void {
-        $this->mobilePhone = $value;
+    public function setMobilePhone(?string $value): void {
+        $this->getBackingStore()->set('mobilePhone', $value);
     }
 
     /**
      * Sets the number property value. The number property
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the personalEmail property value. The personalEmail property
      *  @param string|null $value Value to set for the personalEmail property.
     */
-    public function setPersonalEmail(?string $value ): void {
-        $this->personalEmail = $value;
+    public function setPersonalEmail(?string $value): void {
+        $this->getBackingStore()->set('personalEmail', $value);
     }
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
      *  @param string|null $value Value to set for the phoneNumber property.
     */
-    public function setPhoneNumber(?string $value ): void {
-        $this->phoneNumber = $value;
+    public function setPhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('phoneNumber', $value);
     }
 
     /**
      * Sets the picture property value. The picture property
      *  @param array<Picture>|null $value Value to set for the picture property.
     */
-    public function setPicture(?array $value ): void {
-        $this->picture = $value;
+    public function setPicture(?array $value): void {
+        $this->getBackingStore()->set('picture', $value);
     }
 
     /**
      * Sets the statisticsGroupCode property value. The statisticsGroupCode property
      *  @param string|null $value Value to set for the statisticsGroupCode property.
     */
-    public function setStatisticsGroupCode(?string $value ): void {
-        $this->statisticsGroupCode = $value;
+    public function setStatisticsGroupCode(?string $value): void {
+        $this->getBackingStore()->set('statisticsGroupCode', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the surname property value. The surname property
      *  @param string|null $value Value to set for the surname property.
     */
-    public function setSurname(?string $value ): void {
-        $this->surname = $value;
+    public function setSurname(?string $value): void {
+        $this->getBackingStore()->set('surname', $value);
     }
 
     /**
      * Sets the terminationDate property value. The terminationDate property
      *  @param Date|null $value Value to set for the terminationDate property.
     */
-    public function setTerminationDate(?Date $value ): void {
-        $this->terminationDate = $value;
+    public function setTerminationDate(?Date $value): void {
+        $this->getBackingStore()->set('terminationDate', $value);
     }
 
 }

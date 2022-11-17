@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhoneXAP extends MobileLobApp implements Parsable 
 {
     /**
-     * @var string|null $identityVersion The identity version.
-    */
-    private ?string $identityVersion = null;
-    
-    /**
-     * @var WindowsMinimumOperatingSystem|null $minimumSupportedOperatingSystem The minimum operating system required for a Windows mobile app.
-    */
-    private ?WindowsMinimumOperatingSystem $minimumSupportedOperatingSystem = null;
-    
-    /**
-     * @var string|null $productIdentifier The Product Identifier.
-    */
-    private ?string $productIdentifier = null;
-    
-    /**
      * Instantiates a new WindowsPhoneXAP and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
-        return $this->identityVersion;
+        return $this->getBackingStore()->get('identityVersion');
     }
 
     /**
@@ -66,7 +51,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return WindowsMinimumOperatingSystem|null
     */
     public function getMinimumSupportedOperatingSystem(): ?WindowsMinimumOperatingSystem {
-        return $this->minimumSupportedOperatingSystem;
+        return $this->getBackingStore()->get('minimumSupportedOperatingSystem');
     }
 
     /**
@@ -74,7 +59,7 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
      * @return string|null
     */
     public function getProductIdentifier(): ?string {
-        return $this->productIdentifier;
+        return $this->getBackingStore()->get('productIdentifier');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsPhoneXAP extends MobileLobApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('identityVersion', $this->identityVersion);
-        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->minimumSupportedOperatingSystem);
-        $writer->writeStringValue('productIdentifier', $this->productIdentifier);
+        $writer->writeStringValue('identityVersion', $this->getIdentityVersion());
+        $writer->writeObjectValue('minimumSupportedOperatingSystem', $this->getMinimumSupportedOperatingSystem());
+        $writer->writeStringValue('productIdentifier', $this->getProductIdentifier());
     }
 
     /**
      * Sets the identityVersion property value. The identity version.
      *  @param string|null $value Value to set for the identityVersion property.
     */
-    public function setIdentityVersion(?string $value ): void {
-        $this->identityVersion = $value;
+    public function setIdentityVersion(?string $value): void {
+        $this->getBackingStore()->set('identityVersion', $value);
     }
 
     /**
      * Sets the minimumSupportedOperatingSystem property value. The minimum operating system required for a Windows mobile app.
      *  @param WindowsMinimumOperatingSystem|null $value Value to set for the minimumSupportedOperatingSystem property.
     */
-    public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value ): void {
-        $this->minimumSupportedOperatingSystem = $value;
+    public function setMinimumSupportedOperatingSystem(?WindowsMinimumOperatingSystem $value): void {
+        $this->getBackingStore()->set('minimumSupportedOperatingSystem', $value);
     }
 
     /**
      * Sets the productIdentifier property value. The Product Identifier.
      *  @param string|null $value Value to set for the productIdentifier property.
     */
-    public function setProductIdentifier(?string $value ): void {
-        $this->productIdentifier = $value;
+    public function setProductIdentifier(?string $value): void {
+        $this->getBackingStore()->set('productIdentifier', $value);
     }
 
 }

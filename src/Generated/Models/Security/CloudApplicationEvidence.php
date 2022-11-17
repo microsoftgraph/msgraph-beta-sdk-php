@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var int|null $appId Unique identifier of the application.
-    */
-    private ?int $appId = null;
-    
-    /**
-     * @var string|null $displayName Name of the application.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $instanceId Identifier of the instance of the Software as a Service (SaaS) application.
-    */
-    private ?int $instanceId = null;
-    
-    /**
-     * @var string|null $instanceName Name of the instance of the SaaS application.
-    */
-    private ?string $instanceName = null;
-    
-    /**
-     * @var int|null $saasAppId The identifier of the SaaS application.
-    */
-    private ?int $saasAppId = null;
-    
-    /**
      * Instantiates a new CloudApplicationEvidence and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
      * @return int|null
     */
     public function getAppId(): ?int {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -63,7 +38,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -86,7 +61,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
      * @return int|null
     */
     public function getInstanceId(): ?int {
-        return $this->instanceId;
+        return $this->getBackingStore()->get('instanceId');
     }
 
     /**
@@ -94,7 +69,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getInstanceName(): ?string {
-        return $this->instanceName;
+        return $this->getBackingStore()->get('instanceName');
     }
 
     /**
@@ -102,7 +77,7 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
      * @return int|null
     */
     public function getSaasAppId(): ?int {
-        return $this->saasAppId;
+        return $this->getBackingStore()->get('saasAppId');
     }
 
     /**
@@ -111,51 +86,51 @@ class CloudApplicationEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('appId', $this->appId);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('instanceId', $this->instanceId);
-        $writer->writeStringValue('instanceName', $this->instanceName);
-        $writer->writeIntegerValue('saasAppId', $this->saasAppId);
+        $writer->writeIntegerValue('appId', $this->getAppId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('instanceId', $this->getInstanceId());
+        $writer->writeStringValue('instanceName', $this->getInstanceName());
+        $writer->writeIntegerValue('saasAppId', $this->getSaasAppId());
     }
 
     /**
      * Sets the appId property value. Unique identifier of the application.
      *  @param int|null $value Value to set for the appId property.
     */
-    public function setAppId(?int $value ): void {
-        $this->appId = $value;
+    public function setAppId(?int $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the application.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the instanceId property value. Identifier of the instance of the Software as a Service (SaaS) application.
      *  @param int|null $value Value to set for the instanceId property.
     */
-    public function setInstanceId(?int $value ): void {
-        $this->instanceId = $value;
+    public function setInstanceId(?int $value): void {
+        $this->getBackingStore()->set('instanceId', $value);
     }
 
     /**
      * Sets the instanceName property value. Name of the instance of the SaaS application.
      *  @param string|null $value Value to set for the instanceName property.
     */
-    public function setInstanceName(?string $value ): void {
-        $this->instanceName = $value;
+    public function setInstanceName(?string $value): void {
+        $this->getBackingStore()->set('instanceName', $value);
     }
 
     /**
      * Sets the saasAppId property value. The identifier of the SaaS application.
      *  @param int|null $value Value to set for the saasAppId property.
     */
-    public function setSaasAppId(?int $value ): void {
-        $this->saasAppId = $value;
+    public function setSaasAppId(?int $value): void {
+        $this->getBackingStore()->set('saasAppId', $value);
     }
 
 }

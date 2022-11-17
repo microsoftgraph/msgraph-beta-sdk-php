@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Parsable 
+class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $pubSubEncryption AES encryption Initialization Vector for encrypting client messages sent to PubSub
-    */
-    private ?string $pubSubEncryption = null;
-    
-    /**
-     * @var string|null $pubSubEncryptionKey The unique identifier for encrypting client messages sent to PubSub
-    */
-    private ?string $pubSubEncryptionKey = null;
-    
-    /**
-     * @var string|null $sessionKey The unique identifier for a session
-    */
-    private ?string $sessionKey = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new requestRemoteHelpSessionAccessResponse and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.requestRemoteHelpSessionAccessResponse');
     }
@@ -55,8 +39,16 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -86,7 +78,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getPubSubEncryption(): ?string {
-        return $this->pubSubEncryption;
+        return $this->getBackingStore()->get('pubSubEncryption');
     }
 
     /**
@@ -94,7 +86,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getPubSubEncryptionKey(): ?string {
-        return $this->pubSubEncryptionKey;
+        return $this->getBackingStore()->get('pubSubEncryptionKey');
     }
 
     /**
@@ -102,7 +94,7 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getSessionKey(): ?string {
-        return $this->sessionKey;
+        return $this->getBackingStore()->get('sessionKey');
     }
 
     /**
@@ -110,51 +102,51 @@ class RequestRemoteHelpSessionAccessResponse implements AdditionalDataHolder, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('pubSubEncryption', $this->pubSubEncryption);
-        $writer->writeStringValue('pubSubEncryptionKey', $this->pubSubEncryptionKey);
-        $writer->writeStringValue('sessionKey', $this->sessionKey);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('pubSubEncryption', $this->getPubSubEncryption());
+        $writer->writeStringValue('pubSubEncryptionKey', $this->getPubSubEncryptionKey());
+        $writer->writeStringValue('sessionKey', $this->getSessionKey());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the pubSubEncryption property value. AES encryption Initialization Vector for encrypting client messages sent to PubSub
      *  @param string|null $value Value to set for the pubSubEncryption property.
     */
-    public function setPubSubEncryption(?string $value ): void {
-        $this->pubSubEncryption = $value;
+    public function setPubSubEncryption(?string $value): void {
+        $this->getBackingStore()->set('pubSubEncryption', $value);
     }
 
     /**
      * Sets the pubSubEncryptionKey property value. The unique identifier for encrypting client messages sent to PubSub
      *  @param string|null $value Value to set for the pubSubEncryptionKey property.
     */
-    public function setPubSubEncryptionKey(?string $value ): void {
-        $this->pubSubEncryptionKey = $value;
+    public function setPubSubEncryptionKey(?string $value): void {
+        $this->getBackingStore()->set('pubSubEncryptionKey', $value);
     }
 
     /**
      * Sets the sessionKey property value. The unique identifier for a session
      *  @param string|null $value Value to set for the sessionKey property.
     */
-    public function setSessionKey(?string $value ): void {
-        $this->sessionKey = $value;
+    public function setSessionKey(?string $value): void {
+        $this->getBackingStore()->set('sessionKey', $value);
     }
 
 }

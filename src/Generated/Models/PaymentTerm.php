@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PaymentTerm extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $calculateDiscountOnCreditMemos The calculateDiscountOnCreditMemos property
-    */
-    private ?bool $calculateDiscountOnCreditMemos = null;
-    
-    /**
-     * @var string|null $code The code property
-    */
-    private ?string $code = null;
-    
-    /**
-     * @var string|null $discountDateCalculation The discountDateCalculation property
-    */
-    private ?string $discountDateCalculation = null;
-    
-    /**
-     * @var string|null $discountPercent The discountPercent property
-    */
-    private ?string $discountPercent = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $dueDateCalculation The dueDateCalculation property
-    */
-    private ?string $dueDateCalculation = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new paymentTerm and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return bool|null
     */
     public function getCalculateDiscountOnCreditMemos(): ?bool {
-        return $this->calculateDiscountOnCreditMemos;
+        return $this->getBackingStore()->get('calculateDiscountOnCreditMemos');
     }
 
     /**
@@ -74,7 +39,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->code;
+        return $this->getBackingStore()->get('code');
     }
 
     /**
@@ -82,7 +47,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountDateCalculation(): ?string {
-        return $this->discountDateCalculation;
+        return $this->getBackingStore()->get('discountDateCalculation');
     }
 
     /**
@@ -90,7 +55,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountPercent(): ?string {
-        return $this->discountPercent;
+        return $this->getBackingStore()->get('discountPercent');
     }
 
     /**
@@ -98,7 +63,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -106,7 +71,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return string|null
     */
     public function getDueDateCalculation(): ?string {
-        return $this->dueDateCalculation;
+        return $this->getBackingStore()->get('dueDateCalculation');
     }
 
     /**
@@ -131,7 +96,7 @@ class PaymentTerm extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -140,69 +105,69 @@ class PaymentTerm extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('calculateDiscountOnCreditMemos', $this->calculateDiscountOnCreditMemos);
-        $writer->writeStringValue('code', $this->code);
-        $writer->writeStringValue('discountDateCalculation', $this->discountDateCalculation);
-        $writer->writeStringValue('discountPercent', $this->discountPercent);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('dueDateCalculation', $this->dueDateCalculation);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeBooleanValue('calculateDiscountOnCreditMemos', $this->getCalculateDiscountOnCreditMemos());
+        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeStringValue('discountDateCalculation', $this->getDiscountDateCalculation());
+        $writer->writeStringValue('discountPercent', $this->getDiscountPercent());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('dueDateCalculation', $this->getDueDateCalculation());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the calculateDiscountOnCreditMemos property value. The calculateDiscountOnCreditMemos property
      *  @param bool|null $value Value to set for the calculateDiscountOnCreditMemos property.
     */
-    public function setCalculateDiscountOnCreditMemos(?bool $value ): void {
-        $this->calculateDiscountOnCreditMemos = $value;
+    public function setCalculateDiscountOnCreditMemos(?bool $value): void {
+        $this->getBackingStore()->set('calculateDiscountOnCreditMemos', $value);
     }
 
     /**
      * Sets the code property value. The code property
      *  @param string|null $value Value to set for the code property.
     */
-    public function setCode(?string $value ): void {
-        $this->code = $value;
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
      * Sets the discountDateCalculation property value. The discountDateCalculation property
      *  @param string|null $value Value to set for the discountDateCalculation property.
     */
-    public function setDiscountDateCalculation(?string $value ): void {
-        $this->discountDateCalculation = $value;
+    public function setDiscountDateCalculation(?string $value): void {
+        $this->getBackingStore()->set('discountDateCalculation', $value);
     }
 
     /**
      * Sets the discountPercent property value. The discountPercent property
      *  @param string|null $value Value to set for the discountPercent property.
     */
-    public function setDiscountPercent(?string $value ): void {
-        $this->discountPercent = $value;
+    public function setDiscountPercent(?string $value): void {
+        $this->getBackingStore()->set('discountPercent', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the dueDateCalculation property value. The dueDateCalculation property
      *  @param string|null $value Value to set for the dueDateCalculation property.
     */
-    public function setDueDateCalculation(?string $value ): void {
-        $this->dueDateCalculation = $value;
+    public function setDueDateCalculation(?string $value): void {
+        $this->getBackingStore()->set('dueDateCalculation', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

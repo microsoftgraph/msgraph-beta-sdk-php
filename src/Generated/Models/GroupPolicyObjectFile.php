@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyObjectFile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $content The Group Policy Object file content.
-    */
-    private ?string $content = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time at which the GroupPolicy was first uploaded.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $groupPolicyObjectId The Group Policy Object GUID from GPO Xml content
-    */
-    private ?string $groupPolicyObjectId = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time at which the GroupPolicyObjectFile was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $ouDistinguishedName The distinguished name of the OU.
-    */
-    private ?string $ouDistinguishedName = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds The list of scope tags for the configuration.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
      * Instantiates a new groupPolicyObjectFile and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return string|null
     */
     public function getContent(): ?string {
-        return $this->content;
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -69,7 +39,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -93,7 +63,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupPolicyObjectId(): ?string {
-        return $this->groupPolicyObjectId;
+        return $this->getBackingStore()->get('groupPolicyObjectId');
     }
 
     /**
@@ -101,7 +71,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -109,7 +79,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return string|null
     */
     public function getOuDistinguishedName(): ?string {
-        return $this->ouDistinguishedName;
+        return $this->getBackingStore()->get('ouDistinguishedName');
     }
 
     /**
@@ -117,7 +87,7 @@ class GroupPolicyObjectFile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -126,60 +96,60 @@ class GroupPolicyObjectFile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('content', $this->content);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('groupPolicyObjectId', $this->groupPolicyObjectId);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('ouDistinguishedName', $this->ouDistinguishedName);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
+        $writer->writeStringValue('content', $this->getContent());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('groupPolicyObjectId', $this->getGroupPolicyObjectId());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('ouDistinguishedName', $this->getOuDistinguishedName());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
     /**
      * Sets the content property value. The Group Policy Object file content.
      *  @param string|null $value Value to set for the content property.
     */
-    public function setContent(?string $value ): void {
-        $this->content = $value;
+    public function setContent(?string $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time at which the GroupPolicy was first uploaded.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the groupPolicyObjectId property value. The Group Policy Object GUID from GPO Xml content
      *  @param string|null $value Value to set for the groupPolicyObjectId property.
     */
-    public function setGroupPolicyObjectId(?string $value ): void {
-        $this->groupPolicyObjectId = $value;
+    public function setGroupPolicyObjectId(?string $value): void {
+        $this->getBackingStore()->set('groupPolicyObjectId', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time at which the GroupPolicyObjectFile was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the ouDistinguishedName property value. The distinguished name of the OU.
      *  @param string|null $value Value to set for the ouDistinguishedName property.
     */
-    public function setOuDistinguishedName(?string $value ): void {
-        $this->ouDistinguishedName = $value;
+    public function setOuDistinguishedName(?string $value): void {
+        $this->getBackingStore()->set('ouDistinguishedName', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. The list of scope tags for the configuration.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

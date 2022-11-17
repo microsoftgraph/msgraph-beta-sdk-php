@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TargetedManagedAppPolicyAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceAndAppManagementAssignmentSource|null $source Represents source of assignment.
-    */
-    private ?DeviceAndAppManagementAssignmentSource $source = null;
-    
-    /**
-     * @var string|null $sourceId Identifier for resource used for deployment to a group
-    */
-    private ?string $sourceId = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target Identifier for deployment to a group or app
-    */
-    private ?DeviceAndAppManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new targetedManagedAppPolicyAssignment and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class TargetedManagedAppPolicyAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
-        return $this->source;
+        return $this->getBackingStore()->get('source');
     }
 
     /**
@@ -66,7 +51,7 @@ class TargetedManagedAppPolicyAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceId(): ?string {
-        return $this->sourceId;
+        return $this->getBackingStore()->get('sourceId');
     }
 
     /**
@@ -74,7 +59,7 @@ class TargetedManagedAppPolicyAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -83,33 +68,33 @@ class TargetedManagedAppPolicyAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('source', $this->source);
-        $writer->writeStringValue('sourceId', $this->sourceId);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeEnumValue('source', $this->getSource());
+        $writer->writeStringValue('sourceId', $this->getSourceId());
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the source property value. Represents source of assignment.
      *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
-    public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {
-        $this->source = $value;
+    public function setSource(?DeviceAndAppManagementAssignmentSource $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the sourceId property value. Identifier for resource used for deployment to a group
      *  @param string|null $value Value to set for the sourceId property.
     */
-    public function setSourceId(?string $value ): void {
-        $this->sourceId = $value;
+    public function setSourceId(?string $value): void {
+        $this->getBackingStore()->set('sourceId', $value);
     }
 
     /**
      * Sets the target property value. Identifier for deployment to a group or app
      *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

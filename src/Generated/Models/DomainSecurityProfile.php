@@ -10,76 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DomainSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $activityGroupNames The activityGroupNames property
-    */
-    private ?array $activityGroupNames = null;
-    
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var int|null $countHits The countHits property
-    */
-    private ?int $countHits = null;
-    
-    /**
-     * @var int|null $countInOrg The countInOrg property
-    */
-    private ?int $countInOrg = null;
-    
-    /**
-     * @var array<ReputationCategory>|null $domainCategories The domainCategories property
-    */
-    private ?array $domainCategories = null;
-    
-    /**
-     * @var DateTime|null $domainRegisteredDateTime The domainRegisteredDateTime property
-    */
-    private ?DateTime $domainRegisteredDateTime = null;
-    
-    /**
-     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
-    */
-    private ?DateTime $firstSeenDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
-    */
-    private ?DateTime $lastSeenDateTime = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var DomainRegistrant|null $registrant The registrant property
-    */
-    private ?DomainRegistrant $registrant = null;
-    
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
-    private ?string $riskScore = null;
-    
-    /**
-     * @var array<string>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
-    private ?SecurityVendorInformation $vendorInformation = null;
-    
-    /**
      * Instantiates a new domainSecurityProfile and sets the default values.
     */
     public function __construct() {
@@ -101,7 +31,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getActivityGroupNames(): ?array {
-        return $this->activityGroupNames;
+        return $this->getBackingStore()->get('activityGroupNames');
     }
 
     /**
@@ -109,7 +39,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -117,7 +47,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -125,7 +55,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getCountHits(): ?int {
-        return $this->countHits;
+        return $this->getBackingStore()->get('countHits');
     }
 
     /**
@@ -133,7 +63,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getCountInOrg(): ?int {
-        return $this->countInOrg;
+        return $this->getBackingStore()->get('countInOrg');
     }
 
     /**
@@ -141,7 +71,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<ReputationCategory>|null
     */
     public function getDomainCategories(): ?array {
-        return $this->domainCategories;
+        return $this->getBackingStore()->get('domainCategories');
     }
 
     /**
@@ -149,7 +79,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDomainRegisteredDateTime(): ?DateTime {
-        return $this->domainRegisteredDateTime;
+        return $this->getBackingStore()->get('domainRegisteredDateTime');
     }
 
     /**
@@ -181,7 +111,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->firstSeenDateTime;
+        return $this->getBackingStore()->get('firstSeenDateTime');
     }
 
     /**
@@ -189,7 +119,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->lastSeenDateTime;
+        return $this->getBackingStore()->get('lastSeenDateTime');
     }
 
     /**
@@ -197,7 +127,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -205,7 +135,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return DomainRegistrant|null
     */
     public function getRegistrant(): ?DomainRegistrant {
-        return $this->registrant;
+        return $this->getBackingStore()->get('registrant');
     }
 
     /**
@@ -213,7 +143,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->riskScore;
+        return $this->getBackingStore()->get('riskScore');
     }
 
     /**
@@ -221,7 +151,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -229,7 +159,7 @@ class DomainSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->vendorInformation;
+        return $this->getBackingStore()->get('vendorInformation');
     }
 
     /**
@@ -238,132 +168,132 @@ class DomainSecurityProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('activityGroupNames', $this->activityGroupNames);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeIntegerValue('countHits', $this->countHits);
-        $writer->writeIntegerValue('countInOrg', $this->countInOrg);
-        $writer->writeCollectionOfObjectValues('domainCategories', $this->domainCategories);
-        $writer->writeDateTimeValue('domainRegisteredDateTime', $this->domainRegisteredDateTime);
-        $writer->writeDateTimeValue('firstSeenDateTime', $this->firstSeenDateTime);
-        $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('registrant', $this->registrant);
-        $writer->writeStringValue('riskScore', $this->riskScore);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
+        $writer->writeCollectionOfPrimitiveValues('activityGroupNames', $this->getActivityGroupNames());
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeIntegerValue('countHits', $this->getCountHits());
+        $writer->writeIntegerValue('countInOrg', $this->getCountInOrg());
+        $writer->writeCollectionOfObjectValues('domainCategories', $this->getDomainCategories());
+        $writer->writeDateTimeValue('domainRegisteredDateTime', $this->getDomainRegisteredDateTime());
+        $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
+        $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('registrant', $this->getRegistrant());
+        $writer->writeStringValue('riskScore', $this->getRiskScore());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
     }
 
     /**
      * Sets the activityGroupNames property value. The activityGroupNames property
      *  @param array<string>|null $value Value to set for the activityGroupNames property.
     */
-    public function setActivityGroupNames(?array $value ): void {
-        $this->activityGroupNames = $value;
+    public function setActivityGroupNames(?array $value): void {
+        $this->getBackingStore()->set('activityGroupNames', $value);
     }
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the countHits property value. The countHits property
      *  @param int|null $value Value to set for the countHits property.
     */
-    public function setCountHits(?int $value ): void {
-        $this->countHits = $value;
+    public function setCountHits(?int $value): void {
+        $this->getBackingStore()->set('countHits', $value);
     }
 
     /**
      * Sets the countInOrg property value. The countInOrg property
      *  @param int|null $value Value to set for the countInOrg property.
     */
-    public function setCountInOrg(?int $value ): void {
-        $this->countInOrg = $value;
+    public function setCountInOrg(?int $value): void {
+        $this->getBackingStore()->set('countInOrg', $value);
     }
 
     /**
      * Sets the domainCategories property value. The domainCategories property
      *  @param array<ReputationCategory>|null $value Value to set for the domainCategories property.
     */
-    public function setDomainCategories(?array $value ): void {
-        $this->domainCategories = $value;
+    public function setDomainCategories(?array $value): void {
+        $this->getBackingStore()->set('domainCategories', $value);
     }
 
     /**
      * Sets the domainRegisteredDateTime property value. The domainRegisteredDateTime property
      *  @param DateTime|null $value Value to set for the domainRegisteredDateTime property.
     */
-    public function setDomainRegisteredDateTime(?DateTime $value ): void {
-        $this->domainRegisteredDateTime = $value;
+    public function setDomainRegisteredDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('domainRegisteredDateTime', $value);
     }
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
      *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
-    public function setFirstSeenDateTime(?DateTime $value ): void {
-        $this->firstSeenDateTime = $value;
+    public function setFirstSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('firstSeenDateTime', $value);
     }
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
      *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
-    public function setLastSeenDateTime(?DateTime $value ): void {
-        $this->lastSeenDateTime = $value;
+    public function setLastSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSeenDateTime', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the registrant property value. The registrant property
      *  @param DomainRegistrant|null $value Value to set for the registrant property.
     */
-    public function setRegistrant(?DomainRegistrant $value ): void {
-        $this->registrant = $value;
+    public function setRegistrant(?DomainRegistrant $value): void {
+        $this->getBackingStore()->set('registrant', $value);
     }
 
     /**
      * Sets the riskScore property value. The riskScore property
      *  @param string|null $value Value to set for the riskScore property.
     */
-    public function setRiskScore(?string $value ): void {
-        $this->riskScore = $value;
+    public function setRiskScore(?string $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
-    public function setVendorInformation(?SecurityVendorInformation $value ): void {
-        $this->vendorInformation = $value;
+    public function setVendorInformation(?SecurityVendorInformation $value): void {
+        $this->getBackingStore()->set('vendorInformation', $value);
     }
 
 }

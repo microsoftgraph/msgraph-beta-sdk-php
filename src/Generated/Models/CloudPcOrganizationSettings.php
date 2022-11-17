@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOrganizationSettings extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $enableMEMAutoEnroll Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
-    */
-    private ?bool $enableMEMAutoEnroll = null;
-    
-    /**
-     * @var CloudPcOperatingSystem|null $osVersion The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
-    */
-    private ?CloudPcOperatingSystem $osVersion = null;
-    
-    /**
-     * @var CloudPcUserAccountType|null $userAccountType The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
-    */
-    private ?CloudPcUserAccountType $userAccountType = null;
-    
-    /**
-     * @var CloudPcWindowsSettings|null $windowsSettings Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
-    */
-    private ?CloudPcWindowsSettings $windowsSettings = null;
-    
-    /**
      * Instantiates a new CloudPcOrganizationSettings and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableMEMAutoEnroll(): ?bool {
-        return $this->enableMEMAutoEnroll;
+        return $this->getBackingStore()->get('enableMEMAutoEnroll');
     }
 
     /**
@@ -72,7 +52,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcOperatingSystem|null
     */
     public function getOsVersion(): ?CloudPcOperatingSystem {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -80,7 +60,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcUserAccountType|null
     */
     public function getUserAccountType(): ?CloudPcUserAccountType {
-        return $this->userAccountType;
+        return $this->getBackingStore()->get('userAccountType');
     }
 
     /**
@@ -88,7 +68,7 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
      * @return CloudPcWindowsSettings|null
     */
     public function getWindowsSettings(): ?CloudPcWindowsSettings {
-        return $this->windowsSettings;
+        return $this->getBackingStore()->get('windowsSettings');
     }
 
     /**
@@ -97,42 +77,42 @@ class CloudPcOrganizationSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('enableMEMAutoEnroll', $this->enableMEMAutoEnroll);
-        $writer->writeEnumValue('osVersion', $this->osVersion);
-        $writer->writeEnumValue('userAccountType', $this->userAccountType);
-        $writer->writeObjectValue('windowsSettings', $this->windowsSettings);
+        $writer->writeBooleanValue('enableMEMAutoEnroll', $this->getEnableMEMAutoEnroll());
+        $writer->writeEnumValue('osVersion', $this->getOsVersion());
+        $writer->writeEnumValue('userAccountType', $this->getUserAccountType());
+        $writer->writeObjectValue('windowsSettings', $this->getWindowsSettings());
     }
 
     /**
      * Sets the enableMEMAutoEnroll property value. Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
      *  @param bool|null $value Value to set for the enableMEMAutoEnroll property.
     */
-    public function setEnableMEMAutoEnroll(?bool $value ): void {
-        $this->enableMEMAutoEnroll = $value;
+    public function setEnableMEMAutoEnroll(?bool $value): void {
+        $this->getBackingStore()->set('enableMEMAutoEnroll', $value);
     }
 
     /**
      * Sets the osVersion property value. The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
      *  @param CloudPcOperatingSystem|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?CloudPcOperatingSystem $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?CloudPcOperatingSystem $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the userAccountType property value. The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.
      *  @param CloudPcUserAccountType|null $value Value to set for the userAccountType property.
     */
-    public function setUserAccountType(?CloudPcUserAccountType $value ): void {
-        $this->userAccountType = $value;
+    public function setUserAccountType(?CloudPcUserAccountType $value): void {
+        $this->getBackingStore()->set('userAccountType', $value);
     }
 
     /**
      * Sets the windowsSettings property value. Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.
      *  @param CloudPcWindowsSettings|null $value Value to set for the windowsSettings property.
     */
-    public function setWindowsSettings(?CloudPcWindowsSettings $value ): void {
-        $this->windowsSettings = $value;
+    public function setWindowsSettings(?CloudPcWindowsSettings $value): void {
+        $this->getBackingStore()->set('windowsSettings', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutlookTaskFolder extends Entity implements Parsable 
 {
     /**
-     * @var string|null $changeKey The version of the task folder.
-    */
-    private ?string $changeKey = null;
-    
-    /**
-     * @var bool|null $isDefaultFolder True if the folder is the default task folder.
-    */
-    private ?bool $isDefaultFolder = null;
-    
-    /**
-     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
-    */
-    private ?array $multiValueExtendedProperties = null;
-    
-    /**
-     * @var string|null $name The name of the task folder.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $parentGroupKey The unique GUID identifier for the task folder's parent group.
-    */
-    private ?string $parentGroupKey = null;
-    
-    /**
-     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
-    */
-    private ?array $singleValueExtendedProperties = null;
-    
-    /**
-     * @var array<OutlookTask>|null $tasks The tasks in this task folder. Read-only. Nullable.
-    */
-    private ?array $tasks = null;
-    
-    /**
      * Instantiates a new outlookTaskFolder and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getChangeKey(): ?string {
-        return $this->changeKey;
+        return $this->getBackingStore()->get('changeKey');
     }
 
     /**
@@ -90,7 +55,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultFolder(): ?bool {
-        return $this->isDefaultFolder;
+        return $this->getBackingStore()->get('isDefaultFolder');
     }
 
     /**
@@ -98,7 +63,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->multiValueExtendedProperties;
+        return $this->getBackingStore()->get('multiValueExtendedProperties');
     }
 
     /**
@@ -106,7 +71,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -114,7 +79,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return string|null
     */
     public function getParentGroupKey(): ?string {
-        return $this->parentGroupKey;
+        return $this->getBackingStore()->get('parentGroupKey');
     }
 
     /**
@@ -122,7 +87,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->singleValueExtendedProperties;
+        return $this->getBackingStore()->get('singleValueExtendedProperties');
     }
 
     /**
@@ -130,7 +95,7 @@ class OutlookTaskFolder extends Entity implements Parsable
      * @return array<OutlookTask>|null
     */
     public function getTasks(): ?array {
-        return $this->tasks;
+        return $this->getBackingStore()->get('tasks');
     }
 
     /**
@@ -139,69 +104,69 @@ class OutlookTaskFolder extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('changeKey', $this->changeKey);
-        $writer->writeBooleanValue('isDefaultFolder', $this->isDefaultFolder);
-        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->multiValueExtendedProperties);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('parentGroupKey', $this->parentGroupKey);
-        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->singleValueExtendedProperties);
-        $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
+        $writer->writeStringValue('changeKey', $this->getChangeKey());
+        $writer->writeBooleanValue('isDefaultFolder', $this->getIsDefaultFolder());
+        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('parentGroupKey', $this->getParentGroupKey());
+        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
     }
 
     /**
      * Sets the changeKey property value. The version of the task folder.
      *  @param string|null $value Value to set for the changeKey property.
     */
-    public function setChangeKey(?string $value ): void {
-        $this->changeKey = $value;
+    public function setChangeKey(?string $value): void {
+        $this->getBackingStore()->set('changeKey', $value);
     }
 
     /**
      * Sets the isDefaultFolder property value. True if the folder is the default task folder.
      *  @param bool|null $value Value to set for the isDefaultFolder property.
     */
-    public function setIsDefaultFolder(?bool $value ): void {
-        $this->isDefaultFolder = $value;
+    public function setIsDefaultFolder(?bool $value): void {
+        $this->getBackingStore()->set('isDefaultFolder', $value);
     }
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
      *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
-    public function setMultiValueExtendedProperties(?array $value ): void {
-        $this->multiValueExtendedProperties = $value;
+    public function setMultiValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('multiValueExtendedProperties', $value);
     }
 
     /**
      * Sets the name property value. The name of the task folder.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the parentGroupKey property value. The unique GUID identifier for the task folder's parent group.
      *  @param string|null $value Value to set for the parentGroupKey property.
     */
-    public function setParentGroupKey(?string $value ): void {
-        $this->parentGroupKey = $value;
+    public function setParentGroupKey(?string $value): void {
+        $this->getBackingStore()->set('parentGroupKey', $value);
     }
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
      *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
-    public function setSingleValueExtendedProperties(?array $value ): void {
-        $this->singleValueExtendedProperties = $value;
+    public function setSingleValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('singleValueExtendedProperties', $value);
     }
 
     /**
      * Sets the tasks property value. The tasks in this task folder. Read-only. Nullable.
      *  @param array<OutlookTask>|null $value Value to set for the tasks property.
     */
-    public function setTasks(?array $value ): void {
-        $this->tasks = $value;
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
 }

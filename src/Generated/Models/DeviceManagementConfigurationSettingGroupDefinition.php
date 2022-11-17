@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * @var array<string>|null $childIds Dependent child settings to this group of settings
-    */
-    private ?array $childIds = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingDependedOnBy>|null $dependedOnBy List of child settings that depend on this setting
-    */
-    private ?array $dependedOnBy = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationDependentOn>|null $dependentOn List of Dependencies for the setting group
-    */
-    private ?array $dependentOn = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSettingGroupDefinition and sets the default values.
     */
     public function __construct() {
@@ -52,7 +37,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * @return array<string>|null
     */
     public function getChildIds(): ?array {
-        return $this->childIds;
+        return $this->getBackingStore()->get('childIds');
     }
 
     /**
@@ -60,7 +45,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * @return array<DeviceManagementConfigurationSettingDependedOnBy>|null
     */
     public function getDependedOnBy(): ?array {
-        return $this->dependedOnBy;
+        return $this->getBackingStore()->get('dependedOnBy');
     }
 
     /**
@@ -68,7 +53,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
      * @return array<DeviceManagementConfigurationDependentOn>|null
     */
     public function getDependentOn(): ?array {
-        return $this->dependentOn;
+        return $this->getBackingStore()->get('dependentOn');
     }
 
     /**
@@ -90,33 +75,33 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('childIds', $this->childIds);
-        $writer->writeCollectionOfObjectValues('dependedOnBy', $this->dependedOnBy);
-        $writer->writeCollectionOfObjectValues('dependentOn', $this->dependentOn);
+        $writer->writeCollectionOfPrimitiveValues('childIds', $this->getChildIds());
+        $writer->writeCollectionOfObjectValues('dependedOnBy', $this->getDependedOnBy());
+        $writer->writeCollectionOfObjectValues('dependentOn', $this->getDependentOn());
     }
 
     /**
      * Sets the childIds property value. Dependent child settings to this group of settings
      *  @param array<string>|null $value Value to set for the childIds property.
     */
-    public function setChildIds(?array $value ): void {
-        $this->childIds = $value;
+    public function setChildIds(?array $value): void {
+        $this->getBackingStore()->set('childIds', $value);
     }
 
     /**
      * Sets the dependedOnBy property value. List of child settings that depend on this setting
      *  @param array<DeviceManagementConfigurationSettingDependedOnBy>|null $value Value to set for the dependedOnBy property.
     */
-    public function setDependedOnBy(?array $value ): void {
-        $this->dependedOnBy = $value;
+    public function setDependedOnBy(?array $value): void {
+        $this->getBackingStore()->set('dependedOnBy', $value);
     }
 
     /**
      * Sets the dependentOn property value. List of Dependencies for the setting group
      *  @param array<DeviceManagementConfigurationDependentOn>|null $value Value to set for the dependentOn property.
     */
-    public function setDependentOn(?array $value ): void {
-        $this->dependentOn = $value;
+    public function setDependentOn(?array $value): void {
+        $this->getBackingStore()->set('dependentOn', $value);
     }
 
 }

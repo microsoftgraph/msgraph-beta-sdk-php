@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInSummary extends Entity implements Parsable 
 {
     /**
-     * @var string|null $appDisplayName Name of the application that the user signed into.
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var int|null $failedSignInCount Count of failed sign-ins made by the application.
-    */
-    private ?int $failedSignInCount = null;
-    
-    /**
-     * @var int|null $successfulSignInCount Count of successful sign-ins made by the application.
-    */
-    private ?int $successfulSignInCount = null;
-    
-    /**
-     * @var float|null $successPercentage Percentage of successful sign-ins made by the application.
-    */
-    private ?float $successPercentage = null;
-    
-    /**
      * Instantiates a new ApplicationSignInSummary and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -58,7 +38,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedSignInCount(): ?int {
-        return $this->failedSignInCount;
+        return $this->getBackingStore()->get('failedSignInCount');
     }
 
     /**
@@ -80,7 +60,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulSignInCount(): ?int {
-        return $this->successfulSignInCount;
+        return $this->getBackingStore()->get('successfulSignInCount');
     }
 
     /**
@@ -88,7 +68,7 @@ class ApplicationSignInSummary extends Entity implements Parsable
      * @return float|null
     */
     public function getSuccessPercentage(): ?float {
-        return $this->successPercentage;
+        return $this->getBackingStore()->get('successPercentage');
     }
 
     /**
@@ -97,42 +77,42 @@ class ApplicationSignInSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeIntegerValue('failedSignInCount', $this->failedSignInCount);
-        $writer->writeIntegerValue('successfulSignInCount', $this->successfulSignInCount);
-        $writer->writeFloatValue('successPercentage', $this->successPercentage);
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
+        $writer->writeIntegerValue('successfulSignInCount', $this->getSuccessfulSignInCount());
+        $writer->writeFloatValue('successPercentage', $this->getSuccessPercentage());
     }
 
     /**
      * Sets the appDisplayName property value. Name of the application that the user signed into.
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the failedSignInCount property value. Count of failed sign-ins made by the application.
      *  @param int|null $value Value to set for the failedSignInCount property.
     */
-    public function setFailedSignInCount(?int $value ): void {
-        $this->failedSignInCount = $value;
+    public function setFailedSignInCount(?int $value): void {
+        $this->getBackingStore()->set('failedSignInCount', $value);
     }
 
     /**
      * Sets the successfulSignInCount property value. Count of successful sign-ins made by the application.
      *  @param int|null $value Value to set for the successfulSignInCount property.
     */
-    public function setSuccessfulSignInCount(?int $value ): void {
-        $this->successfulSignInCount = $value;
+    public function setSuccessfulSignInCount(?int $value): void {
+        $this->getBackingStore()->set('successfulSignInCount', $value);
     }
 
     /**
      * Sets the successPercentage property value. Percentage of successful sign-ins made by the application.
      *  @param float|null $value Value to set for the successPercentage property.
     */
-    public function setSuccessPercentage(?float $value ): void {
-        $this->successPercentage = $value;
+    public function setSuccessPercentage(?float $value): void {
+        $this->getBackingStore()->set('successPercentage', $value);
     }
 
 }

@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DataClassificationService extends Entity implements Parsable 
 {
     /**
-     * @var array<JobResponseBase>|null $classifyFileJobs The classifyFileJobs property
-    */
-    private ?array $classifyFileJobs = null;
-    
-    /**
-     * @var array<JobResponseBase>|null $classifyTextJobs The classifyTextJobs property
-    */
-    private ?array $classifyTextJobs = null;
-    
-    /**
-     * @var array<JobResponseBase>|null $evaluateDlpPoliciesJobs The evaluateDlpPoliciesJobs property
-    */
-    private ?array $evaluateDlpPoliciesJobs = null;
-    
-    /**
-     * @var array<JobResponseBase>|null $evaluateLabelJobs The evaluateLabelJobs property
-    */
-    private ?array $evaluateLabelJobs = null;
-    
-    /**
-     * @var array<ExactMatchDataStore>|null $exactMatchDataStores The exactMatchDataStores property
-    */
-    private ?array $exactMatchDataStores = null;
-    
-    /**
-     * @var array<ExactMatchUploadAgent>|null $exactMatchUploadAgents The exactMatchUploadAgents property
-    */
-    private ?array $exactMatchUploadAgents = null;
-    
-    /**
-     * @var array<JobResponseBase>|null $jobs The jobs property
-    */
-    private ?array $jobs = null;
-    
-    /**
-     * @var array<SensitiveType>|null $sensitiveTypes The sensitiveTypes property
-    */
-    private ?array $sensitiveTypes = null;
-    
-    /**
-     * @var array<SensitivityLabel>|null $sensitivityLabels The sensitivityLabels property
-    */
-    private ?array $sensitivityLabels = null;
-    
-    /**
      * Instantiates a new DataClassificationService and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getClassifyFileJobs(): ?array {
-        return $this->classifyFileJobs;
+        return $this->getBackingStore()->get('classifyFileJobs');
     }
 
     /**
@@ -83,7 +38,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getClassifyTextJobs(): ?array {
-        return $this->classifyTextJobs;
+        return $this->getBackingStore()->get('classifyTextJobs');
     }
 
     /**
@@ -91,7 +46,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getEvaluateDlpPoliciesJobs(): ?array {
-        return $this->evaluateDlpPoliciesJobs;
+        return $this->getBackingStore()->get('evaluateDlpPoliciesJobs');
     }
 
     /**
@@ -99,7 +54,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getEvaluateLabelJobs(): ?array {
-        return $this->evaluateLabelJobs;
+        return $this->getBackingStore()->get('evaluateLabelJobs');
     }
 
     /**
@@ -107,7 +62,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<ExactMatchDataStore>|null
     */
     public function getExactMatchDataStores(): ?array {
-        return $this->exactMatchDataStores;
+        return $this->getBackingStore()->get('exactMatchDataStores');
     }
 
     /**
@@ -115,7 +70,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<ExactMatchUploadAgent>|null
     */
     public function getExactMatchUploadAgents(): ?array {
-        return $this->exactMatchUploadAgents;
+        return $this->getBackingStore()->get('exactMatchUploadAgents');
     }
 
     /**
@@ -142,7 +97,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<JobResponseBase>|null
     */
     public function getJobs(): ?array {
-        return $this->jobs;
+        return $this->getBackingStore()->get('jobs');
     }
 
     /**
@@ -150,7 +105,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<SensitiveType>|null
     */
     public function getSensitiveTypes(): ?array {
-        return $this->sensitiveTypes;
+        return $this->getBackingStore()->get('sensitiveTypes');
     }
 
     /**
@@ -158,7 +113,7 @@ class DataClassificationService extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->sensitivityLabels;
+        return $this->getBackingStore()->get('sensitivityLabels');
     }
 
     /**
@@ -167,87 +122,87 @@ class DataClassificationService extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('classifyFileJobs', $this->classifyFileJobs);
-        $writer->writeCollectionOfObjectValues('classifyTextJobs', $this->classifyTextJobs);
-        $writer->writeCollectionOfObjectValues('evaluateDlpPoliciesJobs', $this->evaluateDlpPoliciesJobs);
-        $writer->writeCollectionOfObjectValues('evaluateLabelJobs', $this->evaluateLabelJobs);
-        $writer->writeCollectionOfObjectValues('exactMatchDataStores', $this->exactMatchDataStores);
-        $writer->writeCollectionOfObjectValues('exactMatchUploadAgents', $this->exactMatchUploadAgents);
-        $writer->writeCollectionOfObjectValues('jobs', $this->jobs);
-        $writer->writeCollectionOfObjectValues('sensitiveTypes', $this->sensitiveTypes);
-        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->sensitivityLabels);
+        $writer->writeCollectionOfObjectValues('classifyFileJobs', $this->getClassifyFileJobs());
+        $writer->writeCollectionOfObjectValues('classifyTextJobs', $this->getClassifyTextJobs());
+        $writer->writeCollectionOfObjectValues('evaluateDlpPoliciesJobs', $this->getEvaluateDlpPoliciesJobs());
+        $writer->writeCollectionOfObjectValues('evaluateLabelJobs', $this->getEvaluateLabelJobs());
+        $writer->writeCollectionOfObjectValues('exactMatchDataStores', $this->getExactMatchDataStores());
+        $writer->writeCollectionOfObjectValues('exactMatchUploadAgents', $this->getExactMatchUploadAgents());
+        $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeCollectionOfObjectValues('sensitiveTypes', $this->getSensitiveTypes());
+        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
     }
 
     /**
      * Sets the classifyFileJobs property value. The classifyFileJobs property
      *  @param array<JobResponseBase>|null $value Value to set for the classifyFileJobs property.
     */
-    public function setClassifyFileJobs(?array $value ): void {
-        $this->classifyFileJobs = $value;
+    public function setClassifyFileJobs(?array $value): void {
+        $this->getBackingStore()->set('classifyFileJobs', $value);
     }
 
     /**
      * Sets the classifyTextJobs property value. The classifyTextJobs property
      *  @param array<JobResponseBase>|null $value Value to set for the classifyTextJobs property.
     */
-    public function setClassifyTextJobs(?array $value ): void {
-        $this->classifyTextJobs = $value;
+    public function setClassifyTextJobs(?array $value): void {
+        $this->getBackingStore()->set('classifyTextJobs', $value);
     }
 
     /**
      * Sets the evaluateDlpPoliciesJobs property value. The evaluateDlpPoliciesJobs property
      *  @param array<JobResponseBase>|null $value Value to set for the evaluateDlpPoliciesJobs property.
     */
-    public function setEvaluateDlpPoliciesJobs(?array $value ): void {
-        $this->evaluateDlpPoliciesJobs = $value;
+    public function setEvaluateDlpPoliciesJobs(?array $value): void {
+        $this->getBackingStore()->set('evaluateDlpPoliciesJobs', $value);
     }
 
     /**
      * Sets the evaluateLabelJobs property value. The evaluateLabelJobs property
      *  @param array<JobResponseBase>|null $value Value to set for the evaluateLabelJobs property.
     */
-    public function setEvaluateLabelJobs(?array $value ): void {
-        $this->evaluateLabelJobs = $value;
+    public function setEvaluateLabelJobs(?array $value): void {
+        $this->getBackingStore()->set('evaluateLabelJobs', $value);
     }
 
     /**
      * Sets the exactMatchDataStores property value. The exactMatchDataStores property
      *  @param array<ExactMatchDataStore>|null $value Value to set for the exactMatchDataStores property.
     */
-    public function setExactMatchDataStores(?array $value ): void {
-        $this->exactMatchDataStores = $value;
+    public function setExactMatchDataStores(?array $value): void {
+        $this->getBackingStore()->set('exactMatchDataStores', $value);
     }
 
     /**
      * Sets the exactMatchUploadAgents property value. The exactMatchUploadAgents property
      *  @param array<ExactMatchUploadAgent>|null $value Value to set for the exactMatchUploadAgents property.
     */
-    public function setExactMatchUploadAgents(?array $value ): void {
-        $this->exactMatchUploadAgents = $value;
+    public function setExactMatchUploadAgents(?array $value): void {
+        $this->getBackingStore()->set('exactMatchUploadAgents', $value);
     }
 
     /**
      * Sets the jobs property value. The jobs property
      *  @param array<JobResponseBase>|null $value Value to set for the jobs property.
     */
-    public function setJobs(?array $value ): void {
-        $this->jobs = $value;
+    public function setJobs(?array $value): void {
+        $this->getBackingStore()->set('jobs', $value);
     }
 
     /**
      * Sets the sensitiveTypes property value. The sensitiveTypes property
      *  @param array<SensitiveType>|null $value Value to set for the sensitiveTypes property.
     */
-    public function setSensitiveTypes(?array $value ): void {
-        $this->sensitiveTypes = $value;
+    public function setSensitiveTypes(?array $value): void {
+        $this->getBackingStore()->set('sensitiveTypes', $value);
     }
 
     /**
      * Sets the sensitivityLabels property value. The sensitivityLabels property
      *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
-    public function setSensitivityLabels(?array $value ): void {
-        $this->sensitivityLabels = $value;
+    public function setSensitivityLabels(?array $value): void {
+        $this->getBackingStore()->set('sensitivityLabels', $value);
     }
 
 }

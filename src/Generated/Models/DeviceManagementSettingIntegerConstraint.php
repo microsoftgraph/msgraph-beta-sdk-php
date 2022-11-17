@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var int|null $maximumValue The maximum permitted value
-    */
-    private ?int $maximumValue = null;
-    
-    /**
-     * @var int|null $minimumValue The minimum permitted value
-    */
-    private ?int $minimumValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingIntegerConstraint and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
      * @return int|null
     */
     public function getMaximumValue(): ?int {
-        return $this->maximumValue;
+        return $this->getBackingStore()->get('maximumValue');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
      * @return int|null
     */
     public function getMinimumValue(): ?int {
-        return $this->minimumValue;
+        return $this->getBackingStore()->get('minimumValue');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementSettingIntegerConstraint extends DeviceManagementConstrain
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('maximumValue', $this->maximumValue);
-        $writer->writeIntegerValue('minimumValue', $this->minimumValue);
+        $writer->writeIntegerValue('maximumValue', $this->getMaximumValue());
+        $writer->writeIntegerValue('minimumValue', $this->getMinimumValue());
     }
 
     /**
      * Sets the maximumValue property value. The maximum permitted value
      *  @param int|null $value Value to set for the maximumValue property.
     */
-    public function setMaximumValue(?int $value ): void {
-        $this->maximumValue = $value;
+    public function setMaximumValue(?int $value): void {
+        $this->getBackingStore()->set('maximumValue', $value);
     }
 
     /**
      * Sets the minimumValue property value. The minimum permitted value
      *  @param int|null $value Value to set for the minimumValue property.
     */
-    public function setMinimumValue(?int $value ): void {
-        $this->minimumValue = $value;
+    public function setMinimumValue(?int $value): void {
+        $this->getBackingStore()->set('minimumValue', $value);
     }
 
 }

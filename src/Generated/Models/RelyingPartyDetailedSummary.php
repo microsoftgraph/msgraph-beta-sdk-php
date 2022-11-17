@@ -9,61 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RelyingPartyDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $failedSignInCount Number of failed sign in on Active Directory Federation Service in the period specified.
-    */
-    private ?int $failedSignInCount = null;
-    
-    /**
-     * @var MigrationStatus|null $migrationStatus The migrationStatus property
-    */
-    private ?MigrationStatus $migrationStatus = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $migrationValidationDetails Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
-    */
-    private ?array $migrationValidationDetails = null;
-    
-    /**
-     * @var string|null $relyingPartyId This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
-    */
-    private ?string $relyingPartyId = null;
-    
-    /**
-     * @var string|null $relyingPartyName Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
-    */
-    private ?string $relyingPartyName = null;
-    
-    /**
-     * @var array<string>|null $replyUrls Specifies where the relying party expects to receive the token.
-    */
-    private ?array $replyUrls = null;
-    
-    /**
-     * @var string|null $serviceId Uniquely identifies the Active Directory forest.
-    */
-    private ?string $serviceId = null;
-    
-    /**
-     * @var float|null $signInSuccessRate Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
-    */
-    private ?float $signInSuccessRate = null;
-    
-    /**
-     * @var int|null $successfulSignInCount Number of successful sign ins on Active Directory Federation Service.
-    */
-    private ?int $successfulSignInCount = null;
-    
-    /**
-     * @var int|null $totalSignInCount Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
-    */
-    private ?int $totalSignInCount = null;
-    
-    /**
-     * @var int|null $uniqueUserCount Number of unique users that have signed into the application.
-    */
-    private ?int $uniqueUserCount = null;
-    
-    /**
      * Instantiates a new RelyingPartyDetailedSummary and sets the default values.
     */
     public function __construct() {
@@ -85,7 +30,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedSignInCount(): ?int {
-        return $this->failedSignInCount;
+        return $this->getBackingStore()->get('failedSignInCount');
     }
 
     /**
@@ -114,7 +59,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return MigrationStatus|null
     */
     public function getMigrationStatus(): ?MigrationStatus {
-        return $this->migrationStatus;
+        return $this->getBackingStore()->get('migrationStatus');
     }
 
     /**
@@ -122,7 +67,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getMigrationValidationDetails(): ?array {
-        return $this->migrationValidationDetails;
+        return $this->getBackingStore()->get('migrationValidationDetails');
     }
 
     /**
@@ -130,7 +75,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getRelyingPartyId(): ?string {
-        return $this->relyingPartyId;
+        return $this->getBackingStore()->get('relyingPartyId');
     }
 
     /**
@@ -138,7 +83,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getRelyingPartyName(): ?string {
-        return $this->relyingPartyName;
+        return $this->getBackingStore()->get('relyingPartyName');
     }
 
     /**
@@ -146,7 +91,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getReplyUrls(): ?array {
-        return $this->replyUrls;
+        return $this->getBackingStore()->get('replyUrls');
     }
 
     /**
@@ -154,7 +99,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceId(): ?string {
-        return $this->serviceId;
+        return $this->getBackingStore()->get('serviceId');
     }
 
     /**
@@ -162,7 +107,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return float|null
     */
     public function getSignInSuccessRate(): ?float {
-        return $this->signInSuccessRate;
+        return $this->getBackingStore()->get('signInSuccessRate');
     }
 
     /**
@@ -170,7 +115,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulSignInCount(): ?int {
-        return $this->successfulSignInCount;
+        return $this->getBackingStore()->get('successfulSignInCount');
     }
 
     /**
@@ -178,7 +123,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalSignInCount(): ?int {
-        return $this->totalSignInCount;
+        return $this->getBackingStore()->get('totalSignInCount');
     }
 
     /**
@@ -186,7 +131,7 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUniqueUserCount(): ?int {
-        return $this->uniqueUserCount;
+        return $this->getBackingStore()->get('uniqueUserCount');
     }
 
     /**
@@ -195,105 +140,105 @@ class RelyingPartyDetailedSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('failedSignInCount', $this->failedSignInCount);
-        $writer->writeEnumValue('migrationStatus', $this->migrationStatus);
-        $writer->writeCollectionOfObjectValues('migrationValidationDetails', $this->migrationValidationDetails);
-        $writer->writeStringValue('relyingPartyId', $this->relyingPartyId);
-        $writer->writeStringValue('relyingPartyName', $this->relyingPartyName);
-        $writer->writeCollectionOfPrimitiveValues('replyUrls', $this->replyUrls);
-        $writer->writeStringValue('serviceId', $this->serviceId);
-        $writer->writeFloatValue('signInSuccessRate', $this->signInSuccessRate);
-        $writer->writeIntegerValue('successfulSignInCount', $this->successfulSignInCount);
-        $writer->writeIntegerValue('totalSignInCount', $this->totalSignInCount);
-        $writer->writeIntegerValue('uniqueUserCount', $this->uniqueUserCount);
+        $writer->writeIntegerValue('failedSignInCount', $this->getFailedSignInCount());
+        $writer->writeEnumValue('migrationStatus', $this->getMigrationStatus());
+        $writer->writeCollectionOfObjectValues('migrationValidationDetails', $this->getMigrationValidationDetails());
+        $writer->writeStringValue('relyingPartyId', $this->getRelyingPartyId());
+        $writer->writeStringValue('relyingPartyName', $this->getRelyingPartyName());
+        $writer->writeCollectionOfPrimitiveValues('replyUrls', $this->getReplyUrls());
+        $writer->writeStringValue('serviceId', $this->getServiceId());
+        $writer->writeFloatValue('signInSuccessRate', $this->getSignInSuccessRate());
+        $writer->writeIntegerValue('successfulSignInCount', $this->getSuccessfulSignInCount());
+        $writer->writeIntegerValue('totalSignInCount', $this->getTotalSignInCount());
+        $writer->writeIntegerValue('uniqueUserCount', $this->getUniqueUserCount());
     }
 
     /**
      * Sets the failedSignInCount property value. Number of failed sign in on Active Directory Federation Service in the period specified.
      *  @param int|null $value Value to set for the failedSignInCount property.
     */
-    public function setFailedSignInCount(?int $value ): void {
-        $this->failedSignInCount = $value;
+    public function setFailedSignInCount(?int $value): void {
+        $this->getBackingStore()->set('failedSignInCount', $value);
     }
 
     /**
      * Sets the migrationStatus property value. The migrationStatus property
      *  @param MigrationStatus|null $value Value to set for the migrationStatus property.
     */
-    public function setMigrationStatus(?MigrationStatus $value ): void {
-        $this->migrationStatus = $value;
+    public function setMigrationStatus(?MigrationStatus $value): void {
+        $this->getBackingStore()->set('migrationStatus', $value);
     }
 
     /**
      * Sets the migrationValidationDetails property value. Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
      *  @param array<KeyValuePair>|null $value Value to set for the migrationValidationDetails property.
     */
-    public function setMigrationValidationDetails(?array $value ): void {
-        $this->migrationValidationDetails = $value;
+    public function setMigrationValidationDetails(?array $value): void {
+        $this->getBackingStore()->set('migrationValidationDetails', $value);
     }
 
     /**
      * Sets the relyingPartyId property value. This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
      *  @param string|null $value Value to set for the relyingPartyId property.
     */
-    public function setRelyingPartyId(?string $value ): void {
-        $this->relyingPartyId = $value;
+    public function setRelyingPartyId(?string $value): void {
+        $this->getBackingStore()->set('relyingPartyId', $value);
     }
 
     /**
      * Sets the relyingPartyName property value. Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
      *  @param string|null $value Value to set for the relyingPartyName property.
     */
-    public function setRelyingPartyName(?string $value ): void {
-        $this->relyingPartyName = $value;
+    public function setRelyingPartyName(?string $value): void {
+        $this->getBackingStore()->set('relyingPartyName', $value);
     }
 
     /**
      * Sets the replyUrls property value. Specifies where the relying party expects to receive the token.
      *  @param array<string>|null $value Value to set for the replyUrls property.
     */
-    public function setReplyUrls(?array $value ): void {
-        $this->replyUrls = $value;
+    public function setReplyUrls(?array $value): void {
+        $this->getBackingStore()->set('replyUrls', $value);
     }
 
     /**
      * Sets the serviceId property value. Uniquely identifies the Active Directory forest.
      *  @param string|null $value Value to set for the serviceId property.
     */
-    public function setServiceId(?string $value ): void {
-        $this->serviceId = $value;
+    public function setServiceId(?string $value): void {
+        $this->getBackingStore()->set('serviceId', $value);
     }
 
     /**
      * Sets the signInSuccessRate property value. Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
      *  @param float|null $value Value to set for the signInSuccessRate property.
     */
-    public function setSignInSuccessRate(?float $value ): void {
-        $this->signInSuccessRate = $value;
+    public function setSignInSuccessRate(?float $value): void {
+        $this->getBackingStore()->set('signInSuccessRate', $value);
     }
 
     /**
      * Sets the successfulSignInCount property value. Number of successful sign ins on Active Directory Federation Service.
      *  @param int|null $value Value to set for the successfulSignInCount property.
     */
-    public function setSuccessfulSignInCount(?int $value ): void {
-        $this->successfulSignInCount = $value;
+    public function setSuccessfulSignInCount(?int $value): void {
+        $this->getBackingStore()->set('successfulSignInCount', $value);
     }
 
     /**
      * Sets the totalSignInCount property value. Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
      *  @param int|null $value Value to set for the totalSignInCount property.
     */
-    public function setTotalSignInCount(?int $value ): void {
-        $this->totalSignInCount = $value;
+    public function setTotalSignInCount(?int $value): void {
+        $this->getBackingStore()->set('totalSignInCount', $value);
     }
 
     /**
      * Sets the uniqueUserCount property value. Number of unique users that have signed into the application.
      *  @param int|null $value Value to set for the uniqueUserCount property.
     */
-    public function setUniqueUserCount(?int $value ): void {
-        $this->uniqueUserCount = $value;
+    public function setUniqueUserCount(?int $value): void {
+        $this->getBackingStore()->set('uniqueUserCount', $value);
     }
 
 }

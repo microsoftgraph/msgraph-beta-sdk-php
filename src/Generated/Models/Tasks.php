@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Tasks extends Entity implements Parsable 
 {
     /**
-     * @var array<BaseTask>|null $alltasks All tasks in the users mailbox.
-    */
-    private ?array $alltasks = null;
-    
-    /**
-     * @var array<BaseTaskList>|null $lists The task lists in the users mailbox.
-    */
-    private ?array $lists = null;
-    
-    /**
      * Instantiates a new tasks and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class Tasks extends Entity implements Parsable
      * @return array<BaseTask>|null
     */
     public function getAlltasks(): ?array {
-        return $this->alltasks;
+        return $this->getBackingStore()->get('alltasks');
     }
 
     /**
@@ -60,7 +50,7 @@ class Tasks extends Entity implements Parsable
      * @return array<BaseTaskList>|null
     */
     public function getLists(): ?array {
-        return $this->lists;
+        return $this->getBackingStore()->get('lists');
     }
 
     /**
@@ -69,24 +59,24 @@ class Tasks extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('alltasks', $this->alltasks);
-        $writer->writeCollectionOfObjectValues('lists', $this->lists);
+        $writer->writeCollectionOfObjectValues('alltasks', $this->getAlltasks());
+        $writer->writeCollectionOfObjectValues('lists', $this->getLists());
     }
 
     /**
      * Sets the alltasks property value. All tasks in the users mailbox.
      *  @param array<BaseTask>|null $value Value to set for the alltasks property.
     */
-    public function setAlltasks(?array $value ): void {
-        $this->alltasks = $value;
+    public function setAlltasks(?array $value): void {
+        $this->getBackingStore()->set('alltasks', $value);
     }
 
     /**
      * Sets the lists property value. The task lists in the users mailbox.
      *  @param array<BaseTaskList>|null $value Value to set for the lists property.
     */
-    public function setLists(?array $value ): void {
-        $this->lists = $value;
+    public function setLists(?array $value): void {
+        $this->getBackingStore()->set('lists', $value);
     }
 
 }

@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable 
+class AuthenticationAppDeviceDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $appVersion The appVersion property
-    */
-    private ?string $appVersion = null;
-    
-    /**
-     * @var string|null $clientApp The clientApp property
-    */
-    private ?string $clientApp = null;
-    
-    /**
-     * @var string|null $deviceId The deviceId property
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $operatingSystem The operatingSystem property
-    */
-    private ?string $operatingSystem = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new authenticationAppDeviceDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.authenticationAppDeviceDetails');
     }
@@ -60,8 +39,8 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +48,15 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAppVersion(): ?string {
-        return $this->appVersion;
+        return $this->getBackingStore()->get('appVersion');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -77,7 +64,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getClientApp(): ?string {
-        return $this->clientApp;
+        return $this->getBackingStore()->get('clientApp');
     }
 
     /**
@@ -85,7 +72,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -108,7 +95,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -116,7 +103,7 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOperatingSystem(): ?string {
-        return $this->operatingSystem;
+        return $this->getBackingStore()->get('operatingSystem');
     }
 
     /**
@@ -124,60 +111,60 @@ class AuthenticationAppDeviceDetails implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('appVersion', $this->appVersion);
-        $writer->writeStringValue('clientApp', $this->clientApp);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('operatingSystem', $this->operatingSystem);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('appVersion', $this->getAppVersion());
+        $writer->writeStringValue('clientApp', $this->getClientApp());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('operatingSystem', $this->getOperatingSystem());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appVersion property value. The appVersion property
      *  @param string|null $value Value to set for the appVersion property.
     */
-    public function setAppVersion(?string $value ): void {
-        $this->appVersion = $value;
+    public function setAppVersion(?string $value): void {
+        $this->getBackingStore()->set('appVersion', $value);
     }
 
     /**
      * Sets the clientApp property value. The clientApp property
      *  @param string|null $value Value to set for the clientApp property.
     */
-    public function setClientApp(?string $value ): void {
-        $this->clientApp = $value;
+    public function setClientApp(?string $value): void {
+        $this->getBackingStore()->set('clientApp', $value);
     }
 
     /**
      * Sets the deviceId property value. The deviceId property
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the operatingSystem property value. The operatingSystem property
      *  @param string|null $value Value to set for the operatingSystem property.
     */
-    public function setOperatingSystem(?string $value ): void {
-        $this->operatingSystem = $value;
+    public function setOperatingSystem(?string $value): void {
+        $this->getBackingStore()->set('operatingSystem', $value);
     }
 
 }

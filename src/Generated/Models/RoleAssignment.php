@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleAssignment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description Description of the Role Assignment.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display or friendly name of the role Assignment.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<string>|null $resourceScopes List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    */
-    private ?array $resourceScopes = null;
-    
-    /**
-     * @var RoleDefinition|null $roleDefinition Role definition this assignment is part of.
-    */
-    private ?RoleDefinition $roleDefinition = null;
-    
-    /**
-     * @var array<string>|null $scopeMembers List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    */
-    private ?array $scopeMembers = null;
-    
-    /**
-     * @var RoleAssignmentScopeType|null $scopeType Specifies the type of scope for a Role Assignment.
-    */
-    private ?RoleAssignmentScopeType $scopeType = null;
-    
-    /**
      * Instantiates a new roleAssignment and sets the default values.
     */
     public function __construct() {
@@ -67,7 +37,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -75,7 +45,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -99,7 +69,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getResourceScopes(): ?array {
-        return $this->resourceScopes;
+        return $this->getBackingStore()->get('resourceScopes');
     }
 
     /**
@@ -107,7 +77,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return RoleDefinition|null
     */
     public function getRoleDefinition(): ?RoleDefinition {
-        return $this->roleDefinition;
+        return $this->getBackingStore()->get('roleDefinition');
     }
 
     /**
@@ -115,7 +85,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getScopeMembers(): ?array {
-        return $this->scopeMembers;
+        return $this->getBackingStore()->get('scopeMembers');
     }
 
     /**
@@ -123,7 +93,7 @@ class RoleAssignment extends Entity implements Parsable
      * @return RoleAssignmentScopeType|null
     */
     public function getScopeType(): ?RoleAssignmentScopeType {
-        return $this->scopeType;
+        return $this->getBackingStore()->get('scopeType');
     }
 
     /**
@@ -132,60 +102,60 @@ class RoleAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->resourceScopes);
-        $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
-        $writer->writeCollectionOfPrimitiveValues('scopeMembers', $this->scopeMembers);
-        $writer->writeEnumValue('scopeType', $this->scopeType);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('resourceScopes', $this->getResourceScopes());
+        $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
+        $writer->writeCollectionOfPrimitiveValues('scopeMembers', $this->getScopeMembers());
+        $writer->writeEnumValue('scopeType', $this->getScopeType());
     }
 
     /**
      * Sets the description property value. Description of the Role Assignment.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display or friendly name of the role Assignment.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the resourceScopes property value. List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
      *  @param array<string>|null $value Value to set for the resourceScopes property.
     */
-    public function setResourceScopes(?array $value ): void {
-        $this->resourceScopes = $value;
+    public function setResourceScopes(?array $value): void {
+        $this->getBackingStore()->set('resourceScopes', $value);
     }
 
     /**
      * Sets the roleDefinition property value. Role definition this assignment is part of.
      *  @param RoleDefinition|null $value Value to set for the roleDefinition property.
     */
-    public function setRoleDefinition(?RoleDefinition $value ): void {
-        $this->roleDefinition = $value;
+    public function setRoleDefinition(?RoleDefinition $value): void {
+        $this->getBackingStore()->set('roleDefinition', $value);
     }
 
     /**
      * Sets the scopeMembers property value. List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
      *  @param array<string>|null $value Value to set for the scopeMembers property.
     */
-    public function setScopeMembers(?array $value ): void {
-        $this->scopeMembers = $value;
+    public function setScopeMembers(?array $value): void {
+        $this->getBackingStore()->set('scopeMembers', $value);
     }
 
     /**
      * Sets the scopeType property value. Specifies the type of scope for a Role Assignment.
      *  @param RoleAssignmentScopeType|null $value Value to set for the scopeType property.
     */
-    public function setScopeType(?RoleAssignmentScopeType $value ): void {
-        $this->scopeType = $value;
+    public function setScopeType(?RoleAssignmentScopeType $value): void {
+        $this->getBackingStore()->set('scopeType', $value);
     }
 
 }

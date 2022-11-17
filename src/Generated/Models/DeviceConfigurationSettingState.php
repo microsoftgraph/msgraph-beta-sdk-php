@@ -6,88 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable 
+class DeviceConfigurationSettingState implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $currentValue Current value of setting on device
-    */
-    private ?string $currentValue = null;
-    
-    /**
-     * @var int|null $errorCode Error code for the setting
-    */
-    private ?int $errorCode = null;
-    
-    /**
-     * @var string|null $errorDescription Error description
-    */
-    private ?string $errorDescription = null;
-    
-    /**
-     * @var string|null $instanceDisplayName Name of setting instance that is being reported.
-    */
-    private ?string $instanceDisplayName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $setting The setting that is being reported
-    */
-    private ?string $setting = null;
-    
-    /**
-     * @var string|null $settingInstanceId SettingInstanceId
-    */
-    private ?string $settingInstanceId = null;
-    
-    /**
-     * @var string|null $settingName Localized/user friendly setting name that is being reported
-    */
-    private ?string $settingName = null;
-    
-    /**
-     * @var array<SettingSource>|null $sources Contributing policies
-    */
-    private ?array $sources = null;
-    
-    /**
-     * @var ComplianceStatus|null $state The state property
-    */
-    private ?ComplianceStatus $state = null;
-    
-    /**
-     * @var string|null $userEmail UserEmail
-    */
-    private ?string $userEmail = null;
-    
-    /**
-     * @var string|null $userId UserId
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userName UserName
-    */
-    private ?string $userName = null;
-    
-    /**
-     * @var string|null $userPrincipalName UserPrincipalName.
-    */
-    private ?string $userPrincipalName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceConfigurationSettingState and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceConfigurationSettingState');
     }
@@ -105,8 +39,16 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -114,7 +56,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCurrentValue(): ?string {
-        return $this->currentValue;
+        return $this->getBackingStore()->get('currentValue');
     }
 
     /**
@@ -122,7 +64,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -130,7 +72,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getErrorDescription(): ?string {
-        return $this->errorDescription;
+        return $this->getBackingStore()->get('errorDescription');
     }
 
     /**
@@ -162,7 +104,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getInstanceDisplayName(): ?string {
-        return $this->instanceDisplayName;
+        return $this->getBackingStore()->get('instanceDisplayName');
     }
 
     /**
@@ -170,7 +112,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -178,7 +120,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSetting(): ?string {
-        return $this->setting;
+        return $this->getBackingStore()->get('setting');
     }
 
     /**
@@ -186,7 +128,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSettingInstanceId(): ?string {
-        return $this->settingInstanceId;
+        return $this->getBackingStore()->get('settingInstanceId');
     }
 
     /**
@@ -194,7 +136,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->settingName;
+        return $this->getBackingStore()->get('settingName');
     }
 
     /**
@@ -202,7 +144,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return array<SettingSource>|null
     */
     public function getSources(): ?array {
-        return $this->sources;
+        return $this->getBackingStore()->get('sources');
     }
 
     /**
@@ -210,7 +152,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return ComplianceStatus|null
     */
     public function getState(): ?ComplianceStatus {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -218,7 +160,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserEmail(): ?string {
-        return $this->userEmail;
+        return $this->getBackingStore()->get('userEmail');
     }
 
     /**
@@ -226,7 +168,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -234,7 +176,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -242,7 +184,7 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -250,141 +192,141 @@ class DeviceConfigurationSettingState implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('currentValue', $this->currentValue);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
-        $writer->writeStringValue('errorDescription', $this->errorDescription);
-        $writer->writeStringValue('instanceDisplayName', $this->instanceDisplayName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('setting', $this->setting);
-        $writer->writeStringValue('settingInstanceId', $this->settingInstanceId);
-        $writer->writeStringValue('settingName', $this->settingName);
-        $writer->writeCollectionOfObjectValues('sources', $this->sources);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeStringValue('userEmail', $this->userEmail);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userName', $this->userName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('currentValue', $this->getCurrentValue());
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('errorDescription', $this->getErrorDescription());
+        $writer->writeStringValue('instanceDisplayName', $this->getInstanceDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('setting', $this->getSetting());
+        $writer->writeStringValue('settingInstanceId', $this->getSettingInstanceId());
+        $writer->writeStringValue('settingName', $this->getSettingName());
+        $writer->writeCollectionOfObjectValues('sources', $this->getSources());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeStringValue('userEmail', $this->getUserEmail());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userName', $this->getUserName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the currentValue property value. Current value of setting on device
      *  @param string|null $value Value to set for the currentValue property.
     */
-    public function setCurrentValue(?string $value ): void {
-        $this->currentValue = $value;
+    public function setCurrentValue(?string $value): void {
+        $this->getBackingStore()->set('currentValue', $value);
     }
 
     /**
      * Sets the errorCode property value. Error code for the setting
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the errorDescription property value. Error description
      *  @param string|null $value Value to set for the errorDescription property.
     */
-    public function setErrorDescription(?string $value ): void {
-        $this->errorDescription = $value;
+    public function setErrorDescription(?string $value): void {
+        $this->getBackingStore()->set('errorDescription', $value);
     }
 
     /**
      * Sets the instanceDisplayName property value. Name of setting instance that is being reported.
      *  @param string|null $value Value to set for the instanceDisplayName property.
     */
-    public function setInstanceDisplayName(?string $value ): void {
-        $this->instanceDisplayName = $value;
+    public function setInstanceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('instanceDisplayName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the setting property value. The setting that is being reported
      *  @param string|null $value Value to set for the setting property.
     */
-    public function setSetting(?string $value ): void {
-        $this->setting = $value;
+    public function setSetting(?string $value): void {
+        $this->getBackingStore()->set('setting', $value);
     }
 
     /**
      * Sets the settingInstanceId property value. SettingInstanceId
      *  @param string|null $value Value to set for the settingInstanceId property.
     */
-    public function setSettingInstanceId(?string $value ): void {
-        $this->settingInstanceId = $value;
+    public function setSettingInstanceId(?string $value): void {
+        $this->getBackingStore()->set('settingInstanceId', $value);
     }
 
     /**
      * Sets the settingName property value. Localized/user friendly setting name that is being reported
      *  @param string|null $value Value to set for the settingName property.
     */
-    public function setSettingName(?string $value ): void {
-        $this->settingName = $value;
+    public function setSettingName(?string $value): void {
+        $this->getBackingStore()->set('settingName', $value);
     }
 
     /**
      * Sets the sources property value. Contributing policies
      *  @param array<SettingSource>|null $value Value to set for the sources property.
     */
-    public function setSources(?array $value ): void {
-        $this->sources = $value;
+    public function setSources(?array $value): void {
+        $this->getBackingStore()->set('sources', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param ComplianceStatus|null $value Value to set for the state property.
     */
-    public function setState(?ComplianceStatus $value ): void {
-        $this->state = $value;
+    public function setState(?ComplianceStatus $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the userEmail property value. UserEmail
      *  @param string|null $value Value to set for the userEmail property.
     */
-    public function setUserEmail(?string $value ): void {
-        $this->userEmail = $value;
+    public function setUserEmail(?string $value): void {
+        $this->getBackingStore()->set('userEmail', $value);
     }
 
     /**
      * Sets the userId property value. UserId
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userName property value. UserName
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. UserPrincipalName.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

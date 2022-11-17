@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantSetupInfo extends Entity implements Parsable 
 {
     /**
-     * @var PrivilegedRoleSettings|null $defaultRolesSettings The defaultRolesSettings property
-    */
-    private ?PrivilegedRoleSettings $defaultRolesSettings = null;
-    
-    /**
-     * @var bool|null $firstTimeSetup The firstTimeSetup property
-    */
-    private ?bool $firstTimeSetup = null;
-    
-    /**
-     * @var array<string>|null $relevantRolesSettings The relevantRolesSettings property
-    */
-    private ?array $relevantRolesSettings = null;
-    
-    /**
-     * @var SetupStatus|null $setupStatus The setupStatus property
-    */
-    private ?SetupStatus $setupStatus = null;
-    
-    /**
-     * @var bool|null $skipSetup The skipSetup property
-    */
-    private ?bool $skipSetup = null;
-    
-    /**
-     * @var string|null $userRolesActions The userRolesActions property
-    */
-    private ?string $userRolesActions = null;
-    
-    /**
      * Instantiates a new TenantSetupInfo and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return PrivilegedRoleSettings|null
     */
     public function getDefaultRolesSettings(): ?PrivilegedRoleSettings {
-        return $this->defaultRolesSettings;
+        return $this->getBackingStore()->get('defaultRolesSettings');
     }
 
     /**
@@ -84,7 +54,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return bool|null
     */
     public function getFirstTimeSetup(): ?bool {
-        return $this->firstTimeSetup;
+        return $this->getBackingStore()->get('firstTimeSetup');
     }
 
     /**
@@ -92,7 +62,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRelevantRolesSettings(): ?array {
-        return $this->relevantRolesSettings;
+        return $this->getBackingStore()->get('relevantRolesSettings');
     }
 
     /**
@@ -100,7 +70,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return SetupStatus|null
     */
     public function getSetupStatus(): ?SetupStatus {
-        return $this->setupStatus;
+        return $this->getBackingStore()->get('setupStatus');
     }
 
     /**
@@ -108,7 +78,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return bool|null
     */
     public function getSkipSetup(): ?bool {
-        return $this->skipSetup;
+        return $this->getBackingStore()->get('skipSetup');
     }
 
     /**
@@ -116,7 +86,7 @@ class TenantSetupInfo extends Entity implements Parsable
      * @return string|null
     */
     public function getUserRolesActions(): ?string {
-        return $this->userRolesActions;
+        return $this->getBackingStore()->get('userRolesActions');
     }
 
     /**
@@ -125,60 +95,60 @@ class TenantSetupInfo extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('defaultRolesSettings', $this->defaultRolesSettings);
-        $writer->writeBooleanValue('firstTimeSetup', $this->firstTimeSetup);
-        $writer->writeCollectionOfPrimitiveValues('relevantRolesSettings', $this->relevantRolesSettings);
-        $writer->writeEnumValue('setupStatus', $this->setupStatus);
-        $writer->writeBooleanValue('skipSetup', $this->skipSetup);
-        $writer->writeStringValue('userRolesActions', $this->userRolesActions);
+        $writer->writeObjectValue('defaultRolesSettings', $this->getDefaultRolesSettings());
+        $writer->writeBooleanValue('firstTimeSetup', $this->getFirstTimeSetup());
+        $writer->writeCollectionOfPrimitiveValues('relevantRolesSettings', $this->getRelevantRolesSettings());
+        $writer->writeEnumValue('setupStatus', $this->getSetupStatus());
+        $writer->writeBooleanValue('skipSetup', $this->getSkipSetup());
+        $writer->writeStringValue('userRolesActions', $this->getUserRolesActions());
     }
 
     /**
      * Sets the defaultRolesSettings property value. The defaultRolesSettings property
      *  @param PrivilegedRoleSettings|null $value Value to set for the defaultRolesSettings property.
     */
-    public function setDefaultRolesSettings(?PrivilegedRoleSettings $value ): void {
-        $this->defaultRolesSettings = $value;
+    public function setDefaultRolesSettings(?PrivilegedRoleSettings $value): void {
+        $this->getBackingStore()->set('defaultRolesSettings', $value);
     }
 
     /**
      * Sets the firstTimeSetup property value. The firstTimeSetup property
      *  @param bool|null $value Value to set for the firstTimeSetup property.
     */
-    public function setFirstTimeSetup(?bool $value ): void {
-        $this->firstTimeSetup = $value;
+    public function setFirstTimeSetup(?bool $value): void {
+        $this->getBackingStore()->set('firstTimeSetup', $value);
     }
 
     /**
      * Sets the relevantRolesSettings property value. The relevantRolesSettings property
      *  @param array<string>|null $value Value to set for the relevantRolesSettings property.
     */
-    public function setRelevantRolesSettings(?array $value ): void {
-        $this->relevantRolesSettings = $value;
+    public function setRelevantRolesSettings(?array $value): void {
+        $this->getBackingStore()->set('relevantRolesSettings', $value);
     }
 
     /**
      * Sets the setupStatus property value. The setupStatus property
      *  @param SetupStatus|null $value Value to set for the setupStatus property.
     */
-    public function setSetupStatus(?SetupStatus $value ): void {
-        $this->setupStatus = $value;
+    public function setSetupStatus(?SetupStatus $value): void {
+        $this->getBackingStore()->set('setupStatus', $value);
     }
 
     /**
      * Sets the skipSetup property value. The skipSetup property
      *  @param bool|null $value Value to set for the skipSetup property.
     */
-    public function setSkipSetup(?bool $value ): void {
-        $this->skipSetup = $value;
+    public function setSkipSetup(?bool $value): void {
+        $this->getBackingStore()->set('skipSetup', $value);
     }
 
     /**
      * Sets the userRolesActions property value. The userRolesActions property
      *  @param string|null $value Value to set for the userRolesActions property.
     */
-    public function setUserRolesActions(?string $value ): void {
-        $this->userRolesActions = $value;
+    public function setUserRolesActions(?string $value): void {
+        $this->getBackingStore()->set('userRolesActions', $value);
     }
 
 }

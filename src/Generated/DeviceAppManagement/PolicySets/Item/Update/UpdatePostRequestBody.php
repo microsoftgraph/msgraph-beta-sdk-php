@@ -8,38 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdatePostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<PolicySetItem>|null $addedPolicySetItems The addedPolicySetItems property
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?array $addedPolicySetItems = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var array<PolicySetAssignment>|null $assignments The assignments property
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var array<string>|null $deletedPolicySetItems The deletedPolicySetItems property
-    */
-    private ?array $deletedPolicySetItems = null;
-    
-    /**
-     * @var array<PolicySetItem>|null $updatedPolicySetItems The updatedPolicySetItems property
-    */
-    private ?array $updatedPolicySetItems = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updatePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -57,15 +41,15 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<PolicySetItem>|null
     */
     public function getAddedPolicySetItems(): ?array {
-        return $this->addedPolicySetItems;
+        return $this->getBackingStore()->get('addedPolicySetItems');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -73,7 +57,15 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<PolicySetAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -81,7 +73,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDeletedPolicySetItems(): ?array {
-        return $this->deletedPolicySetItems;
+        return $this->getBackingStore()->get('deletedPolicySetItems');
     }
 
     /**
@@ -103,7 +95,7 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<PolicySetItem>|null
     */
     public function getUpdatedPolicySetItems(): ?array {
-        return $this->updatedPolicySetItems;
+        return $this->getBackingStore()->get('updatedPolicySetItems');
     }
 
     /**
@@ -111,51 +103,51 @@ class UpdatePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('addedPolicySetItems', $this->addedPolicySetItems);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeCollectionOfPrimitiveValues('deletedPolicySetItems', $this->deletedPolicySetItems);
-        $writer->writeCollectionOfObjectValues('updatedPolicySetItems', $this->updatedPolicySetItems);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('addedPolicySetItems', $this->getAddedPolicySetItems());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeCollectionOfPrimitiveValues('deletedPolicySetItems', $this->getDeletedPolicySetItems());
+        $writer->writeCollectionOfObjectValues('updatedPolicySetItems', $this->getUpdatedPolicySetItems());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the addedPolicySetItems property value. The addedPolicySetItems property
      *  @param array<PolicySetItem>|null $value Value to set for the addedPolicySetItems property.
     */
-    public function setAddedPolicySetItems(?array $value ): void {
-        $this->addedPolicySetItems = $value;
+    public function setAddedPolicySetItems(?array $value): void {
+        $this->getBackingStore()->set('addedPolicySetItems', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignments property value. The assignments property
      *  @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the deletedPolicySetItems property value. The deletedPolicySetItems property
      *  @param array<string>|null $value Value to set for the deletedPolicySetItems property.
     */
-    public function setDeletedPolicySetItems(?array $value ): void {
-        $this->deletedPolicySetItems = $value;
+    public function setDeletedPolicySetItems(?array $value): void {
+        $this->getBackingStore()->set('deletedPolicySetItems', $value);
     }
 
     /**
      * Sets the updatedPolicySetItems property value. The updatedPolicySetItems property
      *  @param array<PolicySetItem>|null $value Value to set for the updatedPolicySetItems property.
     */
-    public function setUpdatedPolicySetItems(?array $value ): void {
-        $this->updatedPolicySetItems = $value;
+    public function setUpdatedPolicySetItems(?array $value): void {
+        $this->getBackingStore()->set('updatedPolicySetItems', $value);
     }
 
 }

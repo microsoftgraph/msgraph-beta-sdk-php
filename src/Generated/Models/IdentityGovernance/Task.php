@@ -11,51 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Task extends Entity implements Parsable 
 {
     /**
-     * @var array<KeyValuePair>|null $arguments Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.
-    */
-    private ?array $arguments = null;
-    
-    /**
-     * @var LifecycleTaskCategory|null $category The category property
-    */
-    private ?LifecycleTaskCategory $category = null;
-    
-    /**
-     * @var bool|null $continueOnError A boolean value that determines if the failure of this task stops the subsequent workflows from running. Optional.
-    */
-    private ?bool $continueOnError = null;
-    
-    /**
-     * @var string|null $description A string that describes the purpose of the task for administrative use. Optional.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName A unique string that identifies the task. Required.Supports $filter(eq, ne) and orderBy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $executionSequence An integer that states in what order the task will run in a workflow.Supports $orderby.
-    */
-    private ?int $executionSequence = null;
-    
-    /**
-     * @var bool|null $isEnabled A boolean value that denotes whether the task is set to run or not. Optional.Supports $filter(eq, ne) and orderBy.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var string|null $taskDefinitionId A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks. Required.Supports $filter(eq, ne).
-    */
-    private ?string $taskDefinitionId = null;
-    
-    /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The result of processing the task.
-    */
-    private ?array $taskProcessingResults = null;
-    
-    /**
      * Instantiates a new task and sets the default values.
     */
     public function __construct() {
@@ -77,7 +32,7 @@ class Task extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getArguments(): ?array {
-        return $this->arguments;
+        return $this->getBackingStore()->get('arguments');
     }
 
     /**
@@ -85,7 +40,7 @@ class Task extends Entity implements Parsable
      * @return LifecycleTaskCategory|null
     */
     public function getCategory(): ?LifecycleTaskCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -93,7 +48,7 @@ class Task extends Entity implements Parsable
      * @return bool|null
     */
     public function getContinueOnError(): ?bool {
-        return $this->continueOnError;
+        return $this->getBackingStore()->get('continueOnError');
     }
 
     /**
@@ -101,7 +56,7 @@ class Task extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -109,7 +64,7 @@ class Task extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -117,7 +72,7 @@ class Task extends Entity implements Parsable
      * @return int|null
     */
     public function getExecutionSequence(): ?int {
-        return $this->executionSequence;
+        return $this->getBackingStore()->get('executionSequence');
     }
 
     /**
@@ -144,7 +99,7 @@ class Task extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -152,7 +107,7 @@ class Task extends Entity implements Parsable
      * @return string|null
     */
     public function getTaskDefinitionId(): ?string {
-        return $this->taskDefinitionId;
+        return $this->getBackingStore()->get('taskDefinitionId');
     }
 
     /**
@@ -160,7 +115,7 @@ class Task extends Entity implements Parsable
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
-        return $this->taskProcessingResults;
+        return $this->getBackingStore()->get('taskProcessingResults');
     }
 
     /**
@@ -169,87 +124,87 @@ class Task extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('arguments', $this->arguments);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeBooleanValue('continueOnError', $this->continueOnError);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('executionSequence', $this->executionSequence);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeStringValue('taskDefinitionId', $this->taskDefinitionId);
-        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->taskProcessingResults);
+        $writer->writeCollectionOfObjectValues('arguments', $this->getArguments());
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeBooleanValue('continueOnError', $this->getContinueOnError());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('executionSequence', $this->getExecutionSequence());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('taskDefinitionId', $this->getTaskDefinitionId());
+        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->getTaskProcessingResults());
     }
 
     /**
      * Sets the arguments property value. Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.
      *  @param array<KeyValuePair>|null $value Value to set for the arguments property.
     */
-    public function setArguments(?array $value ): void {
-        $this->arguments = $value;
+    public function setArguments(?array $value): void {
+        $this->getBackingStore()->set('arguments', $value);
     }
 
     /**
      * Sets the category property value. The category property
      *  @param LifecycleTaskCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?LifecycleTaskCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?LifecycleTaskCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the continueOnError property value. A boolean value that determines if the failure of this task stops the subsequent workflows from running. Optional.
      *  @param bool|null $value Value to set for the continueOnError property.
     */
-    public function setContinueOnError(?bool $value ): void {
-        $this->continueOnError = $value;
+    public function setContinueOnError(?bool $value): void {
+        $this->getBackingStore()->set('continueOnError', $value);
     }
 
     /**
      * Sets the description property value. A string that describes the purpose of the task for administrative use. Optional.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. A unique string that identifies the task. Required.Supports $filter(eq, ne) and orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the executionSequence property value. An integer that states in what order the task will run in a workflow.Supports $orderby.
      *  @param int|null $value Value to set for the executionSequence property.
     */
-    public function setExecutionSequence(?int $value ): void {
-        $this->executionSequence = $value;
+    public function setExecutionSequence(?int $value): void {
+        $this->getBackingStore()->set('executionSequence', $value);
     }
 
     /**
      * Sets the isEnabled property value. A boolean value that denotes whether the task is set to run or not. Optional.Supports $filter(eq, ne) and orderBy.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the taskDefinitionId property value. A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks. Required.Supports $filter(eq, ne).
      *  @param string|null $value Value to set for the taskDefinitionId property.
     */
-    public function setTaskDefinitionId(?string $value ): void {
-        $this->taskDefinitionId = $value;
+    public function setTaskDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('taskDefinitionId', $value);
     }
 
     /**
      * Sets the taskProcessingResults property value. The result of processing the task.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
-    public function setTaskProcessingResults(?array $value ): void {
-        $this->taskProcessingResults = $value;
+    public function setTaskProcessingResults(?array $value): void {
+        $this->getBackingStore()->set('taskProcessingResults', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UrlEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $url The Unique Resource Locator (URL).
-    */
-    private ?string $url = null;
-    
-    /**
      * Instantiates a new UrlEvidence and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UrlEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->url;
+        return $this->getBackingStore()->get('url');
     }
 
     /**
@@ -55,15 +50,15 @@ class UrlEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('url', $this->url);
+        $writer->writeStringValue('url', $this->getUrl());
     }
 
     /**
      * Sets the url property value. The Unique Resource Locator (URL).
      *  @param string|null $value Value to set for the url property.
     */
-    public function setUrl(?string $value ): void {
-        $this->url = $value;
+    public function setUrl(?string $value): void {
+        $this->getBackingStore()->set('url', $value);
     }
 
 }

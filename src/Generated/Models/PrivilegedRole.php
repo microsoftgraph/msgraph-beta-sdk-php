@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRole extends Entity implements Parsable 
 {
     /**
-     * @var array<PrivilegedRoleAssignment>|null $assignments The assignments for this role. Read-only. Nullable.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var string|null $name Role name.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var PrivilegedRoleSettings|null $settings The settings for this role. Read-only. Nullable.
-    */
-    private ?PrivilegedRoleSettings $settings = null;
-    
-    /**
-     * @var PrivilegedRoleSummary|null $summary The summary information for this role. Read-only. Nullable.
-    */
-    private ?PrivilegedRoleSummary $summary = null;
-    
-    /**
      * Instantiates a new privilegedRole and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class PrivilegedRole extends Entity implements Parsable
      * @return array<PrivilegedRoleAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -72,7 +52,7 @@ class PrivilegedRole extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -80,7 +60,7 @@ class PrivilegedRole extends Entity implements Parsable
      * @return PrivilegedRoleSettings|null
     */
     public function getSettings(): ?PrivilegedRoleSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -88,7 +68,7 @@ class PrivilegedRole extends Entity implements Parsable
      * @return PrivilegedRoleSummary|null
     */
     public function getSummary(): ?PrivilegedRoleSummary {
-        return $this->summary;
+        return $this->getBackingStore()->get('summary');
     }
 
     /**
@@ -97,42 +77,42 @@ class PrivilegedRole extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('settings', $this->settings);
-        $writer->writeObjectValue('summary', $this->summary);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeObjectValue('summary', $this->getSummary());
     }
 
     /**
      * Sets the assignments property value. The assignments for this role. Read-only. Nullable.
      *  @param array<PrivilegedRoleAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the name property value. Role name.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the settings property value. The settings for this role. Read-only. Nullable.
      *  @param PrivilegedRoleSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?PrivilegedRoleSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?PrivilegedRoleSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the summary property value. The summary information for this role. Read-only. Nullable.
      *  @param PrivilegedRoleSummary|null $value Value to set for the summary property.
     */
-    public function setSummary(?PrivilegedRoleSummary $value ): void {
-        $this->summary = $value;
+    public function setSummary(?PrivilegedRoleSummary $value): void {
+        $this->getBackingStore()->set('summary', $value);
     }
 
 }

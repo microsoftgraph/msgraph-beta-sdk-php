@@ -7,28 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable 
+class EndBreakPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $atApprovedLocation The atApprovedLocation property
-    */
-    private ?bool $atApprovedLocation = null;
-    
-    /**
-     * @var ItemBody|null $notes The notes property
-    */
-    private ?ItemBody $notes = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new endBreakPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -45,8 +39,8 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -54,7 +48,15 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAtApprovedLocation(): ?bool {
-        return $this->atApprovedLocation;
+        return $this->getBackingStore()->get('atApprovedLocation');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +76,7 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -82,33 +84,33 @@ class EndBreakPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('atApprovedLocation', $this->atApprovedLocation);
-        $writer->writeObjectValue('notes', $this->notes);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('atApprovedLocation', $this->getAtApprovedLocation());
+        $writer->writeObjectValue('notes', $this->getNotes());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the atApprovedLocation property value. The atApprovedLocation property
      *  @param bool|null $value Value to set for the atApprovedLocation property.
     */
-    public function setAtApprovedLocation(?bool $value ): void {
-        $this->atApprovedLocation = $value;
+    public function setAtApprovedLocation(?bool $value): void {
+        $this->getBackingStore()->set('atApprovedLocation', $value);
     }
 
     /**
      * Sets the notes property value. The notes property
      *  @param ItemBody|null $value Value to set for the notes property.
     */
-    public function setNotes(?ItemBody $value ): void {
-        $this->notes = $value;
+    public function setNotes(?ItemBody $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
 }

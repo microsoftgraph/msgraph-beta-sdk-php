@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwidth implements Parsable 
 {
     /**
-     * @var int|null $maximumBackgroundBandwidthPercentage Specifies the maximum background download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
-    */
-    private ?int $maximumBackgroundBandwidthPercentage = null;
-    
-    /**
-     * @var int|null $maximumForegroundBandwidthPercentage Specifies the maximum foreground download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
-    */
-    private ?int $maximumForegroundBandwidthPercentage = null;
-    
-    /**
      * Instantiates a new DeliveryOptimizationBandwidthPercentage and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
      * @return int|null
     */
     public function getMaximumBackgroundBandwidthPercentage(): ?int {
-        return $this->maximumBackgroundBandwidthPercentage;
+        return $this->getBackingStore()->get('maximumBackgroundBandwidthPercentage');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
      * @return int|null
     */
     public function getMaximumForegroundBandwidthPercentage(): ?int {
-        return $this->maximumForegroundBandwidthPercentage;
+        return $this->getBackingStore()->get('maximumForegroundBandwidthPercentage');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeliveryOptimizationBandwidthPercentage extends DeliveryOptimizationBandwi
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('maximumBackgroundBandwidthPercentage', $this->maximumBackgroundBandwidthPercentage);
-        $writer->writeIntegerValue('maximumForegroundBandwidthPercentage', $this->maximumForegroundBandwidthPercentage);
+        $writer->writeIntegerValue('maximumBackgroundBandwidthPercentage', $this->getMaximumBackgroundBandwidthPercentage());
+        $writer->writeIntegerValue('maximumForegroundBandwidthPercentage', $this->getMaximumForegroundBandwidthPercentage());
     }
 
     /**
      * Sets the maximumBackgroundBandwidthPercentage property value. Specifies the maximum background download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
      *  @param int|null $value Value to set for the maximumBackgroundBandwidthPercentage property.
     */
-    public function setMaximumBackgroundBandwidthPercentage(?int $value ): void {
-        $this->maximumBackgroundBandwidthPercentage = $value;
+    public function setMaximumBackgroundBandwidthPercentage(?int $value): void {
+        $this->getBackingStore()->set('maximumBackgroundBandwidthPercentage', $value);
     }
 
     /**
      * Sets the maximumForegroundBandwidthPercentage property value. Specifies the maximum foreground download bandwidth that Delivery Optimization uses across all concurrent download activities as a percentage of available download bandwidth (0-100). Valid values 0 to 100
      *  @param int|null $value Value to set for the maximumForegroundBandwidthPercentage property.
     */
-    public function setMaximumForegroundBandwidthPercentage(?int $value ): void {
-        $this->maximumForegroundBandwidthPercentage = $value;
+    public function setMaximumForegroundBandwidthPercentage(?int $value): void {
+        $this->getBackingStore()->set('maximumForegroundBandwidthPercentage', $value);
     }
 
 }

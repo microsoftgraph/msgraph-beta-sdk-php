@@ -7,53 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AlertEvidence implements AdditionalDataHolder, Parsable 
+class AlertEvidence implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $createdDateTime The time the evidence was created and added to the alert.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var EvidenceRemediationStatus|null $remediationStatus The remediationStatus property
-    */
-    private ?EvidenceRemediationStatus $remediationStatus = null;
-    
-    /**
-     * @var string|null $remediationStatusDetails Details about the remediation status.
-    */
-    private ?string $remediationStatusDetails = null;
-    
-    /**
-     * @var array<EvidenceRole>|null $roles The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
-    */
-    private ?array $roles = null;
-    
-    /**
-     * @var array<string>|null $tags Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var EvidenceVerdict|null $verdict The verdict property
-    */
-    private ?EvidenceVerdict $verdict = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new alertEvidence and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.security.alertEvidence');
     }
@@ -91,8 +60,16 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -100,7 +77,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -125,7 +102,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -133,7 +110,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return EvidenceRemediationStatus|null
     */
     public function getRemediationStatus(): ?EvidenceRemediationStatus {
-        return $this->remediationStatus;
+        return $this->getBackingStore()->get('remediationStatus');
     }
 
     /**
@@ -141,7 +118,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRemediationStatusDetails(): ?string {
-        return $this->remediationStatusDetails;
+        return $this->getBackingStore()->get('remediationStatusDetails');
     }
 
     /**
@@ -149,7 +126,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return array<EvidenceRole>|null
     */
     public function getRoles(): ?array {
-        return $this->roles;
+        return $this->getBackingStore()->get('roles');
     }
 
     /**
@@ -157,7 +134,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -165,7 +142,7 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @return EvidenceVerdict|null
     */
     public function getVerdict(): ?EvidenceVerdict {
-        return $this->verdict;
+        return $this->getBackingStore()->get('verdict');
     }
 
     /**
@@ -173,78 +150,78 @@ class AlertEvidence implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('remediationStatus', $this->remediationStatus);
-        $writer->writeStringValue('remediationStatusDetails', $this->remediationStatusDetails);
-        $writer->writeCollectionOfEnumValues('roles', $this->roles);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeEnumValue('verdict', $this->verdict);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('remediationStatus', $this->getRemediationStatus());
+        $writer->writeStringValue('remediationStatusDetails', $this->getRemediationStatusDetails());
+        $writer->writeCollectionOfEnumValues('roles', $this->getRoles());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeEnumValue('verdict', $this->getVerdict());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The time the evidence was created and added to the alert.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the remediationStatus property value. The remediationStatus property
      *  @param EvidenceRemediationStatus|null $value Value to set for the remediationStatus property.
     */
-    public function setRemediationStatus(?EvidenceRemediationStatus $value ): void {
-        $this->remediationStatus = $value;
+    public function setRemediationStatus(?EvidenceRemediationStatus $value): void {
+        $this->getBackingStore()->set('remediationStatus', $value);
     }
 
     /**
      * Sets the remediationStatusDetails property value. Details about the remediation status.
      *  @param string|null $value Value to set for the remediationStatusDetails property.
     */
-    public function setRemediationStatusDetails(?string $value ): void {
-        $this->remediationStatusDetails = $value;
+    public function setRemediationStatusDetails(?string $value): void {
+        $this->getBackingStore()->set('remediationStatusDetails', $value);
     }
 
     /**
      * Sets the roles property value. The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role 'Attacker'.
      *  @param array<EvidenceRole>|null $value Value to set for the roles property.
     */
-    public function setRoles(?array $value ): void {
-        $this->roles = $value;
+    public function setRoles(?array $value): void {
+        $this->getBackingStore()->set('roles', $value);
     }
 
     /**
      * Sets the tags property value. Array of custom tags associated with an evidence instance, for example to denote a group of devices, high value assets, etc.
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the verdict property value. The verdict property
      *  @param EvidenceVerdict|null $value Value to set for the verdict property.
     */
-    public function setVerdict(?EvidenceVerdict $value ): void {
-        $this->verdict = $value;
+    public function setVerdict(?EvidenceVerdict $value): void {
+        $this->getBackingStore()->set('verdict', $value);
     }
 
 }

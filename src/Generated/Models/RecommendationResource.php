@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RecommendationResource extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $addedDateTime The addedDateTime property
-    */
-    private ?DateTime $addedDateTime = null;
-    
-    /**
-     * @var array<KeyValue>|null $additionalDetails The additionalDetails property
-    */
-    private ?array $additionalDetails = null;
-    
-    /**
-     * @var string|null $apiUrl The apiUrl property
-    */
-    private ?string $apiUrl = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $owner The owner property
-    */
-    private ?string $owner = null;
-    
-    /**
-     * @var string|null $portalUrl The portalUrl property
-    */
-    private ?string $portalUrl = null;
-    
-    /**
-     * @var int|null $rank The rank property
-    */
-    private ?int $rank = null;
-    
-    /**
-     * @var string|null $recommendationId The recommendationId property
-    */
-    private ?string $recommendationId = null;
-    
-    /**
-     * @var string|null $resourceType The resourceType property
-    */
-    private ?string $resourceType = null;
-    
-    /**
-     * @var RecommendationStatus|null $status The status property
-    */
-    private ?RecommendationStatus $status = null;
-    
-    /**
      * Instantiates a new recommendationResource and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAddedDateTime(): ?DateTime {
-        return $this->addedDateTime;
+        return $this->getBackingStore()->get('addedDateTime');
     }
 
     /**
@@ -89,7 +39,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return array<KeyValue>|null
     */
     public function getAdditionalDetails(): ?array {
-        return $this->additionalDetails;
+        return $this->getBackingStore()->get('additionalDetails');
     }
 
     /**
@@ -97,7 +47,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getApiUrl(): ?string {
-        return $this->apiUrl;
+        return $this->getBackingStore()->get('apiUrl');
     }
 
     /**
@@ -105,7 +55,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -133,7 +83,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getOwner(): ?string {
-        return $this->owner;
+        return $this->getBackingStore()->get('owner');
     }
 
     /**
@@ -141,7 +91,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getPortalUrl(): ?string {
-        return $this->portalUrl;
+        return $this->getBackingStore()->get('portalUrl');
     }
 
     /**
@@ -149,7 +99,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return int|null
     */
     public function getRank(): ?int {
-        return $this->rank;
+        return $this->getBackingStore()->get('rank');
     }
 
     /**
@@ -157,7 +107,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getRecommendationId(): ?string {
-        return $this->recommendationId;
+        return $this->getBackingStore()->get('recommendationId');
     }
 
     /**
@@ -165,7 +115,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceType(): ?string {
-        return $this->resourceType;
+        return $this->getBackingStore()->get('resourceType');
     }
 
     /**
@@ -173,7 +123,7 @@ class RecommendationResource extends Entity implements Parsable
      * @return RecommendationStatus|null
     */
     public function getStatus(): ?RecommendationStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -182,96 +132,96 @@ class RecommendationResource extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('addedDateTime', $this->addedDateTime);
-        $writer->writeCollectionOfObjectValues('additionalDetails', $this->additionalDetails);
-        $writer->writeStringValue('apiUrl', $this->apiUrl);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('owner', $this->owner);
-        $writer->writeStringValue('portalUrl', $this->portalUrl);
-        $writer->writeIntegerValue('rank', $this->rank);
-        $writer->writeStringValue('recommendationId', $this->recommendationId);
-        $writer->writeStringValue('resourceType', $this->resourceType);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeDateTimeValue('addedDateTime', $this->getAddedDateTime());
+        $writer->writeCollectionOfObjectValues('additionalDetails', $this->getAdditionalDetails());
+        $writer->writeStringValue('apiUrl', $this->getApiUrl());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('owner', $this->getOwner());
+        $writer->writeStringValue('portalUrl', $this->getPortalUrl());
+        $writer->writeIntegerValue('rank', $this->getRank());
+        $writer->writeStringValue('recommendationId', $this->getRecommendationId());
+        $writer->writeStringValue('resourceType', $this->getResourceType());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the addedDateTime property value. The addedDateTime property
      *  @param DateTime|null $value Value to set for the addedDateTime property.
     */
-    public function setAddedDateTime(?DateTime $value ): void {
-        $this->addedDateTime = $value;
+    public function setAddedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('addedDateTime', $value);
     }
 
     /**
      * Sets the additionalDetails property value. The additionalDetails property
      *  @param array<KeyValue>|null $value Value to set for the additionalDetails property.
     */
-    public function setAdditionalDetails(?array $value ): void {
-        $this->additionalDetails = $value;
+    public function setAdditionalDetails(?array $value): void {
+        $this->getBackingStore()->set('additionalDetails', $value);
     }
 
     /**
      * Sets the apiUrl property value. The apiUrl property
      *  @param string|null $value Value to set for the apiUrl property.
     */
-    public function setApiUrl(?string $value ): void {
-        $this->apiUrl = $value;
+    public function setApiUrl(?string $value): void {
+        $this->getBackingStore()->set('apiUrl', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the owner property value. The owner property
      *  @param string|null $value Value to set for the owner property.
     */
-    public function setOwner(?string $value ): void {
-        $this->owner = $value;
+    public function setOwner(?string $value): void {
+        $this->getBackingStore()->set('owner', $value);
     }
 
     /**
      * Sets the portalUrl property value. The portalUrl property
      *  @param string|null $value Value to set for the portalUrl property.
     */
-    public function setPortalUrl(?string $value ): void {
-        $this->portalUrl = $value;
+    public function setPortalUrl(?string $value): void {
+        $this->getBackingStore()->set('portalUrl', $value);
     }
 
     /**
      * Sets the rank property value. The rank property
      *  @param int|null $value Value to set for the rank property.
     */
-    public function setRank(?int $value ): void {
-        $this->rank = $value;
+    public function setRank(?int $value): void {
+        $this->getBackingStore()->set('rank', $value);
     }
 
     /**
      * Sets the recommendationId property value. The recommendationId property
      *  @param string|null $value Value to set for the recommendationId property.
     */
-    public function setRecommendationId(?string $value ): void {
-        $this->recommendationId = $value;
+    public function setRecommendationId(?string $value): void {
+        $this->getBackingStore()->set('recommendationId', $value);
     }
 
     /**
      * Sets the resourceType property value. The resourceType property
      *  @param string|null $value Value to set for the resourceType property.
     */
-    public function setResourceType(?string $value ): void {
-        $this->resourceType = $value;
+    public function setResourceType(?string $value): void {
+        $this->getBackingStore()->set('resourceType', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param RecommendationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?RecommendationStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?RecommendationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

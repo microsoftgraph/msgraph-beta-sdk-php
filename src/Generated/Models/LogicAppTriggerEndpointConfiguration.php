@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfiguration implements Parsable 
 {
     /**
-     * @var string|null $logicAppWorkflowName The name of the logic app.
-    */
-    private ?string $logicAppWorkflowName = null;
-    
-    /**
-     * @var string|null $resourceGroupName The Azure resource group name for the logic app.
-    */
-    private ?string $resourceGroupName = null;
-    
-    /**
-     * @var string|null $subscriptionId Identifier of the Azure subscription for the logic app.
-    */
-    private ?string $subscriptionId = null;
-    
-    /**
      * Instantiates a new LogicAppTriggerEndpointConfiguration and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
      * @return string|null
     */
     public function getLogicAppWorkflowName(): ?string {
-        return $this->logicAppWorkflowName;
+        return $this->getBackingStore()->get('logicAppWorkflowName');
     }
 
     /**
@@ -66,7 +51,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
      * @return string|null
     */
     public function getResourceGroupName(): ?string {
-        return $this->resourceGroupName;
+        return $this->getBackingStore()->get('resourceGroupName');
     }
 
     /**
@@ -74,7 +59,7 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
-        return $this->subscriptionId;
+        return $this->getBackingStore()->get('subscriptionId');
     }
 
     /**
@@ -83,33 +68,33 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('logicAppWorkflowName', $this->logicAppWorkflowName);
-        $writer->writeStringValue('resourceGroupName', $this->resourceGroupName);
-        $writer->writeStringValue('subscriptionId', $this->subscriptionId);
+        $writer->writeStringValue('logicAppWorkflowName', $this->getLogicAppWorkflowName());
+        $writer->writeStringValue('resourceGroupName', $this->getResourceGroupName());
+        $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
     }
 
     /**
      * Sets the logicAppWorkflowName property value. The name of the logic app.
      *  @param string|null $value Value to set for the logicAppWorkflowName property.
     */
-    public function setLogicAppWorkflowName(?string $value ): void {
-        $this->logicAppWorkflowName = $value;
+    public function setLogicAppWorkflowName(?string $value): void {
+        $this->getBackingStore()->set('logicAppWorkflowName', $value);
     }
 
     /**
      * Sets the resourceGroupName property value. The Azure resource group name for the logic app.
      *  @param string|null $value Value to set for the resourceGroupName property.
     */
-    public function setResourceGroupName(?string $value ): void {
-        $this->resourceGroupName = $value;
+    public function setResourceGroupName(?string $value): void {
+        $this->getBackingStore()->set('resourceGroupName', $value);
     }
 
     /**
      * Sets the subscriptionId property value. Identifier of the Azure subscription for the logic app.
      *  @param string|null $value Value to set for the subscriptionId property.
     */
-    public function setSubscriptionId(?string $value ): void {
-        $this->subscriptionId = $value;
+    public function setSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('subscriptionId', $value);
     }
 
 }

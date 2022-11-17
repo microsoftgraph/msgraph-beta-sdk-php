@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable 
+class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $adminAgentSoftwareUpdateStatus The software update available for the admin agent.
-    */
-    private ?TeamworkSoftwareUpdateStatus $adminAgentSoftwareUpdateStatus = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $companyPortalSoftwareUpdateStatus The software update available for the company portal.
-    */
-    private ?TeamworkSoftwareUpdateStatus $companyPortalSoftwareUpdateStatus = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $firmwareSoftwareUpdateStatus The software update available for the firmware.
-    */
-    private ?TeamworkSoftwareUpdateStatus $firmwareSoftwareUpdateStatus = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $operatingSystemSoftwareUpdateStatus The software update available for the operating system.
-    */
-    private ?TeamworkSoftwareUpdateStatus $operatingSystemSoftwareUpdateStatus = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $partnerAgentSoftwareUpdateStatus The software update available for the partner agent.
-    */
-    private ?TeamworkSoftwareUpdateStatus $partnerAgentSoftwareUpdateStatus = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateStatus|null $teamsClientSoftwareUpdateStatus The software update available for the Teams client.
-    */
-    private ?TeamworkSoftwareUpdateStatus $teamsClientSoftwareUpdateStatus = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkSoftwareUpdateHealth and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkSoftwareUpdateHealth');
     }
@@ -70,8 +39,8 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -79,7 +48,15 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getAdminAgentSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->adminAgentSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('adminAgentSoftwareUpdateStatus');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -87,7 +64,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getCompanyPortalSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->companyPortalSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('companyPortalSoftwareUpdateStatus');
     }
 
     /**
@@ -112,7 +89,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getFirmwareSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->firmwareSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('firmwareSoftwareUpdateStatus');
     }
 
     /**
@@ -120,7 +97,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,7 +105,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getOperatingSystemSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->operatingSystemSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('operatingSystemSoftwareUpdateStatus');
     }
 
     /**
@@ -136,7 +113,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getPartnerAgentSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->partnerAgentSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('partnerAgentSoftwareUpdateStatus');
     }
 
     /**
@@ -144,7 +121,7 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkSoftwareUpdateStatus|null
     */
     public function getTeamsClientSoftwareUpdateStatus(): ?TeamworkSoftwareUpdateStatus {
-        return $this->teamsClientSoftwareUpdateStatus;
+        return $this->getBackingStore()->get('teamsClientSoftwareUpdateStatus');
     }
 
     /**
@@ -152,78 +129,78 @@ class TeamworkSoftwareUpdateHealth implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('adminAgentSoftwareUpdateStatus', $this->adminAgentSoftwareUpdateStatus);
-        $writer->writeObjectValue('companyPortalSoftwareUpdateStatus', $this->companyPortalSoftwareUpdateStatus);
-        $writer->writeObjectValue('firmwareSoftwareUpdateStatus', $this->firmwareSoftwareUpdateStatus);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('operatingSystemSoftwareUpdateStatus', $this->operatingSystemSoftwareUpdateStatus);
-        $writer->writeObjectValue('partnerAgentSoftwareUpdateStatus', $this->partnerAgentSoftwareUpdateStatus);
-        $writer->writeObjectValue('teamsClientSoftwareUpdateStatus', $this->teamsClientSoftwareUpdateStatus);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('adminAgentSoftwareUpdateStatus', $this->getAdminAgentSoftwareUpdateStatus());
+        $writer->writeObjectValue('companyPortalSoftwareUpdateStatus', $this->getCompanyPortalSoftwareUpdateStatus());
+        $writer->writeObjectValue('firmwareSoftwareUpdateStatus', $this->getFirmwareSoftwareUpdateStatus());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('operatingSystemSoftwareUpdateStatus', $this->getOperatingSystemSoftwareUpdateStatus());
+        $writer->writeObjectValue('partnerAgentSoftwareUpdateStatus', $this->getPartnerAgentSoftwareUpdateStatus());
+        $writer->writeObjectValue('teamsClientSoftwareUpdateStatus', $this->getTeamsClientSoftwareUpdateStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the adminAgentSoftwareUpdateStatus property value. The software update available for the admin agent.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the adminAgentSoftwareUpdateStatus property.
     */
-    public function setAdminAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->adminAgentSoftwareUpdateStatus = $value;
+    public function setAdminAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('adminAgentSoftwareUpdateStatus', $value);
     }
 
     /**
      * Sets the companyPortalSoftwareUpdateStatus property value. The software update available for the company portal.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the companyPortalSoftwareUpdateStatus property.
     */
-    public function setCompanyPortalSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->companyPortalSoftwareUpdateStatus = $value;
+    public function setCompanyPortalSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('companyPortalSoftwareUpdateStatus', $value);
     }
 
     /**
      * Sets the firmwareSoftwareUpdateStatus property value. The software update available for the firmware.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the firmwareSoftwareUpdateStatus property.
     */
-    public function setFirmwareSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->firmwareSoftwareUpdateStatus = $value;
+    public function setFirmwareSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('firmwareSoftwareUpdateStatus', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the operatingSystemSoftwareUpdateStatus property value. The software update available for the operating system.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the operatingSystemSoftwareUpdateStatus property.
     */
-    public function setOperatingSystemSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->operatingSystemSoftwareUpdateStatus = $value;
+    public function setOperatingSystemSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('operatingSystemSoftwareUpdateStatus', $value);
     }
 
     /**
      * Sets the partnerAgentSoftwareUpdateStatus property value. The software update available for the partner agent.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the partnerAgentSoftwareUpdateStatus property.
     */
-    public function setPartnerAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->partnerAgentSoftwareUpdateStatus = $value;
+    public function setPartnerAgentSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('partnerAgentSoftwareUpdateStatus', $value);
     }
 
     /**
      * Sets the teamsClientSoftwareUpdateStatus property value. The software update available for the Teams client.
      *  @param TeamworkSoftwareUpdateStatus|null $value Value to set for the teamsClientSoftwareUpdateStatus property.
     */
-    public function setTeamsClientSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value ): void {
-        $this->teamsClientSoftwareUpdateStatus = $value;
+    public function setTeamsClientSoftwareUpdateStatus(?TeamworkSoftwareUpdateStatus $value): void {
+        $this->getBackingStore()->set('teamsClientSoftwareUpdateStatus', $value);
     }
 
 }

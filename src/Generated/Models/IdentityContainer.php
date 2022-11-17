@@ -6,73 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IdentityContainer implements AdditionalDataHolder, Parsable 
+class IdentityContainer implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<IdentityApiConnector>|null $apiConnectors Represents entry point for API connectors.
-    */
-    private ?array $apiConnectors = null;
-    
-    /**
-     * @var array<AuthenticationEventListener>|null $authenticationEventListeners The authenticationEventListeners property
-    */
-    private ?array $authenticationEventListeners = null;
-    
-    /**
-     * @var array<B2cIdentityUserFlow>|null $b2cUserFlows Represents entry point for B2C identity userflows.
-    */
-    private ?array $b2cUserFlows = null;
-    
-    /**
-     * @var array<B2xIdentityUserFlow>|null $b2xUserFlows Represents entry point for B2X and self-service sign-up identity userflows.
-    */
-    private ?array $b2xUserFlows = null;
-    
-    /**
-     * @var ConditionalAccessRoot|null $conditionalAccess the entry point for the Conditional Access (CA) object model.
-    */
-    private ?ConditionalAccessRoot $conditionalAccess = null;
-    
-    /**
-     * @var ContinuousAccessEvaluationPolicy|null $continuousAccessEvaluationPolicy Represents entry point for continuous access evaluation policy.
-    */
-    private ?ContinuousAccessEvaluationPolicy $continuousAccessEvaluationPolicy = null;
-    
-    /**
-     * @var array<CustomAuthenticationExtension>|null $customAuthenticationExtensions The customAuthenticationExtensions property
-    */
-    private ?array $customAuthenticationExtensions = null;
-    
-    /**
-     * @var array<IdentityProviderBase>|null $identityProviders Represents entry point for identity provider base.
-    */
-    private ?array $identityProviders = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<IdentityUserFlowAttribute>|null $userFlowAttributes Represents entry point for identity userflow attributes.
-    */
-    private ?array $userFlowAttributes = null;
-    
-    /**
-     * @var array<IdentityUserFlow>|null $userFlows The userFlows property
-    */
-    private ?array $userFlows = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new IdentityContainer and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.identityContainer');
     }
@@ -90,8 +39,8 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -99,7 +48,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<IdentityApiConnector>|null
     */
     public function getApiConnectors(): ?array {
-        return $this->apiConnectors;
+        return $this->getBackingStore()->get('apiConnectors');
     }
 
     /**
@@ -107,7 +56,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<AuthenticationEventListener>|null
     */
     public function getAuthenticationEventListeners(): ?array {
-        return $this->authenticationEventListeners;
+        return $this->getBackingStore()->get('authenticationEventListeners');
     }
 
     /**
@@ -115,7 +64,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<B2cIdentityUserFlow>|null
     */
     public function getB2cUserFlows(): ?array {
-        return $this->b2cUserFlows;
+        return $this->getBackingStore()->get('b2cUserFlows');
     }
 
     /**
@@ -123,7 +72,15 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<B2xIdentityUserFlow>|null
     */
     public function getB2xUserFlows(): ?array {
-        return $this->b2xUserFlows;
+        return $this->getBackingStore()->get('b2xUserFlows');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -131,7 +88,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return ConditionalAccessRoot|null
     */
     public function getConditionalAccess(): ?ConditionalAccessRoot {
-        return $this->conditionalAccess;
+        return $this->getBackingStore()->get('conditionalAccess');
     }
 
     /**
@@ -139,7 +96,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return ContinuousAccessEvaluationPolicy|null
     */
     public function getContinuousAccessEvaluationPolicy(): ?ContinuousAccessEvaluationPolicy {
-        return $this->continuousAccessEvaluationPolicy;
+        return $this->getBackingStore()->get('continuousAccessEvaluationPolicy');
     }
 
     /**
@@ -147,7 +104,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<CustomAuthenticationExtension>|null
     */
     public function getCustomAuthenticationExtensions(): ?array {
-        return $this->customAuthenticationExtensions;
+        return $this->getBackingStore()->get('customAuthenticationExtensions');
     }
 
     /**
@@ -176,7 +133,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<IdentityProviderBase>|null
     */
     public function getIdentityProviders(): ?array {
-        return $this->identityProviders;
+        return $this->getBackingStore()->get('identityProviders');
     }
 
     /**
@@ -184,7 +141,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -192,7 +149,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<IdentityUserFlowAttribute>|null
     */
     public function getUserFlowAttributes(): ?array {
-        return $this->userFlowAttributes;
+        return $this->getBackingStore()->get('userFlowAttributes');
     }
 
     /**
@@ -200,7 +157,7 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @return array<IdentityUserFlow>|null
     */
     public function getUserFlows(): ?array {
-        return $this->userFlows;
+        return $this->getBackingStore()->get('userFlows');
     }
 
     /**
@@ -208,114 +165,114 @@ class IdentityContainer implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('apiConnectors', $this->apiConnectors);
-        $writer->writeCollectionOfObjectValues('authenticationEventListeners', $this->authenticationEventListeners);
-        $writer->writeCollectionOfObjectValues('b2cUserFlows', $this->b2cUserFlows);
-        $writer->writeCollectionOfObjectValues('b2xUserFlows', $this->b2xUserFlows);
-        $writer->writeObjectValue('conditionalAccess', $this->conditionalAccess);
-        $writer->writeObjectValue('continuousAccessEvaluationPolicy', $this->continuousAccessEvaluationPolicy);
-        $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->customAuthenticationExtensions);
-        $writer->writeCollectionOfObjectValues('identityProviders', $this->identityProviders);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->userFlowAttributes);
-        $writer->writeCollectionOfObjectValues('userFlows', $this->userFlows);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('apiConnectors', $this->getApiConnectors());
+        $writer->writeCollectionOfObjectValues('authenticationEventListeners', $this->getAuthenticationEventListeners());
+        $writer->writeCollectionOfObjectValues('b2cUserFlows', $this->getB2cUserFlows());
+        $writer->writeCollectionOfObjectValues('b2xUserFlows', $this->getB2xUserFlows());
+        $writer->writeObjectValue('conditionalAccess', $this->getConditionalAccess());
+        $writer->writeObjectValue('continuousAccessEvaluationPolicy', $this->getContinuousAccessEvaluationPolicy());
+        $writer->writeCollectionOfObjectValues('customAuthenticationExtensions', $this->getCustomAuthenticationExtensions());
+        $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('userFlowAttributes', $this->getUserFlowAttributes());
+        $writer->writeCollectionOfObjectValues('userFlows', $this->getUserFlows());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the apiConnectors property value. Represents entry point for API connectors.
      *  @param array<IdentityApiConnector>|null $value Value to set for the apiConnectors property.
     */
-    public function setApiConnectors(?array $value ): void {
-        $this->apiConnectors = $value;
+    public function setApiConnectors(?array $value): void {
+        $this->getBackingStore()->set('apiConnectors', $value);
     }
 
     /**
      * Sets the authenticationEventListeners property value. The authenticationEventListeners property
      *  @param array<AuthenticationEventListener>|null $value Value to set for the authenticationEventListeners property.
     */
-    public function setAuthenticationEventListeners(?array $value ): void {
-        $this->authenticationEventListeners = $value;
+    public function setAuthenticationEventListeners(?array $value): void {
+        $this->getBackingStore()->set('authenticationEventListeners', $value);
     }
 
     /**
      * Sets the b2cUserFlows property value. Represents entry point for B2C identity userflows.
      *  @param array<B2cIdentityUserFlow>|null $value Value to set for the b2cUserFlows property.
     */
-    public function setB2cUserFlows(?array $value ): void {
-        $this->b2cUserFlows = $value;
+    public function setB2cUserFlows(?array $value): void {
+        $this->getBackingStore()->set('b2cUserFlows', $value);
     }
 
     /**
      * Sets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
      *  @param array<B2xIdentityUserFlow>|null $value Value to set for the b2xUserFlows property.
     */
-    public function setB2xUserFlows(?array $value ): void {
-        $this->b2xUserFlows = $value;
+    public function setB2xUserFlows(?array $value): void {
+        $this->getBackingStore()->set('b2xUserFlows', $value);
     }
 
     /**
      * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
      *  @param ConditionalAccessRoot|null $value Value to set for the conditionalAccess property.
     */
-    public function setConditionalAccess(?ConditionalAccessRoot $value ): void {
-        $this->conditionalAccess = $value;
+    public function setConditionalAccess(?ConditionalAccessRoot $value): void {
+        $this->getBackingStore()->set('conditionalAccess', $value);
     }
 
     /**
      * Sets the continuousAccessEvaluationPolicy property value. Represents entry point for continuous access evaluation policy.
      *  @param ContinuousAccessEvaluationPolicy|null $value Value to set for the continuousAccessEvaluationPolicy property.
     */
-    public function setContinuousAccessEvaluationPolicy(?ContinuousAccessEvaluationPolicy $value ): void {
-        $this->continuousAccessEvaluationPolicy = $value;
+    public function setContinuousAccessEvaluationPolicy(?ContinuousAccessEvaluationPolicy $value): void {
+        $this->getBackingStore()->set('continuousAccessEvaluationPolicy', $value);
     }
 
     /**
      * Sets the customAuthenticationExtensions property value. The customAuthenticationExtensions property
      *  @param array<CustomAuthenticationExtension>|null $value Value to set for the customAuthenticationExtensions property.
     */
-    public function setCustomAuthenticationExtensions(?array $value ): void {
-        $this->customAuthenticationExtensions = $value;
+    public function setCustomAuthenticationExtensions(?array $value): void {
+        $this->getBackingStore()->set('customAuthenticationExtensions', $value);
     }
 
     /**
      * Sets the identityProviders property value. Represents entry point for identity provider base.
      *  @param array<IdentityProviderBase>|null $value Value to set for the identityProviders property.
     */
-    public function setIdentityProviders(?array $value ): void {
-        $this->identityProviders = $value;
+    public function setIdentityProviders(?array $value): void {
+        $this->getBackingStore()->set('identityProviders', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
      *  @param array<IdentityUserFlowAttribute>|null $value Value to set for the userFlowAttributes property.
     */
-    public function setUserFlowAttributes(?array $value ): void {
-        $this->userFlowAttributes = $value;
+    public function setUserFlowAttributes(?array $value): void {
+        $this->getBackingStore()->set('userFlowAttributes', $value);
     }
 
     /**
      * Sets the userFlows property value. The userFlows property
      *  @param array<IdentityUserFlow>|null $value Value to set for the userFlows property.
     */
-    public function setUserFlows(?array $value ): void {
-        $this->userFlows = $value;
+    public function setUserFlows(?array $value): void {
+        $this->getBackingStore()->set('userFlows', $value);
     }
 
 }

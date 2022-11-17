@@ -9,76 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $appsBlockInstallFromUnknownSources Indicates whether or not the user is allowed to enable unknown sources setting. When set to true, user is not allowed to enable unknown sources settings.
-    */
-    private ?bool $appsBlockInstallFromUnknownSources = null;
-    
-    /**
-     * @var bool|null $bluetoothBlockConfiguration Indicates whether or not to block a user from configuring bluetooth.
-    */
-    private ?bool $bluetoothBlockConfiguration = null;
-    
-    /**
-     * @var bool|null $bluetoothBlocked Indicates whether or not to disable the use of bluetooth. When set to true, bluetooth cannot be enabled on the device.
-    */
-    private ?bool $bluetoothBlocked = null;
-    
-    /**
-     * @var bool|null $cameraBlocked Indicates whether or not to disable the use of the camera.
-    */
-    private ?bool $cameraBlocked = null;
-    
-    /**
-     * @var bool|null $factoryResetBlocked Indicates whether or not the factory reset option in settings is disabled.
-    */
-    private ?bool $factoryResetBlocked = null;
-    
-    /**
-     * @var int|null $passwordMinimumLength Indicates the minimum length of the password required on the device. Valid values 4 to 16
-    */
-    private ?int $passwordMinimumLength = null;
-    
-    /**
-     * @var int|null $passwordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
-    */
-    private ?int $passwordMinutesOfInactivityBeforeScreenTimeout = null;
-    
-    /**
-     * @var AndroidDeviceOwnerRequiredPasswordType|null $passwordRequiredType Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
-    */
-    private ?AndroidDeviceOwnerRequiredPasswordType $passwordRequiredType = null;
-    
-    /**
-     * @var int|null $passwordSignInFailureCountBeforeFactoryReset Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11
-    */
-    private ?int $passwordSignInFailureCountBeforeFactoryReset = null;
-    
-    /**
-     * @var bool|null $screenCaptureBlocked Indicates whether or not to disable the capability to take screenshots.
-    */
-    private ?bool $screenCaptureBlocked = null;
-    
-    /**
-     * @var bool|null $securityAllowDebuggingFeatures Indicates whether or not to block the user from enabling debugging features on the device.
-    */
-    private ?bool $securityAllowDebuggingFeatures = null;
-    
-    /**
-     * @var bool|null $storageBlockExternalMedia Indicates whether or not to block external media.
-    */
-    private ?bool $storageBlockExternalMedia = null;
-    
-    /**
-     * @var bool|null $storageBlockUsbFileTransfer Indicates whether or not to block USB file transfer.
-    */
-    private ?bool $storageBlockUsbFileTransfer = null;
-    
-    /**
-     * @var bool|null $wifiBlockEditConfigurations Indicates whether or not to block the user from editing the wifi connection settings.
-    */
-    private ?bool $wifiBlockEditConfigurations = null;
-    
-    /**
      * Instantiates a new AospDeviceOwnerDeviceConfiguration and sets the default values.
     */
     public function __construct() {
@@ -100,7 +30,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getAppsBlockInstallFromUnknownSources(): ?bool {
-        return $this->appsBlockInstallFromUnknownSources;
+        return $this->getBackingStore()->get('appsBlockInstallFromUnknownSources');
     }
 
     /**
@@ -108,7 +38,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getBluetoothBlockConfiguration(): ?bool {
-        return $this->bluetoothBlockConfiguration;
+        return $this->getBackingStore()->get('bluetoothBlockConfiguration');
     }
 
     /**
@@ -116,7 +46,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getBluetoothBlocked(): ?bool {
-        return $this->bluetoothBlocked;
+        return $this->getBackingStore()->get('bluetoothBlocked');
     }
 
     /**
@@ -124,7 +54,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->cameraBlocked;
+        return $this->getBackingStore()->get('cameraBlocked');
     }
 
     /**
@@ -132,7 +62,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getFactoryResetBlocked(): ?bool {
-        return $this->factoryResetBlocked;
+        return $this->getBackingStore()->get('factoryResetBlocked');
     }
 
     /**
@@ -164,7 +94,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->passwordMinimumLength;
+        return $this->getBackingStore()->get('passwordMinimumLength');
     }
 
     /**
@@ -172,7 +102,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->passwordMinutesOfInactivityBeforeScreenTimeout;
+        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
     }
 
     /**
@@ -180,7 +110,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return AndroidDeviceOwnerRequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?AndroidDeviceOwnerRequiredPasswordType {
-        return $this->passwordRequiredType;
+        return $this->getBackingStore()->get('passwordRequiredType');
     }
 
     /**
@@ -188,7 +118,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->passwordSignInFailureCountBeforeFactoryReset;
+        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
     }
 
     /**
@@ -196,7 +126,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->screenCaptureBlocked;
+        return $this->getBackingStore()->get('screenCaptureBlocked');
     }
 
     /**
@@ -204,7 +134,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getSecurityAllowDebuggingFeatures(): ?bool {
-        return $this->securityAllowDebuggingFeatures;
+        return $this->getBackingStore()->get('securityAllowDebuggingFeatures');
     }
 
     /**
@@ -212,7 +142,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getStorageBlockExternalMedia(): ?bool {
-        return $this->storageBlockExternalMedia;
+        return $this->getBackingStore()->get('storageBlockExternalMedia');
     }
 
     /**
@@ -220,7 +150,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getStorageBlockUsbFileTransfer(): ?bool {
-        return $this->storageBlockUsbFileTransfer;
+        return $this->getBackingStore()->get('storageBlockUsbFileTransfer');
     }
 
     /**
@@ -228,7 +158,7 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
      * @return bool|null
     */
     public function getWifiBlockEditConfigurations(): ?bool {
-        return $this->wifiBlockEditConfigurations;
+        return $this->getBackingStore()->get('wifiBlockEditConfigurations');
     }
 
     /**
@@ -237,132 +167,132 @@ class AospDeviceOwnerDeviceConfiguration extends DeviceConfiguration implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('appsBlockInstallFromUnknownSources', $this->appsBlockInstallFromUnknownSources);
-        $writer->writeBooleanValue('bluetoothBlockConfiguration', $this->bluetoothBlockConfiguration);
-        $writer->writeBooleanValue('bluetoothBlocked', $this->bluetoothBlocked);
-        $writer->writeBooleanValue('cameraBlocked', $this->cameraBlocked);
-        $writer->writeBooleanValue('factoryResetBlocked', $this->factoryResetBlocked);
-        $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
-        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeScreenTimeout', $this->passwordMinutesOfInactivityBeforeScreenTimeout);
-        $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
-        $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->passwordSignInFailureCountBeforeFactoryReset);
-        $writer->writeBooleanValue('screenCaptureBlocked', $this->screenCaptureBlocked);
-        $writer->writeBooleanValue('securityAllowDebuggingFeatures', $this->securityAllowDebuggingFeatures);
-        $writer->writeBooleanValue('storageBlockExternalMedia', $this->storageBlockExternalMedia);
-        $writer->writeBooleanValue('storageBlockUsbFileTransfer', $this->storageBlockUsbFileTransfer);
-        $writer->writeBooleanValue('wifiBlockEditConfigurations', $this->wifiBlockEditConfigurations);
+        $writer->writeBooleanValue('appsBlockInstallFromUnknownSources', $this->getAppsBlockInstallFromUnknownSources());
+        $writer->writeBooleanValue('bluetoothBlockConfiguration', $this->getBluetoothBlockConfiguration());
+        $writer->writeBooleanValue('bluetoothBlocked', $this->getBluetoothBlocked());
+        $writer->writeBooleanValue('cameraBlocked', $this->getCameraBlocked());
+        $writer->writeBooleanValue('factoryResetBlocked', $this->getFactoryResetBlocked());
+        $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
+        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeScreenTimeout', $this->getPasswordMinutesOfInactivityBeforeScreenTimeout());
+        $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
+        $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->getPasswordSignInFailureCountBeforeFactoryReset());
+        $writer->writeBooleanValue('screenCaptureBlocked', $this->getScreenCaptureBlocked());
+        $writer->writeBooleanValue('securityAllowDebuggingFeatures', $this->getSecurityAllowDebuggingFeatures());
+        $writer->writeBooleanValue('storageBlockExternalMedia', $this->getStorageBlockExternalMedia());
+        $writer->writeBooleanValue('storageBlockUsbFileTransfer', $this->getStorageBlockUsbFileTransfer());
+        $writer->writeBooleanValue('wifiBlockEditConfigurations', $this->getWifiBlockEditConfigurations());
     }
 
     /**
      * Sets the appsBlockInstallFromUnknownSources property value. Indicates whether or not the user is allowed to enable unknown sources setting. When set to true, user is not allowed to enable unknown sources settings.
      *  @param bool|null $value Value to set for the appsBlockInstallFromUnknownSources property.
     */
-    public function setAppsBlockInstallFromUnknownSources(?bool $value ): void {
-        $this->appsBlockInstallFromUnknownSources = $value;
+    public function setAppsBlockInstallFromUnknownSources(?bool $value): void {
+        $this->getBackingStore()->set('appsBlockInstallFromUnknownSources', $value);
     }
 
     /**
      * Sets the bluetoothBlockConfiguration property value. Indicates whether or not to block a user from configuring bluetooth.
      *  @param bool|null $value Value to set for the bluetoothBlockConfiguration property.
     */
-    public function setBluetoothBlockConfiguration(?bool $value ): void {
-        $this->bluetoothBlockConfiguration = $value;
+    public function setBluetoothBlockConfiguration(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlockConfiguration', $value);
     }
 
     /**
      * Sets the bluetoothBlocked property value. Indicates whether or not to disable the use of bluetooth. When set to true, bluetooth cannot be enabled on the device.
      *  @param bool|null $value Value to set for the bluetoothBlocked property.
     */
-    public function setBluetoothBlocked(?bool $value ): void {
-        $this->bluetoothBlocked = $value;
+    public function setBluetoothBlocked(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlocked', $value);
     }
 
     /**
      * Sets the cameraBlocked property value. Indicates whether or not to disable the use of the camera.
      *  @param bool|null $value Value to set for the cameraBlocked property.
     */
-    public function setCameraBlocked(?bool $value ): void {
-        $this->cameraBlocked = $value;
+    public function setCameraBlocked(?bool $value): void {
+        $this->getBackingStore()->set('cameraBlocked', $value);
     }
 
     /**
      * Sets the factoryResetBlocked property value. Indicates whether or not the factory reset option in settings is disabled.
      *  @param bool|null $value Value to set for the factoryResetBlocked property.
     */
-    public function setFactoryResetBlocked(?bool $value ): void {
-        $this->factoryResetBlocked = $value;
+    public function setFactoryResetBlocked(?bool $value): void {
+        $this->getBackingStore()->set('factoryResetBlocked', $value);
     }
 
     /**
      * Sets the passwordMinimumLength property value. Indicates the minimum length of the password required on the device. Valid values 4 to 16
      *  @param int|null $value Value to set for the passwordMinimumLength property.
     */
-    public function setPasswordMinimumLength(?int $value ): void {
-        $this->passwordMinimumLength = $value;
+    public function setPasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumLength', $value);
     }
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. Minutes of inactivity before the screen times out.
      *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
-    public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value ): void {
-        $this->passwordMinutesOfInactivityBeforeScreenTimeout = $value;
+    public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
+        $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
     }
 
     /**
      * Sets the passwordRequiredType property value. Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.
      *  @param AndroidDeviceOwnerRequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value ): void {
-        $this->passwordRequiredType = $value;
+    public function setPasswordRequiredType(?AndroidDeviceOwnerRequiredPasswordType $value): void {
+        $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11
      *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
-    public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value ): void {
-        $this->passwordSignInFailureCountBeforeFactoryReset = $value;
+    public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
+        $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
     }
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to disable the capability to take screenshots.
      *  @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
-    public function setScreenCaptureBlocked(?bool $value ): void {
-        $this->screenCaptureBlocked = $value;
+    public function setScreenCaptureBlocked(?bool $value): void {
+        $this->getBackingStore()->set('screenCaptureBlocked', $value);
     }
 
     /**
      * Sets the securityAllowDebuggingFeatures property value. Indicates whether or not to block the user from enabling debugging features on the device.
      *  @param bool|null $value Value to set for the securityAllowDebuggingFeatures property.
     */
-    public function setSecurityAllowDebuggingFeatures(?bool $value ): void {
-        $this->securityAllowDebuggingFeatures = $value;
+    public function setSecurityAllowDebuggingFeatures(?bool $value): void {
+        $this->getBackingStore()->set('securityAllowDebuggingFeatures', $value);
     }
 
     /**
      * Sets the storageBlockExternalMedia property value. Indicates whether or not to block external media.
      *  @param bool|null $value Value to set for the storageBlockExternalMedia property.
     */
-    public function setStorageBlockExternalMedia(?bool $value ): void {
-        $this->storageBlockExternalMedia = $value;
+    public function setStorageBlockExternalMedia(?bool $value): void {
+        $this->getBackingStore()->set('storageBlockExternalMedia', $value);
     }
 
     /**
      * Sets the storageBlockUsbFileTransfer property value. Indicates whether or not to block USB file transfer.
      *  @param bool|null $value Value to set for the storageBlockUsbFileTransfer property.
     */
-    public function setStorageBlockUsbFileTransfer(?bool $value ): void {
-        $this->storageBlockUsbFileTransfer = $value;
+    public function setStorageBlockUsbFileTransfer(?bool $value): void {
+        $this->getBackingStore()->set('storageBlockUsbFileTransfer', $value);
     }
 
     /**
      * Sets the wifiBlockEditConfigurations property value. Indicates whether or not to block the user from editing the wifi connection settings.
      *  @param bool|null $value Value to set for the wifiBlockEditConfigurations property.
     */
-    public function setWifiBlockEditConfigurations(?bool $value ): void {
-        $this->wifiBlockEditConfigurations = $value;
+    public function setWifiBlockEditConfigurations(?bool $value): void {
+        $this->getBackingStore()->set('wifiBlockEditConfigurations', $value);
     }
 
 }

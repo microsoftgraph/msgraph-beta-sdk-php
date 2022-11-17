@@ -10,61 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptRunSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $detectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete
-    */
-    private ?int $detectionScriptErrorDeviceCount = null;
-    
-    /**
-     * @var int|null $detectionScriptNotApplicableDeviceCount Number of devices for which the detection script was not applicable
-    */
-    private ?int $detectionScriptNotApplicableDeviceCount = null;
-    
-    /**
-     * @var int|null $detectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device health script
-    */
-    private ?int $detectionScriptPendingDeviceCount = null;
-    
-    /**
-     * @var int|null $issueDetectedDeviceCount Number of devices for which the detection script found an issue
-    */
-    private ?int $issueDetectedDeviceCount = null;
-    
-    /**
-     * @var int|null $issueRemediatedCumulativeDeviceCount Number of devices that were remediated over the last 30 days
-    */
-    private ?int $issueRemediatedCumulativeDeviceCount = null;
-    
-    /**
-     * @var int|null $issueRemediatedDeviceCount Number of devices for which the remediation script was able to resolve the detected issue
-    */
-    private ?int $issueRemediatedDeviceCount = null;
-    
-    /**
-     * @var int|null $issueReoccurredDeviceCount Number of devices for which the remediation script executed successfully but failed to resolve the detected issue
-    */
-    private ?int $issueReoccurredDeviceCount = null;
-    
-    /**
-     * @var DateTime|null $lastScriptRunDateTime Last run time for the script across all devices
-    */
-    private ?DateTime $lastScriptRunDateTime = null;
-    
-    /**
-     * @var int|null $noIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy
-    */
-    private ?int $noIssueDetectedDeviceCount = null;
-    
-    /**
-     * @var int|null $remediationScriptErrorDeviceCount Number of devices for which the remediation script execution encountered an error and did not complete
-    */
-    private ?int $remediationScriptErrorDeviceCount = null;
-    
-    /**
-     * @var int|null $remediationSkippedDeviceCount Number of devices for which remediation was skipped
-    */
-    private ?int $remediationSkippedDeviceCount = null;
-    
-    /**
      * Instantiates a new deviceHealthScriptRunSummary and sets the default values.
     */
     public function __construct() {
@@ -86,7 +31,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptErrorDeviceCount(): ?int {
-        return $this->detectionScriptErrorDeviceCount;
+        return $this->getBackingStore()->get('detectionScriptErrorDeviceCount');
     }
 
     /**
@@ -94,7 +39,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptNotApplicableDeviceCount(): ?int {
-        return $this->detectionScriptNotApplicableDeviceCount;
+        return $this->getBackingStore()->get('detectionScriptNotApplicableDeviceCount');
     }
 
     /**
@@ -102,7 +47,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getDetectionScriptPendingDeviceCount(): ?int {
-        return $this->detectionScriptPendingDeviceCount;
+        return $this->getBackingStore()->get('detectionScriptPendingDeviceCount');
     }
 
     /**
@@ -131,7 +76,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueDetectedDeviceCount(): ?int {
-        return $this->issueDetectedDeviceCount;
+        return $this->getBackingStore()->get('issueDetectedDeviceCount');
     }
 
     /**
@@ -139,7 +84,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueRemediatedCumulativeDeviceCount(): ?int {
-        return $this->issueRemediatedCumulativeDeviceCount;
+        return $this->getBackingStore()->get('issueRemediatedCumulativeDeviceCount');
     }
 
     /**
@@ -147,7 +92,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueRemediatedDeviceCount(): ?int {
-        return $this->issueRemediatedDeviceCount;
+        return $this->getBackingStore()->get('issueRemediatedDeviceCount');
     }
 
     /**
@@ -155,7 +100,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getIssueReoccurredDeviceCount(): ?int {
-        return $this->issueReoccurredDeviceCount;
+        return $this->getBackingStore()->get('issueReoccurredDeviceCount');
     }
 
     /**
@@ -163,7 +108,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastScriptRunDateTime(): ?DateTime {
-        return $this->lastScriptRunDateTime;
+        return $this->getBackingStore()->get('lastScriptRunDateTime');
     }
 
     /**
@@ -171,7 +116,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNoIssueDetectedDeviceCount(): ?int {
-        return $this->noIssueDetectedDeviceCount;
+        return $this->getBackingStore()->get('noIssueDetectedDeviceCount');
     }
 
     /**
@@ -179,7 +124,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediationScriptErrorDeviceCount(): ?int {
-        return $this->remediationScriptErrorDeviceCount;
+        return $this->getBackingStore()->get('remediationScriptErrorDeviceCount');
     }
 
     /**
@@ -187,7 +132,7 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediationSkippedDeviceCount(): ?int {
-        return $this->remediationSkippedDeviceCount;
+        return $this->getBackingStore()->get('remediationSkippedDeviceCount');
     }
 
     /**
@@ -196,105 +141,105 @@ class DeviceHealthScriptRunSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('detectionScriptErrorDeviceCount', $this->detectionScriptErrorDeviceCount);
-        $writer->writeIntegerValue('detectionScriptNotApplicableDeviceCount', $this->detectionScriptNotApplicableDeviceCount);
-        $writer->writeIntegerValue('detectionScriptPendingDeviceCount', $this->detectionScriptPendingDeviceCount);
-        $writer->writeIntegerValue('issueDetectedDeviceCount', $this->issueDetectedDeviceCount);
-        $writer->writeIntegerValue('issueRemediatedCumulativeDeviceCount', $this->issueRemediatedCumulativeDeviceCount);
-        $writer->writeIntegerValue('issueRemediatedDeviceCount', $this->issueRemediatedDeviceCount);
-        $writer->writeIntegerValue('issueReoccurredDeviceCount', $this->issueReoccurredDeviceCount);
-        $writer->writeDateTimeValue('lastScriptRunDateTime', $this->lastScriptRunDateTime);
-        $writer->writeIntegerValue('noIssueDetectedDeviceCount', $this->noIssueDetectedDeviceCount);
-        $writer->writeIntegerValue('remediationScriptErrorDeviceCount', $this->remediationScriptErrorDeviceCount);
-        $writer->writeIntegerValue('remediationSkippedDeviceCount', $this->remediationSkippedDeviceCount);
+        $writer->writeIntegerValue('detectionScriptErrorDeviceCount', $this->getDetectionScriptErrorDeviceCount());
+        $writer->writeIntegerValue('detectionScriptNotApplicableDeviceCount', $this->getDetectionScriptNotApplicableDeviceCount());
+        $writer->writeIntegerValue('detectionScriptPendingDeviceCount', $this->getDetectionScriptPendingDeviceCount());
+        $writer->writeIntegerValue('issueDetectedDeviceCount', $this->getIssueDetectedDeviceCount());
+        $writer->writeIntegerValue('issueRemediatedCumulativeDeviceCount', $this->getIssueRemediatedCumulativeDeviceCount());
+        $writer->writeIntegerValue('issueRemediatedDeviceCount', $this->getIssueRemediatedDeviceCount());
+        $writer->writeIntegerValue('issueReoccurredDeviceCount', $this->getIssueReoccurredDeviceCount());
+        $writer->writeDateTimeValue('lastScriptRunDateTime', $this->getLastScriptRunDateTime());
+        $writer->writeIntegerValue('noIssueDetectedDeviceCount', $this->getNoIssueDetectedDeviceCount());
+        $writer->writeIntegerValue('remediationScriptErrorDeviceCount', $this->getRemediationScriptErrorDeviceCount());
+        $writer->writeIntegerValue('remediationSkippedDeviceCount', $this->getRemediationSkippedDeviceCount());
     }
 
     /**
      * Sets the detectionScriptErrorDeviceCount property value. Number of devices on which the detection script execution encountered an error and did not complete
      *  @param int|null $value Value to set for the detectionScriptErrorDeviceCount property.
     */
-    public function setDetectionScriptErrorDeviceCount(?int $value ): void {
-        $this->detectionScriptErrorDeviceCount = $value;
+    public function setDetectionScriptErrorDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('detectionScriptErrorDeviceCount', $value);
     }
 
     /**
      * Sets the detectionScriptNotApplicableDeviceCount property value. Number of devices for which the detection script was not applicable
      *  @param int|null $value Value to set for the detectionScriptNotApplicableDeviceCount property.
     */
-    public function setDetectionScriptNotApplicableDeviceCount(?int $value ): void {
-        $this->detectionScriptNotApplicableDeviceCount = $value;
+    public function setDetectionScriptNotApplicableDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('detectionScriptNotApplicableDeviceCount', $value);
     }
 
     /**
      * Sets the detectionScriptPendingDeviceCount property value. Number of devices which have not yet run the latest version of the device health script
      *  @param int|null $value Value to set for the detectionScriptPendingDeviceCount property.
     */
-    public function setDetectionScriptPendingDeviceCount(?int $value ): void {
-        $this->detectionScriptPendingDeviceCount = $value;
+    public function setDetectionScriptPendingDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('detectionScriptPendingDeviceCount', $value);
     }
 
     /**
      * Sets the issueDetectedDeviceCount property value. Number of devices for which the detection script found an issue
      *  @param int|null $value Value to set for the issueDetectedDeviceCount property.
     */
-    public function setIssueDetectedDeviceCount(?int $value ): void {
-        $this->issueDetectedDeviceCount = $value;
+    public function setIssueDetectedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('issueDetectedDeviceCount', $value);
     }
 
     /**
      * Sets the issueRemediatedCumulativeDeviceCount property value. Number of devices that were remediated over the last 30 days
      *  @param int|null $value Value to set for the issueRemediatedCumulativeDeviceCount property.
     */
-    public function setIssueRemediatedCumulativeDeviceCount(?int $value ): void {
-        $this->issueRemediatedCumulativeDeviceCount = $value;
+    public function setIssueRemediatedCumulativeDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('issueRemediatedCumulativeDeviceCount', $value);
     }
 
     /**
      * Sets the issueRemediatedDeviceCount property value. Number of devices for which the remediation script was able to resolve the detected issue
      *  @param int|null $value Value to set for the issueRemediatedDeviceCount property.
     */
-    public function setIssueRemediatedDeviceCount(?int $value ): void {
-        $this->issueRemediatedDeviceCount = $value;
+    public function setIssueRemediatedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('issueRemediatedDeviceCount', $value);
     }
 
     /**
      * Sets the issueReoccurredDeviceCount property value. Number of devices for which the remediation script executed successfully but failed to resolve the detected issue
      *  @param int|null $value Value to set for the issueReoccurredDeviceCount property.
     */
-    public function setIssueReoccurredDeviceCount(?int $value ): void {
-        $this->issueReoccurredDeviceCount = $value;
+    public function setIssueReoccurredDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('issueReoccurredDeviceCount', $value);
     }
 
     /**
      * Sets the lastScriptRunDateTime property value. Last run time for the script across all devices
      *  @param DateTime|null $value Value to set for the lastScriptRunDateTime property.
     */
-    public function setLastScriptRunDateTime(?DateTime $value ): void {
-        $this->lastScriptRunDateTime = $value;
+    public function setLastScriptRunDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastScriptRunDateTime', $value);
     }
 
     /**
      * Sets the noIssueDetectedDeviceCount property value. Number of devices for which the detection script did not find an issue and the device is healthy
      *  @param int|null $value Value to set for the noIssueDetectedDeviceCount property.
     */
-    public function setNoIssueDetectedDeviceCount(?int $value ): void {
-        $this->noIssueDetectedDeviceCount = $value;
+    public function setNoIssueDetectedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('noIssueDetectedDeviceCount', $value);
     }
 
     /**
      * Sets the remediationScriptErrorDeviceCount property value. Number of devices for which the remediation script execution encountered an error and did not complete
      *  @param int|null $value Value to set for the remediationScriptErrorDeviceCount property.
     */
-    public function setRemediationScriptErrorDeviceCount(?int $value ): void {
-        $this->remediationScriptErrorDeviceCount = $value;
+    public function setRemediationScriptErrorDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('remediationScriptErrorDeviceCount', $value);
     }
 
     /**
      * Sets the remediationSkippedDeviceCount property value. Number of devices for which remediation was skipped
      *  @param int|null $value Value to set for the remediationSkippedDeviceCount property.
     */
-    public function setRemediationSkippedDeviceCount(?int $value ): void {
-        $this->remediationSkippedDeviceCount = $value;
+    public function setRemediationSkippedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('remediationSkippedDeviceCount', $value);
     }
 
 }

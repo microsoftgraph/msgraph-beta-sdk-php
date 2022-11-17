@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSupportedRegion extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The name for the supported region. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var CloudPcSupportedRegionStatus|null $regionStatus The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
-    */
-    private ?CloudPcSupportedRegionStatus $regionStatus = null;
-    
-    /**
-     * @var CloudPcManagementService|null $supportedSolution The supportedSolution property
-    */
-    private ?CloudPcManagementService $supportedSolution = null;
-    
-    /**
      * Instantiates a new CloudPcSupportedRegion and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return CloudPcSupportedRegionStatus|null
     */
     public function getRegionStatus(): ?CloudPcSupportedRegionStatus {
-        return $this->regionStatus;
+        return $this->getBackingStore()->get('regionStatus');
     }
 
     /**
@@ -74,7 +59,7 @@ class CloudPcSupportedRegion extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getSupportedSolution(): ?CloudPcManagementService {
-        return $this->supportedSolution;
+        return $this->getBackingStore()->get('supportedSolution');
     }
 
     /**
@@ -83,33 +68,33 @@ class CloudPcSupportedRegion extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('regionStatus', $this->regionStatus);
-        $writer->writeEnumValue('supportedSolution', $this->supportedSolution);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('regionStatus', $this->getRegionStatus());
+        $writer->writeEnumValue('supportedSolution', $this->getSupportedSolution());
     }
 
     /**
      * Sets the displayName property value. The name for the supported region. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the regionStatus property value. The status of the supported region. Possible values are: available, restricted, unavailable, unknownFutureValue. Read-only.
      *  @param CloudPcSupportedRegionStatus|null $value Value to set for the regionStatus property.
     */
-    public function setRegionStatus(?CloudPcSupportedRegionStatus $value ): void {
-        $this->regionStatus = $value;
+    public function setRegionStatus(?CloudPcSupportedRegionStatus $value): void {
+        $this->getBackingStore()->set('regionStatus', $value);
     }
 
     /**
      * Sets the supportedSolution property value. The supportedSolution property
      *  @param CloudPcManagementService|null $value Value to set for the supportedSolution property.
     */
-    public function setSupportedSolution(?CloudPcManagementService $value ): void {
-        $this->supportedSolution = $value;
+    public function setSupportedSolution(?CloudPcManagementService $value): void {
+        $this->getBackingStore()->set('supportedSolution', $value);
     }
 
 }

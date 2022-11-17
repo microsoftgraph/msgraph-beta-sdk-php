@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AlertImpact implements AdditionalDataHolder, Parsable 
+class AlertImpact implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AggregationType|null $aggregationType The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
-    */
-    private ?AggregationType $aggregationType = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $value The number value of the impact.
-    */
-    private ?int $value = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new alertImpact and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagement.alertImpact');
     }
@@ -50,8 +39,8 @@ class AlertImpact implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -59,7 +48,15 @@ class AlertImpact implements AdditionalDataHolder, Parsable
      * @return AggregationType|null
     */
     public function getAggregationType(): ?AggregationType {
-        return $this->aggregationType;
+        return $this->getBackingStore()->get('aggregationType');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +77,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class AlertImpact implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -96,42 +93,42 @@ class AlertImpact implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('aggregationType', $this->aggregationType);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('value', $this->value);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('aggregationType', $this->getAggregationType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('value', $this->getValue());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the aggregationType property value. The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
      *  @param AggregationType|null $value Value to set for the aggregationType property.
     */
-    public function setAggregationType(?AggregationType $value ): void {
-        $this->aggregationType = $value;
+    public function setAggregationType(?AggregationType $value): void {
+        $this->getBackingStore()->set('aggregationType', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the value property value. The number value of the impact.
      *  @param int|null $value Value to set for the value property.
     */
-    public function setValue(?int $value ): void {
-        $this->value = $value;
+    public function setValue(?int $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

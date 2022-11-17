@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ApplyPostRequestBody implements AdditionalDataHolder, Parsable 
+class ApplyPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $excludeGroups The excludeGroups property
-    */
-    private ?array $excludeGroups = null;
-    
-    /**
-     * @var bool|null $includeAllUsers The includeAllUsers property
-    */
-    private ?bool $includeAllUsers = null;
-    
-    /**
-     * @var array<string>|null $includeGroups The includeGroups property
-    */
-    private ?array $includeGroups = null;
-    
-    /**
-     * @var string|null $managementTemplateId The managementTemplateId property
-    */
-    private ?string $managementTemplateId = null;
-    
-    /**
-     * @var string|null $tenantGroupId The tenantGroupId property
-    */
-    private ?string $tenantGroupId = null;
-    
-    /**
-     * @var string|null $tenantId The tenantId property
-    */
-    private ?string $tenantId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new applyPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -64,8 +38,16 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -73,7 +55,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getExcludeGroups(): ?array {
-        return $this->excludeGroups;
+        return $this->getBackingStore()->get('excludeGroups');
     }
 
     /**
@@ -97,7 +79,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIncludeAllUsers(): ?bool {
-        return $this->includeAllUsers;
+        return $this->getBackingStore()->get('includeAllUsers');
     }
 
     /**
@@ -105,7 +87,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeGroups(): ?array {
-        return $this->includeGroups;
+        return $this->getBackingStore()->get('includeGroups');
     }
 
     /**
@@ -113,7 +95,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->managementTemplateId;
+        return $this->getBackingStore()->get('managementTemplateId');
     }
 
     /**
@@ -121,7 +103,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
-        return $this->tenantGroupId;
+        return $this->getBackingStore()->get('tenantGroupId');
     }
 
     /**
@@ -129,7 +111,7 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -137,69 +119,69 @@ class ApplyPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('excludeGroups', $this->excludeGroups);
-        $writer->writeBooleanValue('includeAllUsers', $this->includeAllUsers);
-        $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->includeGroups);
-        $writer->writeStringValue('managementTemplateId', $this->managementTemplateId);
-        $writer->writeStringValue('tenantGroupId', $this->tenantGroupId);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('excludeGroups', $this->getExcludeGroups());
+        $writer->writeBooleanValue('includeAllUsers', $this->getIncludeAllUsers());
+        $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->getIncludeGroups());
+        $writer->writeStringValue('managementTemplateId', $this->getManagementTemplateId());
+        $writer->writeStringValue('tenantGroupId', $this->getTenantGroupId());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the excludeGroups property value. The excludeGroups property
      *  @param array<string>|null $value Value to set for the excludeGroups property.
     */
-    public function setExcludeGroups(?array $value ): void {
-        $this->excludeGroups = $value;
+    public function setExcludeGroups(?array $value): void {
+        $this->getBackingStore()->set('excludeGroups', $value);
     }
 
     /**
      * Sets the includeAllUsers property value. The includeAllUsers property
      *  @param bool|null $value Value to set for the includeAllUsers property.
     */
-    public function setIncludeAllUsers(?bool $value ): void {
-        $this->includeAllUsers = $value;
+    public function setIncludeAllUsers(?bool $value): void {
+        $this->getBackingStore()->set('includeAllUsers', $value);
     }
 
     /**
      * Sets the includeGroups property value. The includeGroups property
      *  @param array<string>|null $value Value to set for the includeGroups property.
     */
-    public function setIncludeGroups(?array $value ): void {
-        $this->includeGroups = $value;
+    public function setIncludeGroups(?array $value): void {
+        $this->getBackingStore()->set('includeGroups', $value);
     }
 
     /**
      * Sets the managementTemplateId property value. The managementTemplateId property
      *  @param string|null $value Value to set for the managementTemplateId property.
     */
-    public function setManagementTemplateId(?string $value ): void {
-        $this->managementTemplateId = $value;
+    public function setManagementTemplateId(?string $value): void {
+        $this->getBackingStore()->set('managementTemplateId', $value);
     }
 
     /**
      * Sets the tenantGroupId property value. The tenantGroupId property
      *  @param string|null $value Value to set for the tenantGroupId property.
     */
-    public function setTenantGroupId(?string $value ): void {
-        $this->tenantGroupId = $value;
+    public function setTenantGroupId(?string $value): void {
+        $this->getBackingStore()->set('tenantGroupId', $value);
     }
 
     /**
      * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

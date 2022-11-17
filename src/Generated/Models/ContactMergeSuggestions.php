@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ContactMergeSuggestions extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isEnabled true if the duplicate contact merge suggestions feature is enabled for the user; false if the feature is disabled. Default value is true.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
      * Instantiates a new contactMergeSuggestions and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ContactMergeSuggestions extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -55,15 +50,15 @@ class ContactMergeSuggestions extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
     }
 
     /**
      * Sets the isEnabled property value. true if the duplicate contact merge suggestions feature is enabled for the user; false if the feature is disabled. Default value is true.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
 }

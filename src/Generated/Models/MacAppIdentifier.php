@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * @var string|null $bundleId The identifier for an app, as specified in the app store.
-    */
-    private ?string $bundleId = null;
-    
-    /**
      * Instantiates a new MacAppIdentifier and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class MacAppIdentifier extends MobileAppIdentifier implements Parsable
      * @return string|null
     */
     public function getBundleId(): ?string {
-        return $this->bundleId;
+        return $this->getBackingStore()->get('bundleId');
     }
 
     /**
@@ -55,15 +50,15 @@ class MacAppIdentifier extends MobileAppIdentifier implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('bundleId', $this->bundleId);
+        $writer->writeStringValue('bundleId', $this->getBundleId());
     }
 
     /**
      * Sets the bundleId property value. The identifier for an app, as specified in the app store.
      *  @param string|null $value Value to set for the bundleId property.
     */
-    public function setBundleId(?string $value ): void {
-        $this->bundleId = $value;
+    public function setBundleId(?string $value): void {
+        $this->getBackingStore()->set('bundleId', $value);
     }
 
 }

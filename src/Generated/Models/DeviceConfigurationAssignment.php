@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceConfigAssignmentIntent|null $intent The admin intent to apply or remove the profile. Possible values are: apply, remove.
-    */
-    private ?DeviceConfigAssignmentIntent $intent = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentSource|null $source Represents source of assignment.
-    */
-    private ?DeviceAndAppManagementAssignmentSource $source = null;
-    
-    /**
-     * @var string|null $sourceId The identifier of the source of the assignment. This property is read-only.
-    */
-    private ?string $sourceId = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentTarget|null $target The assignment target for the device configuration.
-    */
-    private ?DeviceAndAppManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new deviceConfigurationAssignment and sets the default values.
     */
     public function __construct() {
@@ -64,7 +44,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
      * @return DeviceConfigAssignmentIntent|null
     */
     public function getIntent(): ?DeviceConfigAssignmentIntent {
-        return $this->intent;
+        return $this->getBackingStore()->get('intent');
     }
 
     /**
@@ -72,7 +52,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentSource|null
     */
     public function getSource(): ?DeviceAndAppManagementAssignmentSource {
-        return $this->source;
+        return $this->getBackingStore()->get('source');
     }
 
     /**
@@ -80,7 +60,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceId(): ?string {
-        return $this->sourceId;
+        return $this->getBackingStore()->get('sourceId');
     }
 
     /**
@@ -88,7 +68,7 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
      * @return DeviceAndAppManagementAssignmentTarget|null
     */
     public function getTarget(): ?DeviceAndAppManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -97,41 +77,41 @@ class DeviceConfigurationAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('intent', $this->intent);
-        $writer->writeEnumValue('source', $this->source);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeEnumValue('intent', $this->getIntent());
+        $writer->writeEnumValue('source', $this->getSource());
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the intent property value. The admin intent to apply or remove the profile. Possible values are: apply, remove.
      *  @param DeviceConfigAssignmentIntent|null $value Value to set for the intent property.
     */
-    public function setIntent(?DeviceConfigAssignmentIntent $value ): void {
-        $this->intent = $value;
+    public function setIntent(?DeviceConfigAssignmentIntent $value): void {
+        $this->getBackingStore()->set('intent', $value);
     }
 
     /**
      * Sets the source property value. Represents source of assignment.
      *  @param DeviceAndAppManagementAssignmentSource|null $value Value to set for the source property.
     */
-    public function setSource(?DeviceAndAppManagementAssignmentSource $value ): void {
-        $this->source = $value;
+    public function setSource(?DeviceAndAppManagementAssignmentSource $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the sourceId property value. The identifier of the source of the assignment. This property is read-only.
      *  @param string|null $value Value to set for the sourceId property.
     */
-    public function setSourceId(?string $value ): void {
-        $this->sourceId = $value;
+    public function setSourceId(?string $value): void {
+        $this->getBackingStore()->set('sourceId', $value);
     }
 
     /**
      * Sets the target property value. The assignment target for the device configuration.
      *  @param DeviceAndAppManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?DeviceAndAppManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

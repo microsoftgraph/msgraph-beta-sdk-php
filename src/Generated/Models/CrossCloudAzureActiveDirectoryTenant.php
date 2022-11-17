@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Parsable 
 {
     /**
-     * @var string|null $cloudInstance The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only.
-    */
-    private ?string $cloudInstance = null;
-    
-    /**
-     * @var string|null $displayName The name of the Azure Active Directory tenant. Read only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $tenantId The ID of the Azure Active Directory tenant. Read only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new CrossCloudAzureActiveDirectoryTenant and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Par
      * @return string|null
     */
     public function getCloudInstance(): ?string {
-        return $this->cloudInstance;
+        return $this->getBackingStore()->get('cloudInstance');
     }
 
     /**
@@ -53,7 +38,7 @@ class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Par
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +59,7 @@ class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Par
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -83,33 +68,33 @@ class CrossCloudAzureActiveDirectoryTenant extends IdentitySource implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('cloudInstance', $this->cloudInstance);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('cloudInstance', $this->getCloudInstance());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the cloudInstance property value. The ID of the cloud where the tenant is located, one of microsoftonline.com, microsoftonline.us or partner.microsoftonline.cn. Read only.
      *  @param string|null $value Value to set for the cloudInstance property.
     */
-    public function setCloudInstance(?string $value ): void {
-        $this->cloudInstance = $value;
+    public function setCloudInstance(?string $value): void {
+        $this->getBackingStore()->set('cloudInstance', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the Azure Active Directory tenant. Read only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The ID of the Azure Active Directory tenant. Read only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

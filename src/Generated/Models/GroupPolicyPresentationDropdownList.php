@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var GroupPolicyPresentationDropdownListItem|null $defaultItem Localized string value identifying the default choice of the list of items.
-    */
-    private ?GroupPolicyPresentationDropdownListItem $defaultItem = null;
-    
-    /**
-     * @var array<GroupPolicyPresentationDropdownListItem>|null $items Represents a set of localized display names and their associated values.
-    */
-    private ?array $items = null;
-    
-    /**
-     * @var bool|null $required Requirement to enter a value in the parameter box. The default value is false.
-    */
-    private ?bool $required = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationDropdownList and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return GroupPolicyPresentationDropdownListItem|null
     */
     public function getDefaultItem(): ?GroupPolicyPresentationDropdownListItem {
-        return $this->defaultItem;
+        return $this->getBackingStore()->get('defaultItem');
     }
 
     /**
@@ -66,7 +51,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return array<GroupPolicyPresentationDropdownListItem>|null
     */
     public function getItems(): ?array {
-        return $this->items;
+        return $this->getBackingStore()->get('items');
     }
 
     /**
@@ -74,7 +59,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->required;
+        return $this->getBackingStore()->get('required');
     }
 
     /**
@@ -83,33 +68,33 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('defaultItem', $this->defaultItem);
-        $writer->writeCollectionOfObjectValues('items', $this->items);
-        $writer->writeBooleanValue('required', $this->required);
+        $writer->writeObjectValue('defaultItem', $this->getDefaultItem());
+        $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeBooleanValue('required', $this->getRequired());
     }
 
     /**
      * Sets the defaultItem property value. Localized string value identifying the default choice of the list of items.
      *  @param GroupPolicyPresentationDropdownListItem|null $value Value to set for the defaultItem property.
     */
-    public function setDefaultItem(?GroupPolicyPresentationDropdownListItem $value ): void {
-        $this->defaultItem = $value;
+    public function setDefaultItem(?GroupPolicyPresentationDropdownListItem $value): void {
+        $this->getBackingStore()->set('defaultItem', $value);
     }
 
     /**
      * Sets the items property value. Represents a set of localized display names and their associated values.
      *  @param array<GroupPolicyPresentationDropdownListItem>|null $value Value to set for the items property.
     */
-    public function setItems(?array $value ): void {
-        $this->items = $value;
+    public function setItems(?array $value): void {
+        $this->getBackingStore()->set('items', $value);
     }
 
     /**
      * Sets the required property value. Requirement to enter a value in the parameter box. The default value is false.
      *  @param bool|null $value Value to set for the required property.
     */
-    public function setRequired(?bool $value ): void {
-        $this->required = $value;
+    public function setRequired(?bool $value): void {
+        $this->getBackingStore()->set('required', $value);
     }
 
 }

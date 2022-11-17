@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationTeamsAppResource extends EducationResource implements Parsable 
 {
     /**
-     * @var string|null $appIconWebUrl URL that points to the app's icon.
-    */
-    private ?string $appIconWebUrl = null;
-    
-    /**
-     * @var string|null $appId Teams App ID of the application.
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $teamsEmbeddedContentUrl URL for the app resource that will be opened by Teams.
-    */
-    private ?string $teamsEmbeddedContentUrl = null;
-    
-    /**
-     * @var string|null $webUrl URL for the app resource that can be opened in the browser.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new EducationTeamsAppResource and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
      * @return string|null
     */
     public function getAppIconWebUrl(): ?string {
-        return $this->appIconWebUrl;
+        return $this->getBackingStore()->get('appIconWebUrl');
     }
 
     /**
@@ -58,7 +38,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -80,7 +60,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
      * @return string|null
     */
     public function getTeamsEmbeddedContentUrl(): ?string {
-        return $this->teamsEmbeddedContentUrl;
+        return $this->getBackingStore()->get('teamsEmbeddedContentUrl');
     }
 
     /**
@@ -88,7 +68,7 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -97,42 +77,42 @@ class EducationTeamsAppResource extends EducationResource implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appIconWebUrl', $this->appIconWebUrl);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('teamsEmbeddedContentUrl', $this->teamsEmbeddedContentUrl);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('appIconWebUrl', $this->getAppIconWebUrl());
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('teamsEmbeddedContentUrl', $this->getTeamsEmbeddedContentUrl());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the appIconWebUrl property value. URL that points to the app's icon.
      *  @param string|null $value Value to set for the appIconWebUrl property.
     */
-    public function setAppIconWebUrl(?string $value ): void {
-        $this->appIconWebUrl = $value;
+    public function setAppIconWebUrl(?string $value): void {
+        $this->getBackingStore()->set('appIconWebUrl', $value);
     }
 
     /**
      * Sets the appId property value. Teams App ID of the application.
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the teamsEmbeddedContentUrl property value. URL for the app resource that will be opened by Teams.
      *  @param string|null $value Value to set for the teamsEmbeddedContentUrl property.
     */
-    public function setTeamsEmbeddedContentUrl(?string $value ): void {
-        $this->teamsEmbeddedContentUrl = $value;
+    public function setTeamsEmbeddedContentUrl(?string $value): void {
+        $this->getBackingStore()->set('teamsEmbeddedContentUrl', $value);
     }
 
     /**
      * Sets the webUrl property value. URL for the app resource that can be opened in the browser.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

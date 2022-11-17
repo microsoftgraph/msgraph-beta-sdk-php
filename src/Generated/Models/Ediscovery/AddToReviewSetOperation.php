@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddToReviewSetOperation extends CaseOperation implements Parsable 
 {
     /**
-     * @var ReviewSet|null $reviewSet The review set to which items matching the source collection query are added to.
-    */
-    private ?ReviewSet $reviewSet = null;
-    
-    /**
-     * @var SourceCollection|null $sourceCollection The sourceCollection that items are being added from.
-    */
-    private ?SourceCollection $sourceCollection = null;
-    
-    /**
      * Instantiates a new AddToReviewSetOperation and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
      * @return ReviewSet|null
     */
     public function getReviewSet(): ?ReviewSet {
-        return $this->reviewSet;
+        return $this->getBackingStore()->get('reviewSet');
     }
 
     /**
@@ -60,7 +50,7 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
      * @return SourceCollection|null
     */
     public function getSourceCollection(): ?SourceCollection {
-        return $this->sourceCollection;
+        return $this->getBackingStore()->get('sourceCollection');
     }
 
     /**
@@ -69,24 +59,24 @@ class AddToReviewSetOperation extends CaseOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('reviewSet', $this->reviewSet);
-        $writer->writeObjectValue('sourceCollection', $this->sourceCollection);
+        $writer->writeObjectValue('reviewSet', $this->getReviewSet());
+        $writer->writeObjectValue('sourceCollection', $this->getSourceCollection());
     }
 
     /**
      * Sets the reviewSet property value. The review set to which items matching the source collection query are added to.
      *  @param ReviewSet|null $value Value to set for the reviewSet property.
     */
-    public function setReviewSet(?ReviewSet $value ): void {
-        $this->reviewSet = $value;
+    public function setReviewSet(?ReviewSet $value): void {
+        $this->getBackingStore()->set('reviewSet', $value);
     }
 
     /**
      * Sets the sourceCollection property value. The sourceCollection that items are being added from.
      *  @param SourceCollection|null $value Value to set for the sourceCollection property.
     */
-    public function setSourceCollection(?SourceCollection $value ): void {
-        $this->sourceCollection = $value;
+    public function setSourceCollection(?SourceCollection $value): void {
+        $this->getBackingStore()->set('sourceCollection', $value);
     }
 
 }

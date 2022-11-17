@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ThreatSubmissionRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<EmailThreatSubmission>|null $emailThreats The emailThreats property
-    */
-    private ?array $emailThreats = null;
-    
-    /**
-     * @var array<EmailThreatSubmissionPolicy>|null $emailThreatSubmissionPolicies The emailThreatSubmissionPolicies property
-    */
-    private ?array $emailThreatSubmissionPolicies = null;
-    
-    /**
-     * @var array<FileThreatSubmission>|null $fileThreats The fileThreats property
-    */
-    private ?array $fileThreats = null;
-    
-    /**
-     * @var array<UrlThreatSubmission>|null $urlThreats The urlThreats property
-    */
-    private ?array $urlThreats = null;
-    
-    /**
      * Instantiates a new threatSubmissionRoot and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<EmailThreatSubmission>|null
     */
     public function getEmailThreats(): ?array {
-        return $this->emailThreats;
+        return $this->getBackingStore()->get('emailThreats');
     }
 
     /**
@@ -59,7 +39,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<EmailThreatSubmissionPolicy>|null
     */
     public function getEmailThreatSubmissionPolicies(): ?array {
-        return $this->emailThreatSubmissionPolicies;
+        return $this->getBackingStore()->get('emailThreatSubmissionPolicies');
     }
 
     /**
@@ -81,7 +61,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<FileThreatSubmission>|null
     */
     public function getFileThreats(): ?array {
-        return $this->fileThreats;
+        return $this->getBackingStore()->get('fileThreats');
     }
 
     /**
@@ -89,7 +69,7 @@ class ThreatSubmissionRoot extends Entity implements Parsable
      * @return array<UrlThreatSubmission>|null
     */
     public function getUrlThreats(): ?array {
-        return $this->urlThreats;
+        return $this->getBackingStore()->get('urlThreats');
     }
 
     /**
@@ -98,42 +78,42 @@ class ThreatSubmissionRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('emailThreats', $this->emailThreats);
-        $writer->writeCollectionOfObjectValues('emailThreatSubmissionPolicies', $this->emailThreatSubmissionPolicies);
-        $writer->writeCollectionOfObjectValues('fileThreats', $this->fileThreats);
-        $writer->writeCollectionOfObjectValues('urlThreats', $this->urlThreats);
+        $writer->writeCollectionOfObjectValues('emailThreats', $this->getEmailThreats());
+        $writer->writeCollectionOfObjectValues('emailThreatSubmissionPolicies', $this->getEmailThreatSubmissionPolicies());
+        $writer->writeCollectionOfObjectValues('fileThreats', $this->getFileThreats());
+        $writer->writeCollectionOfObjectValues('urlThreats', $this->getUrlThreats());
     }
 
     /**
      * Sets the emailThreats property value. The emailThreats property
      *  @param array<EmailThreatSubmission>|null $value Value to set for the emailThreats property.
     */
-    public function setEmailThreats(?array $value ): void {
-        $this->emailThreats = $value;
+    public function setEmailThreats(?array $value): void {
+        $this->getBackingStore()->set('emailThreats', $value);
     }
 
     /**
      * Sets the emailThreatSubmissionPolicies property value. The emailThreatSubmissionPolicies property
      *  @param array<EmailThreatSubmissionPolicy>|null $value Value to set for the emailThreatSubmissionPolicies property.
     */
-    public function setEmailThreatSubmissionPolicies(?array $value ): void {
-        $this->emailThreatSubmissionPolicies = $value;
+    public function setEmailThreatSubmissionPolicies(?array $value): void {
+        $this->getBackingStore()->set('emailThreatSubmissionPolicies', $value);
     }
 
     /**
      * Sets the fileThreats property value. The fileThreats property
      *  @param array<FileThreatSubmission>|null $value Value to set for the fileThreats property.
     */
-    public function setFileThreats(?array $value ): void {
-        $this->fileThreats = $value;
+    public function setFileThreats(?array $value): void {
+        $this->getBackingStore()->set('fileThreats', $value);
     }
 
     /**
      * Sets the urlThreats property value. The urlThreats property
      *  @param array<UrlThreatSubmission>|null $value Value to set for the urlThreats property.
     */
-    public function setUrlThreats(?array $value ): void {
-        $this->urlThreats = $value;
+    public function setUrlThreats(?array $value): void {
+        $this->getBackingStore()->set('urlThreats', $value);
     }
 
 }

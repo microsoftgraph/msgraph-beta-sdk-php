@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BusinessFlowSettings extends AccessReviewSettings implements Parsable 
 {
     /**
-     * @var int|null $durationInDays The durationInDays property
-    */
-    private ?int $durationInDays = null;
-    
-    /**
      * Instantiates a new BusinessFlowSettings and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
      * @return int|null
     */
     public function getDurationInDays(): ?int {
-        return $this->durationInDays;
+        return $this->getBackingStore()->get('durationInDays');
     }
 
     /**
@@ -55,15 +50,15 @@ class BusinessFlowSettings extends AccessReviewSettings implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('durationInDays', $this->durationInDays);
+        $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
     }
 
     /**
      * Sets the durationInDays property value. The durationInDays property
      *  @param int|null $value Value to set for the durationInDays property.
     */
-    public function setDurationInDays(?int $value ): void {
-        $this->durationInDays = $value;
+    public function setDurationInDays(?int $value): void {
+        $this->getBackingStore()->set('durationInDays', $value);
     }
 
 }

@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDeviceCount The number of active devices for the OS version. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDeviceCount = null;
-    
-    /**
-     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $meanTimeToFailureInMinutes = null;
-    
-    /**
-     * @var string|null $osBuildNumber The OS build number installed on the device.
-    */
-    private ?string $osBuildNumber = null;
-    
-    /**
-     * @var string|null $osVersion The OS version installed on the device.
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var float|null $osVersionAppHealthScore The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $osVersionAppHealthScore = null;
-    
-    /**
-     * @var string|null $osVersionAppHealthStatus The overall app health status of the OS version.
-    */
-    private ?string $osVersionAppHealthStatus = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAppHealthOSVersionPerformance and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
-        return $this->activeDeviceCount;
+        return $this->getBackingStore()->get('activeDeviceCount');
     }
 
     /**
@@ -84,7 +54,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->meanTimeToFailureInMinutes;
+        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
     }
 
     /**
@@ -92,7 +62,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->osBuildNumber;
+        return $this->getBackingStore()->get('osBuildNumber');
     }
 
     /**
@@ -100,7 +70,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -108,7 +78,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return float|null
     */
     public function getOsVersionAppHealthScore(): ?float {
-        return $this->osVersionAppHealthScore;
+        return $this->getBackingStore()->get('osVersionAppHealthScore');
     }
 
     /**
@@ -116,7 +86,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
      * @return string|null
     */
     public function getOsVersionAppHealthStatus(): ?string {
-        return $this->osVersionAppHealthStatus;
+        return $this->getBackingStore()->get('osVersionAppHealthStatus');
     }
 
     /**
@@ -125,60 +95,60 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDeviceCount', $this->activeDeviceCount);
-        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->meanTimeToFailureInMinutes);
-        $writer->writeStringValue('osBuildNumber', $this->osBuildNumber);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeFloatValue('osVersionAppHealthScore', $this->osVersionAppHealthScore);
-        $writer->writeStringValue('osVersionAppHealthStatus', $this->osVersionAppHealthStatus);
+        $writer->writeIntegerValue('activeDeviceCount', $this->getActiveDeviceCount());
+        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
+        $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeFloatValue('osVersionAppHealthScore', $this->getOsVersionAppHealthScore());
+        $writer->writeStringValue('osVersionAppHealthStatus', $this->getOsVersionAppHealthStatus());
     }
 
     /**
      * Sets the activeDeviceCount property value. The number of active devices for the OS version. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDeviceCount property.
     */
-    public function setActiveDeviceCount(?int $value ): void {
-        $this->activeDeviceCount = $value;
+    public function setActiveDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('activeDeviceCount', $value);
     }
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
-    public function setMeanTimeToFailureInMinutes(?int $value ): void {
-        $this->meanTimeToFailureInMinutes = $value;
+    public function setMeanTimeToFailureInMinutes(?int $value): void {
+        $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
     }
 
     /**
      * Sets the osBuildNumber property value. The OS build number installed on the device.
      *  @param string|null $value Value to set for the osBuildNumber property.
     */
-    public function setOsBuildNumber(?string $value ): void {
-        $this->osBuildNumber = $value;
+    public function setOsBuildNumber(?string $value): void {
+        $this->getBackingStore()->set('osBuildNumber', $value);
     }
 
     /**
      * Sets the osVersion property value. The OS version installed on the device.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the osVersionAppHealthScore property value. The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the osVersionAppHealthScore property.
     */
-    public function setOsVersionAppHealthScore(?float $value ): void {
-        $this->osVersionAppHealthScore = $value;
+    public function setOsVersionAppHealthScore(?float $value): void {
+        $this->getBackingStore()->set('osVersionAppHealthScore', $value);
     }
 
     /**
      * Sets the osVersionAppHealthStatus property value. The overall app health status of the OS version.
      *  @param string|null $value Value to set for the osVersionAppHealthStatus property.
     */
-    public function setOsVersionAppHealthStatus(?string $value ): void {
-        $this->osVersionAppHealthStatus = $value;
+    public function setOsVersionAppHealthStatus(?string $value): void {
+        $this->getBackingStore()->set('osVersionAppHealthStatus', $value);
     }
 
 }

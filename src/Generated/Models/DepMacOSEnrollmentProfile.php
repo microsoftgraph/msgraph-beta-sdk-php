@@ -9,121 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Parsable 
 {
     /**
-     * @var bool|null $accessibilityScreenDisabled Indicates if Accessibility screen is disabled
-    */
-    private ?bool $accessibilityScreenDisabled = null;
-    
-    /**
-     * @var bool|null $autoUnlockWithWatchDisabled Indicates if UnlockWithWatch screen is disabled
-    */
-    private ?bool $autoUnlockWithWatchDisabled = null;
-    
-    /**
-     * @var bool|null $chooseYourLockScreenDisabled Indicates if iCloud Documents and Desktop screen is disabled
-    */
-    private ?bool $chooseYourLockScreenDisabled = null;
-    
-    /**
-     * @var bool|null $dontAutoPopulatePrimaryAccountInfo Indicates whether Setup Assistant will auto populate the primary account information
-    */
-    private ?bool $dontAutoPopulatePrimaryAccountInfo = null;
-    
-    /**
-     * @var bool|null $enableRestrictEditing Indicates whether the user will enable blockediting
-    */
-    private ?bool $enableRestrictEditing = null;
-    
-    /**
-     * @var bool|null $fileVaultDisabled Indicates if file vault is disabled
-    */
-    private ?bool $fileVaultDisabled = null;
-    
-    /**
-     * @var bool|null $iCloudDiagnosticsDisabled Indicates if iCloud Analytics screen is disabled
-    */
-    private ?bool $iCloudDiagnosticsDisabled = null;
-    
-    /**
-     * @var bool|null $iCloudStorageDisabled Indicates if iCloud Documents and Desktop screen is disabled
-    */
-    private ?bool $iCloudStorageDisabled = null;
-    
-    /**
-     * @var bool|null $isLocalPrimaryAccount Indicates whether the profile is a local account
-    */
-    private ?bool $isLocalPrimaryAccount = null;
-    
-    /**
-     * @var bool|null $isPrimaryUser Indicates whether the profile is a primary user
-    */
-    private ?bool $isPrimaryUser = null;
-    
-    /**
-     * @var bool|null $lockPrimaryAccountInfo Indicates whether the primary account information will be locked
-    */
-    private ?bool $lockPrimaryAccountInfo = null;
-    
-    /**
-     * @var bool|null $managedLocalUserShortName Indicates whether or not this is the short name of the local account to manage
-    */
-    private ?bool $managedLocalUserShortName = null;
-    
-    /**
-     * @var bool|null $passCodeDisabled Indicates if Passcode setup pane is disabled
-    */
-    private ?bool $passCodeDisabled = null;
-    
-    /**
-     * @var bool|null $prefillAccountInfo Indicates whether the user will prefill their account info
-    */
-    private ?bool $prefillAccountInfo = null;
-    
-    /**
-     * @var string|null $primaryAccountFullName Indicates what the full name for the primary account is
-    */
-    private ?string $primaryAccountFullName = null;
-    
-    /**
-     * @var string|null $primaryAccountUserName Indicates what the account name for the primary account is
-    */
-    private ?string $primaryAccountUserName = null;
-    
-    /**
-     * @var string|null $primaryUser Indicates who the primary user of the profile is
-    */
-    private ?string $primaryUser = null;
-    
-    /**
-     * @var string|null $primaryUserFullName Indicates who the primary user of the profile is
-    */
-    private ?string $primaryUserFullName = null;
-    
-    /**
-     * @var bool|null $registrationDisabled Indicates if registration is disabled
-    */
-    private ?bool $registrationDisabled = null;
-    
-    /**
-     * @var bool|null $requestRequiresNetworkTether Indicates if the device is network-tethered to run the command
-    */
-    private ?bool $requestRequiresNetworkTether = null;
-    
-    /**
-     * @var bool|null $setPrimarySetupAccountAsRegularUser Indicates whether Setup Assistant will set the account as a regular user
-    */
-    private ?bool $setPrimarySetupAccountAsRegularUser = null;
-    
-    /**
-     * @var bool|null $skipPrimarySetupAccountCreation Indicates whether Setup Assistant will skip the user interface for primary account setup
-    */
-    private ?bool $skipPrimarySetupAccountCreation = null;
-    
-    /**
-     * @var bool|null $zoomDisabled Indicates if zoom setup pane is disabled
-    */
-    private ?bool $zoomDisabled = null;
-    
-    /**
      * Instantiates a new DepMacOSEnrollmentProfile and sets the default values.
     */
     public function __construct() {
@@ -145,7 +30,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getAccessibilityScreenDisabled(): ?bool {
-        return $this->accessibilityScreenDisabled;
+        return $this->getBackingStore()->get('accessibilityScreenDisabled');
     }
 
     /**
@@ -153,7 +38,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getAutoUnlockWithWatchDisabled(): ?bool {
-        return $this->autoUnlockWithWatchDisabled;
+        return $this->getBackingStore()->get('autoUnlockWithWatchDisabled');
     }
 
     /**
@@ -161,7 +46,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getChooseYourLockScreenDisabled(): ?bool {
-        return $this->chooseYourLockScreenDisabled;
+        return $this->getBackingStore()->get('chooseYourLockScreenDisabled');
     }
 
     /**
@@ -169,7 +54,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getDontAutoPopulatePrimaryAccountInfo(): ?bool {
-        return $this->dontAutoPopulatePrimaryAccountInfo;
+        return $this->getBackingStore()->get('dontAutoPopulatePrimaryAccountInfo');
     }
 
     /**
@@ -177,7 +62,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getEnableRestrictEditing(): ?bool {
-        return $this->enableRestrictEditing;
+        return $this->getBackingStore()->get('enableRestrictEditing');
     }
 
     /**
@@ -218,7 +103,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getFileVaultDisabled(): ?bool {
-        return $this->fileVaultDisabled;
+        return $this->getBackingStore()->get('fileVaultDisabled');
     }
 
     /**
@@ -226,7 +111,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getICloudDiagnosticsDisabled(): ?bool {
-        return $this->iCloudDiagnosticsDisabled;
+        return $this->getBackingStore()->get('iCloudDiagnosticsDisabled');
     }
 
     /**
@@ -234,7 +119,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getICloudStorageDisabled(): ?bool {
-        return $this->iCloudStorageDisabled;
+        return $this->getBackingStore()->get('iCloudStorageDisabled');
     }
 
     /**
@@ -242,7 +127,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getIsLocalPrimaryAccount(): ?bool {
-        return $this->isLocalPrimaryAccount;
+        return $this->getBackingStore()->get('isLocalPrimaryAccount');
     }
 
     /**
@@ -250,7 +135,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getIsPrimaryUser(): ?bool {
-        return $this->isPrimaryUser;
+        return $this->getBackingStore()->get('isPrimaryUser');
     }
 
     /**
@@ -258,7 +143,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getLockPrimaryAccountInfo(): ?bool {
-        return $this->lockPrimaryAccountInfo;
+        return $this->getBackingStore()->get('lockPrimaryAccountInfo');
     }
 
     /**
@@ -266,7 +151,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getManagedLocalUserShortName(): ?bool {
-        return $this->managedLocalUserShortName;
+        return $this->getBackingStore()->get('managedLocalUserShortName');
     }
 
     /**
@@ -274,7 +159,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getPassCodeDisabled(): ?bool {
-        return $this->passCodeDisabled;
+        return $this->getBackingStore()->get('passCodeDisabled');
     }
 
     /**
@@ -282,7 +167,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getPrefillAccountInfo(): ?bool {
-        return $this->prefillAccountInfo;
+        return $this->getBackingStore()->get('prefillAccountInfo');
     }
 
     /**
@@ -290,7 +175,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryAccountFullName(): ?string {
-        return $this->primaryAccountFullName;
+        return $this->getBackingStore()->get('primaryAccountFullName');
     }
 
     /**
@@ -298,7 +183,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryAccountUserName(): ?string {
-        return $this->primaryAccountUserName;
+        return $this->getBackingStore()->get('primaryAccountUserName');
     }
 
     /**
@@ -306,7 +191,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryUser(): ?string {
-        return $this->primaryUser;
+        return $this->getBackingStore()->get('primaryUser');
     }
 
     /**
@@ -314,7 +199,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return string|null
     */
     public function getPrimaryUserFullName(): ?string {
-        return $this->primaryUserFullName;
+        return $this->getBackingStore()->get('primaryUserFullName');
     }
 
     /**
@@ -322,7 +207,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getRegistrationDisabled(): ?bool {
-        return $this->registrationDisabled;
+        return $this->getBackingStore()->get('registrationDisabled');
     }
 
     /**
@@ -330,7 +215,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getRequestRequiresNetworkTether(): ?bool {
-        return $this->requestRequiresNetworkTether;
+        return $this->getBackingStore()->get('requestRequiresNetworkTether');
     }
 
     /**
@@ -338,7 +223,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getSetPrimarySetupAccountAsRegularUser(): ?bool {
-        return $this->setPrimarySetupAccountAsRegularUser;
+        return $this->getBackingStore()->get('setPrimarySetupAccountAsRegularUser');
     }
 
     /**
@@ -346,7 +231,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getSkipPrimarySetupAccountCreation(): ?bool {
-        return $this->skipPrimarySetupAccountCreation;
+        return $this->getBackingStore()->get('skipPrimarySetupAccountCreation');
     }
 
     /**
@@ -354,7 +239,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
      * @return bool|null
     */
     public function getZoomDisabled(): ?bool {
-        return $this->zoomDisabled;
+        return $this->getBackingStore()->get('zoomDisabled');
     }
 
     /**
@@ -363,213 +248,213 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('accessibilityScreenDisabled', $this->accessibilityScreenDisabled);
-        $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->autoUnlockWithWatchDisabled);
-        $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->chooseYourLockScreenDisabled);
-        $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->dontAutoPopulatePrimaryAccountInfo);
-        $writer->writeBooleanValue('enableRestrictEditing', $this->enableRestrictEditing);
-        $writer->writeBooleanValue('fileVaultDisabled', $this->fileVaultDisabled);
-        $writer->writeBooleanValue('iCloudDiagnosticsDisabled', $this->iCloudDiagnosticsDisabled);
-        $writer->writeBooleanValue('iCloudStorageDisabled', $this->iCloudStorageDisabled);
-        $writer->writeBooleanValue('isLocalPrimaryAccount', $this->isLocalPrimaryAccount);
-        $writer->writeBooleanValue('isPrimaryUser', $this->isPrimaryUser);
-        $writer->writeBooleanValue('lockPrimaryAccountInfo', $this->lockPrimaryAccountInfo);
-        $writer->writeBooleanValue('managedLocalUserShortName', $this->managedLocalUserShortName);
-        $writer->writeBooleanValue('passCodeDisabled', $this->passCodeDisabled);
-        $writer->writeBooleanValue('prefillAccountInfo', $this->prefillAccountInfo);
-        $writer->writeStringValue('primaryAccountFullName', $this->primaryAccountFullName);
-        $writer->writeStringValue('primaryAccountUserName', $this->primaryAccountUserName);
-        $writer->writeStringValue('primaryUser', $this->primaryUser);
-        $writer->writeStringValue('primaryUserFullName', $this->primaryUserFullName);
-        $writer->writeBooleanValue('registrationDisabled', $this->registrationDisabled);
-        $writer->writeBooleanValue('requestRequiresNetworkTether', $this->requestRequiresNetworkTether);
-        $writer->writeBooleanValue('setPrimarySetupAccountAsRegularUser', $this->setPrimarySetupAccountAsRegularUser);
-        $writer->writeBooleanValue('skipPrimarySetupAccountCreation', $this->skipPrimarySetupAccountCreation);
-        $writer->writeBooleanValue('zoomDisabled', $this->zoomDisabled);
+        $writer->writeBooleanValue('accessibilityScreenDisabled', $this->getAccessibilityScreenDisabled());
+        $writer->writeBooleanValue('autoUnlockWithWatchDisabled', $this->getAutoUnlockWithWatchDisabled());
+        $writer->writeBooleanValue('chooseYourLockScreenDisabled', $this->getChooseYourLockScreenDisabled());
+        $writer->writeBooleanValue('dontAutoPopulatePrimaryAccountInfo', $this->getDontAutoPopulatePrimaryAccountInfo());
+        $writer->writeBooleanValue('enableRestrictEditing', $this->getEnableRestrictEditing());
+        $writer->writeBooleanValue('fileVaultDisabled', $this->getFileVaultDisabled());
+        $writer->writeBooleanValue('iCloudDiagnosticsDisabled', $this->getICloudDiagnosticsDisabled());
+        $writer->writeBooleanValue('iCloudStorageDisabled', $this->getICloudStorageDisabled());
+        $writer->writeBooleanValue('isLocalPrimaryAccount', $this->getIsLocalPrimaryAccount());
+        $writer->writeBooleanValue('isPrimaryUser', $this->getIsPrimaryUser());
+        $writer->writeBooleanValue('lockPrimaryAccountInfo', $this->getLockPrimaryAccountInfo());
+        $writer->writeBooleanValue('managedLocalUserShortName', $this->getManagedLocalUserShortName());
+        $writer->writeBooleanValue('passCodeDisabled', $this->getPassCodeDisabled());
+        $writer->writeBooleanValue('prefillAccountInfo', $this->getPrefillAccountInfo());
+        $writer->writeStringValue('primaryAccountFullName', $this->getPrimaryAccountFullName());
+        $writer->writeStringValue('primaryAccountUserName', $this->getPrimaryAccountUserName());
+        $writer->writeStringValue('primaryUser', $this->getPrimaryUser());
+        $writer->writeStringValue('primaryUserFullName', $this->getPrimaryUserFullName());
+        $writer->writeBooleanValue('registrationDisabled', $this->getRegistrationDisabled());
+        $writer->writeBooleanValue('requestRequiresNetworkTether', $this->getRequestRequiresNetworkTether());
+        $writer->writeBooleanValue('setPrimarySetupAccountAsRegularUser', $this->getSetPrimarySetupAccountAsRegularUser());
+        $writer->writeBooleanValue('skipPrimarySetupAccountCreation', $this->getSkipPrimarySetupAccountCreation());
+        $writer->writeBooleanValue('zoomDisabled', $this->getZoomDisabled());
     }
 
     /**
      * Sets the accessibilityScreenDisabled property value. Indicates if Accessibility screen is disabled
      *  @param bool|null $value Value to set for the accessibilityScreenDisabled property.
     */
-    public function setAccessibilityScreenDisabled(?bool $value ): void {
-        $this->accessibilityScreenDisabled = $value;
+    public function setAccessibilityScreenDisabled(?bool $value): void {
+        $this->getBackingStore()->set('accessibilityScreenDisabled', $value);
     }
 
     /**
      * Sets the autoUnlockWithWatchDisabled property value. Indicates if UnlockWithWatch screen is disabled
      *  @param bool|null $value Value to set for the autoUnlockWithWatchDisabled property.
     */
-    public function setAutoUnlockWithWatchDisabled(?bool $value ): void {
-        $this->autoUnlockWithWatchDisabled = $value;
+    public function setAutoUnlockWithWatchDisabled(?bool $value): void {
+        $this->getBackingStore()->set('autoUnlockWithWatchDisabled', $value);
     }
 
     /**
      * Sets the chooseYourLockScreenDisabled property value. Indicates if iCloud Documents and Desktop screen is disabled
      *  @param bool|null $value Value to set for the chooseYourLockScreenDisabled property.
     */
-    public function setChooseYourLockScreenDisabled(?bool $value ): void {
-        $this->chooseYourLockScreenDisabled = $value;
+    public function setChooseYourLockScreenDisabled(?bool $value): void {
+        $this->getBackingStore()->set('chooseYourLockScreenDisabled', $value);
     }
 
     /**
      * Sets the dontAutoPopulatePrimaryAccountInfo property value. Indicates whether Setup Assistant will auto populate the primary account information
      *  @param bool|null $value Value to set for the dontAutoPopulatePrimaryAccountInfo property.
     */
-    public function setDontAutoPopulatePrimaryAccountInfo(?bool $value ): void {
-        $this->dontAutoPopulatePrimaryAccountInfo = $value;
+    public function setDontAutoPopulatePrimaryAccountInfo(?bool $value): void {
+        $this->getBackingStore()->set('dontAutoPopulatePrimaryAccountInfo', $value);
     }
 
     /**
      * Sets the enableRestrictEditing property value. Indicates whether the user will enable blockediting
      *  @param bool|null $value Value to set for the enableRestrictEditing property.
     */
-    public function setEnableRestrictEditing(?bool $value ): void {
-        $this->enableRestrictEditing = $value;
+    public function setEnableRestrictEditing(?bool $value): void {
+        $this->getBackingStore()->set('enableRestrictEditing', $value);
     }
 
     /**
      * Sets the fileVaultDisabled property value. Indicates if file vault is disabled
      *  @param bool|null $value Value to set for the fileVaultDisabled property.
     */
-    public function setFileVaultDisabled(?bool $value ): void {
-        $this->fileVaultDisabled = $value;
+    public function setFileVaultDisabled(?bool $value): void {
+        $this->getBackingStore()->set('fileVaultDisabled', $value);
     }
 
     /**
      * Sets the iCloudDiagnosticsDisabled property value. Indicates if iCloud Analytics screen is disabled
      *  @param bool|null $value Value to set for the iCloudDiagnosticsDisabled property.
     */
-    public function setICloudDiagnosticsDisabled(?bool $value ): void {
-        $this->iCloudDiagnosticsDisabled = $value;
+    public function setICloudDiagnosticsDisabled(?bool $value): void {
+        $this->getBackingStore()->set('iCloudDiagnosticsDisabled', $value);
     }
 
     /**
      * Sets the iCloudStorageDisabled property value. Indicates if iCloud Documents and Desktop screen is disabled
      *  @param bool|null $value Value to set for the iCloudStorageDisabled property.
     */
-    public function setICloudStorageDisabled(?bool $value ): void {
-        $this->iCloudStorageDisabled = $value;
+    public function setICloudStorageDisabled(?bool $value): void {
+        $this->getBackingStore()->set('iCloudStorageDisabled', $value);
     }
 
     /**
      * Sets the isLocalPrimaryAccount property value. Indicates whether the profile is a local account
      *  @param bool|null $value Value to set for the isLocalPrimaryAccount property.
     */
-    public function setIsLocalPrimaryAccount(?bool $value ): void {
-        $this->isLocalPrimaryAccount = $value;
+    public function setIsLocalPrimaryAccount(?bool $value): void {
+        $this->getBackingStore()->set('isLocalPrimaryAccount', $value);
     }
 
     /**
      * Sets the isPrimaryUser property value. Indicates whether the profile is a primary user
      *  @param bool|null $value Value to set for the isPrimaryUser property.
     */
-    public function setIsPrimaryUser(?bool $value ): void {
-        $this->isPrimaryUser = $value;
+    public function setIsPrimaryUser(?bool $value): void {
+        $this->getBackingStore()->set('isPrimaryUser', $value);
     }
 
     /**
      * Sets the lockPrimaryAccountInfo property value. Indicates whether the primary account information will be locked
      *  @param bool|null $value Value to set for the lockPrimaryAccountInfo property.
     */
-    public function setLockPrimaryAccountInfo(?bool $value ): void {
-        $this->lockPrimaryAccountInfo = $value;
+    public function setLockPrimaryAccountInfo(?bool $value): void {
+        $this->getBackingStore()->set('lockPrimaryAccountInfo', $value);
     }
 
     /**
      * Sets the managedLocalUserShortName property value. Indicates whether or not this is the short name of the local account to manage
      *  @param bool|null $value Value to set for the managedLocalUserShortName property.
     */
-    public function setManagedLocalUserShortName(?bool $value ): void {
-        $this->managedLocalUserShortName = $value;
+    public function setManagedLocalUserShortName(?bool $value): void {
+        $this->getBackingStore()->set('managedLocalUserShortName', $value);
     }
 
     /**
      * Sets the passCodeDisabled property value. Indicates if Passcode setup pane is disabled
      *  @param bool|null $value Value to set for the passCodeDisabled property.
     */
-    public function setPassCodeDisabled(?bool $value ): void {
-        $this->passCodeDisabled = $value;
+    public function setPassCodeDisabled(?bool $value): void {
+        $this->getBackingStore()->set('passCodeDisabled', $value);
     }
 
     /**
      * Sets the prefillAccountInfo property value. Indicates whether the user will prefill their account info
      *  @param bool|null $value Value to set for the prefillAccountInfo property.
     */
-    public function setPrefillAccountInfo(?bool $value ): void {
-        $this->prefillAccountInfo = $value;
+    public function setPrefillAccountInfo(?bool $value): void {
+        $this->getBackingStore()->set('prefillAccountInfo', $value);
     }
 
     /**
      * Sets the primaryAccountFullName property value. Indicates what the full name for the primary account is
      *  @param string|null $value Value to set for the primaryAccountFullName property.
     */
-    public function setPrimaryAccountFullName(?string $value ): void {
-        $this->primaryAccountFullName = $value;
+    public function setPrimaryAccountFullName(?string $value): void {
+        $this->getBackingStore()->set('primaryAccountFullName', $value);
     }
 
     /**
      * Sets the primaryAccountUserName property value. Indicates what the account name for the primary account is
      *  @param string|null $value Value to set for the primaryAccountUserName property.
     */
-    public function setPrimaryAccountUserName(?string $value ): void {
-        $this->primaryAccountUserName = $value;
+    public function setPrimaryAccountUserName(?string $value): void {
+        $this->getBackingStore()->set('primaryAccountUserName', $value);
     }
 
     /**
      * Sets the primaryUser property value. Indicates who the primary user of the profile is
      *  @param string|null $value Value to set for the primaryUser property.
     */
-    public function setPrimaryUser(?string $value ): void {
-        $this->primaryUser = $value;
+    public function setPrimaryUser(?string $value): void {
+        $this->getBackingStore()->set('primaryUser', $value);
     }
 
     /**
      * Sets the primaryUserFullName property value. Indicates who the primary user of the profile is
      *  @param string|null $value Value to set for the primaryUserFullName property.
     */
-    public function setPrimaryUserFullName(?string $value ): void {
-        $this->primaryUserFullName = $value;
+    public function setPrimaryUserFullName(?string $value): void {
+        $this->getBackingStore()->set('primaryUserFullName', $value);
     }
 
     /**
      * Sets the registrationDisabled property value. Indicates if registration is disabled
      *  @param bool|null $value Value to set for the registrationDisabled property.
     */
-    public function setRegistrationDisabled(?bool $value ): void {
-        $this->registrationDisabled = $value;
+    public function setRegistrationDisabled(?bool $value): void {
+        $this->getBackingStore()->set('registrationDisabled', $value);
     }
 
     /**
      * Sets the requestRequiresNetworkTether property value. Indicates if the device is network-tethered to run the command
      *  @param bool|null $value Value to set for the requestRequiresNetworkTether property.
     */
-    public function setRequestRequiresNetworkTether(?bool $value ): void {
-        $this->requestRequiresNetworkTether = $value;
+    public function setRequestRequiresNetworkTether(?bool $value): void {
+        $this->getBackingStore()->set('requestRequiresNetworkTether', $value);
     }
 
     /**
      * Sets the setPrimarySetupAccountAsRegularUser property value. Indicates whether Setup Assistant will set the account as a regular user
      *  @param bool|null $value Value to set for the setPrimarySetupAccountAsRegularUser property.
     */
-    public function setSetPrimarySetupAccountAsRegularUser(?bool $value ): void {
-        $this->setPrimarySetupAccountAsRegularUser = $value;
+    public function setSetPrimarySetupAccountAsRegularUser(?bool $value): void {
+        $this->getBackingStore()->set('setPrimarySetupAccountAsRegularUser', $value);
     }
 
     /**
      * Sets the skipPrimarySetupAccountCreation property value. Indicates whether Setup Assistant will skip the user interface for primary account setup
      *  @param bool|null $value Value to set for the skipPrimarySetupAccountCreation property.
     */
-    public function setSkipPrimarySetupAccountCreation(?bool $value ): void {
-        $this->skipPrimarySetupAccountCreation = $value;
+    public function setSkipPrimarySetupAccountCreation(?bool $value): void {
+        $this->getBackingStore()->set('skipPrimarySetupAccountCreation', $value);
     }
 
     /**
      * Sets the zoomDisabled property value. Indicates if zoom setup pane is disabled
      *  @param bool|null $value Value to set for the zoomDisabled property.
     */
-    public function setZoomDisabled(?bool $value ): void {
-        $this->zoomDisabled = $value;
+    public function setZoomDisabled(?bool $value): void {
+        $this->getBackingStore()->set('zoomDisabled', $value);
     }
 
 }

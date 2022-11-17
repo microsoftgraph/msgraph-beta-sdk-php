@@ -11,61 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AggregatedPolicyCompliance extends Entity implements Parsable 
 {
     /**
-     * @var string|null $compliancePolicyId Identifier for the device compliance policy. Optional. Read-only.
-    */
-    private ?string $compliancePolicyId = null;
-    
-    /**
-     * @var string|null $compliancePolicyName Name of the device compliance policy. Optional. Read-only.
-    */
-    private ?string $compliancePolicyName = null;
-    
-    /**
-     * @var string|null $compliancePolicyPlatform Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
-    */
-    private ?string $compliancePolicyPlatform = null;
-    
-    /**
-     * @var string|null $compliancePolicyType The type of compliance policy. Optional. Read-only.
-    */
-    private ?string $compliancePolicyType = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
-     * @var int|null $numberOfCompliantDevices The number of devices that are in a compliant status. Optional. Read-only.
-    */
-    private ?int $numberOfCompliantDevices = null;
-    
-    /**
-     * @var int|null $numberOfErrorDevices The number of devices that are in an error status. Optional. Read-only.
-    */
-    private ?int $numberOfErrorDevices = null;
-    
-    /**
-     * @var int|null $numberOfNonCompliantDevices The number of device that are in a non-compliant status. Optional. Read-only.
-    */
-    private ?int $numberOfNonCompliantDevices = null;
-    
-    /**
-     * @var DateTime|null $policyModifiedDateTime The date and time the device policy was last modified. Optional. Read-only.
-    */
-    private ?DateTime $policyModifiedDateTime = null;
-    
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantDisplayName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new aggregatedPolicyCompliance and sets the default values.
     */
     public function __construct() {
@@ -87,7 +32,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyId(): ?string {
-        return $this->compliancePolicyId;
+        return $this->getBackingStore()->get('compliancePolicyId');
     }
 
     /**
@@ -95,7 +40,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyName(): ?string {
-        return $this->compliancePolicyName;
+        return $this->getBackingStore()->get('compliancePolicyName');
     }
 
     /**
@@ -103,7 +48,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyPlatform(): ?string {
-        return $this->compliancePolicyPlatform;
+        return $this->getBackingStore()->get('compliancePolicyPlatform');
     }
 
     /**
@@ -111,7 +56,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getCompliancePolicyType(): ?string {
-        return $this->compliancePolicyType;
+        return $this->getBackingStore()->get('compliancePolicyType');
     }
 
     /**
@@ -140,7 +85,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -148,7 +93,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfCompliantDevices(): ?int {
-        return $this->numberOfCompliantDevices;
+        return $this->getBackingStore()->get('numberOfCompliantDevices');
     }
 
     /**
@@ -156,7 +101,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfErrorDevices(): ?int {
-        return $this->numberOfErrorDevices;
+        return $this->getBackingStore()->get('numberOfErrorDevices');
     }
 
     /**
@@ -164,7 +109,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return int|null
     */
     public function getNumberOfNonCompliantDevices(): ?int {
-        return $this->numberOfNonCompliantDevices;
+        return $this->getBackingStore()->get('numberOfNonCompliantDevices');
     }
 
     /**
@@ -172,7 +117,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPolicyModifiedDateTime(): ?DateTime {
-        return $this->policyModifiedDateTime;
+        return $this->getBackingStore()->get('policyModifiedDateTime');
     }
 
     /**
@@ -180,7 +125,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->tenantDisplayName;
+        return $this->getBackingStore()->get('tenantDisplayName');
     }
 
     /**
@@ -188,7 +133,7 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -197,105 +142,105 @@ class AggregatedPolicyCompliance extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('compliancePolicyId', $this->compliancePolicyId);
-        $writer->writeStringValue('compliancePolicyName', $this->compliancePolicyName);
-        $writer->writeStringValue('compliancePolicyPlatform', $this->compliancePolicyPlatform);
-        $writer->writeStringValue('compliancePolicyType', $this->compliancePolicyType);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
-        $writer->writeIntegerValue('numberOfCompliantDevices', $this->numberOfCompliantDevices);
-        $writer->writeIntegerValue('numberOfErrorDevices', $this->numberOfErrorDevices);
-        $writer->writeIntegerValue('numberOfNonCompliantDevices', $this->numberOfNonCompliantDevices);
-        $writer->writeDateTimeValue('policyModifiedDateTime', $this->policyModifiedDateTime);
-        $writer->writeStringValue('tenantDisplayName', $this->tenantDisplayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('compliancePolicyId', $this->getCompliancePolicyId());
+        $writer->writeStringValue('compliancePolicyName', $this->getCompliancePolicyName());
+        $writer->writeStringValue('compliancePolicyPlatform', $this->getCompliancePolicyPlatform());
+        $writer->writeStringValue('compliancePolicyType', $this->getCompliancePolicyType());
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeIntegerValue('numberOfCompliantDevices', $this->getNumberOfCompliantDevices());
+        $writer->writeIntegerValue('numberOfErrorDevices', $this->getNumberOfErrorDevices());
+        $writer->writeIntegerValue('numberOfNonCompliantDevices', $this->getNumberOfNonCompliantDevices());
+        $writer->writeDateTimeValue('policyModifiedDateTime', $this->getPolicyModifiedDateTime());
+        $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the compliancePolicyId property value. Identifier for the device compliance policy. Optional. Read-only.
      *  @param string|null $value Value to set for the compliancePolicyId property.
     */
-    public function setCompliancePolicyId(?string $value ): void {
-        $this->compliancePolicyId = $value;
+    public function setCompliancePolicyId(?string $value): void {
+        $this->getBackingStore()->set('compliancePolicyId', $value);
     }
 
     /**
      * Sets the compliancePolicyName property value. Name of the device compliance policy. Optional. Read-only.
      *  @param string|null $value Value to set for the compliancePolicyName property.
     */
-    public function setCompliancePolicyName(?string $value ): void {
-        $this->compliancePolicyName = $value;
+    public function setCompliancePolicyName(?string $value): void {
+        $this->getBackingStore()->set('compliancePolicyName', $value);
     }
 
     /**
      * Sets the compliancePolicyPlatform property value. Platform for the device compliance policy. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, androidAOSP, all. Optional. Read-only.
      *  @param string|null $value Value to set for the compliancePolicyPlatform property.
     */
-    public function setCompliancePolicyPlatform(?string $value ): void {
-        $this->compliancePolicyPlatform = $value;
+    public function setCompliancePolicyPlatform(?string $value): void {
+        $this->getBackingStore()->set('compliancePolicyPlatform', $value);
     }
 
     /**
      * Sets the compliancePolicyType property value. The type of compliance policy. Optional. Read-only.
      *  @param string|null $value Value to set for the compliancePolicyType property.
     */
-    public function setCompliancePolicyType(?string $value ): void {
-        $this->compliancePolicyType = $value;
+    public function setCompliancePolicyType(?string $value): void {
+        $this->getBackingStore()->set('compliancePolicyType', $value);
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
     /**
      * Sets the numberOfCompliantDevices property value. The number of devices that are in a compliant status. Optional. Read-only.
      *  @param int|null $value Value to set for the numberOfCompliantDevices property.
     */
-    public function setNumberOfCompliantDevices(?int $value ): void {
-        $this->numberOfCompliantDevices = $value;
+    public function setNumberOfCompliantDevices(?int $value): void {
+        $this->getBackingStore()->set('numberOfCompliantDevices', $value);
     }
 
     /**
      * Sets the numberOfErrorDevices property value. The number of devices that are in an error status. Optional. Read-only.
      *  @param int|null $value Value to set for the numberOfErrorDevices property.
     */
-    public function setNumberOfErrorDevices(?int $value ): void {
-        $this->numberOfErrorDevices = $value;
+    public function setNumberOfErrorDevices(?int $value): void {
+        $this->getBackingStore()->set('numberOfErrorDevices', $value);
     }
 
     /**
      * Sets the numberOfNonCompliantDevices property value. The number of device that are in a non-compliant status. Optional. Read-only.
      *  @param int|null $value Value to set for the numberOfNonCompliantDevices property.
     */
-    public function setNumberOfNonCompliantDevices(?int $value ): void {
-        $this->numberOfNonCompliantDevices = $value;
+    public function setNumberOfNonCompliantDevices(?int $value): void {
+        $this->getBackingStore()->set('numberOfNonCompliantDevices', $value);
     }
 
     /**
      * Sets the policyModifiedDateTime property value. The date and time the device policy was last modified. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the policyModifiedDateTime property.
     */
-    public function setPolicyModifiedDateTime(?DateTime $value ): void {
-        $this->policyModifiedDateTime = $value;
+    public function setPolicyModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('policyModifiedDateTime', $value);
     }
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantDisplayName property.
     */
-    public function setTenantDisplayName(?string $value ): void {
-        $this->tenantDisplayName = $value;
+    public function setTenantDisplayName(?string $value): void {
+        $this->getBackingStore()->set('tenantDisplayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

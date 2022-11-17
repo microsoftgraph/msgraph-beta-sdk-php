@@ -9,46 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineSettingState extends Entity implements Parsable 
 {
     /**
-     * @var array<SecurityBaselineContributingPolicy>|null $contributingPolicies The policies that contribute to this setting instance
-    */
-    private ?array $contributingPolicies = null;
-    
-    /**
-     * @var string|null $errorCode The error code if the setting is in error state
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var string|null $settingCategoryId The setting category id which this setting belongs to
-    */
-    private ?string $settingCategoryId = null;
-    
-    /**
-     * @var string|null $settingCategoryName The setting category name which this setting belongs to
-    */
-    private ?string $settingCategoryName = null;
-    
-    /**
-     * @var string|null $settingId The setting id guid
-    */
-    private ?string $settingId = null;
-    
-    /**
-     * @var string|null $settingName The setting name that is being reported
-    */
-    private ?string $settingName = null;
-    
-    /**
-     * @var array<SettingSource>|null $sourcePolicies The policies that contribute to this setting instance
-    */
-    private ?array $sourcePolicies = null;
-    
-    /**
-     * @var SecurityBaselineComplianceState|null $state Security Baseline Compliance State
-    */
-    private ?SecurityBaselineComplianceState $state = null;
-    
-    /**
      * Instantiates a new securityBaselineSettingState and sets the default values.
     */
     public function __construct() {
@@ -70,7 +30,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return array<SecurityBaselineContributingPolicy>|null
     */
     public function getContributingPolicies(): ?array {
-        return $this->contributingPolicies;
+        return $this->getBackingStore()->get('contributingPolicies');
     }
 
     /**
@@ -78,7 +38,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -104,7 +64,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingCategoryId(): ?string {
-        return $this->settingCategoryId;
+        return $this->getBackingStore()->get('settingCategoryId');
     }
 
     /**
@@ -112,7 +72,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingCategoryName(): ?string {
-        return $this->settingCategoryName;
+        return $this->getBackingStore()->get('settingCategoryName');
     }
 
     /**
@@ -120,7 +80,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingId(): ?string {
-        return $this->settingId;
+        return $this->getBackingStore()->get('settingId');
     }
 
     /**
@@ -128,7 +88,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->settingName;
+        return $this->getBackingStore()->get('settingName');
     }
 
     /**
@@ -136,7 +96,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return array<SettingSource>|null
     */
     public function getSourcePolicies(): ?array {
-        return $this->sourcePolicies;
+        return $this->getBackingStore()->get('sourcePolicies');
     }
 
     /**
@@ -144,7 +104,7 @@ class SecurityBaselineSettingState extends Entity implements Parsable
      * @return SecurityBaselineComplianceState|null
     */
     public function getState(): ?SecurityBaselineComplianceState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -153,78 +113,78 @@ class SecurityBaselineSettingState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('contributingPolicies', $this->contributingPolicies);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeStringValue('settingCategoryId', $this->settingCategoryId);
-        $writer->writeStringValue('settingCategoryName', $this->settingCategoryName);
-        $writer->writeStringValue('settingId', $this->settingId);
-        $writer->writeStringValue('settingName', $this->settingName);
-        $writer->writeCollectionOfObjectValues('sourcePolicies', $this->sourcePolicies);
-        $writer->writeEnumValue('state', $this->state);
+        $writer->writeCollectionOfObjectValues('contributingPolicies', $this->getContributingPolicies());
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('settingCategoryId', $this->getSettingCategoryId());
+        $writer->writeStringValue('settingCategoryName', $this->getSettingCategoryName());
+        $writer->writeStringValue('settingId', $this->getSettingId());
+        $writer->writeStringValue('settingName', $this->getSettingName());
+        $writer->writeCollectionOfObjectValues('sourcePolicies', $this->getSourcePolicies());
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the contributingPolicies property value. The policies that contribute to this setting instance
      *  @param array<SecurityBaselineContributingPolicy>|null $value Value to set for the contributingPolicies property.
     */
-    public function setContributingPolicies(?array $value ): void {
-        $this->contributingPolicies = $value;
+    public function setContributingPolicies(?array $value): void {
+        $this->getBackingStore()->set('contributingPolicies', $value);
     }
 
     /**
      * Sets the errorCode property value. The error code if the setting is in error state
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the settingCategoryId property value. The setting category id which this setting belongs to
      *  @param string|null $value Value to set for the settingCategoryId property.
     */
-    public function setSettingCategoryId(?string $value ): void {
-        $this->settingCategoryId = $value;
+    public function setSettingCategoryId(?string $value): void {
+        $this->getBackingStore()->set('settingCategoryId', $value);
     }
 
     /**
      * Sets the settingCategoryName property value. The setting category name which this setting belongs to
      *  @param string|null $value Value to set for the settingCategoryName property.
     */
-    public function setSettingCategoryName(?string $value ): void {
-        $this->settingCategoryName = $value;
+    public function setSettingCategoryName(?string $value): void {
+        $this->getBackingStore()->set('settingCategoryName', $value);
     }
 
     /**
      * Sets the settingId property value. The setting id guid
      *  @param string|null $value Value to set for the settingId property.
     */
-    public function setSettingId(?string $value ): void {
-        $this->settingId = $value;
+    public function setSettingId(?string $value): void {
+        $this->getBackingStore()->set('settingId', $value);
     }
 
     /**
      * Sets the settingName property value. The setting name that is being reported
      *  @param string|null $value Value to set for the settingName property.
     */
-    public function setSettingName(?string $value ): void {
-        $this->settingName = $value;
+    public function setSettingName(?string $value): void {
+        $this->getBackingStore()->set('settingName', $value);
     }
 
     /**
      * Sets the sourcePolicies property value. The policies that contribute to this setting instance
      *  @param array<SettingSource>|null $value Value to set for the sourcePolicies property.
     */
-    public function setSourcePolicies(?array $value ): void {
-        $this->sourcePolicies = $value;
+    public function setSourcePolicies(?array $value): void {
+        $this->getBackingStore()->set('sourcePolicies', $value);
     }
 
     /**
      * Sets the state property value. Security Baseline Compliance State
      *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
-    public function setState(?SecurityBaselineComplianceState $value ): void {
-        $this->state = $value;
+    public function setState(?SecurityBaselineComplianceState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

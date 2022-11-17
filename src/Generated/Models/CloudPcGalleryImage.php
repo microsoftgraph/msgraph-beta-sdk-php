@@ -10,66 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class CloudPcGalleryImage extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The official display name of the gallery image. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var Date|null $endDate The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
-    */
-    private ?Date $endDate = null;
-    
-    /**
-     * @var Date|null $expirationDate The date when the image is no longer available. Read-only.
-    */
-    private ?Date $expirationDate = null;
-    
-    /**
-     * @var string|null $offer The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-    */
-    private ?string $offer = null;
-    
-    /**
-     * @var string|null $offerDisplayName The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
-    */
-    private ?string $offerDisplayName = null;
-    
-    /**
-     * @var string|null $publisher The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var string|null $recommendedSku Recommended Cloud PC SKU for this gallery image. Read-only.
-    */
-    private ?string $recommendedSku = null;
-    
-    /**
-     * @var int|null $sizeInGB The size of this image in gigabytes. Read-only.
-    */
-    private ?int $sizeInGB = null;
-    
-    /**
-     * @var string|null $sku The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
-    */
-    private ?string $sku = null;
-    
-    /**
-     * @var string|null $skuDisplayName The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
-    */
-    private ?string $skuDisplayName = null;
-    
-    /**
-     * @var Date|null $startDate The date when the image becomes available. Read-only.
-    */
-    private ?Date $startDate = null;
-    
-    /**
-     * @var CloudPcGalleryImageStatus|null $status The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
-    */
-    private ?CloudPcGalleryImageStatus $status = null;
-    
-    /**
      * Instantiates a new CloudPcGalleryImage and sets the default values.
     */
     public function __construct() {
@@ -91,7 +31,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -99,7 +39,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getEndDate(): ?Date {
-        return $this->endDate;
+        return $this->getBackingStore()->get('endDate');
     }
 
     /**
@@ -107,7 +47,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
-        return $this->expirationDate;
+        return $this->getBackingStore()->get('expirationDate');
     }
 
     /**
@@ -137,7 +77,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOffer(): ?string {
-        return $this->offer;
+        return $this->getBackingStore()->get('offer');
     }
 
     /**
@@ -145,7 +85,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getOfferDisplayName(): ?string {
-        return $this->offerDisplayName;
+        return $this->getBackingStore()->get('offerDisplayName');
     }
 
     /**
@@ -153,7 +93,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -161,7 +101,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getRecommendedSku(): ?string {
-        return $this->recommendedSku;
+        return $this->getBackingStore()->get('recommendedSku');
     }
 
     /**
@@ -169,7 +109,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return int|null
     */
     public function getSizeInGB(): ?int {
-        return $this->sizeInGB;
+        return $this->getBackingStore()->get('sizeInGB');
     }
 
     /**
@@ -177,7 +117,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getSku(): ?string {
-        return $this->sku;
+        return $this->getBackingStore()->get('sku');
     }
 
     /**
@@ -185,7 +125,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return string|null
     */
     public function getSkuDisplayName(): ?string {
-        return $this->skuDisplayName;
+        return $this->getBackingStore()->get('skuDisplayName');
     }
 
     /**
@@ -193,7 +133,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return Date|null
     */
     public function getStartDate(): ?Date {
-        return $this->startDate;
+        return $this->getBackingStore()->get('startDate');
     }
 
     /**
@@ -201,7 +141,7 @@ class CloudPcGalleryImage extends Entity implements Parsable
      * @return CloudPcGalleryImageStatus|null
     */
     public function getStatus(): ?CloudPcGalleryImageStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -210,114 +150,114 @@ class CloudPcGalleryImage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateValue('endDate', $this->endDate);
-        $writer->writeDateValue('expirationDate', $this->expirationDate);
-        $writer->writeStringValue('offer', $this->offer);
-        $writer->writeStringValue('offerDisplayName', $this->offerDisplayName);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeStringValue('recommendedSku', $this->recommendedSku);
-        $writer->writeIntegerValue('sizeInGB', $this->sizeInGB);
-        $writer->writeStringValue('sku', $this->sku);
-        $writer->writeStringValue('skuDisplayName', $this->skuDisplayName);
-        $writer->writeDateValue('startDate', $this->startDate);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateValue('endDate', $this->getEndDate());
+        $writer->writeDateValue('expirationDate', $this->getExpirationDate());
+        $writer->writeStringValue('offer', $this->getOffer());
+        $writer->writeStringValue('offerDisplayName', $this->getOfferDisplayName());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeStringValue('recommendedSku', $this->getRecommendedSku());
+        $writer->writeIntegerValue('sizeInGB', $this->getSizeInGB());
+        $writer->writeStringValue('sku', $this->getSku());
+        $writer->writeStringValue('skuDisplayName', $this->getSkuDisplayName());
+        $writer->writeDateValue('startDate', $this->getStartDate());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the displayName property value. The official display name of the gallery image. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the endDate property value. The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
      *  @param Date|null $value Value to set for the endDate property.
     */
-    public function setEndDate(?Date $value ): void {
-        $this->endDate = $value;
+    public function setEndDate(?Date $value): void {
+        $this->getBackingStore()->set('endDate', $value);
     }
 
     /**
      * Sets the expirationDate property value. The date when the image is no longer available. Read-only.
      *  @param Date|null $value Value to set for the expirationDate property.
     */
-    public function setExpirationDate(?Date $value ): void {
-        $this->expirationDate = $value;
+    public function setExpirationDate(?Date $value): void {
+        $this->getBackingStore()->set('expirationDate', $value);
     }
 
     /**
      * Sets the offer property value. The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
      *  @param string|null $value Value to set for the offer property.
     */
-    public function setOffer(?string $value ): void {
-        $this->offer = $value;
+    public function setOffer(?string $value): void {
+        $this->getBackingStore()->set('offer', $value);
     }
 
     /**
      * Sets the offerDisplayName property value. The official display offer name of the gallery image. For example, Windows 10 Enterprise + OS Optimizations. Read-only.
      *  @param string|null $value Value to set for the offerDisplayName property.
     */
-    public function setOfferDisplayName(?string $value ): void {
-        $this->offerDisplayName = $value;
+    public function setOfferDisplayName(?string $value): void {
+        $this->getBackingStore()->set('offerDisplayName', $value);
     }
 
     /**
      * Sets the publisher property value. The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the recommendedSku property value. Recommended Cloud PC SKU for this gallery image. Read-only.
      *  @param string|null $value Value to set for the recommendedSku property.
     */
-    public function setRecommendedSku(?string $value ): void {
-        $this->recommendedSku = $value;
+    public function setRecommendedSku(?string $value): void {
+        $this->getBackingStore()->set('recommendedSku', $value);
     }
 
     /**
      * Sets the sizeInGB property value. The size of this image in gigabytes. Read-only.
      *  @param int|null $value Value to set for the sizeInGB property.
     */
-    public function setSizeInGB(?int $value ): void {
-        $this->sizeInGB = $value;
+    public function setSizeInGB(?int $value): void {
+        $this->getBackingStore()->set('sizeInGB', $value);
     }
 
     /**
      * Sets the sku property value. The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
      *  @param string|null $value Value to set for the sku property.
     */
-    public function setSku(?string $value ): void {
-        $this->sku = $value;
+    public function setSku(?string $value): void {
+        $this->getBackingStore()->set('sku', $value);
     }
 
     /**
      * Sets the skuDisplayName property value. The official display stock keeping unit (SKU) name of this gallery image. For example, 2004. Read-only.
      *  @param string|null $value Value to set for the skuDisplayName property.
     */
-    public function setSkuDisplayName(?string $value ): void {
-        $this->skuDisplayName = $value;
+    public function setSkuDisplayName(?string $value): void {
+        $this->getBackingStore()->set('skuDisplayName', $value);
     }
 
     /**
      * Sets the startDate property value. The date when the image becomes available. Read-only.
      *  @param Date|null $value Value to set for the startDate property.
     */
-    public function setStartDate(?Date $value ): void {
-        $this->startDate = $value;
+    public function setStartDate(?Date $value): void {
+        $this->getBackingStore()->set('startDate', $value);
     }
 
     /**
      * Sets the status property value. The status of the gallery image on the Cloud PC. Possible values are: supported, supportedWithWarning, notSupported, unknownFutureValue. Read-only.
      *  @param CloudPcGalleryImageStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcGalleryImageStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?CloudPcGalleryImageStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

@@ -6,28 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, Parsable 
+class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $actionName Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $actionName = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceScopeId The deviceScopeId property
-    */
-    private ?string $deviceScopeId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new triggerDeviceScopeActionPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -45,15 +39,23 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
      * @return string|null
     */
     public function getActionName(): ?string {
-        return $this->actionName;
+        return $this->getBackingStore()->get('actionName');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -61,7 +63,7 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
      * @return string|null
     */
     public function getDeviceScopeId(): ?string {
-        return $this->deviceScopeId;
+        return $this->getBackingStore()->get('deviceScopeId');
     }
 
     /**
@@ -81,33 +83,33 @@ class TriggerDeviceScopeActionPostRequestBody implements AdditionalDataHolder, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('actionName', $this->actionName);
-        $writer->writeStringValue('deviceScopeId', $this->deviceScopeId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('actionName', $this->getActionName());
+        $writer->writeStringValue('deviceScopeId', $this->getDeviceScopeId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actionName property value. Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.
      *  @param string|null $value Value to set for the actionName property.
     */
-    public function setActionName(?string $value ): void {
-        $this->actionName = $value;
+    public function setActionName(?string $value): void {
+        $this->getBackingStore()->set('actionName', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceScopeId property value. The deviceScopeId property
      *  @param string|null $value Value to set for the deviceScopeId property.
     */
-    public function setDeviceScopeId(?string $value ): void {
-        $this->deviceScopeId = $value;
+    public function setDeviceScopeId(?string $value): void {
+        $this->getBackingStore()->set('deviceScopeId', $value);
     }
 
 }

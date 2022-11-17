@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * @var MobileAppActionType|null $actionType Defines the Action Types for an Intune Application.
-    */
-    private ?MobileAppActionType $actionType = null;
-    
-    /**
-     * @var string|null $errorCode Error code for the failure, empty if no failure.
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var RunState|null $runState Indicates the type of execution status of the device management script.
-    */
-    private ?RunState $runState = null;
-    
-    /**
      * Instantiates a new MobileAppTroubleshootingAppStateHistory and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return MobileAppActionType|null
     */
     public function getActionType(): ?MobileAppActionType {
-        return $this->actionType;
+        return $this->getBackingStore()->get('actionType');
     }
 
     /**
@@ -53,7 +38,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -74,7 +59,7 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
-        return $this->runState;
+        return $this->getBackingStore()->get('runState');
     }
 
     /**
@@ -83,33 +68,33 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('actionType', $this->actionType);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeEnumValue('runState', $this->runState);
+        $writer->writeEnumValue('actionType', $this->getActionType());
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeEnumValue('runState', $this->getRunState());
     }
 
     /**
      * Sets the actionType property value. Defines the Action Types for an Intune Application.
      *  @param MobileAppActionType|null $value Value to set for the actionType property.
     */
-    public function setActionType(?MobileAppActionType $value ): void {
-        $this->actionType = $value;
+    public function setActionType(?MobileAppActionType $value): void {
+        $this->getBackingStore()->set('actionType', $value);
     }
 
     /**
      * Sets the errorCode property value. Error code for the failure, empty if no failure.
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
-    public function setRunState(?RunState $value ): void {
-        $this->runState = $value;
+    public function setRunState(?RunState $value): void {
+        $this->getBackingStore()->set('runState', $value);
     }
 
 }

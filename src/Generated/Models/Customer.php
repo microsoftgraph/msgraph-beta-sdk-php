@@ -10,121 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Customer extends Entity implements Parsable 
 {
     /**
-     * @var PostalAddressType|null $address The address property
-    */
-    private ?PostalAddressType $address = null;
-    
-    /**
-     * @var string|null $blocked The blocked property
-    */
-    private ?string $blocked = null;
-    
-    /**
-     * @var Currency|null $currency The currency property
-    */
-    private ?Currency $currency = null;
-    
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
-    private ?string $currencyCode = null;
-    
-    /**
-     * @var string|null $currencyId The currencyId property
-    */
-    private ?string $currencyId = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $email The email property
-    */
-    private ?string $email = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $number The number property
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var PaymentMethod|null $paymentMethod The paymentMethod property
-    */
-    private ?PaymentMethod $paymentMethod = null;
-    
-    /**
-     * @var string|null $paymentMethodId The paymentMethodId property
-    */
-    private ?string $paymentMethodId = null;
-    
-    /**
-     * @var PaymentTerm|null $paymentTerm The paymentTerm property
-    */
-    private ?PaymentTerm $paymentTerm = null;
-    
-    /**
-     * @var string|null $paymentTermsId The paymentTermsId property
-    */
-    private ?string $paymentTermsId = null;
-    
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
-    private ?string $phoneNumber = null;
-    
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
-    private ?array $picture = null;
-    
-    /**
-     * @var ShipmentMethod|null $shipmentMethod The shipmentMethod property
-    */
-    private ?ShipmentMethod $shipmentMethod = null;
-    
-    /**
-     * @var string|null $shipmentMethodId The shipmentMethodId property
-    */
-    private ?string $shipmentMethodId = null;
-    
-    /**
-     * @var string|null $taxAreaDisplayName The taxAreaDisplayName property
-    */
-    private ?string $taxAreaDisplayName = null;
-    
-    /**
-     * @var string|null $taxAreaId The taxAreaId property
-    */
-    private ?string $taxAreaId = null;
-    
-    /**
-     * @var bool|null $taxLiable The taxLiable property
-    */
-    private ?bool $taxLiable = null;
-    
-    /**
-     * @var string|null $taxRegistrationNumber The taxRegistrationNumber property
-    */
-    private ?string $taxRegistrationNumber = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
-    
-    /**
-     * @var string|null $website The website property
-    */
-    private ?string $website = null;
-    
-    /**
      * Instantiates a new customer and sets the default values.
     */
     public function __construct() {
@@ -146,7 +31,7 @@ class Customer extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getAddress(): ?PostalAddressType {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
     }
 
     /**
@@ -154,7 +39,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getBlocked(): ?string {
-        return $this->blocked;
+        return $this->getBackingStore()->get('blocked');
     }
 
     /**
@@ -162,7 +47,7 @@ class Customer extends Entity implements Parsable
      * @return Currency|null
     */
     public function getCurrency(): ?Currency {
-        return $this->currency;
+        return $this->getBackingStore()->get('currency');
     }
 
     /**
@@ -170,7 +55,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->currencyCode;
+        return $this->getBackingStore()->get('currencyCode');
     }
 
     /**
@@ -178,7 +63,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyId(): ?string {
-        return $this->currencyId;
+        return $this->getBackingStore()->get('currencyId');
     }
 
     /**
@@ -186,7 +71,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -194,7 +79,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -235,7 +120,7 @@ class Customer extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -243,7 +128,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -251,7 +136,7 @@ class Customer extends Entity implements Parsable
      * @return PaymentMethod|null
     */
     public function getPaymentMethod(): ?PaymentMethod {
-        return $this->paymentMethod;
+        return $this->getBackingStore()->get('paymentMethod');
     }
 
     /**
@@ -259,7 +144,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getPaymentMethodId(): ?string {
-        return $this->paymentMethodId;
+        return $this->getBackingStore()->get('paymentMethodId');
     }
 
     /**
@@ -267,7 +152,7 @@ class Customer extends Entity implements Parsable
      * @return PaymentTerm|null
     */
     public function getPaymentTerm(): ?PaymentTerm {
-        return $this->paymentTerm;
+        return $this->getBackingStore()->get('paymentTerm');
     }
 
     /**
@@ -275,7 +160,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getPaymentTermsId(): ?string {
-        return $this->paymentTermsId;
+        return $this->getBackingStore()->get('paymentTermsId');
     }
 
     /**
@@ -283,7 +168,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->phoneNumber;
+        return $this->getBackingStore()->get('phoneNumber');
     }
 
     /**
@@ -291,7 +176,7 @@ class Customer extends Entity implements Parsable
      * @return array<Picture>|null
     */
     public function getPicture(): ?array {
-        return $this->picture;
+        return $this->getBackingStore()->get('picture');
     }
 
     /**
@@ -299,7 +184,7 @@ class Customer extends Entity implements Parsable
      * @return ShipmentMethod|null
     */
     public function getShipmentMethod(): ?ShipmentMethod {
-        return $this->shipmentMethod;
+        return $this->getBackingStore()->get('shipmentMethod');
     }
 
     /**
@@ -307,7 +192,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getShipmentMethodId(): ?string {
-        return $this->shipmentMethodId;
+        return $this->getBackingStore()->get('shipmentMethodId');
     }
 
     /**
@@ -315,7 +200,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxAreaDisplayName(): ?string {
-        return $this->taxAreaDisplayName;
+        return $this->getBackingStore()->get('taxAreaDisplayName');
     }
 
     /**
@@ -323,7 +208,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxAreaId(): ?string {
-        return $this->taxAreaId;
+        return $this->getBackingStore()->get('taxAreaId');
     }
 
     /**
@@ -331,7 +216,7 @@ class Customer extends Entity implements Parsable
      * @return bool|null
     */
     public function getTaxLiable(): ?bool {
-        return $this->taxLiable;
+        return $this->getBackingStore()->get('taxLiable');
     }
 
     /**
@@ -339,7 +224,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxRegistrationNumber(): ?string {
-        return $this->taxRegistrationNumber;
+        return $this->getBackingStore()->get('taxRegistrationNumber');
     }
 
     /**
@@ -347,7 +232,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -355,7 +240,7 @@ class Customer extends Entity implements Parsable
      * @return string|null
     */
     public function getWebsite(): ?string {
-        return $this->website;
+        return $this->getBackingStore()->get('website');
     }
 
     /**
@@ -364,213 +249,213 @@ class Customer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('address', $this->address);
-        $writer->writeStringValue('blocked', $this->blocked);
-        $writer->writeObjectValue('currency', $this->currency);
-        $writer->writeStringValue('currencyCode', $this->currencyCode);
-        $writer->writeStringValue('currencyId', $this->currencyId);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('email', $this->email);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeObjectValue('paymentMethod', $this->paymentMethod);
-        $writer->writeStringValue('paymentMethodId', $this->paymentMethodId);
-        $writer->writeObjectValue('paymentTerm', $this->paymentTerm);
-        $writer->writeStringValue('paymentTermsId', $this->paymentTermsId);
-        $writer->writeStringValue('phoneNumber', $this->phoneNumber);
-        $writer->writeCollectionOfObjectValues('picture', $this->picture);
-        $writer->writeObjectValue('shipmentMethod', $this->shipmentMethod);
-        $writer->writeStringValue('shipmentMethodId', $this->shipmentMethodId);
-        $writer->writeStringValue('taxAreaDisplayName', $this->taxAreaDisplayName);
-        $writer->writeStringValue('taxAreaId', $this->taxAreaId);
-        $writer->writeBooleanValue('taxLiable', $this->taxLiable);
-        $writer->writeStringValue('taxRegistrationNumber', $this->taxRegistrationNumber);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeStringValue('website', $this->website);
+        $writer->writeObjectValue('address', $this->getAddress());
+        $writer->writeStringValue('blocked', $this->getBlocked());
+        $writer->writeObjectValue('currency', $this->getCurrency());
+        $writer->writeStringValue('currencyCode', $this->getCurrencyCode());
+        $writer->writeStringValue('currencyId', $this->getCurrencyId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeObjectValue('paymentMethod', $this->getPaymentMethod());
+        $writer->writeStringValue('paymentMethodId', $this->getPaymentMethodId());
+        $writer->writeObjectValue('paymentTerm', $this->getPaymentTerm());
+        $writer->writeStringValue('paymentTermsId', $this->getPaymentTermsId());
+        $writer->writeStringValue('phoneNumber', $this->getPhoneNumber());
+        $writer->writeCollectionOfObjectValues('picture', $this->getPicture());
+        $writer->writeObjectValue('shipmentMethod', $this->getShipmentMethod());
+        $writer->writeStringValue('shipmentMethodId', $this->getShipmentMethodId());
+        $writer->writeStringValue('taxAreaDisplayName', $this->getTaxAreaDisplayName());
+        $writer->writeStringValue('taxAreaId', $this->getTaxAreaId());
+        $writer->writeBooleanValue('taxLiable', $this->getTaxLiable());
+        $writer->writeStringValue('taxRegistrationNumber', $this->getTaxRegistrationNumber());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('website', $this->getWebsite());
     }
 
     /**
      * Sets the address property value. The address property
      *  @param PostalAddressType|null $value Value to set for the address property.
     */
-    public function setAddress(?PostalAddressType $value ): void {
-        $this->address = $value;
+    public function setAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('address', $value);
     }
 
     /**
      * Sets the blocked property value. The blocked property
      *  @param string|null $value Value to set for the blocked property.
     */
-    public function setBlocked(?string $value ): void {
-        $this->blocked = $value;
+    public function setBlocked(?string $value): void {
+        $this->getBackingStore()->set('blocked', $value);
     }
 
     /**
      * Sets the currency property value. The currency property
      *  @param Currency|null $value Value to set for the currency property.
     */
-    public function setCurrency(?Currency $value ): void {
-        $this->currency = $value;
+    public function setCurrency(?Currency $value): void {
+        $this->getBackingStore()->set('currency', $value);
     }
 
     /**
      * Sets the currencyCode property value. The currencyCode property
      *  @param string|null $value Value to set for the currencyCode property.
     */
-    public function setCurrencyCode(?string $value ): void {
-        $this->currencyCode = $value;
+    public function setCurrencyCode(?string $value): void {
+        $this->getBackingStore()->set('currencyCode', $value);
     }
 
     /**
      * Sets the currencyId property value. The currencyId property
      *  @param string|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value ): void {
-        $this->currencyId = $value;
+    public function setCurrencyId(?string $value): void {
+        $this->getBackingStore()->set('currencyId', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the email property value. The email property
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the number property value. The number property
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the paymentMethod property value. The paymentMethod property
      *  @param PaymentMethod|null $value Value to set for the paymentMethod property.
     */
-    public function setPaymentMethod(?PaymentMethod $value ): void {
-        $this->paymentMethod = $value;
+    public function setPaymentMethod(?PaymentMethod $value): void {
+        $this->getBackingStore()->set('paymentMethod', $value);
     }
 
     /**
      * Sets the paymentMethodId property value. The paymentMethodId property
      *  @param string|null $value Value to set for the paymentMethodId property.
     */
-    public function setPaymentMethodId(?string $value ): void {
-        $this->paymentMethodId = $value;
+    public function setPaymentMethodId(?string $value): void {
+        $this->getBackingStore()->set('paymentMethodId', $value);
     }
 
     /**
      * Sets the paymentTerm property value. The paymentTerm property
      *  @param PaymentTerm|null $value Value to set for the paymentTerm property.
     */
-    public function setPaymentTerm(?PaymentTerm $value ): void {
-        $this->paymentTerm = $value;
+    public function setPaymentTerm(?PaymentTerm $value): void {
+        $this->getBackingStore()->set('paymentTerm', $value);
     }
 
     /**
      * Sets the paymentTermsId property value. The paymentTermsId property
      *  @param string|null $value Value to set for the paymentTermsId property.
     */
-    public function setPaymentTermsId(?string $value ): void {
-        $this->paymentTermsId = $value;
+    public function setPaymentTermsId(?string $value): void {
+        $this->getBackingStore()->set('paymentTermsId', $value);
     }
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
      *  @param string|null $value Value to set for the phoneNumber property.
     */
-    public function setPhoneNumber(?string $value ): void {
-        $this->phoneNumber = $value;
+    public function setPhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('phoneNumber', $value);
     }
 
     /**
      * Sets the picture property value. The picture property
      *  @param array<Picture>|null $value Value to set for the picture property.
     */
-    public function setPicture(?array $value ): void {
-        $this->picture = $value;
+    public function setPicture(?array $value): void {
+        $this->getBackingStore()->set('picture', $value);
     }
 
     /**
      * Sets the shipmentMethod property value. The shipmentMethod property
      *  @param ShipmentMethod|null $value Value to set for the shipmentMethod property.
     */
-    public function setShipmentMethod(?ShipmentMethod $value ): void {
-        $this->shipmentMethod = $value;
+    public function setShipmentMethod(?ShipmentMethod $value): void {
+        $this->getBackingStore()->set('shipmentMethod', $value);
     }
 
     /**
      * Sets the shipmentMethodId property value. The shipmentMethodId property
      *  @param string|null $value Value to set for the shipmentMethodId property.
     */
-    public function setShipmentMethodId(?string $value ): void {
-        $this->shipmentMethodId = $value;
+    public function setShipmentMethodId(?string $value): void {
+        $this->getBackingStore()->set('shipmentMethodId', $value);
     }
 
     /**
      * Sets the taxAreaDisplayName property value. The taxAreaDisplayName property
      *  @param string|null $value Value to set for the taxAreaDisplayName property.
     */
-    public function setTaxAreaDisplayName(?string $value ): void {
-        $this->taxAreaDisplayName = $value;
+    public function setTaxAreaDisplayName(?string $value): void {
+        $this->getBackingStore()->set('taxAreaDisplayName', $value);
     }
 
     /**
      * Sets the taxAreaId property value. The taxAreaId property
      *  @param string|null $value Value to set for the taxAreaId property.
     */
-    public function setTaxAreaId(?string $value ): void {
-        $this->taxAreaId = $value;
+    public function setTaxAreaId(?string $value): void {
+        $this->getBackingStore()->set('taxAreaId', $value);
     }
 
     /**
      * Sets the taxLiable property value. The taxLiable property
      *  @param bool|null $value Value to set for the taxLiable property.
     */
-    public function setTaxLiable(?bool $value ): void {
-        $this->taxLiable = $value;
+    public function setTaxLiable(?bool $value): void {
+        $this->getBackingStore()->set('taxLiable', $value);
     }
 
     /**
      * Sets the taxRegistrationNumber property value. The taxRegistrationNumber property
      *  @param string|null $value Value to set for the taxRegistrationNumber property.
     */
-    public function setTaxRegistrationNumber(?string $value ): void {
-        $this->taxRegistrationNumber = $value;
+    public function setTaxRegistrationNumber(?string $value): void {
+        $this->getBackingStore()->set('taxRegistrationNumber', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the website property value. The website property
      *  @param string|null $value Value to set for the website property.
     */
-    public function setWebsite(?string $value ): void {
-        $this->website = $value;
+    public function setWebsite(?string $value): void {
+        $this->getBackingStore()->set('website', $value);
     }
 
 }

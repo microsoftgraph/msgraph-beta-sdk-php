@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationMethodModeDetail extends Entity implements Parsable 
 {
     /**
-     * @var BaseAuthenticationMethod|null $authenticationMethod The authenticationMethod property
-    */
-    private ?BaseAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var string|null $displayName The display name of this mode
-    */
-    private ?string $displayName = null;
-    
-    /**
      * Instantiates a new AuthenticationMethodModeDetail and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
      * @return BaseAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?BaseAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -48,7 +38,7 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -69,24 +59,24 @@ class AuthenticationMethodModeDetail extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the authenticationMethod property value. The authenticationMethod property
      *  @param BaseAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?BaseAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?BaseAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of this mode
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

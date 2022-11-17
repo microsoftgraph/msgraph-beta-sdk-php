@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder, Parsable 
+class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AndroidDeviceOwnerKioskModeHomeScreenItem|null $item Represents an item on the Android Device Owner Managed Home Screen (application, weblink or folder
-    */
-    private ?AndroidDeviceOwnerKioskModeHomeScreenItem $item = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $position Position of the item on the grid. Valid values 0 to 9999999
-    */
-    private ?int $position = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new androidDeviceOwnerKioskModeAppPositionItem and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.androidDeviceOwnerKioskModeAppPositionItem');
     }
@@ -50,8 +39,16 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return AndroidDeviceOwnerKioskModeHomeScreenItem|null
     */
     public function getItem(): ?AndroidDeviceOwnerKioskModeHomeScreenItem {
-        return $this->item;
+        return $this->getBackingStore()->get('item');
     }
 
     /**
@@ -80,7 +77,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @return int|null
     */
     public function getPosition(): ?int {
-        return $this->position;
+        return $this->getBackingStore()->get('position');
     }
 
     /**
@@ -96,42 +93,42 @@ class AndroidDeviceOwnerKioskModeAppPositionItem implements AdditionalDataHolder
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('item', $this->item);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('position', $this->position);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('item', $this->getItem());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('position', $this->getPosition());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the item property value. Represents an item on the Android Device Owner Managed Home Screen (application, weblink or folder
      *  @param AndroidDeviceOwnerKioskModeHomeScreenItem|null $value Value to set for the item property.
     */
-    public function setItem(?AndroidDeviceOwnerKioskModeHomeScreenItem $value ): void {
-        $this->item = $value;
+    public function setItem(?AndroidDeviceOwnerKioskModeHomeScreenItem $value): void {
+        $this->getBackingStore()->set('item', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the position property value. Position of the item on the grid. Valid values 0 to 9999999
      *  @param int|null $value Value to set for the position property.
     */
-    public function setPosition(?int $value ): void {
-        $this->position = $value;
+    public function setPosition(?int $value): void {
+        $this->getBackingStore()->set('position', $value);
     }
 
 }

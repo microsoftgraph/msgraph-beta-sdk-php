@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable 
+class TeamworkActivePeripherals implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var TeamworkPeripheral|null $communicationSpeaker The communicationSpeaker property
-    */
-    private ?TeamworkPeripheral $communicationSpeaker = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $contentCamera The contentCamera property
-    */
-    private ?TeamworkPeripheral $contentCamera = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $microphone The microphone property
-    */
-    private ?TeamworkPeripheral $microphone = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $roomCamera The roomCamera property
-    */
-    private ?TeamworkPeripheral $roomCamera = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $speaker The speaker property
-    */
-    private ?TeamworkPeripheral $speaker = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkActivePeripherals and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkActivePeripherals');
     }
@@ -65,8 +39,16 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getCommunicationSpeaker(): ?TeamworkPeripheral {
-        return $this->communicationSpeaker;
+        return $this->getBackingStore()->get('communicationSpeaker');
     }
 
     /**
@@ -82,7 +64,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getContentCamera(): ?TeamworkPeripheral {
-        return $this->contentCamera;
+        return $this->getBackingStore()->get('contentCamera');
     }
 
     /**
@@ -106,7 +88,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getMicrophone(): ?TeamworkPeripheral {
-        return $this->microphone;
+        return $this->getBackingStore()->get('microphone');
     }
 
     /**
@@ -114,7 +96,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -122,7 +104,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getRoomCamera(): ?TeamworkPeripheral {
-        return $this->roomCamera;
+        return $this->getBackingStore()->get('roomCamera');
     }
 
     /**
@@ -130,7 +112,7 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getSpeaker(): ?TeamworkPeripheral {
-        return $this->speaker;
+        return $this->getBackingStore()->get('speaker');
     }
 
     /**
@@ -138,69 +120,69 @@ class TeamworkActivePeripherals implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('communicationSpeaker', $this->communicationSpeaker);
-        $writer->writeObjectValue('contentCamera', $this->contentCamera);
-        $writer->writeObjectValue('microphone', $this->microphone);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('roomCamera', $this->roomCamera);
-        $writer->writeObjectValue('speaker', $this->speaker);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('communicationSpeaker', $this->getCommunicationSpeaker());
+        $writer->writeObjectValue('contentCamera', $this->getContentCamera());
+        $writer->writeObjectValue('microphone', $this->getMicrophone());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('roomCamera', $this->getRoomCamera());
+        $writer->writeObjectValue('speaker', $this->getSpeaker());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the communicationSpeaker property value. The communicationSpeaker property
      *  @param TeamworkPeripheral|null $value Value to set for the communicationSpeaker property.
     */
-    public function setCommunicationSpeaker(?TeamworkPeripheral $value ): void {
-        $this->communicationSpeaker = $value;
+    public function setCommunicationSpeaker(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('communicationSpeaker', $value);
     }
 
     /**
      * Sets the contentCamera property value. The contentCamera property
      *  @param TeamworkPeripheral|null $value Value to set for the contentCamera property.
     */
-    public function setContentCamera(?TeamworkPeripheral $value ): void {
-        $this->contentCamera = $value;
+    public function setContentCamera(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('contentCamera', $value);
     }
 
     /**
      * Sets the microphone property value. The microphone property
      *  @param TeamworkPeripheral|null $value Value to set for the microphone property.
     */
-    public function setMicrophone(?TeamworkPeripheral $value ): void {
-        $this->microphone = $value;
+    public function setMicrophone(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('microphone', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the roomCamera property value. The roomCamera property
      *  @param TeamworkPeripheral|null $value Value to set for the roomCamera property.
     */
-    public function setRoomCamera(?TeamworkPeripheral $value ): void {
-        $this->roomCamera = $value;
+    public function setRoomCamera(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('roomCamera', $value);
     }
 
     /**
      * Sets the speaker property value. The speaker property
      *  @param TeamworkPeripheral|null $value Value to set for the speaker property.
     */
-    public function setSpeaker(?TeamworkPeripheral $value ): void {
-        $this->speaker = $value;
+    public function setSpeaker(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('speaker', $value);
     }
 
 }

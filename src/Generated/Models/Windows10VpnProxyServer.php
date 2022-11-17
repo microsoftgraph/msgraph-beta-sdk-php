@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10VpnProxyServer extends VpnProxyServer implements Parsable 
 {
     /**
-     * @var bool|null $bypassProxyServerForLocalAddress Bypass proxy server for local address.
-    */
-    private ?bool $bypassProxyServerForLocalAddress = null;
-    
-    /**
      * Instantiates a new Windows10VpnProxyServer and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
      * @return bool|null
     */
     public function getBypassProxyServerForLocalAddress(): ?bool {
-        return $this->bypassProxyServerForLocalAddress;
+        return $this->getBackingStore()->get('bypassProxyServerForLocalAddress');
     }
 
     /**
@@ -55,15 +50,15 @@ class Windows10VpnProxyServer extends VpnProxyServer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('bypassProxyServerForLocalAddress', $this->bypassProxyServerForLocalAddress);
+        $writer->writeBooleanValue('bypassProxyServerForLocalAddress', $this->getBypassProxyServerForLocalAddress());
     }
 
     /**
      * Sets the bypassProxyServerForLocalAddress property value. Bypass proxy server for local address.
      *  @param bool|null $value Value to set for the bypassProxyServerForLocalAddress property.
     */
-    public function setBypassProxyServerForLocalAddress(?bool $value ): void {
-        $this->bypassProxyServerForLocalAddress = $value;
+    public function setBypassProxyServerForLocalAddress(?bool $value): void {
+        $this->getBackingStore()->set('bypassProxyServerForLocalAddress', $value);
     }
 
 }

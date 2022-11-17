@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BookingCustomer extends BookingPerson implements Parsable 
 {
     /**
-     * @var array<PhysicalAddress>|null $addresses Addresses associated with the customer, including home, business and other addresses.
-    */
-    private ?array $addresses = null;
-    
-    /**
-     * @var array<Phone>|null $phones Phone numbers associated with the customer, including home, business and mobile numbers.
-    */
-    private ?array $phones = null;
-    
-    /**
      * Instantiates a new BookingCustomer and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class BookingCustomer extends BookingPerson implements Parsable
      * @return array<PhysicalAddress>|null
     */
     public function getAddresses(): ?array {
-        return $this->addresses;
+        return $this->getBackingStore()->get('addresses');
     }
 
     /**
@@ -60,7 +50,7 @@ class BookingCustomer extends BookingPerson implements Parsable
      * @return array<Phone>|null
     */
     public function getPhones(): ?array {
-        return $this->phones;
+        return $this->getBackingStore()->get('phones');
     }
 
     /**
@@ -69,24 +59,24 @@ class BookingCustomer extends BookingPerson implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('addresses', $this->addresses);
-        $writer->writeCollectionOfObjectValues('phones', $this->phones);
+        $writer->writeCollectionOfObjectValues('addresses', $this->getAddresses());
+        $writer->writeCollectionOfObjectValues('phones', $this->getPhones());
     }
 
     /**
      * Sets the addresses property value. Addresses associated with the customer, including home, business and other addresses.
      *  @param array<PhysicalAddress>|null $value Value to set for the addresses property.
     */
-    public function setAddresses(?array $value ): void {
-        $this->addresses = $value;
+    public function setAddresses(?array $value): void {
+        $this->getBackingStore()->set('addresses', $value);
     }
 
     /**
      * Sets the phones property value. Phone numbers associated with the customer, including home, business and mobile numbers.
      *  @param array<Phone>|null $value Value to set for the phones property.
     */
-    public function setPhones(?array $value ): void {
-        $this->phones = $value;
+    public function setPhones(?array $value): void {
+        $this->getBackingStore()->set('phones', $value);
     }
 
 }

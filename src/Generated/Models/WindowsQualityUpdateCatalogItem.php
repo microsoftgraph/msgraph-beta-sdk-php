@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implements Parsable 
 {
     /**
-     * @var WindowsQualityUpdateClassification|null $classification Windows quality update classification
-    */
-    private ?WindowsQualityUpdateClassification $classification = null;
-    
-    /**
-     * @var bool|null $isExpeditable Flag indicating if update qualifies for expedite
-    */
-    private ?bool $isExpeditable = null;
-    
-    /**
-     * @var string|null $kbArticleId Knowledge base article id
-    */
-    private ?string $kbArticleId = null;
-    
-    /**
      * Instantiates a new WindowsQualityUpdateCatalogItem and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return WindowsQualityUpdateClassification|null
     */
     public function getClassification(): ?WindowsQualityUpdateClassification {
-        return $this->classification;
+        return $this->getBackingStore()->get('classification');
     }
 
     /**
@@ -66,7 +51,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return bool|null
     */
     public function getIsExpeditable(): ?bool {
-        return $this->isExpeditable;
+        return $this->getBackingStore()->get('isExpeditable');
     }
 
     /**
@@ -74,7 +59,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
      * @return string|null
     */
     public function getKbArticleId(): ?string {
-        return $this->kbArticleId;
+        return $this->getBackingStore()->get('kbArticleId');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('classification', $this->classification);
-        $writer->writeBooleanValue('isExpeditable', $this->isExpeditable);
-        $writer->writeStringValue('kbArticleId', $this->kbArticleId);
+        $writer->writeEnumValue('classification', $this->getClassification());
+        $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
+        $writer->writeStringValue('kbArticleId', $this->getKbArticleId());
     }
 
     /**
      * Sets the classification property value. Windows quality update classification
      *  @param WindowsQualityUpdateClassification|null $value Value to set for the classification property.
     */
-    public function setClassification(?WindowsQualityUpdateClassification $value ): void {
-        $this->classification = $value;
+    public function setClassification(?WindowsQualityUpdateClassification $value): void {
+        $this->getBackingStore()->set('classification', $value);
     }
 
     /**
      * Sets the isExpeditable property value. Flag indicating if update qualifies for expedite
      *  @param bool|null $value Value to set for the isExpeditable property.
     */
-    public function setIsExpeditable(?bool $value ): void {
-        $this->isExpeditable = $value;
+    public function setIsExpeditable(?bool $value): void {
+        $this->getBackingStore()->set('isExpeditable', $value);
     }
 
     /**
      * Sets the kbArticleId property value. Knowledge base article id
      *  @param string|null $value Value to set for the kbArticleId property.
     */
-    public function setKbArticleId(?string $value ): void {
-        $this->kbArticleId = $value;
+    public function setKbArticleId(?string $value): void {
+        $this->getBackingStore()->set('kbArticleId', $value);
     }
 
 }

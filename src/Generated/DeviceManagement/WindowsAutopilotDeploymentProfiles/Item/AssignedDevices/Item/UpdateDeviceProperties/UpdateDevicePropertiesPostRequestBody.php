@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $addressableUserName The addressableUserName property
-    */
-    private ?string $addressableUserName = null;
-    
-    /**
-     * @var string|null $deviceAccountPassword The deviceAccountPassword property
-    */
-    private ?string $deviceAccountPassword = null;
-    
-    /**
-     * @var string|null $deviceAccountUpn The deviceAccountUpn property
-    */
-    private ?string $deviceAccountUpn = null;
-    
-    /**
-     * @var string|null $deviceFriendlyName The deviceFriendlyName property
-    */
-    private ?string $deviceFriendlyName = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $groupTag The groupTag property
-    */
-    private ?string $groupTag = null;
-    
-    /**
-     * @var string|null $userPrincipalName The userPrincipalName property
-    */
-    private ?string $userPrincipalName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateDevicePropertiesPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -69,8 +38,8 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -78,7 +47,15 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getAddressableUserName(): ?string {
-        return $this->addressableUserName;
+        return $this->getBackingStore()->get('addressableUserName');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -86,7 +63,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getDeviceAccountPassword(): ?string {
-        return $this->deviceAccountPassword;
+        return $this->getBackingStore()->get('deviceAccountPassword');
     }
 
     /**
@@ -94,7 +71,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getDeviceAccountUpn(): ?string {
-        return $this->deviceAccountUpn;
+        return $this->getBackingStore()->get('deviceAccountUpn');
     }
 
     /**
@@ -102,7 +79,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getDeviceFriendlyName(): ?string {
-        return $this->deviceFriendlyName;
+        return $this->getBackingStore()->get('deviceFriendlyName');
     }
 
     /**
@@ -110,7 +87,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -135,7 +112,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getGroupTag(): ?string {
-        return $this->groupTag;
+        return $this->getBackingStore()->get('groupTag');
     }
 
     /**
@@ -143,7 +120,7 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -151,78 +128,78 @@ class UpdateDevicePropertiesPostRequestBody implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('addressableUserName', $this->addressableUserName);
-        $writer->writeStringValue('deviceAccountPassword', $this->deviceAccountPassword);
-        $writer->writeStringValue('deviceAccountUpn', $this->deviceAccountUpn);
-        $writer->writeStringValue('deviceFriendlyName', $this->deviceFriendlyName);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('groupTag', $this->groupTag);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('addressableUserName', $this->getAddressableUserName());
+        $writer->writeStringValue('deviceAccountPassword', $this->getDeviceAccountPassword());
+        $writer->writeStringValue('deviceAccountUpn', $this->getDeviceAccountUpn());
+        $writer->writeStringValue('deviceFriendlyName', $this->getDeviceFriendlyName());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('groupTag', $this->getGroupTag());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the addressableUserName property value. The addressableUserName property
      *  @param string|null $value Value to set for the addressableUserName property.
     */
-    public function setAddressableUserName(?string $value ): void {
-        $this->addressableUserName = $value;
+    public function setAddressableUserName(?string $value): void {
+        $this->getBackingStore()->set('addressableUserName', $value);
     }
 
     /**
      * Sets the deviceAccountPassword property value. The deviceAccountPassword property
      *  @param string|null $value Value to set for the deviceAccountPassword property.
     */
-    public function setDeviceAccountPassword(?string $value ): void {
-        $this->deviceAccountPassword = $value;
+    public function setDeviceAccountPassword(?string $value): void {
+        $this->getBackingStore()->set('deviceAccountPassword', $value);
     }
 
     /**
      * Sets the deviceAccountUpn property value. The deviceAccountUpn property
      *  @param string|null $value Value to set for the deviceAccountUpn property.
     */
-    public function setDeviceAccountUpn(?string $value ): void {
-        $this->deviceAccountUpn = $value;
+    public function setDeviceAccountUpn(?string $value): void {
+        $this->getBackingStore()->set('deviceAccountUpn', $value);
     }
 
     /**
      * Sets the deviceFriendlyName property value. The deviceFriendlyName property
      *  @param string|null $value Value to set for the deviceFriendlyName property.
     */
-    public function setDeviceFriendlyName(?string $value ): void {
-        $this->deviceFriendlyName = $value;
+    public function setDeviceFriendlyName(?string $value): void {
+        $this->getBackingStore()->set('deviceFriendlyName', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the groupTag property value. The groupTag property
      *  @param string|null $value Value to set for the groupTag property.
     */
-    public function setGroupTag(?string $value ): void {
-        $this->groupTag = $value;
+    public function setGroupTag(?string $value): void {
+        $this->getBackingStore()->set('groupTag', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The userPrincipalName property
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

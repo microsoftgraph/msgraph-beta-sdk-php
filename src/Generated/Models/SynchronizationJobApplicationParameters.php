@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SynchronizationJobApplicationParameters implements AdditionalDataHolder, Parsable 
+class SynchronizationJobApplicationParameters implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $ruleId The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
-    */
-    private ?string $ruleId = null;
-    
-    /**
-     * @var array<SynchronizationJobSubject>|null $subjects The identifiers of one or more objects to which a synchronizationJob is to be applied.
-    */
-    private ?array $subjects = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new synchronizationJobApplicationParameters and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.synchronizationJobApplicationParameters');
     }
@@ -50,8 +39,16 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -80,7 +77,7 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @return string|null
     */
     public function getRuleId(): ?string {
-        return $this->ruleId;
+        return $this->getBackingStore()->get('ruleId');
     }
 
     /**
@@ -88,7 +85,7 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @return array<SynchronizationJobSubject>|null
     */
     public function getSubjects(): ?array {
-        return $this->subjects;
+        return $this->getBackingStore()->get('subjects');
     }
 
     /**
@@ -96,42 +93,42 @@ class SynchronizationJobApplicationParameters implements AdditionalDataHolder, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('ruleId', $this->ruleId);
-        $writer->writeCollectionOfObjectValues('subjects', $this->subjects);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('ruleId', $this->getRuleId());
+        $writer->writeCollectionOfObjectValues('subjects', $this->getSubjects());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the ruleId property value. The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
      *  @param string|null $value Value to set for the ruleId property.
     */
-    public function setRuleId(?string $value ): void {
-        $this->ruleId = $value;
+    public function setRuleId(?string $value): void {
+        $this->getBackingStore()->set('ruleId', $value);
     }
 
     /**
      * Sets the subjects property value. The identifiers of one or more objects to which a synchronizationJob is to be applied.
      *  @param array<SynchronizationJobSubject>|null $value Value to set for the subjects property.
     */
-    public function setSubjects(?array $value ): void {
-        $this->subjects = $value;
+    public function setSubjects(?array $value): void {
+        $this->getBackingStore()->set('subjects', $value);
     }
 
 }

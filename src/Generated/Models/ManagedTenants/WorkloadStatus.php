@@ -7,43 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WorkloadStatus implements AdditionalDataHolder, Parsable 
+class WorkloadStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $displayName The display name for the workload. Required. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $offboardedDateTime The date and time the workload was offboarded. Optional. Read-only.
-    */
-    private ?DateTime $offboardedDateTime = null;
-    
-    /**
-     * @var DateTime|null $onboardedDateTime The date and time the workload was onboarded. Optional. Read-only.
-    */
-    private ?DateTime $onboardedDateTime = null;
-    
-    /**
-     * @var WorkloadOnboardingStatus|null $onboardingStatus The onboardingStatus property
-    */
-    private ?WorkloadOnboardingStatus $onboardingStatus = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new workloadStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.managedTenants.workloadStatus');
     }
@@ -61,8 +40,16 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -70,7 +57,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -93,7 +80,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -101,7 +88,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getOffboardedDateTime(): ?DateTime {
-        return $this->offboardedDateTime;
+        return $this->getBackingStore()->get('offboardedDateTime');
     }
 
     /**
@@ -109,7 +96,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getOnboardedDateTime(): ?DateTime {
-        return $this->onboardedDateTime;
+        return $this->getBackingStore()->get('onboardedDateTime');
     }
 
     /**
@@ -117,7 +104,7 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @return WorkloadOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?WorkloadOnboardingStatus {
-        return $this->onboardingStatus;
+        return $this->getBackingStore()->get('onboardingStatus');
     }
 
     /**
@@ -125,60 +112,60 @@ class WorkloadStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('offboardedDateTime', $this->offboardedDateTime);
-        $writer->writeDateTimeValue('onboardedDateTime', $this->onboardedDateTime);
-        $writer->writeEnumValue('onboardingStatus', $this->onboardingStatus);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('offboardedDateTime', $this->getOffboardedDateTime());
+        $writer->writeDateTimeValue('onboardedDateTime', $this->getOnboardedDateTime());
+        $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the workload. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the offboardedDateTime property value. The date and time the workload was offboarded. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the offboardedDateTime property.
     */
-    public function setOffboardedDateTime(?DateTime $value ): void {
-        $this->offboardedDateTime = $value;
+    public function setOffboardedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('offboardedDateTime', $value);
     }
 
     /**
      * Sets the onboardedDateTime property value. The date and time the workload was onboarded. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the onboardedDateTime property.
     */
-    public function setOnboardedDateTime(?DateTime $value ): void {
-        $this->onboardedDateTime = $value;
+    public function setOnboardedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('onboardedDateTime', $value);
     }
 
     /**
      * Sets the onboardingStatus property value. The onboardingStatus property
      *  @param WorkloadOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
-    public function setOnboardingStatus(?WorkloadOnboardingStatus $value ): void {
-        $this->onboardingStatus = $value;
+    public function setOnboardingStatus(?WorkloadOnboardingStatus $value): void {
+        $this->getBackingStore()->set('onboardingStatus', $value);
     }
 
 }

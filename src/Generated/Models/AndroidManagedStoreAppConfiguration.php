@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $appSupportsOemConfig Whether or not this AppConfig is an OEMConfig policy.
-    */
-    private ?bool $appSupportsOemConfig = null;
-    
-    /**
-     * @var bool|null $connectedAppsEnabled Setting to specify whether to allow ConnectedApps experience for this app.
-    */
-    private ?bool $connectedAppsEnabled = null;
-    
-    /**
-     * @var string|null $packageId Android Enterprise app configuration package id.
-    */
-    private ?string $packageId = null;
-    
-    /**
-     * @var string|null $payloadJson Android Enterprise app configuration JSON payload.
-    */
-    private ?string $payloadJson = null;
-    
-    /**
-     * @var array<AndroidPermissionAction>|null $permissionActions List of Android app permissions and corresponding permission actions.
-    */
-    private ?array $permissionActions = null;
-    
-    /**
-     * @var AndroidProfileApplicability|null $profileApplicability Android profile applicability
-    */
-    private ?AndroidProfileApplicability $profileApplicability = null;
-    
-    /**
      * Instantiates a new AndroidManagedStoreAppConfiguration and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return bool|null
     */
     public function getAppSupportsOemConfig(): ?bool {
-        return $this->appSupportsOemConfig;
+        return $this->getBackingStore()->get('appSupportsOemConfig');
     }
 
     /**
@@ -68,7 +38,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return bool|null
     */
     public function getConnectedAppsEnabled(): ?bool {
-        return $this->connectedAppsEnabled;
+        return $this->getBackingStore()->get('connectedAppsEnabled');
     }
 
     /**
@@ -92,7 +62,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->packageId;
+        return $this->getBackingStore()->get('packageId');
     }
 
     /**
@@ -100,7 +70,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return string|null
     */
     public function getPayloadJson(): ?string {
-        return $this->payloadJson;
+        return $this->getBackingStore()->get('payloadJson');
     }
 
     /**
@@ -108,7 +78,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return array<AndroidPermissionAction>|null
     */
     public function getPermissionActions(): ?array {
-        return $this->permissionActions;
+        return $this->getBackingStore()->get('permissionActions');
     }
 
     /**
@@ -116,7 +86,7 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
      * @return AndroidProfileApplicability|null
     */
     public function getProfileApplicability(): ?AndroidProfileApplicability {
-        return $this->profileApplicability;
+        return $this->getBackingStore()->get('profileApplicability');
     }
 
     /**
@@ -125,60 +95,60 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('appSupportsOemConfig', $this->appSupportsOemConfig);
-        $writer->writeBooleanValue('connectedAppsEnabled', $this->connectedAppsEnabled);
-        $writer->writeStringValue('packageId', $this->packageId);
-        $writer->writeStringValue('payloadJson', $this->payloadJson);
-        $writer->writeCollectionOfObjectValues('permissionActions', $this->permissionActions);
-        $writer->writeEnumValue('profileApplicability', $this->profileApplicability);
+        $writer->writeBooleanValue('appSupportsOemConfig', $this->getAppSupportsOemConfig());
+        $writer->writeBooleanValue('connectedAppsEnabled', $this->getConnectedAppsEnabled());
+        $writer->writeStringValue('packageId', $this->getPackageId());
+        $writer->writeStringValue('payloadJson', $this->getPayloadJson());
+        $writer->writeCollectionOfObjectValues('permissionActions', $this->getPermissionActions());
+        $writer->writeEnumValue('profileApplicability', $this->getProfileApplicability());
     }
 
     /**
      * Sets the appSupportsOemConfig property value. Whether or not this AppConfig is an OEMConfig policy.
      *  @param bool|null $value Value to set for the appSupportsOemConfig property.
     */
-    public function setAppSupportsOemConfig(?bool $value ): void {
-        $this->appSupportsOemConfig = $value;
+    public function setAppSupportsOemConfig(?bool $value): void {
+        $this->getBackingStore()->set('appSupportsOemConfig', $value);
     }
 
     /**
      * Sets the connectedAppsEnabled property value. Setting to specify whether to allow ConnectedApps experience for this app.
      *  @param bool|null $value Value to set for the connectedAppsEnabled property.
     */
-    public function setConnectedAppsEnabled(?bool $value ): void {
-        $this->connectedAppsEnabled = $value;
+    public function setConnectedAppsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('connectedAppsEnabled', $value);
     }
 
     /**
      * Sets the packageId property value. Android Enterprise app configuration package id.
      *  @param string|null $value Value to set for the packageId property.
     */
-    public function setPackageId(?string $value ): void {
-        $this->packageId = $value;
+    public function setPackageId(?string $value): void {
+        $this->getBackingStore()->set('packageId', $value);
     }
 
     /**
      * Sets the payloadJson property value. Android Enterprise app configuration JSON payload.
      *  @param string|null $value Value to set for the payloadJson property.
     */
-    public function setPayloadJson(?string $value ): void {
-        $this->payloadJson = $value;
+    public function setPayloadJson(?string $value): void {
+        $this->getBackingStore()->set('payloadJson', $value);
     }
 
     /**
      * Sets the permissionActions property value. List of Android app permissions and corresponding permission actions.
      *  @param array<AndroidPermissionAction>|null $value Value to set for the permissionActions property.
     */
-    public function setPermissionActions(?array $value ): void {
-        $this->permissionActions = $value;
+    public function setPermissionActions(?array $value): void {
+        $this->getBackingStore()->set('permissionActions', $value);
     }
 
     /**
      * Sets the profileApplicability property value. Android profile applicability
      *  @param AndroidProfileApplicability|null $value Value to set for the profileApplicability property.
     */
-    public function setProfileApplicability(?AndroidProfileApplicability $value ): void {
-        $this->profileApplicability = $value;
+    public function setProfileApplicability(?AndroidProfileApplicability $value): void {
+        $this->getBackingStore()->set('profileApplicability', $value);
     }
 
 }

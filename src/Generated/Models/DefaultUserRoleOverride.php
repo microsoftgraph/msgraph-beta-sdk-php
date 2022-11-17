@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DefaultUserRoleOverride extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isDefault The isDefault property
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var array<UnifiedRolePermission>|null $rolePermissions The rolePermissions property
-    */
-    private ?array $rolePermissions = null;
-    
-    /**
      * Instantiates a new defaultUserRoleOverride and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DefaultUserRoleOverride extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -60,7 +50,7 @@ class DefaultUserRoleOverride extends Entity implements Parsable
      * @return array<UnifiedRolePermission>|null
     */
     public function getRolePermissions(): ?array {
-        return $this->rolePermissions;
+        return $this->getBackingStore()->get('rolePermissions');
     }
 
     /**
@@ -69,24 +59,24 @@ class DefaultUserRoleOverride extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeCollectionOfObjectValues('rolePermissions', $this->rolePermissions);
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeCollectionOfObjectValues('rolePermissions', $this->getRolePermissions());
     }
 
     /**
      * Sets the isDefault property value. The isDefault property
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the rolePermissions property value. The rolePermissions property
      *  @param array<UnifiedRolePermission>|null $value Value to set for the rolePermissions property.
     */
-    public function setRolePermissions(?array $value ): void {
-        $this->rolePermissions = $value;
+    public function setRolePermissions(?array $value): void {
+        $this->getBackingStore()->set('rolePermissions', $value);
     }
 
 }

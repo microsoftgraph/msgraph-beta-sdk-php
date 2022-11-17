@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var DetectionStatus|null $detectionStatus The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
-    */
-    private ?DetectionStatus $detectionStatus = null;
-    
-    /**
-     * @var FileDetails|null $fileDetails The file details.
-    */
-    private ?FileDetails $fileDetails = null;
-    
-    /**
-     * @var string|null $mdeDeviceId A unique identifier assigned to a device by Microsoft Defender for Endpoint.
-    */
-    private ?string $mdeDeviceId = null;
-    
-    /**
      * Instantiates a new FileEvidence and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class FileEvidence extends AlertEvidence implements Parsable
      * @return DetectionStatus|null
     */
     public function getDetectionStatus(): ?DetectionStatus {
-        return $this->detectionStatus;
+        return $this->getBackingStore()->get('detectionStatus');
     }
 
     /**
@@ -66,7 +51,7 @@ class FileEvidence extends AlertEvidence implements Parsable
      * @return FileDetails|null
     */
     public function getFileDetails(): ?FileDetails {
-        return $this->fileDetails;
+        return $this->getBackingStore()->get('fileDetails');
     }
 
     /**
@@ -74,7 +59,7 @@ class FileEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getMdeDeviceId(): ?string {
-        return $this->mdeDeviceId;
+        return $this->getBackingStore()->get('mdeDeviceId');
     }
 
     /**
@@ -83,33 +68,33 @@ class FileEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('detectionStatus', $this->detectionStatus);
-        $writer->writeObjectValue('fileDetails', $this->fileDetails);
-        $writer->writeStringValue('mdeDeviceId', $this->mdeDeviceId);
+        $writer->writeEnumValue('detectionStatus', $this->getDetectionStatus());
+        $writer->writeObjectValue('fileDetails', $this->getFileDetails());
+        $writer->writeStringValue('mdeDeviceId', $this->getMdeDeviceId());
     }
 
     /**
      * Sets the detectionStatus property value. The status of the detection.The possible values are: detected, blocked, prevented, unknownFutureValue.
      *  @param DetectionStatus|null $value Value to set for the detectionStatus property.
     */
-    public function setDetectionStatus(?DetectionStatus $value ): void {
-        $this->detectionStatus = $value;
+    public function setDetectionStatus(?DetectionStatus $value): void {
+        $this->getBackingStore()->set('detectionStatus', $value);
     }
 
     /**
      * Sets the fileDetails property value. The file details.
      *  @param FileDetails|null $value Value to set for the fileDetails property.
     */
-    public function setFileDetails(?FileDetails $value ): void {
-        $this->fileDetails = $value;
+    public function setFileDetails(?FileDetails $value): void {
+        $this->getBackingStore()->set('fileDetails', $value);
     }
 
     /**
      * Sets the mdeDeviceId property value. A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      *  @param string|null $value Value to set for the mdeDeviceId property.
     */
-    public function setMdeDeviceId(?string $value ): void {
-        $this->mdeDeviceId = $value;
+    public function setMdeDeviceId(?string $value): void {
+        $this->getBackingStore()->set('mdeDeviceId', $value);
     }
 
 }

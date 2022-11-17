@@ -6,63 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ParentLabelDetails implements AdditionalDataHolder, Parsable 
+class ParentLabelDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $color The color that the user interface should display for the label, if configured.
-    */
-    private ?string $color = null;
-    
-    /**
-     * @var string|null $description The admin-defined description for the label.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $id The label ID is a globally unique identifier (GUID).
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var bool|null $isActive Indicates whether the label is active or not. Active labels should be hidden or disabled in user interfaces.
-    */
-    private ?bool $isActive = null;
-    
-    /**
-     * @var string|null $name The plaintext name of the label.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ParentLabelDetails|null $parent The parent property
-    */
-    private ?ParentLabelDetails $parent = null;
-    
-    /**
-     * @var int|null $sensitivity The sensitivity value of the label, where lower is less sensitive.
-    */
-    private ?int $sensitivity = null;
-    
-    /**
-     * @var string|null $tooltip The tooltip that should be displayed for the label in a user interface.
-    */
-    private ?string $tooltip = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new parentLabelDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.parentLabelDetails');
     }
@@ -87,8 +46,16 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -96,7 +63,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getColor(): ?string {
-        return $this->color;
+        return $this->getBackingStore()->get('color');
     }
 
     /**
@@ -104,7 +71,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -131,7 +98,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -139,7 +106,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->isActive;
+        return $this->getBackingStore()->get('isActive');
     }
 
     /**
@@ -147,7 +114,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -155,7 +122,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -163,7 +130,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return ParentLabelDetails|null
     */
     public function getParent(): ?ParentLabelDetails {
-        return $this->parent;
+        return $this->getBackingStore()->get('parent');
     }
 
     /**
@@ -171,7 +138,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSensitivity(): ?int {
-        return $this->sensitivity;
+        return $this->getBackingStore()->get('sensitivity');
     }
 
     /**
@@ -179,7 +146,7 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTooltip(): ?string {
-        return $this->tooltip;
+        return $this->getBackingStore()->get('tooltip');
     }
 
     /**
@@ -187,96 +154,96 @@ class ParentLabelDetails implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('color', $this->color);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isActive', $this->isActive);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('parent', $this->parent);
-        $writer->writeIntegerValue('sensitivity', $this->sensitivity);
-        $writer->writeStringValue('tooltip', $this->tooltip);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('color', $this->getColor());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeBooleanValue('isActive', $this->getIsActive());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('parent', $this->getParent());
+        $writer->writeIntegerValue('sensitivity', $this->getSensitivity());
+        $writer->writeStringValue('tooltip', $this->getTooltip());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the color property value. The color that the user interface should display for the label, if configured.
      *  @param string|null $value Value to set for the color property.
     */
-    public function setColor(?string $value ): void {
-        $this->color = $value;
+    public function setColor(?string $value): void {
+        $this->getBackingStore()->set('color', $value);
     }
 
     /**
      * Sets the description property value. The admin-defined description for the label.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the id property value. The label ID is a globally unique identifier (GUID).
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the isActive property value. Indicates whether the label is active or not. Active labels should be hidden or disabled in user interfaces.
      *  @param bool|null $value Value to set for the isActive property.
     */
-    public function setIsActive(?bool $value ): void {
-        $this->isActive = $value;
+    public function setIsActive(?bool $value): void {
+        $this->getBackingStore()->set('isActive', $value);
     }
 
     /**
      * Sets the name property value. The plaintext name of the label.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the parent property value. The parent property
      *  @param ParentLabelDetails|null $value Value to set for the parent property.
     */
-    public function setParent(?ParentLabelDetails $value ): void {
-        $this->parent = $value;
+    public function setParent(?ParentLabelDetails $value): void {
+        $this->getBackingStore()->set('parent', $value);
     }
 
     /**
      * Sets the sensitivity property value. The sensitivity value of the label, where lower is less sensitive.
      *  @param int|null $value Value to set for the sensitivity property.
     */
-    public function setSensitivity(?int $value ): void {
-        $this->sensitivity = $value;
+    public function setSensitivity(?int $value): void {
+        $this->getBackingStore()->set('sensitivity', $value);
     }
 
     /**
      * Sets the tooltip property value. The tooltip that should be displayed for the label in a user interface.
      *  @param string|null $value Value to set for the tooltip property.
     */
-    public function setTooltip(?string $value ): void {
-        $this->tooltip = $value;
+    public function setTooltip(?string $value): void {
+        $this->getBackingStore()->set('tooltip', $value);
     }
 
 }

@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class InvitationParticipantInfo implements AdditionalDataHolder, Parsable 
+class InvitationParticipantInfo implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var EndpointType|null $endpointType The type of endpoint. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
-    */
-    private ?EndpointType $endpointType = null;
-    
-    /**
-     * @var bool|null $hidden Optional. Whether to hide the participant from the roster.
-    */
-    private ?bool $hidden = null;
-    
-    /**
-     * @var IdentitySet|null $identity The identity property
-    */
-    private ?IdentitySet $identity = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $participantId Optional. The ID of the target participant.
-    */
-    private ?string $participantId = null;
-    
-    /**
-     * @var bool|null $removeFromDefaultAudioRoutingGroup Optional. Whether to remove them from the main mixer.
-    */
-    private ?bool $removeFromDefaultAudioRoutingGroup = null;
-    
-    /**
-     * @var string|null $replacesCallId Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
-    */
-    private ?string $replacesCallId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new invitationParticipantInfo and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.invitationParticipantInfo');
     }
@@ -70,8 +39,16 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +56,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return EndpointType|null
     */
     public function getEndpointType(): ?EndpointType {
-        return $this->endpointType;
+        return $this->getBackingStore()->get('endpointType');
     }
 
     /**
@@ -104,7 +81,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->hidden;
+        return $this->getBackingStore()->get('hidden');
     }
 
     /**
@@ -112,7 +89,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return IdentitySet|null
     */
     public function getIdentity(): ?IdentitySet {
-        return $this->identity;
+        return $this->getBackingStore()->get('identity');
     }
 
     /**
@@ -120,7 +97,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,7 +105,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getParticipantId(): ?string {
-        return $this->participantId;
+        return $this->getBackingStore()->get('participantId');
     }
 
     /**
@@ -136,7 +113,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getRemoveFromDefaultAudioRoutingGroup(): ?bool {
-        return $this->removeFromDefaultAudioRoutingGroup;
+        return $this->getBackingStore()->get('removeFromDefaultAudioRoutingGroup');
     }
 
     /**
@@ -144,7 +121,7 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getReplacesCallId(): ?string {
-        return $this->replacesCallId;
+        return $this->getBackingStore()->get('replacesCallId');
     }
 
     /**
@@ -152,78 +129,78 @@ class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('endpointType', $this->endpointType);
-        $writer->writeBooleanValue('hidden', $this->hidden);
-        $writer->writeObjectValue('identity', $this->identity);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('participantId', $this->participantId);
-        $writer->writeBooleanValue('removeFromDefaultAudioRoutingGroup', $this->removeFromDefaultAudioRoutingGroup);
-        $writer->writeStringValue('replacesCallId', $this->replacesCallId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('endpointType', $this->getEndpointType());
+        $writer->writeBooleanValue('hidden', $this->getHidden());
+        $writer->writeObjectValue('identity', $this->getIdentity());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('participantId', $this->getParticipantId());
+        $writer->writeBooleanValue('removeFromDefaultAudioRoutingGroup', $this->getRemoveFromDefaultAudioRoutingGroup());
+        $writer->writeStringValue('replacesCallId', $this->getReplacesCallId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the endpointType property value. The type of endpoint. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
      *  @param EndpointType|null $value Value to set for the endpointType property.
     */
-    public function setEndpointType(?EndpointType $value ): void {
-        $this->endpointType = $value;
+    public function setEndpointType(?EndpointType $value): void {
+        $this->getBackingStore()->set('endpointType', $value);
     }
 
     /**
      * Sets the hidden property value. Optional. Whether to hide the participant from the roster.
      *  @param bool|null $value Value to set for the hidden property.
     */
-    public function setHidden(?bool $value ): void {
-        $this->hidden = $value;
+    public function setHidden(?bool $value): void {
+        $this->getBackingStore()->set('hidden', $value);
     }
 
     /**
      * Sets the identity property value. The identity property
      *  @param IdentitySet|null $value Value to set for the identity property.
     */
-    public function setIdentity(?IdentitySet $value ): void {
-        $this->identity = $value;
+    public function setIdentity(?IdentitySet $value): void {
+        $this->getBackingStore()->set('identity', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the participantId property value. Optional. The ID of the target participant.
      *  @param string|null $value Value to set for the participantId property.
     */
-    public function setParticipantId(?string $value ): void {
-        $this->participantId = $value;
+    public function setParticipantId(?string $value): void {
+        $this->getBackingStore()->set('participantId', $value);
     }
 
     /**
      * Sets the removeFromDefaultAudioRoutingGroup property value. Optional. Whether to remove them from the main mixer.
      *  @param bool|null $value Value to set for the removeFromDefaultAudioRoutingGroup property.
     */
-    public function setRemoveFromDefaultAudioRoutingGroup(?bool $value ): void {
-        $this->removeFromDefaultAudioRoutingGroup = $value;
+    public function setRemoveFromDefaultAudioRoutingGroup(?bool $value): void {
+        $this->getBackingStore()->set('removeFromDefaultAudioRoutingGroup', $value);
     }
 
     /**
      * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
      *  @param string|null $value Value to set for the replacesCallId property.
     */
-    public function setReplacesCallId(?string $value ): void {
-        $this->replacesCallId = $value;
+    public function setReplacesCallId(?string $value): void {
+        $this->getBackingStore()->set('replacesCallId', $value);
     }
 
 }

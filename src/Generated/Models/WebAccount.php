@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WebAccount extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $description Contains the description the user has provided for the account on the service being referenced.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var ServiceInformation|null $service The service property
-    */
-    private ?ServiceInformation $service = null;
-    
-    /**
-     * @var string|null $statusMessage Contains a status message from the cloud service if provided or synchronized.
-    */
-    private ?string $statusMessage = null;
-    
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
-     * @var string|null $userId The user name  displayed for the webaccount.
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $webUrl Contains a link to the user's profile on the cloud service if one exists.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new WebAccount and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -84,7 +54,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return ServiceInformation|null
     */
     public function getService(): ?ServiceInformation {
-        return $this->service;
+        return $this->getBackingStore()->get('service');
     }
 
     /**
@@ -92,7 +62,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getStatusMessage(): ?string {
-        return $this->statusMessage;
+        return $this->getBackingStore()->get('statusMessage');
     }
 
     /**
@@ -100,7 +70,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -108,7 +78,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -116,7 +86,7 @@ class WebAccount extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -125,60 +95,60 @@ class WebAccount extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeObjectValue('service', $this->service);
-        $writer->writeStringValue('statusMessage', $this->statusMessage);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('service', $this->getService());
+        $writer->writeStringValue('statusMessage', $this->getStatusMessage());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the description property value. Contains the description the user has provided for the account on the service being referenced.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the service property value. The service property
      *  @param ServiceInformation|null $value Value to set for the service property.
     */
-    public function setService(?ServiceInformation $value ): void {
-        $this->service = $value;
+    public function setService(?ServiceInformation $value): void {
+        $this->getBackingStore()->set('service', $value);
     }
 
     /**
      * Sets the statusMessage property value. Contains a status message from the cloud service if provided or synchronized.
      *  @param string|null $value Value to set for the statusMessage property.
     */
-    public function setStatusMessage(?string $value ): void {
-        $this->statusMessage = $value;
+    public function setStatusMessage(?string $value): void {
+        $this->getBackingStore()->set('statusMessage', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
     /**
      * Sets the userId property value. The user name  displayed for the webaccount.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the webUrl property value. Contains a link to the user's profile on the cloud service if one exists.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

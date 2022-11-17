@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ChannelModerationSettings implements AdditionalDataHolder, Parsable 
+class ChannelModerationSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $allowNewMessageFromBots Indicates whether bots are allowed to post messages.
-    */
-    private ?bool $allowNewMessageFromBots = null;
-    
-    /**
-     * @var bool|null $allowNewMessageFromConnectors Indicates whether connectors are allowed to post messages.
-    */
-    private ?bool $allowNewMessageFromConnectors = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ReplyRestriction|null $replyRestriction Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
-    */
-    private ?ReplyRestriction $replyRestriction = null;
-    
-    /**
-     * @var UserNewMessageRestriction|null $userNewMessageRestriction Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
-    */
-    private ?UserNewMessageRestriction $userNewMessageRestriction = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new channelModerationSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.channelModerationSettings');
     }
@@ -60,8 +39,8 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +48,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAllowNewMessageFromBots(): ?bool {
-        return $this->allowNewMessageFromBots;
+        return $this->getBackingStore()->get('allowNewMessageFromBots');
     }
 
     /**
@@ -77,7 +56,15 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAllowNewMessageFromConnectors(): ?bool {
-        return $this->allowNewMessageFromConnectors;
+        return $this->getBackingStore()->get('allowNewMessageFromConnectors');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -100,7 +87,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +95,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return ReplyRestriction|null
     */
     public function getReplyRestriction(): ?ReplyRestriction {
-        return $this->replyRestriction;
+        return $this->getBackingStore()->get('replyRestriction');
     }
 
     /**
@@ -116,7 +103,7 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @return UserNewMessageRestriction|null
     */
     public function getUserNewMessageRestriction(): ?UserNewMessageRestriction {
-        return $this->userNewMessageRestriction;
+        return $this->getBackingStore()->get('userNewMessageRestriction');
     }
 
     /**
@@ -124,60 +111,60 @@ class ChannelModerationSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('allowNewMessageFromBots', $this->allowNewMessageFromBots);
-        $writer->writeBooleanValue('allowNewMessageFromConnectors', $this->allowNewMessageFromConnectors);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('replyRestriction', $this->replyRestriction);
-        $writer->writeEnumValue('userNewMessageRestriction', $this->userNewMessageRestriction);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('allowNewMessageFromBots', $this->getAllowNewMessageFromBots());
+        $writer->writeBooleanValue('allowNewMessageFromConnectors', $this->getAllowNewMessageFromConnectors());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('replyRestriction', $this->getReplyRestriction());
+        $writer->writeEnumValue('userNewMessageRestriction', $this->getUserNewMessageRestriction());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowNewMessageFromBots property value. Indicates whether bots are allowed to post messages.
      *  @param bool|null $value Value to set for the allowNewMessageFromBots property.
     */
-    public function setAllowNewMessageFromBots(?bool $value ): void {
-        $this->allowNewMessageFromBots = $value;
+    public function setAllowNewMessageFromBots(?bool $value): void {
+        $this->getBackingStore()->set('allowNewMessageFromBots', $value);
     }
 
     /**
      * Sets the allowNewMessageFromConnectors property value. Indicates whether connectors are allowed to post messages.
      *  @param bool|null $value Value to set for the allowNewMessageFromConnectors property.
     */
-    public function setAllowNewMessageFromConnectors(?bool $value ): void {
-        $this->allowNewMessageFromConnectors = $value;
+    public function setAllowNewMessageFromConnectors(?bool $value): void {
+        $this->getBackingStore()->set('allowNewMessageFromConnectors', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the replyRestriction property value. Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
      *  @param ReplyRestriction|null $value Value to set for the replyRestriction property.
     */
-    public function setReplyRestriction(?ReplyRestriction $value ): void {
-        $this->replyRestriction = $value;
+    public function setReplyRestriction(?ReplyRestriction $value): void {
+        $this->getBackingStore()->set('replyRestriction', $value);
     }
 
     /**
      * Sets the userNewMessageRestriction property value. Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
      *  @param UserNewMessageRestriction|null $value Value to set for the userNewMessageRestriction property.
     */
-    public function setUserNewMessageRestriction(?UserNewMessageRestriction $value ): void {
-        $this->userNewMessageRestriction = $value;
+    public function setUserNewMessageRestriction(?UserNewMessageRestriction $value): void {
+        $this->getBackingStore()->set('userNewMessageRestriction', $value);
     }
 
 }

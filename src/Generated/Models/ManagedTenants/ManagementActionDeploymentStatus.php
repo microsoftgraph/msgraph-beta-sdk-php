@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable 
+class ManagementActionDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $managementActionId The identifier for the management action. Required. Read-only.
-    */
-    private ?string $managementActionId = null;
-    
-    /**
-     * @var string|null $managementTemplateId The management template identifier that was used to generate the management action. Required. Read-only.
-    */
-    private ?string $managementTemplateId = null;
-    
-    /**
-     * @var int|null $managementTemplateVersion The managementTemplateVersion property
-    */
-    private ?int $managementTemplateVersion = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ManagementActionStatus|null $status The status property
-    */
-    private ?ManagementActionStatus $status = null;
-    
-    /**
-     * @var array<WorkloadActionDeploymentStatus>|null $workloadActionDeploymentStatuses The collection of workload action deployment statues for the given management action. Optional.
-    */
-    private ?array $workloadActionDeploymentStatuses = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new managementActionDeploymentStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.managedTenants.managementActionDeploymentStatus');
     }
@@ -65,8 +39,16 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -90,7 +72,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagementActionId(): ?string {
-        return $this->managementActionId;
+        return $this->getBackingStore()->get('managementActionId');
     }
 
     /**
@@ -98,7 +80,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagementTemplateId(): ?string {
-        return $this->managementTemplateId;
+        return $this->getBackingStore()->get('managementTemplateId');
     }
 
     /**
@@ -106,7 +88,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getManagementTemplateVersion(): ?int {
-        return $this->managementTemplateVersion;
+        return $this->getBackingStore()->get('managementTemplateVersion');
     }
 
     /**
@@ -114,7 +96,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -122,7 +104,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return ManagementActionStatus|null
     */
     public function getStatus(): ?ManagementActionStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -130,7 +112,7 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return array<WorkloadActionDeploymentStatus>|null
     */
     public function getWorkloadActionDeploymentStatuses(): ?array {
-        return $this->workloadActionDeploymentStatuses;
+        return $this->getBackingStore()->get('workloadActionDeploymentStatuses');
     }
 
     /**
@@ -138,69 +120,69 @@ class ManagementActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('managementActionId', $this->managementActionId);
-        $writer->writeStringValue('managementTemplateId', $this->managementTemplateId);
-        $writer->writeIntegerValue('managementTemplateVersion', $this->managementTemplateVersion);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfObjectValues('workloadActionDeploymentStatuses', $this->workloadActionDeploymentStatuses);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('managementActionId', $this->getManagementActionId());
+        $writer->writeStringValue('managementTemplateId', $this->getManagementTemplateId());
+        $writer->writeIntegerValue('managementTemplateVersion', $this->getManagementTemplateVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfObjectValues('workloadActionDeploymentStatuses', $this->getWorkloadActionDeploymentStatuses());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the managementActionId property value. The identifier for the management action. Required. Read-only.
      *  @param string|null $value Value to set for the managementActionId property.
     */
-    public function setManagementActionId(?string $value ): void {
-        $this->managementActionId = $value;
+    public function setManagementActionId(?string $value): void {
+        $this->getBackingStore()->set('managementActionId', $value);
     }
 
     /**
      * Sets the managementTemplateId property value. The management template identifier that was used to generate the management action. Required. Read-only.
      *  @param string|null $value Value to set for the managementTemplateId property.
     */
-    public function setManagementTemplateId(?string $value ): void {
-        $this->managementTemplateId = $value;
+    public function setManagementTemplateId(?string $value): void {
+        $this->getBackingStore()->set('managementTemplateId', $value);
     }
 
     /**
      * Sets the managementTemplateVersion property value. The managementTemplateVersion property
      *  @param int|null $value Value to set for the managementTemplateVersion property.
     */
-    public function setManagementTemplateVersion(?int $value ): void {
-        $this->managementTemplateVersion = $value;
+    public function setManagementTemplateVersion(?int $value): void {
+        $this->getBackingStore()->set('managementTemplateVersion', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param ManagementActionStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?ManagementActionStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?ManagementActionStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the workloadActionDeploymentStatuses property value. The collection of workload action deployment statues for the given management action. Optional.
      *  @param array<WorkloadActionDeploymentStatus>|null $value Value to set for the workloadActionDeploymentStatuses property.
     */
-    public function setWorkloadActionDeploymentStatuses(?array $value ): void {
-        $this->workloadActionDeploymentStatuses = $value;
+    public function setWorkloadActionDeploymentStatuses(?array $value): void {
+        $this->getBackingStore()->set('workloadActionDeploymentStatuses', $value);
     }
 
 }

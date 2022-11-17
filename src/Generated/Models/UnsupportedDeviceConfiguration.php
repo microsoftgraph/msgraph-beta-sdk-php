@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var array<UnsupportedDeviceConfigurationDetail>|null $details Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
-    */
-    private ?array $details = null;
-    
-    /**
-     * @var string|null $originalEntityTypeName The type of entity that would be returned otherwise.
-    */
-    private ?string $originalEntityTypeName = null;
-    
-    /**
      * Instantiates a new UnsupportedDeviceConfiguration and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
      * @return array<UnsupportedDeviceConfigurationDetail>|null
     */
     public function getDetails(): ?array {
-        return $this->details;
+        return $this->getBackingStore()->get('details');
     }
 
     /**
@@ -60,7 +50,7 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getOriginalEntityTypeName(): ?string {
-        return $this->originalEntityTypeName;
+        return $this->getBackingStore()->get('originalEntityTypeName');
     }
 
     /**
@@ -69,24 +59,24 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('details', $this->details);
-        $writer->writeStringValue('originalEntityTypeName', $this->originalEntityTypeName);
+        $writer->writeCollectionOfObjectValues('details', $this->getDetails());
+        $writer->writeStringValue('originalEntityTypeName', $this->getOriginalEntityTypeName());
     }
 
     /**
      * Sets the details property value. Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
      *  @param array<UnsupportedDeviceConfigurationDetail>|null $value Value to set for the details property.
     */
-    public function setDetails(?array $value ): void {
-        $this->details = $value;
+    public function setDetails(?array $value): void {
+        $this->getBackingStore()->set('details', $value);
     }
 
     /**
      * Sets the originalEntityTypeName property value. The type of entity that would be returned otherwise.
      *  @param string|null $value Value to set for the originalEntityTypeName property.
     */
-    public function setOriginalEntityTypeName(?string $value ): void {
-        $this->originalEntityTypeName = $value;
+    public function setOriginalEntityTypeName(?string $value): void {
+        $this->getBackingStore()->set('originalEntityTypeName', $value);
     }
 
 }

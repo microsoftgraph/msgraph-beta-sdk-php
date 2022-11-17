@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PasswordValidationInformation implements AdditionalDataHolder, Parsable 
+class PasswordValidationInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $isValid Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
-    */
-    private ?bool $isValid = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<ValidationResult>|null $validationResults The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
-    */
-    private ?array $validationResults = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new passwordValidationInformation and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.passwordValidationInformation');
     }
@@ -50,8 +39,16 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsValid(): ?bool {
-        return $this->isValid;
+        return $this->getBackingStore()->get('isValid');
     }
 
     /**
@@ -80,7 +77,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @return array<ValidationResult>|null
     */
     public function getValidationResults(): ?array {
-        return $this->validationResults;
+        return $this->getBackingStore()->get('validationResults');
     }
 
     /**
@@ -96,42 +93,42 @@ class PasswordValidationInformation implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('isValid', $this->isValid);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('validationResults', $this->validationResults);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('isValid', $this->getIsValid());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('validationResults', $this->getValidationResults());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the isValid property value. Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
      *  @param bool|null $value Value to set for the isValid property.
     */
-    public function setIsValid(?bool $value ): void {
-        $this->isValid = $value;
+    public function setIsValid(?bool $value): void {
+        $this->getBackingStore()->set('isValid', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the validationResults property value. The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
      *  @param array<ValidationResult>|null $value Value to set for the validationResults property.
     */
-    public function setValidationResults(?array $value ): void {
-        $this->validationResults = $value;
+    public function setValidationResults(?array $value): void {
+        $this->getBackingStore()->set('validationResults', $value);
     }
 
 }

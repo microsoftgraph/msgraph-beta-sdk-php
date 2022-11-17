@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolder, Parsable 
+class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $context Not yet documented
-    */
-    private ?string $context = null;
-    
-    /**
-     * @var string|null $failure Not yet documented
-    */
-    private ?string $failure = null;
-    
-    /**
-     * @var string|null $failureDetails The detailed description of what went wrong.
-    */
-    private ?string $failureDetails = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $remediation The detailed description of how to remediate this issue.
-    */
-    private ?string $remediation = null;
-    
-    /**
-     * @var array<DeviceManagementTroubleshootingErrorResource>|null $resources Links to helpful documentation about this failure.
-    */
-    private ?array $resources = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementTroubleshootingErrorDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagementTroubleshootingErrorDetails');
     }
@@ -65,8 +39,16 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return string|null
     */
     public function getContext(): ?string {
-        return $this->context;
+        return $this->getBackingStore()->get('context');
     }
 
     /**
@@ -82,7 +64,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return string|null
     */
     public function getFailure(): ?string {
-        return $this->failure;
+        return $this->getBackingStore()->get('failure');
     }
 
     /**
@@ -90,7 +72,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return string|null
     */
     public function getFailureDetails(): ?string {
-        return $this->failureDetails;
+        return $this->getBackingStore()->get('failureDetails');
     }
 
     /**
@@ -114,7 +96,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -122,7 +104,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return string|null
     */
     public function getRemediation(): ?string {
-        return $this->remediation;
+        return $this->getBackingStore()->get('remediation');
     }
 
     /**
@@ -130,7 +112,7 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @return array<DeviceManagementTroubleshootingErrorResource>|null
     */
     public function getResources(): ?array {
-        return $this->resources;
+        return $this->getBackingStore()->get('resources');
     }
 
     /**
@@ -138,69 +120,69 @@ class DeviceManagementTroubleshootingErrorDetails implements AdditionalDataHolde
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('context', $this->context);
-        $writer->writeStringValue('failure', $this->failure);
-        $writer->writeStringValue('failureDetails', $this->failureDetails);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('remediation', $this->remediation);
-        $writer->writeCollectionOfObjectValues('resources', $this->resources);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('context', $this->getContext());
+        $writer->writeStringValue('failure', $this->getFailure());
+        $writer->writeStringValue('failureDetails', $this->getFailureDetails());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('remediation', $this->getRemediation());
+        $writer->writeCollectionOfObjectValues('resources', $this->getResources());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the context property value. Not yet documented
      *  @param string|null $value Value to set for the context property.
     */
-    public function setContext(?string $value ): void {
-        $this->context = $value;
+    public function setContext(?string $value): void {
+        $this->getBackingStore()->set('context', $value);
     }
 
     /**
      * Sets the failure property value. Not yet documented
      *  @param string|null $value Value to set for the failure property.
     */
-    public function setFailure(?string $value ): void {
-        $this->failure = $value;
+    public function setFailure(?string $value): void {
+        $this->getBackingStore()->set('failure', $value);
     }
 
     /**
      * Sets the failureDetails property value. The detailed description of what went wrong.
      *  @param string|null $value Value to set for the failureDetails property.
     */
-    public function setFailureDetails(?string $value ): void {
-        $this->failureDetails = $value;
+    public function setFailureDetails(?string $value): void {
+        $this->getBackingStore()->set('failureDetails', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the remediation property value. The detailed description of how to remediate this issue.
      *  @param string|null $value Value to set for the remediation property.
     */
-    public function setRemediation(?string $value ): void {
-        $this->remediation = $value;
+    public function setRemediation(?string $value): void {
+        $this->getBackingStore()->set('remediation', $value);
     }
 
     /**
      * Sets the resources property value. Links to helpful documentation about this failure.
      *  @param array<DeviceManagementTroubleshootingErrorResource>|null $value Value to set for the resources property.
     */
-    public function setResources(?array $value ): void {
-        $this->resources = $value;
+    public function setResources(?array $value): void {
+        $this->getBackingStore()->set('resources', $value);
     }
 
 }

@@ -11,236 +11,6 @@ use Psr\Http\Message\StreamInterface;
 class Application extends DirectoryObject implements Parsable 
 {
     /**
-     * @var ApiApplication|null $api Specifies settings for an application that implements a web API.
-    */
-    private ?ApiApplication $api = null;
-    
-    /**
-     * @var string|null $appId The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var array<AppManagementPolicy>|null $appManagementPolicies The appManagementPolicy applied to this application.
-    */
-    private ?array $appManagementPolicies = null;
-    
-    /**
-     * @var array<AppRole>|null $appRoles The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
-    */
-    private ?array $appRoles = null;
-    
-    /**
-     * @var Certification|null $certification Specifies the certification status of the application.
-    */
-    private ?Certification $certification = null;
-    
-    /**
-     * @var ConnectorGroup|null $connectorGroup The connectorGroup the application is using with Azure AD Application Proxy. Nullable.
-    */
-    private ?ConnectorGroup $connectorGroup = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DirectoryObject|null $createdOnBehalfOf Supports $filter (eq when counting empty collections). Read-only.
-    */
-    private ?DirectoryObject $createdOnBehalfOf = null;
-    
-    /**
-     * @var string|null $defaultRedirectUri The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.
-    */
-    private ?string $defaultRedirectUri = null;
-    
-    /**
-     * @var string|null $description Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $disabledByMicrosoftStatus Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).
-    */
-    private ?string $disabledByMicrosoftStatus = null;
-    
-    /**
-     * @var string|null $displayName The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<ExtensionProperty>|null $extensionProperties Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
-    */
-    private ?array $extensionProperties = null;
-    
-    /**
-     * @var array<FederatedIdentityCredential>|null $federatedIdentityCredentials Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
-    */
-    private ?array $federatedIdentityCredentials = null;
-    
-    /**
-     * @var string|null $groupMembershipClaims Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
-    */
-    private ?string $groupMembershipClaims = null;
-    
-    /**
-     * @var array<HomeRealmDiscoveryPolicy>|null $homeRealmDiscoveryPolicies The homeRealmDiscoveryPolicies property
-    */
-    private ?array $homeRealmDiscoveryPolicies = null;
-    
-    /**
-     * @var array<string>|null $identifierUris Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
-    */
-    private ?array $identifierUris = null;
-    
-    /**
-     * @var InformationalUrl|null $info Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
-    */
-    private ?InformationalUrl $info = null;
-    
-    /**
-     * @var bool|null $isDeviceOnlyAuthSupported Specifies whether this application supports device authentication without a user. The default is false.
-    */
-    private ?bool $isDeviceOnlyAuthSupported = null;
-    
-    /**
-     * @var bool|null $isFallbackPublicClient Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
-    */
-    private ?bool $isFallbackPublicClient = null;
-    
-    /**
-     * @var array<KeyCredential>|null $keyCredentials The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).
-    */
-    private ?array $keyCredentials = null;
-    
-    /**
-     * @var StreamInterface|null $logo The main logo for the application. Not nullable.
-    */
-    private ?StreamInterface $logo = null;
-    
-    /**
-     * @var string|null $notes Notes relevant for the management of the application.
-    */
-    private ?string $notes = null;
-    
-    /**
-     * @var OnPremisesPublishing|null $onPremisesPublishing Represents the set of properties required for configuring Application Proxy for this application. Configuring these properties allows you to publish your on-premises application for secure remote access.
-    */
-    private ?OnPremisesPublishing $onPremisesPublishing = null;
-    
-    /**
-     * @var OptionalClaims|null $optionalClaims Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.
-    */
-    private ?OptionalClaims $optionalClaims = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $owners Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
-    */
-    private ?array $owners = null;
-    
-    /**
-     * @var ParentalControlSettings|null $parentalControlSettings Specifies parental control settings for an application.
-    */
-    private ?ParentalControlSettings $parentalControlSettings = null;
-    
-    /**
-     * @var array<PasswordCredential>|null $passwordCredentials The collection of password credentials associated with the application. Not nullable.
-    */
-    private ?array $passwordCredentials = null;
-    
-    /**
-     * @var PublicClientApplication|null $publicClient Specifies settings for installed clients such as desktop or mobile devices.
-    */
-    private ?PublicClientApplication $publicClient = null;
-    
-    /**
-     * @var string|null $publisherDomain The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
-    */
-    private ?string $publisherDomain = null;
-    
-    /**
-     * @var RequestSignatureVerification|null $requestSignatureVerification Specifies whether this application requires Azure AD to verify the signed authentication requests.
-    */
-    private ?RequestSignatureVerification $requestSignatureVerification = null;
-    
-    /**
-     * @var array<RequiredResourceAccess>|null $requiredResourceAccess Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
-    */
-    private ?array $requiredResourceAccess = null;
-    
-    /**
-     * @var string|null $samlMetadataUrl The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
-    */
-    private ?string $samlMetadataUrl = null;
-    
-    /**
-     * @var string|null $serviceManagementReference References application or service contact information from a Service or Asset Management database. Nullable.
-    */
-    private ?string $serviceManagementReference = null;
-    
-    /**
-     * @var ServicePrincipalLockConfiguration|null $servicePrincipalLockConfiguration Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
-    */
-    private ?ServicePrincipalLockConfiguration $servicePrincipalLockConfiguration = null;
-    
-    /**
-     * @var string|null $signInAudience Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
-    */
-    private ?string $signInAudience = null;
-    
-    /**
-     * @var SpaApplication|null $spa Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.
-    */
-    private ?SpaApplication $spa = null;
-    
-    /**
-     * @var Synchronization|null $synchronization The synchronization property
-    */
-    private ?Synchronization $synchronization = null;
-    
-    /**
-     * @var array<string>|null $tags Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var string|null $tokenEncryptionKeyId Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
-    */
-    private ?string $tokenEncryptionKeyId = null;
-    
-    /**
-     * @var array<TokenIssuancePolicy>|null $tokenIssuancePolicies The tokenIssuancePolicies property
-    */
-    private ?array $tokenIssuancePolicies = null;
-    
-    /**
-     * @var array<TokenLifetimePolicy>|null $tokenLifetimePolicies The tokenLifetimePolicies assigned to this application. Supports $expand.
-    */
-    private ?array $tokenLifetimePolicies = null;
-    
-    /**
-     * @var string|null $uniqueName The unique identifier that can be assigned to an application as an alternative identifier. Immutable. Read-only.
-    */
-    private ?string $uniqueName = null;
-    
-    /**
-     * @var VerifiedPublisher|null $verifiedPublisher Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification.
-    */
-    private ?VerifiedPublisher $verifiedPublisher = null;
-    
-    /**
-     * @var WebApplication|null $web Specifies settings for a web application.
-    */
-    private ?WebApplication $web = null;
-    
-    /**
-     * @var WindowsApplication|null $windows Specifies settings for apps running Microsoft Windows and published in the Microsoft Store or Xbox games store.
-    */
-    private ?WindowsApplication $windows = null;
-    
-    /**
      * Instantiates a new application and sets the default values.
     */
     public function __construct() {
@@ -262,7 +32,7 @@ class Application extends DirectoryObject implements Parsable
      * @return ApiApplication|null
     */
     public function getApi(): ?ApiApplication {
-        return $this->api;
+        return $this->getBackingStore()->get('api');
     }
 
     /**
@@ -270,7 +40,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -278,7 +48,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<AppManagementPolicy>|null
     */
     public function getAppManagementPolicies(): ?array {
-        return $this->appManagementPolicies;
+        return $this->getBackingStore()->get('appManagementPolicies');
     }
 
     /**
@@ -286,7 +56,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<AppRole>|null
     */
     public function getAppRoles(): ?array {
-        return $this->appRoles;
+        return $this->getBackingStore()->get('appRoles');
     }
 
     /**
@@ -294,7 +64,7 @@ class Application extends DirectoryObject implements Parsable
      * @return Certification|null
     */
     public function getCertification(): ?Certification {
-        return $this->certification;
+        return $this->getBackingStore()->get('certification');
     }
 
     /**
@@ -302,7 +72,7 @@ class Application extends DirectoryObject implements Parsable
      * @return ConnectorGroup|null
     */
     public function getConnectorGroup(): ?ConnectorGroup {
-        return $this->connectorGroup;
+        return $this->getBackingStore()->get('connectorGroup');
     }
 
     /**
@@ -310,7 +80,7 @@ class Application extends DirectoryObject implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -318,7 +88,7 @@ class Application extends DirectoryObject implements Parsable
      * @return DirectoryObject|null
     */
     public function getCreatedOnBehalfOf(): ?DirectoryObject {
-        return $this->createdOnBehalfOf;
+        return $this->getBackingStore()->get('createdOnBehalfOf');
     }
 
     /**
@@ -326,7 +96,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDefaultRedirectUri(): ?string {
-        return $this->defaultRedirectUri;
+        return $this->getBackingStore()->get('defaultRedirectUri');
     }
 
     /**
@@ -334,7 +104,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -342,7 +112,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisabledByMicrosoftStatus(): ?string {
-        return $this->disabledByMicrosoftStatus;
+        return $this->getBackingStore()->get('disabledByMicrosoftStatus');
     }
 
     /**
@@ -350,7 +120,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -358,7 +128,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<ExtensionProperty>|null
     */
     public function getExtensionProperties(): ?array {
-        return $this->extensionProperties;
+        return $this->getBackingStore()->get('extensionProperties');
     }
 
     /**
@@ -366,7 +136,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<FederatedIdentityCredential>|null
     */
     public function getFederatedIdentityCredentials(): ?array {
-        return $this->federatedIdentityCredentials;
+        return $this->getBackingStore()->get('federatedIdentityCredentials');
     }
 
     /**
@@ -430,7 +200,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getGroupMembershipClaims(): ?string {
-        return $this->groupMembershipClaims;
+        return $this->getBackingStore()->get('groupMembershipClaims');
     }
 
     /**
@@ -438,7 +208,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<HomeRealmDiscoveryPolicy>|null
     */
     public function getHomeRealmDiscoveryPolicies(): ?array {
-        return $this->homeRealmDiscoveryPolicies;
+        return $this->getBackingStore()->get('homeRealmDiscoveryPolicies');
     }
 
     /**
@@ -446,7 +216,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getIdentifierUris(): ?array {
-        return $this->identifierUris;
+        return $this->getBackingStore()->get('identifierUris');
     }
 
     /**
@@ -454,7 +224,7 @@ class Application extends DirectoryObject implements Parsable
      * @return InformationalUrl|null
     */
     public function getInfo(): ?InformationalUrl {
-        return $this->info;
+        return $this->getBackingStore()->get('info');
     }
 
     /**
@@ -462,7 +232,7 @@ class Application extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsDeviceOnlyAuthSupported(): ?bool {
-        return $this->isDeviceOnlyAuthSupported;
+        return $this->getBackingStore()->get('isDeviceOnlyAuthSupported');
     }
 
     /**
@@ -470,7 +240,7 @@ class Application extends DirectoryObject implements Parsable
      * @return bool|null
     */
     public function getIsFallbackPublicClient(): ?bool {
-        return $this->isFallbackPublicClient;
+        return $this->getBackingStore()->get('isFallbackPublicClient');
     }
 
     /**
@@ -478,15 +248,15 @@ class Application extends DirectoryObject implements Parsable
      * @return array<KeyCredential>|null
     */
     public function getKeyCredentials(): ?array {
-        return $this->keyCredentials;
+        return $this->getBackingStore()->get('keyCredentials');
     }
 
     /**
      * Gets the logo property value. The main logo for the application. Not nullable.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getLogo(): StreamInterface {
-        return $this->logo;
+    public function getLogo(): ?StreamInterface {
+        return $this->getBackingStore()->get('logo');
     }
 
     /**
@@ -494,7 +264,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getNotes(): ?string {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -502,7 +272,7 @@ class Application extends DirectoryObject implements Parsable
      * @return OnPremisesPublishing|null
     */
     public function getOnPremisesPublishing(): ?OnPremisesPublishing {
-        return $this->onPremisesPublishing;
+        return $this->getBackingStore()->get('onPremisesPublishing');
     }
 
     /**
@@ -510,7 +280,7 @@ class Application extends DirectoryObject implements Parsable
      * @return OptionalClaims|null
     */
     public function getOptionalClaims(): ?OptionalClaims {
-        return $this->optionalClaims;
+        return $this->getBackingStore()->get('optionalClaims');
     }
 
     /**
@@ -518,7 +288,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getOwners(): ?array {
-        return $this->owners;
+        return $this->getBackingStore()->get('owners');
     }
 
     /**
@@ -526,7 +296,7 @@ class Application extends DirectoryObject implements Parsable
      * @return ParentalControlSettings|null
     */
     public function getParentalControlSettings(): ?ParentalControlSettings {
-        return $this->parentalControlSettings;
+        return $this->getBackingStore()->get('parentalControlSettings');
     }
 
     /**
@@ -534,7 +304,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<PasswordCredential>|null
     */
     public function getPasswordCredentials(): ?array {
-        return $this->passwordCredentials;
+        return $this->getBackingStore()->get('passwordCredentials');
     }
 
     /**
@@ -542,7 +312,7 @@ class Application extends DirectoryObject implements Parsable
      * @return PublicClientApplication|null
     */
     public function getPublicClient(): ?PublicClientApplication {
-        return $this->publicClient;
+        return $this->getBackingStore()->get('publicClient');
     }
 
     /**
@@ -550,7 +320,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getPublisherDomain(): ?string {
-        return $this->publisherDomain;
+        return $this->getBackingStore()->get('publisherDomain');
     }
 
     /**
@@ -558,7 +328,7 @@ class Application extends DirectoryObject implements Parsable
      * @return RequestSignatureVerification|null
     */
     public function getRequestSignatureVerification(): ?RequestSignatureVerification {
-        return $this->requestSignatureVerification;
+        return $this->getBackingStore()->get('requestSignatureVerification');
     }
 
     /**
@@ -566,7 +336,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<RequiredResourceAccess>|null
     */
     public function getRequiredResourceAccess(): ?array {
-        return $this->requiredResourceAccess;
+        return $this->getBackingStore()->get('requiredResourceAccess');
     }
 
     /**
@@ -574,7 +344,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSamlMetadataUrl(): ?string {
-        return $this->samlMetadataUrl;
+        return $this->getBackingStore()->get('samlMetadataUrl');
     }
 
     /**
@@ -582,7 +352,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getServiceManagementReference(): ?string {
-        return $this->serviceManagementReference;
+        return $this->getBackingStore()->get('serviceManagementReference');
     }
 
     /**
@@ -590,7 +360,7 @@ class Application extends DirectoryObject implements Parsable
      * @return ServicePrincipalLockConfiguration|null
     */
     public function getServicePrincipalLockConfiguration(): ?ServicePrincipalLockConfiguration {
-        return $this->servicePrincipalLockConfiguration;
+        return $this->getBackingStore()->get('servicePrincipalLockConfiguration');
     }
 
     /**
@@ -598,7 +368,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getSignInAudience(): ?string {
-        return $this->signInAudience;
+        return $this->getBackingStore()->get('signInAudience');
     }
 
     /**
@@ -606,7 +376,7 @@ class Application extends DirectoryObject implements Parsable
      * @return SpaApplication|null
     */
     public function getSpa(): ?SpaApplication {
-        return $this->spa;
+        return $this->getBackingStore()->get('spa');
     }
 
     /**
@@ -614,7 +384,7 @@ class Application extends DirectoryObject implements Parsable
      * @return Synchronization|null
     */
     public function getSynchronization(): ?Synchronization {
-        return $this->synchronization;
+        return $this->getBackingStore()->get('synchronization');
     }
 
     /**
@@ -622,7 +392,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -630,7 +400,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getTokenEncryptionKeyId(): ?string {
-        return $this->tokenEncryptionKeyId;
+        return $this->getBackingStore()->get('tokenEncryptionKeyId');
     }
 
     /**
@@ -638,7 +408,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<TokenIssuancePolicy>|null
     */
     public function getTokenIssuancePolicies(): ?array {
-        return $this->tokenIssuancePolicies;
+        return $this->getBackingStore()->get('tokenIssuancePolicies');
     }
 
     /**
@@ -646,7 +416,7 @@ class Application extends DirectoryObject implements Parsable
      * @return array<TokenLifetimePolicy>|null
     */
     public function getTokenLifetimePolicies(): ?array {
-        return $this->tokenLifetimePolicies;
+        return $this->getBackingStore()->get('tokenLifetimePolicies');
     }
 
     /**
@@ -654,7 +424,7 @@ class Application extends DirectoryObject implements Parsable
      * @return string|null
     */
     public function getUniqueName(): ?string {
-        return $this->uniqueName;
+        return $this->getBackingStore()->get('uniqueName');
     }
 
     /**
@@ -662,7 +432,7 @@ class Application extends DirectoryObject implements Parsable
      * @return VerifiedPublisher|null
     */
     public function getVerifiedPublisher(): ?VerifiedPublisher {
-        return $this->verifiedPublisher;
+        return $this->getBackingStore()->get('verifiedPublisher');
     }
 
     /**
@@ -670,7 +440,7 @@ class Application extends DirectoryObject implements Parsable
      * @return WebApplication|null
     */
     public function getWeb(): ?WebApplication {
-        return $this->web;
+        return $this->getBackingStore()->get('web');
     }
 
     /**
@@ -678,7 +448,7 @@ class Application extends DirectoryObject implements Parsable
      * @return WindowsApplication|null
     */
     public function getWindows(): ?WindowsApplication {
-        return $this->windows;
+        return $this->getBackingStore()->get('windows');
     }
 
     /**
@@ -687,420 +457,420 @@ class Application extends DirectoryObject implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('api', $this->api);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->appManagementPolicies);
-        $writer->writeCollectionOfObjectValues('appRoles', $this->appRoles);
-        $writer->writeObjectValue('certification', $this->certification);
-        $writer->writeObjectValue('connectorGroup', $this->connectorGroup);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('createdOnBehalfOf', $this->createdOnBehalfOf);
-        $writer->writeStringValue('defaultRedirectUri', $this->defaultRedirectUri);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('disabledByMicrosoftStatus', $this->disabledByMicrosoftStatus);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('extensionProperties', $this->extensionProperties);
-        $writer->writeCollectionOfObjectValues('federatedIdentityCredentials', $this->federatedIdentityCredentials);
-        $writer->writeStringValue('groupMembershipClaims', $this->groupMembershipClaims);
-        $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->homeRealmDiscoveryPolicies);
-        $writer->writeCollectionOfPrimitiveValues('identifierUris', $this->identifierUris);
-        $writer->writeObjectValue('info', $this->info);
-        $writer->writeBooleanValue('isDeviceOnlyAuthSupported', $this->isDeviceOnlyAuthSupported);
-        $writer->writeBooleanValue('isFallbackPublicClient', $this->isFallbackPublicClient);
-        $writer->writeCollectionOfObjectValues('keyCredentials', $this->keyCredentials);
-        $writer->writeBinaryContent('logo', $this->logo);
-        $writer->writeStringValue('notes', $this->notes);
-        $writer->writeObjectValue('onPremisesPublishing', $this->onPremisesPublishing);
-        $writer->writeObjectValue('optionalClaims', $this->optionalClaims);
-        $writer->writeCollectionOfObjectValues('owners', $this->owners);
-        $writer->writeObjectValue('parentalControlSettings', $this->parentalControlSettings);
-        $writer->writeCollectionOfObjectValues('passwordCredentials', $this->passwordCredentials);
-        $writer->writeObjectValue('publicClient', $this->publicClient);
-        $writer->writeStringValue('publisherDomain', $this->publisherDomain);
-        $writer->writeObjectValue('requestSignatureVerification', $this->requestSignatureVerification);
-        $writer->writeCollectionOfObjectValues('requiredResourceAccess', $this->requiredResourceAccess);
-        $writer->writeStringValue('samlMetadataUrl', $this->samlMetadataUrl);
-        $writer->writeStringValue('serviceManagementReference', $this->serviceManagementReference);
-        $writer->writeObjectValue('servicePrincipalLockConfiguration', $this->servicePrincipalLockConfiguration);
-        $writer->writeStringValue('signInAudience', $this->signInAudience);
-        $writer->writeObjectValue('spa', $this->spa);
-        $writer->writeObjectValue('synchronization', $this->synchronization);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeStringValue('tokenEncryptionKeyId', $this->tokenEncryptionKeyId);
-        $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->tokenIssuancePolicies);
-        $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->tokenLifetimePolicies);
-        $writer->writeStringValue('uniqueName', $this->uniqueName);
-        $writer->writeObjectValue('verifiedPublisher', $this->verifiedPublisher);
-        $writer->writeObjectValue('web', $this->web);
-        $writer->writeObjectValue('windows', $this->windows);
+        $writer->writeObjectValue('api', $this->getApi());
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->getAppManagementPolicies());
+        $writer->writeCollectionOfObjectValues('appRoles', $this->getAppRoles());
+        $writer->writeObjectValue('certification', $this->getCertification());
+        $writer->writeObjectValue('connectorGroup', $this->getConnectorGroup());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('createdOnBehalfOf', $this->getCreatedOnBehalfOf());
+        $writer->writeStringValue('defaultRedirectUri', $this->getDefaultRedirectUri());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('disabledByMicrosoftStatus', $this->getDisabledByMicrosoftStatus());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('extensionProperties', $this->getExtensionProperties());
+        $writer->writeCollectionOfObjectValues('federatedIdentityCredentials', $this->getFederatedIdentityCredentials());
+        $writer->writeStringValue('groupMembershipClaims', $this->getGroupMembershipClaims());
+        $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
+        $writer->writeCollectionOfPrimitiveValues('identifierUris', $this->getIdentifierUris());
+        $writer->writeObjectValue('info', $this->getInfo());
+        $writer->writeBooleanValue('isDeviceOnlyAuthSupported', $this->getIsDeviceOnlyAuthSupported());
+        $writer->writeBooleanValue('isFallbackPublicClient', $this->getIsFallbackPublicClient());
+        $writer->writeCollectionOfObjectValues('keyCredentials', $this->getKeyCredentials());
+        $writer->writeBinaryContent('logo', $this->getLogo());
+        $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeObjectValue('onPremisesPublishing', $this->getOnPremisesPublishing());
+        $writer->writeObjectValue('optionalClaims', $this->getOptionalClaims());
+        $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
+        $writer->writeObjectValue('parentalControlSettings', $this->getParentalControlSettings());
+        $writer->writeCollectionOfObjectValues('passwordCredentials', $this->getPasswordCredentials());
+        $writer->writeObjectValue('publicClient', $this->getPublicClient());
+        $writer->writeStringValue('publisherDomain', $this->getPublisherDomain());
+        $writer->writeObjectValue('requestSignatureVerification', $this->getRequestSignatureVerification());
+        $writer->writeCollectionOfObjectValues('requiredResourceAccess', $this->getRequiredResourceAccess());
+        $writer->writeStringValue('samlMetadataUrl', $this->getSamlMetadataUrl());
+        $writer->writeStringValue('serviceManagementReference', $this->getServiceManagementReference());
+        $writer->writeObjectValue('servicePrincipalLockConfiguration', $this->getServicePrincipalLockConfiguration());
+        $writer->writeStringValue('signInAudience', $this->getSignInAudience());
+        $writer->writeObjectValue('spa', $this->getSpa());
+        $writer->writeObjectValue('synchronization', $this->getSynchronization());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeStringValue('tokenEncryptionKeyId', $this->getTokenEncryptionKeyId());
+        $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->getTokenIssuancePolicies());
+        $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->getTokenLifetimePolicies());
+        $writer->writeStringValue('uniqueName', $this->getUniqueName());
+        $writer->writeObjectValue('verifiedPublisher', $this->getVerifiedPublisher());
+        $writer->writeObjectValue('web', $this->getWeb());
+        $writer->writeObjectValue('windows', $this->getWindows());
     }
 
     /**
      * Sets the api property value. Specifies settings for an application that implements a web API.
      *  @param ApiApplication|null $value Value to set for the api property.
     */
-    public function setApi(?ApiApplication $value ): void {
-        $this->api = $value;
+    public function setApi(?ApiApplication $value): void {
+        $this->getBackingStore()->set('api', $value);
     }
 
     /**
      * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only. Supports $filter (eq).
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the appManagementPolicies property value. The appManagementPolicy applied to this application.
      *  @param array<AppManagementPolicy>|null $value Value to set for the appManagementPolicies property.
     */
-    public function setAppManagementPolicies(?array $value ): void {
-        $this->appManagementPolicies = $value;
+    public function setAppManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('appManagementPolicies', $value);
     }
 
     /**
      * Sets the appRoles property value. The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      *  @param array<AppRole>|null $value Value to set for the appRoles property.
     */
-    public function setAppRoles(?array $value ): void {
-        $this->appRoles = $value;
+    public function setAppRoles(?array $value): void {
+        $this->getBackingStore()->set('appRoles', $value);
     }
 
     /**
      * Sets the certification property value. Specifies the certification status of the application.
      *  @param Certification|null $value Value to set for the certification property.
     */
-    public function setCertification(?Certification $value ): void {
-        $this->certification = $value;
+    public function setCertification(?Certification $value): void {
+        $this->getBackingStore()->set('certification', $value);
     }
 
     /**
      * Sets the connectorGroup property value. The connectorGroup the application is using with Azure AD Application Proxy. Nullable.
      *  @param ConnectorGroup|null $value Value to set for the connectorGroup property.
     */
-    public function setConnectorGroup(?ConnectorGroup $value ): void {
-        $this->connectorGroup = $value;
+    public function setConnectorGroup(?ConnectorGroup $value): void {
+        $this->getBackingStore()->set('connectorGroup', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the application was registered. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  Supports $filter (eq, ne, not, ge, le, in, and eq on null values) and $orderBy.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the createdOnBehalfOf property value. Supports $filter (eq when counting empty collections). Read-only.
      *  @param DirectoryObject|null $value Value to set for the createdOnBehalfOf property.
     */
-    public function setCreatedOnBehalfOf(?DirectoryObject $value ): void {
-        $this->createdOnBehalfOf = $value;
+    public function setCreatedOnBehalfOf(?DirectoryObject $value): void {
+        $this->getBackingStore()->set('createdOnBehalfOf', $value);
     }
 
     /**
      * Sets the defaultRedirectUri property value. The default redirect URI. If specified and there is no explicit redirect URI in the sign-in request for SAML and OIDC flows, Azure AD sends the token to this redirect URI. Azure AD also sends the token to this default URI in SAML IdP-initiated single sign-on. The value must match one of the configured redirect URIs for the application.
      *  @param string|null $value Value to set for the defaultRedirectUri property.
     */
-    public function setDefaultRedirectUri(?string $value ): void {
-        $this->defaultRedirectUri = $value;
+    public function setDefaultRedirectUri(?string $value): void {
+        $this->getBackingStore()->set('defaultRedirectUri', $value);
     }
 
     /**
      * Sets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the disabledByMicrosoftStatus property value. Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).
      *  @param string|null $value Value to set for the disabledByMicrosoftStatus property.
     */
-    public function setDisabledByMicrosoftStatus(?string $value ): void {
-        $this->disabledByMicrosoftStatus = $value;
+    public function setDisabledByMicrosoftStatus(?string $value): void {
+        $this->getBackingStore()->set('disabledByMicrosoftStatus', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the extensionProperties property value. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
      *  @param array<ExtensionProperty>|null $value Value to set for the extensionProperties property.
     */
-    public function setExtensionProperties(?array $value ): void {
-        $this->extensionProperties = $value;
+    public function setExtensionProperties(?array $value): void {
+        $this->getBackingStore()->set('extensionProperties', $value);
     }
 
     /**
      * Sets the federatedIdentityCredentials property value. Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
      *  @param array<FederatedIdentityCredential>|null $value Value to set for the federatedIdentityCredentials property.
     */
-    public function setFederatedIdentityCredentials(?array $value ): void {
-        $this->federatedIdentityCredentials = $value;
+    public function setFederatedIdentityCredentials(?array $value): void {
+        $this->getBackingStore()->set('federatedIdentityCredentials', $value);
     }
 
     /**
      * Sets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
      *  @param string|null $value Value to set for the groupMembershipClaims property.
     */
-    public function setGroupMembershipClaims(?string $value ): void {
-        $this->groupMembershipClaims = $value;
+    public function setGroupMembershipClaims(?string $value): void {
+        $this->getBackingStore()->set('groupMembershipClaims', $value);
     }
 
     /**
      * Sets the homeRealmDiscoveryPolicies property value. The homeRealmDiscoveryPolicies property
      *  @param array<HomeRealmDiscoveryPolicy>|null $value Value to set for the homeRealmDiscoveryPolicies property.
     */
-    public function setHomeRealmDiscoveryPolicies(?array $value ): void {
-        $this->homeRealmDiscoveryPolicies = $value;
+    public function setHomeRealmDiscoveryPolicies(?array $value): void {
+        $this->getBackingStore()->set('homeRealmDiscoveryPolicies', $value);
     }
 
     /**
      * Sets the identifierUris property value. Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
      *  @param array<string>|null $value Value to set for the identifierUris property.
     */
-    public function setIdentifierUris(?array $value ): void {
-        $this->identifierUris = $value;
+    public function setIdentifierUris(?array $value): void {
+        $this->getBackingStore()->set('identifierUris', $value);
     }
 
     /**
      * Sets the info property value. Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      *  @param InformationalUrl|null $value Value to set for the info property.
     */
-    public function setInfo(?InformationalUrl $value ): void {
-        $this->info = $value;
+    public function setInfo(?InformationalUrl $value): void {
+        $this->getBackingStore()->set('info', $value);
     }
 
     /**
      * Sets the isDeviceOnlyAuthSupported property value. Specifies whether this application supports device authentication without a user. The default is false.
      *  @param bool|null $value Value to set for the isDeviceOnlyAuthSupported property.
     */
-    public function setIsDeviceOnlyAuthSupported(?bool $value ): void {
-        $this->isDeviceOnlyAuthSupported = $value;
+    public function setIsDeviceOnlyAuthSupported(?bool $value): void {
+        $this->getBackingStore()->set('isDeviceOnlyAuthSupported', $value);
     }
 
     /**
      * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
      *  @param bool|null $value Value to set for the isFallbackPublicClient property.
     */
-    public function setIsFallbackPublicClient(?bool $value ): void {
-        $this->isFallbackPublicClient = $value;
+    public function setIsFallbackPublicClient(?bool $value): void {
+        $this->getBackingStore()->set('isFallbackPublicClient', $value);
     }
 
     /**
      * Sets the keyCredentials property value. The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).
      *  @param array<KeyCredential>|null $value Value to set for the keyCredentials property.
     */
-    public function setKeyCredentials(?array $value ): void {
-        $this->keyCredentials = $value;
+    public function setKeyCredentials(?array $value): void {
+        $this->getBackingStore()->set('keyCredentials', $value);
     }
 
     /**
      * Sets the logo property value. The main logo for the application. Not nullable.
      *  @param StreamInterface|null $value Value to set for the logo property.
     */
-    public function setLogo(?StreamInterface $value ): void {
-        $this->logo = $value;
+    public function setLogo(?StreamInterface $value): void {
+        $this->getBackingStore()->set('logo', $value);
     }
 
     /**
      * Sets the notes property value. Notes relevant for the management of the application.
      *  @param string|null $value Value to set for the notes property.
     */
-    public function setNotes(?string $value ): void {
-        $this->notes = $value;
+    public function setNotes(?string $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the onPremisesPublishing property value. Represents the set of properties required for configuring Application Proxy for this application. Configuring these properties allows you to publish your on-premises application for secure remote access.
      *  @param OnPremisesPublishing|null $value Value to set for the onPremisesPublishing property.
     */
-    public function setOnPremisesPublishing(?OnPremisesPublishing $value ): void {
-        $this->onPremisesPublishing = $value;
+    public function setOnPremisesPublishing(?OnPremisesPublishing $value): void {
+        $this->getBackingStore()->set('onPremisesPublishing', $value);
     }
 
     /**
      * Sets the optionalClaims property value. Application developers can configure optional claims in their Azure AD applications to specify the claims that are sent to their application by the Microsoft security token service. For more information, see How to: Provide optional claims to your app.
      *  @param OptionalClaims|null $value Value to set for the optionalClaims property.
     */
-    public function setOptionalClaims(?OptionalClaims $value ): void {
-        $this->optionalClaims = $value;
+    public function setOptionalClaims(?OptionalClaims $value): void {
+        $this->getBackingStore()->set('optionalClaims', $value);
     }
 
     /**
      * Sets the owners property value. Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
      *  @param array<DirectoryObject>|null $value Value to set for the owners property.
     */
-    public function setOwners(?array $value ): void {
-        $this->owners = $value;
+    public function setOwners(?array $value): void {
+        $this->getBackingStore()->set('owners', $value);
     }
 
     /**
      * Sets the parentalControlSettings property value. Specifies parental control settings for an application.
      *  @param ParentalControlSettings|null $value Value to set for the parentalControlSettings property.
     */
-    public function setParentalControlSettings(?ParentalControlSettings $value ): void {
-        $this->parentalControlSettings = $value;
+    public function setParentalControlSettings(?ParentalControlSettings $value): void {
+        $this->getBackingStore()->set('parentalControlSettings', $value);
     }
 
     /**
      * Sets the passwordCredentials property value. The collection of password credentials associated with the application. Not nullable.
      *  @param array<PasswordCredential>|null $value Value to set for the passwordCredentials property.
     */
-    public function setPasswordCredentials(?array $value ): void {
-        $this->passwordCredentials = $value;
+    public function setPasswordCredentials(?array $value): void {
+        $this->getBackingStore()->set('passwordCredentials', $value);
     }
 
     /**
      * Sets the publicClient property value. Specifies settings for installed clients such as desktop or mobile devices.
      *  @param PublicClientApplication|null $value Value to set for the publicClient property.
     */
-    public function setPublicClient(?PublicClientApplication $value ): void {
-        $this->publicClient = $value;
+    public function setPublicClient(?PublicClientApplication $value): void {
+        $this->getBackingStore()->set('publicClient', $value);
     }
 
     /**
      * Sets the publisherDomain property value. The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
      *  @param string|null $value Value to set for the publisherDomain property.
     */
-    public function setPublisherDomain(?string $value ): void {
-        $this->publisherDomain = $value;
+    public function setPublisherDomain(?string $value): void {
+        $this->getBackingStore()->set('publisherDomain', $value);
     }
 
     /**
      * Sets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
      *  @param RequestSignatureVerification|null $value Value to set for the requestSignatureVerification property.
     */
-    public function setRequestSignatureVerification(?RequestSignatureVerification $value ): void {
-        $this->requestSignatureVerification = $value;
+    public function setRequestSignatureVerification(?RequestSignatureVerification $value): void {
+        $this->getBackingStore()->set('requestSignatureVerification', $value);
     }
 
     /**
      * Sets the requiredResourceAccess property value. Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
      *  @param array<RequiredResourceAccess>|null $value Value to set for the requiredResourceAccess property.
     */
-    public function setRequiredResourceAccess(?array $value ): void {
-        $this->requiredResourceAccess = $value;
+    public function setRequiredResourceAccess(?array $value): void {
+        $this->getBackingStore()->set('requiredResourceAccess', $value);
     }
 
     /**
      * Sets the samlMetadataUrl property value. The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
      *  @param string|null $value Value to set for the samlMetadataUrl property.
     */
-    public function setSamlMetadataUrl(?string $value ): void {
-        $this->samlMetadataUrl = $value;
+    public function setSamlMetadataUrl(?string $value): void {
+        $this->getBackingStore()->set('samlMetadataUrl', $value);
     }
 
     /**
      * Sets the serviceManagementReference property value. References application or service contact information from a Service or Asset Management database. Nullable.
      *  @param string|null $value Value to set for the serviceManagementReference property.
     */
-    public function setServiceManagementReference(?string $value ): void {
-        $this->serviceManagementReference = $value;
+    public function setServiceManagementReference(?string $value): void {
+        $this->getBackingStore()->set('serviceManagementReference', $value);
     }
 
     /**
      * Sets the servicePrincipalLockConfiguration property value. Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
      *  @param ServicePrincipalLockConfiguration|null $value Value to set for the servicePrincipalLockConfiguration property.
     */
-    public function setServicePrincipalLockConfiguration(?ServicePrincipalLockConfiguration $value ): void {
-        $this->servicePrincipalLockConfiguration = $value;
+    public function setServicePrincipalLockConfiguration(?ServicePrincipalLockConfiguration $value): void {
+        $this->getBackingStore()->set('servicePrincipalLockConfiguration', $value);
     }
 
     /**
      * Sets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
      *  @param string|null $value Value to set for the signInAudience property.
     */
-    public function setSignInAudience(?string $value ): void {
-        $this->signInAudience = $value;
+    public function setSignInAudience(?string $value): void {
+        $this->getBackingStore()->set('signInAudience', $value);
     }
 
     /**
      * Sets the spa property value. Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.
      *  @param SpaApplication|null $value Value to set for the spa property.
     */
-    public function setSpa(?SpaApplication $value ): void {
-        $this->spa = $value;
+    public function setSpa(?SpaApplication $value): void {
+        $this->getBackingStore()->set('spa', $value);
     }
 
     /**
      * Sets the synchronization property value. The synchronization property
      *  @param Synchronization|null $value Value to set for the synchronization property.
     */
-    public function setSynchronization(?Synchronization $value ): void {
-        $this->synchronization = $value;
+    public function setSynchronization(?Synchronization $value): void {
+        $this->getBackingStore()->set('synchronization', $value);
     }
 
     /**
      * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
      *  @param string|null $value Value to set for the tokenEncryptionKeyId property.
     */
-    public function setTokenEncryptionKeyId(?string $value ): void {
-        $this->tokenEncryptionKeyId = $value;
+    public function setTokenEncryptionKeyId(?string $value): void {
+        $this->getBackingStore()->set('tokenEncryptionKeyId', $value);
     }
 
     /**
      * Sets the tokenIssuancePolicies property value. The tokenIssuancePolicies property
      *  @param array<TokenIssuancePolicy>|null $value Value to set for the tokenIssuancePolicies property.
     */
-    public function setTokenIssuancePolicies(?array $value ): void {
-        $this->tokenIssuancePolicies = $value;
+    public function setTokenIssuancePolicies(?array $value): void {
+        $this->getBackingStore()->set('tokenIssuancePolicies', $value);
     }
 
     /**
      * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this application. Supports $expand.
      *  @param array<TokenLifetimePolicy>|null $value Value to set for the tokenLifetimePolicies property.
     */
-    public function setTokenLifetimePolicies(?array $value ): void {
-        $this->tokenLifetimePolicies = $value;
+    public function setTokenLifetimePolicies(?array $value): void {
+        $this->getBackingStore()->set('tokenLifetimePolicies', $value);
     }
 
     /**
      * Sets the uniqueName property value. The unique identifier that can be assigned to an application as an alternative identifier. Immutable. Read-only.
      *  @param string|null $value Value to set for the uniqueName property.
     */
-    public function setUniqueName(?string $value ): void {
-        $this->uniqueName = $value;
+    public function setUniqueName(?string $value): void {
+        $this->getBackingStore()->set('uniqueName', $value);
     }
 
     /**
      * Sets the verifiedPublisher property value. Specifies the verified publisher of the application. For more information about how publisher verification helps support application security, trustworthiness, and compliance, see Publisher verification.
      *  @param VerifiedPublisher|null $value Value to set for the verifiedPublisher property.
     */
-    public function setVerifiedPublisher(?VerifiedPublisher $value ): void {
-        $this->verifiedPublisher = $value;
+    public function setVerifiedPublisher(?VerifiedPublisher $value): void {
+        $this->getBackingStore()->set('verifiedPublisher', $value);
     }
 
     /**
      * Sets the web property value. Specifies settings for a web application.
      *  @param WebApplication|null $value Value to set for the web property.
     */
-    public function setWeb(?WebApplication $value ): void {
-        $this->web = $value;
+    public function setWeb(?WebApplication $value): void {
+        $this->getBackingStore()->set('web', $value);
     }
 
     /**
      * Sets the windows property value. Specifies settings for apps running Microsoft Windows and published in the Microsoft Store or Xbox games store.
      *  @param WindowsApplication|null $value Value to set for the windows property.
     */
-    public function setWindows(?WindowsApplication $value ): void {
-        $this->windows = $value;
+    public function setWindows(?WindowsApplication $value): void {
+        $this->getBackingStore()->set('windows', $value);
     }
 
 }

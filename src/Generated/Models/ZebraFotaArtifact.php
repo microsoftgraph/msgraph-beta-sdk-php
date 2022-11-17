@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ZebraFotaArtifact extends Entity implements Parsable 
 {
     /**
-     * @var string|null $boardSupportPackageVersion The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
-    */
-    private ?string $boardSupportPackageVersion = null;
-    
-    /**
-     * @var string|null $description Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $deviceModel Applicable device model (e.g.: TC8300)
-    */
-    private ?string $deviceModel = null;
-    
-    /**
-     * @var string|null $osVersion Artifact OS version (e.g.: 8.1.0)
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var string|null $patchVersion Artifact patch version (e.g.: U00)
-    */
-    private ?string $patchVersion = null;
-    
-    /**
-     * @var string|null $releaseNotesUrl Artifact release notes URL (e.g.: https://www.zebra.com/<filename.pdf>)
-    */
-    private ?string $releaseNotesUrl = null;
-    
-    /**
      * Instantiates a new zebraFotaArtifact and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getBoardSupportPackageVersion(): ?string {
-        return $this->boardSupportPackageVersion;
+        return $this->getBackingStore()->get('boardSupportPackageVersion');
     }
 
     /**
@@ -68,7 +38,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -76,7 +46,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->deviceModel;
+        return $this->getBackingStore()->get('deviceModel');
     }
 
     /**
@@ -100,7 +70,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -108,7 +78,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getPatchVersion(): ?string {
-        return $this->patchVersion;
+        return $this->getBackingStore()->get('patchVersion');
     }
 
     /**
@@ -116,7 +86,7 @@ class ZebraFotaArtifact extends Entity implements Parsable
      * @return string|null
     */
     public function getReleaseNotesUrl(): ?string {
-        return $this->releaseNotesUrl;
+        return $this->getBackingStore()->get('releaseNotesUrl');
     }
 
     /**
@@ -125,60 +95,60 @@ class ZebraFotaArtifact extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('boardSupportPackageVersion', $this->boardSupportPackageVersion);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('deviceModel', $this->deviceModel);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeStringValue('patchVersion', $this->patchVersion);
-        $writer->writeStringValue('releaseNotesUrl', $this->releaseNotesUrl);
+        $writer->writeStringValue('boardSupportPackageVersion', $this->getBoardSupportPackageVersion());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('deviceModel', $this->getDeviceModel());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeStringValue('patchVersion', $this->getPatchVersion());
+        $writer->writeStringValue('releaseNotesUrl', $this->getReleaseNotesUrl());
     }
 
     /**
      * Sets the boardSupportPackageVersion property value. The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
      *  @param string|null $value Value to set for the boardSupportPackageVersion property.
     */
-    public function setBoardSupportPackageVersion(?string $value ): void {
-        $this->boardSupportPackageVersion = $value;
+    public function setBoardSupportPackageVersion(?string $value): void {
+        $this->getBackingStore()->set('boardSupportPackageVersion', $value);
     }
 
     /**
      * Sets the description property value. Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceModel property value. Applicable device model (e.g.: TC8300)
      *  @param string|null $value Value to set for the deviceModel property.
     */
-    public function setDeviceModel(?string $value ): void {
-        $this->deviceModel = $value;
+    public function setDeviceModel(?string $value): void {
+        $this->getBackingStore()->set('deviceModel', $value);
     }
 
     /**
      * Sets the osVersion property value. Artifact OS version (e.g.: 8.1.0)
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the patchVersion property value. Artifact patch version (e.g.: U00)
      *  @param string|null $value Value to set for the patchVersion property.
     */
-    public function setPatchVersion(?string $value ): void {
-        $this->patchVersion = $value;
+    public function setPatchVersion(?string $value): void {
+        $this->getBackingStore()->set('patchVersion', $value);
     }
 
     /**
      * Sets the releaseNotesUrl property value. Artifact release notes URL (e.g.: https://www.zebra.com/<filename.pdf>)
      *  @param string|null $value Value to set for the releaseNotesUrl property.
     */
-    public function setReleaseNotesUrl(?string $value ): void {
-        $this->releaseNotesUrl = $value;
+    public function setReleaseNotesUrl(?string $value): void {
+        $this->getBackingStore()->set('releaseNotesUrl', $value);
     }
 
 }

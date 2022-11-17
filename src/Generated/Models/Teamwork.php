@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Teamwork extends Entity implements Parsable 
 {
     /**
-     * @var array<DeletedTeam>|null $deletedTeams A collection of deleted teams.
-    */
-    private ?array $deletedTeams = null;
-    
-    /**
-     * @var array<TeamworkDevice>|null $devices The Teams devices provisioned for the tenant.
-    */
-    private ?array $devices = null;
-    
-    /**
-     * @var TeamsAppSettings|null $teamsAppSettings Represents tenant-wide settings for all Teams apps in the tenant.
-    */
-    private ?TeamsAppSettings $teamsAppSettings = null;
-    
-    /**
-     * @var array<TeamTemplate>|null $teamTemplates The templates associated with a team.
-    */
-    private ?array $teamTemplates = null;
-    
-    /**
-     * @var array<WorkforceIntegration>|null $workforceIntegrations A workforce integration with shifts.
-    */
-    private ?array $workforceIntegrations = null;
-    
-    /**
      * Instantiates a new Teamwork and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class Teamwork extends Entity implements Parsable
      * @return array<DeletedTeam>|null
     */
     public function getDeletedTeams(): ?array {
-        return $this->deletedTeams;
+        return $this->getBackingStore()->get('deletedTeams');
     }
 
     /**
@@ -63,7 +38,7 @@ class Teamwork extends Entity implements Parsable
      * @return array<TeamworkDevice>|null
     */
     public function getDevices(): ?array {
-        return $this->devices;
+        return $this->getBackingStore()->get('devices');
     }
 
     /**
@@ -86,7 +61,7 @@ class Teamwork extends Entity implements Parsable
      * @return TeamsAppSettings|null
     */
     public function getTeamsAppSettings(): ?TeamsAppSettings {
-        return $this->teamsAppSettings;
+        return $this->getBackingStore()->get('teamsAppSettings');
     }
 
     /**
@@ -94,7 +69,7 @@ class Teamwork extends Entity implements Parsable
      * @return array<TeamTemplate>|null
     */
     public function getTeamTemplates(): ?array {
-        return $this->teamTemplates;
+        return $this->getBackingStore()->get('teamTemplates');
     }
 
     /**
@@ -102,7 +77,7 @@ class Teamwork extends Entity implements Parsable
      * @return array<WorkforceIntegration>|null
     */
     public function getWorkforceIntegrations(): ?array {
-        return $this->workforceIntegrations;
+        return $this->getBackingStore()->get('workforceIntegrations');
     }
 
     /**
@@ -111,51 +86,51 @@ class Teamwork extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('deletedTeams', $this->deletedTeams);
-        $writer->writeCollectionOfObjectValues('devices', $this->devices);
-        $writer->writeObjectValue('teamsAppSettings', $this->teamsAppSettings);
-        $writer->writeCollectionOfObjectValues('teamTemplates', $this->teamTemplates);
-        $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->workforceIntegrations);
+        $writer->writeCollectionOfObjectValues('deletedTeams', $this->getDeletedTeams());
+        $writer->writeCollectionOfObjectValues('devices', $this->getDevices());
+        $writer->writeObjectValue('teamsAppSettings', $this->getTeamsAppSettings());
+        $writer->writeCollectionOfObjectValues('teamTemplates', $this->getTeamTemplates());
+        $writer->writeCollectionOfObjectValues('workforceIntegrations', $this->getWorkforceIntegrations());
     }
 
     /**
      * Sets the deletedTeams property value. A collection of deleted teams.
      *  @param array<DeletedTeam>|null $value Value to set for the deletedTeams property.
     */
-    public function setDeletedTeams(?array $value ): void {
-        $this->deletedTeams = $value;
+    public function setDeletedTeams(?array $value): void {
+        $this->getBackingStore()->set('deletedTeams', $value);
     }
 
     /**
      * Sets the devices property value. The Teams devices provisioned for the tenant.
      *  @param array<TeamworkDevice>|null $value Value to set for the devices property.
     */
-    public function setDevices(?array $value ): void {
-        $this->devices = $value;
+    public function setDevices(?array $value): void {
+        $this->getBackingStore()->set('devices', $value);
     }
 
     /**
      * Sets the teamsAppSettings property value. Represents tenant-wide settings for all Teams apps in the tenant.
      *  @param TeamsAppSettings|null $value Value to set for the teamsAppSettings property.
     */
-    public function setTeamsAppSettings(?TeamsAppSettings $value ): void {
-        $this->teamsAppSettings = $value;
+    public function setTeamsAppSettings(?TeamsAppSettings $value): void {
+        $this->getBackingStore()->set('teamsAppSettings', $value);
     }
 
     /**
      * Sets the teamTemplates property value. The templates associated with a team.
      *  @param array<TeamTemplate>|null $value Value to set for the teamTemplates property.
     */
-    public function setTeamTemplates(?array $value ): void {
-        $this->teamTemplates = $value;
+    public function setTeamTemplates(?array $value): void {
+        $this->getBackingStore()->set('teamTemplates', $value);
     }
 
     /**
      * Sets the workforceIntegrations property value. A workforce integration with shifts.
      *  @param array<WorkforceIntegration>|null $value Value to set for the workforceIntegrations property.
     */
-    public function setWorkforceIntegrations(?array $value ): void {
-        $this->workforceIntegrations = $value;
+    public function setWorkforceIntegrations(?array $value): void {
+        $this->getBackingStore()->set('workforceIntegrations', $value);
     }
 
 }

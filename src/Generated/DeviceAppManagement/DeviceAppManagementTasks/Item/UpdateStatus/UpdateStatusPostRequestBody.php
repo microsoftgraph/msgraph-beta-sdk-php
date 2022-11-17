@@ -7,28 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateStatusPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $note The note property
-    */
-    private ?string $note = null;
-    
-    /**
-     * @var DeviceAppManagementTaskStatus|null $status Device app management task status.
-    */
-    private ?DeviceAppManagementTaskStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateStatusPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -45,8 +39,16 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -66,7 +68,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNote(): ?string {
-        return $this->note;
+        return $this->getBackingStore()->get('note');
     }
 
     /**
@@ -74,7 +76,7 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
      * @return DeviceAppManagementTaskStatus|null
     */
     public function getStatus(): ?DeviceAppManagementTaskStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -82,33 +84,33 @@ class UpdateStatusPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('note', $this->note);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('note', $this->getNote());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the note property value. The note property
      *  @param string|null $value Value to set for the note property.
     */
-    public function setNote(?string $value ): void {
-        $this->note = $value;
+    public function setNote(?string $value): void {
+        $this->getBackingStore()->set('note', $value);
     }
 
     /**
      * Sets the status property value. Device app management task status.
      *  @param DeviceAppManagementTaskStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DeviceAppManagementTaskStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DeviceAppManagementTaskStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

@@ -9,71 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $averageSpikeTimeScore AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100
-    */
-    private ?int $averageSpikeTimeScore = null;
-    
-    /**
-     * @var float|null $cpuSpikeTimePercentage CPU spike time in percentage. Valid values 0 to 100
-    */
-    private ?float $cpuSpikeTimePercentage = null;
-    
-    /**
-     * @var float|null $cpuSpikeTimePercentageThreshold Threshold of cpuSpikeTimeScore. Valid values 0 to 100
-    */
-    private ?float $cpuSpikeTimePercentageThreshold = null;
-    
-    /**
-     * @var int|null $cpuSpikeTimeScore The user experience analytics device CPU spike time score. Valid values 0 to 100
-    */
-    private ?int $cpuSpikeTimeScore = null;
-    
-    /**
-     * @var int|null $deviceCount User experience analytics summarized device count.
-    */
-    private ?int $deviceCount = null;
-    
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceName The name of the device.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var int|null $deviceResourcePerformanceScore Resource performance score of a specific device. Valid values 0 to 100
-    */
-    private ?int $deviceResourcePerformanceScore = null;
-    
-    /**
-     * @var string|null $manufacturer The user experience analytics device manufacturer.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The user experience analytics device model.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var float|null $ramSpikeTimePercentage RAM spike time in percentage. Valid values 0 to 100
-    */
-    private ?float $ramSpikeTimePercentage = null;
-    
-    /**
-     * @var float|null $ramSpikeTimePercentageThreshold Threshold of ramSpikeTimeScore. Valid values 0 to 100
-    */
-    private ?float $ramSpikeTimePercentageThreshold = null;
-    
-    /**
-     * @var int|null $ramSpikeTimeScore The user experience analytics device RAM spike time score. Valid values 0 to 100
-    */
-    private ?int $ramSpikeTimeScore = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsResourcePerformance and sets the default values.
     */
     public function __construct() {
@@ -95,7 +30,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getAverageSpikeTimeScore(): ?int {
-        return $this->averageSpikeTimeScore;
+        return $this->getBackingStore()->get('averageSpikeTimeScore');
     }
 
     /**
@@ -103,7 +38,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getCpuSpikeTimePercentage(): ?float {
-        return $this->cpuSpikeTimePercentage;
+        return $this->getBackingStore()->get('cpuSpikeTimePercentage');
     }
 
     /**
@@ -111,7 +46,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getCpuSpikeTimePercentageThreshold(): ?float {
-        return $this->cpuSpikeTimePercentageThreshold;
+        return $this->getBackingStore()->get('cpuSpikeTimePercentageThreshold');
     }
 
     /**
@@ -119,7 +54,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getCpuSpikeTimeScore(): ?int {
-        return $this->cpuSpikeTimeScore;
+        return $this->getBackingStore()->get('cpuSpikeTimeScore');
     }
 
     /**
@@ -127,7 +62,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->deviceCount;
+        return $this->getBackingStore()->get('deviceCount');
     }
 
     /**
@@ -135,7 +70,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -143,7 +78,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -151,7 +86,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getDeviceResourcePerformanceScore(): ?int {
-        return $this->deviceResourcePerformanceScore;
+        return $this->getBackingStore()->get('deviceResourcePerformanceScore');
     }
 
     /**
@@ -182,7 +117,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -190,7 +125,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -198,7 +133,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getRamSpikeTimePercentage(): ?float {
-        return $this->ramSpikeTimePercentage;
+        return $this->getBackingStore()->get('ramSpikeTimePercentage');
     }
 
     /**
@@ -206,7 +141,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return float|null
     */
     public function getRamSpikeTimePercentageThreshold(): ?float {
-        return $this->ramSpikeTimePercentageThreshold;
+        return $this->getBackingStore()->get('ramSpikeTimePercentageThreshold');
     }
 
     /**
@@ -214,7 +149,7 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
      * @return int|null
     */
     public function getRamSpikeTimeScore(): ?int {
-        return $this->ramSpikeTimeScore;
+        return $this->getBackingStore()->get('ramSpikeTimeScore');
     }
 
     /**
@@ -223,123 +158,123 @@ class UserExperienceAnalyticsResourcePerformance extends Entity implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('averageSpikeTimeScore', $this->averageSpikeTimeScore);
-        $writer->writeFloatValue('cpuSpikeTimePercentage', $this->cpuSpikeTimePercentage);
-        $writer->writeFloatValue('cpuSpikeTimePercentageThreshold', $this->cpuSpikeTimePercentageThreshold);
-        $writer->writeIntegerValue('cpuSpikeTimeScore', $this->cpuSpikeTimeScore);
-        $writer->writeIntegerValue('deviceCount', $this->deviceCount);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeIntegerValue('deviceResourcePerformanceScore', $this->deviceResourcePerformanceScore);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeFloatValue('ramSpikeTimePercentage', $this->ramSpikeTimePercentage);
-        $writer->writeFloatValue('ramSpikeTimePercentageThreshold', $this->ramSpikeTimePercentageThreshold);
-        $writer->writeIntegerValue('ramSpikeTimeScore', $this->ramSpikeTimeScore);
+        $writer->writeIntegerValue('averageSpikeTimeScore', $this->getAverageSpikeTimeScore());
+        $writer->writeFloatValue('cpuSpikeTimePercentage', $this->getCpuSpikeTimePercentage());
+        $writer->writeFloatValue('cpuSpikeTimePercentageThreshold', $this->getCpuSpikeTimePercentageThreshold());
+        $writer->writeIntegerValue('cpuSpikeTimeScore', $this->getCpuSpikeTimeScore());
+        $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeIntegerValue('deviceResourcePerformanceScore', $this->getDeviceResourcePerformanceScore());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeFloatValue('ramSpikeTimePercentage', $this->getRamSpikeTimePercentage());
+        $writer->writeFloatValue('ramSpikeTimePercentageThreshold', $this->getRamSpikeTimePercentageThreshold());
+        $writer->writeIntegerValue('ramSpikeTimeScore', $this->getRamSpikeTimeScore());
     }
 
     /**
      * Sets the averageSpikeTimeScore property value. AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100
      *  @param int|null $value Value to set for the averageSpikeTimeScore property.
     */
-    public function setAverageSpikeTimeScore(?int $value ): void {
-        $this->averageSpikeTimeScore = $value;
+    public function setAverageSpikeTimeScore(?int $value): void {
+        $this->getBackingStore()->set('averageSpikeTimeScore', $value);
     }
 
     /**
      * Sets the cpuSpikeTimePercentage property value. CPU spike time in percentage. Valid values 0 to 100
      *  @param float|null $value Value to set for the cpuSpikeTimePercentage property.
     */
-    public function setCpuSpikeTimePercentage(?float $value ): void {
-        $this->cpuSpikeTimePercentage = $value;
+    public function setCpuSpikeTimePercentage(?float $value): void {
+        $this->getBackingStore()->set('cpuSpikeTimePercentage', $value);
     }
 
     /**
      * Sets the cpuSpikeTimePercentageThreshold property value. Threshold of cpuSpikeTimeScore. Valid values 0 to 100
      *  @param float|null $value Value to set for the cpuSpikeTimePercentageThreshold property.
     */
-    public function setCpuSpikeTimePercentageThreshold(?float $value ): void {
-        $this->cpuSpikeTimePercentageThreshold = $value;
+    public function setCpuSpikeTimePercentageThreshold(?float $value): void {
+        $this->getBackingStore()->set('cpuSpikeTimePercentageThreshold', $value);
     }
 
     /**
      * Sets the cpuSpikeTimeScore property value. The user experience analytics device CPU spike time score. Valid values 0 to 100
      *  @param int|null $value Value to set for the cpuSpikeTimeScore property.
     */
-    public function setCpuSpikeTimeScore(?int $value ): void {
-        $this->cpuSpikeTimeScore = $value;
+    public function setCpuSpikeTimeScore(?int $value): void {
+        $this->getBackingStore()->set('cpuSpikeTimeScore', $value);
     }
 
     /**
      * Sets the deviceCount property value. User experience analytics summarized device count.
      *  @param int|null $value Value to set for the deviceCount property.
     */
-    public function setDeviceCount(?int $value ): void {
-        $this->deviceCount = $value;
+    public function setDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('deviceCount', $value);
     }
 
     /**
      * Sets the deviceId property value. The id of the device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. The name of the device.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the deviceResourcePerformanceScore property value. Resource performance score of a specific device. Valid values 0 to 100
      *  @param int|null $value Value to set for the deviceResourcePerformanceScore property.
     */
-    public function setDeviceResourcePerformanceScore(?int $value ): void {
-        $this->deviceResourcePerformanceScore = $value;
+    public function setDeviceResourcePerformanceScore(?int $value): void {
+        $this->getBackingStore()->set('deviceResourcePerformanceScore', $value);
     }
 
     /**
      * Sets the manufacturer property value. The user experience analytics device manufacturer.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The user experience analytics device model.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the ramSpikeTimePercentage property value. RAM spike time in percentage. Valid values 0 to 100
      *  @param float|null $value Value to set for the ramSpikeTimePercentage property.
     */
-    public function setRamSpikeTimePercentage(?float $value ): void {
-        $this->ramSpikeTimePercentage = $value;
+    public function setRamSpikeTimePercentage(?float $value): void {
+        $this->getBackingStore()->set('ramSpikeTimePercentage', $value);
     }
 
     /**
      * Sets the ramSpikeTimePercentageThreshold property value. Threshold of ramSpikeTimeScore. Valid values 0 to 100
      *  @param float|null $value Value to set for the ramSpikeTimePercentageThreshold property.
     */
-    public function setRamSpikeTimePercentageThreshold(?float $value ): void {
-        $this->ramSpikeTimePercentageThreshold = $value;
+    public function setRamSpikeTimePercentageThreshold(?float $value): void {
+        $this->getBackingStore()->set('ramSpikeTimePercentageThreshold', $value);
     }
 
     /**
      * Sets the ramSpikeTimeScore property value. The user experience analytics device RAM spike time score. Valid values 0 to 100
      *  @param int|null $value Value to set for the ramSpikeTimeScore property.
     */
-    public function setRamSpikeTimeScore(?int $value ): void {
-        $this->ramSpikeTimeScore = $value;
+    public function setRamSpikeTimeScore(?int $value): void {
+        $this->getBackingStore()->set('ramSpikeTimeScore', $value);
     }
 
 }

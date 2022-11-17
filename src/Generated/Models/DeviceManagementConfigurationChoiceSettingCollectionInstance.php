@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingCollectionInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationChoiceSettingValue>|null $choiceSettingCollectionValue Choice setting collection value
-    */
-    private ?array $choiceSettingCollectionValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingCollectionInstance and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
      * @return array<DeviceManagementConfigurationChoiceSettingValue>|null
     */
     public function getChoiceSettingCollectionValue(): ?array {
-        return $this->choiceSettingCollectionValue;
+        return $this->getBackingStore()->get('choiceSettingCollectionValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstance extends Devic
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('choiceSettingCollectionValue', $this->choiceSettingCollectionValue);
+        $writer->writeCollectionOfObjectValues('choiceSettingCollectionValue', $this->getChoiceSettingCollectionValue());
     }
 
     /**
      * Sets the choiceSettingCollectionValue property value. Choice setting collection value
      *  @param array<DeviceManagementConfigurationChoiceSettingValue>|null $value Value to set for the choiceSettingCollectionValue property.
     */
-    public function setChoiceSettingCollectionValue(?array $value ): void {
-        $this->choiceSettingCollectionValue = $value;
+    public function setChoiceSettingCollectionValue(?array $value): void {
+        $this->getBackingStore()->set('choiceSettingCollectionValue', $value);
     }
 
 }

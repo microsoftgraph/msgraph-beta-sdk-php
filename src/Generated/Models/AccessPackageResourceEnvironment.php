@@ -10,61 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceEnvironment extends Entity implements Parsable 
 {
     /**
-     * @var array<AccessPackageResource>|null $accessPackageResources Read-only. Required.
-    */
-    private ?array $accessPackageResources = null;
-    
-    /**
-     * @var ConnectionInfo|null $connectionInfo Connection information of an environment used to connect to a resource.
-    */
-    private ?ConnectionInfo $connectionInfo = null;
-    
-    /**
-     * @var string|null $createdBy The display name of the user that created this object.
-    */
-    private ?string $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description of this object.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of this object.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isDefaultEnvironment Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
-    */
-    private ?bool $isDefaultEnvironment = null;
-    
-    /**
-     * @var string|null $modifiedBy The display name of the entity that last modified this object.
-    */
-    private ?string $modifiedBy = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
-     * @var string|null $originId The unique identifier of this environment in the origin system.
-    */
-    private ?string $originId = null;
-    
-    /**
-     * @var string|null $originSystem The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq).
-    */
-    private ?string $originSystem = null;
-    
-    /**
      * Instantiates a new accessPackageResourceEnvironment and sets the default values.
     */
     public function __construct() {
@@ -86,7 +31,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return array<AccessPackageResource>|null
     */
     public function getAccessPackageResources(): ?array {
-        return $this->accessPackageResources;
+        return $this->getBackingStore()->get('accessPackageResources');
     }
 
     /**
@@ -94,7 +39,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return ConnectionInfo|null
     */
     public function getConnectionInfo(): ?ConnectionInfo {
-        return $this->connectionInfo;
+        return $this->getBackingStore()->get('connectionInfo');
     }
 
     /**
@@ -102,7 +47,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -110,7 +55,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -118,7 +63,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -126,7 +71,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -155,7 +100,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultEnvironment(): ?bool {
-        return $this->isDefaultEnvironment;
+        return $this->getBackingStore()->get('isDefaultEnvironment');
     }
 
     /**
@@ -163,7 +108,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->modifiedBy;
+        return $this->getBackingStore()->get('modifiedBy');
     }
 
     /**
@@ -171,7 +116,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -179,7 +124,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->originId;
+        return $this->getBackingStore()->get('originId');
     }
 
     /**
@@ -187,7 +132,7 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->originSystem;
+        return $this->getBackingStore()->get('originSystem');
     }
 
     /**
@@ -196,105 +141,105 @@ class AccessPackageResourceEnvironment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accessPackageResources', $this->accessPackageResources);
-        $writer->writeObjectValue('connectionInfo', $this->connectionInfo);
-        $writer->writeStringValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isDefaultEnvironment', $this->isDefaultEnvironment);
-        $writer->writeStringValue('modifiedBy', $this->modifiedBy);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
-        $writer->writeStringValue('originId', $this->originId);
-        $writer->writeStringValue('originSystem', $this->originSystem);
+        $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
+        $writer->writeObjectValue('connectionInfo', $this->getConnectionInfo());
+        $writer->writeStringValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isDefaultEnvironment', $this->getIsDefaultEnvironment());
+        $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeStringValue('originId', $this->getOriginId());
+        $writer->writeStringValue('originSystem', $this->getOriginSystem());
     }
 
     /**
      * Sets the accessPackageResources property value. Read-only. Required.
      *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
-    public function setAccessPackageResources(?array $value ): void {
-        $this->accessPackageResources = $value;
+    public function setAccessPackageResources(?array $value): void {
+        $this->getBackingStore()->set('accessPackageResources', $value);
     }
 
     /**
      * Sets the connectionInfo property value. Connection information of an environment used to connect to a resource.
      *  @param ConnectionInfo|null $value Value to set for the connectionInfo property.
     */
-    public function setConnectionInfo(?ConnectionInfo $value ): void {
-        $this->connectionInfo = $value;
+    public function setConnectionInfo(?ConnectionInfo $value): void {
+        $this->getBackingStore()->set('connectionInfo', $value);
     }
 
     /**
      * Sets the createdBy property value. The display name of the user that created this object.
      *  @param string|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?string $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?string $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description of this object.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of this object.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isDefaultEnvironment property value. Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
      *  @param bool|null $value Value to set for the isDefaultEnvironment property.
     */
-    public function setIsDefaultEnvironment(?bool $value ): void {
-        $this->isDefaultEnvironment = $value;
+    public function setIsDefaultEnvironment(?bool $value): void {
+        $this->getBackingStore()->set('isDefaultEnvironment', $value);
     }
 
     /**
      * Sets the modifiedBy property value. The display name of the entity that last modified this object.
      *  @param string|null $value Value to set for the modifiedBy property.
     */
-    public function setModifiedBy(?string $value ): void {
-        $this->modifiedBy = $value;
+    public function setModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('modifiedBy', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
     /**
      * Sets the originId property value. The unique identifier of this environment in the origin system.
      *  @param string|null $value Value to set for the originId property.
     */
-    public function setOriginId(?string $value ): void {
-        $this->originId = $value;
+    public function setOriginId(?string $value): void {
+        $this->getBackingStore()->set('originId', $value);
     }
 
     /**
      * Sets the originSystem property value. The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq).
      *  @param string|null $value Value to set for the originSystem property.
     */
-    public function setOriginSystem(?string $value ): void {
-        $this->originSystem = $value;
+    public function setOriginSystem(?string $value): void {
+        $this->getBackingStore()->set('originSystem', $value);
     }
 
 }

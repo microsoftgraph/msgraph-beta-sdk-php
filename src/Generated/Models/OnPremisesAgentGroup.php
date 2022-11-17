@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesAgentGroup extends Entity implements Parsable 
 {
     /**
-     * @var array<OnPremisesAgent>|null $agents List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-    */
-    private ?array $agents = null;
-    
-    /**
-     * @var string|null $displayName Display name of the onPremisesAgentGroup.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isDefault Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var array<PublishedResource>|null $publishedResources List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
-    */
-    private ?array $publishedResources = null;
-    
-    /**
-     * @var OnPremisesPublishingType|null $publishingType The publishingType property
-    */
-    private ?OnPremisesPublishingType $publishingType = null;
-    
-    /**
      * Instantiates a new onPremisesAgentGroup and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return array<OnPremisesAgent>|null
     */
     public function getAgents(): ?array {
-        return $this->agents;
+        return $this->getBackingStore()->get('agents');
     }
 
     /**
@@ -63,7 +38,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -86,7 +61,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -94,7 +69,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return array<PublishedResource>|null
     */
     public function getPublishedResources(): ?array {
-        return $this->publishedResources;
+        return $this->getBackingStore()->get('publishedResources');
     }
 
     /**
@@ -102,7 +77,7 @@ class OnPremisesAgentGroup extends Entity implements Parsable
      * @return OnPremisesPublishingType|null
     */
     public function getPublishingType(): ?OnPremisesPublishingType {
-        return $this->publishingType;
+        return $this->getBackingStore()->get('publishingType');
     }
 
     /**
@@ -111,51 +86,51 @@ class OnPremisesAgentGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('agents', $this->agents);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeCollectionOfObjectValues('publishedResources', $this->publishedResources);
-        $writer->writeEnumValue('publishingType', $this->publishingType);
+        $writer->writeCollectionOfObjectValues('agents', $this->getAgents());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeCollectionOfObjectValues('publishedResources', $this->getPublishedResources());
+        $writer->writeEnumValue('publishingType', $this->getPublishingType());
     }
 
     /**
      * Sets the agents property value. List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
      *  @param array<OnPremisesAgent>|null $value Value to set for the agents property.
     */
-    public function setAgents(?array $value ): void {
-        $this->agents = $value;
+    public function setAgents(?array $value): void {
+        $this->getBackingStore()->set('agents', $value);
     }
 
     /**
      * Sets the displayName property value. Display name of the onPremisesAgentGroup.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isDefault property value. Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the publishedResources property value. List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
      *  @param array<PublishedResource>|null $value Value to set for the publishedResources property.
     */
-    public function setPublishedResources(?array $value ): void {
-        $this->publishedResources = $value;
+    public function setPublishedResources(?array $value): void {
+        $this->getBackingStore()->set('publishedResources', $value);
     }
 
     /**
      * Sets the publishingType property value. The publishingType property
      *  @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
     */
-    public function setPublishingType(?OnPremisesPublishingType $value ): void {
-        $this->publishingType = $value;
+    public function setPublishingType(?OnPremisesPublishingType $value): void {
+        $this->getBackingStore()->set('publishingType', $value);
     }
 
 }

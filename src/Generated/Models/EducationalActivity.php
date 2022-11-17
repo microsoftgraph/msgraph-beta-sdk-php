@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationalActivity extends ItemFacet implements Parsable 
 {
     /**
-     * @var Date|null $completionMonthYear The month and year the user graduated or completed the activity.
-    */
-    private ?Date $completionMonthYear = null;
-    
-    /**
-     * @var Date|null $endMonthYear The month and year the user completed the educational activity referenced.
-    */
-    private ?Date $endMonthYear = null;
-    
-    /**
-     * @var InstitutionData|null $institution The institution property
-    */
-    private ?InstitutionData $institution = null;
-    
-    /**
-     * @var EducationalActivityDetail|null $program The program property
-    */
-    private ?EducationalActivityDetail $program = null;
-    
-    /**
-     * @var Date|null $startMonthYear The month and year the user commenced the activity referenced.
-    */
-    private ?Date $startMonthYear = null;
-    
-    /**
      * Instantiates a new EducationalActivity and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getCompletionMonthYear(): ?Date {
-        return $this->completionMonthYear;
+        return $this->getBackingStore()->get('completionMonthYear');
     }
 
     /**
@@ -64,7 +39,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getEndMonthYear(): ?Date {
-        return $this->endMonthYear;
+        return $this->getBackingStore()->get('endMonthYear');
     }
 
     /**
@@ -87,7 +62,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return InstitutionData|null
     */
     public function getInstitution(): ?InstitutionData {
-        return $this->institution;
+        return $this->getBackingStore()->get('institution');
     }
 
     /**
@@ -95,7 +70,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return EducationalActivityDetail|null
     */
     public function getProgram(): ?EducationalActivityDetail {
-        return $this->program;
+        return $this->getBackingStore()->get('program');
     }
 
     /**
@@ -103,7 +78,7 @@ class EducationalActivity extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getStartMonthYear(): ?Date {
-        return $this->startMonthYear;
+        return $this->getBackingStore()->get('startMonthYear');
     }
 
     /**
@@ -112,51 +87,51 @@ class EducationalActivity extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateValue('completionMonthYear', $this->completionMonthYear);
-        $writer->writeDateValue('endMonthYear', $this->endMonthYear);
-        $writer->writeObjectValue('institution', $this->institution);
-        $writer->writeObjectValue('program', $this->program);
-        $writer->writeDateValue('startMonthYear', $this->startMonthYear);
+        $writer->writeDateValue('completionMonthYear', $this->getCompletionMonthYear());
+        $writer->writeDateValue('endMonthYear', $this->getEndMonthYear());
+        $writer->writeObjectValue('institution', $this->getInstitution());
+        $writer->writeObjectValue('program', $this->getProgram());
+        $writer->writeDateValue('startMonthYear', $this->getStartMonthYear());
     }
 
     /**
      * Sets the completionMonthYear property value. The month and year the user graduated or completed the activity.
      *  @param Date|null $value Value to set for the completionMonthYear property.
     */
-    public function setCompletionMonthYear(?Date $value ): void {
-        $this->completionMonthYear = $value;
+    public function setCompletionMonthYear(?Date $value): void {
+        $this->getBackingStore()->set('completionMonthYear', $value);
     }
 
     /**
      * Sets the endMonthYear property value. The month and year the user completed the educational activity referenced.
      *  @param Date|null $value Value to set for the endMonthYear property.
     */
-    public function setEndMonthYear(?Date $value ): void {
-        $this->endMonthYear = $value;
+    public function setEndMonthYear(?Date $value): void {
+        $this->getBackingStore()->set('endMonthYear', $value);
     }
 
     /**
      * Sets the institution property value. The institution property
      *  @param InstitutionData|null $value Value to set for the institution property.
     */
-    public function setInstitution(?InstitutionData $value ): void {
-        $this->institution = $value;
+    public function setInstitution(?InstitutionData $value): void {
+        $this->getBackingStore()->set('institution', $value);
     }
 
     /**
      * Sets the program property value. The program property
      *  @param EducationalActivityDetail|null $value Value to set for the program property.
     */
-    public function setProgram(?EducationalActivityDetail $value ): void {
-        $this->program = $value;
+    public function setProgram(?EducationalActivityDetail $value): void {
+        $this->getBackingStore()->set('program', $value);
     }
 
     /**
      * Sets the startMonthYear property value. The month and year the user commenced the activity referenced.
      *  @param Date|null $value Value to set for the startMonthYear property.
     */
-    public function setStartMonthYear(?Date $value ): void {
-        $this->startMonthYear = $value;
+    public function setStartMonthYear(?Date $value): void {
+        $this->getBackingStore()->set('startMonthYear', $value);
     }
 
 }

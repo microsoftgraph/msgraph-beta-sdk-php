@@ -9,96 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutlookTask extends OutlookItem implements Parsable 
 {
     /**
-     * @var string|null $assignedTo The name of the person who has been assigned the task in Outlook. Read-only.
-    */
-    private ?string $assignedTo = null;
-    
-    /**
-     * @var array<Attachment>|null $attachments The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
-    */
-    private ?array $attachments = null;
-    
-    /**
-     * @var ItemBody|null $body The task body that typically contains information about the task. Note that only HTML type is supported.
-    */
-    private ?ItemBody $body = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $completedDateTime The date in the specified time zone that the task was finished.
-    */
-    private ?DateTimeTimeZone $completedDateTime = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $dueDateTime The date in the specified time zone that the task is to be finished.
-    */
-    private ?DateTimeTimeZone $dueDateTime = null;
-    
-    /**
-     * @var bool|null $hasAttachments Set to true if the task has attachments.
-    */
-    private ?bool $hasAttachments = null;
-    
-    /**
-     * @var Importance|null $importance The importance property
-    */
-    private ?Importance $importance = null;
-    
-    /**
-     * @var bool|null $isReminderOn The isReminderOn property
-    */
-    private ?bool $isReminderOn = null;
-    
-    /**
-     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the task. Read-only. Nullable.
-    */
-    private ?array $multiValueExtendedProperties = null;
-    
-    /**
-     * @var string|null $owner The owner property
-    */
-    private ?string $owner = null;
-    
-    /**
-     * @var string|null $parentFolderId The parentFolderId property
-    */
-    private ?string $parentFolderId = null;
-    
-    /**
-     * @var PatternedRecurrence|null $recurrence The recurrence property
-    */
-    private ?PatternedRecurrence $recurrence = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $reminderDateTime The reminderDateTime property
-    */
-    private ?DateTimeTimeZone $reminderDateTime = null;
-    
-    /**
-     * @var Sensitivity|null $sensitivity The sensitivity property
-    */
-    private ?Sensitivity $sensitivity = null;
-    
-    /**
-     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the task. Read-only. Nullable.
-    */
-    private ?array $singleValueExtendedProperties = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $startDateTime The startDateTime property
-    */
-    private ?DateTimeTimeZone $startDateTime = null;
-    
-    /**
-     * @var TaskStatus|null $status The status property
-    */
-    private ?TaskStatus $status = null;
-    
-    /**
-     * @var string|null $subject The subject property
-    */
-    private ?string $subject = null;
-    
-    /**
      * Instantiates a new OutlookTask and sets the default values.
     */
     public function __construct() {
@@ -120,7 +30,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getAssignedTo(): ?string {
-        return $this->assignedTo;
+        return $this->getBackingStore()->get('assignedTo');
     }
 
     /**
@@ -128,7 +38,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return array<Attachment>|null
     */
     public function getAttachments(): ?array {
-        return $this->attachments;
+        return $this->getBackingStore()->get('attachments');
     }
 
     /**
@@ -136,7 +46,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return ItemBody|null
     */
     public function getBody(): ?ItemBody {
-        return $this->body;
+        return $this->getBackingStore()->get('body');
     }
 
     /**
@@ -144,7 +54,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getCompletedDateTime(): ?DateTimeTimeZone {
-        return $this->completedDateTime;
+        return $this->getBackingStore()->get('completedDateTime');
     }
 
     /**
@@ -152,7 +62,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getDueDateTime(): ?DateTimeTimeZone {
-        return $this->dueDateTime;
+        return $this->getBackingStore()->get('dueDateTime');
     }
 
     /**
@@ -188,7 +98,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
-        return $this->hasAttachments;
+        return $this->getBackingStore()->get('hasAttachments');
     }
 
     /**
@@ -196,7 +106,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
-        return $this->importance;
+        return $this->getBackingStore()->get('importance');
     }
 
     /**
@@ -204,7 +114,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsReminderOn(): ?bool {
-        return $this->isReminderOn;
+        return $this->getBackingStore()->get('isReminderOn');
     }
 
     /**
@@ -212,7 +122,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->multiValueExtendedProperties;
+        return $this->getBackingStore()->get('multiValueExtendedProperties');
     }
 
     /**
@@ -220,7 +130,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOwner(): ?string {
-        return $this->owner;
+        return $this->getBackingStore()->get('owner');
     }
 
     /**
@@ -228,7 +138,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getParentFolderId(): ?string {
-        return $this->parentFolderId;
+        return $this->getBackingStore()->get('parentFolderId');
     }
 
     /**
@@ -236,7 +146,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
-        return $this->recurrence;
+        return $this->getBackingStore()->get('recurrence');
     }
 
     /**
@@ -244,7 +154,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getReminderDateTime(): ?DateTimeTimeZone {
-        return $this->reminderDateTime;
+        return $this->getBackingStore()->get('reminderDateTime');
     }
 
     /**
@@ -252,7 +162,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return Sensitivity|null
     */
     public function getSensitivity(): ?Sensitivity {
-        return $this->sensitivity;
+        return $this->getBackingStore()->get('sensitivity');
     }
 
     /**
@@ -260,7 +170,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->singleValueExtendedProperties;
+        return $this->getBackingStore()->get('singleValueExtendedProperties');
     }
 
     /**
@@ -268,7 +178,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getStartDateTime(): ?DateTimeTimeZone {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -276,7 +186,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return TaskStatus|null
     */
     public function getStatus(): ?TaskStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -284,7 +194,7 @@ class OutlookTask extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -293,168 +203,168 @@ class OutlookTask extends OutlookItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('assignedTo', $this->assignedTo);
-        $writer->writeCollectionOfObjectValues('attachments', $this->attachments);
-        $writer->writeObjectValue('body', $this->body);
-        $writer->writeObjectValue('completedDateTime', $this->completedDateTime);
-        $writer->writeObjectValue('dueDateTime', $this->dueDateTime);
-        $writer->writeBooleanValue('hasAttachments', $this->hasAttachments);
-        $writer->writeEnumValue('importance', $this->importance);
-        $writer->writeBooleanValue('isReminderOn', $this->isReminderOn);
-        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->multiValueExtendedProperties);
-        $writer->writeStringValue('owner', $this->owner);
-        $writer->writeStringValue('parentFolderId', $this->parentFolderId);
-        $writer->writeObjectValue('recurrence', $this->recurrence);
-        $writer->writeObjectValue('reminderDateTime', $this->reminderDateTime);
-        $writer->writeEnumValue('sensitivity', $this->sensitivity);
-        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->singleValueExtendedProperties);
-        $writer->writeObjectValue('startDateTime', $this->startDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('subject', $this->subject);
+        $writer->writeStringValue('assignedTo', $this->getAssignedTo());
+        $writer->writeCollectionOfObjectValues('attachments', $this->getAttachments());
+        $writer->writeObjectValue('body', $this->getBody());
+        $writer->writeObjectValue('completedDateTime', $this->getCompletedDateTime());
+        $writer->writeObjectValue('dueDateTime', $this->getDueDateTime());
+        $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
+        $writer->writeEnumValue('importance', $this->getImportance());
+        $writer->writeBooleanValue('isReminderOn', $this->getIsReminderOn());
+        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('owner', $this->getOwner());
+        $writer->writeStringValue('parentFolderId', $this->getParentFolderId());
+        $writer->writeObjectValue('recurrence', $this->getRecurrence());
+        $writer->writeObjectValue('reminderDateTime', $this->getReminderDateTime());
+        $writer->writeEnumValue('sensitivity', $this->getSensitivity());
+        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
+        $writer->writeObjectValue('startDateTime', $this->getStartDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('subject', $this->getSubject());
     }
 
     /**
      * Sets the assignedTo property value. The name of the person who has been assigned the task in Outlook. Read-only.
      *  @param string|null $value Value to set for the assignedTo property.
     */
-    public function setAssignedTo(?string $value ): void {
-        $this->assignedTo = $value;
+    public function setAssignedTo(?string $value): void {
+        $this->getBackingStore()->set('assignedTo', $value);
     }
 
     /**
      * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.
      *  @param array<Attachment>|null $value Value to set for the attachments property.
     */
-    public function setAttachments(?array $value ): void {
-        $this->attachments = $value;
+    public function setAttachments(?array $value): void {
+        $this->getBackingStore()->set('attachments', $value);
     }
 
     /**
      * Sets the body property value. The task body that typically contains information about the task. Note that only HTML type is supported.
      *  @param ItemBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value ): void {
-        $this->body = $value;
+    public function setBody(?ItemBody $value): void {
+        $this->getBackingStore()->set('body', $value);
     }
 
     /**
      * Sets the completedDateTime property value. The date in the specified time zone that the task was finished.
      *  @param DateTimeTimeZone|null $value Value to set for the completedDateTime property.
     */
-    public function setCompletedDateTime(?DateTimeTimeZone $value ): void {
-        $this->completedDateTime = $value;
+    public function setCompletedDateTime(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('completedDateTime', $value);
     }
 
     /**
      * Sets the dueDateTime property value. The date in the specified time zone that the task is to be finished.
      *  @param DateTimeTimeZone|null $value Value to set for the dueDateTime property.
     */
-    public function setDueDateTime(?DateTimeTimeZone $value ): void {
-        $this->dueDateTime = $value;
+    public function setDueDateTime(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('dueDateTime', $value);
     }
 
     /**
      * Sets the hasAttachments property value. Set to true if the task has attachments.
      *  @param bool|null $value Value to set for the hasAttachments property.
     */
-    public function setHasAttachments(?bool $value ): void {
-        $this->hasAttachments = $value;
+    public function setHasAttachments(?bool $value): void {
+        $this->getBackingStore()->set('hasAttachments', $value);
     }
 
     /**
      * Sets the importance property value. The importance property
      *  @param Importance|null $value Value to set for the importance property.
     */
-    public function setImportance(?Importance $value ): void {
-        $this->importance = $value;
+    public function setImportance(?Importance $value): void {
+        $this->getBackingStore()->set('importance', $value);
     }
 
     /**
      * Sets the isReminderOn property value. The isReminderOn property
      *  @param bool|null $value Value to set for the isReminderOn property.
     */
-    public function setIsReminderOn(?bool $value ): void {
-        $this->isReminderOn = $value;
+    public function setIsReminderOn(?bool $value): void {
+        $this->getBackingStore()->set('isReminderOn', $value);
     }
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the task. Read-only. Nullable.
      *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
-    public function setMultiValueExtendedProperties(?array $value ): void {
-        $this->multiValueExtendedProperties = $value;
+    public function setMultiValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('multiValueExtendedProperties', $value);
     }
 
     /**
      * Sets the owner property value. The owner property
      *  @param string|null $value Value to set for the owner property.
     */
-    public function setOwner(?string $value ): void {
-        $this->owner = $value;
+    public function setOwner(?string $value): void {
+        $this->getBackingStore()->set('owner', $value);
     }
 
     /**
      * Sets the parentFolderId property value. The parentFolderId property
      *  @param string|null $value Value to set for the parentFolderId property.
     */
-    public function setParentFolderId(?string $value ): void {
-        $this->parentFolderId = $value;
+    public function setParentFolderId(?string $value): void {
+        $this->getBackingStore()->set('parentFolderId', $value);
     }
 
     /**
      * Sets the recurrence property value. The recurrence property
      *  @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
-    public function setRecurrence(?PatternedRecurrence $value ): void {
-        $this->recurrence = $value;
+    public function setRecurrence(?PatternedRecurrence $value): void {
+        $this->getBackingStore()->set('recurrence', $value);
     }
 
     /**
      * Sets the reminderDateTime property value. The reminderDateTime property
      *  @param DateTimeTimeZone|null $value Value to set for the reminderDateTime property.
     */
-    public function setReminderDateTime(?DateTimeTimeZone $value ): void {
-        $this->reminderDateTime = $value;
+    public function setReminderDateTime(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('reminderDateTime', $value);
     }
 
     /**
      * Sets the sensitivity property value. The sensitivity property
      *  @param Sensitivity|null $value Value to set for the sensitivity property.
     */
-    public function setSensitivity(?Sensitivity $value ): void {
-        $this->sensitivity = $value;
+    public function setSensitivity(?Sensitivity $value): void {
+        $this->getBackingStore()->set('sensitivity', $value);
     }
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the task. Read-only. Nullable.
      *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
-    public function setSingleValueExtendedProperties(?array $value ): void {
-        $this->singleValueExtendedProperties = $value;
+    public function setSingleValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('singleValueExtendedProperties', $value);
     }
 
     /**
      * Sets the startDateTime property value. The startDateTime property
      *  @param DateTimeTimeZone|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTimeTimeZone $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param TaskStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?TaskStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?TaskStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
 }

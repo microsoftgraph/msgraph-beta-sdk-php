@@ -7,38 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateRequestPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $assignmentState The assignmentState property
-    */
-    private ?string $assignmentState = null;
-    
-    /**
-     * @var string|null $decision The decision property
-    */
-    private ?string $decision = null;
-    
-    /**
-     * @var string|null $reason The reason property
-    */
-    private ?string $reason = null;
-    
-    /**
-     * @var GovernanceSchedule|null $schedule The schedule property
-    */
-    private ?GovernanceSchedule $schedule = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateRequestPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -55,8 +39,8 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -64,7 +48,15 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAssignmentState(): ?string {
-        return $this->assignmentState;
+        return $this->getBackingStore()->get('assignmentState');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +64,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDecision(): ?string {
-        return $this->decision;
+        return $this->getBackingStore()->get('decision');
     }
 
     /**
@@ -94,7 +86,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -102,7 +94,7 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * @return GovernanceSchedule|null
     */
     public function getSchedule(): ?GovernanceSchedule {
-        return $this->schedule;
+        return $this->getBackingStore()->get('schedule');
     }
 
     /**
@@ -110,51 +102,51 @@ class UpdateRequestPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('assignmentState', $this->assignmentState);
-        $writer->writeStringValue('decision', $this->decision);
-        $writer->writeStringValue('reason', $this->reason);
-        $writer->writeObjectValue('schedule', $this->schedule);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('assignmentState', $this->getAssignmentState());
+        $writer->writeStringValue('decision', $this->getDecision());
+        $writer->writeStringValue('reason', $this->getReason());
+        $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignmentState property value. The assignmentState property
      *  @param string|null $value Value to set for the assignmentState property.
     */
-    public function setAssignmentState(?string $value ): void {
-        $this->assignmentState = $value;
+    public function setAssignmentState(?string $value): void {
+        $this->getBackingStore()->set('assignmentState', $value);
     }
 
     /**
      * Sets the decision property value. The decision property
      *  @param string|null $value Value to set for the decision property.
     */
-    public function setDecision(?string $value ): void {
-        $this->decision = $value;
+    public function setDecision(?string $value): void {
+        $this->getBackingStore()->set('decision', $value);
     }
 
     /**
      * Sets the reason property value. The reason property
      *  @param string|null $value Value to set for the reason property.
     */
-    public function setReason(?string $value ): void {
-        $this->reason = $value;
+    public function setReason(?string $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
     /**
      * Sets the schedule property value. The schedule property
      *  @param GovernanceSchedule|null $value Value to set for the schedule property.
     */
-    public function setSchedule(?GovernanceSchedule $value ): void {
-        $this->schedule = $value;
+    public function setSchedule(?GovernanceSchedule $value): void {
+        $this->getBackingStore()->set('schedule', $value);
     }
 
 }

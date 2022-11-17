@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable 
+class SynchronizationLinkedObjects implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var SynchronizationJobSubject|null $manager The manager property
-    */
-    private ?SynchronizationJobSubject $manager = null;
-    
-    /**
-     * @var array<SynchronizationJobSubject>|null $members All group members that you would like to provision.
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<SynchronizationJobSubject>|null $owners The owners property
-    */
-    private ?array $owners = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new synchronizationLinkedObjects and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.synchronizationLinkedObjects');
     }
@@ -55,8 +39,16 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @return SynchronizationJobSubject|null
     */
     public function getManager(): ?SynchronizationJobSubject {
-        return $this->manager;
+        return $this->getBackingStore()->get('manager');
     }
 
     /**
@@ -86,7 +78,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @return array<SynchronizationJobSubject>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -94,7 +86,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +94,7 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @return array<SynchronizationJobSubject>|null
     */
     public function getOwners(): ?array {
-        return $this->owners;
+        return $this->getBackingStore()->get('owners');
     }
 
     /**
@@ -110,51 +102,51 @@ class SynchronizationLinkedObjects implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('manager', $this->manager);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('owners', $this->owners);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('manager', $this->getManager());
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('owners', $this->getOwners());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the manager property value. The manager property
      *  @param SynchronizationJobSubject|null $value Value to set for the manager property.
     */
-    public function setManager(?SynchronizationJobSubject $value ): void {
-        $this->manager = $value;
+    public function setManager(?SynchronizationJobSubject $value): void {
+        $this->getBackingStore()->set('manager', $value);
     }
 
     /**
      * Sets the members property value. All group members that you would like to provision.
      *  @param array<SynchronizationJobSubject>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the owners property value. The owners property
      *  @param array<SynchronizationJobSubject>|null $value Value to set for the owners property.
     */
-    public function setOwners(?array $value ): void {
-        $this->owners = $value;
+    public function setOwners(?array $value): void {
+        $this->getBackingStore()->set('owners', $value);
     }
 
 }

@@ -11,36 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LifecycleWorkflowsContainer extends Entity implements Parsable 
 {
     /**
-     * @var array<CustomTaskExtension>|null $customTaskExtensions The customTaskExtension instance.
-    */
-    private ?array $customTaskExtensions = null;
-    
-    /**
-     * @var DeletedItemContainer|null $deletedItems Deleted workflows in your lifecycle workflows instance.
-    */
-    private ?DeletedItemContainer $deletedItems = null;
-    
-    /**
-     * @var LifecycleManagementSettings|null $settings The settings property
-    */
-    private ?LifecycleManagementSettings $settings = null;
-    
-    /**
-     * @var array<TaskDefinition>|null $taskDefinitions The definition of tasks within the lifecycle workflows instance.
-    */
-    private ?array $taskDefinitions = null;
-    
-    /**
-     * @var array<Workflow>|null $workflows The workflows in the lifecycle workflows instance.
-    */
-    private ?array $workflows = null;
-    
-    /**
-     * @var array<WorkflowTemplate>|null $workflowTemplates The workflow templates in the lifecycle workflow instance.
-    */
-    private ?array $workflowTemplates = null;
-    
-    /**
      * Instantiates a new LifecycleWorkflowsContainer and sets the default values.
     */
     public function __construct() {
@@ -62,7 +32,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return array<CustomTaskExtension>|null
     */
     public function getCustomTaskExtensions(): ?array {
-        return $this->customTaskExtensions;
+        return $this->getBackingStore()->get('customTaskExtensions');
     }
 
     /**
@@ -70,7 +40,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return DeletedItemContainer|null
     */
     public function getDeletedItems(): ?DeletedItemContainer {
-        return $this->deletedItems;
+        return $this->getBackingStore()->get('deletedItems');
     }
 
     /**
@@ -94,7 +64,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return LifecycleManagementSettings|null
     */
     public function getSettings(): ?LifecycleManagementSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -102,7 +72,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return array<TaskDefinition>|null
     */
     public function getTaskDefinitions(): ?array {
-        return $this->taskDefinitions;
+        return $this->getBackingStore()->get('taskDefinitions');
     }
 
     /**
@@ -110,7 +80,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return array<Workflow>|null
     */
     public function getWorkflows(): ?array {
-        return $this->workflows;
+        return $this->getBackingStore()->get('workflows');
     }
 
     /**
@@ -118,7 +88,7 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
      * @return array<WorkflowTemplate>|null
     */
     public function getWorkflowTemplates(): ?array {
-        return $this->workflowTemplates;
+        return $this->getBackingStore()->get('workflowTemplates');
     }
 
     /**
@@ -127,60 +97,60 @@ class LifecycleWorkflowsContainer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('customTaskExtensions', $this->customTaskExtensions);
-        $writer->writeObjectValue('deletedItems', $this->deletedItems);
-        $writer->writeObjectValue('settings', $this->settings);
-        $writer->writeCollectionOfObjectValues('taskDefinitions', $this->taskDefinitions);
-        $writer->writeCollectionOfObjectValues('workflows', $this->workflows);
-        $writer->writeCollectionOfObjectValues('workflowTemplates', $this->workflowTemplates);
+        $writer->writeCollectionOfObjectValues('customTaskExtensions', $this->getCustomTaskExtensions());
+        $writer->writeObjectValue('deletedItems', $this->getDeletedItems());
+        $writer->writeObjectValue('settings', $this->getSettings());
+        $writer->writeCollectionOfObjectValues('taskDefinitions', $this->getTaskDefinitions());
+        $writer->writeCollectionOfObjectValues('workflows', $this->getWorkflows());
+        $writer->writeCollectionOfObjectValues('workflowTemplates', $this->getWorkflowTemplates());
     }
 
     /**
      * Sets the customTaskExtensions property value. The customTaskExtension instance.
      *  @param array<CustomTaskExtension>|null $value Value to set for the customTaskExtensions property.
     */
-    public function setCustomTaskExtensions(?array $value ): void {
-        $this->customTaskExtensions = $value;
+    public function setCustomTaskExtensions(?array $value): void {
+        $this->getBackingStore()->set('customTaskExtensions', $value);
     }
 
     /**
      * Sets the deletedItems property value. Deleted workflows in your lifecycle workflows instance.
      *  @param DeletedItemContainer|null $value Value to set for the deletedItems property.
     */
-    public function setDeletedItems(?DeletedItemContainer $value ): void {
-        $this->deletedItems = $value;
+    public function setDeletedItems(?DeletedItemContainer $value): void {
+        $this->getBackingStore()->set('deletedItems', $value);
     }
 
     /**
      * Sets the settings property value. The settings property
      *  @param LifecycleManagementSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?LifecycleManagementSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?LifecycleManagementSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the taskDefinitions property value. The definition of tasks within the lifecycle workflows instance.
      *  @param array<TaskDefinition>|null $value Value to set for the taskDefinitions property.
     */
-    public function setTaskDefinitions(?array $value ): void {
-        $this->taskDefinitions = $value;
+    public function setTaskDefinitions(?array $value): void {
+        $this->getBackingStore()->set('taskDefinitions', $value);
     }
 
     /**
      * Sets the workflows property value. The workflows in the lifecycle workflows instance.
      *  @param array<Workflow>|null $value Value to set for the workflows property.
     */
-    public function setWorkflows(?array $value ): void {
-        $this->workflows = $value;
+    public function setWorkflows(?array $value): void {
+        $this->getBackingStore()->set('workflows', $value);
     }
 
     /**
      * Sets the workflowTemplates property value. The workflow templates in the lifecycle workflow instance.
      *  @param array<WorkflowTemplate>|null $value Value to set for the workflowTemplates property.
     */
-    public function setWorkflowTemplates(?array $value ): void {
-        $this->workflowTemplates = $value;
+    public function setWorkflowTemplates(?array $value): void {
+        $this->getBackingStore()->set('workflowTemplates', $value);
     }
 
 }

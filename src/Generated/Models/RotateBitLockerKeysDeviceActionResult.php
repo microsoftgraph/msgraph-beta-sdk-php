@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var int|null $errorCode RotateBitLockerKeys action error code
-    */
-    private ?int $errorCode = null;
-    
-    /**
      * Instantiates a new RotateBitLockerKeysDeviceActionResult and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implement
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -55,15 +50,15 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
     }
 
     /**
      * Sets the errorCode property value. RotateBitLockerKeys action error code
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
 }

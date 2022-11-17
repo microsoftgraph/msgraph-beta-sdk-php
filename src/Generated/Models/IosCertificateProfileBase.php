@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosCertificateProfileBase extends IosCertificateProfile implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
-    */
-    private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
-    
-    /**
-     * @var int|null $certificateValidityPeriodValue Value for the Certificate Validity Period.
-    */
-    private ?int $certificateValidityPeriodValue = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-    */
-    private ?int $renewalThresholdPercentage = null;
-    
-    /**
-     * @var SubjectAlternativeNameType|null $subjectAlternativeNameType Certificate Subject Alternative Name type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-    */
-    private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
-    
-    /**
-     * @var AppleSubjectNameFormat|null $subjectNameFormat Subject Name Format Options for Apple devices.
-    */
-    private ?AppleSubjectNameFormat $subjectNameFormat = null;
-    
-    /**
      * Instantiates a new IosCertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -63,7 +38,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->certificateValidityPeriodScale;
+        return $this->getBackingStore()->get('certificateValidityPeriodScale');
     }
 
     /**
@@ -71,7 +46,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->certificateValidityPeriodValue;
+        return $this->getBackingStore()->get('certificateValidityPeriodValue');
     }
 
     /**
@@ -94,7 +69,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
+        return $this->getBackingStore()->get('renewalThresholdPercentage');
     }
 
     /**
@@ -102,7 +77,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
-        return $this->subjectAlternativeNameType;
+        return $this->getBackingStore()->get('subjectAlternativeNameType');
     }
 
     /**
@@ -110,7 +85,7 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
      * @return AppleSubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?AppleSubjectNameFormat {
-        return $this->subjectNameFormat;
+        return $this->getBackingStore()->get('subjectNameFormat');
     }
 
     /**
@@ -119,51 +94,51 @@ class IosCertificateProfileBase extends IosCertificateProfile implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('certificateValidityPeriodScale', $this->certificateValidityPeriodScale);
-        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
-        $writer->writeEnumValue('subjectAlternativeNameType', $this->subjectAlternativeNameType);
-        $writer->writeEnumValue('subjectNameFormat', $this->subjectNameFormat);
+        $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
+        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
+        $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
+        $writer->writeEnumValue('subjectAlternativeNameType', $this->getSubjectAlternativeNameType());
+        $writer->writeEnumValue('subjectNameFormat', $this->getSubjectNameFormat());
     }
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
-    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
-        $this->certificateValidityPeriodScale = $value;
+    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period.
      *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
-    public function setCertificateValidityPeriodValue(?int $value ): void {
-        $this->certificateValidityPeriodValue = $value;
+    public function setCertificateValidityPeriodValue(?int $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
     }
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage. Valid values 1 to 99
      *  @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
+    public function setRenewalThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('renewalThresholdPercentage', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value ): void {
-        $this->subjectAlternativeNameType = $value;
+    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 
     /**
      * Sets the subjectNameFormat property value. Subject Name Format Options for Apple devices.
      *  @param AppleSubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
-    public function setSubjectNameFormat(?AppleSubjectNameFormat $value ): void {
-        $this->subjectNameFormat = $value;
+    public function setSubjectNameFormat(?AppleSubjectNameFormat $value): void {
+        $this->getBackingStore()->set('subjectNameFormat', $value);
     }
 
 }

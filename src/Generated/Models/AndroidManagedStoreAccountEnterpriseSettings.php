@@ -10,66 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $androidDeviceOwnerFullyManagedEnrollmentEnabled Company codes for AndroidManagedStoreAccountEnterpriseSettings
-    */
-    private ?bool $androidDeviceOwnerFullyManagedEnrollmentEnabled = null;
-    
-    /**
-     * @var AndroidManagedStoreAccountBindStatus|null $bindStatus Bind status of the tenant with the Google EMM API
-    */
-    private ?AndroidManagedStoreAccountBindStatus $bindStatus = null;
-    
-    /**
-     * @var array<AndroidEnrollmentCompanyCode>|null $companyCodes Company codes for AndroidManagedStoreAccountEnterpriseSettings
-    */
-    private ?array $companyCodes = null;
-    
-    /**
-     * @var bool|null $deviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-    */
-    private ?bool $deviceOwnerManagementEnabled = null;
-    
-    /**
-     * @var AndroidManagedStoreAccountEnrollmentTarget|null $enrollmentTarget Android for Work device management targeting type for the account
-    */
-    private ?AndroidManagedStoreAccountEnrollmentTarget $enrollmentTarget = null;
-    
-    /**
-     * @var DateTime|null $lastAppSyncDateTime Last completion time for app sync
-    */
-    private ?DateTime $lastAppSyncDateTime = null;
-    
-    /**
-     * @var AndroidManagedStoreAccountAppSyncStatus|null $lastAppSyncStatus Sync status of the tenant with the Google EMM API
-    */
-    private ?AndroidManagedStoreAccountAppSyncStatus $lastAppSyncStatus = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modification time for Android enterprise settings
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $managedGooglePlayInitialScopeTagIds Initial scope tags for MGP apps
-    */
-    private ?array $managedGooglePlayInitialScopeTagIds = null;
-    
-    /**
-     * @var string|null $ownerOrganizationName Organization name used when onboarding Android Enterprise
-    */
-    private ?string $ownerOrganizationName = null;
-    
-    /**
-     * @var string|null $ownerUserPrincipalName Owner UPN that created the enterprise
-    */
-    private ?string $ownerUserPrincipalName = null;
-    
-    /**
-     * @var array<string>|null $targetGroupIds Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
-    */
-    private ?array $targetGroupIds = null;
-    
-    /**
      * Instantiates a new androidManagedStoreAccountEnterpriseSettings and sets the default values.
     */
     public function __construct() {
@@ -91,7 +31,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return bool|null
     */
     public function getAndroidDeviceOwnerFullyManagedEnrollmentEnabled(): ?bool {
-        return $this->androidDeviceOwnerFullyManagedEnrollmentEnabled;
+        return $this->getBackingStore()->get('androidDeviceOwnerFullyManagedEnrollmentEnabled');
     }
 
     /**
@@ -99,7 +39,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return AndroidManagedStoreAccountBindStatus|null
     */
     public function getBindStatus(): ?AndroidManagedStoreAccountBindStatus {
-        return $this->bindStatus;
+        return $this->getBackingStore()->get('bindStatus');
     }
 
     /**
@@ -107,7 +47,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return array<AndroidEnrollmentCompanyCode>|null
     */
     public function getCompanyCodes(): ?array {
-        return $this->companyCodes;
+        return $this->getBackingStore()->get('companyCodes');
     }
 
     /**
@@ -115,7 +55,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return bool|null
     */
     public function getDeviceOwnerManagementEnabled(): ?bool {
-        return $this->deviceOwnerManagementEnabled;
+        return $this->getBackingStore()->get('deviceOwnerManagementEnabled');
     }
 
     /**
@@ -123,7 +63,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return AndroidManagedStoreAccountEnrollmentTarget|null
     */
     public function getEnrollmentTarget(): ?AndroidManagedStoreAccountEnrollmentTarget {
-        return $this->enrollmentTarget;
+        return $this->getBackingStore()->get('enrollmentTarget');
     }
 
     /**
@@ -153,7 +93,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return DateTime|null
     */
     public function getLastAppSyncDateTime(): ?DateTime {
-        return $this->lastAppSyncDateTime;
+        return $this->getBackingStore()->get('lastAppSyncDateTime');
     }
 
     /**
@@ -161,7 +101,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return AndroidManagedStoreAccountAppSyncStatus|null
     */
     public function getLastAppSyncStatus(): ?AndroidManagedStoreAccountAppSyncStatus {
-        return $this->lastAppSyncStatus;
+        return $this->getBackingStore()->get('lastAppSyncStatus');
     }
 
     /**
@@ -169,7 +109,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -177,7 +117,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return array<string>|null
     */
     public function getManagedGooglePlayInitialScopeTagIds(): ?array {
-        return $this->managedGooglePlayInitialScopeTagIds;
+        return $this->getBackingStore()->get('managedGooglePlayInitialScopeTagIds');
     }
 
     /**
@@ -185,7 +125,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return string|null
     */
     public function getOwnerOrganizationName(): ?string {
-        return $this->ownerOrganizationName;
+        return $this->getBackingStore()->get('ownerOrganizationName');
     }
 
     /**
@@ -193,7 +133,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
-        return $this->ownerUserPrincipalName;
+        return $this->getBackingStore()->get('ownerUserPrincipalName');
     }
 
     /**
@@ -201,7 +141,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
      * @return array<string>|null
     */
     public function getTargetGroupIds(): ?array {
-        return $this->targetGroupIds;
+        return $this->getBackingStore()->get('targetGroupIds');
     }
 
     /**
@@ -210,114 +150,114 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('androidDeviceOwnerFullyManagedEnrollmentEnabled', $this->androidDeviceOwnerFullyManagedEnrollmentEnabled);
-        $writer->writeEnumValue('bindStatus', $this->bindStatus);
-        $writer->writeCollectionOfObjectValues('companyCodes', $this->companyCodes);
-        $writer->writeBooleanValue('deviceOwnerManagementEnabled', $this->deviceOwnerManagementEnabled);
-        $writer->writeEnumValue('enrollmentTarget', $this->enrollmentTarget);
-        $writer->writeDateTimeValue('lastAppSyncDateTime', $this->lastAppSyncDateTime);
-        $writer->writeEnumValue('lastAppSyncStatus', $this->lastAppSyncStatus);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('managedGooglePlayInitialScopeTagIds', $this->managedGooglePlayInitialScopeTagIds);
-        $writer->writeStringValue('ownerOrganizationName', $this->ownerOrganizationName);
-        $writer->writeStringValue('ownerUserPrincipalName', $this->ownerUserPrincipalName);
-        $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->targetGroupIds);
+        $writer->writeBooleanValue('androidDeviceOwnerFullyManagedEnrollmentEnabled', $this->getAndroidDeviceOwnerFullyManagedEnrollmentEnabled());
+        $writer->writeEnumValue('bindStatus', $this->getBindStatus());
+        $writer->writeCollectionOfObjectValues('companyCodes', $this->getCompanyCodes());
+        $writer->writeBooleanValue('deviceOwnerManagementEnabled', $this->getDeviceOwnerManagementEnabled());
+        $writer->writeEnumValue('enrollmentTarget', $this->getEnrollmentTarget());
+        $writer->writeDateTimeValue('lastAppSyncDateTime', $this->getLastAppSyncDateTime());
+        $writer->writeEnumValue('lastAppSyncStatus', $this->getLastAppSyncStatus());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('managedGooglePlayInitialScopeTagIds', $this->getManagedGooglePlayInitialScopeTagIds());
+        $writer->writeStringValue('ownerOrganizationName', $this->getOwnerOrganizationName());
+        $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
+        $writer->writeCollectionOfPrimitiveValues('targetGroupIds', $this->getTargetGroupIds());
     }
 
     /**
      * Sets the androidDeviceOwnerFullyManagedEnrollmentEnabled property value. Company codes for AndroidManagedStoreAccountEnterpriseSettings
      *  @param bool|null $value Value to set for the androidDeviceOwnerFullyManagedEnrollmentEnabled property.
     */
-    public function setAndroidDeviceOwnerFullyManagedEnrollmentEnabled(?bool $value ): void {
-        $this->androidDeviceOwnerFullyManagedEnrollmentEnabled = $value;
+    public function setAndroidDeviceOwnerFullyManagedEnrollmentEnabled(?bool $value): void {
+        $this->getBackingStore()->set('androidDeviceOwnerFullyManagedEnrollmentEnabled', $value);
     }
 
     /**
      * Sets the bindStatus property value. Bind status of the tenant with the Google EMM API
      *  @param AndroidManagedStoreAccountBindStatus|null $value Value to set for the bindStatus property.
     */
-    public function setBindStatus(?AndroidManagedStoreAccountBindStatus $value ): void {
-        $this->bindStatus = $value;
+    public function setBindStatus(?AndroidManagedStoreAccountBindStatus $value): void {
+        $this->getBackingStore()->set('bindStatus', $value);
     }
 
     /**
      * Sets the companyCodes property value. Company codes for AndroidManagedStoreAccountEnterpriseSettings
      *  @param array<AndroidEnrollmentCompanyCode>|null $value Value to set for the companyCodes property.
     */
-    public function setCompanyCodes(?array $value ): void {
-        $this->companyCodes = $value;
+    public function setCompanyCodes(?array $value): void {
+        $this->getBackingStore()->set('companyCodes', $value);
     }
 
     /**
      * Sets the deviceOwnerManagementEnabled property value. Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
      *  @param bool|null $value Value to set for the deviceOwnerManagementEnabled property.
     */
-    public function setDeviceOwnerManagementEnabled(?bool $value ): void {
-        $this->deviceOwnerManagementEnabled = $value;
+    public function setDeviceOwnerManagementEnabled(?bool $value): void {
+        $this->getBackingStore()->set('deviceOwnerManagementEnabled', $value);
     }
 
     /**
      * Sets the enrollmentTarget property value. Android for Work device management targeting type for the account
      *  @param AndroidManagedStoreAccountEnrollmentTarget|null $value Value to set for the enrollmentTarget property.
     */
-    public function setEnrollmentTarget(?AndroidManagedStoreAccountEnrollmentTarget $value ): void {
-        $this->enrollmentTarget = $value;
+    public function setEnrollmentTarget(?AndroidManagedStoreAccountEnrollmentTarget $value): void {
+        $this->getBackingStore()->set('enrollmentTarget', $value);
     }
 
     /**
      * Sets the lastAppSyncDateTime property value. Last completion time for app sync
      *  @param DateTime|null $value Value to set for the lastAppSyncDateTime property.
     */
-    public function setLastAppSyncDateTime(?DateTime $value ): void {
-        $this->lastAppSyncDateTime = $value;
+    public function setLastAppSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastAppSyncDateTime', $value);
     }
 
     /**
      * Sets the lastAppSyncStatus property value. Sync status of the tenant with the Google EMM API
      *  @param AndroidManagedStoreAccountAppSyncStatus|null $value Value to set for the lastAppSyncStatus property.
     */
-    public function setLastAppSyncStatus(?AndroidManagedStoreAccountAppSyncStatus $value ): void {
-        $this->lastAppSyncStatus = $value;
+    public function setLastAppSyncStatus(?AndroidManagedStoreAccountAppSyncStatus $value): void {
+        $this->getBackingStore()->set('lastAppSyncStatus', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last modification time for Android enterprise settings
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the managedGooglePlayInitialScopeTagIds property value. Initial scope tags for MGP apps
      *  @param array<string>|null $value Value to set for the managedGooglePlayInitialScopeTagIds property.
     */
-    public function setManagedGooglePlayInitialScopeTagIds(?array $value ): void {
-        $this->managedGooglePlayInitialScopeTagIds = $value;
+    public function setManagedGooglePlayInitialScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('managedGooglePlayInitialScopeTagIds', $value);
     }
 
     /**
      * Sets the ownerOrganizationName property value. Organization name used when onboarding Android Enterprise
      *  @param string|null $value Value to set for the ownerOrganizationName property.
     */
-    public function setOwnerOrganizationName(?string $value ): void {
-        $this->ownerOrganizationName = $value;
+    public function setOwnerOrganizationName(?string $value): void {
+        $this->getBackingStore()->set('ownerOrganizationName', $value);
     }
 
     /**
      * Sets the ownerUserPrincipalName property value. Owner UPN that created the enterprise
      *  @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
-    public function setOwnerUserPrincipalName(?string $value ): void {
-        $this->ownerUserPrincipalName = $value;
+    public function setOwnerUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('ownerUserPrincipalName', $value);
     }
 
     /**
      * Sets the targetGroupIds property value. Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
      *  @param array<string>|null $value Value to set for the targetGroupIds property.
     */
-    public function setTargetGroupIds(?array $value ): void {
-        $this->targetGroupIds = $value;
+    public function setTargetGroupIds(?array $value): void {
+        $this->getBackingStore()->set('targetGroupIds', $value);
     }
 
 }

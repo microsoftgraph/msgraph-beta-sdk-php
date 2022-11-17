@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable 
 {
     /**
-     * @var DlpPoliciesJobResult|null $result The result property
-    */
-    private ?DlpPoliciesJobResult $result = null;
-    
-    /**
      * Instantiates a new DlpEvaluatePoliciesJobResponse and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable
      * @return DlpPoliciesJobResult|null
     */
     public function getResult(): ?DlpPoliciesJobResult {
-        return $this->result;
+        return $this->getBackingStore()->get('result');
     }
 
     /**
@@ -55,15 +50,15 @@ class DlpEvaluatePoliciesJobResponse extends JobResponseBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('result', $this->result);
+        $writer->writeObjectValue('result', $this->getResult());
     }
 
     /**
      * Sets the result property value. The result property
      *  @param DlpPoliciesJobResult|null $value Value to set for the result property.
     */
-    public function setResult(?DlpPoliciesJobResult $value ): void {
-        $this->result = $value;
+    public function setResult(?DlpPoliciesJobResult $value): void {
+        $this->getBackingStore()->set('result', $value);
     }
 
 }

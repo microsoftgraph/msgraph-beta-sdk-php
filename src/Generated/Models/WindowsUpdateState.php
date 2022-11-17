@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsUpdateState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceDisplayName Device display name.
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $featureUpdateVersion The current feature update version of the device.
-    */
-    private ?string $featureUpdateVersion = null;
-    
-    /**
-     * @var DateTime|null $lastScanDateTime The date time that the Windows Update Agent did a successful scan.
-    */
-    private ?DateTime $lastScanDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime Last date time that the device sync with with Microsoft Intune.
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var string|null $qualityUpdateVersion The Quality Update Version of the device.
-    */
-    private ?string $qualityUpdateVersion = null;
-    
-    /**
-     * @var WindowsUpdateStatus|null $status Windows update for business configuration device states
-    */
-    private ?WindowsUpdateStatus $status = null;
-    
-    /**
-     * @var string|null $userId The id of the user.
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userPrincipalName User principal name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new windowsUpdateState and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -84,7 +39,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -92,7 +47,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getFeatureUpdateVersion(): ?string {
-        return $this->featureUpdateVersion;
+        return $this->getBackingStore()->get('featureUpdateVersion');
     }
 
     /**
@@ -119,7 +74,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastScanDateTime(): ?DateTime {
-        return $this->lastScanDateTime;
+        return $this->getBackingStore()->get('lastScanDateTime');
     }
 
     /**
@@ -127,7 +82,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -135,7 +90,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getQualityUpdateVersion(): ?string {
-        return $this->qualityUpdateVersion;
+        return $this->getBackingStore()->get('qualityUpdateVersion');
     }
 
     /**
@@ -143,7 +98,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return WindowsUpdateStatus|null
     */
     public function getStatus(): ?WindowsUpdateStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -151,7 +106,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -159,7 +114,7 @@ class WindowsUpdateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -168,87 +123,87 @@ class WindowsUpdateState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('featureUpdateVersion', $this->featureUpdateVersion);
-        $writer->writeDateTimeValue('lastScanDateTime', $this->lastScanDateTime);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeStringValue('qualityUpdateVersion', $this->qualityUpdateVersion);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('featureUpdateVersion', $this->getFeatureUpdateVersion());
+        $writer->writeDateTimeValue('lastScanDateTime', $this->getLastScanDateTime());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('qualityUpdateVersion', $this->getQualityUpdateVersion());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the deviceDisplayName property value. Device display name.
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the deviceId property value. The id of the device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the featureUpdateVersion property value. The current feature update version of the device.
      *  @param string|null $value Value to set for the featureUpdateVersion property.
     */
-    public function setFeatureUpdateVersion(?string $value ): void {
-        $this->featureUpdateVersion = $value;
+    public function setFeatureUpdateVersion(?string $value): void {
+        $this->getBackingStore()->set('featureUpdateVersion', $value);
     }
 
     /**
      * Sets the lastScanDateTime property value. The date time that the Windows Update Agent did a successful scan.
      *  @param DateTime|null $value Value to set for the lastScanDateTime property.
     */
-    public function setLastScanDateTime(?DateTime $value ): void {
-        $this->lastScanDateTime = $value;
+    public function setLastScanDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastScanDateTime', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. Last date time that the device sync with with Microsoft Intune.
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the qualityUpdateVersion property value. The Quality Update Version of the device.
      *  @param string|null $value Value to set for the qualityUpdateVersion property.
     */
-    public function setQualityUpdateVersion(?string $value ): void {
-        $this->qualityUpdateVersion = $value;
+    public function setQualityUpdateVersion(?string $value): void {
+        $this->getBackingStore()->set('qualityUpdateVersion', $value);
     }
 
     /**
      * Sets the status property value. Windows update for business configuration device states
      *  @param WindowsUpdateStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?WindowsUpdateStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?WindowsUpdateStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the userId property value. The id of the user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User principal name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

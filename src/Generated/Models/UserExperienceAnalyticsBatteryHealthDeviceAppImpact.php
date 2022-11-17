@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity implements Parsable 
 {
     /**
-     * @var string|null $appDisplayName User friendly display name for the app. Eg: Outlook
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var string|null $appName App name. Eg: oltk.exe
-    */
-    private ?string $appName = null;
-    
-    /**
-     * @var string|null $appPublisher App publisher. Eg: Microsoft Corporation
-    */
-    private ?string $appPublisher = null;
-    
-    /**
-     * @var float|null $batteryUsagePercentage The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $batteryUsagePercentage = null;
-    
-    /**
-     * @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var bool|null $isForegroundApp true if the user had active interaction with the app.
-    */
-    private ?bool $isForegroundApp = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceAppImpact and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -68,7 +38,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->appName;
+        return $this->getBackingStore()->get('appName');
     }
 
     /**
@@ -76,7 +46,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->appPublisher;
+        return $this->getBackingStore()->get('appPublisher');
     }
 
     /**
@@ -84,7 +54,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return float|null
     */
     public function getBatteryUsagePercentage(): ?float {
-        return $this->batteryUsagePercentage;
+        return $this->getBackingStore()->get('batteryUsagePercentage');
     }
 
     /**
@@ -92,7 +62,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -116,7 +86,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
      * @return bool|null
     */
     public function getIsForegroundApp(): ?bool {
-        return $this->isForegroundApp;
+        return $this->getBackingStore()->get('isForegroundApp');
     }
 
     /**
@@ -125,60 +95,60 @@ class UserExperienceAnalyticsBatteryHealthDeviceAppImpact extends Entity impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeStringValue('appName', $this->appName);
-        $writer->writeStringValue('appPublisher', $this->appPublisher);
-        $writer->writeFloatValue('batteryUsagePercentage', $this->batteryUsagePercentage);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeBooleanValue('isForegroundApp', $this->isForegroundApp);
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeStringValue('appName', $this->getAppName());
+        $writer->writeStringValue('appPublisher', $this->getAppPublisher());
+        $writer->writeFloatValue('batteryUsagePercentage', $this->getBatteryUsagePercentage());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeBooleanValue('isForegroundApp', $this->getIsForegroundApp());
     }
 
     /**
      * Sets the appDisplayName property value. User friendly display name for the app. Eg: Outlook
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the appName property value. App name. Eg: oltk.exe
      *  @param string|null $value Value to set for the appName property.
     */
-    public function setAppName(?string $value ): void {
-        $this->appName = $value;
+    public function setAppName(?string $value): void {
+        $this->getBackingStore()->set('appName', $value);
     }
 
     /**
      * Sets the appPublisher property value. App publisher. Eg: Microsoft Corporation
      *  @param string|null $value Value to set for the appPublisher property.
     */
-    public function setAppPublisher(?string $value ): void {
-        $this->appPublisher = $value;
+    public function setAppPublisher(?string $value): void {
+        $this->getBackingStore()->set('appPublisher', $value);
     }
 
     /**
      * Sets the batteryUsagePercentage property value. The percent of total battery power used by this application when the device was not plugged into AC power, over 14 days. Unit in percentage. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the batteryUsagePercentage property.
     */
-    public function setBatteryUsagePercentage(?float $value ): void {
-        $this->batteryUsagePercentage = $value;
+    public function setBatteryUsagePercentage(?float $value): void {
+        $this->getBackingStore()->set('batteryUsagePercentage', $value);
     }
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID or SCCM device id.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the isForegroundApp property value. true if the user had active interaction with the app.
      *  @param bool|null $value Value to set for the isForegroundApp property.
     */
-    public function setIsForegroundApp(?bool $value ): void {
-        $this->isForegroundApp = $value;
+    public function setIsForegroundApp(?bool $value): void {
+        $this->getBackingStore()->set('isForegroundApp', $value);
     }
 
 }

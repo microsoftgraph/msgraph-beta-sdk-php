@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationStrengthRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationMethodModes>|null $authenticationCombinations A collection of all valid authentication method combinations in the system.
-    */
-    private ?array $authenticationCombinations = null;
-    
-    /**
-     * @var array<AuthenticationMethodModeDetail>|null $authenticationMethodModes Names and descriptions of all valid authentication method modes in the system.
-    */
-    private ?array $authenticationMethodModes = null;
-    
-    /**
-     * @var array<AuthenticationStrengthPolicy>|null $policies A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
-    */
-    private ?array $policies = null;
-    
-    /**
      * Instantiates a new AuthenticationStrengthRoot and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAuthenticationCombinations(): ?array {
-        return $this->authenticationCombinations;
+        return $this->getBackingStore()->get('authenticationCombinations');
     }
 
     /**
@@ -53,7 +38,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
      * @return array<AuthenticationMethodModeDetail>|null
     */
     public function getAuthenticationMethodModes(): ?array {
-        return $this->authenticationMethodModes;
+        return $this->getBackingStore()->get('authenticationMethodModes');
     }
 
     /**
@@ -74,7 +59,7 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
      * @return array<AuthenticationStrengthPolicy>|null
     */
     public function getPolicies(): ?array {
-        return $this->policies;
+        return $this->getBackingStore()->get('policies');
     }
 
     /**
@@ -83,33 +68,33 @@ class AuthenticationStrengthRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('authenticationCombinations', $this->authenticationCombinations);
-        $writer->writeCollectionOfObjectValues('authenticationMethodModes', $this->authenticationMethodModes);
-        $writer->writeCollectionOfObjectValues('policies', $this->policies);
+        $writer->writeCollectionOfEnumValues('authenticationCombinations', $this->getAuthenticationCombinations());
+        $writer->writeCollectionOfObjectValues('authenticationMethodModes', $this->getAuthenticationMethodModes());
+        $writer->writeCollectionOfObjectValues('policies', $this->getPolicies());
     }
 
     /**
      * Sets the authenticationCombinations property value. A collection of all valid authentication method combinations in the system.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the authenticationCombinations property.
     */
-    public function setAuthenticationCombinations(?array $value ): void {
-        $this->authenticationCombinations = $value;
+    public function setAuthenticationCombinations(?array $value): void {
+        $this->getBackingStore()->set('authenticationCombinations', $value);
     }
 
     /**
      * Sets the authenticationMethodModes property value. Names and descriptions of all valid authentication method modes in the system.
      *  @param array<AuthenticationMethodModeDetail>|null $value Value to set for the authenticationMethodModes property.
     */
-    public function setAuthenticationMethodModes(?array $value ): void {
-        $this->authenticationMethodModes = $value;
+    public function setAuthenticationMethodModes(?array $value): void {
+        $this->getBackingStore()->set('authenticationMethodModes', $value);
     }
 
     /**
      * Sets the policies property value. A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
      *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the policies property.
     */
-    public function setPolicies(?array $value ): void {
-        $this->policies = $value;
+    public function setPolicies(?array $value): void {
+        $this->getBackingStore()->set('policies', $value);
     }
 
 }

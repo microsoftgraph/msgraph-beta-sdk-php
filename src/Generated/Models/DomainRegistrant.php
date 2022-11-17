@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DomainRegistrant implements AdditionalDataHolder, Parsable 
+class DomainRegistrant implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $countryOrRegionCode The countryOrRegionCode property
-    */
-    private ?string $countryOrRegionCode = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $organization The organization property
-    */
-    private ?string $organization = null;
-    
-    /**
-     * @var string|null $url The url property
-    */
-    private ?string $url = null;
-    
-    /**
-     * @var string|null $vendor The vendor property
-    */
-    private ?string $vendor = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new domainRegistrant and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.domainRegistrant');
     }
@@ -60,8 +39,16 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCountryOrRegionCode(): ?string {
-        return $this->countryOrRegionCode;
+        return $this->getBackingStore()->get('countryOrRegionCode');
     }
 
     /**
@@ -92,7 +79,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -100,7 +87,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOrganization(): ?string {
-        return $this->organization;
+        return $this->getBackingStore()->get('organization');
     }
 
     /**
@@ -108,7 +95,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUrl(): ?string {
-        return $this->url;
+        return $this->getBackingStore()->get('url');
     }
 
     /**
@@ -116,7 +103,7 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->vendor;
+        return $this->getBackingStore()->get('vendor');
     }
 
     /**
@@ -124,60 +111,60 @@ class DomainRegistrant implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('countryOrRegionCode', $this->countryOrRegionCode);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('organization', $this->organization);
-        $writer->writeStringValue('url', $this->url);
-        $writer->writeStringValue('vendor', $this->vendor);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('countryOrRegionCode', $this->getCountryOrRegionCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('organization', $this->getOrganization());
+        $writer->writeStringValue('url', $this->getUrl());
+        $writer->writeStringValue('vendor', $this->getVendor());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the countryOrRegionCode property value. The countryOrRegionCode property
      *  @param string|null $value Value to set for the countryOrRegionCode property.
     */
-    public function setCountryOrRegionCode(?string $value ): void {
-        $this->countryOrRegionCode = $value;
+    public function setCountryOrRegionCode(?string $value): void {
+        $this->getBackingStore()->set('countryOrRegionCode', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the organization property value. The organization property
      *  @param string|null $value Value to set for the organization property.
     */
-    public function setOrganization(?string $value ): void {
-        $this->organization = $value;
+    public function setOrganization(?string $value): void {
+        $this->getBackingStore()->set('organization', $value);
     }
 
     /**
      * Sets the url property value. The url property
      *  @param string|null $value Value to set for the url property.
     */
-    public function setUrl(?string $value ): void {
-        $this->url = $value;
+    public function setUrl(?string $value): void {
+        $this->getBackingStore()->set('url', $value);
     }
 
     /**
      * Sets the vendor property value. The vendor property
      *  @param string|null $value Value to set for the vendor property.
     */
-    public function setVendor(?string $value ): void {
-        $this->vendor = $value;
+    public function setVendor(?string $value): void {
+        $this->getBackingStore()->set('vendor', $value);
     }
 
 }

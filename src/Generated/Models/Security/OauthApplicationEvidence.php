@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OauthApplicationEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $appId Unique identifier of the application.
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $displayName Name of the application.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $objectId The unique identifier of the application object in Azure AD.
-    */
-    private ?string $objectId = null;
-    
-    /**
-     * @var string|null $publisher The name of the application publisher.
-    */
-    private ?string $publisher = null;
-    
-    /**
      * Instantiates a new OauthApplicationEvidence and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -58,7 +38,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -80,7 +60,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getObjectId(): ?string {
-        return $this->objectId;
+        return $this->getBackingStore()->get('objectId');
     }
 
     /**
@@ -88,7 +68,7 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -97,42 +77,42 @@ class OauthApplicationEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('objectId', $this->objectId);
-        $writer->writeStringValue('publisher', $this->publisher);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('objectId', $this->getObjectId());
+        $writer->writeStringValue('publisher', $this->getPublisher());
     }
 
     /**
      * Sets the appId property value. Unique identifier of the application.
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the application.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the objectId property value. The unique identifier of the application object in Azure AD.
      *  @param string|null $value Value to set for the objectId property.
     */
-    public function setObjectId(?string $value ): void {
-        $this->objectId = $value;
+    public function setObjectId(?string $value): void {
+        $this->getBackingStore()->set('objectId', $value);
     }
 
     /**
      * Sets the publisher property value. The name of the application publisher.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
 }

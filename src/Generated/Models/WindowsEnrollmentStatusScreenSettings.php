@@ -6,58 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Parsable 
+class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $allowDeviceUseBeforeProfileAndAppInstallComplete Allow or block user to use device before profile and app installation complete
-    */
-    private ?bool $allowDeviceUseBeforeProfileAndAppInstallComplete = null;
-    
-    /**
-     * @var bool|null $allowDeviceUseOnInstallFailure Allow the user to continue using the device on installation failure
-    */
-    private ?bool $allowDeviceUseOnInstallFailure = null;
-    
-    /**
-     * @var bool|null $allowLogCollectionOnInstallFailure Allow or block log collection on installation failure
-    */
-    private ?bool $allowLogCollectionOnInstallFailure = null;
-    
-    /**
-     * @var bool|null $blockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
-    */
-    private ?bool $blockDeviceSetupRetryByUser = null;
-    
-    /**
-     * @var string|null $customErrorMessage Set custom error message to show upon installation failure
-    */
-    private ?string $customErrorMessage = null;
-    
-    /**
-     * @var bool|null $hideInstallationProgress Show or hide installation progress to user
-    */
-    private ?bool $hideInstallationProgress = null;
-    
-    /**
-     * @var int|null $installProgressTimeoutInMinutes Set installation progress timeout in minutes
-    */
-    private ?int $installProgressTimeoutInMinutes = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new windowsEnrollmentStatusScreenSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.windowsEnrollmentStatusScreenSettings');
     }
@@ -75,8 +39,8 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -84,7 +48,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getAllowDeviceUseBeforeProfileAndAppInstallComplete(): ?bool {
-        return $this->allowDeviceUseBeforeProfileAndAppInstallComplete;
+        return $this->getBackingStore()->get('allowDeviceUseBeforeProfileAndAppInstallComplete');
     }
 
     /**
@@ -92,7 +56,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getAllowDeviceUseOnInstallFailure(): ?bool {
-        return $this->allowDeviceUseOnInstallFailure;
+        return $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
     }
 
     /**
@@ -100,7 +64,15 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getAllowLogCollectionOnInstallFailure(): ?bool {
-        return $this->allowLogCollectionOnInstallFailure;
+        return $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -108,7 +80,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getBlockDeviceSetupRetryByUser(): ?bool {
-        return $this->blockDeviceSetupRetryByUser;
+        return $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
     }
 
     /**
@@ -116,7 +88,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getCustomErrorMessage(): ?string {
-        return $this->customErrorMessage;
+        return $this->getBackingStore()->get('customErrorMessage');
     }
 
     /**
@@ -142,7 +114,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getHideInstallationProgress(): ?bool {
-        return $this->hideInstallationProgress;
+        return $this->getBackingStore()->get('hideInstallationProgress');
     }
 
     /**
@@ -150,7 +122,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return int|null
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
-        return $this->installProgressTimeoutInMinutes;
+        return $this->getBackingStore()->get('installProgressTimeoutInMinutes');
     }
 
     /**
@@ -158,7 +130,7 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -166,87 +138,87 @@ class WindowsEnrollmentStatusScreenSettings implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('allowDeviceUseBeforeProfileAndAppInstallComplete', $this->allowDeviceUseBeforeProfileAndAppInstallComplete);
-        $writer->writeBooleanValue('allowDeviceUseOnInstallFailure', $this->allowDeviceUseOnInstallFailure);
-        $writer->writeBooleanValue('allowLogCollectionOnInstallFailure', $this->allowLogCollectionOnInstallFailure);
-        $writer->writeBooleanValue('blockDeviceSetupRetryByUser', $this->blockDeviceSetupRetryByUser);
-        $writer->writeStringValue('customErrorMessage', $this->customErrorMessage);
-        $writer->writeBooleanValue('hideInstallationProgress', $this->hideInstallationProgress);
-        $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->installProgressTimeoutInMinutes);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('allowDeviceUseBeforeProfileAndAppInstallComplete', $this->getAllowDeviceUseBeforeProfileAndAppInstallComplete());
+        $writer->writeBooleanValue('allowDeviceUseOnInstallFailure', $this->getAllowDeviceUseOnInstallFailure());
+        $writer->writeBooleanValue('allowLogCollectionOnInstallFailure', $this->getAllowLogCollectionOnInstallFailure());
+        $writer->writeBooleanValue('blockDeviceSetupRetryByUser', $this->getBlockDeviceSetupRetryByUser());
+        $writer->writeStringValue('customErrorMessage', $this->getCustomErrorMessage());
+        $writer->writeBooleanValue('hideInstallationProgress', $this->getHideInstallationProgress());
+        $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->getInstallProgressTimeoutInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowDeviceUseBeforeProfileAndAppInstallComplete property value. Allow or block user to use device before profile and app installation complete
      *  @param bool|null $value Value to set for the allowDeviceUseBeforeProfileAndAppInstallComplete property.
     */
-    public function setAllowDeviceUseBeforeProfileAndAppInstallComplete(?bool $value ): void {
-        $this->allowDeviceUseBeforeProfileAndAppInstallComplete = $value;
+    public function setAllowDeviceUseBeforeProfileAndAppInstallComplete(?bool $value): void {
+        $this->getBackingStore()->set('allowDeviceUseBeforeProfileAndAppInstallComplete', $value);
     }
 
     /**
      * Sets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
      *  @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
     */
-    public function setAllowDeviceUseOnInstallFailure(?bool $value ): void {
-        $this->allowDeviceUseOnInstallFailure = $value;
+    public function setAllowDeviceUseOnInstallFailure(?bool $value): void {
+        $this->getBackingStore()->set('allowDeviceUseOnInstallFailure', $value);
     }
 
     /**
      * Sets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
      *  @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
     */
-    public function setAllowLogCollectionOnInstallFailure(?bool $value ): void {
-        $this->allowLogCollectionOnInstallFailure = $value;
+    public function setAllowLogCollectionOnInstallFailure(?bool $value): void {
+        $this->getBackingStore()->set('allowLogCollectionOnInstallFailure', $value);
     }
 
     /**
      * Sets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
      *  @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
     */
-    public function setBlockDeviceSetupRetryByUser(?bool $value ): void {
-        $this->blockDeviceSetupRetryByUser = $value;
+    public function setBlockDeviceSetupRetryByUser(?bool $value): void {
+        $this->getBackingStore()->set('blockDeviceSetupRetryByUser', $value);
     }
 
     /**
      * Sets the customErrorMessage property value. Set custom error message to show upon installation failure
      *  @param string|null $value Value to set for the customErrorMessage property.
     */
-    public function setCustomErrorMessage(?string $value ): void {
-        $this->customErrorMessage = $value;
+    public function setCustomErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('customErrorMessage', $value);
     }
 
     /**
      * Sets the hideInstallationProgress property value. Show or hide installation progress to user
      *  @param bool|null $value Value to set for the hideInstallationProgress property.
     */
-    public function setHideInstallationProgress(?bool $value ): void {
-        $this->hideInstallationProgress = $value;
+    public function setHideInstallationProgress(?bool $value): void {
+        $this->getBackingStore()->set('hideInstallationProgress', $value);
     }
 
     /**
      * Sets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
      *  @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
     */
-    public function setInstallProgressTimeoutInMinutes(?int $value ): void {
-        $this->installProgressTimeoutInMinutes = $value;
+    public function setInstallProgressTimeoutInMinutes(?int $value): void {
+        $this->getBackingStore()->set('installProgressTimeoutInMinutes', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

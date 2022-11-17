@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSetting extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationSettingDefinition>|null $settingDefinitions List of related Setting Definitions. This property is read-only.
-    */
-    private ?array $settingDefinitions = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingInstance|null $settingInstance Setting instance within policy
-    */
-    private ?DeviceManagementConfigurationSettingInstance $settingInstance = null;
-    
-    /**
      * Instantiates a new deviceManagementConfigurationSetting and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->settingDefinitions;
+        return $this->getBackingStore()->get('settingDefinitions');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
      * @return DeviceManagementConfigurationSettingInstance|null
     */
     public function getSettingInstance(): ?DeviceManagementConfigurationSettingInstance {
-        return $this->settingInstance;
+        return $this->getBackingStore()->get('settingInstance');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->settingDefinitions);
-        $writer->writeObjectValue('settingInstance', $this->settingInstance);
+        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
+        $writer->writeObjectValue('settingInstance', $this->getSettingInstance());
     }
 
     /**
      * Sets the settingDefinitions property value. List of related Setting Definitions. This property is read-only.
      *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
-    public function setSettingDefinitions(?array $value ): void {
-        $this->settingDefinitions = $value;
+    public function setSettingDefinitions(?array $value): void {
+        $this->getBackingStore()->set('settingDefinitions', $value);
     }
 
     /**
      * Sets the settingInstance property value. Setting instance within policy
      *  @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
     */
-    public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value ): void {
-        $this->settingInstance = $value;
+    public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value): void {
+        $this->getBackingStore()->set('settingInstance', $value);
     }
 
 }

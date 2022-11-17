@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementAutopilotPolicyComplianceStatus|null $complianceStatus The complianceStatus property
-    */
-    private ?DeviceManagementAutopilotPolicyComplianceStatus $complianceStatus = null;
-    
-    /**
-     * @var string|null $displayName The friendly name of the policy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $errorCode The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
-    */
-    private ?int $errorCode = null;
-    
-    /**
-     * @var DateTime|null $lastReportedDateTime Timestamp of the reported policy status
-    */
-    private ?DateTime $lastReportedDateTime = null;
-    
-    /**
-     * @var DeviceManagementAutopilotPolicyType|null $policyType The policyType property
-    */
-    private ?DeviceManagementAutopilotPolicyType $policyType = null;
-    
-    /**
-     * @var bool|null $trackedOnEnrollmentStatus Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
-    */
-    private ?bool $trackedOnEnrollmentStatus = null;
-    
-    /**
      * Instantiates a new deviceManagementAutopilotPolicyStatusDetail and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DeviceManagementAutopilotPolicyComplianceStatus|null
     */
     public function getComplianceStatus(): ?DeviceManagementAutopilotPolicyComplianceStatus {
-        return $this->complianceStatus;
+        return $this->getBackingStore()->get('complianceStatus');
     }
 
     /**
@@ -69,7 +39,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -77,7 +47,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -101,7 +71,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->lastReportedDateTime;
+        return $this->getBackingStore()->get('lastReportedDateTime');
     }
 
     /**
@@ -109,7 +79,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return DeviceManagementAutopilotPolicyType|null
     */
     public function getPolicyType(): ?DeviceManagementAutopilotPolicyType {
-        return $this->policyType;
+        return $this->getBackingStore()->get('policyType');
     }
 
     /**
@@ -117,7 +87,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
      * @return bool|null
     */
     public function getTrackedOnEnrollmentStatus(): ?bool {
-        return $this->trackedOnEnrollmentStatus;
+        return $this->getBackingStore()->get('trackedOnEnrollmentStatus');
     }
 
     /**
@@ -126,60 +96,60 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('complianceStatus', $this->complianceStatus);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
-        $writer->writeDateTimeValue('lastReportedDateTime', $this->lastReportedDateTime);
-        $writer->writeEnumValue('policyType', $this->policyType);
-        $writer->writeBooleanValue('trackedOnEnrollmentStatus', $this->trackedOnEnrollmentStatus);
+        $writer->writeEnumValue('complianceStatus', $this->getComplianceStatus());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeEnumValue('policyType', $this->getPolicyType());
+        $writer->writeBooleanValue('trackedOnEnrollmentStatus', $this->getTrackedOnEnrollmentStatus());
     }
 
     /**
      * Sets the complianceStatus property value. The complianceStatus property
      *  @param DeviceManagementAutopilotPolicyComplianceStatus|null $value Value to set for the complianceStatus property.
     */
-    public function setComplianceStatus(?DeviceManagementAutopilotPolicyComplianceStatus $value ): void {
-        $this->complianceStatus = $value;
+    public function setComplianceStatus(?DeviceManagementAutopilotPolicyComplianceStatus $value): void {
+        $this->getBackingStore()->set('complianceStatus', $value);
     }
 
     /**
      * Sets the displayName property value. The friendly name of the policy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the errorCode property value. The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the lastReportedDateTime property value. Timestamp of the reported policy status
      *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
-    public function setLastReportedDateTime(?DateTime $value ): void {
-        $this->lastReportedDateTime = $value;
+    public function setLastReportedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastReportedDateTime', $value);
     }
 
     /**
      * Sets the policyType property value. The policyType property
      *  @param DeviceManagementAutopilotPolicyType|null $value Value to set for the policyType property.
     */
-    public function setPolicyType(?DeviceManagementAutopilotPolicyType $value ): void {
-        $this->policyType = $value;
+    public function setPolicyType(?DeviceManagementAutopilotPolicyType $value): void {
+        $this->getBackingStore()->set('policyType', $value);
     }
 
     /**
      * Sets the trackedOnEnrollmentStatus property value. Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
      *  @param bool|null $value Value to set for the trackedOnEnrollmentStatus property.
     */
-    public function setTrackedOnEnrollmentStatus(?bool $value ): void {
-        $this->trackedOnEnrollmentStatus = $value;
+    public function setTrackedOnEnrollmentStatus(?bool $value): void {
+        $this->getBackingStore()->set('trackedOnEnrollmentStatus', $value);
     }
 
 }

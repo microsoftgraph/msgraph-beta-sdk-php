@@ -10,22 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageEvent extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $dateTime The dateTime property
-    */
-    private ?DateTime $dateTime = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var MessageEventType|null $eventType The eventType property
-    */
-    private ?MessageEventType $eventType = null;
-    
-    /**
-     * Instantiates a new MessageEvent and sets the default values.
+     * Instantiates a new messageEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -46,7 +31,7 @@ class MessageEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDateTime(): ?DateTime {
-        return $this->dateTime;
+        return $this->getBackingStore()->get('dateTime');
     }
 
     /**
@@ -54,7 +39,7 @@ class MessageEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -62,7 +47,7 @@ class MessageEvent extends Entity implements Parsable
      * @return MessageEventType|null
     */
     public function getEventType(): ?MessageEventType {
-        return $this->eventType;
+        return $this->getBackingStore()->get('eventType');
     }
 
     /**
@@ -84,33 +69,33 @@ class MessageEvent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('dateTime', $this->dateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeEnumValue('eventType', $this->eventType);
+        $writer->writeDateTimeValue('dateTime', $this->getDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeEnumValue('eventType', $this->getEventType());
     }
 
     /**
      * Sets the dateTime property value. The dateTime property
      *  @param DateTime|null $value Value to set for the dateTime property.
     */
-    public function setDateTime(?DateTime $value ): void {
-        $this->dateTime = $value;
+    public function setDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('dateTime', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the eventType property value. The eventType property
      *  @param MessageEventType|null $value Value to set for the eventType property.
     */
-    public function setEventType(?MessageEventType $value ): void {
-        $this->eventType = $value;
+    public function setEventType(?MessageEventType $value): void {
+        $this->getBackingStore()->set('eventType', $value);
     }
 
 }

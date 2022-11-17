@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAppInstallStatus extends Entity implements Parsable 
 {
     /**
-     * @var MobileApp|null $app The navigation link to the mobile app.
-    */
-    private ?MobileApp $app = null;
-    
-    /**
-     * @var array<MobileAppInstallStatus>|null $deviceStatuses The install state of the app on devices.
-    */
-    private ?array $deviceStatuses = null;
-    
-    /**
-     * @var int|null $failedDeviceCount Failed Device Count.
-    */
-    private ?int $failedDeviceCount = null;
-    
-    /**
-     * @var int|null $installedDeviceCount Installed Device Count.
-    */
-    private ?int $installedDeviceCount = null;
-    
-    /**
-     * @var int|null $notInstalledDeviceCount Not installed device count.
-    */
-    private ?int $notInstalledDeviceCount = null;
-    
-    /**
-     * @var string|null $userName User name.
-    */
-    private ?string $userName = null;
-    
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new userAppInstallStatus and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return MobileApp|null
     */
     public function getApp(): ?MobileApp {
-        return $this->app;
+        return $this->getBackingStore()->get('app');
     }
 
     /**
@@ -73,7 +38,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return array<MobileAppInstallStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->deviceStatuses;
+        return $this->getBackingStore()->get('deviceStatuses');
     }
 
     /**
@@ -81,7 +46,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->failedDeviceCount;
+        return $this->getBackingStore()->get('failedDeviceCount');
     }
 
     /**
@@ -106,7 +71,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getInstalledDeviceCount(): ?int {
-        return $this->installedDeviceCount;
+        return $this->getBackingStore()->get('installedDeviceCount');
     }
 
     /**
@@ -114,7 +79,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getNotInstalledDeviceCount(): ?int {
-        return $this->notInstalledDeviceCount;
+        return $this->getBackingStore()->get('notInstalledDeviceCount');
     }
 
     /**
@@ -122,7 +87,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -130,7 +95,7 @@ class UserAppInstallStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -139,69 +104,69 @@ class UserAppInstallStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('app', $this->app);
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->deviceStatuses);
-        $writer->writeIntegerValue('failedDeviceCount', $this->failedDeviceCount);
-        $writer->writeIntegerValue('installedDeviceCount', $this->installedDeviceCount);
-        $writer->writeIntegerValue('notInstalledDeviceCount', $this->notInstalledDeviceCount);
-        $writer->writeStringValue('userName', $this->userName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeObjectValue('app', $this->getApp());
+        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
+        $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
+        $writer->writeIntegerValue('installedDeviceCount', $this->getInstalledDeviceCount());
+        $writer->writeIntegerValue('notInstalledDeviceCount', $this->getNotInstalledDeviceCount());
+        $writer->writeStringValue('userName', $this->getUserName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the app property value. The navigation link to the mobile app.
      *  @param MobileApp|null $value Value to set for the app property.
     */
-    public function setApp(?MobileApp $value ): void {
-        $this->app = $value;
+    public function setApp(?MobileApp $value): void {
+        $this->getBackingStore()->set('app', $value);
     }
 
     /**
      * Sets the deviceStatuses property value. The install state of the app on devices.
      *  @param array<MobileAppInstallStatus>|null $value Value to set for the deviceStatuses property.
     */
-    public function setDeviceStatuses(?array $value ): void {
-        $this->deviceStatuses = $value;
+    public function setDeviceStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceStatuses', $value);
     }
 
     /**
      * Sets the failedDeviceCount property value. Failed Device Count.
      *  @param int|null $value Value to set for the failedDeviceCount property.
     */
-    public function setFailedDeviceCount(?int $value ): void {
-        $this->failedDeviceCount = $value;
+    public function setFailedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('failedDeviceCount', $value);
     }
 
     /**
      * Sets the installedDeviceCount property value. Installed Device Count.
      *  @param int|null $value Value to set for the installedDeviceCount property.
     */
-    public function setInstalledDeviceCount(?int $value ): void {
-        $this->installedDeviceCount = $value;
+    public function setInstalledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('installedDeviceCount', $value);
     }
 
     /**
      * Sets the notInstalledDeviceCount property value. Not installed device count.
      *  @param int|null $value Value to set for the notInstalledDeviceCount property.
     */
-    public function setNotInstalledDeviceCount(?int $value ): void {
-        $this->notInstalledDeviceCount = $value;
+    public function setNotInstalledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('notInstalledDeviceCount', $value);
     }
 
     /**
      * Sets the userName property value. User name.
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User Principal Name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

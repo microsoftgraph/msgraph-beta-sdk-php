@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UsageRight extends Entity implements Parsable 
 {
     /**
-     * @var string|null $catalogId Product id corresponding to the usage right.
-    */
-    private ?string $catalogId = null;
-    
-    /**
-     * @var string|null $serviceIdentifier Identifier of the service corresponding to the usage right.
-    */
-    private ?string $serviceIdentifier = null;
-    
-    /**
-     * @var UsageRightState|null $state The state property
-    */
-    private ?UsageRightState $state = null;
-    
-    /**
      * Instantiates a new usageRight and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class UsageRight extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogId(): ?string {
-        return $this->catalogId;
+        return $this->getBackingStore()->get('catalogId');
     }
 
     /**
@@ -66,7 +51,7 @@ class UsageRight extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceIdentifier(): ?string {
-        return $this->serviceIdentifier;
+        return $this->getBackingStore()->get('serviceIdentifier');
     }
 
     /**
@@ -74,7 +59,7 @@ class UsageRight extends Entity implements Parsable
      * @return UsageRightState|null
     */
     public function getState(): ?UsageRightState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -83,33 +68,33 @@ class UsageRight extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('catalogId', $this->catalogId);
-        $writer->writeStringValue('serviceIdentifier', $this->serviceIdentifier);
-        $writer->writeEnumValue('state', $this->state);
+        $writer->writeStringValue('catalogId', $this->getCatalogId());
+        $writer->writeStringValue('serviceIdentifier', $this->getServiceIdentifier());
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the catalogId property value. Product id corresponding to the usage right.
      *  @param string|null $value Value to set for the catalogId property.
     */
-    public function setCatalogId(?string $value ): void {
-        $this->catalogId = $value;
+    public function setCatalogId(?string $value): void {
+        $this->getBackingStore()->set('catalogId', $value);
     }
 
     /**
      * Sets the serviceIdentifier property value. Identifier of the service corresponding to the usage right.
      *  @param string|null $value Value to set for the serviceIdentifier property.
     */
-    public function setServiceIdentifier(?string $value ): void {
-        $this->serviceIdentifier = $value;
+    public function setServiceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('serviceIdentifier', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param UsageRightState|null $value Value to set for the state property.
     */
-    public function setState(?UsageRightState $value ): void {
-        $this->state = $value;
+    public function setState(?UsageRightState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

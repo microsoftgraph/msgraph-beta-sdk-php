@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ReferenceAttachment extends Attachment implements Parsable 
 {
     /**
-     * @var bool|null $isFolder Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
-    */
-    private ?bool $isFolder = null;
-    
-    /**
-     * @var ReferenceAttachmentPermission|null $permission Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
-    */
-    private ?ReferenceAttachmentPermission $permission = null;
-    
-    /**
-     * @var string|null $previewUrl Applies to only a reference attachment of an image - URL to get a preview image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
-    */
-    private ?string $previewUrl = null;
-    
-    /**
-     * @var ReferenceAttachmentProvider|null $providerType The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
-    */
-    private ?ReferenceAttachmentProvider $providerType = null;
-    
-    /**
-     * @var string|null $sourceUrl URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
-    */
-    private ?string $sourceUrl = null;
-    
-    /**
-     * @var string|null $thumbnailUrl Applies to only a reference attachment of an image - URL to get a thumbnail image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
      * Instantiates a new ReferenceAttachment and sets the default values.
     */
     public function __construct() {
@@ -76,7 +46,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return bool|null
     */
     public function getIsFolder(): ?bool {
-        return $this->isFolder;
+        return $this->getBackingStore()->get('isFolder');
     }
 
     /**
@@ -84,7 +54,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return ReferenceAttachmentPermission|null
     */
     public function getPermission(): ?ReferenceAttachmentPermission {
-        return $this->permission;
+        return $this->getBackingStore()->get('permission');
     }
 
     /**
@@ -92,7 +62,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getPreviewUrl(): ?string {
-        return $this->previewUrl;
+        return $this->getBackingStore()->get('previewUrl');
     }
 
     /**
@@ -100,7 +70,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return ReferenceAttachmentProvider|null
     */
     public function getProviderType(): ?ReferenceAttachmentProvider {
-        return $this->providerType;
+        return $this->getBackingStore()->get('providerType');
     }
 
     /**
@@ -108,7 +78,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getSourceUrl(): ?string {
-        return $this->sourceUrl;
+        return $this->getBackingStore()->get('sourceUrl');
     }
 
     /**
@@ -116,7 +86,7 @@ class ReferenceAttachment extends Attachment implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -125,60 +95,60 @@ class ReferenceAttachment extends Attachment implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isFolder', $this->isFolder);
-        $writer->writeEnumValue('permission', $this->permission);
-        $writer->writeStringValue('previewUrl', $this->previewUrl);
-        $writer->writeEnumValue('providerType', $this->providerType);
-        $writer->writeStringValue('sourceUrl', $this->sourceUrl);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
+        $writer->writeBooleanValue('isFolder', $this->getIsFolder());
+        $writer->writeEnumValue('permission', $this->getPermission());
+        $writer->writeStringValue('previewUrl', $this->getPreviewUrl());
+        $writer->writeEnumValue('providerType', $this->getProviderType());
+        $writer->writeStringValue('sourceUrl', $this->getSourceUrl());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
     }
 
     /**
      * Sets the isFolder property value. Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
      *  @param bool|null $value Value to set for the isFolder property.
     */
-    public function setIsFolder(?bool $value ): void {
-        $this->isFolder = $value;
+    public function setIsFolder(?bool $value): void {
+        $this->getBackingStore()->set('isFolder', $value);
     }
 
     /**
      * Sets the permission property value. Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
      *  @param ReferenceAttachmentPermission|null $value Value to set for the permission property.
     */
-    public function setPermission(?ReferenceAttachmentPermission $value ): void {
-        $this->permission = $value;
+    public function setPermission(?ReferenceAttachmentPermission $value): void {
+        $this->getBackingStore()->set('permission', $value);
     }
 
     /**
      * Sets the previewUrl property value. Applies to only a reference attachment of an image - URL to get a preview image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
      *  @param string|null $value Value to set for the previewUrl property.
     */
-    public function setPreviewUrl(?string $value ): void {
-        $this->previewUrl = $value;
+    public function setPreviewUrl(?string $value): void {
+        $this->getBackingStore()->set('previewUrl', $value);
     }
 
     /**
      * Sets the providerType property value. The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
      *  @param ReferenceAttachmentProvider|null $value Value to set for the providerType property.
     */
-    public function setProviderType(?ReferenceAttachmentProvider $value ): void {
-        $this->providerType = $value;
+    public function setProviderType(?ReferenceAttachmentProvider $value): void {
+        $this->getBackingStore()->set('providerType', $value);
     }
 
     /**
      * Sets the sourceUrl property value. URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
      *  @param string|null $value Value to set for the sourceUrl property.
     */
-    public function setSourceUrl(?string $value ): void {
-        $this->sourceUrl = $value;
+    public function setSourceUrl(?string $value): void {
+        $this->getBackingStore()->set('sourceUrl', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. Applies to only a reference attachment of an image - URL to get a thumbnail image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsable 
 {
     /**
-     * @var EndpointSecurityConfigurationApplicablePlatform|null $applicablePlatform The endpoint security configuration applicable platform.
-    */
-    private ?EndpointSecurityConfigurationApplicablePlatform $applicablePlatform = null;
-    
-    /**
-     * @var EndpointSecurityConfigurationType|null $endpointSecurityPolicy The endpoint security policy type.
-    */
-    private ?EndpointSecurityConfigurationType $endpointSecurityPolicy = null;
-    
-    /**
-     * @var EndpointSecurityConfigurationProfileType|null $endpointSecurityPolicyProfile The endpoint security policy profile type.
-    */
-    private ?EndpointSecurityConfigurationProfileType $endpointSecurityPolicyProfile = null;
-    
-    /**
-     * @var string|null $insights Information about the mitigation.
-    */
-    private ?string $insights = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $intendedSettings The intended settings and their values.
-    */
-    private ?array $intendedSettings = null;
-    
-    /**
-     * @var int|null $managedDeviceCount The number of vulnerable devices.
-    */
-    private ?int $managedDeviceCount = null;
-    
-    /**
-     * @var array<VulnerableManagedDevice>|null $managedDevices The vulnerable managed devices.
-    */
-    private ?array $managedDevices = null;
-    
-    /**
      * Instantiates a new SecurityConfigurationTask and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationApplicablePlatform|null
     */
     public function getApplicablePlatform(): ?EndpointSecurityConfigurationApplicablePlatform {
-        return $this->applicablePlatform;
+        return $this->getBackingStore()->get('applicablePlatform');
     }
 
     /**
@@ -73,7 +38,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationType|null
     */
     public function getEndpointSecurityPolicy(): ?EndpointSecurityConfigurationType {
-        return $this->endpointSecurityPolicy;
+        return $this->getBackingStore()->get('endpointSecurityPolicy');
     }
 
     /**
@@ -81,7 +46,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return EndpointSecurityConfigurationProfileType|null
     */
     public function getEndpointSecurityPolicyProfile(): ?EndpointSecurityConfigurationProfileType {
-        return $this->endpointSecurityPolicyProfile;
+        return $this->getBackingStore()->get('endpointSecurityPolicyProfile');
     }
 
     /**
@@ -106,7 +71,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return string|null
     */
     public function getInsights(): ?string {
-        return $this->insights;
+        return $this->getBackingStore()->get('insights');
     }
 
     /**
@@ -114,7 +79,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return array<KeyValuePair>|null
     */
     public function getIntendedSettings(): ?array {
-        return $this->intendedSettings;
+        return $this->getBackingStore()->get('intendedSettings');
     }
 
     /**
@@ -122,7 +87,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return int|null
     */
     public function getManagedDeviceCount(): ?int {
-        return $this->managedDeviceCount;
+        return $this->getBackingStore()->get('managedDeviceCount');
     }
 
     /**
@@ -130,7 +95,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
      * @return array<VulnerableManagedDevice>|null
     */
     public function getManagedDevices(): ?array {
-        return $this->managedDevices;
+        return $this->getBackingStore()->get('managedDevices');
     }
 
     /**
@@ -139,69 +104,69 @@ class SecurityConfigurationTask extends DeviceAppManagementTask implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('applicablePlatform', $this->applicablePlatform);
-        $writer->writeEnumValue('endpointSecurityPolicy', $this->endpointSecurityPolicy);
-        $writer->writeEnumValue('endpointSecurityPolicyProfile', $this->endpointSecurityPolicyProfile);
-        $writer->writeStringValue('insights', $this->insights);
-        $writer->writeCollectionOfObjectValues('intendedSettings', $this->intendedSettings);
-        $writer->writeIntegerValue('managedDeviceCount', $this->managedDeviceCount);
-        $writer->writeCollectionOfObjectValues('managedDevices', $this->managedDevices);
+        $writer->writeEnumValue('applicablePlatform', $this->getApplicablePlatform());
+        $writer->writeEnumValue('endpointSecurityPolicy', $this->getEndpointSecurityPolicy());
+        $writer->writeEnumValue('endpointSecurityPolicyProfile', $this->getEndpointSecurityPolicyProfile());
+        $writer->writeStringValue('insights', $this->getInsights());
+        $writer->writeCollectionOfObjectValues('intendedSettings', $this->getIntendedSettings());
+        $writer->writeIntegerValue('managedDeviceCount', $this->getManagedDeviceCount());
+        $writer->writeCollectionOfObjectValues('managedDevices', $this->getManagedDevices());
     }
 
     /**
      * Sets the applicablePlatform property value. The endpoint security configuration applicable platform.
      *  @param EndpointSecurityConfigurationApplicablePlatform|null $value Value to set for the applicablePlatform property.
     */
-    public function setApplicablePlatform(?EndpointSecurityConfigurationApplicablePlatform $value ): void {
-        $this->applicablePlatform = $value;
+    public function setApplicablePlatform(?EndpointSecurityConfigurationApplicablePlatform $value): void {
+        $this->getBackingStore()->set('applicablePlatform', $value);
     }
 
     /**
      * Sets the endpointSecurityPolicy property value. The endpoint security policy type.
      *  @param EndpointSecurityConfigurationType|null $value Value to set for the endpointSecurityPolicy property.
     */
-    public function setEndpointSecurityPolicy(?EndpointSecurityConfigurationType $value ): void {
-        $this->endpointSecurityPolicy = $value;
+    public function setEndpointSecurityPolicy(?EndpointSecurityConfigurationType $value): void {
+        $this->getBackingStore()->set('endpointSecurityPolicy', $value);
     }
 
     /**
      * Sets the endpointSecurityPolicyProfile property value. The endpoint security policy profile type.
      *  @param EndpointSecurityConfigurationProfileType|null $value Value to set for the endpointSecurityPolicyProfile property.
     */
-    public function setEndpointSecurityPolicyProfile(?EndpointSecurityConfigurationProfileType $value ): void {
-        $this->endpointSecurityPolicyProfile = $value;
+    public function setEndpointSecurityPolicyProfile(?EndpointSecurityConfigurationProfileType $value): void {
+        $this->getBackingStore()->set('endpointSecurityPolicyProfile', $value);
     }
 
     /**
      * Sets the insights property value. Information about the mitigation.
      *  @param string|null $value Value to set for the insights property.
     */
-    public function setInsights(?string $value ): void {
-        $this->insights = $value;
+    public function setInsights(?string $value): void {
+        $this->getBackingStore()->set('insights', $value);
     }
 
     /**
      * Sets the intendedSettings property value. The intended settings and their values.
      *  @param array<KeyValuePair>|null $value Value to set for the intendedSettings property.
     */
-    public function setIntendedSettings(?array $value ): void {
-        $this->intendedSettings = $value;
+    public function setIntendedSettings(?array $value): void {
+        $this->getBackingStore()->set('intendedSettings', $value);
     }
 
     /**
      * Sets the managedDeviceCount property value. The number of vulnerable devices.
      *  @param int|null $value Value to set for the managedDeviceCount property.
     */
-    public function setManagedDeviceCount(?int $value ): void {
-        $this->managedDeviceCount = $value;
+    public function setManagedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('managedDeviceCount', $value);
     }
 
     /**
      * Sets the managedDevices property value. The vulnerable managed devices.
      *  @param array<VulnerableManagedDevice>|null $value Value to set for the managedDevices property.
     */
-    public function setManagedDevices(?array $value ): void {
-        $this->managedDevices = $value;
+    public function setManagedDevices(?array $value): void {
+        $this->getBackingStore()->set('managedDevices', $value);
     }
 
 }

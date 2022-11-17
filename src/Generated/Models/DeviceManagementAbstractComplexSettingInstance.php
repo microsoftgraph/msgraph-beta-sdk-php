@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * @var string|null $implementationId The definition ID for the chosen implementation of this complex setting
-    */
-    private ?string $implementationId = null;
-    
-    /**
-     * @var array<DeviceManagementSettingInstance>|null $value The values that make up the complex setting
-    */
-    private ?array $value = null;
-    
-    /**
      * Instantiates a new DeviceManagementAbstractComplexSettingInstance and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
      * @return string|null
     */
     public function getImplementationId(): ?string {
-        return $this->implementationId;
+        return $this->getBackingStore()->get('implementationId');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getValue(): ?array {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('implementationId', $this->implementationId);
-        $writer->writeCollectionOfObjectValues('value', $this->value);
+        $writer->writeStringValue('implementationId', $this->getImplementationId());
+        $writer->writeCollectionOfObjectValues('value', $this->getValue());
     }
 
     /**
      * Sets the implementationId property value. The definition ID for the chosen implementation of this complex setting
      *  @param string|null $value Value to set for the implementationId property.
     */
-    public function setImplementationId(?string $value ): void {
-        $this->implementationId = $value;
+    public function setImplementationId(?string $value): void {
+        $this->getBackingStore()->set('implementationId', $value);
     }
 
     /**
      * Sets the value property value. The values that make up the complex setting
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the value property.
     */
-    public function setValue(?array $value ): void {
-        $this->value = $value;
+    public function setValue(?array $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

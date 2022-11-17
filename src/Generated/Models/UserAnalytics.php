@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserAnalytics extends Entity implements Parsable 
 {
     /**
-     * @var array<ActivityStatistics>|null $activityStatistics The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
-    */
-    private ?array $activityStatistics = null;
-    
-    /**
-     * @var Settings|null $settings The current settings for a user to use the analytics API.
-    */
-    private ?Settings $settings = null;
-    
-    /**
      * Instantiates a new userAnalytics and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class UserAnalytics extends Entity implements Parsable
      * @return array<ActivityStatistics>|null
     */
     public function getActivityStatistics(): ?array {
-        return $this->activityStatistics;
+        return $this->getBackingStore()->get('activityStatistics');
     }
 
     /**
@@ -60,7 +50,7 @@ class UserAnalytics extends Entity implements Parsable
      * @return Settings|null
     */
     public function getSettings(): ?Settings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -69,24 +59,24 @@ class UserAnalytics extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('activityStatistics', $this->activityStatistics);
-        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeCollectionOfObjectValues('activityStatistics', $this->getActivityStatistics());
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
      * Sets the activityStatistics property value. The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
      *  @param array<ActivityStatistics>|null $value Value to set for the activityStatistics property.
     */
-    public function setActivityStatistics(?array $value ): void {
-        $this->activityStatistics = $value;
+    public function setActivityStatistics(?array $value): void {
+        $this->getBackingStore()->set('activityStatistics', $value);
     }
 
     /**
      * Sets the settings property value. The current settings for a user to use the analytics API.
      *  @param Settings|null $value Value to set for the settings property.
     */
-    public function setSettings(?Settings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?Settings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CommentAction implements AdditionalDataHolder, Parsable 
+class CommentAction implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $isReply If true, this activity was a reply to an existing comment thread.
-    */
-    private ?bool $isReply = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var IdentitySet|null $parentAuthor The identity of the user who started the comment thread.
-    */
-    private ?IdentitySet $parentAuthor = null;
-    
-    /**
-     * @var array<IdentitySet>|null $participants The identities of the users participating in this comment thread.
-    */
-    private ?array $participants = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new commentAction and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.commentAction');
     }
@@ -55,8 +39,16 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsReply(): ?bool {
-        return $this->isReply;
+        return $this->getBackingStore()->get('isReply');
     }
 
     /**
@@ -86,7 +78,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -94,7 +86,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @return IdentitySet|null
     */
     public function getParentAuthor(): ?IdentitySet {
-        return $this->parentAuthor;
+        return $this->getBackingStore()->get('parentAuthor');
     }
 
     /**
@@ -102,7 +94,7 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @return array<IdentitySet>|null
     */
     public function getParticipants(): ?array {
-        return $this->participants;
+        return $this->getBackingStore()->get('participants');
     }
 
     /**
@@ -110,51 +102,51 @@ class CommentAction implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('isReply', $this->isReply);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('parentAuthor', $this->parentAuthor);
-        $writer->writeCollectionOfObjectValues('participants', $this->participants);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('isReply', $this->getIsReply());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('parentAuthor', $this->getParentAuthor());
+        $writer->writeCollectionOfObjectValues('participants', $this->getParticipants());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the isReply property value. If true, this activity was a reply to an existing comment thread.
      *  @param bool|null $value Value to set for the isReply property.
     */
-    public function setIsReply(?bool $value ): void {
-        $this->isReply = $value;
+    public function setIsReply(?bool $value): void {
+        $this->getBackingStore()->set('isReply', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the parentAuthor property value. The identity of the user who started the comment thread.
      *  @param IdentitySet|null $value Value to set for the parentAuthor property.
     */
-    public function setParentAuthor(?IdentitySet $value ): void {
-        $this->parentAuthor = $value;
+    public function setParentAuthor(?IdentitySet $value): void {
+        $this->getBackingStore()->set('parentAuthor', $value);
     }
 
     /**
      * Sets the participants property value. The identities of the users participating in this comment thread.
      *  @param array<IdentitySet>|null $value Value to set for the participants property.
     */
-    public function setParticipants(?array $value ): void {
-        $this->participants = $value;
+    public function setParticipants(?array $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
 }

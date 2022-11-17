@@ -9,61 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $alwaysOn Whether or not to enable always-on VPN connection.
-    */
-    private ?bool $alwaysOn = null;
-    
-    /**
-     * @var bool|null $alwaysOnLockdown If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.
-    */
-    private ?bool $alwaysOnLockdown = null;
-    
-    /**
-     * @var AndroidVpnConnectionType|null $connectionType Android VPN connection type.
-    */
-    private ?AndroidVpnConnectionType $connectionType = null;
-    
-    /**
-     * @var array<KeyValue>|null $customData Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
-    */
-    private ?array $customData = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $customKeyValueData Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
-    */
-    private ?array $customKeyValueData = null;
-    
-    /**
-     * @var DeviceManagementDerivedCredentialSettings|null $derivedCredentialSettings Tenant level settings for the Derived Credentials to be used for authentication.
-    */
-    private ?DeviceManagementDerivedCredentialSettings $derivedCredentialSettings = null;
-    
-    /**
-     * @var AndroidDeviceOwnerCertificateProfileBase|null $identityCertificate Identity certificate for client authentication when authentication method is certificate.
-    */
-    private ?AndroidDeviceOwnerCertificateProfileBase $identityCertificate = null;
-    
-    /**
-     * @var string|null $microsoftTunnelSiteId Microsoft Tunnel site ID.
-    */
-    private ?string $microsoftTunnelSiteId = null;
-    
-    /**
-     * @var VpnProxyServer|null $proxyServer Proxy server.
-    */
-    private ?VpnProxyServer $proxyServer = null;
-    
-    /**
-     * @var array<AppListItem>|null $targetedMobileApps Targeted mobile apps. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $targetedMobileApps = null;
-    
-    /**
-     * @var array<string>|null $targetedPackageIds Targeted App package IDs.
-    */
-    private ?array $targetedPackageIds = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -85,7 +30,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return bool|null
     */
     public function getAlwaysOn(): ?bool {
-        return $this->alwaysOn;
+        return $this->getBackingStore()->get('alwaysOn');
     }
 
     /**
@@ -93,7 +38,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return bool|null
     */
     public function getAlwaysOnLockdown(): ?bool {
-        return $this->alwaysOnLockdown;
+        return $this->getBackingStore()->get('alwaysOnLockdown');
     }
 
     /**
@@ -101,7 +46,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return AndroidVpnConnectionType|null
     */
     public function getConnectionType(): ?AndroidVpnConnectionType {
-        return $this->connectionType;
+        return $this->getBackingStore()->get('connectionType');
     }
 
     /**
@@ -109,7 +54,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return array<KeyValue>|null
     */
     public function getCustomData(): ?array {
-        return $this->customData;
+        return $this->getBackingStore()->get('customData');
     }
 
     /**
@@ -117,7 +62,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return array<KeyValuePair>|null
     */
     public function getCustomKeyValueData(): ?array {
-        return $this->customKeyValueData;
+        return $this->getBackingStore()->get('customKeyValueData');
     }
 
     /**
@@ -125,7 +70,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return DeviceManagementDerivedCredentialSettings|null
     */
     public function getDerivedCredentialSettings(): ?DeviceManagementDerivedCredentialSettings {
-        return $this->derivedCredentialSettings;
+        return $this->getBackingStore()->get('derivedCredentialSettings');
     }
 
     /**
@@ -154,7 +99,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return AndroidDeviceOwnerCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidDeviceOwnerCertificateProfileBase {
-        return $this->identityCertificate;
+        return $this->getBackingStore()->get('identityCertificate');
     }
 
     /**
@@ -162,7 +107,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return string|null
     */
     public function getMicrosoftTunnelSiteId(): ?string {
-        return $this->microsoftTunnelSiteId;
+        return $this->getBackingStore()->get('microsoftTunnelSiteId');
     }
 
     /**
@@ -170,7 +115,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return VpnProxyServer|null
     */
     public function getProxyServer(): ?VpnProxyServer {
-        return $this->proxyServer;
+        return $this->getBackingStore()->get('proxyServer');
     }
 
     /**
@@ -178,7 +123,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return array<AppListItem>|null
     */
     public function getTargetedMobileApps(): ?array {
-        return $this->targetedMobileApps;
+        return $this->getBackingStore()->get('targetedMobileApps');
     }
 
     /**
@@ -186,7 +131,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
      * @return array<string>|null
     */
     public function getTargetedPackageIds(): ?array {
-        return $this->targetedPackageIds;
+        return $this->getBackingStore()->get('targetedPackageIds');
     }
 
     /**
@@ -195,105 +140,105 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('alwaysOn', $this->alwaysOn);
-        $writer->writeBooleanValue('alwaysOnLockdown', $this->alwaysOnLockdown);
-        $writer->writeEnumValue('connectionType', $this->connectionType);
-        $writer->writeCollectionOfObjectValues('customData', $this->customData);
-        $writer->writeCollectionOfObjectValues('customKeyValueData', $this->customKeyValueData);
-        $writer->writeObjectValue('derivedCredentialSettings', $this->derivedCredentialSettings);
-        $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
-        $writer->writeStringValue('microsoftTunnelSiteId', $this->microsoftTunnelSiteId);
-        $writer->writeObjectValue('proxyServer', $this->proxyServer);
-        $writer->writeCollectionOfObjectValues('targetedMobileApps', $this->targetedMobileApps);
-        $writer->writeCollectionOfPrimitiveValues('targetedPackageIds', $this->targetedPackageIds);
+        $writer->writeBooleanValue('alwaysOn', $this->getAlwaysOn());
+        $writer->writeBooleanValue('alwaysOnLockdown', $this->getAlwaysOnLockdown());
+        $writer->writeEnumValue('connectionType', $this->getConnectionType());
+        $writer->writeCollectionOfObjectValues('customData', $this->getCustomData());
+        $writer->writeCollectionOfObjectValues('customKeyValueData', $this->getCustomKeyValueData());
+        $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
+        $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeStringValue('microsoftTunnelSiteId', $this->getMicrosoftTunnelSiteId());
+        $writer->writeObjectValue('proxyServer', $this->getProxyServer());
+        $writer->writeCollectionOfObjectValues('targetedMobileApps', $this->getTargetedMobileApps());
+        $writer->writeCollectionOfPrimitiveValues('targetedPackageIds', $this->getTargetedPackageIds());
     }
 
     /**
      * Sets the alwaysOn property value. Whether or not to enable always-on VPN connection.
      *  @param bool|null $value Value to set for the alwaysOn property.
     */
-    public function setAlwaysOn(?bool $value ): void {
-        $this->alwaysOn = $value;
+    public function setAlwaysOn(?bool $value): void {
+        $this->getBackingStore()->set('alwaysOn', $value);
     }
 
     /**
      * Sets the alwaysOnLockdown property value. If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.
      *  @param bool|null $value Value to set for the alwaysOnLockdown property.
     */
-    public function setAlwaysOnLockdown(?bool $value ): void {
-        $this->alwaysOnLockdown = $value;
+    public function setAlwaysOnLockdown(?bool $value): void {
+        $this->getBackingStore()->set('alwaysOnLockdown', $value);
     }
 
     /**
      * Sets the connectionType property value. Android VPN connection type.
      *  @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
     */
-    public function setConnectionType(?AndroidVpnConnectionType $value ): void {
-        $this->connectionType = $value;
+    public function setConnectionType(?AndroidVpnConnectionType $value): void {
+        $this->getBackingStore()->set('connectionType', $value);
     }
 
     /**
      * Sets the customData property value. Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
      *  @param array<KeyValue>|null $value Value to set for the customData property.
     */
-    public function setCustomData(?array $value ): void {
-        $this->customData = $value;
+    public function setCustomData(?array $value): void {
+        $this->getBackingStore()->set('customData', $value);
     }
 
     /**
      * Sets the customKeyValueData property value. Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
      *  @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
     */
-    public function setCustomKeyValueData(?array $value ): void {
-        $this->customKeyValueData = $value;
+    public function setCustomKeyValueData(?array $value): void {
+        $this->getBackingStore()->set('customKeyValueData', $value);
     }
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
      *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
-    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value ): void {
-        $this->derivedCredentialSettings = $value;
+    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
+        $this->getBackingStore()->set('derivedCredentialSettings', $value);
     }
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
      *  @param AndroidDeviceOwnerCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
-    public function setIdentityCertificate(?AndroidDeviceOwnerCertificateProfileBase $value ): void {
-        $this->identityCertificate = $value;
+    public function setIdentityCertificate(?AndroidDeviceOwnerCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificate', $value);
     }
 
     /**
      * Sets the microsoftTunnelSiteId property value. Microsoft Tunnel site ID.
      *  @param string|null $value Value to set for the microsoftTunnelSiteId property.
     */
-    public function setMicrosoftTunnelSiteId(?string $value ): void {
-        $this->microsoftTunnelSiteId = $value;
+    public function setMicrosoftTunnelSiteId(?string $value): void {
+        $this->getBackingStore()->set('microsoftTunnelSiteId', $value);
     }
 
     /**
      * Sets the proxyServer property value. Proxy server.
      *  @param VpnProxyServer|null $value Value to set for the proxyServer property.
     */
-    public function setProxyServer(?VpnProxyServer $value ): void {
-        $this->proxyServer = $value;
+    public function setProxyServer(?VpnProxyServer $value): void {
+        $this->getBackingStore()->set('proxyServer', $value);
     }
 
     /**
      * Sets the targetedMobileApps property value. Targeted mobile apps. This collection can contain a maximum of 500 elements.
      *  @param array<AppListItem>|null $value Value to set for the targetedMobileApps property.
     */
-    public function setTargetedMobileApps(?array $value ): void {
-        $this->targetedMobileApps = $value;
+    public function setTargetedMobileApps(?array $value): void {
+        $this->getBackingStore()->set('targetedMobileApps', $value);
     }
 
     /**
      * Sets the targetedPackageIds property value. Targeted App package IDs.
      *  @param array<string>|null $value Value to set for the targetedPackageIds property.
     */
-    public function setTargetedPackageIds(?array $value ): void {
-        $this->targetedPackageIds = $value;
+    public function setTargetedPackageIds(?array $value): void {
+        $this->getBackingStore()->set('targetedPackageIds', $value);
     }
 
 }

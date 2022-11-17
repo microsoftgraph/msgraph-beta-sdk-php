@@ -7,23 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, Parsable 
+class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<SynchronizationSecretKeyStringValuePair>|null $credentials The credentials property
-    */
-    private ?array $credentials = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new acquireAccessTokenPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -40,8 +39,16 @@ class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -49,7 +56,7 @@ class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, Parsabl
      * @return array<SynchronizationSecretKeyStringValuePair>|null
     */
     public function getCredentials(): ?array {
-        return $this->credentials;
+        return $this->getBackingStore()->get('credentials');
     }
 
     /**
@@ -68,24 +75,24 @@ class AcquireAccessTokenPostRequestBody implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('credentials', $this->credentials);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('credentials', $this->getCredentials());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the credentials property value. The credentials property
      *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the credentials property.
     */
-    public function setCredentials(?array $value ): void {
-        $this->credentials = $value;
+    public function setCredentials(?array $value): void {
+        $this->getBackingStore()->set('credentials', $value);
     }
 
 }

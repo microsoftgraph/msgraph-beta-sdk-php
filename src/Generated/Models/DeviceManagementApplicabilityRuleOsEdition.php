@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder, Parsable 
+class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $name Name for object.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<Windows10EditionType>|null $osEditionTypes Applicability rule OS edition type.
-    */
-    private ?array $osEditionTypes = null;
-    
-    /**
-     * @var DeviceManagementApplicabilityRuleType|null $ruleType Supported Applicability rule types for Device Configuration
-    */
-    private ?DeviceManagementApplicabilityRuleType $ruleType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementApplicabilityRuleOsEdition and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagementApplicabilityRuleOsEdition');
     }
@@ -55,8 +39,16 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -86,7 +78,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -94,7 +86,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @return array<Windows10EditionType>|null
     */
     public function getOsEditionTypes(): ?array {
-        return $this->osEditionTypes;
+        return $this->getBackingStore()->get('osEditionTypes');
     }
 
     /**
@@ -102,7 +94,7 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @return DeviceManagementApplicabilityRuleType|null
     */
     public function getRuleType(): ?DeviceManagementApplicabilityRuleType {
-        return $this->ruleType;
+        return $this->getBackingStore()->get('ruleType');
     }
 
     /**
@@ -110,51 +102,51 @@ class DeviceManagementApplicabilityRuleOsEdition implements AdditionalDataHolder
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfEnumValues('osEditionTypes', $this->osEditionTypes);
-        $writer->writeEnumValue('ruleType', $this->ruleType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfEnumValues('osEditionTypes', $this->getOsEditionTypes());
+        $writer->writeEnumValue('ruleType', $this->getRuleType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the name property value. Name for object.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the osEditionTypes property value. Applicability rule OS edition type.
      *  @param array<Windows10EditionType>|null $value Value to set for the osEditionTypes property.
     */
-    public function setOsEditionTypes(?array $value ): void {
-        $this->osEditionTypes = $value;
+    public function setOsEditionTypes(?array $value): void {
+        $this->getBackingStore()->set('osEditionTypes', $value);
     }
 
     /**
      * Sets the ruleType property value. Supported Applicability rule types for Device Configuration
      *  @param DeviceManagementApplicabilityRuleType|null $value Value to set for the ruleType property.
     */
-    public function setRuleType(?DeviceManagementApplicabilityRuleType $value ): void {
-        $this->ruleType = $value;
+    public function setRuleType(?DeviceManagementApplicabilityRuleType $value): void {
+        $this->getBackingStore()->set('ruleType', $value);
     }
 
 }

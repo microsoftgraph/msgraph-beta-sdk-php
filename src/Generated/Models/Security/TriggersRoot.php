@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TriggersRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<RetentionEvent>|null $retentionEvents The retentionEvents property
-    */
-    private ?array $retentionEvents = null;
-    
-    /**
      * Instantiates a new triggersRoot and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class TriggersRoot extends Entity implements Parsable
      * @return array<RetentionEvent>|null
     */
     public function getRetentionEvents(): ?array {
-        return $this->retentionEvents;
+        return $this->getBackingStore()->get('retentionEvents');
     }
 
     /**
@@ -56,15 +51,15 @@ class TriggersRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('retentionEvents', $this->retentionEvents);
+        $writer->writeCollectionOfObjectValues('retentionEvents', $this->getRetentionEvents());
     }
 
     /**
      * Sets the retentionEvents property value. The retentionEvents property
      *  @param array<RetentionEvent>|null $value Value to set for the retentionEvents property.
     */
-    public function setRetentionEvents(?array $value ): void {
-        $this->retentionEvents = $value;
+    public function setRetentionEvents(?array $value): void {
+        $this->getBackingStore()->set('retentionEvents', $value);
     }
 
 }

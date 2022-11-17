@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EstimateStatisticsOperation extends CaseOperation implements Parsable 
 {
     /**
-     * @var int|null $indexedItemCount The estimated count of items for the sourceCollection that matched the content query.
-    */
-    private ?int $indexedItemCount = null;
-    
-    /**
-     * @var int|null $indexedItemsSize The estimated size of items for the sourceCollection that matched the content query.
-    */
-    private ?int $indexedItemsSize = null;
-    
-    /**
-     * @var int|null $mailboxCount The number of mailboxes that had search hits.
-    */
-    private ?int $mailboxCount = null;
-    
-    /**
-     * @var int|null $siteCount The number of mailboxes that had search hits.
-    */
-    private ?int $siteCount = null;
-    
-    /**
-     * @var SourceCollection|null $sourceCollection eDiscovery collection, commonly known as a search.
-    */
-    private ?SourceCollection $sourceCollection = null;
-    
-    /**
-     * @var int|null $unindexedItemCount The estimated count of unindexed items for the collection.
-    */
-    private ?int $unindexedItemCount = null;
-    
-    /**
-     * @var int|null $unindexedItemsSize The estimated size of unindexed items for the collection.
-    */
-    private ?int $unindexedItemsSize = null;
-    
-    /**
      * Instantiates a new estimateStatisticsOperation and sets the default values.
     */
     public function __construct() {
@@ -82,7 +47,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getIndexedItemCount(): ?int {
-        return $this->indexedItemCount;
+        return $this->getBackingStore()->get('indexedItemCount');
     }
 
     /**
@@ -90,7 +55,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getIndexedItemsSize(): ?int {
-        return $this->indexedItemsSize;
+        return $this->getBackingStore()->get('indexedItemsSize');
     }
 
     /**
@@ -98,7 +63,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getMailboxCount(): ?int {
-        return $this->mailboxCount;
+        return $this->getBackingStore()->get('mailboxCount');
     }
 
     /**
@@ -106,7 +71,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getSiteCount(): ?int {
-        return $this->siteCount;
+        return $this->getBackingStore()->get('siteCount');
     }
 
     /**
@@ -114,7 +79,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return SourceCollection|null
     */
     public function getSourceCollection(): ?SourceCollection {
-        return $this->sourceCollection;
+        return $this->getBackingStore()->get('sourceCollection');
     }
 
     /**
@@ -122,7 +87,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getUnindexedItemCount(): ?int {
-        return $this->unindexedItemCount;
+        return $this->getBackingStore()->get('unindexedItemCount');
     }
 
     /**
@@ -130,7 +95,7 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
      * @return int|null
     */
     public function getUnindexedItemsSize(): ?int {
-        return $this->unindexedItemsSize;
+        return $this->getBackingStore()->get('unindexedItemsSize');
     }
 
     /**
@@ -139,69 +104,69 @@ class EstimateStatisticsOperation extends CaseOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('indexedItemCount', $this->indexedItemCount);
-        $writer->writeIntegerValue('indexedItemsSize', $this->indexedItemsSize);
-        $writer->writeIntegerValue('mailboxCount', $this->mailboxCount);
-        $writer->writeIntegerValue('siteCount', $this->siteCount);
-        $writer->writeObjectValue('sourceCollection', $this->sourceCollection);
-        $writer->writeIntegerValue('unindexedItemCount', $this->unindexedItemCount);
-        $writer->writeIntegerValue('unindexedItemsSize', $this->unindexedItemsSize);
+        $writer->writeIntegerValue('indexedItemCount', $this->getIndexedItemCount());
+        $writer->writeIntegerValue('indexedItemsSize', $this->getIndexedItemsSize());
+        $writer->writeIntegerValue('mailboxCount', $this->getMailboxCount());
+        $writer->writeIntegerValue('siteCount', $this->getSiteCount());
+        $writer->writeObjectValue('sourceCollection', $this->getSourceCollection());
+        $writer->writeIntegerValue('unindexedItemCount', $this->getUnindexedItemCount());
+        $writer->writeIntegerValue('unindexedItemsSize', $this->getUnindexedItemsSize());
     }
 
     /**
      * Sets the indexedItemCount property value. The estimated count of items for the sourceCollection that matched the content query.
      *  @param int|null $value Value to set for the indexedItemCount property.
     */
-    public function setIndexedItemCount(?int $value ): void {
-        $this->indexedItemCount = $value;
+    public function setIndexedItemCount(?int $value): void {
+        $this->getBackingStore()->set('indexedItemCount', $value);
     }
 
     /**
      * Sets the indexedItemsSize property value. The estimated size of items for the sourceCollection that matched the content query.
      *  @param int|null $value Value to set for the indexedItemsSize property.
     */
-    public function setIndexedItemsSize(?int $value ): void {
-        $this->indexedItemsSize = $value;
+    public function setIndexedItemsSize(?int $value): void {
+        $this->getBackingStore()->set('indexedItemsSize', $value);
     }
 
     /**
      * Sets the mailboxCount property value. The number of mailboxes that had search hits.
      *  @param int|null $value Value to set for the mailboxCount property.
     */
-    public function setMailboxCount(?int $value ): void {
-        $this->mailboxCount = $value;
+    public function setMailboxCount(?int $value): void {
+        $this->getBackingStore()->set('mailboxCount', $value);
     }
 
     /**
      * Sets the siteCount property value. The number of mailboxes that had search hits.
      *  @param int|null $value Value to set for the siteCount property.
     */
-    public function setSiteCount(?int $value ): void {
-        $this->siteCount = $value;
+    public function setSiteCount(?int $value): void {
+        $this->getBackingStore()->set('siteCount', $value);
     }
 
     /**
      * Sets the sourceCollection property value. eDiscovery collection, commonly known as a search.
      *  @param SourceCollection|null $value Value to set for the sourceCollection property.
     */
-    public function setSourceCollection(?SourceCollection $value ): void {
-        $this->sourceCollection = $value;
+    public function setSourceCollection(?SourceCollection $value): void {
+        $this->getBackingStore()->set('sourceCollection', $value);
     }
 
     /**
      * Sets the unindexedItemCount property value. The estimated count of unindexed items for the collection.
      *  @param int|null $value Value to set for the unindexedItemCount property.
     */
-    public function setUnindexedItemCount(?int $value ): void {
-        $this->unindexedItemCount = $value;
+    public function setUnindexedItemCount(?int $value): void {
+        $this->getBackingStore()->set('unindexedItemCount', $value);
     }
 
     /**
      * Sets the unindexedItemsSize property value. The estimated size of unindexed items for the collection.
      *  @param int|null $value Value to set for the unindexedItemsSize property.
     */
-    public function setUnindexedItemsSize(?int $value ): void {
-        $this->unindexedItemsSize = $value;
+    public function setUnindexedItemsSize(?int $value): void {
+        $this->getBackingStore()->set('unindexedItemsSize', $value);
     }
 
 }

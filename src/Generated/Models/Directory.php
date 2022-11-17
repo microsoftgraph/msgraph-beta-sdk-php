@@ -9,66 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Directory extends Entity implements Parsable 
 {
     /**
-     * @var array<AdministrativeUnit>|null $administrativeUnits Conceptual container for user and group directory objects.
-    */
-    private ?array $administrativeUnits = null;
-    
-    /**
-     * @var array<AttributeSet>|null $attributeSets Group of related custom security attribute definitions.
-    */
-    private ?array $attributeSets = null;
-    
-    /**
-     * @var array<CustomSecurityAttributeDefinition>|null $customSecurityAttributeDefinitions Schema of a custom security attributes (key-value pairs).
-    */
-    private ?array $customSecurityAttributeDefinitions = null;
-    
-    /**
-     * @var array<DirectoryObject>|null $deletedItems The deletedItems property
-    */
-    private ?array $deletedItems = null;
-    
-    /**
-     * @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies The featureRolloutPolicies property
-    */
-    private ?array $featureRolloutPolicies = null;
-    
-    /**
-     * @var array<IdentityProviderBase>|null $federationConfigurations Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
-    */
-    private ?array $federationConfigurations = null;
-    
-    /**
-     * @var array<RecommendationResource>|null $impactedResources The impactedResources property
-    */
-    private ?array $impactedResources = null;
-    
-    /**
-     * @var array<InboundSharedUserProfile>|null $inboundSharedUserProfiles The inboundSharedUserProfiles property
-    */
-    private ?array $inboundSharedUserProfiles = null;
-    
-    /**
-     * @var array<OnPremisesDirectorySynchronization>|null $onPremisesSynchronization The onPremisesSynchronization property
-    */
-    private ?array $onPremisesSynchronization = null;
-    
-    /**
-     * @var array<OutboundSharedUserProfile>|null $outboundSharedUserProfiles The outboundSharedUserProfiles property
-    */
-    private ?array $outboundSharedUserProfiles = null;
-    
-    /**
-     * @var array<Recommendation>|null $recommendations The recommendations property
-    */
-    private ?array $recommendations = null;
-    
-    /**
-     * @var array<SharedEmailDomain>|null $sharedEmailDomains The sharedEmailDomains property
-    */
-    private ?array $sharedEmailDomains = null;
-    
-    /**
      * Instantiates a new Directory and sets the default values.
     */
     public function __construct() {
@@ -90,7 +30,7 @@ class Directory extends Entity implements Parsable
      * @return array<AdministrativeUnit>|null
     */
     public function getAdministrativeUnits(): ?array {
-        return $this->administrativeUnits;
+        return $this->getBackingStore()->get('administrativeUnits');
     }
 
     /**
@@ -98,7 +38,7 @@ class Directory extends Entity implements Parsable
      * @return array<AttributeSet>|null
     */
     public function getAttributeSets(): ?array {
-        return $this->attributeSets;
+        return $this->getBackingStore()->get('attributeSets');
     }
 
     /**
@@ -106,7 +46,7 @@ class Directory extends Entity implements Parsable
      * @return array<CustomSecurityAttributeDefinition>|null
     */
     public function getCustomSecurityAttributeDefinitions(): ?array {
-        return $this->customSecurityAttributeDefinitions;
+        return $this->getBackingStore()->get('customSecurityAttributeDefinitions');
     }
 
     /**
@@ -114,7 +54,7 @@ class Directory extends Entity implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getDeletedItems(): ?array {
-        return $this->deletedItems;
+        return $this->getBackingStore()->get('deletedItems');
     }
 
     /**
@@ -122,7 +62,7 @@ class Directory extends Entity implements Parsable
      * @return array<FeatureRolloutPolicy>|null
     */
     public function getFeatureRolloutPolicies(): ?array {
-        return $this->featureRolloutPolicies;
+        return $this->getBackingStore()->get('featureRolloutPolicies');
     }
 
     /**
@@ -130,7 +70,7 @@ class Directory extends Entity implements Parsable
      * @return array<IdentityProviderBase>|null
     */
     public function getFederationConfigurations(): ?array {
-        return $this->federationConfigurations;
+        return $this->getBackingStore()->get('federationConfigurations');
     }
 
     /**
@@ -160,7 +100,7 @@ class Directory extends Entity implements Parsable
      * @return array<RecommendationResource>|null
     */
     public function getImpactedResources(): ?array {
-        return $this->impactedResources;
+        return $this->getBackingStore()->get('impactedResources');
     }
 
     /**
@@ -168,7 +108,7 @@ class Directory extends Entity implements Parsable
      * @return array<InboundSharedUserProfile>|null
     */
     public function getInboundSharedUserProfiles(): ?array {
-        return $this->inboundSharedUserProfiles;
+        return $this->getBackingStore()->get('inboundSharedUserProfiles');
     }
 
     /**
@@ -176,7 +116,7 @@ class Directory extends Entity implements Parsable
      * @return array<OnPremisesDirectorySynchronization>|null
     */
     public function getOnPremisesSynchronization(): ?array {
-        return $this->onPremisesSynchronization;
+        return $this->getBackingStore()->get('onPremisesSynchronization');
     }
 
     /**
@@ -184,7 +124,7 @@ class Directory extends Entity implements Parsable
      * @return array<OutboundSharedUserProfile>|null
     */
     public function getOutboundSharedUserProfiles(): ?array {
-        return $this->outboundSharedUserProfiles;
+        return $this->getBackingStore()->get('outboundSharedUserProfiles');
     }
 
     /**
@@ -192,7 +132,7 @@ class Directory extends Entity implements Parsable
      * @return array<Recommendation>|null
     */
     public function getRecommendations(): ?array {
-        return $this->recommendations;
+        return $this->getBackingStore()->get('recommendations');
     }
 
     /**
@@ -200,7 +140,7 @@ class Directory extends Entity implements Parsable
      * @return array<SharedEmailDomain>|null
     */
     public function getSharedEmailDomains(): ?array {
-        return $this->sharedEmailDomains;
+        return $this->getBackingStore()->get('sharedEmailDomains');
     }
 
     /**
@@ -209,114 +149,114 @@ class Directory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('administrativeUnits', $this->administrativeUnits);
-        $writer->writeCollectionOfObjectValues('attributeSets', $this->attributeSets);
-        $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->customSecurityAttributeDefinitions);
-        $writer->writeCollectionOfObjectValues('deletedItems', $this->deletedItems);
-        $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->featureRolloutPolicies);
-        $writer->writeCollectionOfObjectValues('federationConfigurations', $this->federationConfigurations);
-        $writer->writeCollectionOfObjectValues('impactedResources', $this->impactedResources);
-        $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->inboundSharedUserProfiles);
-        $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->onPremisesSynchronization);
-        $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->outboundSharedUserProfiles);
-        $writer->writeCollectionOfObjectValues('recommendations', $this->recommendations);
-        $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->sharedEmailDomains);
+        $writer->writeCollectionOfObjectValues('administrativeUnits', $this->getAdministrativeUnits());
+        $writer->writeCollectionOfObjectValues('attributeSets', $this->getAttributeSets());
+        $writer->writeCollectionOfObjectValues('customSecurityAttributeDefinitions', $this->getCustomSecurityAttributeDefinitions());
+        $writer->writeCollectionOfObjectValues('deletedItems', $this->getDeletedItems());
+        $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
+        $writer->writeCollectionOfObjectValues('federationConfigurations', $this->getFederationConfigurations());
+        $writer->writeCollectionOfObjectValues('impactedResources', $this->getImpactedResources());
+        $writer->writeCollectionOfObjectValues('inboundSharedUserProfiles', $this->getInboundSharedUserProfiles());
+        $writer->writeCollectionOfObjectValues('onPremisesSynchronization', $this->getOnPremisesSynchronization());
+        $writer->writeCollectionOfObjectValues('outboundSharedUserProfiles', $this->getOutboundSharedUserProfiles());
+        $writer->writeCollectionOfObjectValues('recommendations', $this->getRecommendations());
+        $writer->writeCollectionOfObjectValues('sharedEmailDomains', $this->getSharedEmailDomains());
     }
 
     /**
      * Sets the administrativeUnits property value. Conceptual container for user and group directory objects.
      *  @param array<AdministrativeUnit>|null $value Value to set for the administrativeUnits property.
     */
-    public function setAdministrativeUnits(?array $value ): void {
-        $this->administrativeUnits = $value;
+    public function setAdministrativeUnits(?array $value): void {
+        $this->getBackingStore()->set('administrativeUnits', $value);
     }
 
     /**
      * Sets the attributeSets property value. Group of related custom security attribute definitions.
      *  @param array<AttributeSet>|null $value Value to set for the attributeSets property.
     */
-    public function setAttributeSets(?array $value ): void {
-        $this->attributeSets = $value;
+    public function setAttributeSets(?array $value): void {
+        $this->getBackingStore()->set('attributeSets', $value);
     }
 
     /**
      * Sets the customSecurityAttributeDefinitions property value. Schema of a custom security attributes (key-value pairs).
      *  @param array<CustomSecurityAttributeDefinition>|null $value Value to set for the customSecurityAttributeDefinitions property.
     */
-    public function setCustomSecurityAttributeDefinitions(?array $value ): void {
-        $this->customSecurityAttributeDefinitions = $value;
+    public function setCustomSecurityAttributeDefinitions(?array $value): void {
+        $this->getBackingStore()->set('customSecurityAttributeDefinitions', $value);
     }
 
     /**
      * Sets the deletedItems property value. The deletedItems property
      *  @param array<DirectoryObject>|null $value Value to set for the deletedItems property.
     */
-    public function setDeletedItems(?array $value ): void {
-        $this->deletedItems = $value;
+    public function setDeletedItems(?array $value): void {
+        $this->getBackingStore()->set('deletedItems', $value);
     }
 
     /**
      * Sets the featureRolloutPolicies property value. The featureRolloutPolicies property
      *  @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
-    public function setFeatureRolloutPolicies(?array $value ): void {
-        $this->featureRolloutPolicies = $value;
+    public function setFeatureRolloutPolicies(?array $value): void {
+        $this->getBackingStore()->set('featureRolloutPolicies', $value);
     }
 
     /**
      * Sets the federationConfigurations property value. Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.
      *  @param array<IdentityProviderBase>|null $value Value to set for the federationConfigurations property.
     */
-    public function setFederationConfigurations(?array $value ): void {
-        $this->federationConfigurations = $value;
+    public function setFederationConfigurations(?array $value): void {
+        $this->getBackingStore()->set('federationConfigurations', $value);
     }
 
     /**
      * Sets the impactedResources property value. The impactedResources property
      *  @param array<RecommendationResource>|null $value Value to set for the impactedResources property.
     */
-    public function setImpactedResources(?array $value ): void {
-        $this->impactedResources = $value;
+    public function setImpactedResources(?array $value): void {
+        $this->getBackingStore()->set('impactedResources', $value);
     }
 
     /**
      * Sets the inboundSharedUserProfiles property value. The inboundSharedUserProfiles property
      *  @param array<InboundSharedUserProfile>|null $value Value to set for the inboundSharedUserProfiles property.
     */
-    public function setInboundSharedUserProfiles(?array $value ): void {
-        $this->inboundSharedUserProfiles = $value;
+    public function setInboundSharedUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('inboundSharedUserProfiles', $value);
     }
 
     /**
      * Sets the onPremisesSynchronization property value. The onPremisesSynchronization property
      *  @param array<OnPremisesDirectorySynchronization>|null $value Value to set for the onPremisesSynchronization property.
     */
-    public function setOnPremisesSynchronization(?array $value ): void {
-        $this->onPremisesSynchronization = $value;
+    public function setOnPremisesSynchronization(?array $value): void {
+        $this->getBackingStore()->set('onPremisesSynchronization', $value);
     }
 
     /**
      * Sets the outboundSharedUserProfiles property value. The outboundSharedUserProfiles property
      *  @param array<OutboundSharedUserProfile>|null $value Value to set for the outboundSharedUserProfiles property.
     */
-    public function setOutboundSharedUserProfiles(?array $value ): void {
-        $this->outboundSharedUserProfiles = $value;
+    public function setOutboundSharedUserProfiles(?array $value): void {
+        $this->getBackingStore()->set('outboundSharedUserProfiles', $value);
     }
 
     /**
      * Sets the recommendations property value. The recommendations property
      *  @param array<Recommendation>|null $value Value to set for the recommendations property.
     */
-    public function setRecommendations(?array $value ): void {
-        $this->recommendations = $value;
+    public function setRecommendations(?array $value): void {
+        $this->getBackingStore()->set('recommendations', $value);
     }
 
     /**
      * Sets the sharedEmailDomains property value. The sharedEmailDomains property
      *  @param array<SharedEmailDomain>|null $value Value to set for the sharedEmailDomains property.
     */
-    public function setSharedEmailDomains(?array $value ): void {
-        $this->sharedEmailDomains = $value;
+    public function setSharedEmailDomains(?array $value): void {
+        $this->getBackingStore()->set('sharedEmailDomains', $value);
     }
 
 }

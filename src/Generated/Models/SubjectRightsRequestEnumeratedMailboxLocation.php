@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequestMailboxLocation implements Parsable 
 {
     /**
-     * @var array<string>|null $upns Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
-    */
-    private ?array $upns = null;
-    
-    /**
      * Instantiates a new SubjectRightsRequestEnumeratedMailboxLocation and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
      * @return array<string>|null
     */
     public function getUpns(): ?array {
-        return $this->upns;
+        return $this->getBackingStore()->get('upns');
     }
 
     /**
@@ -55,15 +50,15 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('upns', $this->upns);
+        $writer->writeCollectionOfPrimitiveValues('upns', $this->getUpns());
     }
 
     /**
      * Sets the upns property value. Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
      *  @param array<string>|null $value Value to set for the upns property.
     */
-    public function setUpns(?array $value ): void {
-        $this->upns = $value;
+    public function setUpns(?array $value): void {
+        $this->getBackingStore()->set('upns', $value);
     }
 
 }

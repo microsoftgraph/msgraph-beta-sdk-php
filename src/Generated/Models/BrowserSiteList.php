@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BrowserSiteList extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description The description of the site list.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The name of the site list.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy The user who last modified the site list.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the site list was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var IdentitySet|null $publishedBy The user who published the site list.
-    */
-    private ?IdentitySet $publishedBy = null;
-    
-    /**
-     * @var DateTime|null $publishedDateTime The date and time when the site list was published.
-    */
-    private ?DateTime $publishedDateTime = null;
-    
-    /**
-     * @var string|null $revision The current revision of the site list.
-    */
-    private ?string $revision = null;
-    
-    /**
-     * @var array<BrowserSharedCookie>|null $sharedCookies A collection of shared cookies defined for the site list.
-    */
-    private ?array $sharedCookies = null;
-    
-    /**
-     * @var array<BrowserSite>|null $sites A collection of sites defined for the site list.
-    */
-    private ?array $sites = null;
-    
-    /**
-     * @var BrowserSiteListStatus|null $status The status property
-    */
-    private ?BrowserSiteListStatus $status = null;
-    
-    /**
      * Instantiates a new browserSiteList and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -89,7 +39,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -117,7 +67,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -125,7 +75,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -133,7 +83,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getPublishedBy(): ?IdentitySet {
-        return $this->publishedBy;
+        return $this->getBackingStore()->get('publishedBy');
     }
 
     /**
@@ -141,7 +91,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getPublishedDateTime(): ?DateTime {
-        return $this->publishedDateTime;
+        return $this->getBackingStore()->get('publishedDateTime');
     }
 
     /**
@@ -149,7 +99,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return string|null
     */
     public function getRevision(): ?string {
-        return $this->revision;
+        return $this->getBackingStore()->get('revision');
     }
 
     /**
@@ -157,7 +107,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return array<BrowserSharedCookie>|null
     */
     public function getSharedCookies(): ?array {
-        return $this->sharedCookies;
+        return $this->getBackingStore()->get('sharedCookies');
     }
 
     /**
@@ -165,7 +115,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return array<BrowserSite>|null
     */
     public function getSites(): ?array {
-        return $this->sites;
+        return $this->getBackingStore()->get('sites');
     }
 
     /**
@@ -173,7 +123,7 @@ class BrowserSiteList extends Entity implements Parsable
      * @return BrowserSiteListStatus|null
     */
     public function getStatus(): ?BrowserSiteListStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -182,96 +132,96 @@ class BrowserSiteList extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('publishedBy', $this->publishedBy);
-        $writer->writeDateTimeValue('publishedDateTime', $this->publishedDateTime);
-        $writer->writeStringValue('revision', $this->revision);
-        $writer->writeCollectionOfObjectValues('sharedCookies', $this->sharedCookies);
-        $writer->writeCollectionOfObjectValues('sites', $this->sites);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('publishedBy', $this->getPublishedBy());
+        $writer->writeDateTimeValue('publishedDateTime', $this->getPublishedDateTime());
+        $writer->writeStringValue('revision', $this->getRevision());
+        $writer->writeCollectionOfObjectValues('sharedCookies', $this->getSharedCookies());
+        $writer->writeCollectionOfObjectValues('sites', $this->getSites());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the description property value. The description of the site list.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the site list.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the site list.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the site list was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the publishedBy property value. The user who published the site list.
      *  @param IdentitySet|null $value Value to set for the publishedBy property.
     */
-    public function setPublishedBy(?IdentitySet $value ): void {
-        $this->publishedBy = $value;
+    public function setPublishedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('publishedBy', $value);
     }
 
     /**
      * Sets the publishedDateTime property value. The date and time when the site list was published.
      *  @param DateTime|null $value Value to set for the publishedDateTime property.
     */
-    public function setPublishedDateTime(?DateTime $value ): void {
-        $this->publishedDateTime = $value;
+    public function setPublishedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('publishedDateTime', $value);
     }
 
     /**
      * Sets the revision property value. The current revision of the site list.
      *  @param string|null $value Value to set for the revision property.
     */
-    public function setRevision(?string $value ): void {
-        $this->revision = $value;
+    public function setRevision(?string $value): void {
+        $this->getBackingStore()->set('revision', $value);
     }
 
     /**
      * Sets the sharedCookies property value. A collection of shared cookies defined for the site list.
      *  @param array<BrowserSharedCookie>|null $value Value to set for the sharedCookies property.
     */
-    public function setSharedCookies(?array $value ): void {
-        $this->sharedCookies = $value;
+    public function setSharedCookies(?array $value): void {
+        $this->getBackingStore()->set('sharedCookies', $value);
     }
 
     /**
      * Sets the sites property value. A collection of sites defined for the site list.
      *  @param array<BrowserSite>|null $value Value to set for the sites property.
     */
-    public function setSites(?array $value ): void {
-        $this->sites = $value;
+    public function setSites(?array $value): void {
+        $this->getBackingStore()->set('sites', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param BrowserSiteListStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?BrowserSiteListStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?BrowserSiteListStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationStringSettingValueDefaultTemplate|null $defaultValue String Setting Value Default Template.
-    */
-    private ?DeviceManagementConfigurationStringSettingValueDefaultTemplate $defaultValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationStringSettingValueTemplate and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceMana
      * @return DeviceManagementConfigurationStringSettingValueDefaultTemplate|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationStringSettingValueDefaultTemplate {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationStringSettingValueTemplate extends DeviceMana
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('defaultValue', $this->defaultValue);
+        $writer->writeObjectValue('defaultValue', $this->getDefaultValue());
     }
 
     /**
      * Sets the defaultValue property value. String Setting Value Default Template.
      *  @param DeviceManagementConfigurationStringSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?DeviceManagementConfigurationStringSettingValueDefaultTemplate $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?DeviceManagementConfigurationStringSettingValueDefaultTemplate $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
 }

@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppLogCollectionRequest extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime Time at which the upload log request reached a terminal state
-    */
-    private ?DateTime $completedDateTime = null;
-    
-    /**
-     * @var array<string>|null $customLogFolders List of log folders.
-    */
-    private ?array $customLogFolders = null;
-    
-    /**
-     * @var string|null $errorMessage Error message if any during the upload process
-    */
-    private ?string $errorMessage = null;
-    
-    /**
-     * @var AppLogUploadState|null $status AppLogUploadStatus
-    */
-    private ?AppLogUploadState $status = null;
-    
-    /**
      * Instantiates a new appLogCollectionRequest and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->completedDateTime;
+        return $this->getBackingStore()->get('completedDateTime');
     }
 
     /**
@@ -59,7 +39,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCustomLogFolders(): ?array {
-        return $this->customLogFolders;
+        return $this->getBackingStore()->get('customLogFolders');
     }
 
     /**
@@ -67,7 +47,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->errorMessage;
+        return $this->getBackingStore()->get('errorMessage');
     }
 
     /**
@@ -89,7 +69,7 @@ class AppLogCollectionRequest extends Entity implements Parsable
      * @return AppLogUploadState|null
     */
     public function getStatus(): ?AppLogUploadState {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -98,42 +78,42 @@ class AppLogCollectionRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('completedDateTime', $this->completedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('customLogFolders', $this->customLogFolders);
-        $writer->writeStringValue('errorMessage', $this->errorMessage);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('customLogFolders', $this->getCustomLogFolders());
+        $writer->writeStringValue('errorMessage', $this->getErrorMessage());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the completedDateTime property value. Time at which the upload log request reached a terminal state
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
-    public function setCompletedDateTime(?DateTime $value ): void {
-        $this->completedDateTime = $value;
+    public function setCompletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completedDateTime', $value);
     }
 
     /**
      * Sets the customLogFolders property value. List of log folders.
      *  @param array<string>|null $value Value to set for the customLogFolders property.
     */
-    public function setCustomLogFolders(?array $value ): void {
-        $this->customLogFolders = $value;
+    public function setCustomLogFolders(?array $value): void {
+        $this->getBackingStore()->set('customLogFolders', $value);
     }
 
     /**
      * Sets the errorMessage property value. Error message if any during the upload process
      *  @param string|null $value Value to set for the errorMessage property.
     */
-    public function setErrorMessage(?string $value ): void {
-        $this->errorMessage = $value;
+    public function setErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('errorMessage', $value);
     }
 
     /**
      * Sets the status property value. AppLogUploadStatus
      *  @param AppLogUploadState|null $value Value to set for the status property.
     */
-    public function setStatus(?AppLogUploadState $value ): void {
-        $this->status = $value;
+    public function setStatus(?AppLogUploadState $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

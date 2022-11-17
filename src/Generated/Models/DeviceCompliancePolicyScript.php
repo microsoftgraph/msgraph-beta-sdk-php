@@ -6,34 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Psr\Http\Message\StreamInterface;
 
-class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable 
+class DeviceCompliancePolicyScript implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceComplianceScriptId Device compliance script Id.
-    */
-    private ?string $deviceComplianceScriptId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var StreamInterface|null $rulesContent Json of the rules.
-    */
-    private ?StreamInterface $rulesContent = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceCompliancePolicyScript and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceCompliancePolicyScript');
     }
@@ -51,8 +40,16 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -60,7 +57,7 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceComplianceScriptId(): ?string {
-        return $this->deviceComplianceScriptId;
+        return $this->getBackingStore()->get('deviceComplianceScriptId');
     }
 
     /**
@@ -81,15 +78,15 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
      * Gets the rulesContent property value. Json of the rules.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getRulesContent(): StreamInterface {
-        return $this->rulesContent;
+    public function getRulesContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('rulesContent');
     }
 
     /**
@@ -97,42 +94,42 @@ class DeviceCompliancePolicyScript implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('deviceComplianceScriptId', $this->deviceComplianceScriptId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeBinaryContent('rulesContent', $this->rulesContent);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('deviceComplianceScriptId', $this->getDeviceComplianceScriptId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBinaryContent('rulesContent', $this->getRulesContent());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceComplianceScriptId property value. Device compliance script Id.
      *  @param string|null $value Value to set for the deviceComplianceScriptId property.
     */
-    public function setDeviceComplianceScriptId(?string $value ): void {
-        $this->deviceComplianceScriptId = $value;
+    public function setDeviceComplianceScriptId(?string $value): void {
+        $this->getBackingStore()->set('deviceComplianceScriptId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the rulesContent property value. Json of the rules.
      *  @param StreamInterface|null $value Value to set for the rulesContent property.
     */
-    public function setRulesContent(?StreamInterface $value ): void {
-        $this->rulesContent = $value;
+    public function setRulesContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('rulesContent', $value);
     }
 
 }

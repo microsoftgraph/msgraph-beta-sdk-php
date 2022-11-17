@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $configurationVersion Version of the policy for that overview
-    */
-    private ?int $configurationVersion = null;
-    
-    /**
-     * @var int|null $conflictCount Number of devices in conflict
-    */
-    private ?int $conflictCount = null;
-    
-    /**
-     * @var int|null $errorCount Number of error devices
-    */
-    private ?int $errorCount = null;
-    
-    /**
-     * @var int|null $failedCount Number of failed devices
-    */
-    private ?int $failedCount = null;
-    
-    /**
-     * @var DateTime|null $lastUpdateDateTime Last update time
-    */
-    private ?DateTime $lastUpdateDateTime = null;
-    
-    /**
-     * @var int|null $notApplicableCount Number of not applicable devices
-    */
-    private ?int $notApplicableCount = null;
-    
-    /**
-     * @var int|null $notApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
-    */
-    private ?int $notApplicablePlatformCount = null;
-    
-    /**
-     * @var int|null $pendingCount Number of pending devices
-    */
-    private ?int $pendingCount = null;
-    
-    /**
-     * @var int|null $successCount Number of succeeded devices
-    */
-    private ?int $successCount = null;
-    
-    /**
      * Instantiates a new managedDeviceMobileAppConfigurationDeviceSummary and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getConfigurationVersion(): ?int {
-        return $this->configurationVersion;
+        return $this->getBackingStore()->get('configurationVersion');
     }
 
     /**
@@ -84,7 +39,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->conflictCount;
+        return $this->getBackingStore()->get('conflictCount');
     }
 
     /**
@@ -92,7 +47,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->errorCount;
+        return $this->getBackingStore()->get('errorCount');
     }
 
     /**
@@ -100,7 +55,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getFailedCount(): ?int {
-        return $this->failedCount;
+        return $this->getBackingStore()->get('failedCount');
     }
 
     /**
@@ -127,7 +82,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
-        return $this->lastUpdateDateTime;
+        return $this->getBackingStore()->get('lastUpdateDateTime');
     }
 
     /**
@@ -135,7 +90,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->notApplicableCount;
+        return $this->getBackingStore()->get('notApplicableCount');
     }
 
     /**
@@ -143,7 +98,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getNotApplicablePlatformCount(): ?int {
-        return $this->notApplicablePlatformCount;
+        return $this->getBackingStore()->get('notApplicablePlatformCount');
     }
 
     /**
@@ -151,7 +106,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getPendingCount(): ?int {
-        return $this->pendingCount;
+        return $this->getBackingStore()->get('pendingCount');
     }
 
     /**
@@ -159,7 +114,7 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
      * @return int|null
     */
     public function getSuccessCount(): ?int {
-        return $this->successCount;
+        return $this->getBackingStore()->get('successCount');
     }
 
     /**
@@ -168,87 +123,87 @@ class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('configurationVersion', $this->configurationVersion);
-        $writer->writeIntegerValue('conflictCount', $this->conflictCount);
-        $writer->writeIntegerValue('errorCount', $this->errorCount);
-        $writer->writeIntegerValue('failedCount', $this->failedCount);
-        $writer->writeDateTimeValue('lastUpdateDateTime', $this->lastUpdateDateTime);
-        $writer->writeIntegerValue('notApplicableCount', $this->notApplicableCount);
-        $writer->writeIntegerValue('notApplicablePlatformCount', $this->notApplicablePlatformCount);
-        $writer->writeIntegerValue('pendingCount', $this->pendingCount);
-        $writer->writeIntegerValue('successCount', $this->successCount);
+        $writer->writeIntegerValue('configurationVersion', $this->getConfigurationVersion());
+        $writer->writeIntegerValue('conflictCount', $this->getConflictCount());
+        $writer->writeIntegerValue('errorCount', $this->getErrorCount());
+        $writer->writeIntegerValue('failedCount', $this->getFailedCount());
+        $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
+        $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
+        $writer->writeIntegerValue('notApplicablePlatformCount', $this->getNotApplicablePlatformCount());
+        $writer->writeIntegerValue('pendingCount', $this->getPendingCount());
+        $writer->writeIntegerValue('successCount', $this->getSuccessCount());
     }
 
     /**
      * Sets the configurationVersion property value. Version of the policy for that overview
      *  @param int|null $value Value to set for the configurationVersion property.
     */
-    public function setConfigurationVersion(?int $value ): void {
-        $this->configurationVersion = $value;
+    public function setConfigurationVersion(?int $value): void {
+        $this->getBackingStore()->set('configurationVersion', $value);
     }
 
     /**
      * Sets the conflictCount property value. Number of devices in conflict
      *  @param int|null $value Value to set for the conflictCount property.
     */
-    public function setConflictCount(?int $value ): void {
-        $this->conflictCount = $value;
+    public function setConflictCount(?int $value): void {
+        $this->getBackingStore()->set('conflictCount', $value);
     }
 
     /**
      * Sets the errorCount property value. Number of error devices
      *  @param int|null $value Value to set for the errorCount property.
     */
-    public function setErrorCount(?int $value ): void {
-        $this->errorCount = $value;
+    public function setErrorCount(?int $value): void {
+        $this->getBackingStore()->set('errorCount', $value);
     }
 
     /**
      * Sets the failedCount property value. Number of failed devices
      *  @param int|null $value Value to set for the failedCount property.
     */
-    public function setFailedCount(?int $value ): void {
-        $this->failedCount = $value;
+    public function setFailedCount(?int $value): void {
+        $this->getBackingStore()->set('failedCount', $value);
     }
 
     /**
      * Sets the lastUpdateDateTime property value. Last update time
      *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
-    public function setLastUpdateDateTime(?DateTime $value ): void {
-        $this->lastUpdateDateTime = $value;
+    public function setLastUpdateDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdateDateTime', $value);
     }
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable devices
      *  @param int|null $value Value to set for the notApplicableCount property.
     */
-    public function setNotApplicableCount(?int $value ): void {
-        $this->notApplicableCount = $value;
+    public function setNotApplicableCount(?int $value): void {
+        $this->getBackingStore()->set('notApplicableCount', $value);
     }
 
     /**
      * Sets the notApplicablePlatformCount property value. Number of not applicable devices due to mismatch platform and policy
      *  @param int|null $value Value to set for the notApplicablePlatformCount property.
     */
-    public function setNotApplicablePlatformCount(?int $value ): void {
-        $this->notApplicablePlatformCount = $value;
+    public function setNotApplicablePlatformCount(?int $value): void {
+        $this->getBackingStore()->set('notApplicablePlatformCount', $value);
     }
 
     /**
      * Sets the pendingCount property value. Number of pending devices
      *  @param int|null $value Value to set for the pendingCount property.
     */
-    public function setPendingCount(?int $value ): void {
-        $this->pendingCount = $value;
+    public function setPendingCount(?int $value): void {
+        $this->getBackingStore()->set('pendingCount', $value);
     }
 
     /**
      * Sets the successCount property value. Number of succeeded devices
      *  @param int|null $value Value to set for the successCount property.
     */
-    public function setSuccessCount(?int $value ): void {
-        $this->successCount = $value;
+    public function setSuccessCount(?int $value): void {
+        $this->getBackingStore()->set('successCount', $value);
     }
 
 }

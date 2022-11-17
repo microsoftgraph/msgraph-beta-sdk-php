@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable 
+class MacOSAssociatedDomainsItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $applicationIdentifier The application identifier of the app to associate domains with.
-    */
-    private ?string $applicationIdentifier = null;
-    
-    /**
-     * @var bool|null $directDownloadsEnabled Determines whether data should be downloaded directly or via a CDN.
-    */
-    private ?bool $directDownloadsEnabled = null;
-    
-    /**
-     * @var array<string>|null $domains The list of domains to associate.
-    */
-    private ?array $domains = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new macOSAssociatedDomainsItem and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.macOSAssociatedDomainsItem');
     }
@@ -55,8 +39,8 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -64,7 +48,15 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getApplicationIdentifier(): ?string {
-        return $this->applicationIdentifier;
+        return $this->getBackingStore()->get('applicationIdentifier');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +64,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getDirectDownloadsEnabled(): ?bool {
-        return $this->directDownloadsEnabled;
+        return $this->getBackingStore()->get('directDownloadsEnabled');
     }
 
     /**
@@ -80,7 +72,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->domains;
+        return $this->getBackingStore()->get('domains');
     }
 
     /**
@@ -102,7 +94,7 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +102,51 @@ class MacOSAssociatedDomainsItem implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('applicationIdentifier', $this->applicationIdentifier);
-        $writer->writeBooleanValue('directDownloadsEnabled', $this->directDownloadsEnabled);
-        $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('applicationIdentifier', $this->getApplicationIdentifier());
+        $writer->writeBooleanValue('directDownloadsEnabled', $this->getDirectDownloadsEnabled());
+        $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the applicationIdentifier property value. The application identifier of the app to associate domains with.
      *  @param string|null $value Value to set for the applicationIdentifier property.
     */
-    public function setApplicationIdentifier(?string $value ): void {
-        $this->applicationIdentifier = $value;
+    public function setApplicationIdentifier(?string $value): void {
+        $this->getBackingStore()->set('applicationIdentifier', $value);
     }
 
     /**
      * Sets the directDownloadsEnabled property value. Determines whether data should be downloaded directly or via a CDN.
      *  @param bool|null $value Value to set for the directDownloadsEnabled property.
     */
-    public function setDirectDownloadsEnabled(?bool $value ): void {
-        $this->directDownloadsEnabled = $value;
+    public function setDirectDownloadsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('directDownloadsEnabled', $value);
     }
 
     /**
      * Sets the domains property value. The list of domains to associate.
      *  @param array<string>|null $value Value to set for the domains property.
     */
-    public function setDomains(?array $value ): void {
-        $this->domains = $value;
+    public function setDomains(?array $value): void {
+        $this->getBackingStore()->set('domains', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

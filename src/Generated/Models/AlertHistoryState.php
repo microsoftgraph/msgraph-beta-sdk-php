@@ -7,58 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AlertHistoryState implements AdditionalDataHolder, Parsable 
+class AlertHistoryState implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $appId The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $assignedTo UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
-    */
-    private ?string $assignedTo = null;
-    
-    /**
-     * @var array<string>|null $comments Comment entered by signed-in user.
-    */
-    private ?array $comments = null;
-    
-    /**
-     * @var AlertFeedback|null $feedback Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
-    */
-    private ?AlertFeedback $feedback = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var AlertStatus|null $status Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
-    */
-    private ?AlertStatus $status = null;
-    
-    /**
-     * @var DateTime|null $updatedDateTime Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $updatedDateTime = null;
-    
-    /**
-     * @var string|null $user UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
-    */
-    private ?string $user = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new alertHistoryState and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.alertHistoryState');
     }
@@ -76,8 +40,8 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -85,7 +49,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -93,7 +57,15 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAssignedTo(): ?string {
-        return $this->assignedTo;
+        return $this->getBackingStore()->get('assignedTo');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -101,7 +73,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getComments(): ?array {
-        return $this->comments;
+        return $this->getBackingStore()->get('comments');
     }
 
     /**
@@ -109,7 +81,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return AlertFeedback|null
     */
     public function getFeedback(): ?AlertFeedback {
-        return $this->feedback;
+        return $this->getBackingStore()->get('feedback');
     }
 
     /**
@@ -135,7 +107,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -143,7 +115,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return AlertStatus|null
     */
     public function getStatus(): ?AlertStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -151,7 +123,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getUpdatedDateTime(): ?DateTime {
-        return $this->updatedDateTime;
+        return $this->getBackingStore()->get('updatedDateTime');
     }
 
     /**
@@ -159,7 +131,7 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUser(): ?string {
-        return $this->user;
+        return $this->getBackingStore()->get('user');
     }
 
     /**
@@ -167,87 +139,87 @@ class AlertHistoryState implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('assignedTo', $this->assignedTo);
-        $writer->writeCollectionOfPrimitiveValues('comments', $this->comments);
-        $writer->writeEnumValue('feedback', $this->feedback);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeDateTimeValue('updatedDateTime', $this->updatedDateTime);
-        $writer->writeStringValue('user', $this->user);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('assignedTo', $this->getAssignedTo());
+        $writer->writeCollectionOfPrimitiveValues('comments', $this->getComments());
+        $writer->writeEnumValue('feedback', $this->getFeedback());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeDateTimeValue('updatedDateTime', $this->getUpdatedDateTime());
+        $writer->writeStringValue('user', $this->getUser());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appId property value. The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the assignedTo property value. UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
      *  @param string|null $value Value to set for the assignedTo property.
     */
-    public function setAssignedTo(?string $value ): void {
-        $this->assignedTo = $value;
+    public function setAssignedTo(?string $value): void {
+        $this->getBackingStore()->set('assignedTo', $value);
     }
 
     /**
      * Sets the comments property value. Comment entered by signed-in user.
      *  @param array<string>|null $value Value to set for the comments property.
     */
-    public function setComments(?array $value ): void {
-        $this->comments = $value;
+    public function setComments(?array $value): void {
+        $this->getBackingStore()->set('comments', $value);
     }
 
     /**
      * Sets the feedback property value. Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
      *  @param AlertFeedback|null $value Value to set for the feedback property.
     */
-    public function setFeedback(?AlertFeedback $value ): void {
-        $this->feedback = $value;
+    public function setFeedback(?AlertFeedback $value): void {
+        $this->getBackingStore()->set('feedback', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
      *  @param AlertStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?AlertStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?AlertStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the updatedDateTime property value. Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the updatedDateTime property.
     */
-    public function setUpdatedDateTime(?DateTime $value ): void {
-        $this->updatedDateTime = $value;
+    public function setUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('updatedDateTime', $value);
     }
 
     /**
      * Sets the user property value. UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
      *  @param string|null $value Value to set for the user property.
     */
-    public function setUser(?string $value ): void {
-        $this->user = $value;
+    public function setUser(?string $value): void {
+        $this->getBackingStore()->set('user', $value);
     }
 
 }

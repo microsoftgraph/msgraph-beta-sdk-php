@@ -10,46 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyCategory extends Entity implements Parsable 
 {
     /**
-     * @var array<GroupPolicyCategory>|null $children The children categories
-    */
-    private ?array $children = null;
-    
-    /**
-     * @var GroupPolicyDefinitionFile|null $definitionFile The id of the definition file the category came from
-    */
-    private ?GroupPolicyDefinitionFile $definitionFile = null;
-    
-    /**
-     * @var array<GroupPolicyDefinition>|null $definitions The immediate GroupPolicyDefinition children of the category
-    */
-    private ?array $definitions = null;
-    
-    /**
-     * @var string|null $displayName The string id of the category's display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var IngestionSource|null $ingestionSource Category Ingestion source
-    */
-    private ?IngestionSource $ingestionSource = null;
-    
-    /**
-     * @var bool|null $isRoot Defines if the category is a root category
-    */
-    private ?bool $isRoot = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var GroupPolicyCategory|null $parent The parent category
-    */
-    private ?GroupPolicyCategory $parent = null;
-    
-    /**
      * Instantiates a new groupPolicyCategory and sets the default values.
     */
     public function __construct() {
@@ -71,7 +31,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return array<GroupPolicyCategory>|null
     */
     public function getChildren(): ?array {
-        return $this->children;
+        return $this->getBackingStore()->get('children');
     }
 
     /**
@@ -79,7 +39,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return GroupPolicyDefinitionFile|null
     */
     public function getDefinitionFile(): ?GroupPolicyDefinitionFile {
-        return $this->definitionFile;
+        return $this->getBackingStore()->get('definitionFile');
     }
 
     /**
@@ -87,7 +47,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return array<GroupPolicyDefinition>|null
     */
     public function getDefinitions(): ?array {
-        return $this->definitions;
+        return $this->getBackingStore()->get('definitions');
     }
 
     /**
@@ -95,7 +55,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -121,7 +81,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return IngestionSource|null
     */
     public function getIngestionSource(): ?IngestionSource {
-        return $this->ingestionSource;
+        return $this->getBackingStore()->get('ingestionSource');
     }
 
     /**
@@ -129,7 +89,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRoot(): ?bool {
-        return $this->isRoot;
+        return $this->getBackingStore()->get('isRoot');
     }
 
     /**
@@ -137,7 +97,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -145,7 +105,7 @@ class GroupPolicyCategory extends Entity implements Parsable
      * @return GroupPolicyCategory|null
     */
     public function getParent(): ?GroupPolicyCategory {
-        return $this->parent;
+        return $this->getBackingStore()->get('parent');
     }
 
     /**
@@ -154,78 +114,78 @@ class GroupPolicyCategory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('children', $this->children);
-        $writer->writeObjectValue('definitionFile', $this->definitionFile);
-        $writer->writeCollectionOfObjectValues('definitions', $this->definitions);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('ingestionSource', $this->ingestionSource);
-        $writer->writeBooleanValue('isRoot', $this->isRoot);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('parent', $this->parent);
+        $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeObjectValue('definitionFile', $this->getDefinitionFile());
+        $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('ingestionSource', $this->getIngestionSource());
+        $writer->writeBooleanValue('isRoot', $this->getIsRoot());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('parent', $this->getParent());
     }
 
     /**
      * Sets the children property value. The children categories
      *  @param array<GroupPolicyCategory>|null $value Value to set for the children property.
     */
-    public function setChildren(?array $value ): void {
-        $this->children = $value;
+    public function setChildren(?array $value): void {
+        $this->getBackingStore()->set('children', $value);
     }
 
     /**
      * Sets the definitionFile property value. The id of the definition file the category came from
      *  @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
     */
-    public function setDefinitionFile(?GroupPolicyDefinitionFile $value ): void {
-        $this->definitionFile = $value;
+    public function setDefinitionFile(?GroupPolicyDefinitionFile $value): void {
+        $this->getBackingStore()->set('definitionFile', $value);
     }
 
     /**
      * Sets the definitions property value. The immediate GroupPolicyDefinition children of the category
      *  @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
     */
-    public function setDefinitions(?array $value ): void {
-        $this->definitions = $value;
+    public function setDefinitions(?array $value): void {
+        $this->getBackingStore()->set('definitions', $value);
     }
 
     /**
      * Sets the displayName property value. The string id of the category's display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the ingestionSource property value. Category Ingestion source
      *  @param IngestionSource|null $value Value to set for the ingestionSource property.
     */
-    public function setIngestionSource(?IngestionSource $value ): void {
-        $this->ingestionSource = $value;
+    public function setIngestionSource(?IngestionSource $value): void {
+        $this->getBackingStore()->set('ingestionSource', $value);
     }
 
     /**
      * Sets the isRoot property value. Defines if the category is a root category
      *  @param bool|null $value Value to set for the isRoot property.
     */
-    public function setIsRoot(?bool $value ): void {
-        $this->isRoot = $value;
+    public function setIsRoot(?bool $value): void {
+        $this->getBackingStore()->set('isRoot', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the parent property value. The parent category
      *  @param GroupPolicyCategory|null $value Value to set for the parent property.
     */
-    public function setParent(?GroupPolicyCategory $value ): void {
-        $this->parent = $value;
+    public function setParent(?GroupPolicyCategory $value): void {
+        $this->getBackingStore()->set('parent', $value);
     }
 
 }

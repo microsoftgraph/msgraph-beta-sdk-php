@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelHealthThreshold extends Entity implements Parsable 
 {
     /**
-     * @var int|null $defaultHealthyThreshold The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
-    */
-    private ?int $defaultHealthyThreshold = null;
-    
-    /**
-     * @var int|null $defaultUnhealthyThreshold The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
-    */
-    private ?int $defaultUnhealthyThreshold = null;
-    
-    /**
-     * @var int|null $healthyThreshold The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
-    */
-    private ?int $healthyThreshold = null;
-    
-    /**
-     * @var int|null $unhealthyThreshold The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
-    */
-    private ?int $unhealthyThreshold = null;
-    
-    /**
      * Instantiates a new microsoftTunnelHealthThreshold and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getDefaultHealthyThreshold(): ?int {
-        return $this->defaultHealthyThreshold;
+        return $this->getBackingStore()->get('defaultHealthyThreshold');
     }
 
     /**
@@ -58,7 +38,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getDefaultUnhealthyThreshold(): ?int {
-        return $this->defaultUnhealthyThreshold;
+        return $this->getBackingStore()->get('defaultUnhealthyThreshold');
     }
 
     /**
@@ -80,7 +60,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getHealthyThreshold(): ?int {
-        return $this->healthyThreshold;
+        return $this->getBackingStore()->get('healthyThreshold');
     }
 
     /**
@@ -88,7 +68,7 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
      * @return int|null
     */
     public function getUnhealthyThreshold(): ?int {
-        return $this->unhealthyThreshold;
+        return $this->getBackingStore()->get('unhealthyThreshold');
     }
 
     /**
@@ -97,42 +77,42 @@ class MicrosoftTunnelHealthThreshold extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('defaultHealthyThreshold', $this->defaultHealthyThreshold);
-        $writer->writeIntegerValue('defaultUnhealthyThreshold', $this->defaultUnhealthyThreshold);
-        $writer->writeIntegerValue('healthyThreshold', $this->healthyThreshold);
-        $writer->writeIntegerValue('unhealthyThreshold', $this->unhealthyThreshold);
+        $writer->writeIntegerValue('defaultHealthyThreshold', $this->getDefaultHealthyThreshold());
+        $writer->writeIntegerValue('defaultUnhealthyThreshold', $this->getDefaultUnhealthyThreshold());
+        $writer->writeIntegerValue('healthyThreshold', $this->getHealthyThreshold());
+        $writer->writeIntegerValue('unhealthyThreshold', $this->getUnhealthyThreshold());
     }
 
     /**
      * Sets the defaultHealthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized. Read-only.
      *  @param int|null $value Value to set for the defaultHealthyThreshold property.
     */
-    public function setDefaultHealthyThreshold(?int $value ): void {
-        $this->defaultHealthyThreshold = $value;
+    public function setDefaultHealthyThreshold(?int $value): void {
+        $this->getBackingStore()->set('defaultHealthyThreshold', $value);
     }
 
     /**
      * Sets the defaultUnhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency unhealthy > 20ms, health metrics can be customized. Read-only.
      *  @param int|null $value Value to set for the defaultUnhealthyThreshold property.
     */
-    public function setDefaultUnhealthyThreshold(?int $value ): void {
-        $this->defaultUnhealthyThreshold = $value;
+    public function setDefaultUnhealthyThreshold(?int $value): void {
+        $this->getBackingStore()->set('defaultUnhealthyThreshold', $value);
     }
 
     /**
      * Sets the healthyThreshold property value. The threshold for being healthy based on default health status metrics: CPU usage healthy < 50%, Memory usage healthy < 50%, Disk space healthy > 5GB, Latency healthy < 10ms, health metrics can be customized.
      *  @param int|null $value Value to set for the healthyThreshold property.
     */
-    public function setHealthyThreshold(?int $value ): void {
-        $this->healthyThreshold = $value;
+    public function setHealthyThreshold(?int $value): void {
+        $this->getBackingStore()->set('healthyThreshold', $value);
     }
 
     /**
      * Sets the unhealthyThreshold property value. The threshold for being unhealthy based on default health status metrics: CPU usage unhealthy > 75%, Memory usage unhealthy > 75%, Disk space < 3GB, Latency Unhealthy > 20ms, health metrics can be customized.
      *  @param int|null $value Value to set for the unhealthyThreshold property.
     */
-    public function setUnhealthyThreshold(?int $value ): void {
-        $this->unhealthyThreshold = $value;
+    public function setUnhealthyThreshold(?int $value): void {
+        $this->getBackingStore()->set('unhealthyThreshold', $value);
     }
 
 }

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InsightsSettings extends Entity implements Parsable 
 {
     /**
-     * @var string|null $disabledForGroup The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
-    */
-    private ?string $disabledForGroup = null;
-    
-    /**
-     * @var bool|null $isEnabledInOrganization true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
-    */
-    private ?bool $isEnabledInOrganization = null;
-    
-    /**
      * Instantiates a new insightsSettings and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class InsightsSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getDisabledForGroup(): ?string {
-        return $this->disabledForGroup;
+        return $this->getBackingStore()->get('disabledForGroup');
     }
 
     /**
@@ -60,7 +50,7 @@ class InsightsSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabledInOrganization(): ?bool {
-        return $this->isEnabledInOrganization;
+        return $this->getBackingStore()->get('isEnabledInOrganization');
     }
 
     /**
@@ -69,24 +59,24 @@ class InsightsSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('disabledForGroup', $this->disabledForGroup);
-        $writer->writeBooleanValue('isEnabledInOrganization', $this->isEnabledInOrganization);
+        $writer->writeStringValue('disabledForGroup', $this->getDisabledForGroup());
+        $writer->writeBooleanValue('isEnabledInOrganization', $this->getIsEnabledInOrganization());
     }
 
     /**
      * Sets the disabledForGroup property value. The ID of an Azure Active Directory group, of which the specified type of insights are disabled for its members. Default is empty. Optional.
      *  @param string|null $value Value to set for the disabledForGroup property.
     */
-    public function setDisabledForGroup(?string $value ): void {
-        $this->disabledForGroup = $value;
+    public function setDisabledForGroup(?string $value): void {
+        $this->getBackingStore()->set('disabledForGroup', $value);
     }
 
     /**
      * Sets the isEnabledInOrganization property value. true if the specified type of insights are enabled for the organization; false if the specified type of insights are disabled for all users without exceptions. Default is true. Optional.
      *  @param bool|null $value Value to set for the isEnabledInOrganization property.
     */
-    public function setIsEnabledInOrganization(?bool $value ): void {
-        $this->isEnabledInOrganization = $value;
+    public function setIsEnabledInOrganization(?bool $value): void {
+        $this->getBackingStore()->set('isEnabledInOrganization', $value);
     }
 
 }

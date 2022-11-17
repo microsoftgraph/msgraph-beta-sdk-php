@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RoleManagement implements AdditionalDataHolder, Parsable 
+class RoleManagement implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var RbacApplicationMultiple|null $cloudPC The cloudPC property
-    */
-    private ?RbacApplicationMultiple $cloudPC = null;
-    
-    /**
-     * @var RbacApplicationMultiple|null $deviceManagement The RbacApplication for Device Management
-    */
-    private ?RbacApplicationMultiple $deviceManagement = null;
-    
-    /**
-     * @var RbacApplication|null $directory The directory property
-    */
-    private ?RbacApplication $directory = null;
-    
-    /**
-     * @var RbacApplication|null $entitlementManagement The RbacApplication for Entitlement Management
-    */
-    private ?RbacApplication $entitlementManagement = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new RoleManagement and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.roleManagement');
     }
@@ -60,8 +39,16 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @return RbacApplicationMultiple|null
     */
     public function getCloudPC(): ?RbacApplicationMultiple {
-        return $this->cloudPC;
+        return $this->getBackingStore()->get('cloudPC');
     }
 
     /**
@@ -77,7 +64,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @return RbacApplicationMultiple|null
     */
     public function getDeviceManagement(): ?RbacApplicationMultiple {
-        return $this->deviceManagement;
+        return $this->getBackingStore()->get('deviceManagement');
     }
 
     /**
@@ -85,7 +72,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @return RbacApplication|null
     */
     public function getDirectory(): ?RbacApplication {
-        return $this->directory;
+        return $this->getBackingStore()->get('directory');
     }
 
     /**
@@ -93,7 +80,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @return RbacApplication|null
     */
     public function getEntitlementManagement(): ?RbacApplication {
-        return $this->entitlementManagement;
+        return $this->getBackingStore()->get('entitlementManagement');
     }
 
     /**
@@ -116,7 +103,7 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -124,60 +111,60 @@ class RoleManagement implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('cloudPC', $this->cloudPC);
-        $writer->writeObjectValue('deviceManagement', $this->deviceManagement);
-        $writer->writeObjectValue('directory', $this->directory);
-        $writer->writeObjectValue('entitlementManagement', $this->entitlementManagement);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('cloudPC', $this->getCloudPC());
+        $writer->writeObjectValue('deviceManagement', $this->getDeviceManagement());
+        $writer->writeObjectValue('directory', $this->getDirectory());
+        $writer->writeObjectValue('entitlementManagement', $this->getEntitlementManagement());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the cloudPC property value. The cloudPC property
      *  @param RbacApplicationMultiple|null $value Value to set for the cloudPC property.
     */
-    public function setCloudPC(?RbacApplicationMultiple $value ): void {
-        $this->cloudPC = $value;
+    public function setCloudPC(?RbacApplicationMultiple $value): void {
+        $this->getBackingStore()->set('cloudPC', $value);
     }
 
     /**
      * Sets the deviceManagement property value. The RbacApplication for Device Management
      *  @param RbacApplicationMultiple|null $value Value to set for the deviceManagement property.
     */
-    public function setDeviceManagement(?RbacApplicationMultiple $value ): void {
-        $this->deviceManagement = $value;
+    public function setDeviceManagement(?RbacApplicationMultiple $value): void {
+        $this->getBackingStore()->set('deviceManagement', $value);
     }
 
     /**
      * Sets the directory property value. The directory property
      *  @param RbacApplication|null $value Value to set for the directory property.
     */
-    public function setDirectory(?RbacApplication $value ): void {
-        $this->directory = $value;
+    public function setDirectory(?RbacApplication $value): void {
+        $this->getBackingStore()->set('directory', $value);
     }
 
     /**
      * Sets the entitlementManagement property value. The RbacApplication for Entitlement Management
      *  @param RbacApplication|null $value Value to set for the entitlementManagement property.
     */
-    public function setEntitlementManagement(?RbacApplication $value ): void {
-        $this->entitlementManagement = $value;
+    public function setEntitlementManagement(?RbacApplication $value): void {
+        $this->getBackingStore()->set('entitlementManagement', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

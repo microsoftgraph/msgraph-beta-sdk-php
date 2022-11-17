@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessReviewInstanceDecisionItemTarget implements Parsable 
 {
     /**
-     * @var string|null $appId The appId for the service principal entity being reviewed.
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $servicePrincipalDisplayName The display name of the service principal whose access is being reviewed.
-    */
-    private ?string $servicePrincipalDisplayName = null;
-    
-    /**
-     * @var string|null $servicePrincipalId The servicePrincipalId property
-    */
-    private ?string $servicePrincipalId = null;
-    
-    /**
      * Instantiates a new AccessReviewInstanceDecisionItemServicePrincipalTarget and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -66,7 +51,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getServicePrincipalDisplayName(): ?string {
-        return $this->servicePrincipalDisplayName;
+        return $this->getBackingStore()->get('servicePrincipalDisplayName');
     }
 
     /**
@@ -74,7 +59,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
      * @return string|null
     */
     public function getServicePrincipalId(): ?string {
-        return $this->servicePrincipalId;
+        return $this->getBackingStore()->get('servicePrincipalId');
     }
 
     /**
@@ -83,33 +68,33 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('servicePrincipalDisplayName', $this->servicePrincipalDisplayName);
-        $writer->writeStringValue('servicePrincipalId', $this->servicePrincipalId);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('servicePrincipalDisplayName', $this->getServicePrincipalDisplayName());
+        $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
     }
 
     /**
      * Sets the appId property value. The appId for the service principal entity being reviewed.
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the servicePrincipalDisplayName property value. The display name of the service principal whose access is being reviewed.
      *  @param string|null $value Value to set for the servicePrincipalDisplayName property.
     */
-    public function setServicePrincipalDisplayName(?string $value ): void {
-        $this->servicePrincipalDisplayName = $value;
+    public function setServicePrincipalDisplayName(?string $value): void {
+        $this->getBackingStore()->set('servicePrincipalDisplayName', $value);
     }
 
     /**
      * Sets the servicePrincipalId property value. The servicePrincipalId property
      *  @param string|null $value Value to set for the servicePrincipalId property.
     */
-    public function setServicePrincipalId(?string $value ): void {
-        $this->servicePrincipalId = $value;
+    public function setServicePrincipalId(?string $value): void {
+        $this->getBackingStore()->set('servicePrincipalId', $value);
     }
 
 }

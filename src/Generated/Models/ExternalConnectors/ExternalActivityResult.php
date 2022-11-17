@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalActivityResult extends ExternalActivity implements Parsable 
 {
     /**
-     * @var PublicError|null $error Error information explaining failure to process external activity.
-    */
-    private ?PublicError $error = null;
-    
-    /**
      * Instantiates a new ExternalActivityResult and sets the default values.
     */
     public function __construct() {
@@ -36,7 +31,7 @@ class ExternalActivityResult extends ExternalActivity implements Parsable
      * @return PublicError|null
     */
     public function getError(): ?PublicError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -56,15 +51,15 @@ class ExternalActivityResult extends ExternalActivity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('error', $this->error);
+        $writer->writeObjectValue('error', $this->getError());
     }
 
     /**
      * Sets the error property value. Error information explaining failure to process external activity.
      *  @param PublicError|null $value Value to set for the error property.
     */
-    public function setError(?PublicError $value ): void {
-        $this->error = $value;
+    public function setError(?PublicError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
 }

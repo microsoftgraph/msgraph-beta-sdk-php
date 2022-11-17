@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RetentionDurationInDays extends RetentionDuration implements Parsable 
 {
     /**
-     * @var int|null $days Specifies the time period in days for which an item with the applied retention label will be retained for.
-    */
-    private ?int $days = null;
-    
-    /**
      * Instantiates a new RetentionDurationInDays and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class RetentionDurationInDays extends RetentionDuration implements Parsable
      * @return int|null
     */
     public function getDays(): ?int {
-        return $this->days;
+        return $this->getBackingStore()->get('days');
     }
 
     /**
@@ -55,15 +50,15 @@ class RetentionDurationInDays extends RetentionDuration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('days', $this->days);
+        $writer->writeIntegerValue('days', $this->getDays());
     }
 
     /**
      * Sets the days property value. Specifies the time period in days for which an item with the applied retention label will be retained for.
      *  @param int|null $value Value to set for the days property.
     */
-    public function setDays(?int $value ): void {
-        $this->days = $value;
+    public function setDays(?int $value): void {
+        $this->getBackingStore()->set('days', $value);
     }
 
 }

@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CommsApplication implements AdditionalDataHolder, Parsable 
+class CommsApplication implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<Call>|null $calls The calls property
-    */
-    private ?array $calls = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<OnlineMeeting>|null $onlineMeetings The onlineMeetings property
-    */
-    private ?array $onlineMeetings = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new CommsApplication and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.commsApplication');
     }
@@ -50,8 +39,16 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +56,7 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @return array<Call>|null
     */
     public function getCalls(): ?array {
-        return $this->calls;
+        return $this->getBackingStore()->get('calls');
     }
 
     /**
@@ -80,7 +77,7 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @return array<OnlineMeeting>|null
     */
     public function getOnlineMeetings(): ?array {
-        return $this->onlineMeetings;
+        return $this->getBackingStore()->get('onlineMeetings');
     }
 
     /**
@@ -96,42 +93,42 @@ class CommsApplication implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('calls', $this->calls);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('onlineMeetings', $this->onlineMeetings);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('calls', $this->getCalls());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('onlineMeetings', $this->getOnlineMeetings());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the calls property value. The calls property
      *  @param array<Call>|null $value Value to set for the calls property.
     */
-    public function setCalls(?array $value ): void {
-        $this->calls = $value;
+    public function setCalls(?array $value): void {
+        $this->getBackingStore()->set('calls', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the onlineMeetings property value. The onlineMeetings property
      *  @param array<OnlineMeeting>|null $value Value to set for the onlineMeetings property.
     */
-    public function setOnlineMeetings(?array $value ): void {
-        $this->onlineMeetings = $value;
+    public function setOnlineMeetings(?array $value): void {
+        $this->getBackingStore()->set('onlineMeetings', $value);
     }
 
 }

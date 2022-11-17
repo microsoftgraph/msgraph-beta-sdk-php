@@ -10,86 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FileSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $activityGroupNames The activityGroupNames property
-    */
-    private ?array $activityGroupNames = null;
-    
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var string|null $certificateThumbprint The certificateThumbprint property
-    */
-    private ?string $certificateThumbprint = null;
-    
-    /**
-     * @var array<string>|null $extensions The extensions property
-    */
-    private ?array $extensions = null;
-    
-    /**
-     * @var string|null $fileType The fileType property
-    */
-    private ?string $fileType = null;
-    
-    /**
-     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
-    */
-    private ?DateTime $firstSeenDateTime = null;
-    
-    /**
-     * @var array<FileHash>|null $hashes The hashes property
-    */
-    private ?array $hashes = null;
-    
-    /**
-     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
-    */
-    private ?DateTime $lastSeenDateTime = null;
-    
-    /**
-     * @var array<MalwareState>|null $malwareStates The malwareStates property
-    */
-    private ?array $malwareStates = null;
-    
-    /**
-     * @var array<string>|null $names The names property
-    */
-    private ?array $names = null;
-    
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
-    private ?string $riskScore = null;
-    
-    /**
-     * @var int|null $size The size property
-    */
-    private ?int $size = null;
-    
-    /**
-     * @var array<string>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
-    private ?SecurityVendorInformation $vendorInformation = null;
-    
-    /**
-     * @var array<VulnerabilityState>|null $vulnerabilityStates The vulnerabilityStates property
-    */
-    private ?array $vulnerabilityStates = null;
-    
-    /**
      * Instantiates a new fileSecurityProfile and sets the default values.
     */
     public function __construct() {
@@ -111,7 +31,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getActivityGroupNames(): ?array {
-        return $this->activityGroupNames;
+        return $this->getBackingStore()->get('activityGroupNames');
     }
 
     /**
@@ -119,7 +39,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -127,7 +47,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -135,7 +55,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateThumbprint(): ?string {
-        return $this->certificateThumbprint;
+        return $this->getBackingStore()->get('certificateThumbprint');
     }
 
     /**
@@ -143,7 +63,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getExtensions(): ?array {
-        return $this->extensions;
+        return $this->getBackingStore()->get('extensions');
     }
 
     /**
@@ -177,7 +97,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getFileType(): ?string {
-        return $this->fileType;
+        return $this->getBackingStore()->get('fileType');
     }
 
     /**
@@ -185,7 +105,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->firstSeenDateTime;
+        return $this->getBackingStore()->get('firstSeenDateTime');
     }
 
     /**
@@ -193,7 +113,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<FileHash>|null
     */
     public function getHashes(): ?array {
-        return $this->hashes;
+        return $this->getBackingStore()->get('hashes');
     }
 
     /**
@@ -201,7 +121,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->lastSeenDateTime;
+        return $this->getBackingStore()->get('lastSeenDateTime');
     }
 
     /**
@@ -209,7 +129,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<MalwareState>|null
     */
     public function getMalwareStates(): ?array {
-        return $this->malwareStates;
+        return $this->getBackingStore()->get('malwareStates');
     }
 
     /**
@@ -217,7 +137,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getNames(): ?array {
-        return $this->names;
+        return $this->getBackingStore()->get('names');
     }
 
     /**
@@ -225,7 +145,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->riskScore;
+        return $this->getBackingStore()->get('riskScore');
     }
 
     /**
@@ -233,7 +153,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->size;
+        return $this->getBackingStore()->get('size');
     }
 
     /**
@@ -241,7 +161,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -249,7 +169,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->vendorInformation;
+        return $this->getBackingStore()->get('vendorInformation');
     }
 
     /**
@@ -257,7 +177,7 @@ class FileSecurityProfile extends Entity implements Parsable
      * @return array<VulnerabilityState>|null
     */
     public function getVulnerabilityStates(): ?array {
-        return $this->vulnerabilityStates;
+        return $this->getBackingStore()->get('vulnerabilityStates');
     }
 
     /**
@@ -266,150 +186,150 @@ class FileSecurityProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('activityGroupNames', $this->activityGroupNames);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeStringValue('certificateThumbprint', $this->certificateThumbprint);
-        $writer->writeCollectionOfPrimitiveValues('extensions', $this->extensions);
-        $writer->writeStringValue('fileType', $this->fileType);
-        $writer->writeDateTimeValue('firstSeenDateTime', $this->firstSeenDateTime);
-        $writer->writeCollectionOfObjectValues('hashes', $this->hashes);
-        $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
-        $writer->writeCollectionOfObjectValues('malwareStates', $this->malwareStates);
-        $writer->writeCollectionOfPrimitiveValues('names', $this->names);
-        $writer->writeStringValue('riskScore', $this->riskScore);
-        $writer->writeIntegerValue('size', $this->size);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
-        $writer->writeCollectionOfObjectValues('vulnerabilityStates', $this->vulnerabilityStates);
+        $writer->writeCollectionOfPrimitiveValues('activityGroupNames', $this->getActivityGroupNames());
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeStringValue('certificateThumbprint', $this->getCertificateThumbprint());
+        $writer->writeCollectionOfPrimitiveValues('extensions', $this->getExtensions());
+        $writer->writeStringValue('fileType', $this->getFileType());
+        $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
+        $writer->writeCollectionOfObjectValues('hashes', $this->getHashes());
+        $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeCollectionOfObjectValues('malwareStates', $this->getMalwareStates());
+        $writer->writeCollectionOfPrimitiveValues('names', $this->getNames());
+        $writer->writeStringValue('riskScore', $this->getRiskScore());
+        $writer->writeIntegerValue('size', $this->getSize());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
+        $writer->writeCollectionOfObjectValues('vulnerabilityStates', $this->getVulnerabilityStates());
     }
 
     /**
      * Sets the activityGroupNames property value. The activityGroupNames property
      *  @param array<string>|null $value Value to set for the activityGroupNames property.
     */
-    public function setActivityGroupNames(?array $value ): void {
-        $this->activityGroupNames = $value;
+    public function setActivityGroupNames(?array $value): void {
+        $this->getBackingStore()->set('activityGroupNames', $value);
     }
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the certificateThumbprint property value. The certificateThumbprint property
      *  @param string|null $value Value to set for the certificateThumbprint property.
     */
-    public function setCertificateThumbprint(?string $value ): void {
-        $this->certificateThumbprint = $value;
+    public function setCertificateThumbprint(?string $value): void {
+        $this->getBackingStore()->set('certificateThumbprint', $value);
     }
 
     /**
      * Sets the extensions property value. The extensions property
      *  @param array<string>|null $value Value to set for the extensions property.
     */
-    public function setExtensions(?array $value ): void {
-        $this->extensions = $value;
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**
      * Sets the fileType property value. The fileType property
      *  @param string|null $value Value to set for the fileType property.
     */
-    public function setFileType(?string $value ): void {
-        $this->fileType = $value;
+    public function setFileType(?string $value): void {
+        $this->getBackingStore()->set('fileType', $value);
     }
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
      *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
-    public function setFirstSeenDateTime(?DateTime $value ): void {
-        $this->firstSeenDateTime = $value;
+    public function setFirstSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('firstSeenDateTime', $value);
     }
 
     /**
      * Sets the hashes property value. The hashes property
      *  @param array<FileHash>|null $value Value to set for the hashes property.
     */
-    public function setHashes(?array $value ): void {
-        $this->hashes = $value;
+    public function setHashes(?array $value): void {
+        $this->getBackingStore()->set('hashes', $value);
     }
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
      *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
-    public function setLastSeenDateTime(?DateTime $value ): void {
-        $this->lastSeenDateTime = $value;
+    public function setLastSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSeenDateTime', $value);
     }
 
     /**
      * Sets the malwareStates property value. The malwareStates property
      *  @param array<MalwareState>|null $value Value to set for the malwareStates property.
     */
-    public function setMalwareStates(?array $value ): void {
-        $this->malwareStates = $value;
+    public function setMalwareStates(?array $value): void {
+        $this->getBackingStore()->set('malwareStates', $value);
     }
 
     /**
      * Sets the names property value. The names property
      *  @param array<string>|null $value Value to set for the names property.
     */
-    public function setNames(?array $value ): void {
-        $this->names = $value;
+    public function setNames(?array $value): void {
+        $this->getBackingStore()->set('names', $value);
     }
 
     /**
      * Sets the riskScore property value. The riskScore property
      *  @param string|null $value Value to set for the riskScore property.
     */
-    public function setRiskScore(?string $value ): void {
-        $this->riskScore = $value;
+    public function setRiskScore(?string $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**
      * Sets the size property value. The size property
      *  @param int|null $value Value to set for the size property.
     */
-    public function setSize(?int $value ): void {
-        $this->size = $value;
+    public function setSize(?int $value): void {
+        $this->getBackingStore()->set('size', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
-    public function setVendorInformation(?SecurityVendorInformation $value ): void {
-        $this->vendorInformation = $value;
+    public function setVendorInformation(?SecurityVendorInformation $value): void {
+        $this->getBackingStore()->set('vendorInformation', $value);
     }
 
     /**
      * Sets the vulnerabilityStates property value. The vulnerabilityStates property
      *  @param array<VulnerabilityState>|null $value Value to set for the vulnerabilityStates property.
     */
-    public function setVulnerabilityStates(?array $value ): void {
-        $this->vulnerabilityStates = $value;
+    public function setVulnerabilityStates(?array $value): void {
+        $this->getBackingStore()->set('vulnerabilityStates', $value);
     }
 
 }

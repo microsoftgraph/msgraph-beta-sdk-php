@@ -7,23 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, Parsable 
+class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DeviceCompliancePolicyScript|null $deviceCompliancePolicyScript The deviceCompliancePolicyScript property
-    */
-    private ?DeviceCompliancePolicyScript $deviceCompliancePolicyScript = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new validateComplianceScriptPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -40,8 +39,16 @@ class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, P
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -49,7 +56,7 @@ class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, P
      * @return DeviceCompliancePolicyScript|null
     */
     public function getDeviceCompliancePolicyScript(): ?DeviceCompliancePolicyScript {
-        return $this->deviceCompliancePolicyScript;
+        return $this->getBackingStore()->get('deviceCompliancePolicyScript');
     }
 
     /**
@@ -68,24 +75,24 @@ class ValidateComplianceScriptPostRequestBody implements AdditionalDataHolder, P
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('deviceCompliancePolicyScript', $this->deviceCompliancePolicyScript);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('deviceCompliancePolicyScript', $this->getDeviceCompliancePolicyScript());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicyScript property value. The deviceCompliancePolicyScript property
      *  @param DeviceCompliancePolicyScript|null $value Value to set for the deviceCompliancePolicyScript property.
     */
-    public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value ): void {
-        $this->deviceCompliancePolicyScript = $value;
+    public function setDeviceCompliancePolicyScript(?DeviceCompliancePolicyScript $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicyScript', $value);
     }
 
 }

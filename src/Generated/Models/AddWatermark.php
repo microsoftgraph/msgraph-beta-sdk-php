@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermark extends MarkContent implements Parsable 
 {
     /**
-     * @var PageOrientation|null $orientation The orientation property
-    */
-    private ?PageOrientation $orientation = null;
-    
-    /**
      * Instantiates a new AddWatermark and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AddWatermark extends MarkContent implements Parsable
      * @return PageOrientation|null
     */
     public function getOrientation(): ?PageOrientation {
-        return $this->orientation;
+        return $this->getBackingStore()->get('orientation');
     }
 
     /**
@@ -55,15 +50,15 @@ class AddWatermark extends MarkContent implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('orientation', $this->orientation);
+        $writer->writeEnumValue('orientation', $this->getOrientation());
     }
 
     /**
      * Sets the orientation property value. The orientation property
      *  @param PageOrientation|null $value Value to set for the orientation property.
     */
-    public function setOrientation(?PageOrientation $value ): void {
-        $this->orientation = $value;
+    public function setOrientation(?PageOrientation $value): void {
+        $this->getBackingStore()->set('orientation', $value);
     }
 
 }

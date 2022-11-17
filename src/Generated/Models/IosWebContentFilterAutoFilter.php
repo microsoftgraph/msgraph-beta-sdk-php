@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedUrls Additional URLs allowed for access
-    */
-    private ?array $allowedUrls = null;
-    
-    /**
-     * @var array<string>|null $blockedUrls Additional URLs blocked for access
-    */
-    private ?array $blockedUrls = null;
-    
-    /**
      * Instantiates a new IosWebContentFilterAutoFilter and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
      * @return array<string>|null
     */
     public function getAllowedUrls(): ?array {
-        return $this->allowedUrls;
+        return $this->getBackingStore()->get('allowedUrls');
     }
 
     /**
@@ -48,7 +38,7 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
      * @return array<string>|null
     */
     public function getBlockedUrls(): ?array {
-        return $this->blockedUrls;
+        return $this->getBackingStore()->get('blockedUrls');
     }
 
     /**
@@ -69,24 +59,24 @@ class IosWebContentFilterAutoFilter extends IosWebContentFilterBase implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedUrls', $this->allowedUrls);
-        $writer->writeCollectionOfPrimitiveValues('blockedUrls', $this->blockedUrls);
+        $writer->writeCollectionOfPrimitiveValues('allowedUrls', $this->getAllowedUrls());
+        $writer->writeCollectionOfPrimitiveValues('blockedUrls', $this->getBlockedUrls());
     }
 
     /**
      * Sets the allowedUrls property value. Additional URLs allowed for access
      *  @param array<string>|null $value Value to set for the allowedUrls property.
     */
-    public function setAllowedUrls(?array $value ): void {
-        $this->allowedUrls = $value;
+    public function setAllowedUrls(?array $value): void {
+        $this->getBackingStore()->set('allowedUrls', $value);
     }
 
     /**
      * Sets the blockedUrls property value. Additional URLs blocked for access
      *  @param array<string>|null $value Value to set for the blockedUrls property.
     */
-    public function setBlockedUrls(?array $value ): void {
-        $this->blockedUrls = $value;
+    public function setBlockedUrls(?array $value): void {
+        $this->getBackingStore()->set('blockedUrls', $value);
     }
 
 }

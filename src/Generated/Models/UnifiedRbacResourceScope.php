@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRbacResourceScope extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $scope The scope property
-    */
-    private ?string $scope = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
-    
-    /**
      * Instantiates a new unifiedRbacResourceScope and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -74,7 +59,7 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -83,33 +68,33 @@ class UnifiedRbacResourceScope extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('scope', $this->scope);
-        $writer->writeStringValue('type', $this->type);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('scope', $this->getScope());
+        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the scope property value. The scope property
      *  @param string|null $value Value to set for the scope property.
     */
-    public function setScope(?string $value ): void {
-        $this->scope = $value;
+    public function setScope(?string $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

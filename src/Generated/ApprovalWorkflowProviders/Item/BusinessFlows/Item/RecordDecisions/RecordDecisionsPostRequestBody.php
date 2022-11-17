@@ -6,28 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable 
+class RecordDecisionsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $justification The justification property
-    */
-    private ?string $justification = null;
-    
-    /**
-     * @var string|null $reviewResult The reviewResult property
-    */
-    private ?string $reviewResult = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new recordDecisionsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -44,8 +38,16 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -65,7 +67,7 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getJustification(): ?string {
-        return $this->justification;
+        return $this->getBackingStore()->get('justification');
     }
 
     /**
@@ -73,7 +75,7 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getReviewResult(): ?string {
-        return $this->reviewResult;
+        return $this->getBackingStore()->get('reviewResult');
     }
 
     /**
@@ -81,33 +83,33 @@ class RecordDecisionsPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('justification', $this->justification);
-        $writer->writeStringValue('reviewResult', $this->reviewResult);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('justification', $this->getJustification());
+        $writer->writeStringValue('reviewResult', $this->getReviewResult());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the justification property value. The justification property
      *  @param string|null $value Value to set for the justification property.
     */
-    public function setJustification(?string $value ): void {
-        $this->justification = $value;
+    public function setJustification(?string $value): void {
+        $this->getBackingStore()->set('justification', $value);
     }
 
     /**
      * Sets the reviewResult property value. The reviewResult property
      *  @param string|null $value Value to set for the reviewResult property.
     */
-    public function setReviewResult(?string $value ): void {
-        $this->reviewResult = $value;
+    public function setReviewResult(?string $value): void {
+        $this->getBackingStore()->set('reviewResult', $value);
     }
 
 }

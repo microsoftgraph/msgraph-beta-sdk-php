@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable 
+class AccessPackageResourceAttribute implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AccessPackageResourceAttributeDestination|null $attributeDestination Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore object type.
-    */
-    private ?AccessPackageResourceAttributeDestination $attributeDestination = null;
-    
-    /**
-     * @var string|null $attributeName The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
-    */
-    private ?string $attributeName = null;
-    
-    /**
-     * @var AccessPackageResourceAttributeSource|null $attributeSource Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion object type.
-    */
-    private ?AccessPackageResourceAttributeSource $attributeSource = null;
-    
-    /**
-     * @var string|null $id Unique identifier for the attribute on the access package resource. Read-only.
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var bool|null $isEditable Specifies whether or not an existing attribute value can be edited by the requester.
-    */
-    private ?bool $isEditable = null;
-    
-    /**
-     * @var bool|null $isPersistedOnAssignmentRemoval Specifies whether the attribute will remain in the end system after an assignment ends.
-    */
-    private ?bool $isPersistedOnAssignmentRemoval = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new accessPackageResourceAttribute and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.accessPackageResourceAttribute');
     }
@@ -70,8 +39,8 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -79,7 +48,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return AccessPackageResourceAttributeDestination|null
     */
     public function getAttributeDestination(): ?AccessPackageResourceAttributeDestination {
-        return $this->attributeDestination;
+        return $this->getBackingStore()->get('attributeDestination');
     }
 
     /**
@@ -87,7 +56,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAttributeName(): ?string {
-        return $this->attributeName;
+        return $this->getBackingStore()->get('attributeName');
     }
 
     /**
@@ -95,7 +64,15 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return AccessPackageResourceAttributeSource|null
     */
     public function getAttributeSource(): ?AccessPackageResourceAttributeSource {
-        return $this->attributeSource;
+        return $this->getBackingStore()->get('attributeSource');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -120,7 +97,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -128,7 +105,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsEditable(): ?bool {
-        return $this->isEditable;
+        return $this->getBackingStore()->get('isEditable');
     }
 
     /**
@@ -136,7 +113,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsPersistedOnAssignmentRemoval(): ?bool {
-        return $this->isPersistedOnAssignmentRemoval;
+        return $this->getBackingStore()->get('isPersistedOnAssignmentRemoval');
     }
 
     /**
@@ -144,7 +121,7 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -152,78 +129,78 @@ class AccessPackageResourceAttribute implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('attributeDestination', $this->attributeDestination);
-        $writer->writeStringValue('attributeName', $this->attributeName);
-        $writer->writeObjectValue('attributeSource', $this->attributeSource);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isEditable', $this->isEditable);
-        $writer->writeBooleanValue('isPersistedOnAssignmentRemoval', $this->isPersistedOnAssignmentRemoval);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('attributeDestination', $this->getAttributeDestination());
+        $writer->writeStringValue('attributeName', $this->getAttributeName());
+        $writer->writeObjectValue('attributeSource', $this->getAttributeSource());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeBooleanValue('isEditable', $this->getIsEditable());
+        $writer->writeBooleanValue('isPersistedOnAssignmentRemoval', $this->getIsPersistedOnAssignmentRemoval());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the attributeDestination property value. Information about how to set the attribute, currently a accessPackageUserDirectoryAttributeStore object type.
      *  @param AccessPackageResourceAttributeDestination|null $value Value to set for the attributeDestination property.
     */
-    public function setAttributeDestination(?AccessPackageResourceAttributeDestination $value ): void {
-        $this->attributeDestination = $value;
+    public function setAttributeDestination(?AccessPackageResourceAttributeDestination $value): void {
+        $this->getBackingStore()->set('attributeDestination', $value);
     }
 
     /**
      * Sets the attributeName property value. The name of the attribute in the end system. If the destination is accessPackageUserDirectoryAttributeStore, then a user property such as jobTitle or a directory schema extension for the user object type, such as extension_2b676109c7c74ae2b41549205f1947ed_personalTitle.
      *  @param string|null $value Value to set for the attributeName property.
     */
-    public function setAttributeName(?string $value ): void {
-        $this->attributeName = $value;
+    public function setAttributeName(?string $value): void {
+        $this->getBackingStore()->set('attributeName', $value);
     }
 
     /**
      * Sets the attributeSource property value. Information about how to populate the attribute value when an accessPackageAssignmentRequest is being fulfilled, currently a accessPackageResourceAttributeQuestion object type.
      *  @param AccessPackageResourceAttributeSource|null $value Value to set for the attributeSource property.
     */
-    public function setAttributeSource(?AccessPackageResourceAttributeSource $value ): void {
-        $this->attributeSource = $value;
+    public function setAttributeSource(?AccessPackageResourceAttributeSource $value): void {
+        $this->getBackingStore()->set('attributeSource', $value);
     }
 
     /**
      * Sets the id property value. Unique identifier for the attribute on the access package resource. Read-only.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the isEditable property value. Specifies whether or not an existing attribute value can be edited by the requester.
      *  @param bool|null $value Value to set for the isEditable property.
     */
-    public function setIsEditable(?bool $value ): void {
-        $this->isEditable = $value;
+    public function setIsEditable(?bool $value): void {
+        $this->getBackingStore()->set('isEditable', $value);
     }
 
     /**
      * Sets the isPersistedOnAssignmentRemoval property value. Specifies whether the attribute will remain in the end system after an assignment ends.
      *  @param bool|null $value Value to set for the isPersistedOnAssignmentRemoval property.
     */
-    public function setIsPersistedOnAssignmentRemoval(?bool $value ): void {
-        $this->isPersistedOnAssignmentRemoval = $value;
+    public function setIsPersistedOnAssignmentRemoval(?bool $value): void {
+        $this->getBackingStore()->set('isPersistedOnAssignmentRemoval', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -10,141 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAutopilotDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * @var string|null $addressableUserName Addressable user name.
-    */
-    private ?string $addressableUserName = null;
-    
-    /**
-     * @var string|null $azureActiveDirectoryDeviceId AAD Device ID - to be deprecated
-    */
-    private ?string $azureActiveDirectoryDeviceId = null;
-    
-    /**
-     * @var string|null $azureAdDeviceId AAD Device ID
-    */
-    private ?string $azureAdDeviceId = null;
-    
-    /**
-     * @var WindowsAutopilotDeploymentProfile|null $deploymentProfile Deployment profile currently assigned to the Windows autopilot device.
-    */
-    private ?WindowsAutopilotDeploymentProfile $deploymentProfile = null;
-    
-    /**
-     * @var DateTime|null $deploymentProfileAssignedDateTime Profile set time of the Windows autopilot device.
-    */
-    private ?DateTime $deploymentProfileAssignedDateTime = null;
-    
-    /**
-     * @var WindowsAutopilotProfileAssignmentDetailedStatus|null $deploymentProfileAssignmentDetailedStatus The deploymentProfileAssignmentDetailedStatus property
-    */
-    private ?WindowsAutopilotProfileAssignmentDetailedStatus $deploymentProfileAssignmentDetailedStatus = null;
-    
-    /**
-     * @var WindowsAutopilotProfileAssignmentStatus|null $deploymentProfileAssignmentStatus The deploymentProfileAssignmentStatus property
-    */
-    private ?WindowsAutopilotProfileAssignmentStatus $deploymentProfileAssignmentStatus = null;
-    
-    /**
-     * @var string|null $deviceAccountPassword Surface Hub Device Account Password
-    */
-    private ?string $deviceAccountPassword = null;
-    
-    /**
-     * @var string|null $deviceAccountUpn Surface Hub Device Account Upn
-    */
-    private ?string $deviceAccountUpn = null;
-    
-    /**
-     * @var string|null $deviceFriendlyName Surface Hub Device Friendly Name
-    */
-    private ?string $deviceFriendlyName = null;
-    
-    /**
-     * @var string|null $displayName Display Name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var EnrollmentState|null $enrollmentState The enrollmentState property
-    */
-    private ?EnrollmentState $enrollmentState = null;
-    
-    /**
-     * @var string|null $groupTag Group Tag of the Windows autopilot device.
-    */
-    private ?string $groupTag = null;
-    
-    /**
-     * @var WindowsAutopilotDeploymentProfile|null $intendedDeploymentProfile Deployment profile intended to be assigned to the Windows autopilot device.
-    */
-    private ?WindowsAutopilotDeploymentProfile $intendedDeploymentProfile = null;
-    
-    /**
-     * @var DateTime|null $lastContactedDateTime Intune Last Contacted Date Time of the Windows autopilot device.
-    */
-    private ?DateTime $lastContactedDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId Managed Device ID
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $manufacturer Oem manufacturer of the Windows autopilot device.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model Model name of the Windows autopilot device.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var string|null $productKey Product Key of the Windows autopilot device.
-    */
-    private ?string $productKey = null;
-    
-    /**
-     * @var string|null $purchaseOrderIdentifier Purchase Order Identifier of the Windows autopilot device.
-    */
-    private ?string $purchaseOrderIdentifier = null;
-    
-    /**
-     * @var WindowsAutopilotDeviceRemediationState|null $remediationState Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
-    */
-    private ?WindowsAutopilotDeviceRemediationState $remediationState = null;
-    
-    /**
-     * @var DateTime|null $remediationStateLastModifiedDateTime RemediationState set time of Autopilot device.
-    */
-    private ?DateTime $remediationStateLastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $resourceName Resource Name.
-    */
-    private ?string $resourceName = null;
-    
-    /**
-     * @var string|null $serialNumber Serial number of the Windows autopilot device.
-    */
-    private ?string $serialNumber = null;
-    
-    /**
-     * @var string|null $skuNumber SKU Number
-    */
-    private ?string $skuNumber = null;
-    
-    /**
-     * @var string|null $systemFamily System Family
-    */
-    private ?string $systemFamily = null;
-    
-    /**
-     * @var string|null $userPrincipalName User Principal Name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new windowsAutopilotDeviceIdentity and sets the default values.
     */
     public function __construct() {
@@ -166,7 +31,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getAddressableUserName(): ?string {
-        return $this->addressableUserName;
+        return $this->getBackingStore()->get('addressableUserName');
     }
 
     /**
@@ -174,7 +39,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureActiveDirectoryDeviceId(): ?string {
-        return $this->azureActiveDirectoryDeviceId;
+        return $this->getBackingStore()->get('azureActiveDirectoryDeviceId');
     }
 
     /**
@@ -182,7 +47,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureAdDeviceId(): ?string {
-        return $this->azureAdDeviceId;
+        return $this->getBackingStore()->get('azureAdDeviceId');
     }
 
     /**
@@ -190,7 +55,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentProfile|null
     */
     public function getDeploymentProfile(): ?WindowsAutopilotDeploymentProfile {
-        return $this->deploymentProfile;
+        return $this->getBackingStore()->get('deploymentProfile');
     }
 
     /**
@@ -198,7 +63,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeploymentProfileAssignedDateTime(): ?DateTime {
-        return $this->deploymentProfileAssignedDateTime;
+        return $this->getBackingStore()->get('deploymentProfileAssignedDateTime');
     }
 
     /**
@@ -206,7 +71,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return WindowsAutopilotProfileAssignmentDetailedStatus|null
     */
     public function getDeploymentProfileAssignmentDetailedStatus(): ?WindowsAutopilotProfileAssignmentDetailedStatus {
-        return $this->deploymentProfileAssignmentDetailedStatus;
+        return $this->getBackingStore()->get('deploymentProfileAssignmentDetailedStatus');
     }
 
     /**
@@ -214,7 +79,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return WindowsAutopilotProfileAssignmentStatus|null
     */
     public function getDeploymentProfileAssignmentStatus(): ?WindowsAutopilotProfileAssignmentStatus {
-        return $this->deploymentProfileAssignmentStatus;
+        return $this->getBackingStore()->get('deploymentProfileAssignmentStatus');
     }
 
     /**
@@ -222,7 +87,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceAccountPassword(): ?string {
-        return $this->deviceAccountPassword;
+        return $this->getBackingStore()->get('deviceAccountPassword');
     }
 
     /**
@@ -230,7 +95,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceAccountUpn(): ?string {
-        return $this->deviceAccountUpn;
+        return $this->getBackingStore()->get('deviceAccountUpn');
     }
 
     /**
@@ -238,7 +103,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceFriendlyName(): ?string {
-        return $this->deviceFriendlyName;
+        return $this->getBackingStore()->get('deviceFriendlyName');
     }
 
     /**
@@ -246,7 +111,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -254,7 +119,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->enrollmentState;
+        return $this->getBackingStore()->get('enrollmentState');
     }
 
     /**
@@ -299,7 +164,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupTag(): ?string {
-        return $this->groupTag;
+        return $this->getBackingStore()->get('groupTag');
     }
 
     /**
@@ -307,7 +172,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentProfile|null
     */
     public function getIntendedDeploymentProfile(): ?WindowsAutopilotDeploymentProfile {
-        return $this->intendedDeploymentProfile;
+        return $this->getBackingStore()->get('intendedDeploymentProfile');
     }
 
     /**
@@ -315,7 +180,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastContactedDateTime(): ?DateTime {
-        return $this->lastContactedDateTime;
+        return $this->getBackingStore()->get('lastContactedDateTime');
     }
 
     /**
@@ -323,7 +188,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -331,7 +196,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -339,7 +204,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -347,7 +212,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getProductKey(): ?string {
-        return $this->productKey;
+        return $this->getBackingStore()->get('productKey');
     }
 
     /**
@@ -355,7 +220,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getPurchaseOrderIdentifier(): ?string {
-        return $this->purchaseOrderIdentifier;
+        return $this->getBackingStore()->get('purchaseOrderIdentifier');
     }
 
     /**
@@ -363,7 +228,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return WindowsAutopilotDeviceRemediationState|null
     */
     public function getRemediationState(): ?WindowsAutopilotDeviceRemediationState {
-        return $this->remediationState;
+        return $this->getBackingStore()->get('remediationState');
     }
 
     /**
@@ -371,7 +236,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRemediationStateLastModifiedDateTime(): ?DateTime {
-        return $this->remediationStateLastModifiedDateTime;
+        return $this->getBackingStore()->get('remediationStateLastModifiedDateTime');
     }
 
     /**
@@ -379,7 +244,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceName(): ?string {
-        return $this->resourceName;
+        return $this->getBackingStore()->get('resourceName');
     }
 
     /**
@@ -387,7 +252,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->serialNumber;
+        return $this->getBackingStore()->get('serialNumber');
     }
 
     /**
@@ -395,7 +260,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getSkuNumber(): ?string {
-        return $this->skuNumber;
+        return $this->getBackingStore()->get('skuNumber');
     }
 
     /**
@@ -403,7 +268,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getSystemFamily(): ?string {
-        return $this->systemFamily;
+        return $this->getBackingStore()->get('systemFamily');
     }
 
     /**
@@ -411,7 +276,7 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -420,249 +285,249 @@ class WindowsAutopilotDeviceIdentity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('addressableUserName', $this->addressableUserName);
-        $writer->writeStringValue('azureActiveDirectoryDeviceId', $this->azureActiveDirectoryDeviceId);
-        $writer->writeStringValue('azureAdDeviceId', $this->azureAdDeviceId);
-        $writer->writeObjectValue('deploymentProfile', $this->deploymentProfile);
-        $writer->writeDateTimeValue('deploymentProfileAssignedDateTime', $this->deploymentProfileAssignedDateTime);
-        $writer->writeEnumValue('deploymentProfileAssignmentDetailedStatus', $this->deploymentProfileAssignmentDetailedStatus);
-        $writer->writeEnumValue('deploymentProfileAssignmentStatus', $this->deploymentProfileAssignmentStatus);
-        $writer->writeStringValue('deviceAccountPassword', $this->deviceAccountPassword);
-        $writer->writeStringValue('deviceAccountUpn', $this->deviceAccountUpn);
-        $writer->writeStringValue('deviceFriendlyName', $this->deviceFriendlyName);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('enrollmentState', $this->enrollmentState);
-        $writer->writeStringValue('groupTag', $this->groupTag);
-        $writer->writeObjectValue('intendedDeploymentProfile', $this->intendedDeploymentProfile);
-        $writer->writeDateTimeValue('lastContactedDateTime', $this->lastContactedDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeStringValue('productKey', $this->productKey);
-        $writer->writeStringValue('purchaseOrderIdentifier', $this->purchaseOrderIdentifier);
-        $writer->writeEnumValue('remediationState', $this->remediationState);
-        $writer->writeDateTimeValue('remediationStateLastModifiedDateTime', $this->remediationStateLastModifiedDateTime);
-        $writer->writeStringValue('resourceName', $this->resourceName);
-        $writer->writeStringValue('serialNumber', $this->serialNumber);
-        $writer->writeStringValue('skuNumber', $this->skuNumber);
-        $writer->writeStringValue('systemFamily', $this->systemFamily);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('addressableUserName', $this->getAddressableUserName());
+        $writer->writeStringValue('azureActiveDirectoryDeviceId', $this->getAzureActiveDirectoryDeviceId());
+        $writer->writeStringValue('azureAdDeviceId', $this->getAzureAdDeviceId());
+        $writer->writeObjectValue('deploymentProfile', $this->getDeploymentProfile());
+        $writer->writeDateTimeValue('deploymentProfileAssignedDateTime', $this->getDeploymentProfileAssignedDateTime());
+        $writer->writeEnumValue('deploymentProfileAssignmentDetailedStatus', $this->getDeploymentProfileAssignmentDetailedStatus());
+        $writer->writeEnumValue('deploymentProfileAssignmentStatus', $this->getDeploymentProfileAssignmentStatus());
+        $writer->writeStringValue('deviceAccountPassword', $this->getDeviceAccountPassword());
+        $writer->writeStringValue('deviceAccountUpn', $this->getDeviceAccountUpn());
+        $writer->writeStringValue('deviceFriendlyName', $this->getDeviceFriendlyName());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('enrollmentState', $this->getEnrollmentState());
+        $writer->writeStringValue('groupTag', $this->getGroupTag());
+        $writer->writeObjectValue('intendedDeploymentProfile', $this->getIntendedDeploymentProfile());
+        $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('productKey', $this->getProductKey());
+        $writer->writeStringValue('purchaseOrderIdentifier', $this->getPurchaseOrderIdentifier());
+        $writer->writeEnumValue('remediationState', $this->getRemediationState());
+        $writer->writeDateTimeValue('remediationStateLastModifiedDateTime', $this->getRemediationStateLastModifiedDateTime());
+        $writer->writeStringValue('resourceName', $this->getResourceName());
+        $writer->writeStringValue('serialNumber', $this->getSerialNumber());
+        $writer->writeStringValue('skuNumber', $this->getSkuNumber());
+        $writer->writeStringValue('systemFamily', $this->getSystemFamily());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the addressableUserName property value. Addressable user name.
      *  @param string|null $value Value to set for the addressableUserName property.
     */
-    public function setAddressableUserName(?string $value ): void {
-        $this->addressableUserName = $value;
+    public function setAddressableUserName(?string $value): void {
+        $this->getBackingStore()->set('addressableUserName', $value);
     }
 
     /**
      * Sets the azureActiveDirectoryDeviceId property value. AAD Device ID - to be deprecated
      *  @param string|null $value Value to set for the azureActiveDirectoryDeviceId property.
     */
-    public function setAzureActiveDirectoryDeviceId(?string $value ): void {
-        $this->azureActiveDirectoryDeviceId = $value;
+    public function setAzureActiveDirectoryDeviceId(?string $value): void {
+        $this->getBackingStore()->set('azureActiveDirectoryDeviceId', $value);
     }
 
     /**
      * Sets the azureAdDeviceId property value. AAD Device ID
      *  @param string|null $value Value to set for the azureAdDeviceId property.
     */
-    public function setAzureAdDeviceId(?string $value ): void {
-        $this->azureAdDeviceId = $value;
+    public function setAzureAdDeviceId(?string $value): void {
+        $this->getBackingStore()->set('azureAdDeviceId', $value);
     }
 
     /**
      * Sets the deploymentProfile property value. Deployment profile currently assigned to the Windows autopilot device.
      *  @param WindowsAutopilotDeploymentProfile|null $value Value to set for the deploymentProfile property.
     */
-    public function setDeploymentProfile(?WindowsAutopilotDeploymentProfile $value ): void {
-        $this->deploymentProfile = $value;
+    public function setDeploymentProfile(?WindowsAutopilotDeploymentProfile $value): void {
+        $this->getBackingStore()->set('deploymentProfile', $value);
     }
 
     /**
      * Sets the deploymentProfileAssignedDateTime property value. Profile set time of the Windows autopilot device.
      *  @param DateTime|null $value Value to set for the deploymentProfileAssignedDateTime property.
     */
-    public function setDeploymentProfileAssignedDateTime(?DateTime $value ): void {
-        $this->deploymentProfileAssignedDateTime = $value;
+    public function setDeploymentProfileAssignedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deploymentProfileAssignedDateTime', $value);
     }
 
     /**
      * Sets the deploymentProfileAssignmentDetailedStatus property value. The deploymentProfileAssignmentDetailedStatus property
      *  @param WindowsAutopilotProfileAssignmentDetailedStatus|null $value Value to set for the deploymentProfileAssignmentDetailedStatus property.
     */
-    public function setDeploymentProfileAssignmentDetailedStatus(?WindowsAutopilotProfileAssignmentDetailedStatus $value ): void {
-        $this->deploymentProfileAssignmentDetailedStatus = $value;
+    public function setDeploymentProfileAssignmentDetailedStatus(?WindowsAutopilotProfileAssignmentDetailedStatus $value): void {
+        $this->getBackingStore()->set('deploymentProfileAssignmentDetailedStatus', $value);
     }
 
     /**
      * Sets the deploymentProfileAssignmentStatus property value. The deploymentProfileAssignmentStatus property
      *  @param WindowsAutopilotProfileAssignmentStatus|null $value Value to set for the deploymentProfileAssignmentStatus property.
     */
-    public function setDeploymentProfileAssignmentStatus(?WindowsAutopilotProfileAssignmentStatus $value ): void {
-        $this->deploymentProfileAssignmentStatus = $value;
+    public function setDeploymentProfileAssignmentStatus(?WindowsAutopilotProfileAssignmentStatus $value): void {
+        $this->getBackingStore()->set('deploymentProfileAssignmentStatus', $value);
     }
 
     /**
      * Sets the deviceAccountPassword property value. Surface Hub Device Account Password
      *  @param string|null $value Value to set for the deviceAccountPassword property.
     */
-    public function setDeviceAccountPassword(?string $value ): void {
-        $this->deviceAccountPassword = $value;
+    public function setDeviceAccountPassword(?string $value): void {
+        $this->getBackingStore()->set('deviceAccountPassword', $value);
     }
 
     /**
      * Sets the deviceAccountUpn property value. Surface Hub Device Account Upn
      *  @param string|null $value Value to set for the deviceAccountUpn property.
     */
-    public function setDeviceAccountUpn(?string $value ): void {
-        $this->deviceAccountUpn = $value;
+    public function setDeviceAccountUpn(?string $value): void {
+        $this->getBackingStore()->set('deviceAccountUpn', $value);
     }
 
     /**
      * Sets the deviceFriendlyName property value. Surface Hub Device Friendly Name
      *  @param string|null $value Value to set for the deviceFriendlyName property.
     */
-    public function setDeviceFriendlyName(?string $value ): void {
-        $this->deviceFriendlyName = $value;
+    public function setDeviceFriendlyName(?string $value): void {
+        $this->getBackingStore()->set('deviceFriendlyName', $value);
     }
 
     /**
      * Sets the displayName property value. Display Name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
-    public function setEnrollmentState(?EnrollmentState $value ): void {
-        $this->enrollmentState = $value;
+    public function setEnrollmentState(?EnrollmentState $value): void {
+        $this->getBackingStore()->set('enrollmentState', $value);
     }
 
     /**
      * Sets the groupTag property value. Group Tag of the Windows autopilot device.
      *  @param string|null $value Value to set for the groupTag property.
     */
-    public function setGroupTag(?string $value ): void {
-        $this->groupTag = $value;
+    public function setGroupTag(?string $value): void {
+        $this->getBackingStore()->set('groupTag', $value);
     }
 
     /**
      * Sets the intendedDeploymentProfile property value. Deployment profile intended to be assigned to the Windows autopilot device.
      *  @param WindowsAutopilotDeploymentProfile|null $value Value to set for the intendedDeploymentProfile property.
     */
-    public function setIntendedDeploymentProfile(?WindowsAutopilotDeploymentProfile $value ): void {
-        $this->intendedDeploymentProfile = $value;
+    public function setIntendedDeploymentProfile(?WindowsAutopilotDeploymentProfile $value): void {
+        $this->getBackingStore()->set('intendedDeploymentProfile', $value);
     }
 
     /**
      * Sets the lastContactedDateTime property value. Intune Last Contacted Date Time of the Windows autopilot device.
      *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
-    public function setLastContactedDateTime(?DateTime $value ): void {
-        $this->lastContactedDateTime = $value;
+    public function setLastContactedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastContactedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Managed Device ID
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the manufacturer property value. Oem manufacturer of the Windows autopilot device.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. Model name of the Windows autopilot device.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the productKey property value. Product Key of the Windows autopilot device.
      *  @param string|null $value Value to set for the productKey property.
     */
-    public function setProductKey(?string $value ): void {
-        $this->productKey = $value;
+    public function setProductKey(?string $value): void {
+        $this->getBackingStore()->set('productKey', $value);
     }
 
     /**
      * Sets the purchaseOrderIdentifier property value. Purchase Order Identifier of the Windows autopilot device.
      *  @param string|null $value Value to set for the purchaseOrderIdentifier property.
     */
-    public function setPurchaseOrderIdentifier(?string $value ): void {
-        $this->purchaseOrderIdentifier = $value;
+    public function setPurchaseOrderIdentifier(?string $value): void {
+        $this->getBackingStore()->set('purchaseOrderIdentifier', $value);
     }
 
     /**
      * Sets the remediationState property value. Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.
      *  @param WindowsAutopilotDeviceRemediationState|null $value Value to set for the remediationState property.
     */
-    public function setRemediationState(?WindowsAutopilotDeviceRemediationState $value ): void {
-        $this->remediationState = $value;
+    public function setRemediationState(?WindowsAutopilotDeviceRemediationState $value): void {
+        $this->getBackingStore()->set('remediationState', $value);
     }
 
     /**
      * Sets the remediationStateLastModifiedDateTime property value. RemediationState set time of Autopilot device.
      *  @param DateTime|null $value Value to set for the remediationStateLastModifiedDateTime property.
     */
-    public function setRemediationStateLastModifiedDateTime(?DateTime $value ): void {
-        $this->remediationStateLastModifiedDateTime = $value;
+    public function setRemediationStateLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('remediationStateLastModifiedDateTime', $value);
     }
 
     /**
      * Sets the resourceName property value. Resource Name.
      *  @param string|null $value Value to set for the resourceName property.
     */
-    public function setResourceName(?string $value ): void {
-        $this->resourceName = $value;
+    public function setResourceName(?string $value): void {
+        $this->getBackingStore()->set('resourceName', $value);
     }
 
     /**
      * Sets the serialNumber property value. Serial number of the Windows autopilot device.
      *  @param string|null $value Value to set for the serialNumber property.
     */
-    public function setSerialNumber(?string $value ): void {
-        $this->serialNumber = $value;
+    public function setSerialNumber(?string $value): void {
+        $this->getBackingStore()->set('serialNumber', $value);
     }
 
     /**
      * Sets the skuNumber property value. SKU Number
      *  @param string|null $value Value to set for the skuNumber property.
     */
-    public function setSkuNumber(?string $value ): void {
-        $this->skuNumber = $value;
+    public function setSkuNumber(?string $value): void {
+        $this->getBackingStore()->set('skuNumber', $value);
     }
 
     /**
      * Sets the systemFamily property value. System Family
      *  @param string|null $value Value to set for the systemFamily property.
     */
-    public function setSystemFamily(?string $value ): void {
-        $this->systemFamily = $value;
+    public function setSystemFamily(?string $value): void {
+        $this->getBackingStore()->set('systemFamily', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User Principal Name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

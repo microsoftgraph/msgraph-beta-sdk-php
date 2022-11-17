@@ -11,46 +11,6 @@ use Psr\Http\Message\StreamInterface;
 class EnterpriseCodeSigningCertificate extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The Windows Enterprise Code-Signing Certificate in the raw data format.
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The Cert Expiration Date.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $issuer The Issuer value for the cert.
-    */
-    private ?string $issuer = null;
-    
-    /**
-     * @var string|null $issuerName The Issuer Name for the cert.
-    */
-    private ?string $issuerName = null;
-    
-    /**
-     * @var CertificateStatus|null $status The status property
-    */
-    private ?CertificateStatus $status = null;
-    
-    /**
-     * @var string|null $subject The Subject Value for the cert.
-    */
-    private ?string $subject = null;
-    
-    /**
-     * @var string|null $subjectName The Subject Name for the cert.
-    */
-    private ?string $subjectName = null;
-    
-    /**
-     * @var DateTime|null $uploadDateTime The date time of CodeSigning Cert when it is uploaded.
-    */
-    private ?DateTime $uploadDateTime = null;
-    
-    /**
      * Instantiates a new enterpriseCodeSigningCertificate and sets the default values.
     */
     public function __construct() {
@@ -69,10 +29,10 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
 
     /**
      * Gets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -80,7 +40,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -106,7 +66,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getIssuer(): ?string {
-        return $this->issuer;
+        return $this->getBackingStore()->get('issuer');
     }
 
     /**
@@ -114,7 +74,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getIssuerName(): ?string {
-        return $this->issuerName;
+        return $this->getBackingStore()->get('issuerName');
     }
 
     /**
@@ -122,7 +82,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return CertificateStatus|null
     */
     public function getStatus(): ?CertificateStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -130,7 +90,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -138,7 +98,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return string|null
     */
     public function getSubjectName(): ?string {
-        return $this->subjectName;
+        return $this->getBackingStore()->get('subjectName');
     }
 
     /**
@@ -146,7 +106,7 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getUploadDateTime(): ?DateTime {
-        return $this->uploadDateTime;
+        return $this->getBackingStore()->get('uploadDateTime');
     }
 
     /**
@@ -155,78 +115,78 @@ class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('issuer', $this->issuer);
-        $writer->writeStringValue('issuerName', $this->issuerName);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('subject', $this->subject);
-        $writer->writeStringValue('subjectName', $this->subjectName);
-        $writer->writeDateTimeValue('uploadDateTime', $this->uploadDateTime);
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('issuer', $this->getIssuer());
+        $writer->writeStringValue('issuerName', $this->getIssuerName());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('subject', $this->getSubject());
+        $writer->writeStringValue('subjectName', $this->getSubjectName());
+        $writer->writeDateTimeValue('uploadDateTime', $this->getUploadDateTime());
     }
 
     /**
      * Sets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. The Cert Expiration Date.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the issuer property value. The Issuer value for the cert.
      *  @param string|null $value Value to set for the issuer property.
     */
-    public function setIssuer(?string $value ): void {
-        $this->issuer = $value;
+    public function setIssuer(?string $value): void {
+        $this->getBackingStore()->set('issuer', $value);
     }
 
     /**
      * Sets the issuerName property value. The Issuer Name for the cert.
      *  @param string|null $value Value to set for the issuerName property.
     */
-    public function setIssuerName(?string $value ): void {
-        $this->issuerName = $value;
+    public function setIssuerName(?string $value): void {
+        $this->getBackingStore()->set('issuerName', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param CertificateStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?CertificateStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?CertificateStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the subject property value. The Subject Value for the cert.
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the subjectName property value. The Subject Name for the cert.
      *  @param string|null $value Value to set for the subjectName property.
     */
-    public function setSubjectName(?string $value ): void {
-        $this->subjectName = $value;
+    public function setSubjectName(?string $value): void {
+        $this->getBackingStore()->set('subjectName', $value);
     }
 
     /**
      * Sets the uploadDateTime property value. The date time of CodeSigning Cert when it is uploaded.
      *  @param DateTime|null $value Value to set for the uploadDateTime property.
     */
-    public function setUploadDateTime(?DateTime $value ): void {
-        $this->uploadDateTime = $value;
+    public function setUploadDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('uploadDateTime', $value);
     }
 
 }

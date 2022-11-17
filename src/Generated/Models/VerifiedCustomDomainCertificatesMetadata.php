@@ -7,48 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, Parsable 
+class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $expiryDate The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $expiryDate = null;
-    
-    /**
-     * @var DateTime|null $issueDate The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $issueDate = null;
-    
-    /**
-     * @var string|null $issuerName The issuer name of the custom domain certificate.
-    */
-    private ?string $issuerName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $subjectName The subject name of the custom domain certificate.
-    */
-    private ?string $subjectName = null;
-    
-    /**
-     * @var string|null $thumbprint The thumbprint associated with the custom domain certificate.
-    */
-    private ?string $thumbprint = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new verifiedCustomDomainCertificatesMetadata and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.verifiedCustomDomainCertificatesMetadata');
     }
@@ -66,8 +40,16 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -75,7 +57,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getExpiryDate(): ?DateTime {
-        return $this->expiryDate;
+        return $this->getBackingStore()->get('expiryDate');
     }
 
     /**
@@ -99,7 +81,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return DateTime|null
     */
     public function getIssueDate(): ?DateTime {
-        return $this->issueDate;
+        return $this->getBackingStore()->get('issueDate');
     }
 
     /**
@@ -107,7 +89,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getIssuerName(): ?string {
-        return $this->issuerName;
+        return $this->getBackingStore()->get('issuerName');
     }
 
     /**
@@ -115,7 +97,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -123,7 +105,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getSubjectName(): ?string {
-        return $this->subjectName;
+        return $this->getBackingStore()->get('subjectName');
     }
 
     /**
@@ -131,7 +113,7 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @return string|null
     */
     public function getThumbprint(): ?string {
-        return $this->thumbprint;
+        return $this->getBackingStore()->get('thumbprint');
     }
 
     /**
@@ -139,69 +121,69 @@ class VerifiedCustomDomainCertificatesMetadata implements AdditionalDataHolder, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('expiryDate', $this->expiryDate);
-        $writer->writeDateTimeValue('issueDate', $this->issueDate);
-        $writer->writeStringValue('issuerName', $this->issuerName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('subjectName', $this->subjectName);
-        $writer->writeStringValue('thumbprint', $this->thumbprint);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('expiryDate', $this->getExpiryDate());
+        $writer->writeDateTimeValue('issueDate', $this->getIssueDate());
+        $writer->writeStringValue('issuerName', $this->getIssuerName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('subjectName', $this->getSubjectName());
+        $writer->writeStringValue('thumbprint', $this->getThumbprint());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the expiryDate property value. The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the expiryDate property.
     */
-    public function setExpiryDate(?DateTime $value ): void {
-        $this->expiryDate = $value;
+    public function setExpiryDate(?DateTime $value): void {
+        $this->getBackingStore()->set('expiryDate', $value);
     }
 
     /**
      * Sets the issueDate property value. The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the issueDate property.
     */
-    public function setIssueDate(?DateTime $value ): void {
-        $this->issueDate = $value;
+    public function setIssueDate(?DateTime $value): void {
+        $this->getBackingStore()->set('issueDate', $value);
     }
 
     /**
      * Sets the issuerName property value. The issuer name of the custom domain certificate.
      *  @param string|null $value Value to set for the issuerName property.
     */
-    public function setIssuerName(?string $value ): void {
-        $this->issuerName = $value;
+    public function setIssuerName(?string $value): void {
+        $this->getBackingStore()->set('issuerName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the subjectName property value. The subject name of the custom domain certificate.
      *  @param string|null $value Value to set for the subjectName property.
     */
-    public function setSubjectName(?string $value ): void {
-        $this->subjectName = $value;
+    public function setSubjectName(?string $value): void {
+        $this->getBackingStore()->set('subjectName', $value);
     }
 
     /**
      * Sets the thumbprint property value. The thumbprint associated with the custom domain certificate.
      *  @param string|null $value Value to set for the thumbprint property.
     */
-    public function setThumbprint(?string $value ): void {
-        $this->thumbprint = $value;
+    public function setThumbprint(?string $value): void {
+        $this->getBackingStore()->set('thumbprint', $value);
     }
 
 }

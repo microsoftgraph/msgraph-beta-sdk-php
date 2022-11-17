@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeploymentSettings implements AdditionalDataHolder, Parsable 
+class DeploymentSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var MonitoringSettings|null $monitoring Settings governing conditions to monitor and automated actions to take.
-    */
-    private ?MonitoringSettings $monitoring = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var RolloutSettings|null $rollout Settings governing how the content is rolled out.
-    */
-    private ?RolloutSettings $rollout = null;
-    
-    /**
-     * @var SafeguardSettings|null $safeguard Settings governing safeguard holds on offering content.
-    */
-    private ?SafeguardSettings $safeguard = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deploymentSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.windowsUpdates.deploymentSettings');
     }
@@ -62,8 +46,16 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -85,7 +77,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @return MonitoringSettings|null
     */
     public function getMonitoring(): ?MonitoringSettings {
-        return $this->monitoring;
+        return $this->getBackingStore()->get('monitoring');
     }
 
     /**
@@ -93,7 +85,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -101,7 +93,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @return RolloutSettings|null
     */
     public function getRollout(): ?RolloutSettings {
-        return $this->rollout;
+        return $this->getBackingStore()->get('rollout');
     }
 
     /**
@@ -109,7 +101,7 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @return SafeguardSettings|null
     */
     public function getSafeguard(): ?SafeguardSettings {
-        return $this->safeguard;
+        return $this->getBackingStore()->get('safeguard');
     }
 
     /**
@@ -117,51 +109,51 @@ class DeploymentSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('monitoring', $this->monitoring);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('rollout', $this->rollout);
-        $writer->writeObjectValue('safeguard', $this->safeguard);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('monitoring', $this->getMonitoring());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('rollout', $this->getRollout());
+        $writer->writeObjectValue('safeguard', $this->getSafeguard());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the monitoring property value. Settings governing conditions to monitor and automated actions to take.
      *  @param MonitoringSettings|null $value Value to set for the monitoring property.
     */
-    public function setMonitoring(?MonitoringSettings $value ): void {
-        $this->monitoring = $value;
+    public function setMonitoring(?MonitoringSettings $value): void {
+        $this->getBackingStore()->set('monitoring', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the rollout property value. Settings governing how the content is rolled out.
      *  @param RolloutSettings|null $value Value to set for the rollout property.
     */
-    public function setRollout(?RolloutSettings $value ): void {
-        $this->rollout = $value;
+    public function setRollout(?RolloutSettings $value): void {
+        $this->getBackingStore()->set('rollout', $value);
     }
 
     /**
      * Sets the safeguard property value. Settings governing safeguard holds on offering content.
      *  @param SafeguardSettings|null $value Value to set for the safeguard property.
     */
-    public function setSafeguard(?SafeguardSettings $value ): void {
-        $this->safeguard = $value;
+    public function setSafeguard(?SafeguardSettings $value): void {
+        $this->getBackingStore()->set('safeguard', $value);
     }
 
 }

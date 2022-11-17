@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LifecycleManagementSettings extends Entity implements Parsable 
 {
     /**
-     * @var int|null $workflowScheduleIntervalInHours The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
-    */
-    private ?int $workflowScheduleIntervalInHours = null;
-    
-    /**
      * Instantiates a new lifecycleManagementSettings and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class LifecycleManagementSettings extends Entity implements Parsable
      * @return int|null
     */
     public function getWorkflowScheduleIntervalInHours(): ?int {
-        return $this->workflowScheduleIntervalInHours;
+        return $this->getBackingStore()->get('workflowScheduleIntervalInHours');
     }
 
     /**
@@ -56,15 +51,15 @@ class LifecycleManagementSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('workflowScheduleIntervalInHours', $this->workflowScheduleIntervalInHours);
+        $writer->writeIntegerValue('workflowScheduleIntervalInHours', $this->getWorkflowScheduleIntervalInHours());
     }
 
     /**
      * Sets the workflowScheduleIntervalInHours property value. The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
      *  @param int|null $value Value to set for the workflowScheduleIntervalInHours property.
     */
-    public function setWorkflowScheduleIntervalInHours(?int $value ): void {
-        $this->workflowScheduleIntervalInHours = $value;
+    public function setWorkflowScheduleIntervalInHours(?int $value): void {
+        $this->getBackingStore()->set('workflowScheduleIntervalInHours', $value);
     }
 
 }

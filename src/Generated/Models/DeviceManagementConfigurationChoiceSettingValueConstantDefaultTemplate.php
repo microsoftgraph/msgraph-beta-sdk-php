@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationChoiceSettingValueDefaultTemplate implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationSettingInstanceTemplate>|null $children Option Children
-    */
-    private ?array $children = null;
-    
-    /**
-     * @var string|null $settingDefinitionOptionId Default Constant Value
-    */
-    private ?string $settingDefinitionOptionId = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
      * @return array<DeviceManagementConfigurationSettingInstanceTemplate>|null
     */
     public function getChildren(): ?array {
-        return $this->children;
+        return $this->getBackingStore()->get('children');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
      * @return string|null
     */
     public function getSettingDefinitionOptionId(): ?string {
-        return $this->settingDefinitionOptionId;
+        return $this->getBackingStore()->get('settingDefinitionOptionId');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate ext
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('children', $this->children);
-        $writer->writeStringValue('settingDefinitionOptionId', $this->settingDefinitionOptionId);
+        $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeStringValue('settingDefinitionOptionId', $this->getSettingDefinitionOptionId());
     }
 
     /**
      * Sets the children property value. Option Children
      *  @param array<DeviceManagementConfigurationSettingInstanceTemplate>|null $value Value to set for the children property.
     */
-    public function setChildren(?array $value ): void {
-        $this->children = $value;
+    public function setChildren(?array $value): void {
+        $this->getBackingStore()->set('children', $value);
     }
 
     /**
      * Sets the settingDefinitionOptionId property value. Default Constant Value
      *  @param string|null $value Value to set for the settingDefinitionOptionId property.
     */
-    public function setSettingDefinitionOptionId(?string $value ): void {
-        $this->settingDefinitionOptionId = $value;
+    public function setSettingDefinitionOptionId(?string $value): void {
+        $this->getBackingStore()->set('settingDefinitionOptionId', $value);
     }
 
 }

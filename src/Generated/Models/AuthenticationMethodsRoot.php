@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationMethodsRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<UserRegistrationDetails>|null $userRegistrationDetails Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
-    */
-    private ?array $userRegistrationDetails = null;
-    
-    /**
      * Instantiates a new AuthenticationMethodsRoot and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
      * @return array<UserRegistrationDetails>|null
     */
     public function getUserRegistrationDetails(): ?array {
-        return $this->userRegistrationDetails;
+        return $this->getBackingStore()->get('userRegistrationDetails');
     }
 
     /**
@@ -55,15 +50,15 @@ class AuthenticationMethodsRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('userRegistrationDetails', $this->userRegistrationDetails);
+        $writer->writeCollectionOfObjectValues('userRegistrationDetails', $this->getUserRegistrationDetails());
     }
 
     /**
      * Sets the userRegistrationDetails property value. Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multi-factor authentication, self-service password reset, and passwordless authentication).
      *  @param array<UserRegistrationDetails>|null $value Value to set for the userRegistrationDetails property.
     */
-    public function setUserRegistrationDetails(?array $value ): void {
-        $this->userRegistrationDetails = $value;
+    public function setUserRegistrationDetails(?array $value): void {
+        $this->getBackingStore()->set('userRegistrationDetails', $value);
     }
 
 }

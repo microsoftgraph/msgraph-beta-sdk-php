@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineDeviceState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceDisplayName Display name of the device
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var DateTime|null $lastReportedDateTime Last modified date time of the policy report
-    */
-    private ?DateTime $lastReportedDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId Intune device id
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var SecurityBaselineComplianceState|null $state Security Baseline Compliance State
-    */
-    private ?SecurityBaselineComplianceState $state = null;
-    
-    /**
-     * @var string|null $userPrincipalName User Principal Name
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new securityBaselineDeviceState and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -79,7 +54,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->lastReportedDateTime;
+        return $this->getBackingStore()->get('lastReportedDateTime');
     }
 
     /**
@@ -87,7 +62,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -95,7 +70,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
      * @return SecurityBaselineComplianceState|null
     */
     public function getState(): ?SecurityBaselineComplianceState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -103,7 +78,7 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -112,51 +87,51 @@ class SecurityBaselineDeviceState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeDateTimeValue('lastReportedDateTime', $this->lastReportedDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the deviceDisplayName property value. Display name of the device
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the lastReportedDateTime property value. Last modified date time of the policy report
      *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
-    public function setLastReportedDateTime(?DateTime $value ): void {
-        $this->lastReportedDateTime = $value;
+    public function setLastReportedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastReportedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Intune device id
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the state property value. Security Baseline Compliance State
      *  @param SecurityBaselineComplianceState|null $value Value to set for the state property.
     */
-    public function setState(?SecurityBaselineComplianceState $value ): void {
-        $this->state = $value;
+    public function setState(?SecurityBaselineComplianceState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User Principal Name
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

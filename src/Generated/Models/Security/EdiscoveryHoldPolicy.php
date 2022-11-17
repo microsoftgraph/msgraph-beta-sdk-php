@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdiscoveryHoldPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var string|null $contentQuery KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
-    */
-    private ?string $contentQuery = null;
-    
-    /**
-     * @var array<string>|null $errors Lists any errors that happened while placing the hold.
-    */
-    private ?array $errors = null;
-    
-    /**
-     * @var bool|null $isEnabled Indicates whether the hold is enabled and actively holding content.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var array<SiteSource>|null $siteSources Data sources that represent SharePoint sites.
-    */
-    private ?array $siteSources = null;
-    
-    /**
-     * @var array<UserSource>|null $userSources Data sources that represent Exchange mailboxes.
-    */
-    private ?array $userSources = null;
-    
-    /**
      * Instantiates a new EdiscoveryHoldPolicy and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->contentQuery;
+        return $this->getBackingStore()->get('contentQuery');
     }
 
     /**
@@ -63,7 +38,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<string>|null
     */
     public function getErrors(): ?array {
-        return $this->errors;
+        return $this->getBackingStore()->get('errors');
     }
 
     /**
@@ -86,7 +61,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -94,7 +69,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
-        return $this->siteSources;
+        return $this->getBackingStore()->get('siteSources');
     }
 
     /**
@@ -102,7 +77,7 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
-        return $this->userSources;
+        return $this->getBackingStore()->get('userSources');
     }
 
     /**
@@ -111,51 +86,51 @@ class EdiscoveryHoldPolicy extends PolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('contentQuery', $this->contentQuery);
-        $writer->writeCollectionOfPrimitiveValues('errors', $this->errors);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeCollectionOfObjectValues('siteSources', $this->siteSources);
-        $writer->writeCollectionOfObjectValues('userSources', $this->userSources);
+        $writer->writeStringValue('contentQuery', $this->getContentQuery());
+        $writer->writeCollectionOfPrimitiveValues('errors', $this->getErrors());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeCollectionOfObjectValues('siteSources', $this->getSiteSources());
+        $writer->writeCollectionOfObjectValues('userSources', $this->getUserSources());
     }
 
     /**
      * Sets the contentQuery property value. KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
      *  @param string|null $value Value to set for the contentQuery property.
     */
-    public function setContentQuery(?string $value ): void {
-        $this->contentQuery = $value;
+    public function setContentQuery(?string $value): void {
+        $this->getBackingStore()->set('contentQuery', $value);
     }
 
     /**
      * Sets the errors property value. Lists any errors that happened while placing the hold.
      *  @param array<string>|null $value Value to set for the errors property.
     */
-    public function setErrors(?array $value ): void {
-        $this->errors = $value;
+    public function setErrors(?array $value): void {
+        $this->getBackingStore()->set('errors', $value);
     }
 
     /**
      * Sets the isEnabled property value. Indicates whether the hold is enabled and actively holding content.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the siteSources property value. Data sources that represent SharePoint sites.
      *  @param array<SiteSource>|null $value Value to set for the siteSources property.
     */
-    public function setSiteSources(?array $value ): void {
-        $this->siteSources = $value;
+    public function setSiteSources(?array $value): void {
+        $this->getBackingStore()->set('siteSources', $value);
     }
 
     /**
      * Sets the userSources property value. Data sources that represent Exchange mailboxes.
      *  @param array<UserSource>|null $value Value to set for the userSources property.
     */
-    public function setUserSources(?array $value ): void {
-        $this->userSources = $value;
+    public function setUserSources(?array $value): void {
+        $this->getBackingStore()->set('userSources', $value);
     }
 
 }

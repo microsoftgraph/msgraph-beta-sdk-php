@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable 
+class PasswordSingleSignOnField implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $customizedLabel Title/label override for customization.
-    */
-    private ?string $customizedLabel = null;
-    
-    /**
-     * @var string|null $defaultLabel Label that would be used if no customizedLabel is provided. Read only.
-    */
-    private ?string $defaultLabel = null;
-    
-    /**
-     * @var string|null $fieldId Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password.
-    */
-    private ?string $fieldId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $type Type of the credential. The values can be text, password.
-    */
-    private ?string $type = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new passwordSingleSignOnField and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.passwordSingleSignOnField');
     }
@@ -60,8 +39,16 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCustomizedLabel(): ?string {
-        return $this->customizedLabel;
+        return $this->getBackingStore()->get('customizedLabel');
     }
 
     /**
@@ -77,7 +64,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDefaultLabel(): ?string {
-        return $this->defaultLabel;
+        return $this->getBackingStore()->get('defaultLabel');
     }
 
     /**
@@ -100,7 +87,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getFieldId(): ?string {
-        return $this->fieldId;
+        return $this->getBackingStore()->get('fieldId');
     }
 
     /**
@@ -108,7 +95,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -116,7 +103,7 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -124,60 +111,60 @@ class PasswordSingleSignOnField implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('customizedLabel', $this->customizedLabel);
-        $writer->writeStringValue('defaultLabel', $this->defaultLabel);
-        $writer->writeStringValue('fieldId', $this->fieldId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('customizedLabel', $this->getCustomizedLabel());
+        $writer->writeStringValue('defaultLabel', $this->getDefaultLabel());
+        $writer->writeStringValue('fieldId', $this->getFieldId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the customizedLabel property value. Title/label override for customization.
      *  @param string|null $value Value to set for the customizedLabel property.
     */
-    public function setCustomizedLabel(?string $value ): void {
-        $this->customizedLabel = $value;
+    public function setCustomizedLabel(?string $value): void {
+        $this->getBackingStore()->set('customizedLabel', $value);
     }
 
     /**
      * Sets the defaultLabel property value. Label that would be used if no customizedLabel is provided. Read only.
      *  @param string|null $value Value to set for the defaultLabel property.
     */
-    public function setDefaultLabel(?string $value ): void {
-        $this->defaultLabel = $value;
+    public function setDefaultLabel(?string $value): void {
+        $this->getBackingStore()->set('defaultLabel', $value);
     }
 
     /**
      * Sets the fieldId property value. Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password.
      *  @param string|null $value Value to set for the fieldId property.
     */
-    public function setFieldId(?string $value ): void {
-        $this->fieldId = $value;
+    public function setFieldId(?string $value): void {
+        $this->getBackingStore()->set('fieldId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the type property value. Type of the credential. The values can be text, password.
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

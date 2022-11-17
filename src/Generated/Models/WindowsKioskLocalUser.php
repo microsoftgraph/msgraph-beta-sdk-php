@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable 
 {
     /**
-     * @var string|null $userName The local user that will be locked to this kiosk configuration
-    */
-    private ?string $userName = null;
-    
-    /**
      * Instantiates a new WindowsKioskLocalUser and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsKioskLocalUser extends WindowsKioskUser implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('userName', $this->userName);
+        $writer->writeStringValue('userName', $this->getUserName());
     }
 
     /**
      * Sets the userName property value. The local user that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
 }

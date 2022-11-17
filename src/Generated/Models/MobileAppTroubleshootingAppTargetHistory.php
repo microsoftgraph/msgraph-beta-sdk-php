@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingHistoryItem implements Parsable 
 {
     /**
-     * @var string|null $errorCode Error code for the failure, empty if no failure.
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var RunState|null $runState Indicates the type of execution status of the device management script.
-    */
-    private ?RunState $runState = null;
-    
-    /**
-     * @var string|null $securityGroupId AAD security group id to which it was targeted.
-    */
-    private ?string $securityGroupId = null;
-    
-    /**
      * Instantiates a new MobileAppTroubleshootingAppTargetHistory and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -66,7 +51,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
      * @return RunState|null
     */
     public function getRunState(): ?RunState {
-        return $this->runState;
+        return $this->getBackingStore()->get('runState');
     }
 
     /**
@@ -74,7 +59,7 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
      * @return string|null
     */
     public function getSecurityGroupId(): ?string {
-        return $this->securityGroupId;
+        return $this->getBackingStore()->get('securityGroupId');
     }
 
     /**
@@ -83,33 +68,33 @@ class MobileAppTroubleshootingAppTargetHistory extends MobileAppTroubleshootingH
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeEnumValue('runState', $this->runState);
-        $writer->writeStringValue('securityGroupId', $this->securityGroupId);
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeEnumValue('runState', $this->getRunState());
+        $writer->writeStringValue('securityGroupId', $this->getSecurityGroupId());
     }
 
     /**
      * Sets the errorCode property value. Error code for the failure, empty if no failure.
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the runState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the runState property.
     */
-    public function setRunState(?RunState $value ): void {
-        $this->runState = $value;
+    public function setRunState(?RunState $value): void {
+        $this->getBackingStore()->set('runState', $value);
     }
 
     /**
      * Sets the securityGroupId property value. AAD security group id to which it was targeted.
      *  @param string|null $value Value to set for the securityGroupId property.
     */
-    public function setSecurityGroupId(?string $value ): void {
-        $this->securityGroupId = $value;
+    public function setSecurityGroupId(?string $value): void {
+        $this->getBackingStore()->set('securityGroupId', $value);
     }
 
 }

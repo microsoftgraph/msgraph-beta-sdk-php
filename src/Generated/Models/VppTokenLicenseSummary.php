@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable 
+class VppTokenLicenseSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $appleId The Apple Id associated with the given Apple Volume Purchase Program Token.
-    */
-    private ?string $appleId = null;
-    
-    /**
-     * @var int|null $availableLicenseCount The number of VPP licenses available.
-    */
-    private ?int $availableLicenseCount = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $organizationName The organization associated with the Apple Volume Purchase Program Token.
-    */
-    private ?string $organizationName = null;
-    
-    /**
-     * @var int|null $usedLicenseCount The number of VPP licenses in use.
-    */
-    private ?int $usedLicenseCount = null;
-    
-    /**
-     * @var string|null $vppTokenId Identifier of the VPP token.
-    */
-    private ?string $vppTokenId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new vppTokenLicenseSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.vppTokenLicenseSummary');
     }
@@ -65,8 +39,8 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -74,7 +48,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAppleId(): ?string {
-        return $this->appleId;
+        return $this->getBackingStore()->get('appleId');
     }
 
     /**
@@ -82,7 +56,15 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getAvailableLicenseCount(): ?int {
-        return $this->availableLicenseCount;
+        return $this->getBackingStore()->get('availableLicenseCount');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -106,7 +88,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -114,7 +96,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOrganizationName(): ?string {
-        return $this->organizationName;
+        return $this->getBackingStore()->get('organizationName');
     }
 
     /**
@@ -122,7 +104,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->usedLicenseCount;
+        return $this->getBackingStore()->get('usedLicenseCount');
     }
 
     /**
@@ -130,7 +112,7 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getVppTokenId(): ?string {
-        return $this->vppTokenId;
+        return $this->getBackingStore()->get('vppTokenId');
     }
 
     /**
@@ -138,69 +120,69 @@ class VppTokenLicenseSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('appleId', $this->appleId);
-        $writer->writeIntegerValue('availableLicenseCount', $this->availableLicenseCount);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('organizationName', $this->organizationName);
-        $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
-        $writer->writeStringValue('vppTokenId', $this->vppTokenId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('appleId', $this->getAppleId());
+        $writer->writeIntegerValue('availableLicenseCount', $this->getAvailableLicenseCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('organizationName', $this->getOrganizationName());
+        $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
+        $writer->writeStringValue('vppTokenId', $this->getVppTokenId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appleId property value. The Apple Id associated with the given Apple Volume Purchase Program Token.
      *  @param string|null $value Value to set for the appleId property.
     */
-    public function setAppleId(?string $value ): void {
-        $this->appleId = $value;
+    public function setAppleId(?string $value): void {
+        $this->getBackingStore()->set('appleId', $value);
     }
 
     /**
      * Sets the availableLicenseCount property value. The number of VPP licenses available.
      *  @param int|null $value Value to set for the availableLicenseCount property.
     */
-    public function setAvailableLicenseCount(?int $value ): void {
-        $this->availableLicenseCount = $value;
+    public function setAvailableLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('availableLicenseCount', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the organizationName property value. The organization associated with the Apple Volume Purchase Program Token.
      *  @param string|null $value Value to set for the organizationName property.
     */
-    public function setOrganizationName(?string $value ): void {
-        $this->organizationName = $value;
+    public function setOrganizationName(?string $value): void {
+        $this->getBackingStore()->set('organizationName', $value);
     }
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
      *  @param int|null $value Value to set for the usedLicenseCount property.
     */
-    public function setUsedLicenseCount(?int $value ): void {
-        $this->usedLicenseCount = $value;
+    public function setUsedLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('usedLicenseCount', $value);
     }
 
     /**
      * Sets the vppTokenId property value. Identifier of the VPP token.
      *  @param string|null $value Value to set for the vppTokenId property.
     */
-    public function setVppTokenId(?string $value ): void {
-        $this->vppTokenId = $value;
+    public function setVppTokenId(?string $value): void {
+        $this->getBackingStore()->set('vppTokenId', $value);
     }
 
 }

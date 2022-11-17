@@ -10,101 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityDetail extends Entity implements Parsable 
 {
     /**
-     * @var int|null $exchangeMailboxStorageUsedInBytes The storage used of the group mailbox.
-    */
-    private ?int $exchangeMailboxStorageUsedInBytes = null;
-    
-    /**
-     * @var int|null $exchangeMailboxTotalItemCount The number of items in the group mailbox.
-    */
-    private ?int $exchangeMailboxTotalItemCount = null;
-    
-    /**
-     * @var int|null $exchangeReceivedEmailCount The number of email that the group mailbox received.
-    */
-    private ?int $exchangeReceivedEmailCount = null;
-    
-    /**
-     * @var int|null $externalMemberCount The group external member count.
-    */
-    private ?int $externalMemberCount = null;
-    
-    /**
-     * @var string|null $groupDisplayName The display name of the group.
-    */
-    private ?string $groupDisplayName = null;
-    
-    /**
-     * @var string|null $groupId The group id.
-    */
-    private ?string $groupId = null;
-    
-    /**
-     * @var string|null $groupType The group type. Possible values are: Public or Private.
-    */
-    private ?string $groupType = null;
-    
-    /**
-     * @var bool|null $isDeleted Whether this user has been deleted or soft deleted.
-    */
-    private ?bool $isDeleted = null;
-    
-    /**
-     * @var Date|null $lastActivityDate The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
-    */
-    private ?Date $lastActivityDate = null;
-    
-    /**
-     * @var int|null $memberCount The group member count.
-    */
-    private ?int $memberCount = null;
-    
-    /**
-     * @var string|null $ownerPrincipalName The group owner principal name.
-    */
-    private ?string $ownerPrincipalName = null;
-    
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
-    private ?string $reportPeriod = null;
-    
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
-    private ?Date $reportRefreshDate = null;
-    
-    /**
-     * @var int|null $sharePointActiveFileCount The number of active files in SharePoint Group site.
-    */
-    private ?int $sharePointActiveFileCount = null;
-    
-    /**
-     * @var int|null $sharePointSiteStorageUsedInBytes The storage used by SharePoint Group site.
-    */
-    private ?int $sharePointSiteStorageUsedInBytes = null;
-    
-    /**
-     * @var int|null $sharePointTotalFileCount The total number of files in SharePoint Group site.
-    */
-    private ?int $sharePointTotalFileCount = null;
-    
-    /**
-     * @var int|null $yammerLikedMessageCount The number of messages liked in Yammer groups.
-    */
-    private ?int $yammerLikedMessageCount = null;
-    
-    /**
-     * @var int|null $yammerPostedMessageCount The number of messages posted to Yammer groups.
-    */
-    private ?int $yammerPostedMessageCount = null;
-    
-    /**
-     * @var int|null $yammerReadMessageCount The number of messages read in Yammer groups.
-    */
-    private ?int $yammerReadMessageCount = null;
-    
-    /**
      * Instantiates a new Office365GroupsActivityDetail and sets the default values.
     */
     public function __construct() {
@@ -126,7 +31,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeMailboxStorageUsedInBytes(): ?int {
-        return $this->exchangeMailboxStorageUsedInBytes;
+        return $this->getBackingStore()->get('exchangeMailboxStorageUsedInBytes');
     }
 
     /**
@@ -134,7 +39,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeMailboxTotalItemCount(): ?int {
-        return $this->exchangeMailboxTotalItemCount;
+        return $this->getBackingStore()->get('exchangeMailboxTotalItemCount');
     }
 
     /**
@@ -142,7 +47,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getExchangeReceivedEmailCount(): ?int {
-        return $this->exchangeReceivedEmailCount;
+        return $this->getBackingStore()->get('exchangeReceivedEmailCount');
     }
 
     /**
@@ -150,7 +55,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getExternalMemberCount(): ?int {
-        return $this->externalMemberCount;
+        return $this->getBackingStore()->get('externalMemberCount');
     }
 
     /**
@@ -187,7 +92,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupDisplayName(): ?string {
-        return $this->groupDisplayName;
+        return $this->getBackingStore()->get('groupDisplayName');
     }
 
     /**
@@ -195,7 +100,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->groupId;
+        return $this->getBackingStore()->get('groupId');
     }
 
     /**
@@ -203,7 +108,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupType(): ?string {
-        return $this->groupType;
+        return $this->getBackingStore()->get('groupType');
     }
 
     /**
@@ -211,7 +116,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
-        return $this->isDeleted;
+        return $this->getBackingStore()->get('isDeleted');
     }
 
     /**
@@ -219,7 +124,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getLastActivityDate(): ?Date {
-        return $this->lastActivityDate;
+        return $this->getBackingStore()->get('lastActivityDate');
     }
 
     /**
@@ -227,7 +132,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getMemberCount(): ?int {
-        return $this->memberCount;
+        return $this->getBackingStore()->get('memberCount');
     }
 
     /**
@@ -235,7 +140,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerPrincipalName(): ?string {
-        return $this->ownerPrincipalName;
+        return $this->getBackingStore()->get('ownerPrincipalName');
     }
 
     /**
@@ -243,7 +148,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->reportPeriod;
+        return $this->getBackingStore()->get('reportPeriod');
     }
 
     /**
@@ -251,7 +156,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->reportRefreshDate;
+        return $this->getBackingStore()->get('reportRefreshDate');
     }
 
     /**
@@ -259,7 +164,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePointActiveFileCount(): ?int {
-        return $this->sharePointActiveFileCount;
+        return $this->getBackingStore()->get('sharePointActiveFileCount');
     }
 
     /**
@@ -267,7 +172,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePointSiteStorageUsedInBytes(): ?int {
-        return $this->sharePointSiteStorageUsedInBytes;
+        return $this->getBackingStore()->get('sharePointSiteStorageUsedInBytes');
     }
 
     /**
@@ -275,7 +180,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePointTotalFileCount(): ?int {
-        return $this->sharePointTotalFileCount;
+        return $this->getBackingStore()->get('sharePointTotalFileCount');
     }
 
     /**
@@ -283,7 +188,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerLikedMessageCount(): ?int {
-        return $this->yammerLikedMessageCount;
+        return $this->getBackingStore()->get('yammerLikedMessageCount');
     }
 
     /**
@@ -291,7 +196,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerPostedMessageCount(): ?int {
-        return $this->yammerPostedMessageCount;
+        return $this->getBackingStore()->get('yammerPostedMessageCount');
     }
 
     /**
@@ -299,7 +204,7 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getYammerReadMessageCount(): ?int {
-        return $this->yammerReadMessageCount;
+        return $this->getBackingStore()->get('yammerReadMessageCount');
     }
 
     /**
@@ -308,177 +213,177 @@ class Office365GroupsActivityDetail extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('exchangeMailboxStorageUsedInBytes', $this->exchangeMailboxStorageUsedInBytes);
-        $writer->writeIntegerValue('exchangeMailboxTotalItemCount', $this->exchangeMailboxTotalItemCount);
-        $writer->writeIntegerValue('exchangeReceivedEmailCount', $this->exchangeReceivedEmailCount);
-        $writer->writeIntegerValue('externalMemberCount', $this->externalMemberCount);
-        $writer->writeStringValue('groupDisplayName', $this->groupDisplayName);
-        $writer->writeStringValue('groupId', $this->groupId);
-        $writer->writeStringValue('groupType', $this->groupType);
-        $writer->writeBooleanValue('isDeleted', $this->isDeleted);
-        $writer->writeDateValue('lastActivityDate', $this->lastActivityDate);
-        $writer->writeIntegerValue('memberCount', $this->memberCount);
-        $writer->writeStringValue('ownerPrincipalName', $this->ownerPrincipalName);
-        $writer->writeStringValue('reportPeriod', $this->reportPeriod);
-        $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
-        $writer->writeIntegerValue('sharePointActiveFileCount', $this->sharePointActiveFileCount);
-        $writer->writeIntegerValue('sharePointSiteStorageUsedInBytes', $this->sharePointSiteStorageUsedInBytes);
-        $writer->writeIntegerValue('sharePointTotalFileCount', $this->sharePointTotalFileCount);
-        $writer->writeIntegerValue('yammerLikedMessageCount', $this->yammerLikedMessageCount);
-        $writer->writeIntegerValue('yammerPostedMessageCount', $this->yammerPostedMessageCount);
-        $writer->writeIntegerValue('yammerReadMessageCount', $this->yammerReadMessageCount);
+        $writer->writeIntegerValue('exchangeMailboxStorageUsedInBytes', $this->getExchangeMailboxStorageUsedInBytes());
+        $writer->writeIntegerValue('exchangeMailboxTotalItemCount', $this->getExchangeMailboxTotalItemCount());
+        $writer->writeIntegerValue('exchangeReceivedEmailCount', $this->getExchangeReceivedEmailCount());
+        $writer->writeIntegerValue('externalMemberCount', $this->getExternalMemberCount());
+        $writer->writeStringValue('groupDisplayName', $this->getGroupDisplayName());
+        $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('groupType', $this->getGroupType());
+        $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
+        $writer->writeDateValue('lastActivityDate', $this->getLastActivityDate());
+        $writer->writeIntegerValue('memberCount', $this->getMemberCount());
+        $writer->writeStringValue('ownerPrincipalName', $this->getOwnerPrincipalName());
+        $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
+        $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('sharePointActiveFileCount', $this->getSharePointActiveFileCount());
+        $writer->writeIntegerValue('sharePointSiteStorageUsedInBytes', $this->getSharePointSiteStorageUsedInBytes());
+        $writer->writeIntegerValue('sharePointTotalFileCount', $this->getSharePointTotalFileCount());
+        $writer->writeIntegerValue('yammerLikedMessageCount', $this->getYammerLikedMessageCount());
+        $writer->writeIntegerValue('yammerPostedMessageCount', $this->getYammerPostedMessageCount());
+        $writer->writeIntegerValue('yammerReadMessageCount', $this->getYammerReadMessageCount());
     }
 
     /**
      * Sets the exchangeMailboxStorageUsedInBytes property value. The storage used of the group mailbox.
      *  @param int|null $value Value to set for the exchangeMailboxStorageUsedInBytes property.
     */
-    public function setExchangeMailboxStorageUsedInBytes(?int $value ): void {
-        $this->exchangeMailboxStorageUsedInBytes = $value;
+    public function setExchangeMailboxStorageUsedInBytes(?int $value): void {
+        $this->getBackingStore()->set('exchangeMailboxStorageUsedInBytes', $value);
     }
 
     /**
      * Sets the exchangeMailboxTotalItemCount property value. The number of items in the group mailbox.
      *  @param int|null $value Value to set for the exchangeMailboxTotalItemCount property.
     */
-    public function setExchangeMailboxTotalItemCount(?int $value ): void {
-        $this->exchangeMailboxTotalItemCount = $value;
+    public function setExchangeMailboxTotalItemCount(?int $value): void {
+        $this->getBackingStore()->set('exchangeMailboxTotalItemCount', $value);
     }
 
     /**
      * Sets the exchangeReceivedEmailCount property value. The number of email that the group mailbox received.
      *  @param int|null $value Value to set for the exchangeReceivedEmailCount property.
     */
-    public function setExchangeReceivedEmailCount(?int $value ): void {
-        $this->exchangeReceivedEmailCount = $value;
+    public function setExchangeReceivedEmailCount(?int $value): void {
+        $this->getBackingStore()->set('exchangeReceivedEmailCount', $value);
     }
 
     /**
      * Sets the externalMemberCount property value. The group external member count.
      *  @param int|null $value Value to set for the externalMemberCount property.
     */
-    public function setExternalMemberCount(?int $value ): void {
-        $this->externalMemberCount = $value;
+    public function setExternalMemberCount(?int $value): void {
+        $this->getBackingStore()->set('externalMemberCount', $value);
     }
 
     /**
      * Sets the groupDisplayName property value. The display name of the group.
      *  @param string|null $value Value to set for the groupDisplayName property.
     */
-    public function setGroupDisplayName(?string $value ): void {
-        $this->groupDisplayName = $value;
+    public function setGroupDisplayName(?string $value): void {
+        $this->getBackingStore()->set('groupDisplayName', $value);
     }
 
     /**
      * Sets the groupId property value. The group id.
      *  @param string|null $value Value to set for the groupId property.
     */
-    public function setGroupId(?string $value ): void {
-        $this->groupId = $value;
+    public function setGroupId(?string $value): void {
+        $this->getBackingStore()->set('groupId', $value);
     }
 
     /**
      * Sets the groupType property value. The group type. Possible values are: Public or Private.
      *  @param string|null $value Value to set for the groupType property.
     */
-    public function setGroupType(?string $value ): void {
-        $this->groupType = $value;
+    public function setGroupType(?string $value): void {
+        $this->getBackingStore()->set('groupType', $value);
     }
 
     /**
      * Sets the isDeleted property value. Whether this user has been deleted or soft deleted.
      *  @param bool|null $value Value to set for the isDeleted property.
     */
-    public function setIsDeleted(?bool $value ): void {
-        $this->isDeleted = $value;
+    public function setIsDeleted(?bool $value): void {
+        $this->getBackingStore()->set('isDeleted', $value);
     }
 
     /**
      * Sets the lastActivityDate property value. The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
      *  @param Date|null $value Value to set for the lastActivityDate property.
     */
-    public function setLastActivityDate(?Date $value ): void {
-        $this->lastActivityDate = $value;
+    public function setLastActivityDate(?Date $value): void {
+        $this->getBackingStore()->set('lastActivityDate', $value);
     }
 
     /**
      * Sets the memberCount property value. The group member count.
      *  @param int|null $value Value to set for the memberCount property.
     */
-    public function setMemberCount(?int $value ): void {
-        $this->memberCount = $value;
+    public function setMemberCount(?int $value): void {
+        $this->getBackingStore()->set('memberCount', $value);
     }
 
     /**
      * Sets the ownerPrincipalName property value. The group owner principal name.
      *  @param string|null $value Value to set for the ownerPrincipalName property.
     */
-    public function setOwnerPrincipalName(?string $value ): void {
-        $this->ownerPrincipalName = $value;
+    public function setOwnerPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('ownerPrincipalName', $value);
     }
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
      *  @param string|null $value Value to set for the reportPeriod property.
     */
-    public function setReportPeriod(?string $value ): void {
-        $this->reportPeriod = $value;
+    public function setReportPeriod(?string $value): void {
+        $this->getBackingStore()->set('reportPeriod', $value);
     }
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
      *  @param Date|null $value Value to set for the reportRefreshDate property.
     */
-    public function setReportRefreshDate(?Date $value ): void {
-        $this->reportRefreshDate = $value;
+    public function setReportRefreshDate(?Date $value): void {
+        $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
      * Sets the sharePointActiveFileCount property value. The number of active files in SharePoint Group site.
      *  @param int|null $value Value to set for the sharePointActiveFileCount property.
     */
-    public function setSharePointActiveFileCount(?int $value ): void {
-        $this->sharePointActiveFileCount = $value;
+    public function setSharePointActiveFileCount(?int $value): void {
+        $this->getBackingStore()->set('sharePointActiveFileCount', $value);
     }
 
     /**
      * Sets the sharePointSiteStorageUsedInBytes property value. The storage used by SharePoint Group site.
      *  @param int|null $value Value to set for the sharePointSiteStorageUsedInBytes property.
     */
-    public function setSharePointSiteStorageUsedInBytes(?int $value ): void {
-        $this->sharePointSiteStorageUsedInBytes = $value;
+    public function setSharePointSiteStorageUsedInBytes(?int $value): void {
+        $this->getBackingStore()->set('sharePointSiteStorageUsedInBytes', $value);
     }
 
     /**
      * Sets the sharePointTotalFileCount property value. The total number of files in SharePoint Group site.
      *  @param int|null $value Value to set for the sharePointTotalFileCount property.
     */
-    public function setSharePointTotalFileCount(?int $value ): void {
-        $this->sharePointTotalFileCount = $value;
+    public function setSharePointTotalFileCount(?int $value): void {
+        $this->getBackingStore()->set('sharePointTotalFileCount', $value);
     }
 
     /**
      * Sets the yammerLikedMessageCount property value. The number of messages liked in Yammer groups.
      *  @param int|null $value Value to set for the yammerLikedMessageCount property.
     */
-    public function setYammerLikedMessageCount(?int $value ): void {
-        $this->yammerLikedMessageCount = $value;
+    public function setYammerLikedMessageCount(?int $value): void {
+        $this->getBackingStore()->set('yammerLikedMessageCount', $value);
     }
 
     /**
      * Sets the yammerPostedMessageCount property value. The number of messages posted to Yammer groups.
      *  @param int|null $value Value to set for the yammerPostedMessageCount property.
     */
-    public function setYammerPostedMessageCount(?int $value ): void {
-        $this->yammerPostedMessageCount = $value;
+    public function setYammerPostedMessageCount(?int $value): void {
+        $this->getBackingStore()->set('yammerPostedMessageCount', $value);
     }
 
     /**
      * Sets the yammerReadMessageCount property value. The number of messages read in Yammer groups.
      *  @param int|null $value Value to set for the yammerReadMessageCount property.
     */
-    public function setYammerReadMessageCount(?int $value ): void {
-        $this->yammerReadMessageCount = $value;
+    public function setYammerReadMessageCount(?int $value): void {
+        $this->getBackingStore()->set('yammerReadMessageCount', $value);
     }
 
 }

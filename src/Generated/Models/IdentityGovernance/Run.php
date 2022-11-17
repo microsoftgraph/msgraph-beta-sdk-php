@@ -11,76 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Run extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $completedDateTime = null;
-    
-    /**
-     * @var int|null $failedTasksCount The number of tasks that failed in the run execution.
-    */
-    private ?int $failedTasksCount = null;
-    
-    /**
-     * @var int|null $failedUsersCount The number of users that failed in the run execution.
-    */
-    private ?int $failedUsersCount = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var LifecycleWorkflowProcessingStatus|null $processingStatus The processingStatus property
-    */
-    private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
-    
-    /**
-     * @var DateTime|null $scheduledDateTime The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $scheduledDateTime = null;
-    
-    /**
-     * @var DateTime|null $startedDateTime The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $startedDateTime = null;
-    
-    /**
-     * @var int|null $successfulUsersCount The number of successfully completed users in the run.
-    */
-    private ?int $successfulUsersCount = null;
-    
-    /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The related taskProcessingResults.
-    */
-    private ?array $taskProcessingResults = null;
-    
-    /**
-     * @var int|null $totalTasksCount The totalTasksCount property
-    */
-    private ?int $totalTasksCount = null;
-    
-    /**
-     * @var int|null $totalUnprocessedTasksCount The total number of unprocessed tasks in the run execution.
-    */
-    private ?int $totalUnprocessedTasksCount = null;
-    
-    /**
-     * @var int|null $totalUsersCount The total number of users in the workflow execution.
-    */
-    private ?int $totalUsersCount = null;
-    
-    /**
-     * @var array<UserProcessingResult>|null $userProcessingResults The associated individual user execution.
-    */
-    private ?array $userProcessingResults = null;
-    
-    /**
-     * @var WorkflowExecutionType|null $workflowExecutionType The workflowExecutionType property
-    */
-    private ?WorkflowExecutionType $workflowExecutionType = null;
-    
-    /**
      * Instantiates a new run and sets the default values.
     */
     public function __construct() {
@@ -102,7 +32,7 @@ class Run extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->completedDateTime;
+        return $this->getBackingStore()->get('completedDateTime');
     }
 
     /**
@@ -110,7 +40,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedTasksCount(): ?int {
-        return $this->failedTasksCount;
+        return $this->getBackingStore()->get('failedTasksCount');
     }
 
     /**
@@ -118,7 +48,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedUsersCount(): ?int {
-        return $this->failedUsersCount;
+        return $this->getBackingStore()->get('failedUsersCount');
     }
 
     /**
@@ -150,7 +80,7 @@ class Run extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -158,7 +88,7 @@ class Run extends Entity implements Parsable
      * @return LifecycleWorkflowProcessingStatus|null
     */
     public function getProcessingStatus(): ?LifecycleWorkflowProcessingStatus {
-        return $this->processingStatus;
+        return $this->getBackingStore()->get('processingStatus');
     }
 
     /**
@@ -166,7 +96,7 @@ class Run extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getScheduledDateTime(): ?DateTime {
-        return $this->scheduledDateTime;
+        return $this->getBackingStore()->get('scheduledDateTime');
     }
 
     /**
@@ -174,7 +104,7 @@ class Run extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
-        return $this->startedDateTime;
+        return $this->getBackingStore()->get('startedDateTime');
     }
 
     /**
@@ -182,7 +112,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulUsersCount(): ?int {
-        return $this->successfulUsersCount;
+        return $this->getBackingStore()->get('successfulUsersCount');
     }
 
     /**
@@ -190,7 +120,7 @@ class Run extends Entity implements Parsable
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
-        return $this->taskProcessingResults;
+        return $this->getBackingStore()->get('taskProcessingResults');
     }
 
     /**
@@ -198,7 +128,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalTasksCount(): ?int {
-        return $this->totalTasksCount;
+        return $this->getBackingStore()->get('totalTasksCount');
     }
 
     /**
@@ -206,7 +136,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUnprocessedTasksCount(): ?int {
-        return $this->totalUnprocessedTasksCount;
+        return $this->getBackingStore()->get('totalUnprocessedTasksCount');
     }
 
     /**
@@ -214,7 +144,7 @@ class Run extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUsersCount(): ?int {
-        return $this->totalUsersCount;
+        return $this->getBackingStore()->get('totalUsersCount');
     }
 
     /**
@@ -222,7 +152,7 @@ class Run extends Entity implements Parsable
      * @return array<UserProcessingResult>|null
     */
     public function getUserProcessingResults(): ?array {
-        return $this->userProcessingResults;
+        return $this->getBackingStore()->get('userProcessingResults');
     }
 
     /**
@@ -230,7 +160,7 @@ class Run extends Entity implements Parsable
      * @return WorkflowExecutionType|null
     */
     public function getWorkflowExecutionType(): ?WorkflowExecutionType {
-        return $this->workflowExecutionType;
+        return $this->getBackingStore()->get('workflowExecutionType');
     }
 
     /**
@@ -239,132 +169,132 @@ class Run extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('completedDateTime', $this->completedDateTime);
-        $writer->writeIntegerValue('failedTasksCount', $this->failedTasksCount);
-        $writer->writeIntegerValue('failedUsersCount', $this->failedUsersCount);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeEnumValue('processingStatus', $this->processingStatus);
-        $writer->writeDateTimeValue('scheduledDateTime', $this->scheduledDateTime);
-        $writer->writeDateTimeValue('startedDateTime', $this->startedDateTime);
-        $writer->writeIntegerValue('successfulUsersCount', $this->successfulUsersCount);
-        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->taskProcessingResults);
-        $writer->writeIntegerValue('totalTasksCount', $this->totalTasksCount);
-        $writer->writeIntegerValue('totalUnprocessedTasksCount', $this->totalUnprocessedTasksCount);
-        $writer->writeIntegerValue('totalUsersCount', $this->totalUsersCount);
-        $writer->writeCollectionOfObjectValues('userProcessingResults', $this->userProcessingResults);
-        $writer->writeEnumValue('workflowExecutionType', $this->workflowExecutionType);
+        $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
+        $writer->writeIntegerValue('failedTasksCount', $this->getFailedTasksCount());
+        $writer->writeIntegerValue('failedUsersCount', $this->getFailedUsersCount());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeEnumValue('processingStatus', $this->getProcessingStatus());
+        $writer->writeDateTimeValue('scheduledDateTime', $this->getScheduledDateTime());
+        $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
+        $writer->writeIntegerValue('successfulUsersCount', $this->getSuccessfulUsersCount());
+        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->getTaskProcessingResults());
+        $writer->writeIntegerValue('totalTasksCount', $this->getTotalTasksCount());
+        $writer->writeIntegerValue('totalUnprocessedTasksCount', $this->getTotalUnprocessedTasksCount());
+        $writer->writeIntegerValue('totalUsersCount', $this->getTotalUsersCount());
+        $writer->writeCollectionOfObjectValues('userProcessingResults', $this->getUserProcessingResults());
+        $writer->writeEnumValue('workflowExecutionType', $this->getWorkflowExecutionType());
     }
 
     /**
      * Sets the completedDateTime property value. The date time that the run completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
-    public function setCompletedDateTime(?DateTime $value ): void {
-        $this->completedDateTime = $value;
+    public function setCompletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completedDateTime', $value);
     }
 
     /**
      * Sets the failedTasksCount property value. The number of tasks that failed in the run execution.
      *  @param int|null $value Value to set for the failedTasksCount property.
     */
-    public function setFailedTasksCount(?int $value ): void {
-        $this->failedTasksCount = $value;
+    public function setFailedTasksCount(?int $value): void {
+        $this->getBackingStore()->set('failedTasksCount', $value);
     }
 
     /**
      * Sets the failedUsersCount property value. The number of users that failed in the run execution.
      *  @param int|null $value Value to set for the failedUsersCount property.
     */
-    public function setFailedUsersCount(?int $value ): void {
-        $this->failedUsersCount = $value;
+    public function setFailedUsersCount(?int $value): void {
+        $this->getBackingStore()->set('failedUsersCount', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. The datetime that the run was last updated.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the processingStatus property value. The processingStatus property
      *  @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
     */
-    public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value ): void {
-        $this->processingStatus = $value;
+    public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value): void {
+        $this->getBackingStore()->set('processingStatus', $value);
     }
 
     /**
      * Sets the scheduledDateTime property value. The date time that the run is scheduled to be executed for a workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
-    public function setScheduledDateTime(?DateTime $value ): void {
-        $this->scheduledDateTime = $value;
+    public function setScheduledDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('scheduledDateTime', $value);
     }
 
     /**
      * Sets the startedDateTime property value. The date time that the run execution started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
-    public function setStartedDateTime(?DateTime $value ): void {
-        $this->startedDateTime = $value;
+    public function setStartedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startedDateTime', $value);
     }
 
     /**
      * Sets the successfulUsersCount property value. The number of successfully completed users in the run.
      *  @param int|null $value Value to set for the successfulUsersCount property.
     */
-    public function setSuccessfulUsersCount(?int $value ): void {
-        $this->successfulUsersCount = $value;
+    public function setSuccessfulUsersCount(?int $value): void {
+        $this->getBackingStore()->set('successfulUsersCount', $value);
     }
 
     /**
      * Sets the taskProcessingResults property value. The related taskProcessingResults.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
-    public function setTaskProcessingResults(?array $value ): void {
-        $this->taskProcessingResults = $value;
+    public function setTaskProcessingResults(?array $value): void {
+        $this->getBackingStore()->set('taskProcessingResults', $value);
     }
 
     /**
      * Sets the totalTasksCount property value. The totalTasksCount property
      *  @param int|null $value Value to set for the totalTasksCount property.
     */
-    public function setTotalTasksCount(?int $value ): void {
-        $this->totalTasksCount = $value;
+    public function setTotalTasksCount(?int $value): void {
+        $this->getBackingStore()->set('totalTasksCount', $value);
     }
 
     /**
      * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks in the run execution.
      *  @param int|null $value Value to set for the totalUnprocessedTasksCount property.
     */
-    public function setTotalUnprocessedTasksCount(?int $value ): void {
-        $this->totalUnprocessedTasksCount = $value;
+    public function setTotalUnprocessedTasksCount(?int $value): void {
+        $this->getBackingStore()->set('totalUnprocessedTasksCount', $value);
     }
 
     /**
      * Sets the totalUsersCount property value. The total number of users in the workflow execution.
      *  @param int|null $value Value to set for the totalUsersCount property.
     */
-    public function setTotalUsersCount(?int $value ): void {
-        $this->totalUsersCount = $value;
+    public function setTotalUsersCount(?int $value): void {
+        $this->getBackingStore()->set('totalUsersCount', $value);
     }
 
     /**
      * Sets the userProcessingResults property value. The associated individual user execution.
      *  @param array<UserProcessingResult>|null $value Value to set for the userProcessingResults property.
     */
-    public function setUserProcessingResults(?array $value ): void {
-        $this->userProcessingResults = $value;
+    public function setUserProcessingResults(?array $value): void {
+        $this->getBackingStore()->set('userProcessingResults', $value);
     }
 
     /**
      * Sets the workflowExecutionType property value. The workflowExecutionType property
      *  @param WorkflowExecutionType|null $value Value to set for the workflowExecutionType property.
     */
-    public function setWorkflowExecutionType(?WorkflowExecutionType $value ): void {
-        $this->workflowExecutionType = $value;
+    public function setWorkflowExecutionType(?WorkflowExecutionType $value): void {
+        $this->getBackingStore()->set('workflowExecutionType', $value);
     }
 
 }

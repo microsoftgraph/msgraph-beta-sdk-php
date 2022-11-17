@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable 
 {
     /**
-     * @var string|null $messageUrl Specifies the url of the message to be submitted.
-    */
-    private ?string $messageUrl = null;
-    
-    /**
      * Instantiates a new EmailUrlThreatSubmission and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable
      * @return string|null
     */
     public function getMessageUrl(): ?string {
-        return $this->messageUrl;
+        return $this->getBackingStore()->get('messageUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('messageUrl', $this->messageUrl);
+        $writer->writeStringValue('messageUrl', $this->getMessageUrl());
     }
 
     /**
      * Sets the messageUrl property value. Specifies the url of the message to be submitted.
      *  @param string|null $value Value to set for the messageUrl property.
     */
-    public function setMessageUrl(?string $value ): void {
-        $this->messageUrl = $value;
+    public function setMessageUrl(?string $value): void {
+        $this->getBackingStore()->set('messageUrl', $value);
     }
 
 }

@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementReusablePolicySetting extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime reusable setting creation date and time. This property is read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description reusable setting description supplied by user.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName reusable setting display name supplied by user.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime date and time when reusable setting was last modified. This property is read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationPolicy>|null $referencingConfigurationPolicies configuration policies referencing the current reusable setting. This property is read-only.
-    */
-    private ?array $referencingConfigurationPolicies = null;
-    
-    /**
-     * @var int|null $referencingConfigurationPolicyCount count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.
-    */
-    private ?int $referencingConfigurationPolicyCount = null;
-    
-    /**
-     * @var string|null $settingDefinitionId setting definition id associated with this reusable setting.
-    */
-    private ?string $settingDefinitionId = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingInstance|null $settingInstance reusable setting configuration instance
-    */
-    private ?DeviceManagementConfigurationSettingInstance $settingInstance = null;
-    
-    /**
-     * @var int|null $version version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new deviceManagementReusablePolicySetting and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -84,7 +39,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -92,7 +47,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -119,7 +74,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -127,7 +82,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicy>|null
     */
     public function getReferencingConfigurationPolicies(): ?array {
-        return $this->referencingConfigurationPolicies;
+        return $this->getBackingStore()->get('referencingConfigurationPolicies');
     }
 
     /**
@@ -135,7 +90,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return int|null
     */
     public function getReferencingConfigurationPolicyCount(): ?int {
-        return $this->referencingConfigurationPolicyCount;
+        return $this->getBackingStore()->get('referencingConfigurationPolicyCount');
     }
 
     /**
@@ -143,7 +98,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDefinitionId(): ?string {
-        return $this->settingDefinitionId;
+        return $this->getBackingStore()->get('settingDefinitionId');
     }
 
     /**
@@ -151,7 +106,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return DeviceManagementConfigurationSettingInstance|null
     */
     public function getSettingInstance(): ?DeviceManagementConfigurationSettingInstance {
-        return $this->settingInstance;
+        return $this->getBackingStore()->get('settingInstance');
     }
 
     /**
@@ -159,7 +114,7 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -168,83 +123,83 @@ class DeviceManagementReusablePolicySetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('referencingConfigurationPolicies', $this->referencingConfigurationPolicies);
-        $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
-        $writer->writeObjectValue('settingInstance', $this->settingInstance);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('referencingConfigurationPolicies', $this->getReferencingConfigurationPolicies());
+        $writer->writeStringValue('settingDefinitionId', $this->getSettingDefinitionId());
+        $writer->writeObjectValue('settingInstance', $this->getSettingInstance());
     }
 
     /**
      * Sets the createdDateTime property value. reusable setting creation date and time. This property is read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. reusable setting description supplied by user.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. reusable setting display name supplied by user.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. date and time when reusable setting was last modified. This property is read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the referencingConfigurationPolicies property value. configuration policies referencing the current reusable setting. This property is read-only.
      *  @param array<DeviceManagementConfigurationPolicy>|null $value Value to set for the referencingConfigurationPolicies property.
     */
-    public function setReferencingConfigurationPolicies(?array $value ): void {
-        $this->referencingConfigurationPolicies = $value;
+    public function setReferencingConfigurationPolicies(?array $value): void {
+        $this->getBackingStore()->set('referencingConfigurationPolicies', $value);
     }
 
     /**
      * Sets the referencingConfigurationPolicyCount property value. count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.
      *  @param int|null $value Value to set for the referencingConfigurationPolicyCount property.
     */
-    public function setReferencingConfigurationPolicyCount(?int $value ): void {
-        $this->referencingConfigurationPolicyCount = $value;
+    public function setReferencingConfigurationPolicyCount(?int $value): void {
+        $this->getBackingStore()->set('referencingConfigurationPolicyCount', $value);
     }
 
     /**
      * Sets the settingDefinitionId property value. setting definition id associated with this reusable setting.
      *  @param string|null $value Value to set for the settingDefinitionId property.
     */
-    public function setSettingDefinitionId(?string $value ): void {
-        $this->settingDefinitionId = $value;
+    public function setSettingDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('settingDefinitionId', $value);
     }
 
     /**
      * Sets the settingInstance property value. reusable setting configuration instance
      *  @param DeviceManagementConfigurationSettingInstance|null $value Value to set for the settingInstance property.
     */
-    public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value ): void {
-        $this->settingInstance = $value;
+    public function setSettingInstance(?DeviceManagementConfigurationSettingInstance $value): void {
+        $this->getBackingStore()->set('settingInstance', $value);
     }
 
     /**
      * Sets the version property value. version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

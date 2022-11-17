@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable 
+class CustomExtensionHandlerInstance implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $customExtensionId Identifier of the customAccessPackageWorkflowExtension triggered at this instance.
-    */
-    private ?string $customExtensionId = null;
-    
-    /**
-     * @var string|null $externalCorrelationId The unique run ID for the logic app.
-    */
-    private ?string $externalCorrelationId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-    */
-    private ?AccessPackageCustomExtensionStage $stage = null;
-    
-    /**
-     * @var AccessPackageCustomExtensionHandlerStatus|null $status Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
-    */
-    private ?AccessPackageCustomExtensionHandlerStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new customExtensionHandlerInstance and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.customExtensionHandlerInstance');
     }
@@ -60,8 +39,16 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCustomExtensionId(): ?string {
-        return $this->customExtensionId;
+        return $this->getBackingStore()->get('customExtensionId');
     }
 
     /**
@@ -77,7 +64,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getExternalCorrelationId(): ?string {
-        return $this->externalCorrelationId;
+        return $this->getBackingStore()->get('externalCorrelationId');
     }
 
     /**
@@ -100,7 +87,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +95,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return AccessPackageCustomExtensionStage|null
     */
     public function getStage(): ?AccessPackageCustomExtensionStage {
-        return $this->stage;
+        return $this->getBackingStore()->get('stage');
     }
 
     /**
@@ -116,7 +103,7 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @return AccessPackageCustomExtensionHandlerStatus|null
     */
     public function getStatus(): ?AccessPackageCustomExtensionHandlerStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -124,60 +111,60 @@ class CustomExtensionHandlerInstance implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('customExtensionId', $this->customExtensionId);
-        $writer->writeStringValue('externalCorrelationId', $this->externalCorrelationId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('stage', $this->stage);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('customExtensionId', $this->getCustomExtensionId());
+        $writer->writeStringValue('externalCorrelationId', $this->getExternalCorrelationId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('stage', $this->getStage());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the customExtensionId property value. Identifier of the customAccessPackageWorkflowExtension triggered at this instance.
      *  @param string|null $value Value to set for the customExtensionId property.
     */
-    public function setCustomExtensionId(?string $value ): void {
-        $this->customExtensionId = $value;
+    public function setCustomExtensionId(?string $value): void {
+        $this->getBackingStore()->set('customExtensionId', $value);
     }
 
     /**
      * Sets the externalCorrelationId property value. The unique run ID for the logic app.
      *  @param string|null $value Value to set for the externalCorrelationId property.
     */
-    public function setExternalCorrelationId(?string $value ): void {
-        $this->externalCorrelationId = $value;
+    public function setExternalCorrelationId(?string $value): void {
+        $this->getBackingStore()->set('externalCorrelationId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the stage property value. Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
      *  @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
     */
-    public function setStage(?AccessPackageCustomExtensionStage $value ): void {
-        $this->stage = $value;
+    public function setStage(?AccessPackageCustomExtensionStage $value): void {
+        $this->getBackingStore()->set('stage', $value);
     }
 
     /**
      * Sets the status property value. Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.
      *  @param AccessPackageCustomExtensionHandlerStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?AccessPackageCustomExtensionHandlerStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?AccessPackageCustomExtensionHandlerStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

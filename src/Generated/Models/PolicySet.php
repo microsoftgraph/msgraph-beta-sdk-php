@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicySet extends Entity implements Parsable 
 {
     /**
-     * @var array<PolicySetAssignment>|null $assignments Assignments of the PolicySet.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Creation time of the PolicySet.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Description of the PolicySet.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName DisplayName of the PolicySet.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var ErrorCode|null $errorCode The errorCode property
-    */
-    private ?ErrorCode $errorCode = null;
-    
-    /**
-     * @var array<string>|null $guidedDeploymentTags Tags of the guided deployment
-    */
-    private ?array $guidedDeploymentTags = null;
-    
-    /**
-     * @var array<PolicySetItem>|null $items Items of the PolicySet with maximum count 100.
-    */
-    private ?array $items = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySet.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTags RoleScopeTags of the PolicySet
-    */
-    private ?array $roleScopeTags = null;
-    
-    /**
-     * @var PolicySetStatus|null $status The enum to specify the status of PolicySet.
-    */
-    private ?PolicySetStatus $status = null;
-    
-    /**
      * Instantiates a new policySet and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class PolicySet extends Entity implements Parsable
      * @return array<PolicySetAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -89,7 +39,7 @@ class PolicySet extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -97,7 +47,7 @@ class PolicySet extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -105,7 +55,7 @@ class PolicySet extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -113,7 +63,7 @@ class PolicySet extends Entity implements Parsable
      * @return ErrorCode|null
     */
     public function getErrorCode(): ?ErrorCode {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -141,7 +91,7 @@ class PolicySet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getGuidedDeploymentTags(): ?array {
-        return $this->guidedDeploymentTags;
+        return $this->getBackingStore()->get('guidedDeploymentTags');
     }
 
     /**
@@ -149,7 +99,7 @@ class PolicySet extends Entity implements Parsable
      * @return array<PolicySetItem>|null
     */
     public function getItems(): ?array {
-        return $this->items;
+        return $this->getBackingStore()->get('items');
     }
 
     /**
@@ -157,7 +107,7 @@ class PolicySet extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -165,7 +115,7 @@ class PolicySet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->roleScopeTags;
+        return $this->getBackingStore()->get('roleScopeTags');
     }
 
     /**
@@ -173,7 +123,7 @@ class PolicySet extends Entity implements Parsable
      * @return PolicySetStatus|null
     */
     public function getStatus(): ?PolicySetStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -182,96 +132,96 @@ class PolicySet extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('errorCode', $this->errorCode);
-        $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->guidedDeploymentTags);
-        $writer->writeCollectionOfObjectValues('items', $this->items);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->roleScopeTags);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
+        $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->getGuidedDeploymentTags());
+        $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->getRoleScopeTags());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the assignments property value. Assignments of the PolicySet.
      *  @param array<PolicySetAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Creation time of the PolicySet.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Description of the PolicySet.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. DisplayName of the PolicySet.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the errorCode property value. The errorCode property
      *  @param ErrorCode|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?ErrorCode $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?ErrorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the guidedDeploymentTags property value. Tags of the guided deployment
      *  @param array<string>|null $value Value to set for the guidedDeploymentTags property.
     */
-    public function setGuidedDeploymentTags(?array $value ): void {
-        $this->guidedDeploymentTags = $value;
+    public function setGuidedDeploymentTags(?array $value): void {
+        $this->getBackingStore()->set('guidedDeploymentTags', $value);
     }
 
     /**
      * Sets the items property value. Items of the PolicySet with maximum count 100.
      *  @param array<PolicySetItem>|null $value Value to set for the items property.
     */
-    public function setItems(?array $value ): void {
-        $this->items = $value;
+    public function setItems(?array $value): void {
+        $this->getBackingStore()->set('items', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the PolicySet.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTags property value. RoleScopeTags of the PolicySet
      *  @param array<string>|null $value Value to set for the roleScopeTags property.
     */
-    public function setRoleScopeTags(?array $value ): void {
-        $this->roleScopeTags = $value;
+    public function setRoleScopeTags(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
     /**
      * Sets the status property value. The enum to specify the status of PolicySet.
      *  @param PolicySetStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?PolicySetStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?PolicySetStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

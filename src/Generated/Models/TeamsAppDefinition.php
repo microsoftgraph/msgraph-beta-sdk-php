@@ -10,71 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppDefinition extends Entity implements Parsable 
 {
     /**
-     * @var TeamsAppInstallationScopes|null $allowedInstallationScopes A collection of scopes where the Teams app can be installed. Possible values are:team — Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat  — Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal — Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
-    */
-    private ?TeamsAppInstallationScopes $allowedInstallationScopes = null;
-    
-    /**
-     * @var string|null $azureADAppId The WebApplicationInfo.Id from the Teams app manifest.
-    */
-    private ?string $azureADAppId = null;
-    
-    /**
-     * @var TeamworkBot|null $bot The details of the bot specified in the Teams app manifest.
-    */
-    private ?TeamworkBot $bot = null;
-    
-    /**
-     * @var TeamsAppIcon|null $colorIcon The color version of the Teams app's icon.
-    */
-    private ?TeamsAppIcon $colorIcon = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy The createdBy property
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The name of the app provided by the app developer.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var TeamsAppIcon|null $outlineIcon The outline version of the Teams app's icon.
-    */
-    private ?TeamsAppIcon $outlineIcon = null;
-    
-    /**
-     * @var TeamsAppPublishingState|null $publishingState The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
-    */
-    private ?TeamsAppPublishingState $publishingState = null;
-    
-    /**
-     * @var string|null $shortdescription The shortdescription property
-    */
-    private ?string $shortdescription = null;
-    
-    /**
-     * @var string|null $teamsAppId The ID from the Teams app manifest.
-    */
-    private ?string $teamsAppId = null;
-    
-    /**
-     * @var string|null $version The version number of the application.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new teamsAppDefinition and sets the default values.
     */
     public function __construct() {
@@ -96,7 +31,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppInstallationScopes|null
     */
     public function getAllowedInstallationScopes(): ?TeamsAppInstallationScopes {
-        return $this->allowedInstallationScopes;
+        return $this->getBackingStore()->get('allowedInstallationScopes');
     }
 
     /**
@@ -104,7 +39,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureADAppId(): ?string {
-        return $this->azureADAppId;
+        return $this->getBackingStore()->get('azureADAppId');
     }
 
     /**
@@ -112,7 +47,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamworkBot|null
     */
     public function getBot(): ?TeamworkBot {
-        return $this->bot;
+        return $this->getBackingStore()->get('bot');
     }
 
     /**
@@ -120,7 +55,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppIcon|null
     */
     public function getColorIcon(): ?TeamsAppIcon {
-        return $this->colorIcon;
+        return $this->getBackingStore()->get('colorIcon');
     }
 
     /**
@@ -128,7 +63,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -136,7 +71,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -144,7 +79,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -175,7 +110,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -183,7 +118,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppIcon|null
     */
     public function getOutlineIcon(): ?TeamsAppIcon {
-        return $this->outlineIcon;
+        return $this->getBackingStore()->get('outlineIcon');
     }
 
     /**
@@ -191,7 +126,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return TeamsAppPublishingState|null
     */
     public function getPublishingState(): ?TeamsAppPublishingState {
-        return $this->publishingState;
+        return $this->getBackingStore()->get('publishingState');
     }
 
     /**
@@ -199,7 +134,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getShortdescription(): ?string {
-        return $this->shortdescription;
+        return $this->getBackingStore()->get('shortdescription');
     }
 
     /**
@@ -207,7 +142,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getTeamsAppId(): ?string {
-        return $this->teamsAppId;
+        return $this->getBackingStore()->get('teamsAppId');
     }
 
     /**
@@ -215,7 +150,7 @@ class TeamsAppDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -224,123 +159,123 @@ class TeamsAppDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowedInstallationScopes', $this->allowedInstallationScopes);
-        $writer->writeStringValue('azureADAppId', $this->azureADAppId);
-        $writer->writeObjectValue('bot', $this->bot);
-        $writer->writeObjectValue('colorIcon', $this->colorIcon);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('outlineIcon', $this->outlineIcon);
-        $writer->writeEnumValue('publishingState', $this->publishingState);
-        $writer->writeStringValue('shortdescription', $this->shortdescription);
-        $writer->writeStringValue('teamsAppId', $this->teamsAppId);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeEnumValue('allowedInstallationScopes', $this->getAllowedInstallationScopes());
+        $writer->writeStringValue('azureADAppId', $this->getAzureADAppId());
+        $writer->writeObjectValue('bot', $this->getBot());
+        $writer->writeObjectValue('colorIcon', $this->getColorIcon());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('outlineIcon', $this->getOutlineIcon());
+        $writer->writeEnumValue('publishingState', $this->getPublishingState());
+        $writer->writeStringValue('shortdescription', $this->getShortdescription());
+        $writer->writeStringValue('teamsAppId', $this->getTeamsAppId());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the allowedInstallationScopes property value. A collection of scopes where the Teams app can be installed. Possible values are:team — Indicates that the Teams app can be installed within a team and is authorized to access that team's data. groupChat  — Indicates that the Teams app can be installed within a group chat and is authorized to access that group chat's data.  personal — Indicates that the Teams app can be installed in the personal scope of a user and is authorized to access that user's data.
      *  @param TeamsAppInstallationScopes|null $value Value to set for the allowedInstallationScopes property.
     */
-    public function setAllowedInstallationScopes(?TeamsAppInstallationScopes $value ): void {
-        $this->allowedInstallationScopes = $value;
+    public function setAllowedInstallationScopes(?TeamsAppInstallationScopes $value): void {
+        $this->getBackingStore()->set('allowedInstallationScopes', $value);
     }
 
     /**
      * Sets the azureADAppId property value. The WebApplicationInfo.Id from the Teams app manifest.
      *  @param string|null $value Value to set for the azureADAppId property.
     */
-    public function setAzureADAppId(?string $value ): void {
-        $this->azureADAppId = $value;
+    public function setAzureADAppId(?string $value): void {
+        $this->getBackingStore()->set('azureADAppId', $value);
     }
 
     /**
      * Sets the bot property value. The details of the bot specified in the Teams app manifest.
      *  @param TeamworkBot|null $value Value to set for the bot property.
     */
-    public function setBot(?TeamworkBot $value ): void {
-        $this->bot = $value;
+    public function setBot(?TeamworkBot $value): void {
+        $this->getBackingStore()->set('bot', $value);
     }
 
     /**
      * Sets the colorIcon property value. The color version of the Teams app's icon.
      *  @param TeamsAppIcon|null $value Value to set for the colorIcon property.
     */
-    public function setColorIcon(?TeamsAppIcon $value ): void {
-        $this->colorIcon = $value;
+    public function setColorIcon(?TeamsAppIcon $value): void {
+        $this->getBackingStore()->set('colorIcon', $value);
     }
 
     /**
      * Sets the createdBy property value. The createdBy property
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the app provided by the app developer.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the outlineIcon property value. The outline version of the Teams app's icon.
      *  @param TeamsAppIcon|null $value Value to set for the outlineIcon property.
     */
-    public function setOutlineIcon(?TeamsAppIcon $value ): void {
-        $this->outlineIcon = $value;
+    public function setOutlineIcon(?TeamsAppIcon $value): void {
+        $this->getBackingStore()->set('outlineIcon', $value);
     }
 
     /**
      * Sets the publishingState property value. The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.
      *  @param TeamsAppPublishingState|null $value Value to set for the publishingState property.
     */
-    public function setPublishingState(?TeamsAppPublishingState $value ): void {
-        $this->publishingState = $value;
+    public function setPublishingState(?TeamsAppPublishingState $value): void {
+        $this->getBackingStore()->set('publishingState', $value);
     }
 
     /**
      * Sets the shortdescription property value. The shortdescription property
      *  @param string|null $value Value to set for the shortdescription property.
     */
-    public function setShortdescription(?string $value ): void {
-        $this->shortdescription = $value;
+    public function setShortdescription(?string $value): void {
+        $this->getBackingStore()->set('shortdescription', $value);
     }
 
     /**
      * Sets the teamsAppId property value. The ID from the Teams app manifest.
      *  @param string|null $value Value to set for the teamsAppId property.
     */
-    public function setTeamsAppId(?string $value ): void {
-        $this->teamsAppId = $value;
+    public function setTeamsAppId(?string $value): void {
+        $this->getBackingStore()->set('teamsAppId', $value);
     }
 
     /**
      * Sets the version property value. The version number of the application.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

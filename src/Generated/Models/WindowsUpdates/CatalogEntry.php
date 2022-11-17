@@ -11,21 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CatalogEntry extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $deployableUntilDateTime The date on which the content is no longer available to deploy using the service. Read-only.
-    */
-    private ?DateTime $deployableUntilDateTime = null;
-    
-    /**
-     * @var string|null $displayName The display name of the content. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $releaseDateTime The release date for the content. Read-only.
-    */
-    private ?DateTime $releaseDateTime = null;
-    
-    /**
      * Instantiates a new catalogEntry and sets the default values.
     */
     public function __construct() {
@@ -56,7 +41,7 @@ class CatalogEntry extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeployableUntilDateTime(): ?DateTime {
-        return $this->deployableUntilDateTime;
+        return $this->getBackingStore()->get('deployableUntilDateTime');
     }
 
     /**
@@ -64,7 +49,7 @@ class CatalogEntry extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -85,7 +70,7 @@ class CatalogEntry extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->releaseDateTime;
+        return $this->getBackingStore()->get('releaseDateTime');
     }
 
     /**
@@ -94,33 +79,33 @@ class CatalogEntry extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('deployableUntilDateTime', $this->deployableUntilDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('releaseDateTime', $this->releaseDateTime);
+        $writer->writeDateTimeValue('deployableUntilDateTime', $this->getDeployableUntilDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
     }
 
     /**
      * Sets the deployableUntilDateTime property value. The date on which the content is no longer available to deploy using the service. Read-only.
      *  @param DateTime|null $value Value to set for the deployableUntilDateTime property.
     */
-    public function setDeployableUntilDateTime(?DateTime $value ): void {
-        $this->deployableUntilDateTime = $value;
+    public function setDeployableUntilDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deployableUntilDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the content. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the releaseDateTime property value. The release date for the content. Read-only.
      *  @param DateTime|null $value Value to set for the releaseDateTime property.
     */
-    public function setReleaseDateTime(?DateTime $value ): void {
-        $this->releaseDateTime = $value;
+    public function setReleaseDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('releaseDateTime', $value);
     }
 
 }

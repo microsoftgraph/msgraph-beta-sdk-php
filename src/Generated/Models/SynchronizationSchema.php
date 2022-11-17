@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationSchema extends Entity implements Parsable 
 {
     /**
-     * @var array<DirectoryDefinition>|null $directories Contains the collection of directories and all of their objects.
-    */
-    private ?array $directories = null;
-    
-    /**
-     * @var array<SynchronizationRule>|null $synchronizationRules A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
-    */
-    private ?array $synchronizationRules = null;
-    
-    /**
-     * @var string|null $version The version of the schema, updated automatically with every schema change.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new synchronizationSchema and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class SynchronizationSchema extends Entity implements Parsable
      * @return array<DirectoryDefinition>|null
     */
     public function getDirectories(): ?array {
-        return $this->directories;
+        return $this->getBackingStore()->get('directories');
     }
 
     /**
@@ -66,7 +51,7 @@ class SynchronizationSchema extends Entity implements Parsable
      * @return array<SynchronizationRule>|null
     */
     public function getSynchronizationRules(): ?array {
-        return $this->synchronizationRules;
+        return $this->getBackingStore()->get('synchronizationRules');
     }
 
     /**
@@ -74,7 +59,7 @@ class SynchronizationSchema extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -83,33 +68,33 @@ class SynchronizationSchema extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('directories', $this->directories);
-        $writer->writeCollectionOfObjectValues('synchronizationRules', $this->synchronizationRules);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('directories', $this->getDirectories());
+        $writer->writeCollectionOfObjectValues('synchronizationRules', $this->getSynchronizationRules());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the directories property value. Contains the collection of directories and all of their objects.
      *  @param array<DirectoryDefinition>|null $value Value to set for the directories property.
     */
-    public function setDirectories(?array $value ): void {
-        $this->directories = $value;
+    public function setDirectories(?array $value): void {
+        $this->getBackingStore()->set('directories', $value);
     }
 
     /**
      * Sets the synchronizationRules property value. A collection of synchronization rules configured for the synchronizationJob or synchronizationTemplate.
      *  @param array<SynchronizationRule>|null $value Value to set for the synchronizationRules property.
     */
-    public function setSynchronizationRules(?array $value ): void {
-        $this->synchronizationRules = $value;
+    public function setSynchronizationRules(?array $value): void {
+        $this->getBackingStore()->set('synchronizationRules', $value);
     }
 
     /**
      * Sets the version property value. The version of the schema, updated automatically with every schema change.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

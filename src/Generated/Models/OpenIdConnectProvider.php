@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OpenIdConnectProvider extends IdentityProvider implements Parsable 
 {
     /**
-     * @var ClaimsMapping|null $claimsMapping After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. It is a required property.
-    */
-    private ?ClaimsMapping $claimsMapping = null;
-    
-    /**
-     * @var string|null $domainHint The domain hint can be used to skip directly to the sign-in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers.
-    */
-    private ?string $domainHint = null;
-    
-    /**
-     * @var string|null $metadataUrl The URL for the metadata document of the OpenID Connect identity provider. Every OpenID Connect identity provider describes a metadata document that contains most of the information required to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document is always located at an endpoint that ends in .well-known/openid-configuration . For the OpenID Connect identity provider you are looking to add, you will need to provide the metadata URL. It is a required property and is read only after creation.
-    */
-    private ?string $metadataUrl = null;
-    
-    /**
-     * @var OpenIdConnectResponseMode|null $responseMode The responseMode property
-    */
-    private ?OpenIdConnectResponseMode $responseMode = null;
-    
-    /**
-     * @var OpenIdConnectResponseTypes|null $responseType The responseType property
-    */
-    private ?OpenIdConnectResponseTypes $responseType = null;
-    
-    /**
-     * @var string|null $scope Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. For more details about the scope limitations see RFC6749 Section 3.3. It is a required property.
-    */
-    private ?string $scope = null;
-    
-    /**
      * Instantiates a new OpenIdConnectProvider and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return ClaimsMapping|null
     */
     public function getClaimsMapping(): ?ClaimsMapping {
-        return $this->claimsMapping;
+        return $this->getBackingStore()->get('claimsMapping');
     }
 
     /**
@@ -68,7 +38,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return string|null
     */
     public function getDomainHint(): ?string {
-        return $this->domainHint;
+        return $this->getBackingStore()->get('domainHint');
     }
 
     /**
@@ -92,7 +62,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return string|null
     */
     public function getMetadataUrl(): ?string {
-        return $this->metadataUrl;
+        return $this->getBackingStore()->get('metadataUrl');
     }
 
     /**
@@ -100,7 +70,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return OpenIdConnectResponseMode|null
     */
     public function getResponseMode(): ?OpenIdConnectResponseMode {
-        return $this->responseMode;
+        return $this->getBackingStore()->get('responseMode');
     }
 
     /**
@@ -108,7 +78,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return OpenIdConnectResponseTypes|null
     */
     public function getResponseType(): ?OpenIdConnectResponseTypes {
-        return $this->responseType;
+        return $this->getBackingStore()->get('responseType');
     }
 
     /**
@@ -116,7 +86,7 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
      * @return string|null
     */
     public function getScope(): ?string {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -125,60 +95,60 @@ class OpenIdConnectProvider extends IdentityProvider implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('claimsMapping', $this->claimsMapping);
-        $writer->writeStringValue('domainHint', $this->domainHint);
-        $writer->writeStringValue('metadataUrl', $this->metadataUrl);
-        $writer->writeEnumValue('responseMode', $this->responseMode);
-        $writer->writeEnumValue('responseType', $this->responseType);
-        $writer->writeStringValue('scope', $this->scope);
+        $writer->writeObjectValue('claimsMapping', $this->getClaimsMapping());
+        $writer->writeStringValue('domainHint', $this->getDomainHint());
+        $writer->writeStringValue('metadataUrl', $this->getMetadataUrl());
+        $writer->writeEnumValue('responseMode', $this->getResponseMode());
+        $writer->writeEnumValue('responseType', $this->getResponseType());
+        $writer->writeStringValue('scope', $this->getScope());
     }
 
     /**
      * Sets the claimsMapping property value. After the OIDC provider sends an ID token back to Azure AD, Azure AD needs to be able to map the claims from the received token to the claims that Azure AD recognizes and uses. This complex type captures that mapping. It is a required property.
      *  @param ClaimsMapping|null $value Value to set for the claimsMapping property.
     */
-    public function setClaimsMapping(?ClaimsMapping $value ): void {
-        $this->claimsMapping = $value;
+    public function setClaimsMapping(?ClaimsMapping $value): void {
+        $this->getBackingStore()->set('claimsMapping', $value);
     }
 
     /**
      * Sets the domainHint property value. The domain hint can be used to skip directly to the sign-in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers.
      *  @param string|null $value Value to set for the domainHint property.
     */
-    public function setDomainHint(?string $value ): void {
-        $this->domainHint = $value;
+    public function setDomainHint(?string $value): void {
+        $this->getBackingStore()->set('domainHint', $value);
     }
 
     /**
      * Sets the metadataUrl property value. The URL for the metadata document of the OpenID Connect identity provider. Every OpenID Connect identity provider describes a metadata document that contains most of the information required to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document is always located at an endpoint that ends in .well-known/openid-configuration . For the OpenID Connect identity provider you are looking to add, you will need to provide the metadata URL. It is a required property and is read only after creation.
      *  @param string|null $value Value to set for the metadataUrl property.
     */
-    public function setMetadataUrl(?string $value ): void {
-        $this->metadataUrl = $value;
+    public function setMetadataUrl(?string $value): void {
+        $this->getBackingStore()->set('metadataUrl', $value);
     }
 
     /**
      * Sets the responseMode property value. The responseMode property
      *  @param OpenIdConnectResponseMode|null $value Value to set for the responseMode property.
     */
-    public function setResponseMode(?OpenIdConnectResponseMode $value ): void {
-        $this->responseMode = $value;
+    public function setResponseMode(?OpenIdConnectResponseMode $value): void {
+        $this->getBackingStore()->set('responseMode', $value);
     }
 
     /**
      * Sets the responseType property value. The responseType property
      *  @param OpenIdConnectResponseTypes|null $value Value to set for the responseType property.
     */
-    public function setResponseType(?OpenIdConnectResponseTypes $value ): void {
-        $this->responseType = $value;
+    public function setResponseType(?OpenIdConnectResponseTypes $value): void {
+        $this->getBackingStore()->set('responseType', $value);
     }
 
     /**
      * Sets the scope property value. Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. For more details about the scope limitations see RFC6749 Section 3.3. It is a required property.
      *  @param string|null $value Value to set for the scope property.
     */
-    public function setScope(?string $value ): void {
-        $this->scope = $value;
+    public function setScope(?string $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
 }

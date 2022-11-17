@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implements Parsable 
 {
     /**
-     * @var string|null $settingName Setting name for the rule with error.
-    */
-    private ?string $settingName = null;
-    
-    /**
      * Instantiates a new DeviceComplianceScriptRuleError and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implem
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->settingName;
+        return $this->getBackingStore()->get('settingName');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('settingName', $this->settingName);
+        $writer->writeStringValue('settingName', $this->getSettingName());
     }
 
     /**
      * Sets the settingName property value. Setting name for the rule with error.
      *  @param string|null $value Value to set for the settingName property.
     */
-    public function setSettingName(?string $value ): void {
-        $this->settingName = $value;
+    public function setSettingName(?string $value): void {
+        $this->getBackingStore()->set('settingName', $value);
     }
 
 }

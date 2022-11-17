@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedAppRegistration extends ManagedAppRegistration implements Parsable 
 {
     /**
-     * @var string|null $patchVersion The patch version for the current android app registration
-    */
-    private ?string $patchVersion = null;
-    
-    /**
      * Instantiates a new AndroidManagedAppRegistration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
      * @return string|null
     */
     public function getPatchVersion(): ?string {
-        return $this->patchVersion;
+        return $this->getBackingStore()->get('patchVersion');
     }
 
     /**
@@ -55,15 +50,15 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('patchVersion', $this->patchVersion);
+        $writer->writeStringValue('patchVersion', $this->getPatchVersion());
     }
 
     /**
      * Sets the patchVersion property value. The patch version for the current android app registration
      *  @param string|null $value Value to set for the patchVersion property.
     */
-    public function setPatchVersion(?string $value ): void {
-        $this->patchVersion = $value;
+    public function setPatchVersion(?string $value): void {
+        $this->getBackingStore()->set('patchVersion', $value);
     }
 
 }

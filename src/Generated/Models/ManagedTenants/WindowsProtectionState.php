@@ -11,131 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsProtectionState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $antiMalwareVersion The anti-malware version for the managed device. Optional. Read-only.
-    */
-    private ?string $antiMalwareVersion = null;
-    
-    /**
-     * @var bool|null $attentionRequired A flag indicating whether attention is required for the managed device. Optional. Read-only.
-    */
-    private ?bool $attentionRequired = null;
-    
-    /**
-     * @var bool|null $deviceDeleted A flag indicating whether the managed device has been deleted. Optional. Read-only.
-    */
-    private ?bool $deviceDeleted = null;
-    
-    /**
-     * @var DateTime|null $devicePropertyRefreshDateTime The date and time the device property has been refreshed. Optional. Read-only.
-    */
-    private ?DateTime $devicePropertyRefreshDateTime = null;
-    
-    /**
-     * @var string|null $engineVersion The anti-virus engine version for the managed device. Optional. Read-only.
-    */
-    private ?string $engineVersion = null;
-    
-    /**
-     * @var bool|null $fullScanOverdue A flag indicating whether quick scan is overdue for the managed device. Optional. Read-only.
-    */
-    private ?bool $fullScanOverdue = null;
-    
-    /**
-     * @var bool|null $fullScanRequired A flag indicating whether full scan is overdue for the managed device. Optional. Read-only.
-    */
-    private ?bool $fullScanRequired = null;
-    
-    /**
-     * @var DateTime|null $lastFullScanDateTime The date and time a full scan was completed. Optional. Read-only.
-    */
-    private ?DateTime $lastFullScanDateTime = null;
-    
-    /**
-     * @var string|null $lastFullScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only.
-    */
-    private ?string $lastFullScanSignatureVersion = null;
-    
-    /**
-     * @var DateTime|null $lastQuickScanDateTime The date and time a quick scan was completed. Optional. Read-only.
-    */
-    private ?DateTime $lastQuickScanDateTime = null;
-    
-    /**
-     * @var string|null $lastQuickScanSignatureVersion The version anti-malware version used to perform the last full scan. Optional. Read-only.
-    */
-    private ?string $lastQuickScanSignatureVersion = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshedDateTime Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
-    */
-    private ?DateTime $lastRefreshedDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastReportedDateTime The date and time the protection state was last reported for the managed device. Optional. Read-only.
-    */
-    private ?DateTime $lastReportedDateTime = null;
-    
-    /**
-     * @var bool|null $malwareProtectionEnabled A flag indicating whether malware protection is enabled for the managed device. Optional. Read-only.
-    */
-    private ?bool $malwareProtectionEnabled = null;
-    
-    /**
-     * @var string|null $managedDeviceHealthState The health state for the managed device. Optional. Read-only.
-    */
-    private ?string $managedDeviceHealthState = null;
-    
-    /**
-     * @var string|null $managedDeviceId The unique identifier for the managed device. Optional. Read-only.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $managedDeviceName The display name for the managed device. Optional. Read-only.
-    */
-    private ?string $managedDeviceName = null;
-    
-    /**
-     * @var bool|null $networkInspectionSystemEnabled A flag indicating whether the network inspection system is enabled. Optional. Read-only.
-    */
-    private ?bool $networkInspectionSystemEnabled = null;
-    
-    /**
-     * @var bool|null $quickScanOverdue A flag indicating weather a quick scan is overdue. Optional. Read-only.
-    */
-    private ?bool $quickScanOverdue = null;
-    
-    /**
-     * @var bool|null $realTimeProtectionEnabled A flag indicating whether real time protection is enabled. Optional. Read-only.
-    */
-    private ?bool $realTimeProtectionEnabled = null;
-    
-    /**
-     * @var bool|null $rebootRequired A flag indicating whether a reboot is required. Optional. Read-only.
-    */
-    private ?bool $rebootRequired = null;
-    
-    /**
-     * @var bool|null $signatureUpdateOverdue A flag indicating whether an signature update is overdue. Optional. Read-only.
-    */
-    private ?bool $signatureUpdateOverdue = null;
-    
-    /**
-     * @var string|null $signatureVersion The signature version for the managed device. Optional. Read-only.
-    */
-    private ?string $signatureVersion = null;
-    
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantDisplayName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new windowsProtectionState and sets the default values.
     */
     public function __construct() {
@@ -157,7 +32,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getAntiMalwareVersion(): ?string {
-        return $this->antiMalwareVersion;
+        return $this->getBackingStore()->get('antiMalwareVersion');
     }
 
     /**
@@ -165,7 +40,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getAttentionRequired(): ?bool {
-        return $this->attentionRequired;
+        return $this->getBackingStore()->get('attentionRequired');
     }
 
     /**
@@ -173,7 +48,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getDeviceDeleted(): ?bool {
-        return $this->deviceDeleted;
+        return $this->getBackingStore()->get('deviceDeleted');
     }
 
     /**
@@ -181,7 +56,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDevicePropertyRefreshDateTime(): ?DateTime {
-        return $this->devicePropertyRefreshDateTime;
+        return $this->getBackingStore()->get('devicePropertyRefreshDateTime');
     }
 
     /**
@@ -189,7 +64,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getEngineVersion(): ?string {
-        return $this->engineVersion;
+        return $this->getBackingStore()->get('engineVersion');
     }
 
     /**
@@ -232,7 +107,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getFullScanOverdue(): ?bool {
-        return $this->fullScanOverdue;
+        return $this->getBackingStore()->get('fullScanOverdue');
     }
 
     /**
@@ -240,7 +115,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getFullScanRequired(): ?bool {
-        return $this->fullScanRequired;
+        return $this->getBackingStore()->get('fullScanRequired');
     }
 
     /**
@@ -248,7 +123,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastFullScanDateTime(): ?DateTime {
-        return $this->lastFullScanDateTime;
+        return $this->getBackingStore()->get('lastFullScanDateTime');
     }
 
     /**
@@ -256,7 +131,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastFullScanSignatureVersion(): ?string {
-        return $this->lastFullScanSignatureVersion;
+        return $this->getBackingStore()->get('lastFullScanSignatureVersion');
     }
 
     /**
@@ -264,7 +139,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastQuickScanDateTime(): ?DateTime {
-        return $this->lastQuickScanDateTime;
+        return $this->getBackingStore()->get('lastQuickScanDateTime');
     }
 
     /**
@@ -272,7 +147,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getLastQuickScanSignatureVersion(): ?string {
-        return $this->lastQuickScanSignatureVersion;
+        return $this->getBackingStore()->get('lastQuickScanSignatureVersion');
     }
 
     /**
@@ -280,7 +155,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastRefreshedDateTime(): ?DateTime {
-        return $this->lastRefreshedDateTime;
+        return $this->getBackingStore()->get('lastRefreshedDateTime');
     }
 
     /**
@@ -288,7 +163,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->lastReportedDateTime;
+        return $this->getBackingStore()->get('lastReportedDateTime');
     }
 
     /**
@@ -296,7 +171,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getMalwareProtectionEnabled(): ?bool {
-        return $this->malwareProtectionEnabled;
+        return $this->getBackingStore()->get('malwareProtectionEnabled');
     }
 
     /**
@@ -304,7 +179,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceHealthState(): ?string {
-        return $this->managedDeviceHealthState;
+        return $this->getBackingStore()->get('managedDeviceHealthState');
     }
 
     /**
@@ -312,7 +187,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -320,7 +195,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->managedDeviceName;
+        return $this->getBackingStore()->get('managedDeviceName');
     }
 
     /**
@@ -328,7 +203,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getNetworkInspectionSystemEnabled(): ?bool {
-        return $this->networkInspectionSystemEnabled;
+        return $this->getBackingStore()->get('networkInspectionSystemEnabled');
     }
 
     /**
@@ -336,7 +211,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getQuickScanOverdue(): ?bool {
-        return $this->quickScanOverdue;
+        return $this->getBackingStore()->get('quickScanOverdue');
     }
 
     /**
@@ -344,7 +219,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getRealTimeProtectionEnabled(): ?bool {
-        return $this->realTimeProtectionEnabled;
+        return $this->getBackingStore()->get('realTimeProtectionEnabled');
     }
 
     /**
@@ -352,7 +227,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getRebootRequired(): ?bool {
-        return $this->rebootRequired;
+        return $this->getBackingStore()->get('rebootRequired');
     }
 
     /**
@@ -360,7 +235,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return bool|null
     */
     public function getSignatureUpdateOverdue(): ?bool {
-        return $this->signatureUpdateOverdue;
+        return $this->getBackingStore()->get('signatureUpdateOverdue');
     }
 
     /**
@@ -368,7 +243,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getSignatureVersion(): ?string {
-        return $this->signatureVersion;
+        return $this->getBackingStore()->get('signatureVersion');
     }
 
     /**
@@ -376,7 +251,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->tenantDisplayName;
+        return $this->getBackingStore()->get('tenantDisplayName');
     }
 
     /**
@@ -384,7 +259,7 @@ class WindowsProtectionState extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -393,231 +268,231 @@ class WindowsProtectionState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('antiMalwareVersion', $this->antiMalwareVersion);
-        $writer->writeBooleanValue('attentionRequired', $this->attentionRequired);
-        $writer->writeBooleanValue('deviceDeleted', $this->deviceDeleted);
-        $writer->writeDateTimeValue('devicePropertyRefreshDateTime', $this->devicePropertyRefreshDateTime);
-        $writer->writeStringValue('engineVersion', $this->engineVersion);
-        $writer->writeBooleanValue('fullScanOverdue', $this->fullScanOverdue);
-        $writer->writeBooleanValue('fullScanRequired', $this->fullScanRequired);
-        $writer->writeDateTimeValue('lastFullScanDateTime', $this->lastFullScanDateTime);
-        $writer->writeStringValue('lastFullScanSignatureVersion', $this->lastFullScanSignatureVersion);
-        $writer->writeDateTimeValue('lastQuickScanDateTime', $this->lastQuickScanDateTime);
-        $writer->writeStringValue('lastQuickScanSignatureVersion', $this->lastQuickScanSignatureVersion);
-        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->lastRefreshedDateTime);
-        $writer->writeDateTimeValue('lastReportedDateTime', $this->lastReportedDateTime);
-        $writer->writeBooleanValue('malwareProtectionEnabled', $this->malwareProtectionEnabled);
-        $writer->writeStringValue('managedDeviceHealthState', $this->managedDeviceHealthState);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('managedDeviceName', $this->managedDeviceName);
-        $writer->writeBooleanValue('networkInspectionSystemEnabled', $this->networkInspectionSystemEnabled);
-        $writer->writeBooleanValue('quickScanOverdue', $this->quickScanOverdue);
-        $writer->writeBooleanValue('realTimeProtectionEnabled', $this->realTimeProtectionEnabled);
-        $writer->writeBooleanValue('rebootRequired', $this->rebootRequired);
-        $writer->writeBooleanValue('signatureUpdateOverdue', $this->signatureUpdateOverdue);
-        $writer->writeStringValue('signatureVersion', $this->signatureVersion);
-        $writer->writeStringValue('tenantDisplayName', $this->tenantDisplayName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeStringValue('antiMalwareVersion', $this->getAntiMalwareVersion());
+        $writer->writeBooleanValue('attentionRequired', $this->getAttentionRequired());
+        $writer->writeBooleanValue('deviceDeleted', $this->getDeviceDeleted());
+        $writer->writeDateTimeValue('devicePropertyRefreshDateTime', $this->getDevicePropertyRefreshDateTime());
+        $writer->writeStringValue('engineVersion', $this->getEngineVersion());
+        $writer->writeBooleanValue('fullScanOverdue', $this->getFullScanOverdue());
+        $writer->writeBooleanValue('fullScanRequired', $this->getFullScanRequired());
+        $writer->writeDateTimeValue('lastFullScanDateTime', $this->getLastFullScanDateTime());
+        $writer->writeStringValue('lastFullScanSignatureVersion', $this->getLastFullScanSignatureVersion());
+        $writer->writeDateTimeValue('lastQuickScanDateTime', $this->getLastQuickScanDateTime());
+        $writer->writeStringValue('lastQuickScanSignatureVersion', $this->getLastQuickScanSignatureVersion());
+        $writer->writeDateTimeValue('lastRefreshedDateTime', $this->getLastRefreshedDateTime());
+        $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeBooleanValue('malwareProtectionEnabled', $this->getMalwareProtectionEnabled());
+        $writer->writeStringValue('managedDeviceHealthState', $this->getManagedDeviceHealthState());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeBooleanValue('networkInspectionSystemEnabled', $this->getNetworkInspectionSystemEnabled());
+        $writer->writeBooleanValue('quickScanOverdue', $this->getQuickScanOverdue());
+        $writer->writeBooleanValue('realTimeProtectionEnabled', $this->getRealTimeProtectionEnabled());
+        $writer->writeBooleanValue('rebootRequired', $this->getRebootRequired());
+        $writer->writeBooleanValue('signatureUpdateOverdue', $this->getSignatureUpdateOverdue());
+        $writer->writeStringValue('signatureVersion', $this->getSignatureVersion());
+        $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the antiMalwareVersion property value. The anti-malware version for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the antiMalwareVersion property.
     */
-    public function setAntiMalwareVersion(?string $value ): void {
-        $this->antiMalwareVersion = $value;
+    public function setAntiMalwareVersion(?string $value): void {
+        $this->getBackingStore()->set('antiMalwareVersion', $value);
     }
 
     /**
      * Sets the attentionRequired property value. A flag indicating whether attention is required for the managed device. Optional. Read-only.
      *  @param bool|null $value Value to set for the attentionRequired property.
     */
-    public function setAttentionRequired(?bool $value ): void {
-        $this->attentionRequired = $value;
+    public function setAttentionRequired(?bool $value): void {
+        $this->getBackingStore()->set('attentionRequired', $value);
     }
 
     /**
      * Sets the deviceDeleted property value. A flag indicating whether the managed device has been deleted. Optional. Read-only.
      *  @param bool|null $value Value to set for the deviceDeleted property.
     */
-    public function setDeviceDeleted(?bool $value ): void {
-        $this->deviceDeleted = $value;
+    public function setDeviceDeleted(?bool $value): void {
+        $this->getBackingStore()->set('deviceDeleted', $value);
     }
 
     /**
      * Sets the devicePropertyRefreshDateTime property value. The date and time the device property has been refreshed. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the devicePropertyRefreshDateTime property.
     */
-    public function setDevicePropertyRefreshDateTime(?DateTime $value ): void {
-        $this->devicePropertyRefreshDateTime = $value;
+    public function setDevicePropertyRefreshDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('devicePropertyRefreshDateTime', $value);
     }
 
     /**
      * Sets the engineVersion property value. The anti-virus engine version for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the engineVersion property.
     */
-    public function setEngineVersion(?string $value ): void {
-        $this->engineVersion = $value;
+    public function setEngineVersion(?string $value): void {
+        $this->getBackingStore()->set('engineVersion', $value);
     }
 
     /**
      * Sets the fullScanOverdue property value. A flag indicating whether quick scan is overdue for the managed device. Optional. Read-only.
      *  @param bool|null $value Value to set for the fullScanOverdue property.
     */
-    public function setFullScanOverdue(?bool $value ): void {
-        $this->fullScanOverdue = $value;
+    public function setFullScanOverdue(?bool $value): void {
+        $this->getBackingStore()->set('fullScanOverdue', $value);
     }
 
     /**
      * Sets the fullScanRequired property value. A flag indicating whether full scan is overdue for the managed device. Optional. Read-only.
      *  @param bool|null $value Value to set for the fullScanRequired property.
     */
-    public function setFullScanRequired(?bool $value ): void {
-        $this->fullScanRequired = $value;
+    public function setFullScanRequired(?bool $value): void {
+        $this->getBackingStore()->set('fullScanRequired', $value);
     }
 
     /**
      * Sets the lastFullScanDateTime property value. The date and time a full scan was completed. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastFullScanDateTime property.
     */
-    public function setLastFullScanDateTime(?DateTime $value ): void {
-        $this->lastFullScanDateTime = $value;
+    public function setLastFullScanDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastFullScanDateTime', $value);
     }
 
     /**
      * Sets the lastFullScanSignatureVersion property value. The version anti-malware version used to perform the last full scan. Optional. Read-only.
      *  @param string|null $value Value to set for the lastFullScanSignatureVersion property.
     */
-    public function setLastFullScanSignatureVersion(?string $value ): void {
-        $this->lastFullScanSignatureVersion = $value;
+    public function setLastFullScanSignatureVersion(?string $value): void {
+        $this->getBackingStore()->set('lastFullScanSignatureVersion', $value);
     }
 
     /**
      * Sets the lastQuickScanDateTime property value. The date and time a quick scan was completed. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastQuickScanDateTime property.
     */
-    public function setLastQuickScanDateTime(?DateTime $value ): void {
-        $this->lastQuickScanDateTime = $value;
+    public function setLastQuickScanDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastQuickScanDateTime', $value);
     }
 
     /**
      * Sets the lastQuickScanSignatureVersion property value. The version anti-malware version used to perform the last full scan. Optional. Read-only.
      *  @param string|null $value Value to set for the lastQuickScanSignatureVersion property.
     */
-    public function setLastQuickScanSignatureVersion(?string $value ): void {
-        $this->lastQuickScanSignatureVersion = $value;
+    public function setLastQuickScanSignatureVersion(?string $value): void {
+        $this->getBackingStore()->set('lastQuickScanSignatureVersion', $value);
     }
 
     /**
      * Sets the lastRefreshedDateTime property value. Date and time the entity was last updated in the multi-tenant management platform. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastRefreshedDateTime property.
     */
-    public function setLastRefreshedDateTime(?DateTime $value ): void {
-        $this->lastRefreshedDateTime = $value;
+    public function setLastRefreshedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshedDateTime', $value);
     }
 
     /**
      * Sets the lastReportedDateTime property value. The date and time the protection state was last reported for the managed device. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
-    public function setLastReportedDateTime(?DateTime $value ): void {
-        $this->lastReportedDateTime = $value;
+    public function setLastReportedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastReportedDateTime', $value);
     }
 
     /**
      * Sets the malwareProtectionEnabled property value. A flag indicating whether malware protection is enabled for the managed device. Optional. Read-only.
      *  @param bool|null $value Value to set for the malwareProtectionEnabled property.
     */
-    public function setMalwareProtectionEnabled(?bool $value ): void {
-        $this->malwareProtectionEnabled = $value;
+    public function setMalwareProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('malwareProtectionEnabled', $value);
     }
 
     /**
      * Sets the managedDeviceHealthState property value. The health state for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceHealthState property.
     */
-    public function setManagedDeviceHealthState(?string $value ): void {
-        $this->managedDeviceHealthState = $value;
+    public function setManagedDeviceHealthState(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceHealthState', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. The unique identifier for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the managedDeviceName property value. The display name for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the managedDeviceName property.
     */
-    public function setManagedDeviceName(?string $value ): void {
-        $this->managedDeviceName = $value;
+    public function setManagedDeviceName(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceName', $value);
     }
 
     /**
      * Sets the networkInspectionSystemEnabled property value. A flag indicating whether the network inspection system is enabled. Optional. Read-only.
      *  @param bool|null $value Value to set for the networkInspectionSystemEnabled property.
     */
-    public function setNetworkInspectionSystemEnabled(?bool $value ): void {
-        $this->networkInspectionSystemEnabled = $value;
+    public function setNetworkInspectionSystemEnabled(?bool $value): void {
+        $this->getBackingStore()->set('networkInspectionSystemEnabled', $value);
     }
 
     /**
      * Sets the quickScanOverdue property value. A flag indicating weather a quick scan is overdue. Optional. Read-only.
      *  @param bool|null $value Value to set for the quickScanOverdue property.
     */
-    public function setQuickScanOverdue(?bool $value ): void {
-        $this->quickScanOverdue = $value;
+    public function setQuickScanOverdue(?bool $value): void {
+        $this->getBackingStore()->set('quickScanOverdue', $value);
     }
 
     /**
      * Sets the realTimeProtectionEnabled property value. A flag indicating whether real time protection is enabled. Optional. Read-only.
      *  @param bool|null $value Value to set for the realTimeProtectionEnabled property.
     */
-    public function setRealTimeProtectionEnabled(?bool $value ): void {
-        $this->realTimeProtectionEnabled = $value;
+    public function setRealTimeProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('realTimeProtectionEnabled', $value);
     }
 
     /**
      * Sets the rebootRequired property value. A flag indicating whether a reboot is required. Optional. Read-only.
      *  @param bool|null $value Value to set for the rebootRequired property.
     */
-    public function setRebootRequired(?bool $value ): void {
-        $this->rebootRequired = $value;
+    public function setRebootRequired(?bool $value): void {
+        $this->getBackingStore()->set('rebootRequired', $value);
     }
 
     /**
      * Sets the signatureUpdateOverdue property value. A flag indicating whether an signature update is overdue. Optional. Read-only.
      *  @param bool|null $value Value to set for the signatureUpdateOverdue property.
     */
-    public function setSignatureUpdateOverdue(?bool $value ): void {
-        $this->signatureUpdateOverdue = $value;
+    public function setSignatureUpdateOverdue(?bool $value): void {
+        $this->getBackingStore()->set('signatureUpdateOverdue', $value);
     }
 
     /**
      * Sets the signatureVersion property value. The signature version for the managed device. Optional. Read-only.
      *  @param string|null $value Value to set for the signatureVersion property.
     */
-    public function setSignatureVersion(?string $value ): void {
-        $this->signatureVersion = $value;
+    public function setSignatureVersion(?string $value): void {
+        $this->getBackingStore()->set('signatureVersion', $value);
     }
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantDisplayName property.
     */
-    public function setTenantDisplayName(?string $value ): void {
-        $this->tenantDisplayName = $value;
+    public function setTenantDisplayName(?string $value): void {
+        $this->getBackingStore()->set('tenantDisplayName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

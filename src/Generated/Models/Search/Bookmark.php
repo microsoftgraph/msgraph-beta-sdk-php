@@ -11,61 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Bookmark extends SearchAnswer implements Parsable 
 {
     /**
-     * @var DateTime|null $availabilityEndDateTime Timestamp of when the bookmark will stop to appear as a search result. Set as null for always available.
-    */
-    private ?DateTime $availabilityEndDateTime = null;
-    
-    /**
-     * @var DateTime|null $availabilityStartDateTime Timestamp of when the bookmark will start to appear as a search result. Set as null for always available.
-    */
-    private ?DateTime $availabilityStartDateTime = null;
-    
-    /**
-     * @var array<string>|null $categories Categories commonly used to describe this bookmark. For example, IT and HR.
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var array<string>|null $groupIds List of security groups able to view this bookmark.
-    */
-    private ?array $groupIds = null;
-    
-    /**
-     * @var bool|null $isSuggested True if this bookmark was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
-    */
-    private ?bool $isSuggested = null;
-    
-    /**
-     * @var AnswerKeyword|null $keywords Keywords that trigger this bookmark to appear in search results.
-    */
-    private ?AnswerKeyword $keywords = null;
-    
-    /**
-     * @var array<string>|null $languageTags A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
-    */
-    private ?array $languageTags = null;
-    
-    /**
-     * @var array<DevicePlatformType>|null $platforms List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
-    */
-    private ?array $platforms = null;
-    
-    /**
-     * @var array<string>|null $powerAppIds List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
-    */
-    private ?array $powerAppIds = null;
-    
-    /**
-     * @var AnswerState|null $state The state property
-    */
-    private ?AnswerState $state = null;
-    
-    /**
-     * @var array<AnswerVariant>|null $targetedVariations Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
-    */
-    private ?array $targetedVariations = null;
-    
-    /**
      * Instantiates a new Bookmark and sets the default values.
     */
     public function __construct() {
@@ -87,7 +32,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityEndDateTime(): ?DateTime {
-        return $this->availabilityEndDateTime;
+        return $this->getBackingStore()->get('availabilityEndDateTime');
     }
 
     /**
@@ -95,7 +40,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return DateTime|null
     */
     public function getAvailabilityStartDateTime(): ?DateTime {
-        return $this->availabilityStartDateTime;
+        return $this->getBackingStore()->get('availabilityStartDateTime');
     }
 
     /**
@@ -103,7 +48,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -132,7 +77,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getGroupIds(): ?array {
-        return $this->groupIds;
+        return $this->getBackingStore()->get('groupIds');
     }
 
     /**
@@ -140,7 +85,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return bool|null
     */
     public function getIsSuggested(): ?bool {
-        return $this->isSuggested;
+        return $this->getBackingStore()->get('isSuggested');
     }
 
     /**
@@ -148,7 +93,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return AnswerKeyword|null
     */
     public function getKeywords(): ?AnswerKeyword {
-        return $this->keywords;
+        return $this->getBackingStore()->get('keywords');
     }
 
     /**
@@ -156,7 +101,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getLanguageTags(): ?array {
-        return $this->languageTags;
+        return $this->getBackingStore()->get('languageTags');
     }
 
     /**
@@ -164,7 +109,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<DevicePlatformType>|null
     */
     public function getPlatforms(): ?array {
-        return $this->platforms;
+        return $this->getBackingStore()->get('platforms');
     }
 
     /**
@@ -172,7 +117,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<string>|null
     */
     public function getPowerAppIds(): ?array {
-        return $this->powerAppIds;
+        return $this->getBackingStore()->get('powerAppIds');
     }
 
     /**
@@ -180,7 +125,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -188,7 +133,7 @@ class Bookmark extends SearchAnswer implements Parsable
      * @return array<AnswerVariant>|null
     */
     public function getTargetedVariations(): ?array {
-        return $this->targetedVariations;
+        return $this->getBackingStore()->get('targetedVariations');
     }
 
     /**
@@ -197,105 +142,105 @@ class Bookmark extends SearchAnswer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('availabilityEndDateTime', $this->availabilityEndDateTime);
-        $writer->writeDateTimeValue('availabilityStartDateTime', $this->availabilityStartDateTime);
-        $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
-        $writer->writeCollectionOfPrimitiveValues('groupIds', $this->groupIds);
-        $writer->writeBooleanValue('isSuggested', $this->isSuggested);
-        $writer->writeObjectValue('keywords', $this->keywords);
-        $writer->writeCollectionOfPrimitiveValues('languageTags', $this->languageTags);
-        $writer->writeCollectionOfEnumValues('platforms', $this->platforms);
-        $writer->writeCollectionOfPrimitiveValues('powerAppIds', $this->powerAppIds);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeCollectionOfObjectValues('targetedVariations', $this->targetedVariations);
+        $writer->writeDateTimeValue('availabilityEndDateTime', $this->getAvailabilityEndDateTime());
+        $writer->writeDateTimeValue('availabilityStartDateTime', $this->getAvailabilityStartDateTime());
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeCollectionOfPrimitiveValues('groupIds', $this->getGroupIds());
+        $writer->writeBooleanValue('isSuggested', $this->getIsSuggested());
+        $writer->writeObjectValue('keywords', $this->getKeywords());
+        $writer->writeCollectionOfPrimitiveValues('languageTags', $this->getLanguageTags());
+        $writer->writeCollectionOfEnumValues('platforms', $this->getPlatforms());
+        $writer->writeCollectionOfPrimitiveValues('powerAppIds', $this->getPowerAppIds());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeCollectionOfObjectValues('targetedVariations', $this->getTargetedVariations());
     }
 
     /**
      * Sets the availabilityEndDateTime property value. Timestamp of when the bookmark will stop to appear as a search result. Set as null for always available.
      *  @param DateTime|null $value Value to set for the availabilityEndDateTime property.
     */
-    public function setAvailabilityEndDateTime(?DateTime $value ): void {
-        $this->availabilityEndDateTime = $value;
+    public function setAvailabilityEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('availabilityEndDateTime', $value);
     }
 
     /**
      * Sets the availabilityStartDateTime property value. Timestamp of when the bookmark will start to appear as a search result. Set as null for always available.
      *  @param DateTime|null $value Value to set for the availabilityStartDateTime property.
     */
-    public function setAvailabilityStartDateTime(?DateTime $value ): void {
-        $this->availabilityStartDateTime = $value;
+    public function setAvailabilityStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('availabilityStartDateTime', $value);
     }
 
     /**
      * Sets the categories property value. Categories commonly used to describe this bookmark. For example, IT and HR.
      *  @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the groupIds property value. List of security groups able to view this bookmark.
      *  @param array<string>|null $value Value to set for the groupIds property.
     */
-    public function setGroupIds(?array $value ): void {
-        $this->groupIds = $value;
+    public function setGroupIds(?array $value): void {
+        $this->getBackingStore()->set('groupIds', $value);
     }
 
     /**
      * Sets the isSuggested property value. True if this bookmark was suggested to the admin by a user or was mined and suggested by Microsoft. Read-only.
      *  @param bool|null $value Value to set for the isSuggested property.
     */
-    public function setIsSuggested(?bool $value ): void {
-        $this->isSuggested = $value;
+    public function setIsSuggested(?bool $value): void {
+        $this->getBackingStore()->set('isSuggested', $value);
     }
 
     /**
      * Sets the keywords property value. Keywords that trigger this bookmark to appear in search results.
      *  @param AnswerKeyword|null $value Value to set for the keywords property.
     */
-    public function setKeywords(?AnswerKeyword $value ): void {
-        $this->keywords = $value;
+    public function setKeywords(?AnswerKeyword $value): void {
+        $this->getBackingStore()->set('keywords', $value);
     }
 
     /**
      * Sets the languageTags property value. A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
      *  @param array<string>|null $value Value to set for the languageTags property.
     */
-    public function setLanguageTags(?array $value ): void {
-        $this->languageTags = $value;
+    public function setLanguageTags(?array $value): void {
+        $this->getBackingStore()->set('languageTags', $value);
     }
 
     /**
      * Sets the platforms property value. List of devices and operating systems able to view this bookmark. Possible values are: unknown, android, androidForWork, ios, macOS, windowsPhone81, windowsPhone81AndLater, windows10AndLater, androidWorkProfile, androidASOP.
      *  @param array<DevicePlatformType>|null $value Value to set for the platforms property.
     */
-    public function setPlatforms(?array $value ): void {
-        $this->platforms = $value;
+    public function setPlatforms(?array $value): void {
+        $this->getBackingStore()->set('platforms', $value);
     }
 
     /**
      * Sets the powerAppIds property value. List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
      *  @param array<string>|null $value Value to set for the powerAppIds property.
     */
-    public function setPowerAppIds(?array $value ): void {
-        $this->powerAppIds = $value;
+    public function setPowerAppIds(?array $value): void {
+        $this->getBackingStore()->set('powerAppIds', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param AnswerState|null $value Value to set for the state property.
     */
-    public function setState(?AnswerState $value ): void {
-        $this->state = $value;
+    public function setState(?AnswerState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the targetedVariations property value. Variations of a bookmark for different countries or devices. Use when you need to show different content to users based on their device, country/region, or both. The date and group settings will apply to all variations.
      *  @param array<AnswerVariant>|null $value Value to set for the targetedVariations property.
     */
-    public function setTargetedVariations(?array $value ): void {
-        $this->targetedVariations = $value;
+    public function setTargetedVariations(?array $value): void {
+        $this->getBackingStore()->set('targetedVariations', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsWebApp extends MobileApp implements Parsable 
 {
     /**
-     * @var string|null $appUrl The web app URL.
-    */
-    private ?string $appUrl = null;
-    
-    /**
      * Instantiates a new WindowsWebApp and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class WindowsWebApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppUrl(): ?string {
-        return $this->appUrl;
+        return $this->getBackingStore()->get('appUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsWebApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appUrl', $this->appUrl);
+        $writer->writeStringValue('appUrl', $this->getAppUrl());
     }
 
     /**
      * Sets the appUrl property value. The web app URL.
      *  @param string|null $value Value to set for the appUrl property.
     */
-    public function setAppUrl(?string $value ): void {
-        $this->appUrl = $value;
+    public function setAppUrl(?string $value): void {
+        $this->getBackingStore()->set('appUrl', $value);
     }
 
 }

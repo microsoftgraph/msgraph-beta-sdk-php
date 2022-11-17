@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChromeOSOnboardingSettings extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $lastDirectorySyncDateTime The ChromebookTenant's LastDirectorySyncDateTime
-    */
-    private ?DateTime $lastDirectorySyncDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The ChromebookTenant's LastModifiedDateTime
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var OnboardingStatus|null $onboardingStatus The onboarding status of the tenant.
-    */
-    private ?OnboardingStatus $onboardingStatus = null;
-    
-    /**
-     * @var string|null $ownerUserPrincipalName The ChromebookTenant's OwnerUserPrincipalName
-    */
-    private ?string $ownerUserPrincipalName = null;
-    
-    /**
      * Instantiates a new chromeOSOnboardingSettings and sets the default values.
     */
     public function __construct() {
@@ -65,7 +45,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastDirectorySyncDateTime(): ?DateTime {
-        return $this->lastDirectorySyncDateTime;
+        return $this->getBackingStore()->get('lastDirectorySyncDateTime');
     }
 
     /**
@@ -73,7 +53,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -81,7 +61,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return OnboardingStatus|null
     */
     public function getOnboardingStatus(): ?OnboardingStatus {
-        return $this->onboardingStatus;
+        return $this->getBackingStore()->get('onboardingStatus');
     }
 
     /**
@@ -89,7 +69,7 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerUserPrincipalName(): ?string {
-        return $this->ownerUserPrincipalName;
+        return $this->getBackingStore()->get('ownerUserPrincipalName');
     }
 
     /**
@@ -98,42 +78,42 @@ class ChromeOSOnboardingSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastDirectorySyncDateTime', $this->lastDirectorySyncDateTime);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('onboardingStatus', $this->onboardingStatus);
-        $writer->writeStringValue('ownerUserPrincipalName', $this->ownerUserPrincipalName);
+        $writer->writeDateTimeValue('lastDirectorySyncDateTime', $this->getLastDirectorySyncDateTime());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
+        $writer->writeStringValue('ownerUserPrincipalName', $this->getOwnerUserPrincipalName());
     }
 
     /**
      * Sets the lastDirectorySyncDateTime property value. The ChromebookTenant's LastDirectorySyncDateTime
      *  @param DateTime|null $value Value to set for the lastDirectorySyncDateTime property.
     */
-    public function setLastDirectorySyncDateTime(?DateTime $value ): void {
-        $this->lastDirectorySyncDateTime = $value;
+    public function setLastDirectorySyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastDirectorySyncDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The ChromebookTenant's LastModifiedDateTime
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the onboardingStatus property value. The onboarding status of the tenant.
      *  @param OnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
-    public function setOnboardingStatus(?OnboardingStatus $value ): void {
-        $this->onboardingStatus = $value;
+    public function setOnboardingStatus(?OnboardingStatus $value): void {
+        $this->getBackingStore()->set('onboardingStatus', $value);
     }
 
     /**
      * Sets the ownerUserPrincipalName property value. The ChromebookTenant's OwnerUserPrincipalName
      *  @param string|null $value Value to set for the ownerUserPrincipalName property.
     */
-    public function setOwnerUserPrincipalName(?string $value ): void {
-        $this->ownerUserPrincipalName = $value;
+    public function setOwnerUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('ownerUserPrincipalName', $value);
     }
 
 }

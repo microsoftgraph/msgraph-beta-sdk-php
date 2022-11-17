@@ -10,96 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class HostSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var DateTime|null $firstSeenDateTime The firstSeenDateTime property
-    */
-    private ?DateTime $firstSeenDateTime = null;
-    
-    /**
-     * @var string|null $fqdn The fqdn property
-    */
-    private ?string $fqdn = null;
-    
-    /**
-     * @var bool|null $isAzureAdJoined The isAzureAdJoined property
-    */
-    private ?bool $isAzureAdJoined = null;
-    
-    /**
-     * @var bool|null $isAzureAdRegistered The isAzureAdRegistered property
-    */
-    private ?bool $isAzureAdRegistered = null;
-    
-    /**
-     * @var bool|null $isHybridAzureDomainJoined The isHybridAzureDomainJoined property
-    */
-    private ?bool $isHybridAzureDomainJoined = null;
-    
-    /**
-     * @var DateTime|null $lastSeenDateTime The lastSeenDateTime property
-    */
-    private ?DateTime $lastSeenDateTime = null;
-    
-    /**
-     * @var array<LogonUser>|null $logonUsers The logonUsers property
-    */
-    private ?array $logonUsers = null;
-    
-    /**
-     * @var string|null $netBiosName The netBiosName property
-    */
-    private ?string $netBiosName = null;
-    
-    /**
-     * @var array<NetworkInterface>|null $networkInterfaces The networkInterfaces property
-    */
-    private ?array $networkInterfaces = null;
-    
-    /**
-     * @var string|null $os The os property
-    */
-    private ?string $os = null;
-    
-    /**
-     * @var string|null $osVersion The osVersion property
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var string|null $parentHost The parentHost property
-    */
-    private ?string $parentHost = null;
-    
-    /**
-     * @var array<string>|null $relatedHostIds The relatedHostIds property
-    */
-    private ?array $relatedHostIds = null;
-    
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
-    private ?string $riskScore = null;
-    
-    /**
-     * @var array<string>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
-    private ?SecurityVendorInformation $vendorInformation = null;
-    
-    /**
      * Instantiates a new hostSecurityProfile and sets the default values.
     */
     public function __construct() {
@@ -121,7 +31,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -129,7 +39,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -165,7 +75,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getFirstSeenDateTime(): ?DateTime {
-        return $this->firstSeenDateTime;
+        return $this->getBackingStore()->get('firstSeenDateTime');
     }
 
     /**
@@ -173,7 +83,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getFqdn(): ?string {
-        return $this->fqdn;
+        return $this->getBackingStore()->get('fqdn');
     }
 
     /**
@@ -181,7 +91,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAzureAdJoined(): ?bool {
-        return $this->isAzureAdJoined;
+        return $this->getBackingStore()->get('isAzureAdJoined');
     }
 
     /**
@@ -189,7 +99,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAzureAdRegistered(): ?bool {
-        return $this->isAzureAdRegistered;
+        return $this->getBackingStore()->get('isAzureAdRegistered');
     }
 
     /**
@@ -197,7 +107,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsHybridAzureDomainJoined(): ?bool {
-        return $this->isHybridAzureDomainJoined;
+        return $this->getBackingStore()->get('isHybridAzureDomainJoined');
     }
 
     /**
@@ -205,7 +115,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSeenDateTime(): ?DateTime {
-        return $this->lastSeenDateTime;
+        return $this->getBackingStore()->get('lastSeenDateTime');
     }
 
     /**
@@ -213,7 +123,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<LogonUser>|null
     */
     public function getLogonUsers(): ?array {
-        return $this->logonUsers;
+        return $this->getBackingStore()->get('logonUsers');
     }
 
     /**
@@ -221,7 +131,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getNetBiosName(): ?string {
-        return $this->netBiosName;
+        return $this->getBackingStore()->get('netBiosName');
     }
 
     /**
@@ -229,7 +139,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<NetworkInterface>|null
     */
     public function getNetworkInterfaces(): ?array {
-        return $this->networkInterfaces;
+        return $this->getBackingStore()->get('networkInterfaces');
     }
 
     /**
@@ -237,7 +147,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOs(): ?string {
-        return $this->os;
+        return $this->getBackingStore()->get('os');
     }
 
     /**
@@ -245,7 +155,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -253,7 +163,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getParentHost(): ?string {
-        return $this->parentHost;
+        return $this->getBackingStore()->get('parentHost');
     }
 
     /**
@@ -261,7 +171,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRelatedHostIds(): ?array {
-        return $this->relatedHostIds;
+        return $this->getBackingStore()->get('relatedHostIds');
     }
 
     /**
@@ -269,7 +179,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->riskScore;
+        return $this->getBackingStore()->get('riskScore');
     }
 
     /**
@@ -277,7 +187,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -285,7 +195,7 @@ class HostSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->vendorInformation;
+        return $this->getBackingStore()->get('vendorInformation');
     }
 
     /**
@@ -294,168 +204,168 @@ class HostSecurityProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeDateTimeValue('firstSeenDateTime', $this->firstSeenDateTime);
-        $writer->writeStringValue('fqdn', $this->fqdn);
-        $writer->writeBooleanValue('isAzureAdJoined', $this->isAzureAdJoined);
-        $writer->writeBooleanValue('isAzureAdRegistered', $this->isAzureAdRegistered);
-        $writer->writeBooleanValue('isHybridAzureDomainJoined', $this->isHybridAzureDomainJoined);
-        $writer->writeDateTimeValue('lastSeenDateTime', $this->lastSeenDateTime);
-        $writer->writeCollectionOfObjectValues('logonUsers', $this->logonUsers);
-        $writer->writeStringValue('netBiosName', $this->netBiosName);
-        $writer->writeCollectionOfObjectValues('networkInterfaces', $this->networkInterfaces);
-        $writer->writeStringValue('os', $this->os);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeStringValue('parentHost', $this->parentHost);
-        $writer->writeCollectionOfPrimitiveValues('relatedHostIds', $this->relatedHostIds);
-        $writer->writeStringValue('riskScore', $this->riskScore);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeDateTimeValue('firstSeenDateTime', $this->getFirstSeenDateTime());
+        $writer->writeStringValue('fqdn', $this->getFqdn());
+        $writer->writeBooleanValue('isAzureAdJoined', $this->getIsAzureAdJoined());
+        $writer->writeBooleanValue('isAzureAdRegistered', $this->getIsAzureAdRegistered());
+        $writer->writeBooleanValue('isHybridAzureDomainJoined', $this->getIsHybridAzureDomainJoined());
+        $writer->writeDateTimeValue('lastSeenDateTime', $this->getLastSeenDateTime());
+        $writer->writeCollectionOfObjectValues('logonUsers', $this->getLogonUsers());
+        $writer->writeStringValue('netBiosName', $this->getNetBiosName());
+        $writer->writeCollectionOfObjectValues('networkInterfaces', $this->getNetworkInterfaces());
+        $writer->writeStringValue('os', $this->getOs());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeStringValue('parentHost', $this->getParentHost());
+        $writer->writeCollectionOfPrimitiveValues('relatedHostIds', $this->getRelatedHostIds());
+        $writer->writeStringValue('riskScore', $this->getRiskScore());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
     }
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the firstSeenDateTime property value. The firstSeenDateTime property
      *  @param DateTime|null $value Value to set for the firstSeenDateTime property.
     */
-    public function setFirstSeenDateTime(?DateTime $value ): void {
-        $this->firstSeenDateTime = $value;
+    public function setFirstSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('firstSeenDateTime', $value);
     }
 
     /**
      * Sets the fqdn property value. The fqdn property
      *  @param string|null $value Value to set for the fqdn property.
     */
-    public function setFqdn(?string $value ): void {
-        $this->fqdn = $value;
+    public function setFqdn(?string $value): void {
+        $this->getBackingStore()->set('fqdn', $value);
     }
 
     /**
      * Sets the isAzureAdJoined property value. The isAzureAdJoined property
      *  @param bool|null $value Value to set for the isAzureAdJoined property.
     */
-    public function setIsAzureAdJoined(?bool $value ): void {
-        $this->isAzureAdJoined = $value;
+    public function setIsAzureAdJoined(?bool $value): void {
+        $this->getBackingStore()->set('isAzureAdJoined', $value);
     }
 
     /**
      * Sets the isAzureAdRegistered property value. The isAzureAdRegistered property
      *  @param bool|null $value Value to set for the isAzureAdRegistered property.
     */
-    public function setIsAzureAdRegistered(?bool $value ): void {
-        $this->isAzureAdRegistered = $value;
+    public function setIsAzureAdRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isAzureAdRegistered', $value);
     }
 
     /**
      * Sets the isHybridAzureDomainJoined property value. The isHybridAzureDomainJoined property
      *  @param bool|null $value Value to set for the isHybridAzureDomainJoined property.
     */
-    public function setIsHybridAzureDomainJoined(?bool $value ): void {
-        $this->isHybridAzureDomainJoined = $value;
+    public function setIsHybridAzureDomainJoined(?bool $value): void {
+        $this->getBackingStore()->set('isHybridAzureDomainJoined', $value);
     }
 
     /**
      * Sets the lastSeenDateTime property value. The lastSeenDateTime property
      *  @param DateTime|null $value Value to set for the lastSeenDateTime property.
     */
-    public function setLastSeenDateTime(?DateTime $value ): void {
-        $this->lastSeenDateTime = $value;
+    public function setLastSeenDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSeenDateTime', $value);
     }
 
     /**
      * Sets the logonUsers property value. The logonUsers property
      *  @param array<LogonUser>|null $value Value to set for the logonUsers property.
     */
-    public function setLogonUsers(?array $value ): void {
-        $this->logonUsers = $value;
+    public function setLogonUsers(?array $value): void {
+        $this->getBackingStore()->set('logonUsers', $value);
     }
 
     /**
      * Sets the netBiosName property value. The netBiosName property
      *  @param string|null $value Value to set for the netBiosName property.
     */
-    public function setNetBiosName(?string $value ): void {
-        $this->netBiosName = $value;
+    public function setNetBiosName(?string $value): void {
+        $this->getBackingStore()->set('netBiosName', $value);
     }
 
     /**
      * Sets the networkInterfaces property value. The networkInterfaces property
      *  @param array<NetworkInterface>|null $value Value to set for the networkInterfaces property.
     */
-    public function setNetworkInterfaces(?array $value ): void {
-        $this->networkInterfaces = $value;
+    public function setNetworkInterfaces(?array $value): void {
+        $this->getBackingStore()->set('networkInterfaces', $value);
     }
 
     /**
      * Sets the os property value. The os property
      *  @param string|null $value Value to set for the os property.
     */
-    public function setOs(?string $value ): void {
-        $this->os = $value;
+    public function setOs(?string $value): void {
+        $this->getBackingStore()->set('os', $value);
     }
 
     /**
      * Sets the osVersion property value. The osVersion property
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the parentHost property value. The parentHost property
      *  @param string|null $value Value to set for the parentHost property.
     */
-    public function setParentHost(?string $value ): void {
-        $this->parentHost = $value;
+    public function setParentHost(?string $value): void {
+        $this->getBackingStore()->set('parentHost', $value);
     }
 
     /**
      * Sets the relatedHostIds property value. The relatedHostIds property
      *  @param array<string>|null $value Value to set for the relatedHostIds property.
     */
-    public function setRelatedHostIds(?array $value ): void {
-        $this->relatedHostIds = $value;
+    public function setRelatedHostIds(?array $value): void {
+        $this->getBackingStore()->set('relatedHostIds', $value);
     }
 
     /**
      * Sets the riskScore property value. The riskScore property
      *  @param string|null $value Value to set for the riskScore property.
     */
-    public function setRiskScore(?string $value ): void {
-        $this->riskScore = $value;
+    public function setRiskScore(?string $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
-    public function setVendorInformation(?SecurityVendorInformation $value ): void {
-        $this->vendorInformation = $value;
+    public function setVendorInformation(?SecurityVendorInformation $value): void {
+        $this->getBackingStore()->set('vendorInformation', $value);
     }
 
 }

@@ -10,21 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var string|null $bundleId Bundle id for targeting.
-    */
-    private ?string $bundleId = null;
-    
-    /**
-     * @var StreamInterface|null $configurationXml Configuration xml. (UTF8 encoded byte array)
-    */
-    private ?StreamInterface $configurationXml = null;
-    
-    /**
-     * @var string|null $fileName Configuration file name (.plist
-    */
-    private ?string $fileName = null;
-    
-    /**
      * Instantiates a new MacOSCustomAppConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,15 +31,15 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
      * @return string|null
     */
     public function getBundleId(): ?string {
-        return $this->bundleId;
+        return $this->getBackingStore()->get('bundleId');
     }
 
     /**
      * Gets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getConfigurationXml(): StreamInterface {
-        return $this->configurationXml;
+    public function getConfigurationXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('configurationXml');
     }
 
     /**
@@ -75,7 +60,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->fileName;
+        return $this->getBackingStore()->get('fileName');
     }
 
     /**
@@ -84,33 +69,33 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('bundleId', $this->bundleId);
-        $writer->writeBinaryContent('configurationXml', $this->configurationXml);
-        $writer->writeStringValue('fileName', $this->fileName);
+        $writer->writeStringValue('bundleId', $this->getBundleId());
+        $writer->writeBinaryContent('configurationXml', $this->getConfigurationXml());
+        $writer->writeStringValue('fileName', $this->getFileName());
     }
 
     /**
      * Sets the bundleId property value. Bundle id for targeting.
      *  @param string|null $value Value to set for the bundleId property.
     */
-    public function setBundleId(?string $value ): void {
-        $this->bundleId = $value;
+    public function setBundleId(?string $value): void {
+        $this->getBackingStore()->set('bundleId', $value);
     }
 
     /**
      * Sets the configurationXml property value. Configuration xml. (UTF8 encoded byte array)
      *  @param StreamInterface|null $value Value to set for the configurationXml property.
     */
-    public function setConfigurationXml(?StreamInterface $value ): void {
-        $this->configurationXml = $value;
+    public function setConfigurationXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('configurationXml', $value);
     }
 
     /**
      * Sets the fileName property value. Configuration file name (.plist
      *  @param string|null $value Value to set for the fileName property.
     */
-    public function setFileName(?string $value ): void {
-        $this->fileName = $value;
+    public function setFileName(?string $value): void {
+        $this->getBackingStore()->set('fileName', $value);
     }
 
 }

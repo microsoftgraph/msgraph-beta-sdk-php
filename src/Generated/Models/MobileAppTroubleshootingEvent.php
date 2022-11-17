@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
     /**
-     * @var string|null $applicationId Intune application identifier.
-    */
-    private ?string $applicationId = null;
-    
-    /**
-     * @var array<AppLogCollectionRequest>|null $appLogCollectionRequests The collection property of AppLogUploadRequest.
-    */
-    private ?array $appLogCollectionRequests = null;
-    
-    /**
-     * @var array<MobileAppTroubleshootingHistoryItem>|null $history Intune Mobile Application Troubleshooting History Item
-    */
-    private ?array $history = null;
-    
-    /**
-     * @var string|null $managedDeviceIdentifier Device identifier created or collected by Intune.
-    */
-    private ?string $managedDeviceIdentifier = null;
-    
-    /**
-     * @var string|null $userId Identifier for the user that tried to enroll the device.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new MobileAppTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->applicationId;
+        return $this->getBackingStore()->get('applicationId');
     }
 
     /**
@@ -63,7 +38,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return array<AppLogCollectionRequest>|null
     */
     public function getAppLogCollectionRequests(): ?array {
-        return $this->appLogCollectionRequests;
+        return $this->getBackingStore()->get('appLogCollectionRequests');
     }
 
     /**
@@ -86,7 +61,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return array<MobileAppTroubleshootingHistoryItem>|null
     */
     public function getHistory(): ?array {
-        return $this->history;
+        return $this->getBackingStore()->get('history');
     }
 
     /**
@@ -94,7 +69,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getManagedDeviceIdentifier(): ?string {
-        return $this->managedDeviceIdentifier;
+        return $this->getBackingStore()->get('managedDeviceIdentifier');
     }
 
     /**
@@ -102,7 +77,7 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -111,51 +86,51 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('applicationId', $this->applicationId);
-        $writer->writeCollectionOfObjectValues('appLogCollectionRequests', $this->appLogCollectionRequests);
-        $writer->writeCollectionOfObjectValues('history', $this->history);
-        $writer->writeStringValue('managedDeviceIdentifier', $this->managedDeviceIdentifier);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('applicationId', $this->getApplicationId());
+        $writer->writeCollectionOfObjectValues('appLogCollectionRequests', $this->getAppLogCollectionRequests());
+        $writer->writeCollectionOfObjectValues('history', $this->getHistory());
+        $writer->writeStringValue('managedDeviceIdentifier', $this->getManagedDeviceIdentifier());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the applicationId property value. Intune application identifier.
      *  @param string|null $value Value to set for the applicationId property.
     */
-    public function setApplicationId(?string $value ): void {
-        $this->applicationId = $value;
+    public function setApplicationId(?string $value): void {
+        $this->getBackingStore()->set('applicationId', $value);
     }
 
     /**
      * Sets the appLogCollectionRequests property value. The collection property of AppLogUploadRequest.
      *  @param array<AppLogCollectionRequest>|null $value Value to set for the appLogCollectionRequests property.
     */
-    public function setAppLogCollectionRequests(?array $value ): void {
-        $this->appLogCollectionRequests = $value;
+    public function setAppLogCollectionRequests(?array $value): void {
+        $this->getBackingStore()->set('appLogCollectionRequests', $value);
     }
 
     /**
      * Sets the history property value. Intune Mobile Application Troubleshooting History Item
      *  @param array<MobileAppTroubleshootingHistoryItem>|null $value Value to set for the history property.
     */
-    public function setHistory(?array $value ): void {
-        $this->history = $value;
+    public function setHistory(?array $value): void {
+        $this->getBackingStore()->set('history', $value);
     }
 
     /**
      * Sets the managedDeviceIdentifier property value. Device identifier created or collected by Intune.
      *  @param string|null $value Value to set for the managedDeviceIdentifier property.
     */
-    public function setManagedDeviceIdentifier(?string $value ): void {
-        $this->managedDeviceIdentifier = $value;
+    public function setManagedDeviceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceIdentifier', $value);
     }
 
     /**
      * Sets the userId property value. Identifier for the user that tried to enroll the device.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

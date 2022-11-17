@@ -6,28 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable 
+class MuteAllPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $clientContext The clientContext property
-    */
-    private ?string $clientContext = null;
-    
-    /**
-     * @var array<string>|null $participants The participants property
-    */
-    private ?array $participants = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new muteAllPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -44,8 +38,16 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -53,7 +55,7 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getClientContext(): ?string {
-        return $this->clientContext;
+        return $this->getBackingStore()->get('clientContext');
     }
 
     /**
@@ -73,7 +75,7 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getParticipants(): ?array {
-        return $this->participants;
+        return $this->getBackingStore()->get('participants');
     }
 
     /**
@@ -81,33 +83,33 @@ class MuteAllPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('clientContext', $this->clientContext);
-        $writer->writeCollectionOfPrimitiveValues('participants', $this->participants);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('clientContext', $this->getClientContext());
+        $writer->writeCollectionOfPrimitiveValues('participants', $this->getParticipants());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the clientContext property value. The clientContext property
      *  @param string|null $value Value to set for the clientContext property.
     */
-    public function setClientContext(?string $value ): void {
-        $this->clientContext = $value;
+    public function setClientContext(?string $value): void {
+        $this->getBackingStore()->set('clientContext', $value);
     }
 
     /**
      * Sets the participants property value. The participants property
      *  @param array<string>|null $value Value to set for the participants property.
     */
-    public function setParticipants(?array $value ): void {
-        $this->participants = $value;
+    public function setParticipants(?array $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
 }

@@ -10,91 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudAppSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $deploymentPackageUrl The deploymentPackageUrl property
-    */
-    private ?string $deploymentPackageUrl = null;
-    
-    /**
-     * @var string|null $destinationServiceName The destinationServiceName property
-    */
-    private ?string $destinationServiceName = null;
-    
-    /**
-     * @var bool|null $isSigned The isSigned property
-    */
-    private ?bool $isSigned = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $manifest The manifest property
-    */
-    private ?string $manifest = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var ApplicationPermissionsRequired|null $permissionsRequired The permissionsRequired property
-    */
-    private ?ApplicationPermissionsRequired $permissionsRequired = null;
-    
-    /**
-     * @var string|null $platform The platform property
-    */
-    private ?string $platform = null;
-    
-    /**
-     * @var string|null $policyName The policyName property
-    */
-    private ?string $policyName = null;
-    
-    /**
-     * @var string|null $publisher The publisher property
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
-    private ?string $riskScore = null;
-    
-    /**
-     * @var array<string>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
-    
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
-    private ?SecurityVendorInformation $vendorInformation = null;
-    
-    /**
      * Instantiates a new cloudAppSecurityProfile and sets the default values.
     */
     public function __construct() {
@@ -116,7 +31,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -124,7 +39,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -132,7 +47,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -140,7 +55,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDeploymentPackageUrl(): ?string {
-        return $this->deploymentPackageUrl;
+        return $this->getBackingStore()->get('deploymentPackageUrl');
     }
 
     /**
@@ -148,7 +63,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDestinationServiceName(): ?string {
-        return $this->destinationServiceName;
+        return $this->getBackingStore()->get('destinationServiceName');
     }
 
     /**
@@ -183,7 +98,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSigned(): ?bool {
-        return $this->isSigned;
+        return $this->getBackingStore()->get('isSigned');
     }
 
     /**
@@ -191,7 +106,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -199,7 +114,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getManifest(): ?string {
-        return $this->manifest;
+        return $this->getBackingStore()->get('manifest');
     }
 
     /**
@@ -207,7 +122,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -215,7 +130,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return ApplicationPermissionsRequired|null
     */
     public function getPermissionsRequired(): ?ApplicationPermissionsRequired {
-        return $this->permissionsRequired;
+        return $this->getBackingStore()->get('permissionsRequired');
     }
 
     /**
@@ -223,7 +138,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getPlatform(): ?string {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -231,7 +146,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->policyName;
+        return $this->getBackingStore()->get('policyName');
     }
 
     /**
@@ -239,7 +154,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -247,7 +162,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->riskScore;
+        return $this->getBackingStore()->get('riskScore');
     }
 
     /**
@@ -255,7 +170,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -263,7 +178,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -271,7 +186,7 @@ class CloudAppSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->vendorInformation;
+        return $this->getBackingStore()->get('vendorInformation');
     }
 
     /**
@@ -280,159 +195,159 @@ class CloudAppSecurityProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('deploymentPackageUrl', $this->deploymentPackageUrl);
-        $writer->writeStringValue('destinationServiceName', $this->destinationServiceName);
-        $writer->writeBooleanValue('isSigned', $this->isSigned);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('manifest', $this->manifest);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeEnumValue('permissionsRequired', $this->permissionsRequired);
-        $writer->writeStringValue('platform', $this->platform);
-        $writer->writeStringValue('policyName', $this->policyName);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeStringValue('riskScore', $this->riskScore);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('deploymentPackageUrl', $this->getDeploymentPackageUrl());
+        $writer->writeStringValue('destinationServiceName', $this->getDestinationServiceName());
+        $writer->writeBooleanValue('isSigned', $this->getIsSigned());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('manifest', $this->getManifest());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeEnumValue('permissionsRequired', $this->getPermissionsRequired());
+        $writer->writeStringValue('platform', $this->getPlatform());
+        $writer->writeStringValue('policyName', $this->getPolicyName());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeStringValue('riskScore', $this->getRiskScore());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
     }
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deploymentPackageUrl property value. The deploymentPackageUrl property
      *  @param string|null $value Value to set for the deploymentPackageUrl property.
     */
-    public function setDeploymentPackageUrl(?string $value ): void {
-        $this->deploymentPackageUrl = $value;
+    public function setDeploymentPackageUrl(?string $value): void {
+        $this->getBackingStore()->set('deploymentPackageUrl', $value);
     }
 
     /**
      * Sets the destinationServiceName property value. The destinationServiceName property
      *  @param string|null $value Value to set for the destinationServiceName property.
     */
-    public function setDestinationServiceName(?string $value ): void {
-        $this->destinationServiceName = $value;
+    public function setDestinationServiceName(?string $value): void {
+        $this->getBackingStore()->set('destinationServiceName', $value);
     }
 
     /**
      * Sets the isSigned property value. The isSigned property
      *  @param bool|null $value Value to set for the isSigned property.
     */
-    public function setIsSigned(?bool $value ): void {
-        $this->isSigned = $value;
+    public function setIsSigned(?bool $value): void {
+        $this->getBackingStore()->set('isSigned', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the manifest property value. The manifest property
      *  @param string|null $value Value to set for the manifest property.
     */
-    public function setManifest(?string $value ): void {
-        $this->manifest = $value;
+    public function setManifest(?string $value): void {
+        $this->getBackingStore()->set('manifest', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the permissionsRequired property value. The permissionsRequired property
      *  @param ApplicationPermissionsRequired|null $value Value to set for the permissionsRequired property.
     */
-    public function setPermissionsRequired(?ApplicationPermissionsRequired $value ): void {
-        $this->permissionsRequired = $value;
+    public function setPermissionsRequired(?ApplicationPermissionsRequired $value): void {
+        $this->getBackingStore()->set('permissionsRequired', $value);
     }
 
     /**
      * Sets the platform property value. The platform property
      *  @param string|null $value Value to set for the platform property.
     */
-    public function setPlatform(?string $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?string $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**
      * Sets the policyName property value. The policyName property
      *  @param string|null $value Value to set for the policyName property.
     */
-    public function setPolicyName(?string $value ): void {
-        $this->policyName = $value;
+    public function setPolicyName(?string $value): void {
+        $this->getBackingStore()->set('policyName', $value);
     }
 
     /**
      * Sets the publisher property value. The publisher property
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the riskScore property value. The riskScore property
      *  @param string|null $value Value to set for the riskScore property.
     */
-    public function setRiskScore(?string $value ): void {
-        $this->riskScore = $value;
+    public function setRiskScore(?string $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
-    public function setVendorInformation(?SecurityVendorInformation $value ): void {
-        $this->vendorInformation = $value;
+    public function setVendorInformation(?SecurityVendorInformation $value): void {
+        $this->getBackingStore()->set('vendorInformation', $value);
     }
 
 }

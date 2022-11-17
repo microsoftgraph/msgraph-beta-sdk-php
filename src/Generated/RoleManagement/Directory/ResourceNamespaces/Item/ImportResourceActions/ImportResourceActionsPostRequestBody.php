@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Parsable 
+class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $format The format property
-    */
-    private ?string $format = null;
-    
-    /**
-     * @var bool|null $overwriteResourceNamespace The overwriteResourceNamespace property
-    */
-    private ?bool $overwriteResourceNamespace = null;
-    
-    /**
-     * @var string|null $value The value property
-    */
-    private ?string $value = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new importResourceActionsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -49,8 +38,16 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -71,7 +68,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->format;
+        return $this->getBackingStore()->get('format');
     }
 
     /**
@@ -79,7 +76,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
      * @return bool|null
     */
     public function getOverwriteResourceNamespace(): ?bool {
-        return $this->overwriteResourceNamespace;
+        return $this->getBackingStore()->get('overwriteResourceNamespace');
     }
 
     /**
@@ -87,7 +84,7 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -95,42 +92,42 @@ class ImportResourceActionsPostRequestBody implements AdditionalDataHolder, Pars
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('format', $this->format);
-        $writer->writeBooleanValue('overwriteResourceNamespace', $this->overwriteResourceNamespace);
-        $writer->writeStringValue('value', $this->value);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('format', $this->getFormat());
+        $writer->writeBooleanValue('overwriteResourceNamespace', $this->getOverwriteResourceNamespace());
+        $writer->writeStringValue('value', $this->getValue());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the format property value. The format property
      *  @param string|null $value Value to set for the format property.
     */
-    public function setFormat(?string $value ): void {
-        $this->format = $value;
+    public function setFormat(?string $value): void {
+        $this->getBackingStore()->set('format', $value);
     }
 
     /**
      * Sets the overwriteResourceNamespace property value. The overwriteResourceNamespace property
      *  @param bool|null $value Value to set for the overwriteResourceNamespace property.
     */
-    public function setOverwriteResourceNamespace(?bool $value ): void {
-        $this->overwriteResourceNamespace = $value;
+    public function setOverwriteResourceNamespace(?bool $value): void {
+        $this->getBackingStore()->set('overwriteResourceNamespace', $value);
     }
 
     /**
      * Sets the value property value. The value property
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

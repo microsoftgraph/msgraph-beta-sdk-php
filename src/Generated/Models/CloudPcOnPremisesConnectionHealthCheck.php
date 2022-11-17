@@ -7,58 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Parsable 
+class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $additionalDetails Additional details about the health check or the recommended action.
-    */
-    private ?string $additionalDetails = null;
-    
-    /**
-     * @var string|null $displayName The display name for this health check item.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $endDateTime The end time of the health check item. Read-only.
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var CloudPcOnPremisesConnectionHealthCheckErrorType|null $errorType The type of error that occurred during this health check.
-    */
-    private ?CloudPcOnPremisesConnectionHealthCheckErrorType $errorType = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $recommendedAction The recommended action to fix the corresponding error.
-    */
-    private ?string $recommendedAction = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The start time of the health check item. Read-only.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var CloudPcOnPremisesConnectionStatus|null $status The status property
-    */
-    private ?CloudPcOnPremisesConnectionStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new cloudPcOnPremisesConnectionHealthCheck and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.cloudPcOnPremisesConnectionHealthCheck');
     }
@@ -76,8 +40,8 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -85,7 +49,15 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
-        return $this->additionalDetails;
+        return $this->getBackingStore()->get('additionalDetails');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -93,7 +65,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -101,7 +73,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -109,7 +81,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return CloudPcOnPremisesConnectionHealthCheckErrorType|null
     */
     public function getErrorType(): ?CloudPcOnPremisesConnectionHealthCheckErrorType {
-        return $this->errorType;
+        return $this->getBackingStore()->get('errorType');
     }
 
     /**
@@ -135,7 +107,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -143,7 +115,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return string|null
     */
     public function getRecommendedAction(): ?string {
-        return $this->recommendedAction;
+        return $this->getBackingStore()->get('recommendedAction');
     }
 
     /**
@@ -151,7 +123,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -159,7 +131,7 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getStatus(): ?CloudPcOnPremisesConnectionStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -167,87 +139,87 @@ class CloudPcOnPremisesConnectionHealthCheck implements AdditionalDataHolder, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('additionalDetails', $this->additionalDetails);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeEnumValue('errorType', $this->errorType);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('recommendedAction', $this->recommendedAction);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeEnumValue('errorType', $this->getErrorType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('recommendedAction', $this->getRecommendedAction());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the additionalDetails property value. Additional details about the health check or the recommended action.
      *  @param string|null $value Value to set for the additionalDetails property.
     */
-    public function setAdditionalDetails(?string $value ): void {
-        $this->additionalDetails = $value;
+    public function setAdditionalDetails(?string $value): void {
+        $this->getBackingStore()->set('additionalDetails', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for this health check item.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the endDateTime property value. The end time of the health check item. Read-only.
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the errorType property value. The type of error that occurred during this health check.
      *  @param CloudPcOnPremisesConnectionHealthCheckErrorType|null $value Value to set for the errorType property.
     */
-    public function setErrorType(?CloudPcOnPremisesConnectionHealthCheckErrorType $value ): void {
-        $this->errorType = $value;
+    public function setErrorType(?CloudPcOnPremisesConnectionHealthCheckErrorType $value): void {
+        $this->getBackingStore()->set('errorType', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recommendedAction property value. The recommended action to fix the corresponding error.
      *  @param string|null $value Value to set for the recommendedAction property.
     */
-    public function setRecommendedAction(?string $value ): void {
-        $this->recommendedAction = $value;
+    public function setRecommendedAction(?string $value): void {
+        $this->getBackingStore()->set('recommendedAction', $value);
     }
 
     /**
      * Sets the startDateTime property value. The start time of the health check item. Read-only.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcOnPremisesConnectionStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?CloudPcOnPremisesConnectionStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

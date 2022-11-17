@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerTaskDetails extends PlannerDelta implements Parsable 
 {
     /**
-     * @var PlannerChecklistItems|null $checklist The collection of checklist items on the task.
-    */
-    private ?PlannerChecklistItems $checklist = null;
-    
-    /**
-     * @var string|null $description Description of the task.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var ItemBody|null $notes Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
-    */
-    private ?ItemBody $notes = null;
-    
-    /**
-     * @var PlannerPreviewType|null $previewType This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-    */
-    private ?PlannerPreviewType $previewType = null;
-    
-    /**
-     * @var PlannerExternalReferences|null $references The collection of references on the task.
-    */
-    private ?PlannerExternalReferences $references = null;
-    
-    /**
      * Instantiates a new plannerTaskDetails and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return PlannerChecklistItems|null
     */
     public function getChecklist(): ?PlannerChecklistItems {
-        return $this->checklist;
+        return $this->getBackingStore()->get('checklist');
     }
 
     /**
@@ -63,7 +38,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -86,7 +61,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return ItemBody|null
     */
     public function getNotes(): ?ItemBody {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -94,7 +69,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return PlannerPreviewType|null
     */
     public function getPreviewType(): ?PlannerPreviewType {
-        return $this->previewType;
+        return $this->getBackingStore()->get('previewType');
     }
 
     /**
@@ -102,7 +77,7 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
      * @return PlannerExternalReferences|null
     */
     public function getReferences(): ?PlannerExternalReferences {
-        return $this->references;
+        return $this->getBackingStore()->get('references');
     }
 
     /**
@@ -111,51 +86,51 @@ class PlannerTaskDetails extends PlannerDelta implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('checklist', $this->checklist);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeObjectValue('notes', $this->notes);
-        $writer->writeEnumValue('previewType', $this->previewType);
-        $writer->writeObjectValue('references', $this->references);
+        $writer->writeObjectValue('checklist', $this->getChecklist());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('notes', $this->getNotes());
+        $writer->writeEnumValue('previewType', $this->getPreviewType());
+        $writer->writeObjectValue('references', $this->getReferences());
     }
 
     /**
      * Sets the checklist property value. The collection of checklist items on the task.
      *  @param PlannerChecklistItems|null $value Value to set for the checklist property.
     */
-    public function setChecklist(?PlannerChecklistItems $value ): void {
-        $this->checklist = $value;
+    public function setChecklist(?PlannerChecklistItems $value): void {
+        $this->getBackingStore()->set('checklist', $value);
     }
 
     /**
      * Sets the description property value. Description of the task.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the notes property value. Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
      *  @param ItemBody|null $value Value to set for the notes property.
     */
-    public function setNotes(?ItemBody $value ): void {
-        $this->notes = $value;
+    public function setNotes(?ItemBody $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      *  @param PlannerPreviewType|null $value Value to set for the previewType property.
     */
-    public function setPreviewType(?PlannerPreviewType $value ): void {
-        $this->previewType = $value;
+    public function setPreviewType(?PlannerPreviewType $value): void {
+        $this->getBackingStore()->set('previewType', $value);
     }
 
     /**
      * Sets the references property value. The collection of references on the task.
      *  @param PlannerExternalReferences|null $value Value to set for the references property.
     */
-    public function setReferences(?PlannerExternalReferences $value ): void {
-        $this->references = $value;
+    public function setReferences(?PlannerExternalReferences $value): void {
+        $this->getBackingStore()->set('references', $value);
     }
 
 }

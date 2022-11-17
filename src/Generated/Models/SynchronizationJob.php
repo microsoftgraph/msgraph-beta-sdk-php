@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationJob extends Entity implements Parsable 
 {
     /**
-     * @var SynchronizationSchedule|null $schedule Schedule used to run the job. Read-only.
-    */
-    private ?SynchronizationSchedule $schedule = null;
-    
-    /**
-     * @var SynchronizationSchema|null $schema The synchronization schema configured for the job.
-    */
-    private ?SynchronizationSchema $schema = null;
-    
-    /**
-     * @var SynchronizationStatus|null $status Status of the job, which includes when the job was last run, current job state, and errors.
-    */
-    private ?SynchronizationStatus $status = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $synchronizationJobSettings Settings associated with the job. Some settings are inherited from the template.
-    */
-    private ?array $synchronizationJobSettings = null;
-    
-    /**
-     * @var string|null $templateId Identifier of the synchronization template this job is based on.
-    */
-    private ?string $templateId = null;
-    
-    /**
      * Instantiates a new synchronizationJob and sets the default values.
     */
     public function __construct() {
@@ -70,7 +45,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @return SynchronizationSchedule|null
     */
     public function getSchedule(): ?SynchronizationSchedule {
-        return $this->schedule;
+        return $this->getBackingStore()->get('schedule');
     }
 
     /**
@@ -78,7 +53,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @return SynchronizationSchema|null
     */
     public function getSchema(): ?SynchronizationSchema {
-        return $this->schema;
+        return $this->getBackingStore()->get('schema');
     }
 
     /**
@@ -86,7 +61,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @return SynchronizationStatus|null
     */
     public function getStatus(): ?SynchronizationStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -94,7 +69,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getSynchronizationJobSettings(): ?array {
-        return $this->synchronizationJobSettings;
+        return $this->getBackingStore()->get('synchronizationJobSettings');
     }
 
     /**
@@ -102,7 +77,7 @@ class SynchronizationJob extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -111,51 +86,51 @@ class SynchronizationJob extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('schedule', $this->schedule);
-        $writer->writeObjectValue('schema', $this->schema);
-        $writer->writeObjectValue('status', $this->status);
-        $writer->writeCollectionOfObjectValues('synchronizationJobSettings', $this->synchronizationJobSettings);
-        $writer->writeStringValue('templateId', $this->templateId);
+        $writer->writeObjectValue('schedule', $this->getSchedule());
+        $writer->writeObjectValue('schema', $this->getSchema());
+        $writer->writeObjectValue('status', $this->getStatus());
+        $writer->writeCollectionOfObjectValues('synchronizationJobSettings', $this->getSynchronizationJobSettings());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
     }
 
     /**
      * Sets the schedule property value. Schedule used to run the job. Read-only.
      *  @param SynchronizationSchedule|null $value Value to set for the schedule property.
     */
-    public function setSchedule(?SynchronizationSchedule $value ): void {
-        $this->schedule = $value;
+    public function setSchedule(?SynchronizationSchedule $value): void {
+        $this->getBackingStore()->set('schedule', $value);
     }
 
     /**
      * Sets the schema property value. The synchronization schema configured for the job.
      *  @param SynchronizationSchema|null $value Value to set for the schema property.
     */
-    public function setSchema(?SynchronizationSchema $value ): void {
-        $this->schema = $value;
+    public function setSchema(?SynchronizationSchema $value): void {
+        $this->getBackingStore()->set('schema', $value);
     }
 
     /**
      * Sets the status property value. Status of the job, which includes when the job was last run, current job state, and errors.
      *  @param SynchronizationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?SynchronizationStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?SynchronizationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the synchronizationJobSettings property value. Settings associated with the job. Some settings are inherited from the template.
      *  @param array<KeyValuePair>|null $value Value to set for the synchronizationJobSettings property.
     */
-    public function setSynchronizationJobSettings(?array $value ): void {
-        $this->synchronizationJobSettings = $value;
+    public function setSynchronizationJobSettings(?array $value): void {
+        $this->getBackingStore()->set('synchronizationJobSettings', $value);
     }
 
     /**
      * Sets the templateId property value. Identifier of the synchronization template this job is based on.
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
 }

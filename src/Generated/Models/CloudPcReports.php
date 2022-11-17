@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcReports extends Entity implements Parsable 
 {
     /**
-     * @var array<CloudPcExportJob>|null $exportJobs The export jobs created for downloading reports.
-    */
-    private ?array $exportJobs = null;
-    
-    /**
      * Instantiates a new CloudPcReports and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class CloudPcReports extends Entity implements Parsable
      * @return array<CloudPcExportJob>|null
     */
     public function getExportJobs(): ?array {
-        return $this->exportJobs;
+        return $this->getBackingStore()->get('exportJobs');
     }
 
     /**
@@ -55,15 +50,15 @@ class CloudPcReports extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('exportJobs', $this->exportJobs);
+        $writer->writeCollectionOfObjectValues('exportJobs', $this->getExportJobs());
     }
 
     /**
      * Sets the exportJobs property value. The export jobs created for downloading reports.
      *  @param array<CloudPcExportJob>|null $value Value to set for the exportJobs property.
     */
-    public function setExportJobs(?array $value ): void {
-        $this->exportJobs = $value;
+    public function setExportJobs(?array $value): void {
+        $this->getBackingStore()->set('exportJobs', $value);
     }
 
 }

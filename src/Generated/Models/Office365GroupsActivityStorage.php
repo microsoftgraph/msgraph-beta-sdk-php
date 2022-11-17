@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityStorage extends Entity implements Parsable 
 {
     /**
-     * @var int|null $mailboxStorageUsedInBytes The storage used in group mailbox.
-    */
-    private ?int $mailboxStorageUsedInBytes = null;
-    
-    /**
-     * @var Date|null $reportDate The snapshot date for Exchange and SharePoint used storage.
-    */
-    private ?Date $reportDate = null;
-    
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
-    private ?string $reportPeriod = null;
-    
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
-    private ?Date $reportRefreshDate = null;
-    
-    /**
-     * @var int|null $siteStorageUsedInBytes The storage used in SharePoint document library.
-    */
-    private ?int $siteStorageUsedInBytes = null;
-    
-    /**
      * Instantiates a new Office365GroupsActivityStorage and sets the default values.
     */
     public function __construct() {
@@ -71,7 +46,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return int|null
     */
     public function getMailboxStorageUsedInBytes(): ?int {
-        return $this->mailboxStorageUsedInBytes;
+        return $this->getBackingStore()->get('mailboxStorageUsedInBytes');
     }
 
     /**
@@ -79,7 +54,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->reportDate;
+        return $this->getBackingStore()->get('reportDate');
     }
 
     /**
@@ -87,7 +62,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->reportPeriod;
+        return $this->getBackingStore()->get('reportPeriod');
     }
 
     /**
@@ -95,7 +70,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->reportRefreshDate;
+        return $this->getBackingStore()->get('reportRefreshDate');
     }
 
     /**
@@ -103,7 +78,7 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
      * @return int|null
     */
     public function getSiteStorageUsedInBytes(): ?int {
-        return $this->siteStorageUsedInBytes;
+        return $this->getBackingStore()->get('siteStorageUsedInBytes');
     }
 
     /**
@@ -112,51 +87,51 @@ class Office365GroupsActivityStorage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('mailboxStorageUsedInBytes', $this->mailboxStorageUsedInBytes);
-        $writer->writeDateValue('reportDate', $this->reportDate);
-        $writer->writeStringValue('reportPeriod', $this->reportPeriod);
-        $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
-        $writer->writeIntegerValue('siteStorageUsedInBytes', $this->siteStorageUsedInBytes);
+        $writer->writeIntegerValue('mailboxStorageUsedInBytes', $this->getMailboxStorageUsedInBytes());
+        $writer->writeDateValue('reportDate', $this->getReportDate());
+        $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
+        $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('siteStorageUsedInBytes', $this->getSiteStorageUsedInBytes());
     }
 
     /**
      * Sets the mailboxStorageUsedInBytes property value. The storage used in group mailbox.
      *  @param int|null $value Value to set for the mailboxStorageUsedInBytes property.
     */
-    public function setMailboxStorageUsedInBytes(?int $value ): void {
-        $this->mailboxStorageUsedInBytes = $value;
+    public function setMailboxStorageUsedInBytes(?int $value): void {
+        $this->getBackingStore()->set('mailboxStorageUsedInBytes', $value);
     }
 
     /**
      * Sets the reportDate property value. The snapshot date for Exchange and SharePoint used storage.
      *  @param Date|null $value Value to set for the reportDate property.
     */
-    public function setReportDate(?Date $value ): void {
-        $this->reportDate = $value;
+    public function setReportDate(?Date $value): void {
+        $this->getBackingStore()->set('reportDate', $value);
     }
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
      *  @param string|null $value Value to set for the reportPeriod property.
     */
-    public function setReportPeriod(?string $value ): void {
-        $this->reportPeriod = $value;
+    public function setReportPeriod(?string $value): void {
+        $this->getBackingStore()->set('reportPeriod', $value);
     }
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
      *  @param Date|null $value Value to set for the reportRefreshDate property.
     */
-    public function setReportRefreshDate(?Date $value ): void {
-        $this->reportRefreshDate = $value;
+    public function setReportRefreshDate(?Date $value): void {
+        $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
      * Sets the siteStorageUsedInBytes property value. The storage used in SharePoint document library.
      *  @param int|null $value Value to set for the siteStorageUsedInBytes property.
     */
-    public function setSiteStorageUsedInBytes(?int $value ): void {
-        $this->siteStorageUsedInBytes = $value;
+    public function setSiteStorageUsedInBytes(?int $value): void {
+        $this->getBackingStore()->set('siteStorageUsedInBytes', $value);
     }
 
 }

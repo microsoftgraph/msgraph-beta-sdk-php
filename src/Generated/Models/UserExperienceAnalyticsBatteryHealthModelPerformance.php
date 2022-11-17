@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDevices Number of active devices for that model. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDevices = null;
-    
-    /**
-     * @var int|null $averageBatteryAgeInDays The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values -2147483648 to 2147483647
-    */
-    private ?int $averageBatteryAgeInDays = null;
-    
-    /**
-     * @var int|null $averageEstimatedRuntimeInMinutes The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $averageEstimatedRuntimeInMinutes = null;
-    
-    /**
-     * @var int|null $averageMaxCapacityPercentage The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
-    */
-    private ?int $averageMaxCapacityPercentage = null;
-    
-    /**
-     * @var string|null $manufacturer Name of the device manufacturer.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The model name of the device.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var int|null $modelBatteryHealthScore A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
-    */
-    private ?int $modelBatteryHealthScore = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthModelPerformance and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getActiveDevices(): ?int {
-        return $this->activeDevices;
+        return $this->getBackingStore()->get('activeDevices');
     }
 
     /**
@@ -73,7 +38,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageBatteryAgeInDays(): ?int {
-        return $this->averageBatteryAgeInDays;
+        return $this->getBackingStore()->get('averageBatteryAgeInDays');
     }
 
     /**
@@ -81,7 +46,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageEstimatedRuntimeInMinutes(): ?int {
-        return $this->averageEstimatedRuntimeInMinutes;
+        return $this->getBackingStore()->get('averageEstimatedRuntimeInMinutes');
     }
 
     /**
@@ -89,7 +54,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getAverageMaxCapacityPercentage(): ?int {
-        return $this->averageMaxCapacityPercentage;
+        return $this->getBackingStore()->get('averageMaxCapacityPercentage');
     }
 
     /**
@@ -114,7 +79,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -122,7 +87,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -130,7 +95,7 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
      * @return int|null
     */
     public function getModelBatteryHealthScore(): ?int {
-        return $this->modelBatteryHealthScore;
+        return $this->getBackingStore()->get('modelBatteryHealthScore');
     }
 
     /**
@@ -139,69 +104,69 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDevices', $this->activeDevices);
-        $writer->writeIntegerValue('averageBatteryAgeInDays', $this->averageBatteryAgeInDays);
-        $writer->writeIntegerValue('averageEstimatedRuntimeInMinutes', $this->averageEstimatedRuntimeInMinutes);
-        $writer->writeIntegerValue('averageMaxCapacityPercentage', $this->averageMaxCapacityPercentage);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeIntegerValue('modelBatteryHealthScore', $this->modelBatteryHealthScore);
+        $writer->writeIntegerValue('activeDevices', $this->getActiveDevices());
+        $writer->writeIntegerValue('averageBatteryAgeInDays', $this->getAverageBatteryAgeInDays());
+        $writer->writeIntegerValue('averageEstimatedRuntimeInMinutes', $this->getAverageEstimatedRuntimeInMinutes());
+        $writer->writeIntegerValue('averageMaxCapacityPercentage', $this->getAverageMaxCapacityPercentage());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeIntegerValue('modelBatteryHealthScore', $this->getModelBatteryHealthScore());
     }
 
     /**
      * Sets the activeDevices property value. Number of active devices for that model. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDevices property.
     */
-    public function setActiveDevices(?int $value ): void {
-        $this->activeDevices = $value;
+    public function setActiveDevices(?int $value): void {
+        $this->getBackingStore()->set('activeDevices', $value);
     }
 
     /**
      * Sets the averageBatteryAgeInDays property value. The mean of the battery age for all devices of a given model in a tenant. Unit in days. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the averageBatteryAgeInDays property.
     */
-    public function setAverageBatteryAgeInDays(?int $value ): void {
-        $this->averageBatteryAgeInDays = $value;
+    public function setAverageBatteryAgeInDays(?int $value): void {
+        $this->getBackingStore()->set('averageBatteryAgeInDays', $value);
     }
 
     /**
      * Sets the averageEstimatedRuntimeInMinutes property value. The mean of the estimated runtimes on full charge for all devices of a given model. Unit in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the averageEstimatedRuntimeInMinutes property.
     */
-    public function setAverageEstimatedRuntimeInMinutes(?int $value ): void {
-        $this->averageEstimatedRuntimeInMinutes = $value;
+    public function setAverageEstimatedRuntimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('averageEstimatedRuntimeInMinutes', $value);
     }
 
     /**
      * Sets the averageMaxCapacityPercentage property value. The mean of the maximum capacity for all devices of a given model. Maximum capacity measures the full charge vs. design capacity for a device’s batteries.. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the averageMaxCapacityPercentage property.
     */
-    public function setAverageMaxCapacityPercentage(?int $value ): void {
-        $this->averageMaxCapacityPercentage = $value;
+    public function setAverageMaxCapacityPercentage(?int $value): void {
+        $this->getBackingStore()->set('averageMaxCapacityPercentage', $value);
     }
 
     /**
      * Sets the manufacturer property value. Name of the device manufacturer.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The model name of the device.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the modelBatteryHealthScore property value. A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the modelBatteryHealthScore property.
     */
-    public function setModelBatteryHealthScore(?int $value ): void {
-        $this->modelBatteryHealthScore = $value;
+    public function setModelBatteryHealthScore(?int $value): void {
+        $this->getBackingStore()->set('modelBatteryHealthScore', $value);
     }
 
 }

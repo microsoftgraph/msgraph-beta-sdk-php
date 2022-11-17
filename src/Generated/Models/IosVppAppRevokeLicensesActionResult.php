@@ -7,68 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsable 
+class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var VppTokenActionFailureReason|null $actionFailureReason Possible types of reasons for an Apple Volume Purchase Program token action failure.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?VppTokenActionFailureReason $actionFailureReason = null;
-    
-    /**
-     * @var string|null $actionName Action name
-    */
-    private ?string $actionName = null;
-    
-    /**
-     * @var ActionState|null $actionState The actionState property
-    */
-    private ?ActionState $actionState = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $failedLicensesCount A count of the number of licenses for which revoke failed.
-    */
-    private ?int $failedLicensesCount = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Time the action state was last updated
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId DeviceId associated with the action.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $startDateTime Time the action was initiated
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var int|null $totalLicensesCount A count of the number of licenses for which revoke was attempted.
-    */
-    private ?int $totalLicensesCount = null;
-    
-    /**
-     * @var string|null $userId UserId associated with the action.
-    */
-    private ?string $userId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new iosVppAppRevokeLicensesActionResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.iosVppAppRevokeLicensesActionResult');
     }
@@ -87,7 +41,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return VppTokenActionFailureReason|null
     */
     public function getActionFailureReason(): ?VppTokenActionFailureReason {
-        return $this->actionFailureReason;
+        return $this->getBackingStore()->get('actionFailureReason');
     }
 
     /**
@@ -95,7 +49,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getActionName(): ?string {
-        return $this->actionName;
+        return $this->getBackingStore()->get('actionName');
     }
 
     /**
@@ -103,15 +57,23 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
-        return $this->actionState;
+        return $this->getBackingStore()->get('actionState');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -119,7 +81,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return int|null
     */
     public function getFailedLicensesCount(): ?int {
-        return $this->failedLicensesCount;
+        return $this->getBackingStore()->get('failedLicensesCount');
     }
 
     /**
@@ -147,7 +109,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -155,7 +117,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -163,7 +125,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -171,7 +133,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -179,7 +141,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return int|null
     */
     public function getTotalLicensesCount(): ?int {
-        return $this->totalLicensesCount;
+        return $this->getBackingStore()->get('totalLicensesCount');
     }
 
     /**
@@ -187,7 +149,7 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -195,105 +157,105 @@ class IosVppAppRevokeLicensesActionResult implements AdditionalDataHolder, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('actionFailureReason', $this->actionFailureReason);
-        $writer->writeStringValue('actionName', $this->actionName);
-        $writer->writeEnumValue('actionState', $this->actionState);
-        $writer->writeIntegerValue('failedLicensesCount', $this->failedLicensesCount);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeIntegerValue('totalLicensesCount', $this->totalLicensesCount);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('actionFailureReason', $this->getActionFailureReason());
+        $writer->writeStringValue('actionName', $this->getActionName());
+        $writer->writeEnumValue('actionState', $this->getActionState());
+        $writer->writeIntegerValue('failedLicensesCount', $this->getFailedLicensesCount());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeIntegerValue('totalLicensesCount', $this->getTotalLicensesCount());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
-    public function setActionFailureReason(?VppTokenActionFailureReason $value ): void {
-        $this->actionFailureReason = $value;
+    public function setActionFailureReason(?VppTokenActionFailureReason $value): void {
+        $this->getBackingStore()->set('actionFailureReason', $value);
     }
 
     /**
      * Sets the actionName property value. Action name
      *  @param string|null $value Value to set for the actionName property.
     */
-    public function setActionName(?string $value ): void {
-        $this->actionName = $value;
+    public function setActionName(?string $value): void {
+        $this->getBackingStore()->set('actionName', $value);
     }
 
     /**
      * Sets the actionState property value. The actionState property
      *  @param ActionState|null $value Value to set for the actionState property.
     */
-    public function setActionState(?ActionState $value ): void {
-        $this->actionState = $value;
+    public function setActionState(?ActionState $value): void {
+        $this->getBackingStore()->set('actionState', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the failedLicensesCount property value. A count of the number of licenses for which revoke failed.
      *  @param int|null $value Value to set for the failedLicensesCount property.
     */
-    public function setFailedLicensesCount(?int $value ): void {
-        $this->failedLicensesCount = $value;
+    public function setFailedLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('failedLicensesCount', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Time the action state was last updated
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. DeviceId associated with the action.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the startDateTime property value. Time the action was initiated
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the totalLicensesCount property value. A count of the number of licenses for which revoke was attempted.
      *  @param int|null $value Value to set for the totalLicensesCount property.
     */
-    public function setTotalLicensesCount(?int $value ): void {
-        $this->totalLicensesCount = $value;
+    public function setTotalLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicensesCount', $value);
     }
 
     /**
      * Sets the userId property value. UserId associated with the action.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

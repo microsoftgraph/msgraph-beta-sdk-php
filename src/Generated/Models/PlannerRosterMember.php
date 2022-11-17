@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerRosterMember extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $roles Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
-    */
-    private ?array $roles = null;
-    
-    /**
-     * @var string|null $tenantId Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $userId Identifier of the user.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new plannerRosterMember and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class PlannerRosterMember extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoles(): ?array {
-        return $this->roles;
+        return $this->getBackingStore()->get('roles');
     }
 
     /**
@@ -66,7 +51,7 @@ class PlannerRosterMember extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -74,7 +59,7 @@ class PlannerRosterMember extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -83,33 +68,33 @@ class PlannerRosterMember extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('roles', $this->roles);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeCollectionOfPrimitiveValues('roles', $this->getRoles());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the roles property value. Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
      *  @param array<string>|null $value Value to set for the roles property.
     */
-    public function setRoles(?array $value ): void {
-        $this->roles = $value;
+    public function setRoles(?array $value): void {
+        $this->getBackingStore()->set('roles', $value);
     }
 
     /**
      * Sets the tenantId property value. Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the userId property value. Identifier of the user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

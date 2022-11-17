@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Acronym extends SearchAnswer implements Parsable 
 {
     /**
-     * @var string|null $standsFor What the acronym stands for.
-    */
-    private ?string $standsFor = null;
-    
-    /**
-     * @var AnswerState|null $state The state property
-    */
-    private ?AnswerState $state = null;
-    
-    /**
      * Instantiates a new Acronym and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class Acronym extends SearchAnswer implements Parsable
      * @return string|null
     */
     public function getStandsFor(): ?string {
-        return $this->standsFor;
+        return $this->getBackingStore()->get('standsFor');
     }
 
     /**
@@ -60,7 +50,7 @@ class Acronym extends SearchAnswer implements Parsable
      * @return AnswerState|null
     */
     public function getState(): ?AnswerState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -69,24 +59,24 @@ class Acronym extends SearchAnswer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('standsFor', $this->standsFor);
-        $writer->writeEnumValue('state', $this->state);
+        $writer->writeStringValue('standsFor', $this->getStandsFor());
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the standsFor property value. What the acronym stands for.
      *  @param string|null $value Value to set for the standsFor property.
     */
-    public function setStandsFor(?string $value ): void {
-        $this->standsFor = $value;
+    public function setStandsFor(?string $value): void {
+        $this->getBackingStore()->set('standsFor', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param AnswerState|null $value Value to set for the state property.
     */
-    public function setState(?AnswerState $value ): void {
-        $this->state = $value;
+    public function setState(?AnswerState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

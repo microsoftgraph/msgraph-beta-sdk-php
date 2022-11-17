@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * @var array<string>|null $values A collection of non-empty strings for the associated presentation.
-    */
-    private ?array $values = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationValueMultiText and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
      * @return array<string>|null
     */
     public function getValues(): ?array {
-        return $this->values;
+        return $this->getBackingStore()->get('values');
     }
 
     /**
@@ -55,15 +50,15 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('values', $this->values);
+        $writer->writeCollectionOfPrimitiveValues('values', $this->getValues());
     }
 
     /**
      * Sets the values property value. A collection of non-empty strings for the associated presentation.
      *  @param array<string>|null $value Value to set for the values property.
     */
-    public function setValues(?array $value ): void {
-        $this->values = $value;
+    public function setValues(?array $value): void {
+        $this->getBackingStore()->set('values', $value);
     }
 
 }

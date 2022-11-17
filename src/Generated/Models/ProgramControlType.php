@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramControlType extends Entity implements Parsable 
 {
     /**
-     * @var string|null $controlTypeGroupId The controlTypeGroupId property
-    */
-    private ?string $controlTypeGroupId = null;
-    
-    /**
-     * @var string|null $displayName The name of the program control type
-    */
-    private ?string $displayName = null;
-    
-    /**
      * Instantiates a new ProgramControlType and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class ProgramControlType extends Entity implements Parsable
      * @return string|null
     */
     public function getControlTypeGroupId(): ?string {
-        return $this->controlTypeGroupId;
+        return $this->getBackingStore()->get('controlTypeGroupId');
     }
 
     /**
@@ -48,7 +38,7 @@ class ProgramControlType extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -69,24 +59,24 @@ class ProgramControlType extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('controlTypeGroupId', $this->controlTypeGroupId);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('controlTypeGroupId', $this->getControlTypeGroupId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the controlTypeGroupId property value. The controlTypeGroupId property
      *  @param string|null $value Value to set for the controlTypeGroupId property.
     */
-    public function setControlTypeGroupId(?string $value ): void {
-        $this->controlTypeGroupId = $value;
+    public function setControlTypeGroupId(?string $value): void {
+        $this->getBackingStore()->set('controlTypeGroupId', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the program control type
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

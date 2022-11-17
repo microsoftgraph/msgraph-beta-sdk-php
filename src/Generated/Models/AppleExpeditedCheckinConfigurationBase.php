@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $enableExpeditedCheckin Gets or sets whether to enable expedited device check-ins.
-    */
-    private ?bool $enableExpeditedCheckin = null;
-    
-    /**
      * Instantiates a new AppleExpeditedCheckinConfigurationBase and sets the default values.
     */
     public function __construct() {
@@ -42,7 +37,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
      * @return bool|null
     */
     public function getEnableExpeditedCheckin(): ?bool {
-        return $this->enableExpeditedCheckin;
+        return $this->getBackingStore()->get('enableExpeditedCheckin');
     }
 
     /**
@@ -62,15 +57,15 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('enableExpeditedCheckin', $this->enableExpeditedCheckin);
+        $writer->writeBooleanValue('enableExpeditedCheckin', $this->getEnableExpeditedCheckin());
     }
 
     /**
      * Sets the enableExpeditedCheckin property value. Gets or sets whether to enable expedited device check-ins.
      *  @param bool|null $value Value to set for the enableExpeditedCheckin property.
     */
-    public function setEnableExpeditedCheckin(?bool $value ): void {
-        $this->enableExpeditedCheckin = $value;
+    public function setEnableExpeditedCheckin(?bool $value): void {
+        $this->getBackingStore()->set('enableExpeditedCheckin', $value);
     }
 
 }

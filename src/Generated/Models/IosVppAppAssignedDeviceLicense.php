@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements Parsable 
 {
     /**
-     * @var string|null $deviceName The device name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $managedDeviceId The managed device ID.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
      * Instantiates a new IosVppAppAssignedDeviceLicense and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -60,7 +50,7 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -69,24 +59,24 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
     }
 
     /**
      * Sets the deviceName property value. The device name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. The managed device ID.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
 }

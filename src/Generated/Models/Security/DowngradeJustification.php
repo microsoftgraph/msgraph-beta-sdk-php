@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DowngradeJustification implements AdditionalDataHolder, Parsable 
+class DowngradeJustification implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $isDowngradeJustified Indicates whether the downgrade is or is not justified.
-    */
-    private ?bool $isDowngradeJustified = null;
-    
-    /**
-     * @var string|null $justificationMessage Message that indicates why a downgrade is justified. The message will appear in administrative logs.
-    */
-    private ?string $justificationMessage = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new downgradeJustification and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.security.downgradeJustification');
     }
@@ -50,8 +39,16 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsDowngradeJustified(): ?bool {
-        return $this->isDowngradeJustified;
+        return $this->getBackingStore()->get('isDowngradeJustified');
     }
 
     /**
@@ -80,7 +77,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getJustificationMessage(): ?string {
-        return $this->justificationMessage;
+        return $this->getBackingStore()->get('justificationMessage');
     }
 
     /**
@@ -88,7 +85,7 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +93,42 @@ class DowngradeJustification implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('isDowngradeJustified', $this->isDowngradeJustified);
-        $writer->writeStringValue('justificationMessage', $this->justificationMessage);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('isDowngradeJustified', $this->getIsDowngradeJustified());
+        $writer->writeStringValue('justificationMessage', $this->getJustificationMessage());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the isDowngradeJustified property value. Indicates whether the downgrade is or is not justified.
      *  @param bool|null $value Value to set for the isDowngradeJustified property.
     */
-    public function setIsDowngradeJustified(?bool $value ): void {
-        $this->isDowngradeJustified = $value;
+    public function setIsDowngradeJustified(?bool $value): void {
+        $this->getBackingStore()->set('isDowngradeJustified', $value);
     }
 
     /**
      * Sets the justificationMessage property value. Message that indicates why a downgrade is justified. The message will appear in administrative logs.
      *  @param string|null $value Value to set for the justificationMessage property.
     */
-    public function setJustificationMessage(?string $value ): void {
-        $this->justificationMessage = $value;
+    public function setJustificationMessage(?string $value): void {
+        $this->getBackingStore()->set('justificationMessage', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

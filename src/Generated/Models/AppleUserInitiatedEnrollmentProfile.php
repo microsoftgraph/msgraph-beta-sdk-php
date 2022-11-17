@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<AppleEnrollmentProfileAssignment>|null $assignments The list of assignments for this profile.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var array<AppleOwnerTypeEnrollmentType>|null $availableEnrollmentTypeOptions List of available enrollment type options
-    */
-    private ?array $availableEnrollmentTypeOptions = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Profile creation time
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var AppleUserInitiatedEnrollmentType|null $defaultEnrollmentType The defaultEnrollmentType property
-    */
-    private ?AppleUserInitiatedEnrollmentType $defaultEnrollmentType = null;
-    
-    /**
-     * @var string|null $description Description of the profile
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Name of the profile
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Profile last modified time
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var DevicePlatformType|null $platform Supported platform types.
-    */
-    private ?DevicePlatformType $platform = null;
-    
-    /**
-     * @var int|null $priority Priority, 0 is highest
-    */
-    private ?int $priority = null;
-    
-    /**
      * Instantiates a new appleUserInitiatedEnrollmentProfile and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return array<AppleEnrollmentProfileAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -84,7 +39,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return array<AppleOwnerTypeEnrollmentType>|null
     */
     public function getAvailableEnrollmentTypeOptions(): ?array {
-        return $this->availableEnrollmentTypeOptions;
+        return $this->getBackingStore()->get('availableEnrollmentTypeOptions');
     }
 
     /**
@@ -92,7 +47,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -100,7 +55,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return AppleUserInitiatedEnrollmentType|null
     */
     public function getDefaultEnrollmentType(): ?AppleUserInitiatedEnrollmentType {
-        return $this->defaultEnrollmentType;
+        return $this->getBackingStore()->get('defaultEnrollmentType');
     }
 
     /**
@@ -108,7 +63,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -116,7 +71,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -143,7 +98,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -151,7 +106,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -159,7 +114,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -168,87 +123,87 @@ class AppleUserInitiatedEnrollmentProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeCollectionOfObjectValues('availableEnrollmentTypeOptions', $this->availableEnrollmentTypeOptions);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeEnumValue('defaultEnrollmentType', $this->defaultEnrollmentType);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('platform', $this->platform);
-        $writer->writeIntegerValue('priority', $this->priority);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeCollectionOfObjectValues('availableEnrollmentTypeOptions', $this->getAvailableEnrollmentTypeOptions());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeEnumValue('defaultEnrollmentType', $this->getDefaultEnrollmentType());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('platform', $this->getPlatform());
+        $writer->writeIntegerValue('priority', $this->getPriority());
     }
 
     /**
      * Sets the assignments property value. The list of assignments for this profile.
      *  @param array<AppleEnrollmentProfileAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the availableEnrollmentTypeOptions property value. List of available enrollment type options
      *  @param array<AppleOwnerTypeEnrollmentType>|null $value Value to set for the availableEnrollmentTypeOptions property.
     */
-    public function setAvailableEnrollmentTypeOptions(?array $value ): void {
-        $this->availableEnrollmentTypeOptions = $value;
+    public function setAvailableEnrollmentTypeOptions(?array $value): void {
+        $this->getBackingStore()->set('availableEnrollmentTypeOptions', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Profile creation time
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the defaultEnrollmentType property value. The defaultEnrollmentType property
      *  @param AppleUserInitiatedEnrollmentType|null $value Value to set for the defaultEnrollmentType property.
     */
-    public function setDefaultEnrollmentType(?AppleUserInitiatedEnrollmentType $value ): void {
-        $this->defaultEnrollmentType = $value;
+    public function setDefaultEnrollmentType(?AppleUserInitiatedEnrollmentType $value): void {
+        $this->getBackingStore()->set('defaultEnrollmentType', $value);
     }
 
     /**
      * Sets the description property value. Description of the profile
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the profile
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Profile last modified time
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
-    public function setPlatform(?DevicePlatformType $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**
      * Sets the priority property value. Priority, 0 is highest
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
 }

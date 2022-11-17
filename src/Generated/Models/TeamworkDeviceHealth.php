@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceHealth extends Entity implements Parsable 
 {
     /**
-     * @var TeamworkConnection|null $connection The connection property
-    */
-    private ?TeamworkConnection $connection = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy Identity of the user who created the device health document.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The UTC date and time when the device health document was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var TeamworkHardwareHealth|null $hardwareHealth Health details about the device hardware.
-    */
-    private ?TeamworkHardwareHealth $hardwareHealth = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device health details.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The UTC date and time when the device health detail was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var TeamworkLoginStatus|null $loginStatus The login status of Microsoft Teams, Skype for Business, and Exchange.
-    */
-    private ?TeamworkLoginStatus $loginStatus = null;
-    
-    /**
-     * @var TeamworkPeripheralsHealth|null $peripheralsHealth Health details about all peripherals (for example, speaker and microphone) attached to a device.
-    */
-    private ?TeamworkPeripheralsHealth $peripheralsHealth = null;
-    
-    /**
-     * @var TeamworkSoftwareUpdateHealth|null $softwareUpdateHealth Software updates available for the device.
-    */
-    private ?TeamworkSoftwareUpdateHealth $softwareUpdateHealth = null;
-    
-    /**
      * Instantiates a new teamworkDeviceHealth and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkConnection|null
     */
     public function getConnection(): ?TeamworkConnection {
-        return $this->connection;
+        return $this->getBackingStore()->get('connection');
     }
 
     /**
@@ -84,7 +39,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -92,7 +47,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -119,7 +74,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkHardwareHealth|null
     */
     public function getHardwareHealth(): ?TeamworkHardwareHealth {
-        return $this->hardwareHealth;
+        return $this->getBackingStore()->get('hardwareHealth');
     }
 
     /**
@@ -127,7 +82,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -135,7 +90,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -143,7 +98,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkLoginStatus|null
     */
     public function getLoginStatus(): ?TeamworkLoginStatus {
-        return $this->loginStatus;
+        return $this->getBackingStore()->get('loginStatus');
     }
 
     /**
@@ -151,7 +106,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkPeripheralsHealth|null
     */
     public function getPeripheralsHealth(): ?TeamworkPeripheralsHealth {
-        return $this->peripheralsHealth;
+        return $this->getBackingStore()->get('peripheralsHealth');
     }
 
     /**
@@ -159,7 +114,7 @@ class TeamworkDeviceHealth extends Entity implements Parsable
      * @return TeamworkSoftwareUpdateHealth|null
     */
     public function getSoftwareUpdateHealth(): ?TeamworkSoftwareUpdateHealth {
-        return $this->softwareUpdateHealth;
+        return $this->getBackingStore()->get('softwareUpdateHealth');
     }
 
     /**
@@ -168,87 +123,87 @@ class TeamworkDeviceHealth extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('connection', $this->connection);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('hardwareHealth', $this->hardwareHealth);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('loginStatus', $this->loginStatus);
-        $writer->writeObjectValue('peripheralsHealth', $this->peripheralsHealth);
-        $writer->writeObjectValue('softwareUpdateHealth', $this->softwareUpdateHealth);
+        $writer->writeObjectValue('connection', $this->getConnection());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('hardwareHealth', $this->getHardwareHealth());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('loginStatus', $this->getLoginStatus());
+        $writer->writeObjectValue('peripheralsHealth', $this->getPeripheralsHealth());
+        $writer->writeObjectValue('softwareUpdateHealth', $this->getSoftwareUpdateHealth());
     }
 
     /**
      * Sets the connection property value. The connection property
      *  @param TeamworkConnection|null $value Value to set for the connection property.
     */
-    public function setConnection(?TeamworkConnection $value ): void {
-        $this->connection = $value;
+    public function setConnection(?TeamworkConnection $value): void {
+        $this->getBackingStore()->set('connection', $value);
     }
 
     /**
      * Sets the createdBy property value. Identity of the user who created the device health document.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device health document was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the hardwareHealth property value. Health details about the device hardware.
      *  @param TeamworkHardwareHealth|null $value Value to set for the hardwareHealth property.
     */
-    public function setHardwareHealth(?TeamworkHardwareHealth $value ): void {
-        $this->hardwareHealth = $value;
+    public function setHardwareHealth(?TeamworkHardwareHealth $value): void {
+        $this->getBackingStore()->set('hardwareHealth', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user who last modified the device health details.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The UTC date and time when the device health detail was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the loginStatus property value. The login status of Microsoft Teams, Skype for Business, and Exchange.
      *  @param TeamworkLoginStatus|null $value Value to set for the loginStatus property.
     */
-    public function setLoginStatus(?TeamworkLoginStatus $value ): void {
-        $this->loginStatus = $value;
+    public function setLoginStatus(?TeamworkLoginStatus $value): void {
+        $this->getBackingStore()->set('loginStatus', $value);
     }
 
     /**
      * Sets the peripheralsHealth property value. Health details about all peripherals (for example, speaker and microphone) attached to a device.
      *  @param TeamworkPeripheralsHealth|null $value Value to set for the peripheralsHealth property.
     */
-    public function setPeripheralsHealth(?TeamworkPeripheralsHealth $value ): void {
-        $this->peripheralsHealth = $value;
+    public function setPeripheralsHealth(?TeamworkPeripheralsHealth $value): void {
+        $this->getBackingStore()->set('peripheralsHealth', $value);
     }
 
     /**
      * Sets the softwareUpdateHealth property value. Software updates available for the device.
      *  @param TeamworkSoftwareUpdateHealth|null $value Value to set for the softwareUpdateHealth property.
     */
-    public function setSoftwareUpdateHealth(?TeamworkSoftwareUpdateHealth $value ): void {
-        $this->softwareUpdateHealth = $value;
+    public function setSoftwareUpdateHealth(?TeamworkSoftwareUpdateHealth $value): void {
+        $this->getBackingStore()->set('softwareUpdateHealth', $value);
     }
 
 }

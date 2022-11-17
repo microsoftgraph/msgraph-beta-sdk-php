@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MediaPrompt extends Prompt implements Parsable 
 {
     /**
-     * @var int|null $loop The loop property
-    */
-    private ?int $loop = null;
-    
-    /**
-     * @var MediaInfo|null $mediaInfo The mediaInfo property
-    */
-    private ?MediaInfo $mediaInfo = null;
-    
-    /**
      * Instantiates a new MediaPrompt and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class MediaPrompt extends Prompt implements Parsable
      * @return int|null
     */
     public function getLoop(): ?int {
-        return $this->loop;
+        return $this->getBackingStore()->get('loop');
     }
 
     /**
@@ -60,7 +50,7 @@ class MediaPrompt extends Prompt implements Parsable
      * @return MediaInfo|null
     */
     public function getMediaInfo(): ?MediaInfo {
-        return $this->mediaInfo;
+        return $this->getBackingStore()->get('mediaInfo');
     }
 
     /**
@@ -69,24 +59,24 @@ class MediaPrompt extends Prompt implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('loop', $this->loop);
-        $writer->writeObjectValue('mediaInfo', $this->mediaInfo);
+        $writer->writeIntegerValue('loop', $this->getLoop());
+        $writer->writeObjectValue('mediaInfo', $this->getMediaInfo());
     }
 
     /**
      * Sets the loop property value. The loop property
      *  @param int|null $value Value to set for the loop property.
     */
-    public function setLoop(?int $value ): void {
-        $this->loop = $value;
+    public function setLoop(?int $value): void {
+        $this->getBackingStore()->set('loop', $value);
     }
 
     /**
      * Sets the mediaInfo property value. The mediaInfo property
      *  @param MediaInfo|null $value Value to set for the mediaInfo property.
     */
-    public function setMediaInfo(?MediaInfo $value ): void {
-        $this->mediaInfo = $value;
+    public function setMediaInfo(?MediaInfo $value): void {
+        $this->getBackingStore()->set('mediaInfo', $value);
     }
 
 }

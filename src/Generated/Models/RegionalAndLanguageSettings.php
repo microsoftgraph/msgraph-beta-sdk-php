@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegionalAndLanguageSettings extends Entity implements Parsable 
 {
     /**
-     * @var array<LocaleInfo>|null $authoringLanguages Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.
-    */
-    private ?array $authoringLanguages = null;
-    
-    /**
-     * @var LocaleInfo|null $defaultDisplayLanguage The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable.
-    */
-    private ?LocaleInfo $defaultDisplayLanguage = null;
-    
-    /**
-     * @var LocaleInfo|null $defaultRegionalFormat The locale that drives the default date, time, and calendar formatting.Returned by default.
-    */
-    private ?LocaleInfo $defaultRegionalFormat = null;
-    
-    /**
-     * @var LocaleInfo|null $defaultSpeechInputLanguage The language a user expected to use as input for text to speech scenarios.Returned by default.
-    */
-    private ?LocaleInfo $defaultSpeechInputLanguage = null;
-    
-    /**
-     * @var LocaleInfo|null $defaultTranslationLanguage The language a user expects to have documents, emails, and messages translated into.Returned by default.
-    */
-    private ?LocaleInfo $defaultTranslationLanguage = null;
-    
-    /**
-     * @var RegionalFormatOverrides|null $regionalFormatOverrides Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default.
-    */
-    private ?RegionalFormatOverrides $regionalFormatOverrides = null;
-    
-    /**
-     * @var TranslationPreferences|null $translationPreferences The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable.
-    */
-    private ?TranslationPreferences $translationPreferences = null;
-    
-    /**
      * Instantiates a new regionalAndLanguageSettings and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return array<LocaleInfo>|null
     */
     public function getAuthoringLanguages(): ?array {
-        return $this->authoringLanguages;
+        return $this->getBackingStore()->get('authoringLanguages');
     }
 
     /**
@@ -73,7 +38,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultDisplayLanguage(): ?LocaleInfo {
-        return $this->defaultDisplayLanguage;
+        return $this->getBackingStore()->get('defaultDisplayLanguage');
     }
 
     /**
@@ -81,7 +46,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultRegionalFormat(): ?LocaleInfo {
-        return $this->defaultRegionalFormat;
+        return $this->getBackingStore()->get('defaultRegionalFormat');
     }
 
     /**
@@ -89,7 +54,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultSpeechInputLanguage(): ?LocaleInfo {
-        return $this->defaultSpeechInputLanguage;
+        return $this->getBackingStore()->get('defaultSpeechInputLanguage');
     }
 
     /**
@@ -97,7 +62,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return LocaleInfo|null
     */
     public function getDefaultTranslationLanguage(): ?LocaleInfo {
-        return $this->defaultTranslationLanguage;
+        return $this->getBackingStore()->get('defaultTranslationLanguage');
     }
 
     /**
@@ -122,7 +87,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return RegionalFormatOverrides|null
     */
     public function getRegionalFormatOverrides(): ?RegionalFormatOverrides {
-        return $this->regionalFormatOverrides;
+        return $this->getBackingStore()->get('regionalFormatOverrides');
     }
 
     /**
@@ -130,7 +95,7 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
      * @return TranslationPreferences|null
     */
     public function getTranslationPreferences(): ?TranslationPreferences {
-        return $this->translationPreferences;
+        return $this->getBackingStore()->get('translationPreferences');
     }
 
     /**
@@ -139,69 +104,69 @@ class RegionalAndLanguageSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('authoringLanguages', $this->authoringLanguages);
-        $writer->writeObjectValue('defaultDisplayLanguage', $this->defaultDisplayLanguage);
-        $writer->writeObjectValue('defaultRegionalFormat', $this->defaultRegionalFormat);
-        $writer->writeObjectValue('defaultSpeechInputLanguage', $this->defaultSpeechInputLanguage);
-        $writer->writeObjectValue('defaultTranslationLanguage', $this->defaultTranslationLanguage);
-        $writer->writeObjectValue('regionalFormatOverrides', $this->regionalFormatOverrides);
-        $writer->writeObjectValue('translationPreferences', $this->translationPreferences);
+        $writer->writeCollectionOfObjectValues('authoringLanguages', $this->getAuthoringLanguages());
+        $writer->writeObjectValue('defaultDisplayLanguage', $this->getDefaultDisplayLanguage());
+        $writer->writeObjectValue('defaultRegionalFormat', $this->getDefaultRegionalFormat());
+        $writer->writeObjectValue('defaultSpeechInputLanguage', $this->getDefaultSpeechInputLanguage());
+        $writer->writeObjectValue('defaultTranslationLanguage', $this->getDefaultTranslationLanguage());
+        $writer->writeObjectValue('regionalFormatOverrides', $this->getRegionalFormatOverrides());
+        $writer->writeObjectValue('translationPreferences', $this->getTranslationPreferences());
     }
 
     /**
      * Sets the authoringLanguages property value. Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.
      *  @param array<LocaleInfo>|null $value Value to set for the authoringLanguages property.
     */
-    public function setAuthoringLanguages(?array $value ): void {
-        $this->authoringLanguages = $value;
+    public function setAuthoringLanguages(?array $value): void {
+        $this->getBackingStore()->set('authoringLanguages', $value);
     }
 
     /**
      * Sets the defaultDisplayLanguage property value. The  user's preferred user interface language (menus, buttons, ribbons, warning messages) for Microsoft web applications.Returned by default. Not nullable.
      *  @param LocaleInfo|null $value Value to set for the defaultDisplayLanguage property.
     */
-    public function setDefaultDisplayLanguage(?LocaleInfo $value ): void {
-        $this->defaultDisplayLanguage = $value;
+    public function setDefaultDisplayLanguage(?LocaleInfo $value): void {
+        $this->getBackingStore()->set('defaultDisplayLanguage', $value);
     }
 
     /**
      * Sets the defaultRegionalFormat property value. The locale that drives the default date, time, and calendar formatting.Returned by default.
      *  @param LocaleInfo|null $value Value to set for the defaultRegionalFormat property.
     */
-    public function setDefaultRegionalFormat(?LocaleInfo $value ): void {
-        $this->defaultRegionalFormat = $value;
+    public function setDefaultRegionalFormat(?LocaleInfo $value): void {
+        $this->getBackingStore()->set('defaultRegionalFormat', $value);
     }
 
     /**
      * Sets the defaultSpeechInputLanguage property value. The language a user expected to use as input for text to speech scenarios.Returned by default.
      *  @param LocaleInfo|null $value Value to set for the defaultSpeechInputLanguage property.
     */
-    public function setDefaultSpeechInputLanguage(?LocaleInfo $value ): void {
-        $this->defaultSpeechInputLanguage = $value;
+    public function setDefaultSpeechInputLanguage(?LocaleInfo $value): void {
+        $this->getBackingStore()->set('defaultSpeechInputLanguage', $value);
     }
 
     /**
      * Sets the defaultTranslationLanguage property value. The language a user expects to have documents, emails, and messages translated into.Returned by default.
      *  @param LocaleInfo|null $value Value to set for the defaultTranslationLanguage property.
     */
-    public function setDefaultTranslationLanguage(?LocaleInfo $value ): void {
-        $this->defaultTranslationLanguage = $value;
+    public function setDefaultTranslationLanguage(?LocaleInfo $value): void {
+        $this->getBackingStore()->set('defaultTranslationLanguage', $value);
     }
 
     /**
      * Sets the regionalFormatOverrides property value. Allows a user to override their defaultRegionalFormat with field specific formats.Returned by default.
      *  @param RegionalFormatOverrides|null $value Value to set for the regionalFormatOverrides property.
     */
-    public function setRegionalFormatOverrides(?RegionalFormatOverrides $value ): void {
-        $this->regionalFormatOverrides = $value;
+    public function setRegionalFormatOverrides(?RegionalFormatOverrides $value): void {
+        $this->getBackingStore()->set('regionalFormatOverrides', $value);
     }
 
     /**
      * Sets the translationPreferences property value. The user's preferred settings when consuming translated documents, emails, messages, and websites.Returned by default. Not nullable.
      *  @param TranslationPreferences|null $value Value to set for the translationPreferences property.
     */
-    public function setTranslationPreferences(?TranslationPreferences $value ): void {
-        $this->translationPreferences = $value;
+    public function setTranslationPreferences(?TranslationPreferences $value): void {
+        $this->getBackingStore()->set('translationPreferences', $value);
     }
 
 }

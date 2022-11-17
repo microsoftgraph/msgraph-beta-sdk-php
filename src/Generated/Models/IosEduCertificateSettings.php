@@ -6,64 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 use Psr\Http\Message\StreamInterface;
 
-class IosEduCertificateSettings implements AdditionalDataHolder, Parsable 
+class IosEduCertificateSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $certFileName File name to display in UI.
-    */
-    private ?string $certFileName = null;
-    
-    /**
-     * @var string|null $certificateTemplateName PKCS Certificate Template Name.
-    */
-    private ?string $certificateTemplateName = null;
-    
-    /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
-    */
-    private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
-    
-    /**
-     * @var int|null $certificateValidityPeriodValue Value for the Certificate Validity Period.
-    */
-    private ?int $certificateValidityPeriodValue = null;
-    
-    /**
-     * @var string|null $certificationAuthority PKCS Certification Authority.
-    */
-    private ?string $certificationAuthority = null;
-    
-    /**
-     * @var string|null $certificationAuthorityName PKCS Certification Authority Name.
-    */
-    private ?string $certificationAuthorityName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-    */
-    private ?int $renewalThresholdPercentage = null;
-    
-    /**
-     * @var StreamInterface|null $trustedRootCertificate Trusted Root Certificate.
-    */
-    private ?StreamInterface $trustedRootCertificate = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new iosEduCertificateSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.iosEduCertificateSettings');
     }
@@ -81,8 +40,16 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -90,7 +57,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->certFileName;
+        return $this->getBackingStore()->get('certFileName');
     }
 
     /**
@@ -98,7 +65,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCertificateTemplateName(): ?string {
-        return $this->certificateTemplateName;
+        return $this->getBackingStore()->get('certificateTemplateName');
     }
 
     /**
@@ -106,7 +73,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->certificateValidityPeriodScale;
+        return $this->getBackingStore()->get('certificateValidityPeriodScale');
     }
 
     /**
@@ -114,7 +81,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->certificateValidityPeriodValue;
+        return $this->getBackingStore()->get('certificateValidityPeriodValue');
     }
 
     /**
@@ -122,7 +89,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCertificationAuthority(): ?string {
-        return $this->certificationAuthority;
+        return $this->getBackingStore()->get('certificationAuthority');
     }
 
     /**
@@ -130,7 +97,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCertificationAuthorityName(): ?string {
-        return $this->certificationAuthorityName;
+        return $this->getBackingStore()->get('certificationAuthorityName');
     }
 
     /**
@@ -157,7 +124,7 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -165,15 +132,15 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
+        return $this->getBackingStore()->get('renewalThresholdPercentage');
     }
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getTrustedRootCertificate(): StreamInterface {
-        return $this->trustedRootCertificate;
+    public function getTrustedRootCertificate(): ?StreamInterface {
+        return $this->getBackingStore()->get('trustedRootCertificate');
     }
 
     /**
@@ -181,96 +148,96 @@ class IosEduCertificateSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('certFileName', $this->certFileName);
-        $writer->writeStringValue('certificateTemplateName', $this->certificateTemplateName);
-        $writer->writeEnumValue('certificateValidityPeriodScale', $this->certificateValidityPeriodScale);
-        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
-        $writer->writeStringValue('certificationAuthority', $this->certificationAuthority);
-        $writer->writeStringValue('certificationAuthorityName', $this->certificationAuthorityName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
-        $writer->writeBinaryContent('trustedRootCertificate', $this->trustedRootCertificate);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('certFileName', $this->getCertFileName());
+        $writer->writeStringValue('certificateTemplateName', $this->getCertificateTemplateName());
+        $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
+        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
+        $writer->writeStringValue('certificationAuthority', $this->getCertificationAuthority());
+        $writer->writeStringValue('certificationAuthorityName', $this->getCertificationAuthorityName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
+        $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the certFileName property value. File name to display in UI.
      *  @param string|null $value Value to set for the certFileName property.
     */
-    public function setCertFileName(?string $value ): void {
-        $this->certFileName = $value;
+    public function setCertFileName(?string $value): void {
+        $this->getBackingStore()->set('certFileName', $value);
     }
 
     /**
      * Sets the certificateTemplateName property value. PKCS Certificate Template Name.
      *  @param string|null $value Value to set for the certificateTemplateName property.
     */
-    public function setCertificateTemplateName(?string $value ): void {
-        $this->certificateTemplateName = $value;
+    public function setCertificateTemplateName(?string $value): void {
+        $this->getBackingStore()->set('certificateTemplateName', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
-    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
-        $this->certificateValidityPeriodScale = $value;
+    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period.
      *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
-    public function setCertificateValidityPeriodValue(?int $value ): void {
-        $this->certificateValidityPeriodValue = $value;
+    public function setCertificateValidityPeriodValue(?int $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
     }
 
     /**
      * Sets the certificationAuthority property value. PKCS Certification Authority.
      *  @param string|null $value Value to set for the certificationAuthority property.
     */
-    public function setCertificationAuthority(?string $value ): void {
-        $this->certificationAuthority = $value;
+    public function setCertificationAuthority(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthority', $value);
     }
 
     /**
      * Sets the certificationAuthorityName property value. PKCS Certification Authority Name.
      *  @param string|null $value Value to set for the certificationAuthorityName property.
     */
-    public function setCertificationAuthorityName(?string $value ): void {
-        $this->certificationAuthorityName = $value;
+    public function setCertificationAuthorityName(?string $value): void {
+        $this->getBackingStore()->set('certificationAuthorityName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage. Valid values 1 to 99
      *  @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
+    public function setRenewalThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('renewalThresholdPercentage', $value);
     }
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate.
      *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
-    public function setTrustedRootCertificate(?StreamInterface $value ): void {
-        $this->trustedRootCertificate = $value;
+    public function setTrustedRootCertificate(?StreamInterface $value): void {
+        $this->getBackingStore()->set('trustedRootCertificate', $value);
     }
 
 }

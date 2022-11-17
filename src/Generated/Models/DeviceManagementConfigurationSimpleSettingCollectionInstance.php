@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSimpleSettingCollectionInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationSimpleSettingValue>|null $simpleSettingCollectionValue Simple setting collection instance value
-    */
-    private ?array $simpleSettingCollectionValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSimpleSettingCollectionInstance and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
      * @return array<DeviceManagementConfigurationSimpleSettingValue>|null
     */
     public function getSimpleSettingCollectionValue(): ?array {
-        return $this->simpleSettingCollectionValue;
+        return $this->getBackingStore()->get('simpleSettingCollectionValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationSimpleSettingCollectionInstance extends Devic
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('simpleSettingCollectionValue', $this->simpleSettingCollectionValue);
+        $writer->writeCollectionOfObjectValues('simpleSettingCollectionValue', $this->getSimpleSettingCollectionValue());
     }
 
     /**
      * Sets the simpleSettingCollectionValue property value. Simple setting collection instance value
      *  @param array<DeviceManagementConfigurationSimpleSettingValue>|null $value Value to set for the simpleSettingCollectionValue property.
     */
-    public function setSimpleSettingCollectionValue(?array $value ): void {
-        $this->simpleSettingCollectionValue = $value;
+    public function setSimpleSettingCollectionValue(?array $value): void {
+        $this->getBackingStore()->set('simpleSettingCollectionValue', $value);
     }
 
 }

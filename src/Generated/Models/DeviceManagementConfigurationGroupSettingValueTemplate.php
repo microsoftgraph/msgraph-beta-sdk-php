@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementConfigurationGroupSettingValueTemplate implements AdditionalDataHolder, Parsable 
+class DeviceManagementConfigurationGroupSettingValueTemplate implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSettingInstanceTemplate>|null $children Group setting value children
-    */
-    private ?array $children = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $settingValueTemplateId Setting Value Template Id
-    */
-    private ?string $settingValueTemplateId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementConfigurationGroupSettingValueTemplate and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagementConfigurationGroupSettingValueTemplate');
     }
@@ -50,8 +39,16 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +56,7 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return array<DeviceManagementConfigurationSettingInstanceTemplate>|null
     */
     public function getChildren(): ?array {
-        return $this->children;
+        return $this->getBackingStore()->get('children');
     }
 
     /**
@@ -80,7 +77,7 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @return string|null
     */
     public function getSettingValueTemplateId(): ?string {
-        return $this->settingValueTemplateId;
+        return $this->getBackingStore()->get('settingValueTemplateId');
     }
 
     /**
@@ -96,42 +93,42 @@ class DeviceManagementConfigurationGroupSettingValueTemplate implements Addition
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('children', $this->children);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('settingValueTemplateId', $this->settingValueTemplateId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('settingValueTemplateId', $this->getSettingValueTemplateId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the children property value. Group setting value children
      *  @param array<DeviceManagementConfigurationSettingInstanceTemplate>|null $value Value to set for the children property.
     */
-    public function setChildren(?array $value ): void {
-        $this->children = $value;
+    public function setChildren(?array $value): void {
+        $this->getBackingStore()->set('children', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the settingValueTemplateId property value. Setting Value Template Id
      *  @param string|null $value Value to set for the settingValueTemplateId property.
     */
-    public function setSettingValueTemplateId(?string $value ): void {
-        $this->settingValueTemplateId = $value;
+    public function setSettingValueTemplateId(?string $value): void {
+        $this->getBackingStore()->set('settingValueTemplateId', $value);
     }
 
 }

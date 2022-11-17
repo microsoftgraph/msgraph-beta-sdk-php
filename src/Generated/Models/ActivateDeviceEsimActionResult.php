@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var string|null $carrierUrl Carrier Url to activate the device eSIM
-    */
-    private ?string $carrierUrl = null;
-    
-    /**
      * Instantiates a new ActivateDeviceEsimActionResult and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
      * @return string|null
     */
     public function getCarrierUrl(): ?string {
-        return $this->carrierUrl;
+        return $this->getBackingStore()->get('carrierUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class ActivateDeviceEsimActionResult extends DeviceActionResult implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('carrierUrl', $this->carrierUrl);
+        $writer->writeStringValue('carrierUrl', $this->getCarrierUrl());
     }
 
     /**
      * Sets the carrierUrl property value. Carrier Url to activate the device eSIM
      *  @param string|null $value Value to set for the carrierUrl property.
     */
-    public function setCarrierUrl(?string $value ): void {
-        $this->carrierUrl = $value;
+    public function setCarrierUrl(?string $value): void {
+        $this->getBackingStore()->set('carrierUrl', $value);
     }
 
 }

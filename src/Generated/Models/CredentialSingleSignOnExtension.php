@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * @var array<KeyTypedValuePair>|null $configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $configurations = null;
-    
-    /**
-     * @var array<string>|null $domains Gets or sets a list of hosts or domain names for which the app extension performs SSO.
-    */
-    private ?array $domains = null;
-    
-    /**
-     * @var string|null $extensionIdentifier Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
-    */
-    private ?string $extensionIdentifier = null;
-    
-    /**
-     * @var string|null $realm Gets or sets the case-sensitive realm name for this profile.
-    */
-    private ?string $realm = null;
-    
-    /**
-     * @var string|null $teamIdentifier Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
-    */
-    private ?string $teamIdentifier = null;
-    
-    /**
      * Instantiates a new CredentialSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->configurations;
+        return $this->getBackingStore()->get('configurations');
     }
 
     /**
@@ -63,7 +38,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->domains;
+        return $this->getBackingStore()->get('domains');
     }
 
     /**
@@ -71,7 +46,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
      * @return string|null
     */
     public function getExtensionIdentifier(): ?string {
-        return $this->extensionIdentifier;
+        return $this->getBackingStore()->get('extensionIdentifier');
     }
 
     /**
@@ -94,7 +69,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->realm;
+        return $this->getBackingStore()->get('realm');
     }
 
     /**
@@ -102,7 +77,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
      * @return string|null
     */
     public function getTeamIdentifier(): ?string {
-        return $this->teamIdentifier;
+        return $this->getBackingStore()->get('teamIdentifier');
     }
 
     /**
@@ -111,51 +86,51 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('configurations', $this->configurations);
-        $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
-        $writer->writeStringValue('extensionIdentifier', $this->extensionIdentifier);
-        $writer->writeStringValue('realm', $this->realm);
-        $writer->writeStringValue('teamIdentifier', $this->teamIdentifier);
+        $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
+        $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
+        $writer->writeStringValue('extensionIdentifier', $this->getExtensionIdentifier());
+        $writer->writeStringValue('realm', $this->getRealm());
+        $writer->writeStringValue('teamIdentifier', $this->getTeamIdentifier());
     }
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
      *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
-    public function setConfigurations(?array $value ): void {
-        $this->configurations = $value;
+    public function setConfigurations(?array $value): void {
+        $this->getBackingStore()->set('configurations', $value);
     }
 
     /**
      * Sets the domains property value. Gets or sets a list of hosts or domain names for which the app extension performs SSO.
      *  @param array<string>|null $value Value to set for the domains property.
     */
-    public function setDomains(?array $value ): void {
-        $this->domains = $value;
+    public function setDomains(?array $value): void {
+        $this->getBackingStore()->set('domains', $value);
     }
 
     /**
      * Sets the extensionIdentifier property value. Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
      *  @param string|null $value Value to set for the extensionIdentifier property.
     */
-    public function setExtensionIdentifier(?string $value ): void {
-        $this->extensionIdentifier = $value;
+    public function setExtensionIdentifier(?string $value): void {
+        $this->getBackingStore()->set('extensionIdentifier', $value);
     }
 
     /**
      * Sets the realm property value. Gets or sets the case-sensitive realm name for this profile.
      *  @param string|null $value Value to set for the realm property.
     */
-    public function setRealm(?string $value ): void {
-        $this->realm = $value;
+    public function setRealm(?string $value): void {
+        $this->getBackingStore()->set('realm', $value);
     }
 
     /**
      * Sets the teamIdentifier property value. Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
      *  @param string|null $value Value to set for the teamIdentifier property.
     */
-    public function setTeamIdentifier(?string $value ): void {
-        $this->teamIdentifier = $value;
+    public function setTeamIdentifier(?string $value): void {
+        $this->getBackingStore()->set('teamIdentifier', $value);
     }
 
 }

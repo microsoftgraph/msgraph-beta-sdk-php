@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementTroubleshootingEvent extends Entity implements Parsable 
 {
     /**
-     * @var array<KeyValuePair>|null $additionalInformation A set of string key and string value pairs which provides additional information on the Troubleshooting event
-    */
-    private ?array $additionalInformation = null;
-    
-    /**
-     * @var string|null $correlationId Id used for tracing the failure in the service.
-    */
-    private ?string $correlationId = null;
-    
-    /**
-     * @var DateTime|null $eventDateTime Time when the event occurred .
-    */
-    private ?DateTime $eventDateTime = null;
-    
-    /**
-     * @var string|null $eventName Event Name corresponding to the Troubleshooting Event. It is an Optional field
-    */
-    private ?string $eventName = null;
-    
-    /**
-     * @var DeviceManagementTroubleshootingErrorDetails|null $troubleshootingErrorDetails Object containing detailed information about the error and its remediation.
-    */
-    private ?DeviceManagementTroubleshootingErrorDetails $troubleshootingErrorDetails = null;
-    
-    /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
@@ -65,7 +40,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getAdditionalInformation(): ?array {
-        return $this->additionalInformation;
+        return $this->getBackingStore()->get('additionalInformation');
     }
 
     /**
@@ -73,7 +48,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->correlationId;
+        return $this->getBackingStore()->get('correlationId');
     }
 
     /**
@@ -81,7 +56,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->eventDateTime;
+        return $this->getBackingStore()->get('eventDateTime');
     }
 
     /**
@@ -89,7 +64,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getEventName(): ?string {
-        return $this->eventName;
+        return $this->getBackingStore()->get('eventName');
     }
 
     /**
@@ -112,7 +87,7 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
      * @return DeviceManagementTroubleshootingErrorDetails|null
     */
     public function getTroubleshootingErrorDetails(): ?DeviceManagementTroubleshootingErrorDetails {
-        return $this->troubleshootingErrorDetails;
+        return $this->getBackingStore()->get('troubleshootingErrorDetails');
     }
 
     /**
@@ -121,51 +96,51 @@ class DeviceManagementTroubleshootingEvent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('additionalInformation', $this->additionalInformation);
-        $writer->writeStringValue('correlationId', $this->correlationId);
-        $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
-        $writer->writeStringValue('eventName', $this->eventName);
-        $writer->writeObjectValue('troubleshootingErrorDetails', $this->troubleshootingErrorDetails);
+        $writer->writeCollectionOfObjectValues('additionalInformation', $this->getAdditionalInformation());
+        $writer->writeStringValue('correlationId', $this->getCorrelationId());
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeStringValue('eventName', $this->getEventName());
+        $writer->writeObjectValue('troubleshootingErrorDetails', $this->getTroubleshootingErrorDetails());
     }
 
     /**
      * Sets the additionalInformation property value. A set of string key and string value pairs which provides additional information on the Troubleshooting event
      *  @param array<KeyValuePair>|null $value Value to set for the additionalInformation property.
     */
-    public function setAdditionalInformation(?array $value ): void {
-        $this->additionalInformation = $value;
+    public function setAdditionalInformation(?array $value): void {
+        $this->getBackingStore()->set('additionalInformation', $value);
     }
 
     /**
      * Sets the correlationId property value. Id used for tracing the failure in the service.
      *  @param string|null $value Value to set for the correlationId property.
     */
-    public function setCorrelationId(?string $value ): void {
-        $this->correlationId = $value;
+    public function setCorrelationId(?string $value): void {
+        $this->getBackingStore()->set('correlationId', $value);
     }
 
     /**
      * Sets the eventDateTime property value. Time when the event occurred .
      *  @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setEventDateTime(?DateTime $value ): void {
-        $this->eventDateTime = $value;
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
      * Sets the eventName property value. Event Name corresponding to the Troubleshooting Event. It is an Optional field
      *  @param string|null $value Value to set for the eventName property.
     */
-    public function setEventName(?string $value ): void {
-        $this->eventName = $value;
+    public function setEventName(?string $value): void {
+        $this->getBackingStore()->set('eventName', $value);
     }
 
     /**
      * Sets the troubleshootingErrorDetails property value. Object containing detailed information about the error and its remediation.
      *  @param DeviceManagementTroubleshootingErrorDetails|null $value Value to set for the troubleshootingErrorDetails property.
     */
-    public function setTroubleshootingErrorDetails(?DeviceManagementTroubleshootingErrorDetails $value ): void {
-        $this->troubleshootingErrorDetails = $value;
+    public function setTroubleshootingErrorDetails(?DeviceManagementTroubleshootingErrorDetails $value): void {
+        $this->getBackingStore()->set('troubleshootingErrorDetails', $value);
     }
 
 }

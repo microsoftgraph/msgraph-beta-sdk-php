@@ -7,78 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable 
+class RetireScheduledManagedDevice implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ComplianceStatus|null $complianceState The complianceState property
-    */
-    private ?ComplianceStatus $complianceState = null;
-    
-    /**
-     * @var string|null $deviceCompliancePolicyId Device Compliance PolicyId
-    */
-    private ?string $deviceCompliancePolicyId = null;
-    
-    /**
-     * @var string|null $deviceCompliancePolicyName Device Compliance Policy Name
-    */
-    private ?string $deviceCompliancePolicyName = null;
-    
-    /**
-     * @var DeviceType|null $deviceType Device type.
-    */
-    private ?DeviceType $deviceType = null;
-    
-    /**
-     * @var string|null $id Key of the entity.
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var string|null $managedDeviceId Managed DeviceId
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $managedDeviceName Managed Device Name
-    */
-    private ?string $managedDeviceName = null;
-    
-    /**
-     * @var ManagementAgentType|null $managementAgent Management agent type.
-    */
-    private ?ManagementAgentType $managementAgent = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ManagedDeviceOwnerType|null $ownerType Owner type of device.
-    */
-    private ?ManagedDeviceOwnerType $ownerType = null;
-    
-    /**
-     * @var DateTime|null $retireAfterDateTime Managed Device Retire After DateTime
-    */
-    private ?DateTime $retireAfterDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
-    private ?array $roleScopeTagIds = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new retireScheduledManagedDevice and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.retireScheduledManagedDevice');
     }
@@ -96,8 +40,16 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -105,7 +57,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return ComplianceStatus|null
     */
     public function getComplianceState(): ?ComplianceStatus {
-        return $this->complianceState;
+        return $this->getBackingStore()->get('complianceState');
     }
 
     /**
@@ -113,7 +65,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceCompliancePolicyId(): ?string {
-        return $this->deviceCompliancePolicyId;
+        return $this->getBackingStore()->get('deviceCompliancePolicyId');
     }
 
     /**
@@ -121,7 +73,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeviceCompliancePolicyName(): ?string {
-        return $this->deviceCompliancePolicyName;
+        return $this->getBackingStore()->get('deviceCompliancePolicyName');
     }
 
     /**
@@ -129,7 +81,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
-        return $this->deviceType;
+        return $this->getBackingStore()->get('deviceType');
     }
 
     /**
@@ -159,7 +111,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -167,7 +119,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -175,7 +127,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->managedDeviceName;
+        return $this->getBackingStore()->get('managedDeviceName');
     }
 
     /**
@@ -183,7 +135,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return ManagementAgentType|null
     */
     public function getManagementAgent(): ?ManagementAgentType {
-        return $this->managementAgent;
+        return $this->getBackingStore()->get('managementAgent');
     }
 
     /**
@@ -191,7 +143,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -199,7 +151,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return ManagedDeviceOwnerType|null
     */
     public function getOwnerType(): ?ManagedDeviceOwnerType {
-        return $this->ownerType;
+        return $this->getBackingStore()->get('ownerType');
     }
 
     /**
@@ -207,7 +159,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getRetireAfterDateTime(): ?DateTime {
-        return $this->retireAfterDateTime;
+        return $this->getBackingStore()->get('retireAfterDateTime');
     }
 
     /**
@@ -215,7 +167,7 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -223,123 +175,123 @@ class RetireScheduledManagedDevice implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('complianceState', $this->complianceState);
-        $writer->writeStringValue('deviceCompliancePolicyId', $this->deviceCompliancePolicyId);
-        $writer->writeStringValue('deviceCompliancePolicyName', $this->deviceCompliancePolicyName);
-        $writer->writeEnumValue('deviceType', $this->deviceType);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('managedDeviceName', $this->managedDeviceName);
-        $writer->writeEnumValue('managementAgent', $this->managementAgent);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('ownerType', $this->ownerType);
-        $writer->writeDateTimeValue('retireAfterDateTime', $this->retireAfterDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('complianceState', $this->getComplianceState());
+        $writer->writeStringValue('deviceCompliancePolicyId', $this->getDeviceCompliancePolicyId());
+        $writer->writeStringValue('deviceCompliancePolicyName', $this->getDeviceCompliancePolicyName());
+        $writer->writeEnumValue('deviceType', $this->getDeviceType());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeEnumValue('managementAgent', $this->getManagementAgent());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('ownerType', $this->getOwnerType());
+        $writer->writeDateTimeValue('retireAfterDateTime', $this->getRetireAfterDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the complianceState property value. The complianceState property
      *  @param ComplianceStatus|null $value Value to set for the complianceState property.
     */
-    public function setComplianceState(?ComplianceStatus $value ): void {
-        $this->complianceState = $value;
+    public function setComplianceState(?ComplianceStatus $value): void {
+        $this->getBackingStore()->set('complianceState', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicyId property value. Device Compliance PolicyId
      *  @param string|null $value Value to set for the deviceCompliancePolicyId property.
     */
-    public function setDeviceCompliancePolicyId(?string $value ): void {
-        $this->deviceCompliancePolicyId = $value;
+    public function setDeviceCompliancePolicyId(?string $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicyId', $value);
     }
 
     /**
      * Sets the deviceCompliancePolicyName property value. Device Compliance Policy Name
      *  @param string|null $value Value to set for the deviceCompliancePolicyName property.
     */
-    public function setDeviceCompliancePolicyName(?string $value ): void {
-        $this->deviceCompliancePolicyName = $value;
+    public function setDeviceCompliancePolicyName(?string $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicyName', $value);
     }
 
     /**
      * Sets the deviceType property value. Device type.
      *  @param DeviceType|null $value Value to set for the deviceType property.
     */
-    public function setDeviceType(?DeviceType $value ): void {
-        $this->deviceType = $value;
+    public function setDeviceType(?DeviceType $value): void {
+        $this->getBackingStore()->set('deviceType', $value);
     }
 
     /**
      * Sets the id property value. Key of the entity.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Managed DeviceId
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the managedDeviceName property value. Managed Device Name
      *  @param string|null $value Value to set for the managedDeviceName property.
     */
-    public function setManagedDeviceName(?string $value ): void {
-        $this->managedDeviceName = $value;
+    public function setManagedDeviceName(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceName', $value);
     }
 
     /**
      * Sets the managementAgent property value. Management agent type.
      *  @param ManagementAgentType|null $value Value to set for the managementAgent property.
     */
-    public function setManagementAgent(?ManagementAgentType $value ): void {
-        $this->managementAgent = $value;
+    public function setManagementAgent(?ManagementAgentType $value): void {
+        $this->getBackingStore()->set('managementAgent', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the ownerType property value. Owner type of device.
      *  @param ManagedDeviceOwnerType|null $value Value to set for the ownerType property.
     */
-    public function setOwnerType(?ManagedDeviceOwnerType $value ): void {
-        $this->ownerType = $value;
+    public function setOwnerType(?ManagedDeviceOwnerType $value): void {
+        $this->getBackingStore()->set('ownerType', $value);
     }
 
     /**
      * Sets the retireAfterDateTime property value. Managed Device Retire After DateTime
      *  @param DateTime|null $value Value to set for the retireAfterDateTime property.
     */
-    public function setRetireAfterDateTime(?DateTime $value ): void {
-        $this->retireAfterDateTime = $value;
+    public function setRetireAfterDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('retireAfterDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

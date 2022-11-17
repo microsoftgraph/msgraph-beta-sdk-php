@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppDependency extends MobileAppRelationship implements Parsable 
 {
     /**
-     * @var MobileAppDependencyType|null $dependencyType Indicates the dependency type associated with a relationship between two mobile apps.
-    */
-    private ?MobileAppDependencyType $dependencyType = null;
-    
-    /**
-     * @var int|null $dependentAppCount The total number of apps that directly or indirectly depend on the parent app.
-    */
-    private ?int $dependentAppCount = null;
-    
-    /**
-     * @var int|null $dependsOnAppCount The total number of apps the child app directly or indirectly depends on.
-    */
-    private ?int $dependsOnAppCount = null;
-    
-    /**
      * Instantiates a new MobileAppDependency and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return MobileAppDependencyType|null
     */
     public function getDependencyType(): ?MobileAppDependencyType {
-        return $this->dependencyType;
+        return $this->getBackingStore()->get('dependencyType');
     }
 
     /**
@@ -53,7 +38,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getDependentAppCount(): ?int {
-        return $this->dependentAppCount;
+        return $this->getBackingStore()->get('dependentAppCount');
     }
 
     /**
@@ -61,7 +46,7 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getDependsOnAppCount(): ?int {
-        return $this->dependsOnAppCount;
+        return $this->getBackingStore()->get('dependsOnAppCount');
     }
 
     /**
@@ -83,33 +68,33 @@ class MobileAppDependency extends MobileAppRelationship implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('dependencyType', $this->dependencyType);
-        $writer->writeIntegerValue('dependentAppCount', $this->dependentAppCount);
-        $writer->writeIntegerValue('dependsOnAppCount', $this->dependsOnAppCount);
+        $writer->writeEnumValue('dependencyType', $this->getDependencyType());
+        $writer->writeIntegerValue('dependentAppCount', $this->getDependentAppCount());
+        $writer->writeIntegerValue('dependsOnAppCount', $this->getDependsOnAppCount());
     }
 
     /**
      * Sets the dependencyType property value. Indicates the dependency type associated with a relationship between two mobile apps.
      *  @param MobileAppDependencyType|null $value Value to set for the dependencyType property.
     */
-    public function setDependencyType(?MobileAppDependencyType $value ): void {
-        $this->dependencyType = $value;
+    public function setDependencyType(?MobileAppDependencyType $value): void {
+        $this->getBackingStore()->set('dependencyType', $value);
     }
 
     /**
      * Sets the dependentAppCount property value. The total number of apps that directly or indirectly depend on the parent app.
      *  @param int|null $value Value to set for the dependentAppCount property.
     */
-    public function setDependentAppCount(?int $value ): void {
-        $this->dependentAppCount = $value;
+    public function setDependentAppCount(?int $value): void {
+        $this->getBackingStore()->set('dependentAppCount', $value);
     }
 
     /**
      * Sets the dependsOnAppCount property value. The total number of apps the child app directly or indirectly depends on.
      *  @param int|null $value Value to set for the dependsOnAppCount property.
     */
-    public function setDependsOnAppCount(?int $value ): void {
-        $this->dependsOnAppCount = $value;
+    public function setDependsOnAppCount(?int $value): void {
+        $this->getBackingStore()->set('dependsOnAppCount', $value);
     }
 
 }

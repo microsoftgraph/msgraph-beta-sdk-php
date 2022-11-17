@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomerPaymentJournal extends Entity implements Parsable 
 {
     /**
-     * @var Account|null $account The account property
-    */
-    private ?Account $account = null;
-    
-    /**
-     * @var string|null $balancingAccountId The balancingAccountId property
-    */
-    private ?string $balancingAccountId = null;
-    
-    /**
-     * @var string|null $balancingAccountNumber The balancingAccountNumber property
-    */
-    private ?string $balancingAccountNumber = null;
-    
-    /**
-     * @var string|null $code The code property
-    */
-    private ?string $code = null;
-    
-    /**
-     * @var array<CustomerPayment>|null $customerPayments The customerPayments property
-    */
-    private ?array $customerPayments = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new customerPaymentJournal and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->account;
+        return $this->getBackingStore()->get('account');
     }
 
     /**
@@ -74,7 +39,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return string|null
     */
     public function getBalancingAccountId(): ?string {
-        return $this->balancingAccountId;
+        return $this->getBackingStore()->get('balancingAccountId');
     }
 
     /**
@@ -82,7 +47,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return string|null
     */
     public function getBalancingAccountNumber(): ?string {
-        return $this->balancingAccountNumber;
+        return $this->getBackingStore()->get('balancingAccountNumber');
     }
 
     /**
@@ -90,7 +55,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->code;
+        return $this->getBackingStore()->get('code');
     }
 
     /**
@@ -98,7 +63,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return array<CustomerPayment>|null
     */
     public function getCustomerPayments(): ?array {
-        return $this->customerPayments;
+        return $this->getBackingStore()->get('customerPayments');
     }
 
     /**
@@ -106,7 +71,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -131,7 +96,7 @@ class CustomerPaymentJournal extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -140,69 +105,69 @@ class CustomerPaymentJournal extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('account', $this->account);
-        $writer->writeStringValue('balancingAccountId', $this->balancingAccountId);
-        $writer->writeStringValue('balancingAccountNumber', $this->balancingAccountNumber);
-        $writer->writeStringValue('code', $this->code);
-        $writer->writeCollectionOfObjectValues('customerPayments', $this->customerPayments);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('account', $this->getAccount());
+        $writer->writeStringValue('balancingAccountId', $this->getBalancingAccountId());
+        $writer->writeStringValue('balancingAccountNumber', $this->getBalancingAccountNumber());
+        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeCollectionOfObjectValues('customerPayments', $this->getCustomerPayments());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the account property value. The account property
      *  @param Account|null $value Value to set for the account property.
     */
-    public function setAccount(?Account $value ): void {
-        $this->account = $value;
+    public function setAccount(?Account $value): void {
+        $this->getBackingStore()->set('account', $value);
     }
 
     /**
      * Sets the balancingAccountId property value. The balancingAccountId property
      *  @param string|null $value Value to set for the balancingAccountId property.
     */
-    public function setBalancingAccountId(?string $value ): void {
-        $this->balancingAccountId = $value;
+    public function setBalancingAccountId(?string $value): void {
+        $this->getBackingStore()->set('balancingAccountId', $value);
     }
 
     /**
      * Sets the balancingAccountNumber property value. The balancingAccountNumber property
      *  @param string|null $value Value to set for the balancingAccountNumber property.
     */
-    public function setBalancingAccountNumber(?string $value ): void {
-        $this->balancingAccountNumber = $value;
+    public function setBalancingAccountNumber(?string $value): void {
+        $this->getBackingStore()->set('balancingAccountNumber', $value);
     }
 
     /**
      * Sets the code property value. The code property
      *  @param string|null $value Value to set for the code property.
     */
-    public function setCode(?string $value ): void {
-        $this->code = $value;
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
      * Sets the customerPayments property value. The customerPayments property
      *  @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
     */
-    public function setCustomerPayments(?array $value ): void {
-        $this->customerPayments = $value;
+    public function setCustomerPayments(?array $value): void {
+        $this->getBackingStore()->set('customerPayments', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

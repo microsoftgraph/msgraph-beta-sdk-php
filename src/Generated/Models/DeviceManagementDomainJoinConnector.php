@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementDomainJoinConnector extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The connector display name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastConnectionDateTime Last time connector contacted Intune.
-    */
-    private ?DateTime $lastConnectionDateTime = null;
-    
-    /**
-     * @var DeviceManagementDomainJoinConnectorState|null $state The ODJ request states.
-    */
-    private ?DeviceManagementDomainJoinConnectorState $state = null;
-    
-    /**
-     * @var string|null $version The version of the connector.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new deviceManagementDomainJoinConnector and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -73,7 +53,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastConnectionDateTime(): ?DateTime {
-        return $this->lastConnectionDateTime;
+        return $this->getBackingStore()->get('lastConnectionDateTime');
     }
 
     /**
@@ -81,7 +61,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return DeviceManagementDomainJoinConnectorState|null
     */
     public function getState(): ?DeviceManagementDomainJoinConnectorState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -89,7 +69,7 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -98,42 +78,42 @@ class DeviceManagementDomainJoinConnector extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastConnectionDateTime', $this->lastConnectionDateTime);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastConnectionDateTime', $this->getLastConnectionDateTime());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the displayName property value. The connector display name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastConnectionDateTime property value. Last time connector contacted Intune.
      *  @param DateTime|null $value Value to set for the lastConnectionDateTime property.
     */
-    public function setLastConnectionDateTime(?DateTime $value ): void {
-        $this->lastConnectionDateTime = $value;
+    public function setLastConnectionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastConnectionDateTime', $value);
     }
 
     /**
      * Sets the state property value. The ODJ request states.
      *  @param DeviceManagementDomainJoinConnectorState|null $value Value to set for the state property.
     */
-    public function setState(?DeviceManagementDomainJoinConnectorState $value ): void {
-        $this->state = $value;
+    public function setState(?DeviceManagementDomainJoinConnectorState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the version property value. The version of the connector.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

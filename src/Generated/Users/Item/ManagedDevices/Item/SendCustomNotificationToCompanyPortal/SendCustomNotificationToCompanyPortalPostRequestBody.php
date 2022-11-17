@@ -6,28 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SendCustomNotificationToCompanyPortalPostRequestBody implements AdditionalDataHolder, Parsable 
+class SendCustomNotificationToCompanyPortalPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $notificationBody The notificationBody property
-    */
-    private ?string $notificationBody = null;
-    
-    /**
-     * @var string|null $notificationTitle The notificationTitle property
-    */
-    private ?string $notificationTitle = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new sendCustomNotificationToCompanyPortalPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -44,8 +38,16 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -65,7 +67,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @return string|null
     */
     public function getNotificationBody(): ?string {
-        return $this->notificationBody;
+        return $this->getBackingStore()->get('notificationBody');
     }
 
     /**
@@ -73,7 +75,7 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @return string|null
     */
     public function getNotificationTitle(): ?string {
-        return $this->notificationTitle;
+        return $this->getBackingStore()->get('notificationTitle');
     }
 
     /**
@@ -81,33 +83,33 @@ class SendCustomNotificationToCompanyPortalPostRequestBody implements Additional
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('notificationBody', $this->notificationBody);
-        $writer->writeStringValue('notificationTitle', $this->notificationTitle);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('notificationBody', $this->getNotificationBody());
+        $writer->writeStringValue('notificationTitle', $this->getNotificationTitle());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the notificationBody property value. The notificationBody property
      *  @param string|null $value Value to set for the notificationBody property.
     */
-    public function setNotificationBody(?string $value ): void {
-        $this->notificationBody = $value;
+    public function setNotificationBody(?string $value): void {
+        $this->getBackingStore()->set('notificationBody', $value);
     }
 
     /**
      * Sets the notificationTitle property value. The notificationTitle property
      *  @param string|null $value Value to set for the notificationTitle property.
     */
-    public function setNotificationTitle(?string $value ): void {
-        $this->notificationTitle = $value;
+    public function setNotificationTitle(?string $value): void {
+        $this->getBackingStore()->set('notificationTitle', $value);
     }
 
 }

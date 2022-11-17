@@ -7,43 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable 
+class CloudPcHealthCheckItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $additionalDetails Additional message for this health check.
-    */
-    private ?string $additionalDetails = null;
-    
-    /**
-     * @var string|null $displayName The connectivity health check item name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastHealthCheckDateTime Timestamp when the last check occurs. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $lastHealthCheckDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var CloudPcConnectivityEventResult|null $result The result property
-    */
-    private ?CloudPcConnectivityEventResult $result = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new cloudPcHealthCheckItem and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.cloudPcHealthCheckItem');
     }
@@ -61,8 +40,8 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -70,7 +49,15 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
-        return $this->additionalDetails;
+        return $this->getBackingStore()->get('additionalDetails');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +65,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -101,7 +88,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastHealthCheckDateTime(): ?DateTime {
-        return $this->lastHealthCheckDateTime;
+        return $this->getBackingStore()->get('lastHealthCheckDateTime');
     }
 
     /**
@@ -109,7 +96,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -117,7 +104,7 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @return CloudPcConnectivityEventResult|null
     */
     public function getResult(): ?CloudPcConnectivityEventResult {
-        return $this->result;
+        return $this->getBackingStore()->get('result');
     }
 
     /**
@@ -125,60 +112,60 @@ class CloudPcHealthCheckItem implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('additionalDetails', $this->additionalDetails);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastHealthCheckDateTime', $this->lastHealthCheckDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('result', $this->result);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastHealthCheckDateTime', $this->getLastHealthCheckDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('result', $this->getResult());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the additionalDetails property value. Additional message for this health check.
      *  @param string|null $value Value to set for the additionalDetails property.
     */
-    public function setAdditionalDetails(?string $value ): void {
-        $this->additionalDetails = $value;
+    public function setAdditionalDetails(?string $value): void {
+        $this->getBackingStore()->set('additionalDetails', $value);
     }
 
     /**
      * Sets the displayName property value. The connectivity health check item name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastHealthCheckDateTime property value. Timestamp when the last check occurs. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the lastHealthCheckDateTime property.
     */
-    public function setLastHealthCheckDateTime(?DateTime $value ): void {
-        $this->lastHealthCheckDateTime = $value;
+    public function setLastHealthCheckDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastHealthCheckDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the result property value. The result property
      *  @param CloudPcConnectivityEventResult|null $value Value to set for the result property.
     */
-    public function setResult(?CloudPcConnectivityEventResult $value ): void {
-        $this->result = $value;
+    public function setResult(?CloudPcConnectivityEventResult $value): void {
+        $this->getBackingStore()->set('result', $value);
     }
 
 }

@@ -6,158 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PolicyRoot implements AdditionalDataHolder, Parsable 
+class PolicyRoot implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var AccessReviewPolicy|null $accessReviewPolicy The policy that contains directory-level access review settings.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?AccessReviewPolicy $accessReviewPolicy = null;
-    
-    /**
-     * @var array<ActivityBasedTimeoutPolicy>|null $activityBasedTimeoutPolicies The policy that controls the idle time out for web sessions for applications.
-    */
-    private ?array $activityBasedTimeoutPolicies = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var AdminConsentRequestPolicy|null $adminConsentRequestPolicy The policy by which consent requests are created and managed for the entire tenant.
-    */
-    private ?AdminConsentRequestPolicy $adminConsentRequestPolicy = null;
-    
-    /**
-     * @var array<AppManagementPolicy>|null $appManagementPolicies The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
-    */
-    private ?array $appManagementPolicies = null;
-    
-    /**
-     * @var AuthenticationFlowsPolicy|null $authenticationFlowsPolicy The policy configuration of the self-service sign-up experience of external users.
-    */
-    private ?AuthenticationFlowsPolicy $authenticationFlowsPolicy = null;
-    
-    /**
-     * @var AuthenticationMethodsPolicy|null $authenticationMethodsPolicy The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
-    */
-    private ?AuthenticationMethodsPolicy $authenticationMethodsPolicy = null;
-    
-    /**
-     * @var array<AuthenticationStrengthPolicy>|null $authenticationStrengthPolicies The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
-    */
-    private ?array $authenticationStrengthPolicies = null;
-    
-    /**
-     * @var array<AuthorizationPolicy>|null $authorizationPolicy The policy that controls Azure AD authorization settings.
-    */
-    private ?array $authorizationPolicy = null;
-    
-    /**
-     * @var B2cAuthenticationMethodsPolicy|null $b2cAuthenticationMethodsPolicy The Azure AD B2C policies that define how end users register via local accounts.
-    */
-    private ?B2cAuthenticationMethodsPolicy $b2cAuthenticationMethodsPolicy = null;
-    
-    /**
-     * @var array<ClaimsMappingPolicy>|null $claimsMappingPolicies The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
-    */
-    private ?array $claimsMappingPolicies = null;
-    
-    /**
-     * @var array<ConditionalAccessPolicy>|null $conditionalAccessPolicies The custom rules that define an access scenario.
-    */
-    private ?array $conditionalAccessPolicies = null;
-    
-    /**
-     * @var CrossTenantAccessPolicy|null $crossTenantAccessPolicy The custom rules that define an access scenario when interacting with external Azure AD tenants.
-    */
-    private ?CrossTenantAccessPolicy $crossTenantAccessPolicy = null;
-    
-    /**
-     * @var TenantAppManagementPolicy|null $defaultAppManagementPolicy The tenant-wide policy that enforces app management restrictions for all applications and service principals.
-    */
-    private ?TenantAppManagementPolicy $defaultAppManagementPolicy = null;
-    
-    /**
-     * @var DeviceRegistrationPolicy|null $deviceRegistrationPolicy The deviceRegistrationPolicy property
-    */
-    private ?DeviceRegistrationPolicy $deviceRegistrationPolicy = null;
-    
-    /**
-     * @var DirectoryRoleAccessReviewPolicy|null $directoryRoleAccessReviewPolicy The directoryRoleAccessReviewPolicy property
-    */
-    private ?DirectoryRoleAccessReviewPolicy $directoryRoleAccessReviewPolicy = null;
-    
-    /**
-     * @var ExternalIdentitiesPolicy|null $externalIdentitiesPolicy Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
-    */
-    private ?ExternalIdentitiesPolicy $externalIdentitiesPolicy = null;
-    
-    /**
-     * @var array<FeatureRolloutPolicy>|null $featureRolloutPolicies The feature rollout policy associated with a directory object.
-    */
-    private ?array $featureRolloutPolicies = null;
-    
-    /**
-     * @var array<HomeRealmDiscoveryPolicy>|null $homeRealmDiscoveryPolicies The policy to control Azure AD authentication behavior for federated users.
-    */
-    private ?array $homeRealmDiscoveryPolicies = null;
-    
-    /**
-     * @var IdentitySecurityDefaultsEnforcementPolicy|null $identitySecurityDefaultsEnforcementPolicy The policy that represents the security defaults that protect against common attacks.
-    */
-    private ?IdentitySecurityDefaultsEnforcementPolicy $identitySecurityDefaultsEnforcementPolicy = null;
-    
-    /**
-     * @var array<MobilityManagementPolicy>|null $mobileAppManagementPolicies The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
-    */
-    private ?array $mobileAppManagementPolicies = null;
-    
-    /**
-     * @var array<MobilityManagementPolicy>|null $mobileDeviceManagementPolicies The mobileDeviceManagementPolicies property
-    */
-    private ?array $mobileDeviceManagementPolicies = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<PermissionGrantPolicy>|null $permissionGrantPolicies The policy that specifies the conditions under which consent can be granted.
-    */
-    private ?array $permissionGrantPolicies = null;
-    
-    /**
-     * @var array<UnifiedRoleManagementPolicy>|null $roleManagementPolicies Represents the role management policies.
-    */
-    private ?array $roleManagementPolicies = null;
-    
-    /**
-     * @var array<UnifiedRoleManagementPolicyAssignment>|null $roleManagementPolicyAssignments Represents the role management policy assignments.
-    */
-    private ?array $roleManagementPolicyAssignments = null;
-    
-    /**
-     * @var array<ServicePrincipalCreationPolicy>|null $servicePrincipalCreationPolicies The servicePrincipalCreationPolicies property
-    */
-    private ?array $servicePrincipalCreationPolicies = null;
-    
-    /**
-     * @var array<TokenIssuancePolicy>|null $tokenIssuancePolicies The policy that specifies the characteristics of SAML tokens issued by Azure AD.
-    */
-    private ?array $tokenIssuancePolicies = null;
-    
-    /**
-     * @var array<TokenLifetimePolicy>|null $tokenLifetimePolicies The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
-    */
-    private ?array $tokenLifetimePolicies = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new PolicyRoot and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.policyRoot');
     }
@@ -176,7 +40,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return AccessReviewPolicy|null
     */
     public function getAccessReviewPolicy(): ?AccessReviewPolicy {
-        return $this->accessReviewPolicy;
+        return $this->getBackingStore()->get('accessReviewPolicy');
     }
 
     /**
@@ -184,15 +48,15 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<ActivityBasedTimeoutPolicy>|null
     */
     public function getActivityBasedTimeoutPolicies(): ?array {
-        return $this->activityBasedTimeoutPolicies;
+        return $this->getBackingStore()->get('activityBasedTimeoutPolicies');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -200,7 +64,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return AdminConsentRequestPolicy|null
     */
     public function getAdminConsentRequestPolicy(): ?AdminConsentRequestPolicy {
-        return $this->adminConsentRequestPolicy;
+        return $this->getBackingStore()->get('adminConsentRequestPolicy');
     }
 
     /**
@@ -208,7 +72,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<AppManagementPolicy>|null
     */
     public function getAppManagementPolicies(): ?array {
-        return $this->appManagementPolicies;
+        return $this->getBackingStore()->get('appManagementPolicies');
     }
 
     /**
@@ -216,7 +80,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return AuthenticationFlowsPolicy|null
     */
     public function getAuthenticationFlowsPolicy(): ?AuthenticationFlowsPolicy {
-        return $this->authenticationFlowsPolicy;
+        return $this->getBackingStore()->get('authenticationFlowsPolicy');
     }
 
     /**
@@ -224,7 +88,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return AuthenticationMethodsPolicy|null
     */
     public function getAuthenticationMethodsPolicy(): ?AuthenticationMethodsPolicy {
-        return $this->authenticationMethodsPolicy;
+        return $this->getBackingStore()->get('authenticationMethodsPolicy');
     }
 
     /**
@@ -232,7 +96,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<AuthenticationStrengthPolicy>|null
     */
     public function getAuthenticationStrengthPolicies(): ?array {
-        return $this->authenticationStrengthPolicies;
+        return $this->getBackingStore()->get('authenticationStrengthPolicies');
     }
 
     /**
@@ -240,7 +104,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<AuthorizationPolicy>|null
     */
     public function getAuthorizationPolicy(): ?array {
-        return $this->authorizationPolicy;
+        return $this->getBackingStore()->get('authorizationPolicy');
     }
 
     /**
@@ -248,7 +112,15 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return B2cAuthenticationMethodsPolicy|null
     */
     public function getB2cAuthenticationMethodsPolicy(): ?B2cAuthenticationMethodsPolicy {
-        return $this->b2cAuthenticationMethodsPolicy;
+        return $this->getBackingStore()->get('b2cAuthenticationMethodsPolicy');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -256,7 +128,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<ClaimsMappingPolicy>|null
     */
     public function getClaimsMappingPolicies(): ?array {
-        return $this->claimsMappingPolicies;
+        return $this->getBackingStore()->get('claimsMappingPolicies');
     }
 
     /**
@@ -264,7 +136,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<ConditionalAccessPolicy>|null
     */
     public function getConditionalAccessPolicies(): ?array {
-        return $this->conditionalAccessPolicies;
+        return $this->getBackingStore()->get('conditionalAccessPolicies');
     }
 
     /**
@@ -272,7 +144,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return CrossTenantAccessPolicy|null
     */
     public function getCrossTenantAccessPolicy(): ?CrossTenantAccessPolicy {
-        return $this->crossTenantAccessPolicy;
+        return $this->getBackingStore()->get('crossTenantAccessPolicy');
     }
 
     /**
@@ -280,7 +152,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return TenantAppManagementPolicy|null
     */
     public function getDefaultAppManagementPolicy(): ?TenantAppManagementPolicy {
-        return $this->defaultAppManagementPolicy;
+        return $this->getBackingStore()->get('defaultAppManagementPolicy');
     }
 
     /**
@@ -288,7 +160,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return DeviceRegistrationPolicy|null
     */
     public function getDeviceRegistrationPolicy(): ?DeviceRegistrationPolicy {
-        return $this->deviceRegistrationPolicy;
+        return $this->getBackingStore()->get('deviceRegistrationPolicy');
     }
 
     /**
@@ -296,7 +168,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return DirectoryRoleAccessReviewPolicy|null
     */
     public function getDirectoryRoleAccessReviewPolicy(): ?DirectoryRoleAccessReviewPolicy {
-        return $this->directoryRoleAccessReviewPolicy;
+        return $this->getBackingStore()->get('directoryRoleAccessReviewPolicy');
     }
 
     /**
@@ -304,7 +176,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return ExternalIdentitiesPolicy|null
     */
     public function getExternalIdentitiesPolicy(): ?ExternalIdentitiesPolicy {
-        return $this->externalIdentitiesPolicy;
+        return $this->getBackingStore()->get('externalIdentitiesPolicy');
     }
 
     /**
@@ -312,7 +184,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<FeatureRolloutPolicy>|null
     */
     public function getFeatureRolloutPolicies(): ?array {
-        return $this->featureRolloutPolicies;
+        return $this->getBackingStore()->get('featureRolloutPolicies');
     }
 
     /**
@@ -358,7 +230,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<HomeRealmDiscoveryPolicy>|null
     */
     public function getHomeRealmDiscoveryPolicies(): ?array {
-        return $this->homeRealmDiscoveryPolicies;
+        return $this->getBackingStore()->get('homeRealmDiscoveryPolicies');
     }
 
     /**
@@ -366,7 +238,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return IdentitySecurityDefaultsEnforcementPolicy|null
     */
     public function getIdentitySecurityDefaultsEnforcementPolicy(): ?IdentitySecurityDefaultsEnforcementPolicy {
-        return $this->identitySecurityDefaultsEnforcementPolicy;
+        return $this->getBackingStore()->get('identitySecurityDefaultsEnforcementPolicy');
     }
 
     /**
@@ -374,7 +246,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<MobilityManagementPolicy>|null
     */
     public function getMobileAppManagementPolicies(): ?array {
-        return $this->mobileAppManagementPolicies;
+        return $this->getBackingStore()->get('mobileAppManagementPolicies');
     }
 
     /**
@@ -382,7 +254,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<MobilityManagementPolicy>|null
     */
     public function getMobileDeviceManagementPolicies(): ?array {
-        return $this->mobileDeviceManagementPolicies;
+        return $this->getBackingStore()->get('mobileDeviceManagementPolicies');
     }
 
     /**
@@ -390,7 +262,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -398,7 +270,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<PermissionGrantPolicy>|null
     */
     public function getPermissionGrantPolicies(): ?array {
-        return $this->permissionGrantPolicies;
+        return $this->getBackingStore()->get('permissionGrantPolicies');
     }
 
     /**
@@ -406,7 +278,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<UnifiedRoleManagementPolicy>|null
     */
     public function getRoleManagementPolicies(): ?array {
-        return $this->roleManagementPolicies;
+        return $this->getBackingStore()->get('roleManagementPolicies');
     }
 
     /**
@@ -414,7 +286,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<UnifiedRoleManagementPolicyAssignment>|null
     */
     public function getRoleManagementPolicyAssignments(): ?array {
-        return $this->roleManagementPolicyAssignments;
+        return $this->getBackingStore()->get('roleManagementPolicyAssignments');
     }
 
     /**
@@ -422,7 +294,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<ServicePrincipalCreationPolicy>|null
     */
     public function getServicePrincipalCreationPolicies(): ?array {
-        return $this->servicePrincipalCreationPolicies;
+        return $this->getBackingStore()->get('servicePrincipalCreationPolicies');
     }
 
     /**
@@ -430,7 +302,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<TokenIssuancePolicy>|null
     */
     public function getTokenIssuancePolicies(): ?array {
-        return $this->tokenIssuancePolicies;
+        return $this->getBackingStore()->get('tokenIssuancePolicies');
     }
 
     /**
@@ -438,7 +310,7 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @return array<TokenLifetimePolicy>|null
     */
     public function getTokenLifetimePolicies(): ?array {
-        return $this->tokenLifetimePolicies;
+        return $this->getBackingStore()->get('tokenLifetimePolicies');
     }
 
     /**
@@ -446,267 +318,267 @@ class PolicyRoot implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('accessReviewPolicy', $this->accessReviewPolicy);
-        $writer->writeCollectionOfObjectValues('activityBasedTimeoutPolicies', $this->activityBasedTimeoutPolicies);
-        $writer->writeObjectValue('adminConsentRequestPolicy', $this->adminConsentRequestPolicy);
-        $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->appManagementPolicies);
-        $writer->writeObjectValue('authenticationFlowsPolicy', $this->authenticationFlowsPolicy);
-        $writer->writeObjectValue('authenticationMethodsPolicy', $this->authenticationMethodsPolicy);
-        $writer->writeCollectionOfObjectValues('authenticationStrengthPolicies', $this->authenticationStrengthPolicies);
-        $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->authorizationPolicy);
-        $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->b2cAuthenticationMethodsPolicy);
-        $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->claimsMappingPolicies);
-        $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->conditionalAccessPolicies);
-        $writer->writeObjectValue('crossTenantAccessPolicy', $this->crossTenantAccessPolicy);
-        $writer->writeObjectValue('defaultAppManagementPolicy', $this->defaultAppManagementPolicy);
-        $writer->writeObjectValue('deviceRegistrationPolicy', $this->deviceRegistrationPolicy);
-        $writer->writeObjectValue('directoryRoleAccessReviewPolicy', $this->directoryRoleAccessReviewPolicy);
-        $writer->writeObjectValue('externalIdentitiesPolicy', $this->externalIdentitiesPolicy);
-        $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->featureRolloutPolicies);
-        $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->homeRealmDiscoveryPolicies);
-        $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->identitySecurityDefaultsEnforcementPolicy);
-        $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->mobileAppManagementPolicies);
-        $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->mobileDeviceManagementPolicies);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->permissionGrantPolicies);
-        $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->roleManagementPolicies);
-        $writer->writeCollectionOfObjectValues('roleManagementPolicyAssignments', $this->roleManagementPolicyAssignments);
-        $writer->writeCollectionOfObjectValues('servicePrincipalCreationPolicies', $this->servicePrincipalCreationPolicies);
-        $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->tokenIssuancePolicies);
-        $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->tokenLifetimePolicies);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('accessReviewPolicy', $this->getAccessReviewPolicy());
+        $writer->writeCollectionOfObjectValues('activityBasedTimeoutPolicies', $this->getActivityBasedTimeoutPolicies());
+        $writer->writeObjectValue('adminConsentRequestPolicy', $this->getAdminConsentRequestPolicy());
+        $writer->writeCollectionOfObjectValues('appManagementPolicies', $this->getAppManagementPolicies());
+        $writer->writeObjectValue('authenticationFlowsPolicy', $this->getAuthenticationFlowsPolicy());
+        $writer->writeObjectValue('authenticationMethodsPolicy', $this->getAuthenticationMethodsPolicy());
+        $writer->writeCollectionOfObjectValues('authenticationStrengthPolicies', $this->getAuthenticationStrengthPolicies());
+        $writer->writeCollectionOfObjectValues('authorizationPolicy', $this->getAuthorizationPolicy());
+        $writer->writeObjectValue('b2cAuthenticationMethodsPolicy', $this->getB2cAuthenticationMethodsPolicy());
+        $writer->writeCollectionOfObjectValues('claimsMappingPolicies', $this->getClaimsMappingPolicies());
+        $writer->writeCollectionOfObjectValues('conditionalAccessPolicies', $this->getConditionalAccessPolicies());
+        $writer->writeObjectValue('crossTenantAccessPolicy', $this->getCrossTenantAccessPolicy());
+        $writer->writeObjectValue('defaultAppManagementPolicy', $this->getDefaultAppManagementPolicy());
+        $writer->writeObjectValue('deviceRegistrationPolicy', $this->getDeviceRegistrationPolicy());
+        $writer->writeObjectValue('directoryRoleAccessReviewPolicy', $this->getDirectoryRoleAccessReviewPolicy());
+        $writer->writeObjectValue('externalIdentitiesPolicy', $this->getExternalIdentitiesPolicy());
+        $writer->writeCollectionOfObjectValues('featureRolloutPolicies', $this->getFeatureRolloutPolicies());
+        $writer->writeCollectionOfObjectValues('homeRealmDiscoveryPolicies', $this->getHomeRealmDiscoveryPolicies());
+        $writer->writeObjectValue('identitySecurityDefaultsEnforcementPolicy', $this->getIdentitySecurityDefaultsEnforcementPolicy());
+        $writer->writeCollectionOfObjectValues('mobileAppManagementPolicies', $this->getMobileAppManagementPolicies());
+        $writer->writeCollectionOfObjectValues('mobileDeviceManagementPolicies', $this->getMobileDeviceManagementPolicies());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('permissionGrantPolicies', $this->getPermissionGrantPolicies());
+        $writer->writeCollectionOfObjectValues('roleManagementPolicies', $this->getRoleManagementPolicies());
+        $writer->writeCollectionOfObjectValues('roleManagementPolicyAssignments', $this->getRoleManagementPolicyAssignments());
+        $writer->writeCollectionOfObjectValues('servicePrincipalCreationPolicies', $this->getServicePrincipalCreationPolicies());
+        $writer->writeCollectionOfObjectValues('tokenIssuancePolicies', $this->getTokenIssuancePolicies());
+        $writer->writeCollectionOfObjectValues('tokenLifetimePolicies', $this->getTokenLifetimePolicies());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the accessReviewPolicy property value. The policy that contains directory-level access review settings.
      *  @param AccessReviewPolicy|null $value Value to set for the accessReviewPolicy property.
     */
-    public function setAccessReviewPolicy(?AccessReviewPolicy $value ): void {
-        $this->accessReviewPolicy = $value;
+    public function setAccessReviewPolicy(?AccessReviewPolicy $value): void {
+        $this->getBackingStore()->set('accessReviewPolicy', $value);
     }
 
     /**
      * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
      *  @param array<ActivityBasedTimeoutPolicy>|null $value Value to set for the activityBasedTimeoutPolicies property.
     */
-    public function setActivityBasedTimeoutPolicies(?array $value ): void {
-        $this->activityBasedTimeoutPolicies = $value;
+    public function setActivityBasedTimeoutPolicies(?array $value): void {
+        $this->getBackingStore()->set('activityBasedTimeoutPolicies', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
      *  @param AdminConsentRequestPolicy|null $value Value to set for the adminConsentRequestPolicy property.
     */
-    public function setAdminConsentRequestPolicy(?AdminConsentRequestPolicy $value ): void {
-        $this->adminConsentRequestPolicy = $value;
+    public function setAdminConsentRequestPolicy(?AdminConsentRequestPolicy $value): void {
+        $this->getBackingStore()->set('adminConsentRequestPolicy', $value);
     }
 
     /**
      * Sets the appManagementPolicies property value. The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      *  @param array<AppManagementPolicy>|null $value Value to set for the appManagementPolicies property.
     */
-    public function setAppManagementPolicies(?array $value ): void {
-        $this->appManagementPolicies = $value;
+    public function setAppManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('appManagementPolicies', $value);
     }
 
     /**
      * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
      *  @param AuthenticationFlowsPolicy|null $value Value to set for the authenticationFlowsPolicy property.
     */
-    public function setAuthenticationFlowsPolicy(?AuthenticationFlowsPolicy $value ): void {
-        $this->authenticationFlowsPolicy = $value;
+    public function setAuthenticationFlowsPolicy(?AuthenticationFlowsPolicy $value): void {
+        $this->getBackingStore()->set('authenticationFlowsPolicy', $value);
     }
 
     /**
      * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
      *  @param AuthenticationMethodsPolicy|null $value Value to set for the authenticationMethodsPolicy property.
     */
-    public function setAuthenticationMethodsPolicy(?AuthenticationMethodsPolicy $value ): void {
-        $this->authenticationMethodsPolicy = $value;
+    public function setAuthenticationMethodsPolicy(?AuthenticationMethodsPolicy $value): void {
+        $this->getBackingStore()->set('authenticationMethodsPolicy', $value);
     }
 
     /**
      * Sets the authenticationStrengthPolicies property value. The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
      *  @param array<AuthenticationStrengthPolicy>|null $value Value to set for the authenticationStrengthPolicies property.
     */
-    public function setAuthenticationStrengthPolicies(?array $value ): void {
-        $this->authenticationStrengthPolicies = $value;
+    public function setAuthenticationStrengthPolicies(?array $value): void {
+        $this->getBackingStore()->set('authenticationStrengthPolicies', $value);
     }
 
     /**
      * Sets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
      *  @param array<AuthorizationPolicy>|null $value Value to set for the authorizationPolicy property.
     */
-    public function setAuthorizationPolicy(?array $value ): void {
-        $this->authorizationPolicy = $value;
+    public function setAuthorizationPolicy(?array $value): void {
+        $this->getBackingStore()->set('authorizationPolicy', $value);
     }
 
     /**
      * Sets the b2cAuthenticationMethodsPolicy property value. The Azure AD B2C policies that define how end users register via local accounts.
      *  @param B2cAuthenticationMethodsPolicy|null $value Value to set for the b2cAuthenticationMethodsPolicy property.
     */
-    public function setB2cAuthenticationMethodsPolicy(?B2cAuthenticationMethodsPolicy $value ): void {
-        $this->b2cAuthenticationMethodsPolicy = $value;
+    public function setB2cAuthenticationMethodsPolicy(?B2cAuthenticationMethodsPolicy $value): void {
+        $this->getBackingStore()->set('b2cAuthenticationMethodsPolicy', $value);
     }
 
     /**
      * Sets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      *  @param array<ClaimsMappingPolicy>|null $value Value to set for the claimsMappingPolicies property.
     */
-    public function setClaimsMappingPolicies(?array $value ): void {
-        $this->claimsMappingPolicies = $value;
+    public function setClaimsMappingPolicies(?array $value): void {
+        $this->getBackingStore()->set('claimsMappingPolicies', $value);
     }
 
     /**
      * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
      *  @param array<ConditionalAccessPolicy>|null $value Value to set for the conditionalAccessPolicies property.
     */
-    public function setConditionalAccessPolicies(?array $value ): void {
-        $this->conditionalAccessPolicies = $value;
+    public function setConditionalAccessPolicies(?array $value): void {
+        $this->getBackingStore()->set('conditionalAccessPolicies', $value);
     }
 
     /**
      * Sets the crossTenantAccessPolicy property value. The custom rules that define an access scenario when interacting with external Azure AD tenants.
      *  @param CrossTenantAccessPolicy|null $value Value to set for the crossTenantAccessPolicy property.
     */
-    public function setCrossTenantAccessPolicy(?CrossTenantAccessPolicy $value ): void {
-        $this->crossTenantAccessPolicy = $value;
+    public function setCrossTenantAccessPolicy(?CrossTenantAccessPolicy $value): void {
+        $this->getBackingStore()->set('crossTenantAccessPolicy', $value);
     }
 
     /**
      * Sets the defaultAppManagementPolicy property value. The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      *  @param TenantAppManagementPolicy|null $value Value to set for the defaultAppManagementPolicy property.
     */
-    public function setDefaultAppManagementPolicy(?TenantAppManagementPolicy $value ): void {
-        $this->defaultAppManagementPolicy = $value;
+    public function setDefaultAppManagementPolicy(?TenantAppManagementPolicy $value): void {
+        $this->getBackingStore()->set('defaultAppManagementPolicy', $value);
     }
 
     /**
      * Sets the deviceRegistrationPolicy property value. The deviceRegistrationPolicy property
      *  @param DeviceRegistrationPolicy|null $value Value to set for the deviceRegistrationPolicy property.
     */
-    public function setDeviceRegistrationPolicy(?DeviceRegistrationPolicy $value ): void {
-        $this->deviceRegistrationPolicy = $value;
+    public function setDeviceRegistrationPolicy(?DeviceRegistrationPolicy $value): void {
+        $this->getBackingStore()->set('deviceRegistrationPolicy', $value);
     }
 
     /**
      * Sets the directoryRoleAccessReviewPolicy property value. The directoryRoleAccessReviewPolicy property
      *  @param DirectoryRoleAccessReviewPolicy|null $value Value to set for the directoryRoleAccessReviewPolicy property.
     */
-    public function setDirectoryRoleAccessReviewPolicy(?DirectoryRoleAccessReviewPolicy $value ): void {
-        $this->directoryRoleAccessReviewPolicy = $value;
+    public function setDirectoryRoleAccessReviewPolicy(?DirectoryRoleAccessReviewPolicy $value): void {
+        $this->getBackingStore()->set('directoryRoleAccessReviewPolicy', $value);
     }
 
     /**
      * Sets the externalIdentitiesPolicy property value. Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
      *  @param ExternalIdentitiesPolicy|null $value Value to set for the externalIdentitiesPolicy property.
     */
-    public function setExternalIdentitiesPolicy(?ExternalIdentitiesPolicy $value ): void {
-        $this->externalIdentitiesPolicy = $value;
+    public function setExternalIdentitiesPolicy(?ExternalIdentitiesPolicy $value): void {
+        $this->getBackingStore()->set('externalIdentitiesPolicy', $value);
     }
 
     /**
      * Sets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
      *  @param array<FeatureRolloutPolicy>|null $value Value to set for the featureRolloutPolicies property.
     */
-    public function setFeatureRolloutPolicies(?array $value ): void {
-        $this->featureRolloutPolicies = $value;
+    public function setFeatureRolloutPolicies(?array $value): void {
+        $this->getBackingStore()->set('featureRolloutPolicies', $value);
     }
 
     /**
      * Sets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
      *  @param array<HomeRealmDiscoveryPolicy>|null $value Value to set for the homeRealmDiscoveryPolicies property.
     */
-    public function setHomeRealmDiscoveryPolicies(?array $value ): void {
-        $this->homeRealmDiscoveryPolicies = $value;
+    public function setHomeRealmDiscoveryPolicies(?array $value): void {
+        $this->getBackingStore()->set('homeRealmDiscoveryPolicies', $value);
     }
 
     /**
      * Sets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
      *  @param IdentitySecurityDefaultsEnforcementPolicy|null $value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
     */
-    public function setIdentitySecurityDefaultsEnforcementPolicy(?IdentitySecurityDefaultsEnforcementPolicy $value ): void {
-        $this->identitySecurityDefaultsEnforcementPolicy = $value;
+    public function setIdentitySecurityDefaultsEnforcementPolicy(?IdentitySecurityDefaultsEnforcementPolicy $value): void {
+        $this->getBackingStore()->set('identitySecurityDefaultsEnforcementPolicy', $value);
     }
 
     /**
      * Sets the mobileAppManagementPolicies property value. The policy that defines auto-enrollment configuration for a mobility management (MDM or MAM) application.
      *  @param array<MobilityManagementPolicy>|null $value Value to set for the mobileAppManagementPolicies property.
     */
-    public function setMobileAppManagementPolicies(?array $value ): void {
-        $this->mobileAppManagementPolicies = $value;
+    public function setMobileAppManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('mobileAppManagementPolicies', $value);
     }
 
     /**
      * Sets the mobileDeviceManagementPolicies property value. The mobileDeviceManagementPolicies property
      *  @param array<MobilityManagementPolicy>|null $value Value to set for the mobileDeviceManagementPolicies property.
     */
-    public function setMobileDeviceManagementPolicies(?array $value ): void {
-        $this->mobileDeviceManagementPolicies = $value;
+    public function setMobileDeviceManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('mobileDeviceManagementPolicies', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
      *  @param array<PermissionGrantPolicy>|null $value Value to set for the permissionGrantPolicies property.
     */
-    public function setPermissionGrantPolicies(?array $value ): void {
-        $this->permissionGrantPolicies = $value;
+    public function setPermissionGrantPolicies(?array $value): void {
+        $this->getBackingStore()->set('permissionGrantPolicies', $value);
     }
 
     /**
      * Sets the roleManagementPolicies property value. Represents the role management policies.
      *  @param array<UnifiedRoleManagementPolicy>|null $value Value to set for the roleManagementPolicies property.
     */
-    public function setRoleManagementPolicies(?array $value ): void {
-        $this->roleManagementPolicies = $value;
+    public function setRoleManagementPolicies(?array $value): void {
+        $this->getBackingStore()->set('roleManagementPolicies', $value);
     }
 
     /**
      * Sets the roleManagementPolicyAssignments property value. Represents the role management policy assignments.
      *  @param array<UnifiedRoleManagementPolicyAssignment>|null $value Value to set for the roleManagementPolicyAssignments property.
     */
-    public function setRoleManagementPolicyAssignments(?array $value ): void {
-        $this->roleManagementPolicyAssignments = $value;
+    public function setRoleManagementPolicyAssignments(?array $value): void {
+        $this->getBackingStore()->set('roleManagementPolicyAssignments', $value);
     }
 
     /**
      * Sets the servicePrincipalCreationPolicies property value. The servicePrincipalCreationPolicies property
      *  @param array<ServicePrincipalCreationPolicy>|null $value Value to set for the servicePrincipalCreationPolicies property.
     */
-    public function setServicePrincipalCreationPolicies(?array $value ): void {
-        $this->servicePrincipalCreationPolicies = $value;
+    public function setServicePrincipalCreationPolicies(?array $value): void {
+        $this->getBackingStore()->set('servicePrincipalCreationPolicies', $value);
     }
 
     /**
      * Sets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
      *  @param array<TokenIssuancePolicy>|null $value Value to set for the tokenIssuancePolicies property.
     */
-    public function setTokenIssuancePolicies(?array $value ): void {
-        $this->tokenIssuancePolicies = $value;
+    public function setTokenIssuancePolicies(?array $value): void {
+        $this->getBackingStore()->set('tokenIssuancePolicies', $value);
     }
 
     /**
      * Sets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
      *  @param array<TokenLifetimePolicy>|null $value Value to set for the tokenLifetimePolicies property.
     */
-    public function setTokenLifetimePolicies(?array $value ): void {
-        $this->tokenLifetimePolicies = $value;
+    public function setTokenLifetimePolicies(?array $value): void {
+        $this->getBackingStore()->set('tokenLifetimePolicies', $value);
     }
 
 }

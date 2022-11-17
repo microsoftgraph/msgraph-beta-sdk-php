@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TrustFrameworkKeySet extends Entity implements Parsable 
 {
     /**
-     * @var array<TrustFrameworkKey>|null $keys A collection of the keys.
-    */
-    private ?array $keys = null;
-    
-    /**
      * Instantiates a new TrustFrameworkKeySet and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class TrustFrameworkKeySet extends Entity implements Parsable
      * @return array<TrustFrameworkKey>|null
     */
     public function getKeys(): ?array {
-        return $this->keys;
+        return $this->getBackingStore()->get('keys');
     }
 
     /**
@@ -55,15 +50,15 @@ class TrustFrameworkKeySet extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('keys', $this->keys);
+        $writer->writeCollectionOfObjectValues('keys', $this->getKeys());
     }
 
     /**
      * Sets the keys property value. A collection of the keys.
      *  @param array<TrustFrameworkKey>|null $value Value to set for the keys property.
     */
-    public function setKeys(?array $value ): void {
-        $this->keys = $value;
+    public function setKeys(?array $value): void {
+        $this->getBackingStore()->set('keys', $value);
     }
 
 }

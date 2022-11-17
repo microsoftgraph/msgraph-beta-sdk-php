@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Parsable 
 {
     /**
-     * @var array<string>|null $members The list of ids of role member security groups. These are IDs from Azure Active Directory.
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var array<RoleScopeTag>|null $roleScopeTags The set of Role Scope Tags defined on the Role Assignment.
-    */
-    private ?array $roleScopeTags = null;
-    
-    /**
      * Instantiates a new DeviceAndAppManagementRoleAssignment and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
      * @return array<string>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
      * @return array<RoleScopeTag>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->roleScopeTags;
+        return $this->getBackingStore()->get('roleScopeTags');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('members', $this->members);
-        $writer->writeCollectionOfObjectValues('roleScopeTags', $this->roleScopeTags);
+        $writer->writeCollectionOfPrimitiveValues('members', $this->getMembers());
+        $writer->writeCollectionOfObjectValues('roleScopeTags', $this->getRoleScopeTags());
     }
 
     /**
      * Sets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
      *  @param array<string>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the roleScopeTags property value. The set of Role Scope Tags defined on the Role Assignment.
      *  @param array<RoleScopeTag>|null $value Value to set for the roleScopeTags property.
     */
-    public function setRoleScopeTags(?array $value ): void {
-        $this->roleScopeTags = $value;
+    public function setRoleScopeTags(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
 }

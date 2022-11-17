@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BaseTaskList extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The name of the task list.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the task list. Nullable.
-    */
-    private ?array $extensions = null;
-    
-    /**
-     * @var array<BaseTask>|null $tasks The tasks in this task list. Read-only. Nullable.
-    */
-    private ?array $tasks = null;
-    
-    /**
      * Instantiates a new baseTaskList and sets the default values.
     */
     public function __construct() {
@@ -53,7 +38,7 @@ class BaseTaskList extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -61,7 +46,7 @@ class BaseTaskList extends Entity implements Parsable
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
-        return $this->extensions;
+        return $this->getBackingStore()->get('extensions');
     }
 
     /**
@@ -82,7 +67,7 @@ class BaseTaskList extends Entity implements Parsable
      * @return array<BaseTask>|null
     */
     public function getTasks(): ?array {
-        return $this->tasks;
+        return $this->getBackingStore()->get('tasks');
     }
 
     /**
@@ -91,33 +76,33 @@ class BaseTaskList extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
-        $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
     }
 
     /**
      * Sets the displayName property value. The name of the task list.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the extensions property value. The collection of open extensions defined for the task list. Nullable.
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
-    public function setExtensions(?array $value ): void {
-        $this->extensions = $value;
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**
      * Sets the tasks property value. The tasks in this task list. Read-only. Nullable.
      *  @param array<BaseTask>|null $value Value to set for the tasks property.
     */
-    public function setTasks(?array $value ): void {
-        $this->tasks = $value;
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
 }

@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventListener extends Entity implements Parsable 
 {
     /**
-     * @var string|null $authenticationEventsFlowId The authenticationEventsFlowId property
-    */
-    private ?string $authenticationEventsFlowId = null;
-    
-    /**
-     * @var AuthenticationConditions|null $conditions The conditions property
-    */
-    private ?AuthenticationConditions $conditions = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
      * Instantiates a new AuthenticationEventListener and sets the default values.
     */
     public function __construct() {
@@ -57,7 +37,7 @@ class AuthenticationEventListener extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticationEventsFlowId(): ?string {
-        return $this->authenticationEventsFlowId;
+        return $this->getBackingStore()->get('authenticationEventsFlowId');
     }
 
     /**
@@ -65,7 +45,7 @@ class AuthenticationEventListener extends Entity implements Parsable
      * @return AuthenticationConditions|null
     */
     public function getConditions(): ?AuthenticationConditions {
-        return $this->conditions;
+        return $this->getBackingStore()->get('conditions');
     }
 
     /**
@@ -87,7 +67,7 @@ class AuthenticationEventListener extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -95,7 +75,7 @@ class AuthenticationEventListener extends Entity implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -104,42 +84,42 @@ class AuthenticationEventListener extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('authenticationEventsFlowId', $this->authenticationEventsFlowId);
-        $writer->writeObjectValue('conditions', $this->conditions);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeCollectionOfObjectValues('tags', $this->tags);
+        $writer->writeStringValue('authenticationEventsFlowId', $this->getAuthenticationEventsFlowId());
+        $writer->writeObjectValue('conditions', $this->getConditions());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 
     /**
      * Sets the authenticationEventsFlowId property value. The authenticationEventsFlowId property
      *  @param string|null $value Value to set for the authenticationEventsFlowId property.
     */
-    public function setAuthenticationEventsFlowId(?string $value ): void {
-        $this->authenticationEventsFlowId = $value;
+    public function setAuthenticationEventsFlowId(?string $value): void {
+        $this->getBackingStore()->set('authenticationEventsFlowId', $value);
     }
 
     /**
      * Sets the conditions property value. The conditions property
      *  @param AuthenticationConditions|null $value Value to set for the conditions property.
     */
-    public function setConditions(?AuthenticationConditions $value ): void {
-        $this->conditions = $value;
+    public function setConditions(?AuthenticationConditions $value): void {
+        $this->getBackingStore()->set('conditions', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<KeyValuePair>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
 }

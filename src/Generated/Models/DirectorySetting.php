@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectorySetting extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName Display name of this group of settings, which comes from the associated template. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $templateId Unique identifier for the template used to create this group of settings. Read-only.
-    */
-    private ?string $templateId = null;
-    
-    /**
-     * @var array<SettingValue>|null $values Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced directorySettingTemplates object.
-    */
-    private ?array $values = null;
-    
-    /**
      * Instantiates a new directorySetting and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class DirectorySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class DirectorySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -74,7 +59,7 @@ class DirectorySetting extends Entity implements Parsable
      * @return array<SettingValue>|null
     */
     public function getValues(): ?array {
-        return $this->values;
+        return $this->getBackingStore()->get('values');
     }
 
     /**
@@ -83,33 +68,33 @@ class DirectorySetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('templateId', $this->templateId);
-        $writer->writeCollectionOfObjectValues('values', $this->values);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
+        $writer->writeCollectionOfObjectValues('values', $this->getValues());
     }
 
     /**
      * Sets the displayName property value. Display name of this group of settings, which comes from the associated template. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the templateId property value. Unique identifier for the template used to create this group of settings. Read-only.
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
     /**
      * Sets the values property value. Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced directorySettingTemplates object.
      *  @param array<SettingValue>|null $value Value to set for the values property.
     */
-    public function setValues(?array $value ): void {
-        $this->values = $value;
+    public function setValues(?array $value): void {
+        $this->getBackingStore()->set('values', $value);
     }
 
 }

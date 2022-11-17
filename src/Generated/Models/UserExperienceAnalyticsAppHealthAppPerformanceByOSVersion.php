@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDeviceCount = null;
-    
-    /**
-     * @var int|null $appCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
-    */
-    private ?int $appCrashCount = null;
-    
-    /**
-     * @var string|null $appDisplayName The friendly name of the application.
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var string|null $appName The name of the application.
-    */
-    private ?string $appName = null;
-    
-    /**
-     * @var string|null $appPublisher The publisher of the application.
-    */
-    private ?string $appPublisher = null;
-    
-    /**
-     * @var int|null $appUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $appUsageDuration = null;
-    
-    /**
-     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $meanTimeToFailureInMinutes = null;
-    
-    /**
-     * @var string|null $osBuildNumber The os build number of the application.
-    */
-    private ?string $osBuildNumber = null;
-    
-    /**
-     * @var string|null $osVersion The os version of the application.
-    */
-    private ?string $osVersion = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAppHealthAppPerformanceByOSVersion and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
-        return $this->activeDeviceCount;
+        return $this->getBackingStore()->get('activeDeviceCount');
     }
 
     /**
@@ -83,7 +38,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return int|null
     */
     public function getAppCrashCount(): ?int {
-        return $this->appCrashCount;
+        return $this->getBackingStore()->get('appCrashCount');
     }
 
     /**
@@ -91,7 +46,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -99,7 +54,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return string|null
     */
     public function getAppName(): ?string {
-        return $this->appName;
+        return $this->getBackingStore()->get('appName');
     }
 
     /**
@@ -107,7 +62,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return string|null
     */
     public function getAppPublisher(): ?string {
-        return $this->appPublisher;
+        return $this->getBackingStore()->get('appPublisher');
     }
 
     /**
@@ -115,7 +70,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return int|null
     */
     public function getAppUsageDuration(): ?int {
-        return $this->appUsageDuration;
+        return $this->getBackingStore()->get('appUsageDuration');
     }
 
     /**
@@ -142,7 +97,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->meanTimeToFailureInMinutes;
+        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
     }
 
     /**
@@ -150,7 +105,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return string|null
     */
     public function getOsBuildNumber(): ?string {
-        return $this->osBuildNumber;
+        return $this->getBackingStore()->get('osBuildNumber');
     }
 
     /**
@@ -158,7 +113,7 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -167,87 +122,87 @@ class UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion extends Entity i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDeviceCount', $this->activeDeviceCount);
-        $writer->writeIntegerValue('appCrashCount', $this->appCrashCount);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeStringValue('appName', $this->appName);
-        $writer->writeStringValue('appPublisher', $this->appPublisher);
-        $writer->writeIntegerValue('appUsageDuration', $this->appUsageDuration);
-        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->meanTimeToFailureInMinutes);
-        $writer->writeStringValue('osBuildNumber', $this->osBuildNumber);
-        $writer->writeStringValue('osVersion', $this->osVersion);
+        $writer->writeIntegerValue('activeDeviceCount', $this->getActiveDeviceCount());
+        $writer->writeIntegerValue('appCrashCount', $this->getAppCrashCount());
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeStringValue('appName', $this->getAppName());
+        $writer->writeStringValue('appPublisher', $this->getAppPublisher());
+        $writer->writeIntegerValue('appUsageDuration', $this->getAppUsageDuration());
+        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
+        $writer->writeStringValue('osBuildNumber', $this->getOsBuildNumber());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
     }
 
     /**
      * Sets the activeDeviceCount property value. The number of devices where the app has been active. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDeviceCount property.
     */
-    public function setActiveDeviceCount(?int $value ): void {
-        $this->activeDeviceCount = $value;
+    public function setActiveDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('activeDeviceCount', $value);
     }
 
     /**
      * Sets the appCrashCount property value. The number of crashes for the app. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the appCrashCount property.
     */
-    public function setAppCrashCount(?int $value ): void {
-        $this->appCrashCount = $value;
+    public function setAppCrashCount(?int $value): void {
+        $this->getBackingStore()->set('appCrashCount', $value);
     }
 
     /**
      * Sets the appDisplayName property value. The friendly name of the application.
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the appName property value. The name of the application.
      *  @param string|null $value Value to set for the appName property.
     */
-    public function setAppName(?string $value ): void {
-        $this->appName = $value;
+    public function setAppName(?string $value): void {
+        $this->getBackingStore()->set('appName', $value);
     }
 
     /**
      * Sets the appPublisher property value. The publisher of the application.
      *  @param string|null $value Value to set for the appPublisher property.
     */
-    public function setAppPublisher(?string $value ): void {
-        $this->appPublisher = $value;
+    public function setAppPublisher(?string $value): void {
+        $this->getBackingStore()->set('appPublisher', $value);
     }
 
     /**
      * Sets the appUsageDuration property value. The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the appUsageDuration property.
     */
-    public function setAppUsageDuration(?int $value ): void {
-        $this->appUsageDuration = $value;
+    public function setAppUsageDuration(?int $value): void {
+        $this->getBackingStore()->set('appUsageDuration', $value);
     }
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
-    public function setMeanTimeToFailureInMinutes(?int $value ): void {
-        $this->meanTimeToFailureInMinutes = $value;
+    public function setMeanTimeToFailureInMinutes(?int $value): void {
+        $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
     }
 
     /**
      * Sets the osBuildNumber property value. The os build number of the application.
      *  @param string|null $value Value to set for the osBuildNumber property.
     */
-    public function setOsBuildNumber(?string $value ): void {
-        $this->osBuildNumber = $value;
+    public function setOsBuildNumber(?string $value): void {
+        $this->getBackingStore()->set('osBuildNumber', $value);
     }
 
     /**
      * Sets the osVersion property value. The os version of the application.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
 }

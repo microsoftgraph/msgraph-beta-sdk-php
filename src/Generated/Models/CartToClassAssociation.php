@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CartToClassAssociation extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $classroomIds Identifiers of classrooms to be associated with device carts.
-    */
-    private ?array $classroomIds = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime DateTime the object was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Admin provided description of the CartToClassAssociation.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var array<string>|null $deviceCartIds Identifiers of device carts to be associated with classes.
-    */
-    private ?array $deviceCartIds = null;
-    
-    /**
-     * @var string|null $displayName Admin provided name of the device configuration.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var int|null $version Version of the CartToClassAssociation.
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new cartToClassAssociation and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getClassroomIds(): ?array {
-        return $this->classroomIds;
+        return $this->getBackingStore()->get('classroomIds');
     }
 
     /**
@@ -74,7 +39,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -82,7 +47,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -90,7 +55,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDeviceCartIds(): ?array {
-        return $this->deviceCartIds;
+        return $this->getBackingStore()->get('deviceCartIds');
     }
 
     /**
@@ -98,7 +63,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -123,7 +88,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -131,7 +96,7 @@ class CartToClassAssociation extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -140,69 +105,69 @@ class CartToClassAssociation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('classroomIds', $this->classroomIds);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfPrimitiveValues('deviceCartIds', $this->deviceCartIds);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeIntegerValue('version', $this->version);
+        $writer->writeCollectionOfPrimitiveValues('classroomIds', $this->getClassroomIds());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeCollectionOfPrimitiveValues('deviceCartIds', $this->getDeviceCartIds());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeIntegerValue('version', $this->getVersion());
     }
 
     /**
      * Sets the classroomIds property value. Identifiers of classrooms to be associated with device carts.
      *  @param array<string>|null $value Value to set for the classroomIds property.
     */
-    public function setClassroomIds(?array $value ): void {
-        $this->classroomIds = $value;
+    public function setClassroomIds(?array $value): void {
+        $this->getBackingStore()->set('classroomIds', $value);
     }
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Admin provided description of the CartToClassAssociation.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceCartIds property value. Identifiers of device carts to be associated with classes.
      *  @param array<string>|null $value Value to set for the deviceCartIds property.
     */
-    public function setDeviceCartIds(?array $value ): void {
-        $this->deviceCartIds = $value;
+    public function setDeviceCartIds(?array $value): void {
+        $this->getBackingStore()->set('deviceCartIds', $value);
     }
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the version property value. Version of the CartToClassAssociation.
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

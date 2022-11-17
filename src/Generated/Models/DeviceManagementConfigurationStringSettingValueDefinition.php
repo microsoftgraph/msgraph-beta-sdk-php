@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition implements Parsable 
 {
     /**
-     * @var array<string>|null $fileTypes Supported file types for this setting.
-    */
-    private ?array $fileTypes = null;
-    
-    /**
-     * @var DeviceManagementConfigurationStringFormat|null $format The format property
-    */
-    private ?DeviceManagementConfigurationStringFormat $format = null;
-    
-    /**
-     * @var string|null $inputValidationSchema Regular expression or any xml or json schema that the input string should match
-    */
-    private ?string $inputValidationSchema = null;
-    
-    /**
-     * @var bool|null $isSecret Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
-    */
-    private ?bool $isSecret = null;
-    
-    /**
-     * @var int|null $maximumLength Maximum length of string
-    */
-    private ?int $maximumLength = null;
-    
-    /**
-     * @var int|null $minimumLength Minimum length of string
-    */
-    private ?int $minimumLength = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationStringSettingValueDefinition and sets the default values.
     */
     public function __construct() {
@@ -76,7 +46,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return array<string>|null
     */
     public function getFileTypes(): ?array {
-        return $this->fileTypes;
+        return $this->getBackingStore()->get('fileTypes');
     }
 
     /**
@@ -84,7 +54,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return DeviceManagementConfigurationStringFormat|null
     */
     public function getFormat(): ?DeviceManagementConfigurationStringFormat {
-        return $this->format;
+        return $this->getBackingStore()->get('format');
     }
 
     /**
@@ -92,7 +62,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return string|null
     */
     public function getInputValidationSchema(): ?string {
-        return $this->inputValidationSchema;
+        return $this->getBackingStore()->get('inputValidationSchema');
     }
 
     /**
@@ -100,7 +70,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return bool|null
     */
     public function getIsSecret(): ?bool {
-        return $this->isSecret;
+        return $this->getBackingStore()->get('isSecret');
     }
 
     /**
@@ -108,7 +78,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return int|null
     */
     public function getMaximumLength(): ?int {
-        return $this->maximumLength;
+        return $this->getBackingStore()->get('maximumLength');
     }
 
     /**
@@ -116,7 +86,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
      * @return int|null
     */
     public function getMinimumLength(): ?int {
-        return $this->minimumLength;
+        return $this->getBackingStore()->get('minimumLength');
     }
 
     /**
@@ -125,60 +95,60 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('fileTypes', $this->fileTypes);
-        $writer->writeEnumValue('format', $this->format);
-        $writer->writeStringValue('inputValidationSchema', $this->inputValidationSchema);
-        $writer->writeBooleanValue('isSecret', $this->isSecret);
-        $writer->writeIntegerValue('maximumLength', $this->maximumLength);
-        $writer->writeIntegerValue('minimumLength', $this->minimumLength);
+        $writer->writeCollectionOfPrimitiveValues('fileTypes', $this->getFileTypes());
+        $writer->writeEnumValue('format', $this->getFormat());
+        $writer->writeStringValue('inputValidationSchema', $this->getInputValidationSchema());
+        $writer->writeBooleanValue('isSecret', $this->getIsSecret());
+        $writer->writeIntegerValue('maximumLength', $this->getMaximumLength());
+        $writer->writeIntegerValue('minimumLength', $this->getMinimumLength());
     }
 
     /**
      * Sets the fileTypes property value. Supported file types for this setting.
      *  @param array<string>|null $value Value to set for the fileTypes property.
     */
-    public function setFileTypes(?array $value ): void {
-        $this->fileTypes = $value;
+    public function setFileTypes(?array $value): void {
+        $this->getBackingStore()->set('fileTypes', $value);
     }
 
     /**
      * Sets the format property value. The format property
      *  @param DeviceManagementConfigurationStringFormat|null $value Value to set for the format property.
     */
-    public function setFormat(?DeviceManagementConfigurationStringFormat $value ): void {
-        $this->format = $value;
+    public function setFormat(?DeviceManagementConfigurationStringFormat $value): void {
+        $this->getBackingStore()->set('format', $value);
     }
 
     /**
      * Sets the inputValidationSchema property value. Regular expression or any xml or json schema that the input string should match
      *  @param string|null $value Value to set for the inputValidationSchema property.
     */
-    public function setInputValidationSchema(?string $value ): void {
-        $this->inputValidationSchema = $value;
+    public function setInputValidationSchema(?string $value): void {
+        $this->getBackingStore()->set('inputValidationSchema', $value);
     }
 
     /**
      * Sets the isSecret property value. Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
      *  @param bool|null $value Value to set for the isSecret property.
     */
-    public function setIsSecret(?bool $value ): void {
-        $this->isSecret = $value;
+    public function setIsSecret(?bool $value): void {
+        $this->getBackingStore()->set('isSecret', $value);
     }
 
     /**
      * Sets the maximumLength property value. Maximum length of string
      *  @param int|null $value Value to set for the maximumLength property.
     */
-    public function setMaximumLength(?int $value ): void {
-        $this->maximumLength = $value;
+    public function setMaximumLength(?int $value): void {
+        $this->getBackingStore()->set('maximumLength', $value);
     }
 
     /**
      * Sets the minimumLength property value. Minimum length of string
      *  @param int|null $value Value to set for the minimumLength property.
     */
-    public function setMinimumLength(?int $value ): void {
-        $this->minimumLength = $value;
+    public function setMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('minimumLength', $value);
     }
 
 }

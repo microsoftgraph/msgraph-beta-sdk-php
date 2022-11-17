@@ -9,61 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingDefinition extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConstraint>|null $constraints Collection of constraints for the setting value
-    */
-    private ?array $constraints = null;
-    
-    /**
-     * @var array<DeviceManagementSettingDependency>|null $dependencies Collection of dependencies on other settings
-    */
-    private ?array $dependencies = null;
-    
-    /**
-     * @var string|null $description The setting's description
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The setting's display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $documentationUrl Url to setting documentation
-    */
-    private ?string $documentationUrl = null;
-    
-    /**
-     * @var string|null $headerSubtitle subtitle of the setting header for more details about the category/section
-    */
-    private ?string $headerSubtitle = null;
-    
-    /**
-     * @var string|null $headerTitle title of the setting header represents a category/section of a setting/settings
-    */
-    private ?string $headerTitle = null;
-    
-    /**
-     * @var bool|null $isTopLevel If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
-    */
-    private ?bool $isTopLevel = null;
-    
-    /**
-     * @var array<string>|null $keywords Keywords associated with the setting
-    */
-    private ?array $keywords = null;
-    
-    /**
-     * @var string|null $placeholderText Placeholder text as an example of valid input
-    */
-    private ?string $placeholderText = null;
-    
-    /**
-     * @var DeviceManangementIntentValueType|null $valueType The valueType property
-    */
-    private ?DeviceManangementIntentValueType $valueType = null;
-    
-    /**
      * Instantiates a new deviceManagementSettingDefinition and sets the default values.
     */
     public function __construct() {
@@ -94,7 +39,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return array<DeviceManagementConstraint>|null
     */
     public function getConstraints(): ?array {
-        return $this->constraints;
+        return $this->getBackingStore()->get('constraints');
     }
 
     /**
@@ -102,7 +47,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return array<DeviceManagementSettingDependency>|null
     */
     public function getDependencies(): ?array {
-        return $this->dependencies;
+        return $this->getBackingStore()->get('dependencies');
     }
 
     /**
@@ -110,7 +55,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -118,7 +63,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -126,7 +71,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDocumentationUrl(): ?string {
-        return $this->documentationUrl;
+        return $this->getBackingStore()->get('documentationUrl');
     }
 
     /**
@@ -155,7 +100,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getHeaderSubtitle(): ?string {
-        return $this->headerSubtitle;
+        return $this->getBackingStore()->get('headerSubtitle');
     }
 
     /**
@@ -163,7 +108,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getHeaderTitle(): ?string {
-        return $this->headerTitle;
+        return $this->getBackingStore()->get('headerTitle');
     }
 
     /**
@@ -171,7 +116,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsTopLevel(): ?bool {
-        return $this->isTopLevel;
+        return $this->getBackingStore()->get('isTopLevel');
     }
 
     /**
@@ -179,7 +124,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getKeywords(): ?array {
-        return $this->keywords;
+        return $this->getBackingStore()->get('keywords');
     }
 
     /**
@@ -187,7 +132,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getPlaceholderText(): ?string {
-        return $this->placeholderText;
+        return $this->getBackingStore()->get('placeholderText');
     }
 
     /**
@@ -195,7 +140,7 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
      * @return DeviceManangementIntentValueType|null
     */
     public function getValueType(): ?DeviceManangementIntentValueType {
-        return $this->valueType;
+        return $this->getBackingStore()->get('valueType');
     }
 
     /**
@@ -204,105 +149,105 @@ class DeviceManagementSettingDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('constraints', $this->constraints);
-        $writer->writeCollectionOfObjectValues('dependencies', $this->dependencies);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('documentationUrl', $this->documentationUrl);
-        $writer->writeStringValue('headerSubtitle', $this->headerSubtitle);
-        $writer->writeStringValue('headerTitle', $this->headerTitle);
-        $writer->writeBooleanValue('isTopLevel', $this->isTopLevel);
-        $writer->writeCollectionOfPrimitiveValues('keywords', $this->keywords);
-        $writer->writeStringValue('placeholderText', $this->placeholderText);
-        $writer->writeEnumValue('valueType', $this->valueType);
+        $writer->writeCollectionOfObjectValues('constraints', $this->getConstraints());
+        $writer->writeCollectionOfObjectValues('dependencies', $this->getDependencies());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('documentationUrl', $this->getDocumentationUrl());
+        $writer->writeStringValue('headerSubtitle', $this->getHeaderSubtitle());
+        $writer->writeStringValue('headerTitle', $this->getHeaderTitle());
+        $writer->writeBooleanValue('isTopLevel', $this->getIsTopLevel());
+        $writer->writeCollectionOfPrimitiveValues('keywords', $this->getKeywords());
+        $writer->writeStringValue('placeholderText', $this->getPlaceholderText());
+        $writer->writeEnumValue('valueType', $this->getValueType());
     }
 
     /**
      * Sets the constraints property value. Collection of constraints for the setting value
      *  @param array<DeviceManagementConstraint>|null $value Value to set for the constraints property.
     */
-    public function setConstraints(?array $value ): void {
-        $this->constraints = $value;
+    public function setConstraints(?array $value): void {
+        $this->getBackingStore()->set('constraints', $value);
     }
 
     /**
      * Sets the dependencies property value. Collection of dependencies on other settings
      *  @param array<DeviceManagementSettingDependency>|null $value Value to set for the dependencies property.
     */
-    public function setDependencies(?array $value ): void {
-        $this->dependencies = $value;
+    public function setDependencies(?array $value): void {
+        $this->getBackingStore()->set('dependencies', $value);
     }
 
     /**
      * Sets the description property value. The setting's description
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The setting's display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the documentationUrl property value. Url to setting documentation
      *  @param string|null $value Value to set for the documentationUrl property.
     */
-    public function setDocumentationUrl(?string $value ): void {
-        $this->documentationUrl = $value;
+    public function setDocumentationUrl(?string $value): void {
+        $this->getBackingStore()->set('documentationUrl', $value);
     }
 
     /**
      * Sets the headerSubtitle property value. subtitle of the setting header for more details about the category/section
      *  @param string|null $value Value to set for the headerSubtitle property.
     */
-    public function setHeaderSubtitle(?string $value ): void {
-        $this->headerSubtitle = $value;
+    public function setHeaderSubtitle(?string $value): void {
+        $this->getBackingStore()->set('headerSubtitle', $value);
     }
 
     /**
      * Sets the headerTitle property value. title of the setting header represents a category/section of a setting/settings
      *  @param string|null $value Value to set for the headerTitle property.
     */
-    public function setHeaderTitle(?string $value ): void {
-        $this->headerTitle = $value;
+    public function setHeaderTitle(?string $value): void {
+        $this->getBackingStore()->set('headerTitle', $value);
     }
 
     /**
      * Sets the isTopLevel property value. If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
      *  @param bool|null $value Value to set for the isTopLevel property.
     */
-    public function setIsTopLevel(?bool $value ): void {
-        $this->isTopLevel = $value;
+    public function setIsTopLevel(?bool $value): void {
+        $this->getBackingStore()->set('isTopLevel', $value);
     }
 
     /**
      * Sets the keywords property value. Keywords associated with the setting
      *  @param array<string>|null $value Value to set for the keywords property.
     */
-    public function setKeywords(?array $value ): void {
-        $this->keywords = $value;
+    public function setKeywords(?array $value): void {
+        $this->getBackingStore()->set('keywords', $value);
     }
 
     /**
      * Sets the placeholderText property value. Placeholder text as an example of valid input
      *  @param string|null $value Value to set for the placeholderText property.
     */
-    public function setPlaceholderText(?string $value ): void {
-        $this->placeholderText = $value;
+    public function setPlaceholderText(?string $value): void {
+        $this->getBackingStore()->set('placeholderText', $value);
     }
 
     /**
      * Sets the valueType property value. The valueType property
      *  @param DeviceManangementIntentValueType|null $value Value to set for the valueType property.
     */
-    public function setValueType(?DeviceManangementIntentValueType $value ): void {
-        $this->valueType = $value;
+    public function setValueType(?DeviceManangementIntentValueType $value): void {
+        $this->getBackingStore()->set('valueType', $value);
     }
 
 }

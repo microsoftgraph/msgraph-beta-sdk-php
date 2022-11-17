@@ -9,56 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var VpnAuthenticationMethod|null $authenticationMethod VPN Authentication Method.
-    */
-    private ?VpnAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var string|null $connectionName Connection name displayed to the user.
-    */
-    private ?string $connectionName = null;
-    
-    /**
-     * @var AndroidVpnConnectionType|null $connectionType Android VPN connection type.
-    */
-    private ?AndroidVpnConnectionType $connectionType = null;
-    
-    /**
-     * @var array<KeyValue>|null $customData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
-    */
-    private ?array $customData = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $customKeyValueData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
-    */
-    private ?array $customKeyValueData = null;
-    
-    /**
-     * @var string|null $fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
-    */
-    private ?string $fingerprint = null;
-    
-    /**
-     * @var AndroidCertificateProfileBase|null $identityCertificate Identity certificate for client authentication when authentication method is certificate.
-    */
-    private ?AndroidCertificateProfileBase $identityCertificate = null;
-    
-    /**
-     * @var string|null $realm Realm when connection type is set to Pulse Secure.
-    */
-    private ?string $realm = null;
-    
-    /**
-     * @var string|null $role Role when connection type is set to Pulse Secure.
-    */
-    private ?string $role = null;
-    
-    /**
-     * @var array<VpnServer>|null $servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $servers = null;
-    
-    /**
      * Instantiates a new AndroidVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -80,7 +30,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -88,7 +38,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->connectionName;
+        return $this->getBackingStore()->get('connectionName');
     }
 
     /**
@@ -96,7 +46,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return AndroidVpnConnectionType|null
     */
     public function getConnectionType(): ?AndroidVpnConnectionType {
-        return $this->connectionType;
+        return $this->getBackingStore()->get('connectionType');
     }
 
     /**
@@ -104,7 +54,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValue>|null
     */
     public function getCustomData(): ?array {
-        return $this->customData;
+        return $this->getBackingStore()->get('customData');
     }
 
     /**
@@ -112,7 +62,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<KeyValuePair>|null
     */
     public function getCustomKeyValueData(): ?array {
-        return $this->customKeyValueData;
+        return $this->getBackingStore()->get('customKeyValueData');
     }
 
     /**
@@ -140,7 +90,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getFingerprint(): ?string {
-        return $this->fingerprint;
+        return $this->getBackingStore()->get('fingerprint');
     }
 
     /**
@@ -148,7 +98,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return AndroidCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidCertificateProfileBase {
-        return $this->identityCertificate;
+        return $this->getBackingStore()->get('identityCertificate');
     }
 
     /**
@@ -156,7 +106,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->realm;
+        return $this->getBackingStore()->get('realm');
     }
 
     /**
@@ -164,7 +114,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRole(): ?string {
-        return $this->role;
+        return $this->getBackingStore()->get('role');
     }
 
     /**
@@ -172,7 +122,7 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->servers;
+        return $this->getBackingStore()->get('servers');
     }
 
     /**
@@ -181,96 +131,96 @@ class AndroidVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeStringValue('connectionName', $this->connectionName);
-        $writer->writeEnumValue('connectionType', $this->connectionType);
-        $writer->writeCollectionOfObjectValues('customData', $this->customData);
-        $writer->writeCollectionOfObjectValues('customKeyValueData', $this->customKeyValueData);
-        $writer->writeStringValue('fingerprint', $this->fingerprint);
-        $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
-        $writer->writeStringValue('realm', $this->realm);
-        $writer->writeStringValue('role', $this->role);
-        $writer->writeCollectionOfObjectValues('servers', $this->servers);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeStringValue('connectionName', $this->getConnectionName());
+        $writer->writeEnumValue('connectionType', $this->getConnectionType());
+        $writer->writeCollectionOfObjectValues('customData', $this->getCustomData());
+        $writer->writeCollectionOfObjectValues('customKeyValueData', $this->getCustomKeyValueData());
+        $writer->writeStringValue('fingerprint', $this->getFingerprint());
+        $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeStringValue('realm', $this->getRealm());
+        $writer->writeStringValue('role', $this->getRole());
+        $writer->writeCollectionOfObjectValues('servers', $this->getServers());
     }
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
      *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?VpnAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
      *  @param string|null $value Value to set for the connectionName property.
     */
-    public function setConnectionName(?string $value ): void {
-        $this->connectionName = $value;
+    public function setConnectionName(?string $value): void {
+        $this->getBackingStore()->set('connectionName', $value);
     }
 
     /**
      * Sets the connectionType property value. Android VPN connection type.
      *  @param AndroidVpnConnectionType|null $value Value to set for the connectionType property.
     */
-    public function setConnectionType(?AndroidVpnConnectionType $value ): void {
-        $this->connectionType = $value;
+    public function setConnectionType(?AndroidVpnConnectionType $value): void {
+        $this->getBackingStore()->set('connectionType', $value);
     }
 
     /**
      * Sets the customData property value. Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *  @param array<KeyValue>|null $value Value to set for the customData property.
     */
-    public function setCustomData(?array $value ): void {
-        $this->customData = $value;
+    public function setCustomData(?array $value): void {
+        $this->getBackingStore()->set('customData', $value);
     }
 
     /**
      * Sets the customKeyValueData property value. Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *  @param array<KeyValuePair>|null $value Value to set for the customKeyValueData property.
     */
-    public function setCustomKeyValueData(?array $value ): void {
-        $this->customKeyValueData = $value;
+    public function setCustomKeyValueData(?array $value): void {
+        $this->getBackingStore()->set('customKeyValueData', $value);
     }
 
     /**
      * Sets the fingerprint property value. Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
      *  @param string|null $value Value to set for the fingerprint property.
     */
-    public function setFingerprint(?string $value ): void {
-        $this->fingerprint = $value;
+    public function setFingerprint(?string $value): void {
+        $this->getBackingStore()->set('fingerprint', $value);
     }
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
      *  @param AndroidCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
-    public function setIdentityCertificate(?AndroidCertificateProfileBase $value ): void {
-        $this->identityCertificate = $value;
+    public function setIdentityCertificate(?AndroidCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificate', $value);
     }
 
     /**
      * Sets the realm property value. Realm when connection type is set to Pulse Secure.
      *  @param string|null $value Value to set for the realm property.
     */
-    public function setRealm(?string $value ): void {
-        $this->realm = $value;
+    public function setRealm(?string $value): void {
+        $this->getBackingStore()->set('realm', $value);
     }
 
     /**
      * Sets the role property value. Role when connection type is set to Pulse Secure.
      *  @param string|null $value Value to set for the role property.
     */
-    public function setRole(?string $value ): void {
-        $this->role = $value;
+    public function setRole(?string $value): void {
+        $this->getBackingStore()->set('role', $value);
     }
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *  @param array<VpnServer>|null $value Value to set for the servers property.
     */
-    public function setServers(?array $value ): void {
-        $this->servers = $value;
+    public function setServers(?array $value): void {
+        $this->getBackingStore()->set('servers', $value);
     }
 
 }

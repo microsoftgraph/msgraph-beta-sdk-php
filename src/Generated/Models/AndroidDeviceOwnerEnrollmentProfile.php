@@ -10,106 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $accountId Tenant GUID the enrollment profile belongs to.
-    */
-    private ?string $accountId = null;
-    
-    /**
-     * @var bool|null $configureWifi Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
-    */
-    private ?bool $configureWifi = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Description for the enrollment profile.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name for the enrollment profile.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
-    */
-    private ?int $enrolledDeviceCount = null;
-    
-    /**
-     * @var AndroidDeviceOwnerEnrollmentMode|null $enrollmentMode The enrollment mode for an enrollment profile.
-    */
-    private ?AndroidDeviceOwnerEnrollmentMode $enrollmentMode = null;
-    
-    /**
-     * @var AndroidDeviceOwnerEnrollmentTokenType|null $enrollmentTokenType The enrollment token type for an enrollment profile.
-    */
-    private ?AndroidDeviceOwnerEnrollmentTokenType $enrollmentTokenType = null;
-    
-    /**
-     * @var int|null $enrollmentTokenUsageCount Total number of AOSP devices that have enrolled using the current token.
-    */
-    private ?int $enrollmentTokenUsageCount = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $qrCodeContent String used to generate a QR code for the token.
-    */
-    private ?string $qrCodeContent = null;
-    
-    /**
-     * @var MimeContent|null $qrCodeImage String used to generate a QR code for the token.
-    */
-    private ?MimeContent $qrCodeImage = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var DateTime|null $tokenCreationDateTime Date time the most recently created token was created.
-    */
-    private ?DateTime $tokenCreationDateTime = null;
-    
-    /**
-     * @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire.
-    */
-    private ?DateTime $tokenExpirationDateTime = null;
-    
-    /**
-     * @var string|null $tokenValue Value of the most recently created token for this enrollment profile.
-    */
-    private ?string $tokenValue = null;
-    
-    /**
-     * @var bool|null $wifiHidden Boolean that indicates if hidden wifi networks are enabled
-    */
-    private ?bool $wifiHidden = null;
-    
-    /**
-     * @var string|null $wifiPassword String that contains the wi-fi login password
-    */
-    private ?string $wifiPassword = null;
-    
-    /**
-     * @var AospWifiSecurityType|null $wifiSecurityType This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
-    */
-    private ?AospWifiSecurityType $wifiSecurityType = null;
-    
-    /**
-     * @var string|null $wifiSsid String that contains the wi-fi login ssid
-    */
-    private ?string $wifiSsid = null;
-    
-    /**
      * Instantiates a new androidDeviceOwnerEnrollmentProfile and sets the default values.
     */
     public function __construct() {
@@ -131,7 +31,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->accountId;
+        return $this->getBackingStore()->get('accountId');
     }
 
     /**
@@ -139,7 +39,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getConfigureWifi(): ?bool {
-        return $this->configureWifi;
+        return $this->getBackingStore()->get('configureWifi');
     }
 
     /**
@@ -147,7 +47,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -155,7 +55,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -163,7 +63,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -171,7 +71,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->enrolledDeviceCount;
+        return $this->getBackingStore()->get('enrolledDeviceCount');
     }
 
     /**
@@ -179,7 +79,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AndroidDeviceOwnerEnrollmentMode|null
     */
     public function getEnrollmentMode(): ?AndroidDeviceOwnerEnrollmentMode {
-        return $this->enrollmentMode;
+        return $this->getBackingStore()->get('enrollmentMode');
     }
 
     /**
@@ -187,7 +87,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AndroidDeviceOwnerEnrollmentTokenType|null
     */
     public function getEnrollmentTokenType(): ?AndroidDeviceOwnerEnrollmentTokenType {
-        return $this->enrollmentTokenType;
+        return $this->getBackingStore()->get('enrollmentTokenType');
     }
 
     /**
@@ -195,7 +95,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrollmentTokenUsageCount(): ?int {
-        return $this->enrollmentTokenUsageCount;
+        return $this->getBackingStore()->get('enrollmentTokenUsageCount');
     }
 
     /**
@@ -233,7 +133,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -241,7 +141,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getQrCodeContent(): ?string {
-        return $this->qrCodeContent;
+        return $this->getBackingStore()->get('qrCodeContent');
     }
 
     /**
@@ -249,7 +149,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getQrCodeImage(): ?MimeContent {
-        return $this->qrCodeImage;
+        return $this->getBackingStore()->get('qrCodeImage');
     }
 
     /**
@@ -257,7 +157,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -265,7 +165,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenCreationDateTime(): ?DateTime {
-        return $this->tokenCreationDateTime;
+        return $this->getBackingStore()->get('tokenCreationDateTime');
     }
 
     /**
@@ -273,7 +173,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenExpirationDateTime(): ?DateTime {
-        return $this->tokenExpirationDateTime;
+        return $this->getBackingStore()->get('tokenExpirationDateTime');
     }
 
     /**
@@ -281,7 +181,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getTokenValue(): ?string {
-        return $this->tokenValue;
+        return $this->getBackingStore()->get('tokenValue');
     }
 
     /**
@@ -289,7 +189,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getWifiHidden(): ?bool {
-        return $this->wifiHidden;
+        return $this->getBackingStore()->get('wifiHidden');
     }
 
     /**
@@ -297,7 +197,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getWifiPassword(): ?string {
-        return $this->wifiPassword;
+        return $this->getBackingStore()->get('wifiPassword');
     }
 
     /**
@@ -305,7 +205,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return AospWifiSecurityType|null
     */
     public function getWifiSecurityType(): ?AospWifiSecurityType {
-        return $this->wifiSecurityType;
+        return $this->getBackingStore()->get('wifiSecurityType');
     }
 
     /**
@@ -313,7 +213,7 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getWifiSsid(): ?string {
-        return $this->wifiSsid;
+        return $this->getBackingStore()->get('wifiSsid');
     }
 
     /**
@@ -322,186 +222,186 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('accountId', $this->accountId);
-        $writer->writeBooleanValue('configureWifi', $this->configureWifi);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('enrolledDeviceCount', $this->enrolledDeviceCount);
-        $writer->writeEnumValue('enrollmentMode', $this->enrollmentMode);
-        $writer->writeEnumValue('enrollmentTokenType', $this->enrollmentTokenType);
-        $writer->writeIntegerValue('enrollmentTokenUsageCount', $this->enrollmentTokenUsageCount);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('qrCodeContent', $this->qrCodeContent);
-        $writer->writeObjectValue('qrCodeImage', $this->qrCodeImage);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeDateTimeValue('tokenCreationDateTime', $this->tokenCreationDateTime);
-        $writer->writeDateTimeValue('tokenExpirationDateTime', $this->tokenExpirationDateTime);
-        $writer->writeStringValue('tokenValue', $this->tokenValue);
-        $writer->writeBooleanValue('wifiHidden', $this->wifiHidden);
-        $writer->writeStringValue('wifiPassword', $this->wifiPassword);
-        $writer->writeEnumValue('wifiSecurityType', $this->wifiSecurityType);
-        $writer->writeStringValue('wifiSsid', $this->wifiSsid);
+        $writer->writeStringValue('accountId', $this->getAccountId());
+        $writer->writeBooleanValue('configureWifi', $this->getConfigureWifi());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
+        $writer->writeEnumValue('enrollmentMode', $this->getEnrollmentMode());
+        $writer->writeEnumValue('enrollmentTokenType', $this->getEnrollmentTokenType());
+        $writer->writeIntegerValue('enrollmentTokenUsageCount', $this->getEnrollmentTokenUsageCount());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
+        $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeDateTimeValue('tokenCreationDateTime', $this->getTokenCreationDateTime());
+        $writer->writeDateTimeValue('tokenExpirationDateTime', $this->getTokenExpirationDateTime());
+        $writer->writeStringValue('tokenValue', $this->getTokenValue());
+        $writer->writeBooleanValue('wifiHidden', $this->getWifiHidden());
+        $writer->writeStringValue('wifiPassword', $this->getWifiPassword());
+        $writer->writeEnumValue('wifiSecurityType', $this->getWifiSecurityType());
+        $writer->writeStringValue('wifiSsid', $this->getWifiSsid());
     }
 
     /**
      * Sets the accountId property value. Tenant GUID the enrollment profile belongs to.
      *  @param string|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value ): void {
-        $this->accountId = $value;
+    public function setAccountId(?string $value): void {
+        $this->getBackingStore()->set('accountId', $value);
     }
 
     /**
      * Sets the configureWifi property value. Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
      *  @param bool|null $value Value to set for the configureWifi property.
     */
-    public function setConfigureWifi(?bool $value ): void {
-        $this->configureWifi = $value;
+    public function setConfigureWifi(?bool $value): void {
+        $this->getBackingStore()->set('configureWifi', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Date time the enrollment profile was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Description for the enrollment profile.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name for the enrollment profile.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the enrolledDeviceCount property value. Total number of Android devices that have enrolled using this enrollment profile.
      *  @param int|null $value Value to set for the enrolledDeviceCount property.
     */
-    public function setEnrolledDeviceCount(?int $value ): void {
-        $this->enrolledDeviceCount = $value;
+    public function setEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('enrolledDeviceCount', $value);
     }
 
     /**
      * Sets the enrollmentMode property value. The enrollment mode for an enrollment profile.
      *  @param AndroidDeviceOwnerEnrollmentMode|null $value Value to set for the enrollmentMode property.
     */
-    public function setEnrollmentMode(?AndroidDeviceOwnerEnrollmentMode $value ): void {
-        $this->enrollmentMode = $value;
+    public function setEnrollmentMode(?AndroidDeviceOwnerEnrollmentMode $value): void {
+        $this->getBackingStore()->set('enrollmentMode', $value);
     }
 
     /**
      * Sets the enrollmentTokenType property value. The enrollment token type for an enrollment profile.
      *  @param AndroidDeviceOwnerEnrollmentTokenType|null $value Value to set for the enrollmentTokenType property.
     */
-    public function setEnrollmentTokenType(?AndroidDeviceOwnerEnrollmentTokenType $value ): void {
-        $this->enrollmentTokenType = $value;
+    public function setEnrollmentTokenType(?AndroidDeviceOwnerEnrollmentTokenType $value): void {
+        $this->getBackingStore()->set('enrollmentTokenType', $value);
     }
 
     /**
      * Sets the enrollmentTokenUsageCount property value. Total number of AOSP devices that have enrolled using the current token.
      *  @param int|null $value Value to set for the enrollmentTokenUsageCount property.
     */
-    public function setEnrollmentTokenUsageCount(?int $value ): void {
-        $this->enrollmentTokenUsageCount = $value;
+    public function setEnrollmentTokenUsageCount(?int $value): void {
+        $this->getBackingStore()->set('enrollmentTokenUsageCount', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Date time the enrollment profile was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the qrCodeContent property value. String used to generate a QR code for the token.
      *  @param string|null $value Value to set for the qrCodeContent property.
     */
-    public function setQrCodeContent(?string $value ): void {
-        $this->qrCodeContent = $value;
+    public function setQrCodeContent(?string $value): void {
+        $this->getBackingStore()->set('qrCodeContent', $value);
     }
 
     /**
      * Sets the qrCodeImage property value. String used to generate a QR code for the token.
      *  @param MimeContent|null $value Value to set for the qrCodeImage property.
     */
-    public function setQrCodeImage(?MimeContent $value ): void {
-        $this->qrCodeImage = $value;
+    public function setQrCodeImage(?MimeContent $value): void {
+        $this->getBackingStore()->set('qrCodeImage', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the tokenCreationDateTime property value. Date time the most recently created token was created.
      *  @param DateTime|null $value Value to set for the tokenCreationDateTime property.
     */
-    public function setTokenCreationDateTime(?DateTime $value ): void {
-        $this->tokenCreationDateTime = $value;
+    public function setTokenCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('tokenCreationDateTime', $value);
     }
 
     /**
      * Sets the tokenExpirationDateTime property value. Date time the most recently created token will expire.
      *  @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
     */
-    public function setTokenExpirationDateTime(?DateTime $value ): void {
-        $this->tokenExpirationDateTime = $value;
+    public function setTokenExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('tokenExpirationDateTime', $value);
     }
 
     /**
      * Sets the tokenValue property value. Value of the most recently created token for this enrollment profile.
      *  @param string|null $value Value to set for the tokenValue property.
     */
-    public function setTokenValue(?string $value ): void {
-        $this->tokenValue = $value;
+    public function setTokenValue(?string $value): void {
+        $this->getBackingStore()->set('tokenValue', $value);
     }
 
     /**
      * Sets the wifiHidden property value. Boolean that indicates if hidden wifi networks are enabled
      *  @param bool|null $value Value to set for the wifiHidden property.
     */
-    public function setWifiHidden(?bool $value ): void {
-        $this->wifiHidden = $value;
+    public function setWifiHidden(?bool $value): void {
+        $this->getBackingStore()->set('wifiHidden', $value);
     }
 
     /**
      * Sets the wifiPassword property value. String that contains the wi-fi login password
      *  @param string|null $value Value to set for the wifiPassword property.
     */
-    public function setWifiPassword(?string $value ): void {
-        $this->wifiPassword = $value;
+    public function setWifiPassword(?string $value): void {
+        $this->getBackingStore()->set('wifiPassword', $value);
     }
 
     /**
      * Sets the wifiSecurityType property value. This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.
      *  @param AospWifiSecurityType|null $value Value to set for the wifiSecurityType property.
     */
-    public function setWifiSecurityType(?AospWifiSecurityType $value ): void {
-        $this->wifiSecurityType = $value;
+    public function setWifiSecurityType(?AospWifiSecurityType $value): void {
+        $this->getBackingStore()->set('wifiSecurityType', $value);
     }
 
     /**
      * Sets the wifiSsid property value. String that contains the wi-fi login ssid
      *  @param string|null $value Value to set for the wifiSsid property.
     */
-    public function setWifiSsid(?string $value ): void {
-        $this->wifiSsid = $value;
+    public function setWifiSsid(?string $value): void {
+        $this->getBackingStore()->set('wifiSsid', $value);
     }
 
 }

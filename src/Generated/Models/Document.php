@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Document extends Entity implements Parsable 
 {
     /**
-     * @var array<DocumentComment>|null $comments The comments property
-    */
-    private ?array $comments = null;
-    
-    /**
      * Instantiates a new Document and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class Document extends Entity implements Parsable
      * @return array<DocumentComment>|null
     */
     public function getComments(): ?array {
-        return $this->comments;
+        return $this->getBackingStore()->get('comments');
     }
 
     /**
@@ -55,15 +50,15 @@ class Document extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('comments', $this->comments);
+        $writer->writeCollectionOfObjectValues('comments', $this->getComments());
     }
 
     /**
      * Sets the comments property value. The comments property
      *  @param array<DocumentComment>|null $value Value to set for the comments property.
     */
-    public function setComments(?array $value ): void {
-        $this->comments = $value;
+    public function setComments(?array $value): void {
+        $this->getBackingStore()->set('comments', $value);
     }
 
 }

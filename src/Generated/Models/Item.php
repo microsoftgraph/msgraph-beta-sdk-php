@@ -10,91 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Item extends Entity implements Parsable 
 {
     /**
-     * @var string|null $baseUnitOfMeasureId The baseUnitOfMeasureId property
-    */
-    private ?string $baseUnitOfMeasureId = null;
-    
-    /**
-     * @var bool|null $blocked The blocked property
-    */
-    private ?bool $blocked = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $gtin The gtin property
-    */
-    private ?string $gtin = null;
-    
-    /**
-     * @var string|null $inventory The inventory property
-    */
-    private ?string $inventory = null;
-    
-    /**
-     * @var ItemCategory|null $itemCategory The itemCategory property
-    */
-    private ?ItemCategory $itemCategory = null;
-    
-    /**
-     * @var string|null $itemCategoryCode The itemCategoryCode property
-    */
-    private ?string $itemCategoryCode = null;
-    
-    /**
-     * @var string|null $itemCategoryId The itemCategoryId property
-    */
-    private ?string $itemCategoryId = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $number The number property
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
-    private ?array $picture = null;
-    
-    /**
-     * @var bool|null $priceIncludesTax The priceIncludesTax property
-    */
-    private ?bool $priceIncludesTax = null;
-    
-    /**
-     * @var string|null $taxGroupCode The taxGroupCode property
-    */
-    private ?string $taxGroupCode = null;
-    
-    /**
-     * @var string|null $taxGroupId The taxGroupId property
-    */
-    private ?string $taxGroupId = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
-    
-    /**
-     * @var string|null $unitCost The unitCost property
-    */
-    private ?string $unitCost = null;
-    
-    /**
-     * @var string|null $unitPrice The unitPrice property
-    */
-    private ?string $unitPrice = null;
-    
-    /**
      * Instantiates a new item and sets the default values.
     */
     public function __construct() {
@@ -116,7 +31,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getBaseUnitOfMeasureId(): ?string {
-        return $this->baseUnitOfMeasureId;
+        return $this->getBackingStore()->get('baseUnitOfMeasureId');
     }
 
     /**
@@ -124,7 +39,7 @@ class Item extends Entity implements Parsable
      * @return bool|null
     */
     public function getBlocked(): ?bool {
-        return $this->blocked;
+        return $this->getBackingStore()->get('blocked');
     }
 
     /**
@@ -132,7 +47,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -167,7 +82,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getGtin(): ?string {
-        return $this->gtin;
+        return $this->getBackingStore()->get('gtin');
     }
 
     /**
@@ -175,7 +90,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getInventory(): ?string {
-        return $this->inventory;
+        return $this->getBackingStore()->get('inventory');
     }
 
     /**
@@ -183,7 +98,7 @@ class Item extends Entity implements Parsable
      * @return ItemCategory|null
     */
     public function getItemCategory(): ?ItemCategory {
-        return $this->itemCategory;
+        return $this->getBackingStore()->get('itemCategory');
     }
 
     /**
@@ -191,7 +106,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getItemCategoryCode(): ?string {
-        return $this->itemCategoryCode;
+        return $this->getBackingStore()->get('itemCategoryCode');
     }
 
     /**
@@ -199,7 +114,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getItemCategoryId(): ?string {
-        return $this->itemCategoryId;
+        return $this->getBackingStore()->get('itemCategoryId');
     }
 
     /**
@@ -207,7 +122,7 @@ class Item extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -215,7 +130,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -223,7 +138,7 @@ class Item extends Entity implements Parsable
      * @return array<Picture>|null
     */
     public function getPicture(): ?array {
-        return $this->picture;
+        return $this->getBackingStore()->get('picture');
     }
 
     /**
@@ -231,7 +146,7 @@ class Item extends Entity implements Parsable
      * @return bool|null
     */
     public function getPriceIncludesTax(): ?bool {
-        return $this->priceIncludesTax;
+        return $this->getBackingStore()->get('priceIncludesTax');
     }
 
     /**
@@ -239,7 +154,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxGroupCode(): ?string {
-        return $this->taxGroupCode;
+        return $this->getBackingStore()->get('taxGroupCode');
     }
 
     /**
@@ -247,7 +162,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxGroupId(): ?string {
-        return $this->taxGroupId;
+        return $this->getBackingStore()->get('taxGroupId');
     }
 
     /**
@@ -255,7 +170,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -263,7 +178,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getUnitCost(): ?string {
-        return $this->unitCost;
+        return $this->getBackingStore()->get('unitCost');
     }
 
     /**
@@ -271,7 +186,7 @@ class Item extends Entity implements Parsable
      * @return string|null
     */
     public function getUnitPrice(): ?string {
-        return $this->unitPrice;
+        return $this->getBackingStore()->get('unitPrice');
     }
 
     /**
@@ -280,159 +195,159 @@ class Item extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('baseUnitOfMeasureId', $this->baseUnitOfMeasureId);
-        $writer->writeBooleanValue('blocked', $this->blocked);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('gtin', $this->gtin);
-        $writer->writeStringValue('inventory', $this->inventory);
-        $writer->writeObjectValue('itemCategory', $this->itemCategory);
-        $writer->writeStringValue('itemCategoryCode', $this->itemCategoryCode);
-        $writer->writeStringValue('itemCategoryId', $this->itemCategoryId);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeCollectionOfObjectValues('picture', $this->picture);
-        $writer->writeBooleanValue('priceIncludesTax', $this->priceIncludesTax);
-        $writer->writeStringValue('taxGroupCode', $this->taxGroupCode);
-        $writer->writeStringValue('taxGroupId', $this->taxGroupId);
-        $writer->writeStringValue('type', $this->type);
-        $writer->writeStringValue('unitCost', $this->unitCost);
-        $writer->writeStringValue('unitPrice', $this->unitPrice);
+        $writer->writeStringValue('baseUnitOfMeasureId', $this->getBaseUnitOfMeasureId());
+        $writer->writeBooleanValue('blocked', $this->getBlocked());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('gtin', $this->getGtin());
+        $writer->writeStringValue('inventory', $this->getInventory());
+        $writer->writeObjectValue('itemCategory', $this->getItemCategory());
+        $writer->writeStringValue('itemCategoryCode', $this->getItemCategoryCode());
+        $writer->writeStringValue('itemCategoryId', $this->getItemCategoryId());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeCollectionOfObjectValues('picture', $this->getPicture());
+        $writer->writeBooleanValue('priceIncludesTax', $this->getPriceIncludesTax());
+        $writer->writeStringValue('taxGroupCode', $this->getTaxGroupCode());
+        $writer->writeStringValue('taxGroupId', $this->getTaxGroupId());
+        $writer->writeStringValue('type', $this->getType());
+        $writer->writeStringValue('unitCost', $this->getUnitCost());
+        $writer->writeStringValue('unitPrice', $this->getUnitPrice());
     }
 
     /**
      * Sets the baseUnitOfMeasureId property value. The baseUnitOfMeasureId property
      *  @param string|null $value Value to set for the baseUnitOfMeasureId property.
     */
-    public function setBaseUnitOfMeasureId(?string $value ): void {
-        $this->baseUnitOfMeasureId = $value;
+    public function setBaseUnitOfMeasureId(?string $value): void {
+        $this->getBackingStore()->set('baseUnitOfMeasureId', $value);
     }
 
     /**
      * Sets the blocked property value. The blocked property
      *  @param bool|null $value Value to set for the blocked property.
     */
-    public function setBlocked(?bool $value ): void {
-        $this->blocked = $value;
+    public function setBlocked(?bool $value): void {
+        $this->getBackingStore()->set('blocked', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the gtin property value. The gtin property
      *  @param string|null $value Value to set for the gtin property.
     */
-    public function setGtin(?string $value ): void {
-        $this->gtin = $value;
+    public function setGtin(?string $value): void {
+        $this->getBackingStore()->set('gtin', $value);
     }
 
     /**
      * Sets the inventory property value. The inventory property
      *  @param string|null $value Value to set for the inventory property.
     */
-    public function setInventory(?string $value ): void {
-        $this->inventory = $value;
+    public function setInventory(?string $value): void {
+        $this->getBackingStore()->set('inventory', $value);
     }
 
     /**
      * Sets the itemCategory property value. The itemCategory property
      *  @param ItemCategory|null $value Value to set for the itemCategory property.
     */
-    public function setItemCategory(?ItemCategory $value ): void {
-        $this->itemCategory = $value;
+    public function setItemCategory(?ItemCategory $value): void {
+        $this->getBackingStore()->set('itemCategory', $value);
     }
 
     /**
      * Sets the itemCategoryCode property value. The itemCategoryCode property
      *  @param string|null $value Value to set for the itemCategoryCode property.
     */
-    public function setItemCategoryCode(?string $value ): void {
-        $this->itemCategoryCode = $value;
+    public function setItemCategoryCode(?string $value): void {
+        $this->getBackingStore()->set('itemCategoryCode', $value);
     }
 
     /**
      * Sets the itemCategoryId property value. The itemCategoryId property
      *  @param string|null $value Value to set for the itemCategoryId property.
     */
-    public function setItemCategoryId(?string $value ): void {
-        $this->itemCategoryId = $value;
+    public function setItemCategoryId(?string $value): void {
+        $this->getBackingStore()->set('itemCategoryId', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the number property value. The number property
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the picture property value. The picture property
      *  @param array<Picture>|null $value Value to set for the picture property.
     */
-    public function setPicture(?array $value ): void {
-        $this->picture = $value;
+    public function setPicture(?array $value): void {
+        $this->getBackingStore()->set('picture', $value);
     }
 
     /**
      * Sets the priceIncludesTax property value. The priceIncludesTax property
      *  @param bool|null $value Value to set for the priceIncludesTax property.
     */
-    public function setPriceIncludesTax(?bool $value ): void {
-        $this->priceIncludesTax = $value;
+    public function setPriceIncludesTax(?bool $value): void {
+        $this->getBackingStore()->set('priceIncludesTax', $value);
     }
 
     /**
      * Sets the taxGroupCode property value. The taxGroupCode property
      *  @param string|null $value Value to set for the taxGroupCode property.
     */
-    public function setTaxGroupCode(?string $value ): void {
-        $this->taxGroupCode = $value;
+    public function setTaxGroupCode(?string $value): void {
+        $this->getBackingStore()->set('taxGroupCode', $value);
     }
 
     /**
      * Sets the taxGroupId property value. The taxGroupId property
      *  @param string|null $value Value to set for the taxGroupId property.
     */
-    public function setTaxGroupId(?string $value ): void {
-        $this->taxGroupId = $value;
+    public function setTaxGroupId(?string $value): void {
+        $this->getBackingStore()->set('taxGroupId', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the unitCost property value. The unitCost property
      *  @param string|null $value Value to set for the unitCost property.
     */
-    public function setUnitCost(?string $value ): void {
-        $this->unitCost = $value;
+    public function setUnitCost(?string $value): void {
+        $this->getBackingStore()->set('unitCost', $value);
     }
 
     /**
      * Sets the unitPrice property value. The unitPrice property
      *  @param string|null $value Value to set for the unitPrice property.
     */
-    public function setUnitPrice(?string $value ): void {
-        $this->unitPrice = $value;
+    public function setUnitPrice(?string $value): void {
+        $this->getBackingStore()->set('unitPrice', $value);
     }
 
 }

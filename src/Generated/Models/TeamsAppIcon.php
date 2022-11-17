@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppIcon extends Entity implements Parsable 
 {
     /**
-     * @var TeamworkHostedContent|null $hostedContent The contents of the app icon if the icon is hosted within the Teams infrastructure.
-    */
-    private ?TeamworkHostedContent $hostedContent = null;
-    
-    /**
-     * @var string|null $webUrl The web URL that can be used for downloading the image.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new teamsAppIcon and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class TeamsAppIcon extends Entity implements Parsable
      * @return TeamworkHostedContent|null
     */
     public function getHostedContent(): ?TeamworkHostedContent {
-        return $this->hostedContent;
+        return $this->getBackingStore()->get('hostedContent');
     }
 
     /**
@@ -60,7 +50,7 @@ class TeamsAppIcon extends Entity implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -69,24 +59,24 @@ class TeamsAppIcon extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('hostedContent', $this->hostedContent);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeObjectValue('hostedContent', $this->getHostedContent());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the hostedContent property value. The contents of the app icon if the icon is hosted within the Teams infrastructure.
      *  @param TeamworkHostedContent|null $value Value to set for the hostedContent property.
     */
-    public function setHostedContent(?TeamworkHostedContent $value ): void {
-        $this->hostedContent = $value;
+    public function setHostedContent(?TeamworkHostedContent $value): void {
+        $this->getBackingStore()->set('hostedContent', $value);
     }
 
     /**
      * Sets the webUrl property value. The web URL that can be used for downloading the image.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

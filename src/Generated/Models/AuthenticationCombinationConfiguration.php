@@ -9,12 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationCombinationConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationMethodModes>|null $appliesToCombinations Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
-    */
-    private ?array $appliesToCombinations = null;
-    
-    /**
-     * Instantiates a new AuthenticationCombinationConfiguration and sets the default values.
+     * Instantiates a new authenticationCombinationConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -42,7 +37,7 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAppliesToCombinations(): ?array {
-        return $this->appliesToCombinations;
+        return $this->getBackingStore()->get('appliesToCombinations');
     }
 
     /**
@@ -62,15 +57,15 @@ class AuthenticationCombinationConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('appliesToCombinations', $this->appliesToCombinations);
+        $writer->writeCollectionOfEnumValues('appliesToCombinations', $this->getAppliesToCombinations());
     }
 
     /**
      * Sets the appliesToCombinations property value. Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the appliesToCombinations property.
     */
-    public function setAppliesToCombinations(?array $value ): void {
-        $this->appliesToCombinations = $value;
+    public function setAppliesToCombinations(?array $value): void {
+        $this->getBackingStore()->set('appliesToCombinations', $value);
     }
 
 }

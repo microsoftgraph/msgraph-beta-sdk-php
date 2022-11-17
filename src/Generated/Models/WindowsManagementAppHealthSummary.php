@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementAppHealthSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $healthyDeviceCount Healthy device count.
-    */
-    private ?int $healthyDeviceCount = null;
-    
-    /**
-     * @var int|null $unhealthyDeviceCount Unhealthy device count.
-    */
-    private ?int $unhealthyDeviceCount = null;
-    
-    /**
-     * @var int|null $unknownDeviceCount Unknown device count.
-    */
-    private ?int $unknownDeviceCount = null;
-    
-    /**
      * Instantiates a new WindowsManagementAppHealthSummary and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getHealthyDeviceCount(): ?int {
-        return $this->healthyDeviceCount;
+        return $this->getBackingStore()->get('healthyDeviceCount');
     }
 
     /**
@@ -66,7 +51,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnhealthyDeviceCount(): ?int {
-        return $this->unhealthyDeviceCount;
+        return $this->getBackingStore()->get('unhealthyDeviceCount');
     }
 
     /**
@@ -74,7 +59,7 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownDeviceCount(): ?int {
-        return $this->unknownDeviceCount;
+        return $this->getBackingStore()->get('unknownDeviceCount');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsManagementAppHealthSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('healthyDeviceCount', $this->healthyDeviceCount);
-        $writer->writeIntegerValue('unhealthyDeviceCount', $this->unhealthyDeviceCount);
-        $writer->writeIntegerValue('unknownDeviceCount', $this->unknownDeviceCount);
+        $writer->writeIntegerValue('healthyDeviceCount', $this->getHealthyDeviceCount());
+        $writer->writeIntegerValue('unhealthyDeviceCount', $this->getUnhealthyDeviceCount());
+        $writer->writeIntegerValue('unknownDeviceCount', $this->getUnknownDeviceCount());
     }
 
     /**
      * Sets the healthyDeviceCount property value. Healthy device count.
      *  @param int|null $value Value to set for the healthyDeviceCount property.
     */
-    public function setHealthyDeviceCount(?int $value ): void {
-        $this->healthyDeviceCount = $value;
+    public function setHealthyDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('healthyDeviceCount', $value);
     }
 
     /**
      * Sets the unhealthyDeviceCount property value. Unhealthy device count.
      *  @param int|null $value Value to set for the unhealthyDeviceCount property.
     */
-    public function setUnhealthyDeviceCount(?int $value ): void {
-        $this->unhealthyDeviceCount = $value;
+    public function setUnhealthyDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('unhealthyDeviceCount', $value);
     }
 
     /**
      * Sets the unknownDeviceCount property value. Unknown device count.
      *  @param int|null $value Value to set for the unknownDeviceCount property.
     */
-    public function setUnknownDeviceCount(?int $value ): void {
-        $this->unknownDeviceCount = $value;
+    public function setUnknownDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('unknownDeviceCount', $value);
     }
 
 }

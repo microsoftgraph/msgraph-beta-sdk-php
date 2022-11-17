@@ -9,56 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationTemplate extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $categories The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var string|null $description A description of the application.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The name of the application.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $homePageUrl The home page URL of the application.
-    */
-    private ?string $homePageUrl = null;
-    
-    /**
-     * @var InformationalUrls|null $informationalUrls The informationalUrls property
-    */
-    private ?InformationalUrls $informationalUrls = null;
-    
-    /**
-     * @var string|null $logoUrl The URL to get the logo for this application.
-    */
-    private ?string $logoUrl = null;
-    
-    /**
-     * @var string|null $publisher The name of the publisher for this application.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var SupportedClaimConfiguration|null $supportedClaimConfiguration The supportedClaimConfiguration property
-    */
-    private ?SupportedClaimConfiguration $supportedClaimConfiguration = null;
-    
-    /**
-     * @var array<string>|null $supportedProvisioningTypes The list of provisioning modes supported by this application. The only valid value is sync.
-    */
-    private ?array $supportedProvisioningTypes = null;
-    
-    /**
-     * @var array<string>|null $supportedSingleSignOnModes The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
-    */
-    private ?array $supportedSingleSignOnModes = null;
-    
-    /**
      * Instantiates a new ApplicationTemplate and sets the default values.
     */
     public function __construct() {
@@ -80,7 +30,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -88,7 +38,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -96,7 +46,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -124,7 +74,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getHomePageUrl(): ?string {
-        return $this->homePageUrl;
+        return $this->getBackingStore()->get('homePageUrl');
     }
 
     /**
@@ -132,7 +82,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return InformationalUrls|null
     */
     public function getInformationalUrls(): ?InformationalUrls {
-        return $this->informationalUrls;
+        return $this->getBackingStore()->get('informationalUrls');
     }
 
     /**
@@ -140,7 +90,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getLogoUrl(): ?string {
-        return $this->logoUrl;
+        return $this->getBackingStore()->get('logoUrl');
     }
 
     /**
@@ -148,7 +98,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -156,7 +106,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return SupportedClaimConfiguration|null
     */
     public function getSupportedClaimConfiguration(): ?SupportedClaimConfiguration {
-        return $this->supportedClaimConfiguration;
+        return $this->getBackingStore()->get('supportedClaimConfiguration');
     }
 
     /**
@@ -164,7 +114,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSupportedProvisioningTypes(): ?array {
-        return $this->supportedProvisioningTypes;
+        return $this->getBackingStore()->get('supportedProvisioningTypes');
     }
 
     /**
@@ -172,7 +122,7 @@ class ApplicationTemplate extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSupportedSingleSignOnModes(): ?array {
-        return $this->supportedSingleSignOnModes;
+        return $this->getBackingStore()->get('supportedSingleSignOnModes');
     }
 
     /**
@@ -181,96 +131,96 @@ class ApplicationTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('homePageUrl', $this->homePageUrl);
-        $writer->writeObjectValue('informationalUrls', $this->informationalUrls);
-        $writer->writeStringValue('logoUrl', $this->logoUrl);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeObjectValue('supportedClaimConfiguration', $this->supportedClaimConfiguration);
-        $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->supportedProvisioningTypes);
-        $writer->writeCollectionOfPrimitiveValues('supportedSingleSignOnModes', $this->supportedSingleSignOnModes);
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('homePageUrl', $this->getHomePageUrl());
+        $writer->writeObjectValue('informationalUrls', $this->getInformationalUrls());
+        $writer->writeStringValue('logoUrl', $this->getLogoUrl());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeObjectValue('supportedClaimConfiguration', $this->getSupportedClaimConfiguration());
+        $writer->writeCollectionOfPrimitiveValues('supportedProvisioningTypes', $this->getSupportedProvisioningTypes());
+        $writer->writeCollectionOfPrimitiveValues('supportedSingleSignOnModes', $this->getSupportedSingleSignOnModes());
     }
 
     /**
      * Sets the categories property value. The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design & hosting.
      *  @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the description property value. A description of the application.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the application.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the homePageUrl property value. The home page URL of the application.
      *  @param string|null $value Value to set for the homePageUrl property.
     */
-    public function setHomePageUrl(?string $value ): void {
-        $this->homePageUrl = $value;
+    public function setHomePageUrl(?string $value): void {
+        $this->getBackingStore()->set('homePageUrl', $value);
     }
 
     /**
      * Sets the informationalUrls property value. The informationalUrls property
      *  @param InformationalUrls|null $value Value to set for the informationalUrls property.
     */
-    public function setInformationalUrls(?InformationalUrls $value ): void {
-        $this->informationalUrls = $value;
+    public function setInformationalUrls(?InformationalUrls $value): void {
+        $this->getBackingStore()->set('informationalUrls', $value);
     }
 
     /**
      * Sets the logoUrl property value. The URL to get the logo for this application.
      *  @param string|null $value Value to set for the logoUrl property.
     */
-    public function setLogoUrl(?string $value ): void {
-        $this->logoUrl = $value;
+    public function setLogoUrl(?string $value): void {
+        $this->getBackingStore()->set('logoUrl', $value);
     }
 
     /**
      * Sets the publisher property value. The name of the publisher for this application.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the supportedClaimConfiguration property value. The supportedClaimConfiguration property
      *  @param SupportedClaimConfiguration|null $value Value to set for the supportedClaimConfiguration property.
     */
-    public function setSupportedClaimConfiguration(?SupportedClaimConfiguration $value ): void {
-        $this->supportedClaimConfiguration = $value;
+    public function setSupportedClaimConfiguration(?SupportedClaimConfiguration $value): void {
+        $this->getBackingStore()->set('supportedClaimConfiguration', $value);
     }
 
     /**
      * Sets the supportedProvisioningTypes property value. The list of provisioning modes supported by this application. The only valid value is sync.
      *  @param array<string>|null $value Value to set for the supportedProvisioningTypes property.
     */
-    public function setSupportedProvisioningTypes(?array $value ): void {
-        $this->supportedProvisioningTypes = $value;
+    public function setSupportedProvisioningTypes(?array $value): void {
+        $this->getBackingStore()->set('supportedProvisioningTypes', $value);
     }
 
     /**
      * Sets the supportedSingleSignOnModes property value. The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
      *  @param array<string>|null $value Value to set for the supportedSingleSignOnModes property.
     */
-    public function setSupportedSingleSignOnModes(?array $value ): void {
-        $this->supportedSingleSignOnModes = $value;
+    public function setSupportedSingleSignOnModes(?array $value): void {
+        $this->getBackingStore()->set('supportedSingleSignOnModes', $value);
     }
 
 }

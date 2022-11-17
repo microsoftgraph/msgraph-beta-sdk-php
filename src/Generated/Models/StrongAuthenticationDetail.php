@@ -10,16 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class StrongAuthenticationDetail extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $encryptedPinHashHistory The encryptedPinHashHistory property
-    */
-    private ?StreamInterface $encryptedPinHashHistory = null;
-    
-    /**
-     * @var int|null $proofupTime The proofupTime property
-    */
-    private ?int $proofupTime = null;
-    
-    /**
      * Instantiates a new StrongAuthenticationDetail and sets the default values.
     */
     public function __construct() {
@@ -38,10 +28,10 @@ class StrongAuthenticationDetail extends Entity implements Parsable
 
     /**
      * Gets the encryptedPinHashHistory property value. The encryptedPinHashHistory property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getEncryptedPinHashHistory(): StreamInterface {
-        return $this->encryptedPinHashHistory;
+    public function getEncryptedPinHashHistory(): ?StreamInterface {
+        return $this->getBackingStore()->get('encryptedPinHashHistory');
     }
 
     /**
@@ -61,7 +51,7 @@ class StrongAuthenticationDetail extends Entity implements Parsable
      * @return int|null
     */
     public function getProofupTime(): ?int {
-        return $this->proofupTime;
+        return $this->getBackingStore()->get('proofupTime');
     }
 
     /**
@@ -70,24 +60,24 @@ class StrongAuthenticationDetail extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('encryptedPinHashHistory', $this->encryptedPinHashHistory);
-        $writer->writeIntegerValue('proofupTime', $this->proofupTime);
+        $writer->writeBinaryContent('encryptedPinHashHistory', $this->getEncryptedPinHashHistory());
+        $writer->writeIntegerValue('proofupTime', $this->getProofupTime());
     }
 
     /**
      * Sets the encryptedPinHashHistory property value. The encryptedPinHashHistory property
      *  @param StreamInterface|null $value Value to set for the encryptedPinHashHistory property.
     */
-    public function setEncryptedPinHashHistory(?StreamInterface $value ): void {
-        $this->encryptedPinHashHistory = $value;
+    public function setEncryptedPinHashHistory(?StreamInterface $value): void {
+        $this->getBackingStore()->set('encryptedPinHashHistory', $value);
     }
 
     /**
      * Sets the proofupTime property value. The proofupTime property
      *  @param int|null $value Value to set for the proofupTime property.
     */
-    public function setProofupTime(?int $value ): void {
-        $this->proofupTime = $value;
+    public function setProofupTime(?int $value): void {
+        $this->getBackingStore()->set('proofupTime', $value);
     }
 
 }

@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null $defaultValue Integer Setting Value Default Template.
-    */
-    private ?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $defaultValue = null;
-    
-    /**
-     * @var DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $recommendedValueDefinition Recommended value definition.
-    */
-    private ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $recommendedValueDefinition = null;
-    
-    /**
-     * @var DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $requiredValueDefinition Required value definition.
-    */
-    private ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $requiredValueDefinition = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationIntegerSettingValueTemplate and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null
     */
     public function getDefaultValue(): ?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -66,7 +51,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
     */
     public function getRecommendedValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
-        return $this->recommendedValueDefinition;
+        return $this->getBackingStore()->get('recommendedValueDefinition');
     }
 
     /**
@@ -74,7 +59,7 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
      * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null
     */
     public function getRequiredValueDefinition(): ?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate {
-        return $this->requiredValueDefinition;
+        return $this->getBackingStore()->get('requiredValueDefinition');
     }
 
     /**
@@ -83,33 +68,33 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('defaultValue', $this->defaultValue);
-        $writer->writeObjectValue('recommendedValueDefinition', $this->recommendedValueDefinition);
-        $writer->writeObjectValue('requiredValueDefinition', $this->requiredValueDefinition);
+        $writer->writeObjectValue('defaultValue', $this->getDefaultValue());
+        $writer->writeObjectValue('recommendedValueDefinition', $this->getRecommendedValueDefinition());
+        $writer->writeObjectValue('requiredValueDefinition', $this->getRequiredValueDefinition());
     }
 
     /**
      * Sets the defaultValue property value. Integer Setting Value Default Template.
      *  @param DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
     /**
      * Sets the recommendedValueDefinition property value. Recommended value definition.
      *  @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the recommendedValueDefinition property.
     */
-    public function setRecommendedValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value ): void {
-        $this->recommendedValueDefinition = $value;
+    public function setRecommendedValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
+        $this->getBackingStore()->set('recommendedValueDefinition', $value);
     }
 
     /**
      * Sets the requiredValueDefinition property value. Required value definition.
      *  @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null $value Value to set for the requiredValueDefinition property.
     */
-    public function setRequiredValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value ): void {
-        $this->requiredValueDefinition = $value;
+    public function setRequiredValueDefinition(?DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $value): void {
+        $this->getBackingStore()->set('requiredValueDefinition', $value);
     }
 
 }

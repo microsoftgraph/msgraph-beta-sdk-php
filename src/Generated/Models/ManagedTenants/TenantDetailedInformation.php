@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantDetailedInformation extends Entity implements Parsable 
 {
     /**
-     * @var string|null $city The city where the managed tenant is located. Optional. Read-only.
-    */
-    private ?string $city = null;
-    
-    /**
-     * @var string|null $countryCode The code for the country where the managed tenant is located. Optional. Read-only.
-    */
-    private ?string $countryCode = null;
-    
-    /**
-     * @var string|null $countryName The name for the country where the managed tenant is located. Optional. Read-only.
-    */
-    private ?string $countryName = null;
-    
-    /**
-     * @var string|null $defaultDomainName The default domain name for the managed tenant. Optional. Read-only.
-    */
-    private ?string $defaultDomainName = null;
-    
-    /**
-     * @var string|null $displayName The display name for the managed tenant.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $industryName The business industry associated with the managed tenant. Optional. Read-only.
-    */
-    private ?string $industryName = null;
-    
-    /**
-     * @var string|null $region The region where the managed tenant is located. Optional. Read-only.
-    */
-    private ?string $region = null;
-    
-    /**
-     * @var string|null $segmentName The business segment associated with the managed tenant. Optional. Read-only.
-    */
-    private ?string $segmentName = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $verticalName The vertical associated with the managed tenant. Optional. Read-only.
-    */
-    private ?string $verticalName = null;
-    
-    /**
      * Instantiates a new tenantDetailedInformation and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->city;
+        return $this->getBackingStore()->get('city');
     }
 
     /**
@@ -89,7 +39,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCountryCode(): ?string {
-        return $this->countryCode;
+        return $this->getBackingStore()->get('countryCode');
     }
 
     /**
@@ -97,7 +47,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCountryName(): ?string {
-        return $this->countryName;
+        return $this->getBackingStore()->get('countryName');
     }
 
     /**
@@ -105,7 +55,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultDomainName(): ?string {
-        return $this->defaultDomainName;
+        return $this->getBackingStore()->get('defaultDomainName');
     }
 
     /**
@@ -113,7 +63,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -141,7 +91,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getIndustryName(): ?string {
-        return $this->industryName;
+        return $this->getBackingStore()->get('industryName');
     }
 
     /**
@@ -149,7 +99,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getRegion(): ?string {
-        return $this->region;
+        return $this->getBackingStore()->get('region');
     }
 
     /**
@@ -157,7 +107,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getSegmentName(): ?string {
-        return $this->segmentName;
+        return $this->getBackingStore()->get('segmentName');
     }
 
     /**
@@ -165,7 +115,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -173,7 +123,7 @@ class TenantDetailedInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getVerticalName(): ?string {
-        return $this->verticalName;
+        return $this->getBackingStore()->get('verticalName');
     }
 
     /**
@@ -182,96 +132,96 @@ class TenantDetailedInformation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('city', $this->city);
-        $writer->writeStringValue('countryCode', $this->countryCode);
-        $writer->writeStringValue('countryName', $this->countryName);
-        $writer->writeStringValue('defaultDomainName', $this->defaultDomainName);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('industryName', $this->industryName);
-        $writer->writeStringValue('region', $this->region);
-        $writer->writeStringValue('segmentName', $this->segmentName);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('verticalName', $this->verticalName);
+        $writer->writeStringValue('city', $this->getCity());
+        $writer->writeStringValue('countryCode', $this->getCountryCode());
+        $writer->writeStringValue('countryName', $this->getCountryName());
+        $writer->writeStringValue('defaultDomainName', $this->getDefaultDomainName());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('industryName', $this->getIndustryName());
+        $writer->writeStringValue('region', $this->getRegion());
+        $writer->writeStringValue('segmentName', $this->getSegmentName());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('verticalName', $this->getVerticalName());
     }
 
     /**
      * Sets the city property value. The city where the managed tenant is located. Optional. Read-only.
      *  @param string|null $value Value to set for the city property.
     */
-    public function setCity(?string $value ): void {
-        $this->city = $value;
+    public function setCity(?string $value): void {
+        $this->getBackingStore()->set('city', $value);
     }
 
     /**
      * Sets the countryCode property value. The code for the country where the managed tenant is located. Optional. Read-only.
      *  @param string|null $value Value to set for the countryCode property.
     */
-    public function setCountryCode(?string $value ): void {
-        $this->countryCode = $value;
+    public function setCountryCode(?string $value): void {
+        $this->getBackingStore()->set('countryCode', $value);
     }
 
     /**
      * Sets the countryName property value. The name for the country where the managed tenant is located. Optional. Read-only.
      *  @param string|null $value Value to set for the countryName property.
     */
-    public function setCountryName(?string $value ): void {
-        $this->countryName = $value;
+    public function setCountryName(?string $value): void {
+        $this->getBackingStore()->set('countryName', $value);
     }
 
     /**
      * Sets the defaultDomainName property value. The default domain name for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the defaultDomainName property.
     */
-    public function setDefaultDomainName(?string $value ): void {
-        $this->defaultDomainName = $value;
+    public function setDefaultDomainName(?string $value): void {
+        $this->getBackingStore()->set('defaultDomainName', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the managed tenant.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the industryName property value. The business industry associated with the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the industryName property.
     */
-    public function setIndustryName(?string $value ): void {
-        $this->industryName = $value;
+    public function setIndustryName(?string $value): void {
+        $this->getBackingStore()->set('industryName', $value);
     }
 
     /**
      * Sets the region property value. The region where the managed tenant is located. Optional. Read-only.
      *  @param string|null $value Value to set for the region property.
     */
-    public function setRegion(?string $value ): void {
-        $this->region = $value;
+    public function setRegion(?string $value): void {
+        $this->getBackingStore()->set('region', $value);
     }
 
     /**
      * Sets the segmentName property value. The business segment associated with the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the segmentName property.
     */
-    public function setSegmentName(?string $value ): void {
-        $this->segmentName = $value;
+    public function setSegmentName(?string $value): void {
+        $this->getBackingStore()->set('segmentName', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the verticalName property value. The vertical associated with the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the verticalName property.
     */
-    public function setVerticalName(?string $value ): void {
-        $this->verticalName = $value;
+    public function setVerticalName(?string $value): void {
+        $this->getBackingStore()->set('verticalName', $value);
     }
 
 }

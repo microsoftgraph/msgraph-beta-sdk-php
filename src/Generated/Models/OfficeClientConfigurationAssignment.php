@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OfficeClientConfigurationAssignment extends Entity implements Parsable 
 {
     /**
-     * @var OfficeConfigurationAssignmentTarget|null $target The target assignment defined by the admin.
-    */
-    private ?OfficeConfigurationAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new officeClientConfigurationAssignment and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
      * @return OfficeConfigurationAssignmentTarget|null
     */
     public function getTarget(): ?OfficeConfigurationAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -55,15 +50,15 @@ class OfficeClientConfigurationAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the target property value. The target assignment defined by the admin.
      *  @param OfficeConfigurationAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?OfficeConfigurationAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?OfficeConfigurationAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

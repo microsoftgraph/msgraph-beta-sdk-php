@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyDefinitionFile extends Entity implements Parsable 
 {
     /**
-     * @var array<GroupPolicyDefinition>|null $definitions The group policy definitions associated with the file.
-    */
-    private ?array $definitions = null;
-    
-    /**
-     * @var string|null $description The localized description of the policy settings in the ADMX file. The default value is empty.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The localized friendly name of the ADMX file.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $fileName The file name of the ADMX file without the path. For example: edge.admx
-    */
-    private ?string $fileName = null;
-    
-    /**
-     * @var array<string>|null $languageCodes The supported language codes for the ADMX file.
-    */
-    private ?array $languageCodes = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var GroupPolicyType|null $policyType Type of Group Policy File or Definition.
-    */
-    private ?GroupPolicyType $policyType = null;
-    
-    /**
-     * @var string|null $revision The revision version associated with the file.
-    */
-    private ?string $revision = null;
-    
-    /**
-     * @var string|null $targetNamespace Specifies the URI used to identify the namespace within the ADMX file.
-    */
-    private ?string $targetNamespace = null;
-    
-    /**
-     * @var string|null $targetPrefix Specifies the logical name that refers to the namespace within the ADMX file.
-    */
-    private ?string $targetPrefix = null;
-    
-    /**
      * Instantiates a new groupPolicyDefinitionFile and sets the default values.
     */
     public function __construct() {
@@ -88,7 +38,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return array<GroupPolicyDefinition>|null
     */
     public function getDefinitions(): ?array {
-        return $this->definitions;
+        return $this->getBackingStore()->get('definitions');
     }
 
     /**
@@ -96,7 +46,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -104,7 +54,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -132,7 +82,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getFileName(): ?string {
-        return $this->fileName;
+        return $this->getBackingStore()->get('fileName');
     }
 
     /**
@@ -140,7 +90,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getLanguageCodes(): ?array {
-        return $this->languageCodes;
+        return $this->getBackingStore()->get('languageCodes');
     }
 
     /**
@@ -148,7 +98,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -156,7 +106,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return GroupPolicyType|null
     */
     public function getPolicyType(): ?GroupPolicyType {
-        return $this->policyType;
+        return $this->getBackingStore()->get('policyType');
     }
 
     /**
@@ -164,7 +114,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getRevision(): ?string {
-        return $this->revision;
+        return $this->getBackingStore()->get('revision');
     }
 
     /**
@@ -172,7 +122,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetNamespace(): ?string {
-        return $this->targetNamespace;
+        return $this->getBackingStore()->get('targetNamespace');
     }
 
     /**
@@ -180,7 +130,7 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetPrefix(): ?string {
-        return $this->targetPrefix;
+        return $this->getBackingStore()->get('targetPrefix');
     }
 
     /**
@@ -189,96 +139,96 @@ class GroupPolicyDefinitionFile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('definitions', $this->definitions);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('fileName', $this->fileName);
-        $writer->writeCollectionOfPrimitiveValues('languageCodes', $this->languageCodes);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('policyType', $this->policyType);
-        $writer->writeStringValue('revision', $this->revision);
-        $writer->writeStringValue('targetNamespace', $this->targetNamespace);
-        $writer->writeStringValue('targetPrefix', $this->targetPrefix);
+        $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('fileName', $this->getFileName());
+        $writer->writeCollectionOfPrimitiveValues('languageCodes', $this->getLanguageCodes());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('policyType', $this->getPolicyType());
+        $writer->writeStringValue('revision', $this->getRevision());
+        $writer->writeStringValue('targetNamespace', $this->getTargetNamespace());
+        $writer->writeStringValue('targetPrefix', $this->getTargetPrefix());
     }
 
     /**
      * Sets the definitions property value. The group policy definitions associated with the file.
      *  @param array<GroupPolicyDefinition>|null $value Value to set for the definitions property.
     */
-    public function setDefinitions(?array $value ): void {
-        $this->definitions = $value;
+    public function setDefinitions(?array $value): void {
+        $this->getBackingStore()->set('definitions', $value);
     }
 
     /**
      * Sets the description property value. The localized description of the policy settings in the ADMX file. The default value is empty.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The localized friendly name of the ADMX file.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the fileName property value. The file name of the ADMX file without the path. For example: edge.admx
      *  @param string|null $value Value to set for the fileName property.
     */
-    public function setFileName(?string $value ): void {
-        $this->fileName = $value;
+    public function setFileName(?string $value): void {
+        $this->getBackingStore()->set('fileName', $value);
     }
 
     /**
      * Sets the languageCodes property value. The supported language codes for the ADMX file.
      *  @param array<string>|null $value Value to set for the languageCodes property.
     */
-    public function setLanguageCodes(?array $value ): void {
-        $this->languageCodes = $value;
+    public function setLanguageCodes(?array $value): void {
+        $this->getBackingStore()->set('languageCodes', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the policyType property value. Type of Group Policy File or Definition.
      *  @param GroupPolicyType|null $value Value to set for the policyType property.
     */
-    public function setPolicyType(?GroupPolicyType $value ): void {
-        $this->policyType = $value;
+    public function setPolicyType(?GroupPolicyType $value): void {
+        $this->getBackingStore()->set('policyType', $value);
     }
 
     /**
      * Sets the revision property value. The revision version associated with the file.
      *  @param string|null $value Value to set for the revision property.
     */
-    public function setRevision(?string $value ): void {
-        $this->revision = $value;
+    public function setRevision(?string $value): void {
+        $this->getBackingStore()->set('revision', $value);
     }
 
     /**
      * Sets the targetNamespace property value. Specifies the URI used to identify the namespace within the ADMX file.
      *  @param string|null $value Value to set for the targetNamespace property.
     */
-    public function setTargetNamespace(?string $value ): void {
-        $this->targetNamespace = $value;
+    public function setTargetNamespace(?string $value): void {
+        $this->getBackingStore()->set('targetNamespace', $value);
     }
 
     /**
      * Sets the targetPrefix property value. Specifies the logical name that refers to the namespace within the ADMX file.
      *  @param string|null $value Value to set for the targetPrefix property.
     */
-    public function setTargetPrefix(?string $value ): void {
-        $this->targetPrefix = $value;
+    public function setTargetPrefix(?string $value): void {
+        $this->getBackingStore()->set('targetPrefix', $value);
     }
 
 }

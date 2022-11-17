@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $expirationDateTime The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var bool|null $isElevated true if the role assignment is activated. false if the role assignment is deactivated.
-    */
-    private ?bool $isElevated = null;
-    
-    /**
-     * @var string|null $resultMessage Result message set by the service.
-    */
-    private ?string $resultMessage = null;
-    
-    /**
-     * @var string|null $roleId Role identifier. In GUID string format.
-    */
-    private ?string $roleId = null;
-    
-    /**
-     * @var PrivilegedRole|null $roleInfo Read-only. Nullable. The associated role information.
-    */
-    private ?PrivilegedRole $roleInfo = null;
-    
-    /**
-     * @var string|null $userId User identifier. In GUID string format.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new privilegedRoleAssignment and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -85,7 +55,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsElevated(): ?bool {
-        return $this->isElevated;
+        return $this->getBackingStore()->get('isElevated');
     }
 
     /**
@@ -93,7 +63,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getResultMessage(): ?string {
-        return $this->resultMessage;
+        return $this->getBackingStore()->get('resultMessage');
     }
 
     /**
@@ -101,7 +71,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->roleId;
+        return $this->getBackingStore()->get('roleId');
     }
 
     /**
@@ -109,7 +79,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
-        return $this->roleInfo;
+        return $this->getBackingStore()->get('roleInfo');
     }
 
     /**
@@ -117,7 +87,7 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -126,60 +96,60 @@ class PrivilegedRoleAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeBooleanValue('isElevated', $this->isElevated);
-        $writer->writeStringValue('resultMessage', $this->resultMessage);
-        $writer->writeStringValue('roleId', $this->roleId);
-        $writer->writeObjectValue('roleInfo', $this->roleInfo);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeBooleanValue('isElevated', $this->getIsElevated());
+        $writer->writeStringValue('resultMessage', $this->getResultMessage());
+        $writer->writeStringValue('roleId', $this->getRoleId());
+        $writer->writeObjectValue('roleInfo', $this->getRoleInfo());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the expirationDateTime property value. The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the isElevated property value. true if the role assignment is activated. false if the role assignment is deactivated.
      *  @param bool|null $value Value to set for the isElevated property.
     */
-    public function setIsElevated(?bool $value ): void {
-        $this->isElevated = $value;
+    public function setIsElevated(?bool $value): void {
+        $this->getBackingStore()->set('isElevated', $value);
     }
 
     /**
      * Sets the resultMessage property value. Result message set by the service.
      *  @param string|null $value Value to set for the resultMessage property.
     */
-    public function setResultMessage(?string $value ): void {
-        $this->resultMessage = $value;
+    public function setResultMessage(?string $value): void {
+        $this->getBackingStore()->set('resultMessage', $value);
     }
 
     /**
      * Sets the roleId property value. Role identifier. In GUID string format.
      *  @param string|null $value Value to set for the roleId property.
     */
-    public function setRoleId(?string $value ): void {
-        $this->roleId = $value;
+    public function setRoleId(?string $value): void {
+        $this->getBackingStore()->set('roleId', $value);
     }
 
     /**
      * Sets the roleInfo property value. Read-only. Nullable. The associated role information.
      *  @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
-    public function setRoleInfo(?PrivilegedRole $value ): void {
-        $this->roleInfo = $value;
+    public function setRoleInfo(?PrivilegedRole $value): void {
+        $this->getBackingStore()->set('roleInfo', $value);
     }
 
     /**
      * Sets the userId property value. User identifier. In GUID string format.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

@@ -7,33 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable 
+class PlayPromptPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $clientContext The clientContext property
-    */
-    private ?string $clientContext = null;
-    
-    /**
-     * @var bool|null $loop The loop property
-    */
-    private ?bool $loop = null;
-    
-    /**
-     * @var array<Prompt>|null $prompts The prompts property
-    */
-    private ?array $prompts = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new playPromptPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -50,8 +39,16 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +56,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getClientContext(): ?string {
-        return $this->clientContext;
+        return $this->getBackingStore()->get('clientContext');
     }
 
     /**
@@ -80,7 +77,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getLoop(): ?bool {
-        return $this->loop;
+        return $this->getBackingStore()->get('loop');
     }
 
     /**
@@ -88,7 +85,7 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<Prompt>|null
     */
     public function getPrompts(): ?array {
-        return $this->prompts;
+        return $this->getBackingStore()->get('prompts');
     }
 
     /**
@@ -96,42 +93,42 @@ class PlayPromptPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('clientContext', $this->clientContext);
-        $writer->writeBooleanValue('loop', $this->loop);
-        $writer->writeCollectionOfObjectValues('prompts', $this->prompts);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('clientContext', $this->getClientContext());
+        $writer->writeBooleanValue('loop', $this->getLoop());
+        $writer->writeCollectionOfObjectValues('prompts', $this->getPrompts());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the clientContext property value. The clientContext property
      *  @param string|null $value Value to set for the clientContext property.
     */
-    public function setClientContext(?string $value ): void {
-        $this->clientContext = $value;
+    public function setClientContext(?string $value): void {
+        $this->getBackingStore()->set('clientContext', $value);
     }
 
     /**
      * Sets the loop property value. The loop property
      *  @param bool|null $value Value to set for the loop property.
     */
-    public function setLoop(?bool $value ): void {
-        $this->loop = $value;
+    public function setLoop(?bool $value): void {
+        $this->getBackingStore()->set('loop', $value);
     }
 
     /**
      * Sets the prompts property value. The prompts property
      *  @param array<Prompt>|null $value Value to set for the prompts property.
     */
-    public function setPrompts(?array $value ): void {
-        $this->prompts = $value;
+    public function setPrompts(?array $value): void {
+        $this->getBackingStore()->set('prompts', $value);
     }
 
 }

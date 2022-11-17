@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable 
+class AccessReviewRecurrenceSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $durationInDays The duration in days for recurrence.
-    */
-    private ?int $durationInDays = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $recurrenceCount The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise.
-    */
-    private ?int $recurrenceCount = null;
-    
-    /**
-     * @var string|null $recurrenceEndType How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
-    */
-    private ?string $recurrenceEndType = null;
-    
-    /**
-     * @var string|null $recurrenceType The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
-    */
-    private ?string $recurrenceType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new accessReviewRecurrenceSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.accessReviewRecurrenceSettings');
     }
@@ -60,8 +39,16 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getDurationInDays(): ?int {
-        return $this->durationInDays;
+        return $this->getBackingStore()->get('durationInDays');
     }
 
     /**
@@ -92,7 +79,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -100,7 +87,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getRecurrenceCount(): ?int {
-        return $this->recurrenceCount;
+        return $this->getBackingStore()->get('recurrenceCount');
     }
 
     /**
@@ -108,7 +95,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRecurrenceEndType(): ?string {
-        return $this->recurrenceEndType;
+        return $this->getBackingStore()->get('recurrenceEndType');
     }
 
     /**
@@ -116,7 +103,7 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRecurrenceType(): ?string {
-        return $this->recurrenceType;
+        return $this->getBackingStore()->get('recurrenceType');
     }
 
     /**
@@ -124,60 +111,60 @@ class AccessReviewRecurrenceSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('durationInDays', $this->durationInDays);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('recurrenceCount', $this->recurrenceCount);
-        $writer->writeStringValue('recurrenceEndType', $this->recurrenceEndType);
-        $writer->writeStringValue('recurrenceType', $this->recurrenceType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('recurrenceCount', $this->getRecurrenceCount());
+        $writer->writeStringValue('recurrenceEndType', $this->getRecurrenceEndType());
+        $writer->writeStringValue('recurrenceType', $this->getRecurrenceType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the durationInDays property value. The duration in days for recurrence.
      *  @param int|null $value Value to set for the durationInDays property.
     */
-    public function setDurationInDays(?int $value ): void {
-        $this->durationInDays = $value;
+    public function setDurationInDays(?int $value): void {
+        $this->getBackingStore()->set('durationInDays', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recurrenceCount property value. The count of recurrences, if the value of recurrenceEndType is occurrences, or 0 otherwise.
      *  @param int|null $value Value to set for the recurrenceCount property.
     */
-    public function setRecurrenceCount(?int $value ): void {
-        $this->recurrenceCount = $value;
+    public function setRecurrenceCount(?int $value): void {
+        $this->getBackingStore()->set('recurrenceCount', $value);
     }
 
     /**
      * Sets the recurrenceEndType property value. How the recurrence ends. Possible values: never, endBy, occurrences, or recurrenceCount. If it is never, then there is no explicit end of the recurrence series. If it is endBy, then the recurrence ends at a certain date. If it is occurrences, then the series ends after recurrenceCount instances of the review have completed.
      *  @param string|null $value Value to set for the recurrenceEndType property.
     */
-    public function setRecurrenceEndType(?string $value ): void {
-        $this->recurrenceEndType = $value;
+    public function setRecurrenceEndType(?string $value): void {
+        $this->getBackingStore()->set('recurrenceEndType', $value);
     }
 
     /**
      * Sets the recurrenceType property value. The recurrence interval. Possible vaules: onetime, weekly, monthly, quarterly, halfyearly or annual.
      *  @param string|null $value Value to set for the recurrenceType property.
     */
-    public function setRecurrenceType(?string $value ): void {
-        $this->recurrenceType = $value;
+    public function setRecurrenceType(?string $value): void {
+        $this->getBackingStore()->set('recurrenceType', $value);
     }
 
 }

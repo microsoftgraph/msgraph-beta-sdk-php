@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementEnumConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var array<DeviceManagementEnumValue>|null $values List of valid values for this string
-    */
-    private ?array $values = null;
-    
-    /**
      * Instantiates a new DeviceManagementEnumConstraint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint implemen
      * @return array<DeviceManagementEnumValue>|null
     */
     public function getValues(): ?array {
-        return $this->values;
+        return $this->getBackingStore()->get('values');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('values', $this->values);
+        $writer->writeCollectionOfObjectValues('values', $this->getValues());
     }
 
     /**
      * Sets the values property value. List of valid values for this string
      *  @param array<DeviceManagementEnumValue>|null $value Value to set for the values property.
     */
-    public function setValues(?array $value ): void {
-        $this->values = $value;
+    public function setValues(?array $value): void {
+        $this->getBackingStore()->set('values', $value);
     }
 
 }

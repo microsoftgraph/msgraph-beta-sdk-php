@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RecommendLabelAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<InformationProtectionAction>|null $actions Actions to take if the label is accepted by the user.
-    */
-    private ?array $actions = null;
-    
-    /**
-     * @var ActionSource|null $actionSource The actionSource property
-    */
-    private ?ActionSource $actionSource = null;
-    
-    /**
-     * @var array<string>|null $responsibleSensitiveTypeIds The sensitive information type GUIDs that caused the recommendation to be given.
-    */
-    private ?array $responsibleSensitiveTypeIds = null;
-    
-    /**
-     * @var string|null $sensitivityLabelId The sensitivityLabelId property
-    */
-    private ?string $sensitivityLabelId = null;
-    
-    /**
      * Instantiates a new RecommendLabelAction and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return array<InformationProtectionAction>|null
     */
     public function getActions(): ?array {
-        return $this->actions;
+        return $this->getBackingStore()->get('actions');
     }
 
     /**
@@ -58,7 +38,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return ActionSource|null
     */
     public function getActionSource(): ?ActionSource {
-        return $this->actionSource;
+        return $this->getBackingStore()->get('actionSource');
     }
 
     /**
@@ -80,7 +60,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return array<string>|null
     */
     public function getResponsibleSensitiveTypeIds(): ?array {
-        return $this->responsibleSensitiveTypeIds;
+        return $this->getBackingStore()->get('responsibleSensitiveTypeIds');
     }
 
     /**
@@ -88,7 +68,7 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
      * @return string|null
     */
     public function getSensitivityLabelId(): ?string {
-        return $this->sensitivityLabelId;
+        return $this->getBackingStore()->get('sensitivityLabelId');
     }
 
     /**
@@ -97,42 +77,42 @@ class RecommendLabelAction extends InformationProtectionAction implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('actions', $this->actions);
-        $writer->writeEnumValue('actionSource', $this->actionSource);
-        $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->responsibleSensitiveTypeIds);
-        $writer->writeStringValue('sensitivityLabelId', $this->sensitivityLabelId);
+        $writer->writeCollectionOfObjectValues('actions', $this->getActions());
+        $writer->writeEnumValue('actionSource', $this->getActionSource());
+        $writer->writeCollectionOfPrimitiveValues('responsibleSensitiveTypeIds', $this->getResponsibleSensitiveTypeIds());
+        $writer->writeStringValue('sensitivityLabelId', $this->getSensitivityLabelId());
     }
 
     /**
      * Sets the actions property value. Actions to take if the label is accepted by the user.
      *  @param array<InformationProtectionAction>|null $value Value to set for the actions property.
     */
-    public function setActions(?array $value ): void {
-        $this->actions = $value;
+    public function setActions(?array $value): void {
+        $this->getBackingStore()->set('actions', $value);
     }
 
     /**
      * Sets the actionSource property value. The actionSource property
      *  @param ActionSource|null $value Value to set for the actionSource property.
     */
-    public function setActionSource(?ActionSource $value ): void {
-        $this->actionSource = $value;
+    public function setActionSource(?ActionSource $value): void {
+        $this->getBackingStore()->set('actionSource', $value);
     }
 
     /**
      * Sets the responsibleSensitiveTypeIds property value. The sensitive information type GUIDs that caused the recommendation to be given.
      *  @param array<string>|null $value Value to set for the responsibleSensitiveTypeIds property.
     */
-    public function setResponsibleSensitiveTypeIds(?array $value ): void {
-        $this->responsibleSensitiveTypeIds = $value;
+    public function setResponsibleSensitiveTypeIds(?array $value): void {
+        $this->getBackingStore()->set('responsibleSensitiveTypeIds', $value);
     }
 
     /**
      * Sets the sensitivityLabelId property value. The sensitivityLabelId property
      *  @param string|null $value Value to set for the sensitivityLabelId property.
     */
-    public function setSensitivityLabelId(?string $value ): void {
-        $this->sensitivityLabelId = $value;
+    public function setSensitivityLabelId(?string $value): void {
+        $this->getBackingStore()->set('sensitivityLabelId', $value);
     }
 
 }

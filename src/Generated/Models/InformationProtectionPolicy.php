@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtectionPolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<InformationProtectionLabel>|null $labels The labels property
-    */
-    private ?array $labels = null;
-    
-    /**
      * Instantiates a new informationProtectionPolicy and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class InformationProtectionPolicy extends Entity implements Parsable
      * @return array<InformationProtectionLabel>|null
     */
     public function getLabels(): ?array {
-        return $this->labels;
+        return $this->getBackingStore()->get('labels');
     }
 
     /**
@@ -55,15 +50,15 @@ class InformationProtectionPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('labels', $this->labels);
+        $writer->writeCollectionOfObjectValues('labels', $this->getLabels());
     }
 
     /**
      * Sets the labels property value. The labels property
      *  @param array<InformationProtectionLabel>|null $value Value to set for the labels property.
     */
-    public function setLabels(?array $value ): void {
-        $this->labels = $value;
+    public function setLabels(?array $value): void {
+        $this->getBackingStore()->set('labels', $value);
     }
 
 }

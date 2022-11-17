@@ -10,61 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceRoleSetting extends Entity implements Parsable 
 {
     /**
-     * @var array<GovernanceRuleSetting>|null $adminEligibleSettings The rule settings that are evaluated when an administrator tries to add an eligible role assignment.
-    */
-    private ?array $adminEligibleSettings = null;
-    
-    /**
-     * @var array<GovernanceRuleSetting>|null $adminMemberSettings The rule settings that are evaluated when an administrator tries to add a direct member role assignment.
-    */
-    private ?array $adminMemberSettings = null;
-    
-    /**
-     * @var bool|null $isDefault Read-only. Indicate if the roleSetting is a default roleSetting
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var string|null $lastUpdatedBy Read-only. The display name of the administrator who last updated the roleSetting.
-    */
-    private ?string $lastUpdatedBy = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Read-only. The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var GovernanceResource|null $resource Read-only. The associated resource for this role setting.
-    */
-    private ?GovernanceResource $resource = null;
-    
-    /**
-     * @var string|null $resourceId Required. The id of the resource that the role setting is associated with.
-    */
-    private ?string $resourceId = null;
-    
-    /**
-     * @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition that is enforced with this role setting.
-    */
-    private ?GovernanceRoleDefinition $roleDefinition = null;
-    
-    /**
-     * @var string|null $roleDefinitionId Required. The id of the role definition that the role setting is associated with.
-    */
-    private ?string $roleDefinitionId = null;
-    
-    /**
-     * @var array<GovernanceRuleSetting>|null $userEligibleSettings The rule settings that are evaluated when a user tries to add an eligible role assignment. The setting is not supported for now.
-    */
-    private ?array $userEligibleSettings = null;
-    
-    /**
-     * @var array<GovernanceRuleSetting>|null $userMemberSettings The rule settings that are evaluated when a user tries to activate his role assignment.
-    */
-    private ?array $userMemberSettings = null;
-    
-    /**
      * Instantiates a new governanceRoleSetting and sets the default values.
     */
     public function __construct() {
@@ -86,7 +31,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return array<GovernanceRuleSetting>|null
     */
     public function getAdminEligibleSettings(): ?array {
-        return $this->adminEligibleSettings;
+        return $this->getBackingStore()->get('adminEligibleSettings');
     }
 
     /**
@@ -94,7 +39,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return array<GovernanceRuleSetting>|null
     */
     public function getAdminMemberSettings(): ?array {
-        return $this->adminMemberSettings;
+        return $this->getBackingStore()->get('adminMemberSettings');
     }
 
     /**
@@ -123,7 +68,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -131,7 +76,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getLastUpdatedBy(): ?string {
-        return $this->lastUpdatedBy;
+        return $this->getBackingStore()->get('lastUpdatedBy');
     }
 
     /**
@@ -139,7 +84,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -147,7 +92,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return GovernanceResource|null
     */
     public function getResource(): ?GovernanceResource {
-        return $this->resource;
+        return $this->getBackingStore()->get('resource');
     }
 
     /**
@@ -155,7 +100,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->resourceId;
+        return $this->getBackingStore()->get('resourceId');
     }
 
     /**
@@ -163,7 +108,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return GovernanceRoleDefinition|null
     */
     public function getRoleDefinition(): ?GovernanceRoleDefinition {
-        return $this->roleDefinition;
+        return $this->getBackingStore()->get('roleDefinition');
     }
 
     /**
@@ -171,7 +116,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->roleDefinitionId;
+        return $this->getBackingStore()->get('roleDefinitionId');
     }
 
     /**
@@ -179,7 +124,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return array<GovernanceRuleSetting>|null
     */
     public function getUserEligibleSettings(): ?array {
-        return $this->userEligibleSettings;
+        return $this->getBackingStore()->get('userEligibleSettings');
     }
 
     /**
@@ -187,7 +132,7 @@ class GovernanceRoleSetting extends Entity implements Parsable
      * @return array<GovernanceRuleSetting>|null
     */
     public function getUserMemberSettings(): ?array {
-        return $this->userMemberSettings;
+        return $this->getBackingStore()->get('userMemberSettings');
     }
 
     /**
@@ -196,105 +141,105 @@ class GovernanceRoleSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('adminEligibleSettings', $this->adminEligibleSettings);
-        $writer->writeCollectionOfObjectValues('adminMemberSettings', $this->adminMemberSettings);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeStringValue('lastUpdatedBy', $this->lastUpdatedBy);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeObjectValue('resource', $this->resource);
-        $writer->writeStringValue('resourceId', $this->resourceId);
-        $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
-        $writer->writeStringValue('roleDefinitionId', $this->roleDefinitionId);
-        $writer->writeCollectionOfObjectValues('userEligibleSettings', $this->userEligibleSettings);
-        $writer->writeCollectionOfObjectValues('userMemberSettings', $this->userMemberSettings);
+        $writer->writeCollectionOfObjectValues('adminEligibleSettings', $this->getAdminEligibleSettings());
+        $writer->writeCollectionOfObjectValues('adminMemberSettings', $this->getAdminMemberSettings());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeStringValue('lastUpdatedBy', $this->getLastUpdatedBy());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeObjectValue('resource', $this->getResource());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
+        $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
+        $writer->writeCollectionOfObjectValues('userEligibleSettings', $this->getUserEligibleSettings());
+        $writer->writeCollectionOfObjectValues('userMemberSettings', $this->getUserMemberSettings());
     }
 
     /**
      * Sets the adminEligibleSettings property value. The rule settings that are evaluated when an administrator tries to add an eligible role assignment.
      *  @param array<GovernanceRuleSetting>|null $value Value to set for the adminEligibleSettings property.
     */
-    public function setAdminEligibleSettings(?array $value ): void {
-        $this->adminEligibleSettings = $value;
+    public function setAdminEligibleSettings(?array $value): void {
+        $this->getBackingStore()->set('adminEligibleSettings', $value);
     }
 
     /**
      * Sets the adminMemberSettings property value. The rule settings that are evaluated when an administrator tries to add a direct member role assignment.
      *  @param array<GovernanceRuleSetting>|null $value Value to set for the adminMemberSettings property.
     */
-    public function setAdminMemberSettings(?array $value ): void {
-        $this->adminMemberSettings = $value;
+    public function setAdminMemberSettings(?array $value): void {
+        $this->getBackingStore()->set('adminMemberSettings', $value);
     }
 
     /**
      * Sets the isDefault property value. Read-only. Indicate if the roleSetting is a default roleSetting
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the lastUpdatedBy property value. Read-only. The display name of the administrator who last updated the roleSetting.
      *  @param string|null $value Value to set for the lastUpdatedBy property.
     */
-    public function setLastUpdatedBy(?string $value ): void {
-        $this->lastUpdatedBy = $value;
+    public function setLastUpdatedBy(?string $value): void {
+        $this->getBackingStore()->set('lastUpdatedBy', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Read-only. The time when the role setting was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the resource property value. Read-only. The associated resource for this role setting.
      *  @param GovernanceResource|null $value Value to set for the resource property.
     */
-    public function setResource(?GovernanceResource $value ): void {
-        $this->resource = $value;
+    public function setResource(?GovernanceResource $value): void {
+        $this->getBackingStore()->set('resource', $value);
     }
 
     /**
      * Sets the resourceId property value. Required. The id of the resource that the role setting is associated with.
      *  @param string|null $value Value to set for the resourceId property.
     */
-    public function setResourceId(?string $value ): void {
-        $this->resourceId = $value;
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
     /**
      * Sets the roleDefinition property value. Read-only. The role definition that is enforced with this role setting.
      *  @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
     */
-    public function setRoleDefinition(?GovernanceRoleDefinition $value ): void {
-        $this->roleDefinition = $value;
+    public function setRoleDefinition(?GovernanceRoleDefinition $value): void {
+        $this->getBackingStore()->set('roleDefinition', $value);
     }
 
     /**
      * Sets the roleDefinitionId property value. Required. The id of the role definition that the role setting is associated with.
      *  @param string|null $value Value to set for the roleDefinitionId property.
     */
-    public function setRoleDefinitionId(?string $value ): void {
-        $this->roleDefinitionId = $value;
+    public function setRoleDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('roleDefinitionId', $value);
     }
 
     /**
      * Sets the userEligibleSettings property value. The rule settings that are evaluated when a user tries to add an eligible role assignment. The setting is not supported for now.
      *  @param array<GovernanceRuleSetting>|null $value Value to set for the userEligibleSettings property.
     */
-    public function setUserEligibleSettings(?array $value ): void {
-        $this->userEligibleSettings = $value;
+    public function setUserEligibleSettings(?array $value): void {
+        $this->getBackingStore()->set('userEligibleSettings', $value);
     }
 
     /**
      * Sets the userMemberSettings property value. The rule settings that are evaluated when a user tries to activate his role assignment.
      *  @param array<GovernanceRuleSetting>|null $value Value to set for the userMemberSettings property.
     */
-    public function setUserMemberSettings(?array $value ): void {
-        $this->userMemberSettings = $value;
+    public function setUserMemberSettings(?array $value): void {
+        $this->getBackingStore()->set('userMemberSettings', $value);
     }
 
 }

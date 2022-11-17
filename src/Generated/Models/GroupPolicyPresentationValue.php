@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationValue extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The date and time the object was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var GroupPolicyDefinitionValue|null $definitionValue The group policy definition value associated with the presentation value.
-    */
-    private ?GroupPolicyDefinitionValue $definitionValue = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the object was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var GroupPolicyPresentation|null $presentation The group policy presentation associated with the presentation value.
-    */
-    private ?GroupPolicyPresentation $presentation = null;
-    
-    /**
      * Instantiates a new groupPolicyPresentationValue and sets the default values.
     */
     public function __construct() {
@@ -63,7 +43,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -71,7 +51,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return GroupPolicyDefinitionValue|null
     */
     public function getDefinitionValue(): ?GroupPolicyDefinitionValue {
-        return $this->definitionValue;
+        return $this->getBackingStore()->get('definitionValue');
     }
 
     /**
@@ -93,7 +73,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -101,7 +81,7 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
      * @return GroupPolicyPresentation|null
     */
     public function getPresentation(): ?GroupPolicyPresentation {
-        return $this->presentation;
+        return $this->getBackingStore()->get('presentation');
     }
 
     /**
@@ -110,42 +90,42 @@ class GroupPolicyPresentationValue extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('definitionValue', $this->definitionValue);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('presentation', $this->presentation);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('definitionValue', $this->getDefinitionValue());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('presentation', $this->getPresentation());
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the object was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the definitionValue property value. The group policy definition value associated with the presentation value.
      *  @param GroupPolicyDefinitionValue|null $value Value to set for the definitionValue property.
     */
-    public function setDefinitionValue(?GroupPolicyDefinitionValue $value ): void {
-        $this->definitionValue = $value;
+    public function setDefinitionValue(?GroupPolicyDefinitionValue $value): void {
+        $this->getBackingStore()->set('definitionValue', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the object was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the presentation property value. The group policy presentation associated with the presentation value.
      *  @param GroupPolicyPresentation|null $value Value to set for the presentation property.
     */
-    public function setPresentation(?GroupPolicyPresentation $value ): void {
-        $this->presentation = $value;
+    public function setPresentation(?GroupPolicyPresentation $value): void {
+        $this->getBackingStore()->set('presentation', $value);
     }
 
 }

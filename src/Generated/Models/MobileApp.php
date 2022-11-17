@@ -10,131 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileApp extends Entity implements Parsable 
 {
     /**
-     * @var array<MobileAppAssignment>|null $assignments The list of group assignments for this mobile app.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var array<MobileAppCategory>|null $categories The list of categories for this app.
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time the app was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var int|null $dependentAppCount The total number of dependencies the child app has.
-    */
-    private ?int $dependentAppCount = null;
-    
-    /**
-     * @var string|null $description The description of the app.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $developer The developer of the app.
-    */
-    private ?string $developer = null;
-    
-    /**
-     * @var array<MobileAppInstallStatus>|null $deviceStatuses The list of installation states for this mobile app.
-    */
-    private ?array $deviceStatuses = null;
-    
-    /**
-     * @var string|null $displayName The admin provided or imported title of the app.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $informationUrl The more information Url.
-    */
-    private ?string $informationUrl = null;
-    
-    /**
-     * @var MobileAppInstallSummary|null $installSummary Mobile App Install Summary.
-    */
-    private ?MobileAppInstallSummary $installSummary = null;
-    
-    /**
-     * @var bool|null $isAssigned The value indicating whether the app is assigned to at least one group.
-    */
-    private ?bool $isAssigned = null;
-    
-    /**
-     * @var bool|null $isFeatured The value indicating whether the app is marked as featured by the admin.
-    */
-    private ?bool $isFeatured = null;
-    
-    /**
-     * @var MimeContent|null $largeIcon The large icon, to be displayed in the app details and used for upload of the icon.
-    */
-    private ?MimeContent $largeIcon = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the app was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $notes Notes for the app.
-    */
-    private ?string $notes = null;
-    
-    /**
-     * @var string|null $owner The owner of the app.
-    */
-    private ?string $owner = null;
-    
-    /**
-     * @var string|null $privacyInformationUrl The privacy statement Url.
-    */
-    private ?string $privacyInformationUrl = null;
-    
-    /**
-     * @var string|null $publisher The publisher of the app.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var MobileAppPublishingState|null $publishingState Indicates the publishing state of an app.
-    */
-    private ?MobileAppPublishingState $publishingState = null;
-    
-    /**
-     * @var array<MobileAppRelationship>|null $relationships List of relationships for this mobile app.
-    */
-    private ?array $relationships = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of scope tag ids for this mobile app.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var int|null $supersededAppCount The total number of apps this app is directly or indirectly superseded by.
-    */
-    private ?int $supersededAppCount = null;
-    
-    /**
-     * @var int|null $supersedingAppCount The total number of apps this app directly or indirectly supersedes.
-    */
-    private ?int $supersedingAppCount = null;
-    
-    /**
-     * @var int|null $uploadState The upload state.
-    */
-    private ?int $uploadState = null;
-    
-    /**
-     * @var array<UserAppInstallStatus>|null $userStatuses The list of installation states for this mobile app.
-    */
-    private ?array $userStatuses = null;
-    
-    /**
      * Instantiates a new mobileApp and sets the default values.
     */
     public function __construct() {
@@ -200,7 +75,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<MobileAppAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -208,7 +83,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<MobileAppCategory>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -216,7 +91,7 @@ class MobileApp extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -224,7 +99,7 @@ class MobileApp extends Entity implements Parsable
      * @return int|null
     */
     public function getDependentAppCount(): ?int {
-        return $this->dependentAppCount;
+        return $this->getBackingStore()->get('dependentAppCount');
     }
 
     /**
@@ -232,7 +107,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -240,7 +115,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getDeveloper(): ?string {
-        return $this->developer;
+        return $this->getBackingStore()->get('developer');
     }
 
     /**
@@ -248,7 +123,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<MobileAppInstallStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->deviceStatuses;
+        return $this->getBackingStore()->get('deviceStatuses');
     }
 
     /**
@@ -256,7 +131,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -299,7 +174,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getInformationUrl(): ?string {
-        return $this->informationUrl;
+        return $this->getBackingStore()->get('informationUrl');
     }
 
     /**
@@ -307,7 +182,7 @@ class MobileApp extends Entity implements Parsable
      * @return MobileAppInstallSummary|null
     */
     public function getInstallSummary(): ?MobileAppInstallSummary {
-        return $this->installSummary;
+        return $this->getBackingStore()->get('installSummary');
     }
 
     /**
@@ -315,7 +190,7 @@ class MobileApp extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAssigned(): ?bool {
-        return $this->isAssigned;
+        return $this->getBackingStore()->get('isAssigned');
     }
 
     /**
@@ -323,7 +198,7 @@ class MobileApp extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsFeatured(): ?bool {
-        return $this->isFeatured;
+        return $this->getBackingStore()->get('isFeatured');
     }
 
     /**
@@ -331,7 +206,7 @@ class MobileApp extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getLargeIcon(): ?MimeContent {
-        return $this->largeIcon;
+        return $this->getBackingStore()->get('largeIcon');
     }
 
     /**
@@ -339,7 +214,7 @@ class MobileApp extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -347,7 +222,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getNotes(): ?string {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -355,7 +230,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getOwner(): ?string {
-        return $this->owner;
+        return $this->getBackingStore()->get('owner');
     }
 
     /**
@@ -363,7 +238,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getPrivacyInformationUrl(): ?string {
-        return $this->privacyInformationUrl;
+        return $this->getBackingStore()->get('privacyInformationUrl');
     }
 
     /**
@@ -371,7 +246,7 @@ class MobileApp extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -379,7 +254,7 @@ class MobileApp extends Entity implements Parsable
      * @return MobileAppPublishingState|null
     */
     public function getPublishingState(): ?MobileAppPublishingState {
-        return $this->publishingState;
+        return $this->getBackingStore()->get('publishingState');
     }
 
     /**
@@ -387,7 +262,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<MobileAppRelationship>|null
     */
     public function getRelationships(): ?array {
-        return $this->relationships;
+        return $this->getBackingStore()->get('relationships');
     }
 
     /**
@@ -395,7 +270,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -403,7 +278,7 @@ class MobileApp extends Entity implements Parsable
      * @return int|null
     */
     public function getSupersededAppCount(): ?int {
-        return $this->supersededAppCount;
+        return $this->getBackingStore()->get('supersededAppCount');
     }
 
     /**
@@ -411,7 +286,7 @@ class MobileApp extends Entity implements Parsable
      * @return int|null
     */
     public function getSupersedingAppCount(): ?int {
-        return $this->supersedingAppCount;
+        return $this->getBackingStore()->get('supersedingAppCount');
     }
 
     /**
@@ -419,7 +294,7 @@ class MobileApp extends Entity implements Parsable
      * @return int|null
     */
     public function getUploadState(): ?int {
-        return $this->uploadState;
+        return $this->getBackingStore()->get('uploadState');
     }
 
     /**
@@ -427,7 +302,7 @@ class MobileApp extends Entity implements Parsable
      * @return array<UserAppInstallStatus>|null
     */
     public function getUserStatuses(): ?array {
-        return $this->userStatuses;
+        return $this->getBackingStore()->get('userStatuses');
     }
 
     /**
@@ -436,231 +311,231 @@ class MobileApp extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeCollectionOfObjectValues('categories', $this->categories);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeIntegerValue('dependentAppCount', $this->dependentAppCount);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('developer', $this->developer);
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->deviceStatuses);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('informationUrl', $this->informationUrl);
-        $writer->writeObjectValue('installSummary', $this->installSummary);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
-        $writer->writeBooleanValue('isFeatured', $this->isFeatured);
-        $writer->writeObjectValue('largeIcon', $this->largeIcon);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('notes', $this->notes);
-        $writer->writeStringValue('owner', $this->owner);
-        $writer->writeStringValue('privacyInformationUrl', $this->privacyInformationUrl);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeEnumValue('publishingState', $this->publishingState);
-        $writer->writeCollectionOfObjectValues('relationships', $this->relationships);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeIntegerValue('supersededAppCount', $this->supersededAppCount);
-        $writer->writeIntegerValue('supersedingAppCount', $this->supersedingAppCount);
-        $writer->writeIntegerValue('uploadState', $this->uploadState);
-        $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeCollectionOfObjectValues('categories', $this->getCategories());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeIntegerValue('dependentAppCount', $this->getDependentAppCount());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('developer', $this->getDeveloper());
+        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('informationUrl', $this->getInformationUrl());
+        $writer->writeObjectValue('installSummary', $this->getInstallSummary());
+        $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
+        $writer->writeBooleanValue('isFeatured', $this->getIsFeatured());
+        $writer->writeObjectValue('largeIcon', $this->getLargeIcon());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('owner', $this->getOwner());
+        $writer->writeStringValue('privacyInformationUrl', $this->getPrivacyInformationUrl());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeEnumValue('publishingState', $this->getPublishingState());
+        $writer->writeCollectionOfObjectValues('relationships', $this->getRelationships());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
+        $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());
+        $writer->writeIntegerValue('uploadState', $this->getUploadState());
+        $writer->writeCollectionOfObjectValues('userStatuses', $this->getUserStatuses());
     }
 
     /**
      * Sets the assignments property value. The list of group assignments for this mobile app.
      *  @param array<MobileAppAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the categories property value. The list of categories for this app.
      *  @param array<MobileAppCategory>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the app was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the dependentAppCount property value. The total number of dependencies the child app has.
      *  @param int|null $value Value to set for the dependentAppCount property.
     */
-    public function setDependentAppCount(?int $value ): void {
-        $this->dependentAppCount = $value;
+    public function setDependentAppCount(?int $value): void {
+        $this->getBackingStore()->set('dependentAppCount', $value);
     }
 
     /**
      * Sets the description property value. The description of the app.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the developer property value. The developer of the app.
      *  @param string|null $value Value to set for the developer property.
     */
-    public function setDeveloper(?string $value ): void {
-        $this->developer = $value;
+    public function setDeveloper(?string $value): void {
+        $this->getBackingStore()->set('developer', $value);
     }
 
     /**
      * Sets the deviceStatuses property value. The list of installation states for this mobile app.
      *  @param array<MobileAppInstallStatus>|null $value Value to set for the deviceStatuses property.
     */
-    public function setDeviceStatuses(?array $value ): void {
-        $this->deviceStatuses = $value;
+    public function setDeviceStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceStatuses', $value);
     }
 
     /**
      * Sets the displayName property value. The admin provided or imported title of the app.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the informationUrl property value. The more information Url.
      *  @param string|null $value Value to set for the informationUrl property.
     */
-    public function setInformationUrl(?string $value ): void {
-        $this->informationUrl = $value;
+    public function setInformationUrl(?string $value): void {
+        $this->getBackingStore()->set('informationUrl', $value);
     }
 
     /**
      * Sets the installSummary property value. Mobile App Install Summary.
      *  @param MobileAppInstallSummary|null $value Value to set for the installSummary property.
     */
-    public function setInstallSummary(?MobileAppInstallSummary $value ): void {
-        $this->installSummary = $value;
+    public function setInstallSummary(?MobileAppInstallSummary $value): void {
+        $this->getBackingStore()->set('installSummary', $value);
     }
 
     /**
      * Sets the isAssigned property value. The value indicating whether the app is assigned to at least one group.
      *  @param bool|null $value Value to set for the isAssigned property.
     */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
+    public function setIsAssigned(?bool $value): void {
+        $this->getBackingStore()->set('isAssigned', $value);
     }
 
     /**
      * Sets the isFeatured property value. The value indicating whether the app is marked as featured by the admin.
      *  @param bool|null $value Value to set for the isFeatured property.
     */
-    public function setIsFeatured(?bool $value ): void {
-        $this->isFeatured = $value;
+    public function setIsFeatured(?bool $value): void {
+        $this->getBackingStore()->set('isFeatured', $value);
     }
 
     /**
      * Sets the largeIcon property value. The large icon, to be displayed in the app details and used for upload of the icon.
      *  @param MimeContent|null $value Value to set for the largeIcon property.
     */
-    public function setLargeIcon(?MimeContent $value ): void {
-        $this->largeIcon = $value;
+    public function setLargeIcon(?MimeContent $value): void {
+        $this->getBackingStore()->set('largeIcon', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the app was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the notes property value. Notes for the app.
      *  @param string|null $value Value to set for the notes property.
     */
-    public function setNotes(?string $value ): void {
-        $this->notes = $value;
+    public function setNotes(?string $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the owner property value. The owner of the app.
      *  @param string|null $value Value to set for the owner property.
     */
-    public function setOwner(?string $value ): void {
-        $this->owner = $value;
+    public function setOwner(?string $value): void {
+        $this->getBackingStore()->set('owner', $value);
     }
 
     /**
      * Sets the privacyInformationUrl property value. The privacy statement Url.
      *  @param string|null $value Value to set for the privacyInformationUrl property.
     */
-    public function setPrivacyInformationUrl(?string $value ): void {
-        $this->privacyInformationUrl = $value;
+    public function setPrivacyInformationUrl(?string $value): void {
+        $this->getBackingStore()->set('privacyInformationUrl', $value);
     }
 
     /**
      * Sets the publisher property value. The publisher of the app.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the publishingState property value. Indicates the publishing state of an app.
      *  @param MobileAppPublishingState|null $value Value to set for the publishingState property.
     */
-    public function setPublishingState(?MobileAppPublishingState $value ): void {
-        $this->publishingState = $value;
+    public function setPublishingState(?MobileAppPublishingState $value): void {
+        $this->getBackingStore()->set('publishingState', $value);
     }
 
     /**
      * Sets the relationships property value. List of relationships for this mobile app.
      *  @param array<MobileAppRelationship>|null $value Value to set for the relationships property.
     */
-    public function setRelationships(?array $value ): void {
-        $this->relationships = $value;
+    public function setRelationships(?array $value): void {
+        $this->getBackingStore()->set('relationships', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of scope tag ids for this mobile app.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the supersededAppCount property value. The total number of apps this app is directly or indirectly superseded by.
      *  @param int|null $value Value to set for the supersededAppCount property.
     */
-    public function setSupersededAppCount(?int $value ): void {
-        $this->supersededAppCount = $value;
+    public function setSupersededAppCount(?int $value): void {
+        $this->getBackingStore()->set('supersededAppCount', $value);
     }
 
     /**
      * Sets the supersedingAppCount property value. The total number of apps this app directly or indirectly supersedes.
      *  @param int|null $value Value to set for the supersedingAppCount property.
     */
-    public function setSupersedingAppCount(?int $value ): void {
-        $this->supersedingAppCount = $value;
+    public function setSupersedingAppCount(?int $value): void {
+        $this->getBackingStore()->set('supersedingAppCount', $value);
     }
 
     /**
      * Sets the uploadState property value. The upload state.
      *  @param int|null $value Value to set for the uploadState property.
     */
-    public function setUploadState(?int $value ): void {
-        $this->uploadState = $value;
+    public function setUploadState(?int $value): void {
+        $this->getBackingStore()->set('uploadState', $value);
     }
 
     /**
      * Sets the userStatuses property value. The list of installation states for this mobile app.
      *  @param array<UserAppInstallStatus>|null $value Value to set for the userStatuses property.
     */
-    public function setUserStatuses(?array $value ): void {
-        $this->userStatuses = $value;
+    public function setUserStatuses(?array $value): void {
+        $this->getBackingStore()->set('userStatuses', $value);
     }
 
 }

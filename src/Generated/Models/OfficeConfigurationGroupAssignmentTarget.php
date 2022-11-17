@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OfficeConfigurationGroupAssignmentTarget extends OfficeConfigurationAssignmentTarget implements Parsable 
 {
     /**
-     * @var string|null $groupId The Id of the AAD group we are targeting the device configuration to.
-    */
-    private ?string $groupId = null;
-    
-    /**
      * Instantiates a new OfficeConfigurationGroupAssignmentTarget and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class OfficeConfigurationGroupAssignmentTarget extends OfficeConfigurationAssign
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->groupId;
+        return $this->getBackingStore()->get('groupId');
     }
 
     /**
@@ -55,15 +50,15 @@ class OfficeConfigurationGroupAssignmentTarget extends OfficeConfigurationAssign
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('groupId', $this->groupId);
+        $writer->writeStringValue('groupId', $this->getGroupId());
     }
 
     /**
      * Sets the groupId property value. The Id of the AAD group we are targeting the device configuration to.
      *  @param string|null $value Value to set for the groupId property.
     */
-    public function setGroupId(?string $value ): void {
-        $this->groupId = $value;
+    public function setGroupId(?string $value): void {
+        $this->getBackingStore()->set('groupId', $value);
     }
 
 }

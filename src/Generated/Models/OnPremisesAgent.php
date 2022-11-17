@@ -9,32 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesAgent extends Entity implements Parsable 
 {
     /**
-     * @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
-    */
-    private ?array $agentGroups = null;
-    
-    /**
-     * @var string|null $externalIp The external IP address as detected by the service for the agent machine. Read-only
-    */
-    private ?string $externalIp = null;
-    
-    /**
-     * @var string|null $machineName The name of the machine that the aggent is running on. Read-only
-    */
-    private ?string $machineName = null;
-    
-    /**
-     * @var AgentStatus|null $status The status property
-    */
-    private ?AgentStatus $status = null;
-    
-    /**
-     * @var array<OnPremisesPublishingType>|null $supportedPublishingTypes The supportedPublishingTypes property
-    */
-    private ?array $supportedPublishingTypes = null;
-    
-    /**
-     * Instantiates a new OnPremisesAgent and sets the default values.
+     * Instantiates a new onPremisesAgent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +30,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return array<OnPremisesAgentGroup>|null
     */
     public function getAgentGroups(): ?array {
-        return $this->agentGroups;
+        return $this->getBackingStore()->get('agentGroups');
     }
 
     /**
@@ -63,7 +38,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalIp(): ?string {
-        return $this->externalIp;
+        return $this->getBackingStore()->get('externalIp');
     }
 
     /**
@@ -86,7 +61,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->machineName;
+        return $this->getBackingStore()->get('machineName');
     }
 
     /**
@@ -94,7 +69,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return AgentStatus|null
     */
     public function getStatus(): ?AgentStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -102,7 +77,7 @@ class OnPremisesAgent extends Entity implements Parsable
      * @return array<OnPremisesPublishingType>|null
     */
     public function getSupportedPublishingTypes(): ?array {
-        return $this->supportedPublishingTypes;
+        return $this->getBackingStore()->get('supportedPublishingTypes');
     }
 
     /**
@@ -111,51 +86,51 @@ class OnPremisesAgent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('agentGroups', $this->agentGroups);
-        $writer->writeStringValue('externalIp', $this->externalIp);
-        $writer->writeStringValue('machineName', $this->machineName);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfEnumValues('supportedPublishingTypes', $this->supportedPublishingTypes);
+        $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
+        $writer->writeStringValue('externalIp', $this->getExternalIp());
+        $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfEnumValues('supportedPublishingTypes', $this->getSupportedPublishingTypes());
     }
 
     /**
      * Sets the agentGroups property value. List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.
      *  @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
     */
-    public function setAgentGroups(?array $value ): void {
-        $this->agentGroups = $value;
+    public function setAgentGroups(?array $value): void {
+        $this->getBackingStore()->set('agentGroups', $value);
     }
 
     /**
      * Sets the externalIp property value. The external IP address as detected by the service for the agent machine. Read-only
      *  @param string|null $value Value to set for the externalIp property.
     */
-    public function setExternalIp(?string $value ): void {
-        $this->externalIp = $value;
+    public function setExternalIp(?string $value): void {
+        $this->getBackingStore()->set('externalIp', $value);
     }
 
     /**
      * Sets the machineName property value. The name of the machine that the aggent is running on. Read-only
      *  @param string|null $value Value to set for the machineName property.
     */
-    public function setMachineName(?string $value ): void {
-        $this->machineName = $value;
+    public function setMachineName(?string $value): void {
+        $this->getBackingStore()->set('machineName', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param AgentStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?AgentStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?AgentStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the supportedPublishingTypes property value. The supportedPublishingTypes property
      *  @param array<OnPremisesPublishingType>|null $value Value to set for the supportedPublishingTypes property.
     */
-    public function setSupportedPublishingTypes(?array $value ): void {
-        $this->supportedPublishingTypes = $value;
+    public function setSupportedPublishingTypes(?array $value): void {
+        $this->getBackingStore()->set('supportedPublishingTypes', $value);
     }
 
 }

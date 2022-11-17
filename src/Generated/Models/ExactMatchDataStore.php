@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable 
 {
     /**
-     * @var array<ExactMatchSession>|null $sessions The sessions property
-    */
-    private ?array $sessions = null;
-    
-    /**
      * Instantiates a new ExactMatchDataStore and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable
      * @return array<ExactMatchSession>|null
     */
     public function getSessions(): ?array {
-        return $this->sessions;
+        return $this->getBackingStore()->get('sessions');
     }
 
     /**
@@ -55,15 +50,15 @@ class ExactMatchDataStore extends ExactMatchDataStoreBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('sessions', $this->sessions);
+        $writer->writeCollectionOfObjectValues('sessions', $this->getSessions());
     }
 
     /**
      * Sets the sessions property value. The sessions property
      *  @param array<ExactMatchSession>|null $value Value to set for the sessions property.
     */
-    public function setSessions(?array $value ): void {
-        $this->sessions = $value;
+    public function setSessions(?array $value): void {
+        $this->getBackingStore()->set('sessions', $value);
     }
 
 }

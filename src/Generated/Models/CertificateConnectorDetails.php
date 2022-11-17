@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CertificateConnectorDetails extends Entity implements Parsable 
 {
     /**
-     * @var string|null $connectorName Connector name (set during enrollment).
-    */
-    private ?string $connectorName = null;
-    
-    /**
-     * @var string|null $connectorVersion Version of the connector installed.
-    */
-    private ?string $connectorVersion = null;
-    
-    /**
-     * @var DateTime|null $enrollmentDateTime Date/time when this connector was enrolled.
-    */
-    private ?DateTime $enrollmentDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastCheckinDateTime Date/time when this connector last connected to the service.
-    */
-    private ?DateTime $lastCheckinDateTime = null;
-    
-    /**
-     * @var string|null $machineName Name of the machine hosting this connector service.
-    */
-    private ?string $machineName = null;
-    
-    /**
      * Instantiates a new certificateConnectorDetails and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectorName(): ?string {
-        return $this->connectorName;
+        return $this->getBackingStore()->get('connectorName');
     }
 
     /**
@@ -64,7 +39,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getConnectorVersion(): ?string {
-        return $this->connectorVersion;
+        return $this->getBackingStore()->get('connectorVersion');
     }
 
     /**
@@ -72,7 +47,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEnrollmentDateTime(): ?DateTime {
-        return $this->enrollmentDateTime;
+        return $this->getBackingStore()->get('enrollmentDateTime');
     }
 
     /**
@@ -95,7 +70,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckinDateTime(): ?DateTime {
-        return $this->lastCheckinDateTime;
+        return $this->getBackingStore()->get('lastCheckinDateTime');
     }
 
     /**
@@ -103,7 +78,7 @@ class CertificateConnectorDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->machineName;
+        return $this->getBackingStore()->get('machineName');
     }
 
     /**
@@ -112,51 +87,51 @@ class CertificateConnectorDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('connectorName', $this->connectorName);
-        $writer->writeStringValue('connectorVersion', $this->connectorVersion);
-        $writer->writeDateTimeValue('enrollmentDateTime', $this->enrollmentDateTime);
-        $writer->writeDateTimeValue('lastCheckinDateTime', $this->lastCheckinDateTime);
-        $writer->writeStringValue('machineName', $this->machineName);
+        $writer->writeStringValue('connectorName', $this->getConnectorName());
+        $writer->writeStringValue('connectorVersion', $this->getConnectorVersion());
+        $writer->writeDateTimeValue('enrollmentDateTime', $this->getEnrollmentDateTime());
+        $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
+        $writer->writeStringValue('machineName', $this->getMachineName());
     }
 
     /**
      * Sets the connectorName property value. Connector name (set during enrollment).
      *  @param string|null $value Value to set for the connectorName property.
     */
-    public function setConnectorName(?string $value ): void {
-        $this->connectorName = $value;
+    public function setConnectorName(?string $value): void {
+        $this->getBackingStore()->set('connectorName', $value);
     }
 
     /**
      * Sets the connectorVersion property value. Version of the connector installed.
      *  @param string|null $value Value to set for the connectorVersion property.
     */
-    public function setConnectorVersion(?string $value ): void {
-        $this->connectorVersion = $value;
+    public function setConnectorVersion(?string $value): void {
+        $this->getBackingStore()->set('connectorVersion', $value);
     }
 
     /**
      * Sets the enrollmentDateTime property value. Date/time when this connector was enrolled.
      *  @param DateTime|null $value Value to set for the enrollmentDateTime property.
     */
-    public function setEnrollmentDateTime(?DateTime $value ): void {
-        $this->enrollmentDateTime = $value;
+    public function setEnrollmentDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('enrollmentDateTime', $value);
     }
 
     /**
      * Sets the lastCheckinDateTime property value. Date/time when this connector last connected to the service.
      *  @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
-    public function setLastCheckinDateTime(?DateTime $value ): void {
-        $this->lastCheckinDateTime = $value;
+    public function setLastCheckinDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckinDateTime', $value);
     }
 
     /**
      * Sets the machineName property value. Name of the machine hosting this connector service.
      *  @param string|null $value Value to set for the machineName property.
     */
-    public function setMachineName(?string $value ): void {
-        $this->machineName = $value;
+    public function setMachineName(?string $value): void {
+        $this->getBackingStore()->set('machineName', $value);
     }
 
 }

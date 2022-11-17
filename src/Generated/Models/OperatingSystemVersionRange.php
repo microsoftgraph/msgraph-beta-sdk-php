@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable 
+class OperatingSystemVersionRange implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $description The description of this range (e.g. Valid 1702 builds)
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $highestVersion The highest inclusive version that this range contains.
-    */
-    private ?string $highestVersion = null;
-    
-    /**
-     * @var string|null $lowestVersion The lowest inclusive version that this range contains.
-    */
-    private ?string $lowestVersion = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new operatingSystemVersionRange and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.operatingSystemVersionRange');
     }
@@ -55,8 +39,16 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +56,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -86,7 +78,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getHighestVersion(): ?string {
-        return $this->highestVersion;
+        return $this->getBackingStore()->get('highestVersion');
     }
 
     /**
@@ -94,7 +86,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLowestVersion(): ?string {
-        return $this->lowestVersion;
+        return $this->getBackingStore()->get('lowestVersion');
     }
 
     /**
@@ -102,7 +94,7 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +102,51 @@ class OperatingSystemVersionRange implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('highestVersion', $this->highestVersion);
-        $writer->writeStringValue('lowestVersion', $this->lowestVersion);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('highestVersion', $this->getHighestVersion());
+        $writer->writeStringValue('lowestVersion', $this->getLowestVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the description property value. The description of this range (e.g. Valid 1702 builds)
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the highestVersion property value. The highest inclusive version that this range contains.
      *  @param string|null $value Value to set for the highestVersion property.
     */
-    public function setHighestVersion(?string $value ): void {
-        $this->highestVersion = $value;
+    public function setHighestVersion(?string $value): void {
+        $this->getBackingStore()->set('highestVersion', $value);
     }
 
     /**
      * Sets the lowestVersion property value. The lowest inclusive version that this range contains.
      *  @param string|null $value Value to set for the lowestVersion property.
     */
-    public function setLowestVersion(?string $value ): void {
-        $this->lowestVersion = $value;
+    public function setLowestVersion(?string $value): void {
+        $this->getBackingStore()->set('lowestVersion', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

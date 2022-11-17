@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceSubject extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name of the subject.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $email The email address of the user subject. If the subject is in other types, it is empty.
-    */
-    private ?string $email = null;
-    
-    /**
-     * @var string|null $principalName The principal name of the user subject. If the subject is in other types, it is empty.
-    */
-    private ?string $principalName = null;
-    
-    /**
-     * @var string|null $type The type of the subject. The value can be User, Group, and ServicePrincipal.
-    */
-    private ?string $type = null;
-    
-    /**
      * Instantiates a new governanceSubject and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class GovernanceSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -58,7 +38,7 @@ class GovernanceSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -80,7 +60,7 @@ class GovernanceSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getPrincipalName(): ?string {
-        return $this->principalName;
+        return $this->getBackingStore()->get('principalName');
     }
 
     /**
@@ -88,7 +68,7 @@ class GovernanceSubject extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -97,42 +77,42 @@ class GovernanceSubject extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('email', $this->email);
-        $writer->writeStringValue('principalName', $this->principalName);
-        $writer->writeStringValue('type', $this->type);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('principalName', $this->getPrincipalName());
+        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
      * Sets the displayName property value. The display name of the subject.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the email property value. The email address of the user subject. If the subject is in other types, it is empty.
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
      * Sets the principalName property value. The principal name of the user subject. If the subject is in other types, it is empty.
      *  @param string|null $value Value to set for the principalName property.
     */
-    public function setPrincipalName(?string $value ): void {
-        $this->principalName = $value;
+    public function setPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('principalName', $value);
     }
 
     /**
      * Sets the type property value. The type of the subject. The value can be User, Group, and ServicePrincipal.
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

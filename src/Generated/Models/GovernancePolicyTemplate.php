@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernancePolicyTemplate extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var GovernancePolicy|null $policy The policy property
-    */
-    private ?GovernancePolicy $policy = null;
-    
-    /**
-     * @var BusinessFlowSettings|null $settings The settings property
-    */
-    private ?BusinessFlowSettings $settings = null;
-    
-    /**
      * Instantiates a new governancePolicyTemplate and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
      * @return GovernancePolicy|null
     */
     public function getPolicy(): ?GovernancePolicy {
-        return $this->policy;
+        return $this->getBackingStore()->get('policy');
     }
 
     /**
@@ -74,7 +59,7 @@ class GovernancePolicyTemplate extends Entity implements Parsable
      * @return BusinessFlowSettings|null
     */
     public function getSettings(): ?BusinessFlowSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -83,33 +68,33 @@ class GovernancePolicyTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('policy', $this->policy);
-        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('policy', $this->getPolicy());
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the policy property value. The policy property
      *  @param GovernancePolicy|null $value Value to set for the policy property.
     */
-    public function setPolicy(?GovernancePolicy $value ): void {
-        $this->policy = $value;
+    public function setPolicy(?GovernancePolicy $value): void {
+        $this->getBackingStore()->set('policy', $value);
     }
 
     /**
      * Sets the settings property value. The settings property
      *  @param BusinessFlowSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?BusinessFlowSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?BusinessFlowSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

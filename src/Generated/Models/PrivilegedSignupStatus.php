@@ -9,17 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedSignupStatus extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isRegistered The isRegistered property
-    */
-    private ?bool $isRegistered = null;
-    
-    /**
-     * @var SetupStatus|null $status The status property
-    */
-    private ?SetupStatus $status = null;
-    
-    /**
-     * Instantiates a new PrivilegedSignupStatus and sets the default values.
+     * Instantiates a new privilegedSignupStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -52,7 +42,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRegistered(): ?bool {
-        return $this->isRegistered;
+        return $this->getBackingStore()->get('isRegistered');
     }
 
     /**
@@ -60,7 +50,7 @@ class PrivilegedSignupStatus extends Entity implements Parsable
      * @return SetupStatus|null
     */
     public function getStatus(): ?SetupStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -69,24 +59,24 @@ class PrivilegedSignupStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isRegistered', $this->isRegistered);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeBooleanValue('isRegistered', $this->getIsRegistered());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the isRegistered property value. The isRegistered property
      *  @param bool|null $value Value to set for the isRegistered property.
     */
-    public function setIsRegistered(?bool $value ): void {
-        $this->isRegistered = $value;
+    public function setIsRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isRegistered', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param SetupStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?SetupStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?SetupStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

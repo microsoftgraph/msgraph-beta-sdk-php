@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConnectorGroup extends Entity implements Parsable 
 {
     /**
-     * @var array<Application>|null $applications The applications property
-    */
-    private ?array $applications = null;
-    
-    /**
-     * @var ConnectorGroupType|null $connectorGroupType The connectorGroupType property
-    */
-    private ?ConnectorGroupType $connectorGroupType = null;
-    
-    /**
-     * @var bool|null $isDefault Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only.
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var array<Connector>|null $members The members property
-    */
-    private ?array $members = null;
-    
-    /**
-     * @var string|null $name The name associated with the connectorGroup.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var ConnectorGroupRegion|null $region The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
-    */
-    private ?ConnectorGroupRegion $region = null;
-    
-    /**
      * Instantiates a new connectorGroup and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return array<Application>|null
     */
     public function getApplications(): ?array {
-        return $this->applications;
+        return $this->getBackingStore()->get('applications');
     }
 
     /**
@@ -68,7 +38,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return ConnectorGroupType|null
     */
     public function getConnectorGroupType(): ?ConnectorGroupType {
-        return $this->connectorGroupType;
+        return $this->getBackingStore()->get('connectorGroupType');
     }
 
     /**
@@ -92,7 +62,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -100,7 +70,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return array<Connector>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -108,7 +78,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -116,7 +86,7 @@ class ConnectorGroup extends Entity implements Parsable
      * @return ConnectorGroupRegion|null
     */
     public function getRegion(): ?ConnectorGroupRegion {
-        return $this->region;
+        return $this->getBackingStore()->get('region');
     }
 
     /**
@@ -125,60 +95,60 @@ class ConnectorGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('applications', $this->applications);
-        $writer->writeEnumValue('connectorGroupType', $this->connectorGroupType);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeEnumValue('region', $this->region);
+        $writer->writeCollectionOfObjectValues('applications', $this->getApplications());
+        $writer->writeEnumValue('connectorGroupType', $this->getConnectorGroupType());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeEnumValue('region', $this->getRegion());
     }
 
     /**
      * Sets the applications property value. The applications property
      *  @param array<Application>|null $value Value to set for the applications property.
     */
-    public function setApplications(?array $value ): void {
-        $this->applications = $value;
+    public function setApplications(?array $value): void {
+        $this->getBackingStore()->set('applications', $value);
     }
 
     /**
      * Sets the connectorGroupType property value. The connectorGroupType property
      *  @param ConnectorGroupType|null $value Value to set for the connectorGroupType property.
     */
-    public function setConnectorGroupType(?ConnectorGroupType $value ): void {
-        $this->connectorGroupType = $value;
+    public function setConnectorGroupType(?ConnectorGroupType $value): void {
+        $this->getBackingStore()->set('connectorGroupType', $value);
     }
 
     /**
      * Sets the isDefault property value. Indicates if the connectorGroup is the default connectorGroup. Only a single connector group can be the default connectorGroup and this is pre-set by the system. Read-only.
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the members property value. The members property
      *  @param array<Connector>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
     /**
      * Sets the name property value. The name associated with the connectorGroup.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the region property value. The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.
      *  @param ConnectorGroupRegion|null $value Value to set for the region property.
     */
-    public function setRegion(?ConnectorGroupRegion $value ): void {
-        $this->region = $value;
+    public function setRegion(?ConnectorGroupRegion $value): void {
+        $this->getBackingStore()->set('region', $value);
     }
 
 }

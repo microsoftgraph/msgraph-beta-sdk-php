@@ -10,46 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExportJob extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $expirationDateTime The date time when the export job expires.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var CloudPcExportJobStatus|null $exportJobStatus The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
-    */
-    private ?CloudPcExportJobStatus $exportJobStatus = null;
-    
-    /**
-     * @var string|null $exportUrl The storage account url of the exported report, it can be used to download the file.
-    */
-    private ?string $exportUrl = null;
-    
-    /**
-     * @var string|null $filter The filter applied on the report.
-    */
-    private ?string $filter = null;
-    
-    /**
-     * @var string|null $format The format of the exported report.
-    */
-    private ?string $format = null;
-    
-    /**
-     * @var CloudPcReportName|null $reportName The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
-    */
-    private ?CloudPcReportName $reportName = null;
-    
-    /**
-     * @var DateTime|null $requestDateTime The date time when the export job was requested.
-    */
-    private ?DateTime $requestDateTime = null;
-    
-    /**
-     * @var array<string>|null $select The selected columns of the report.
-    */
-    private ?array $select = null;
-    
-    /**
      * Instantiates a new CloudPcExportJob and sets the default values.
     */
     public function __construct() {
@@ -71,7 +31,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -79,7 +39,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return CloudPcExportJobStatus|null
     */
     public function getExportJobStatus(): ?CloudPcExportJobStatus {
-        return $this->exportJobStatus;
+        return $this->getBackingStore()->get('exportJobStatus');
     }
 
     /**
@@ -87,7 +47,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getExportUrl(): ?string {
-        return $this->exportUrl;
+        return $this->getBackingStore()->get('exportUrl');
     }
 
     /**
@@ -113,7 +73,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getFilter(): ?string {
-        return $this->filter;
+        return $this->getBackingStore()->get('filter');
     }
 
     /**
@@ -121,7 +81,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return string|null
     */
     public function getFormat(): ?string {
-        return $this->format;
+        return $this->getBackingStore()->get('format');
     }
 
     /**
@@ -129,7 +89,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return CloudPcReportName|null
     */
     public function getReportName(): ?CloudPcReportName {
-        return $this->reportName;
+        return $this->getBackingStore()->get('reportName');
     }
 
     /**
@@ -137,7 +97,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestDateTime(): ?DateTime {
-        return $this->requestDateTime;
+        return $this->getBackingStore()->get('requestDateTime');
     }
 
     /**
@@ -145,7 +105,7 @@ class CloudPcExportJob extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSelect(): ?array {
-        return $this->select;
+        return $this->getBackingStore()->get('select');
     }
 
     /**
@@ -154,78 +114,78 @@ class CloudPcExportJob extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeEnumValue('exportJobStatus', $this->exportJobStatus);
-        $writer->writeStringValue('exportUrl', $this->exportUrl);
-        $writer->writeStringValue('filter', $this->filter);
-        $writer->writeStringValue('format', $this->format);
-        $writer->writeEnumValue('reportName', $this->reportName);
-        $writer->writeDateTimeValue('requestDateTime', $this->requestDateTime);
-        $writer->writeCollectionOfPrimitiveValues('select', $this->select);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeEnumValue('exportJobStatus', $this->getExportJobStatus());
+        $writer->writeStringValue('exportUrl', $this->getExportUrl());
+        $writer->writeStringValue('filter', $this->getFilter());
+        $writer->writeStringValue('format', $this->getFormat());
+        $writer->writeEnumValue('reportName', $this->getReportName());
+        $writer->writeDateTimeValue('requestDateTime', $this->getRequestDateTime());
+        $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
     }
 
     /**
      * Sets the expirationDateTime property value. The date time when the export job expires.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the exportJobStatus property value. The status of the export job.The possible values are: notStarted, inProgress, completed, unknownFutureValue. Read-only.
      *  @param CloudPcExportJobStatus|null $value Value to set for the exportJobStatus property.
     */
-    public function setExportJobStatus(?CloudPcExportJobStatus $value ): void {
-        $this->exportJobStatus = $value;
+    public function setExportJobStatus(?CloudPcExportJobStatus $value): void {
+        $this->getBackingStore()->set('exportJobStatus', $value);
     }
 
     /**
      * Sets the exportUrl property value. The storage account url of the exported report, it can be used to download the file.
      *  @param string|null $value Value to set for the exportUrl property.
     */
-    public function setExportUrl(?string $value ): void {
-        $this->exportUrl = $value;
+    public function setExportUrl(?string $value): void {
+        $this->getBackingStore()->set('exportUrl', $value);
     }
 
     /**
      * Sets the filter property value. The filter applied on the report.
      *  @param string|null $value Value to set for the filter property.
     */
-    public function setFilter(?string $value ): void {
-        $this->filter = $value;
+    public function setFilter(?string $value): void {
+        $this->getBackingStore()->set('filter', $value);
     }
 
     /**
      * Sets the format property value. The format of the exported report.
      *  @param string|null $value Value to set for the format property.
     */
-    public function setFormat(?string $value ): void {
-        $this->format = $value;
+    public function setFormat(?string $value): void {
+        $this->getBackingStore()->set('format', $value);
     }
 
     /**
      * Sets the reportName property value. The report name.The possible values are: remoteConnectionHistoricalReports, dailyAggregatedRemoteConnectionReports, totalAggregatedRemoteConnectionReports, unknownFutureValue.
      *  @param CloudPcReportName|null $value Value to set for the reportName property.
     */
-    public function setReportName(?CloudPcReportName $value ): void {
-        $this->reportName = $value;
+    public function setReportName(?CloudPcReportName $value): void {
+        $this->getBackingStore()->set('reportName', $value);
     }
 
     /**
      * Sets the requestDateTime property value. The date time when the export job was requested.
      *  @param DateTime|null $value Value to set for the requestDateTime property.
     */
-    public function setRequestDateTime(?DateTime $value ): void {
-        $this->requestDateTime = $value;
+    public function setRequestDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('requestDateTime', $value);
     }
 
     /**
      * Sets the select property value. The selected columns of the report.
      *  @param array<string>|null $value Value to set for the select property.
     */
-    public function setSelect(?array $value ): void {
-        $this->select = $value;
+    public function setSelect(?array $value): void {
+        $this->getBackingStore()->set('select', $value);
     }
 
 }

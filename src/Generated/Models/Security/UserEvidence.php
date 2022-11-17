@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var UserAccount|null $userAccount The user account details.
-    */
-    private ?UserAccount $userAccount = null;
-    
-    /**
      * Instantiates a new UserEvidence and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UserEvidence extends AlertEvidence implements Parsable
      * @return UserAccount|null
     */
     public function getUserAccount(): ?UserAccount {
-        return $this->userAccount;
+        return $this->getBackingStore()->get('userAccount');
     }
 
     /**
@@ -55,15 +50,15 @@ class UserEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('userAccount', $this->userAccount);
+        $writer->writeObjectValue('userAccount', $this->getUserAccount());
     }
 
     /**
      * Sets the userAccount property value. The user account details.
      *  @param UserAccount|null $value Value to set for the userAccount property.
     */
-    public function setUserAccount(?UserAccount $value ): void {
-        $this->userAccount = $value;
+    public function setUserAccount(?UserAccount $value): void {
+        $this->getBackingStore()->set('userAccount', $value);
     }
 
 }

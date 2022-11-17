@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementConfigurationSettingInstance implements AdditionalDataHolder, Parsable 
+class DeviceManagementConfigurationSettingInstance implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $settingDefinitionId Setting Definition Id
-    */
-    private ?string $settingDefinitionId = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingInstanceTemplateReference|null $settingInstanceTemplateReference Setting Instance Template Reference
-    */
-    private ?DeviceManagementConfigurationSettingInstanceTemplateReference $settingInstanceTemplateReference = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementConfigurationSettingInstance and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingInstance');
     }
@@ -64,8 +53,16 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -86,7 +83,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -94,7 +91,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @return string|null
     */
     public function getSettingDefinitionId(): ?string {
-        return $this->settingDefinitionId;
+        return $this->getBackingStore()->get('settingDefinitionId');
     }
 
     /**
@@ -102,7 +99,7 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @return DeviceManagementConfigurationSettingInstanceTemplateReference|null
     */
     public function getSettingInstanceTemplateReference(): ?DeviceManagementConfigurationSettingInstanceTemplateReference {
-        return $this->settingInstanceTemplateReference;
+        return $this->getBackingStore()->get('settingInstanceTemplateReference');
     }
 
     /**
@@ -110,42 +107,42 @@ class DeviceManagementConfigurationSettingInstance implements AdditionalDataHold
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('settingDefinitionId', $this->settingDefinitionId);
-        $writer->writeObjectValue('settingInstanceTemplateReference', $this->settingInstanceTemplateReference);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('settingDefinitionId', $this->getSettingDefinitionId());
+        $writer->writeObjectValue('settingInstanceTemplateReference', $this->getSettingInstanceTemplateReference());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the settingDefinitionId property value. Setting Definition Id
      *  @param string|null $value Value to set for the settingDefinitionId property.
     */
-    public function setSettingDefinitionId(?string $value ): void {
-        $this->settingDefinitionId = $value;
+    public function setSettingDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('settingDefinitionId', $value);
     }
 
     /**
      * Sets the settingInstanceTemplateReference property value. Setting Instance Template Reference
      *  @param DeviceManagementConfigurationSettingInstanceTemplateReference|null $value Value to set for the settingInstanceTemplateReference property.
     */
-    public function setSettingInstanceTemplateReference(?DeviceManagementConfigurationSettingInstanceTemplateReference $value ): void {
-        $this->settingInstanceTemplateReference = $value;
+    public function setSettingInstanceTemplateReference(?DeviceManagementConfigurationSettingInstanceTemplateReference $value): void {
+        $this->getBackingStore()->set('settingInstanceTemplateReference', $value);
     }
 
 }

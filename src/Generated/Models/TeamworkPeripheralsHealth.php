@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable 
+class TeamworkPeripheralsHealth implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var TeamworkPeripheralHealth|null $communicationSpeakerHealth The health details about the communication speaker.
-    */
-    private ?TeamworkPeripheralHealth $communicationSpeakerHealth = null;
-    
-    /**
-     * @var TeamworkPeripheralHealth|null $contentCameraHealth The health details about the content camera.
-    */
-    private ?TeamworkPeripheralHealth $contentCameraHealth = null;
-    
-    /**
-     * @var array<TeamworkPeripheralHealth>|null $displayHealthCollection The health details about displays.
-    */
-    private ?array $displayHealthCollection = null;
-    
-    /**
-     * @var TeamworkPeripheralHealth|null $microphoneHealth The health details about the microphone.
-    */
-    private ?TeamworkPeripheralHealth $microphoneHealth = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var TeamworkPeripheralHealth|null $roomCameraHealth The health details about the room camera.
-    */
-    private ?TeamworkPeripheralHealth $roomCameraHealth = null;
-    
-    /**
-     * @var TeamworkPeripheralHealth|null $speakerHealth The health details about the speaker.
-    */
-    private ?TeamworkPeripheralHealth $speakerHealth = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkPeripheralsHealth and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkPeripheralsHealth');
     }
@@ -70,8 +39,16 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +56,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheralHealth|null
     */
     public function getCommunicationSpeakerHealth(): ?TeamworkPeripheralHealth {
-        return $this->communicationSpeakerHealth;
+        return $this->getBackingStore()->get('communicationSpeakerHealth');
     }
 
     /**
@@ -87,7 +64,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheralHealth|null
     */
     public function getContentCameraHealth(): ?TeamworkPeripheralHealth {
-        return $this->contentCameraHealth;
+        return $this->getBackingStore()->get('contentCameraHealth');
     }
 
     /**
@@ -95,7 +72,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return array<TeamworkPeripheralHealth>|null
     */
     public function getDisplayHealthCollection(): ?array {
-        return $this->displayHealthCollection;
+        return $this->getBackingStore()->get('displayHealthCollection');
     }
 
     /**
@@ -120,7 +97,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheralHealth|null
     */
     public function getMicrophoneHealth(): ?TeamworkPeripheralHealth {
-        return $this->microphoneHealth;
+        return $this->getBackingStore()->get('microphoneHealth');
     }
 
     /**
@@ -128,7 +105,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -136,7 +113,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheralHealth|null
     */
     public function getRoomCameraHealth(): ?TeamworkPeripheralHealth {
-        return $this->roomCameraHealth;
+        return $this->getBackingStore()->get('roomCameraHealth');
     }
 
     /**
@@ -144,7 +121,7 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheralHealth|null
     */
     public function getSpeakerHealth(): ?TeamworkPeripheralHealth {
-        return $this->speakerHealth;
+        return $this->getBackingStore()->get('speakerHealth');
     }
 
     /**
@@ -152,78 +129,78 @@ class TeamworkPeripheralsHealth implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('communicationSpeakerHealth', $this->communicationSpeakerHealth);
-        $writer->writeObjectValue('contentCameraHealth', $this->contentCameraHealth);
-        $writer->writeCollectionOfObjectValues('displayHealthCollection', $this->displayHealthCollection);
-        $writer->writeObjectValue('microphoneHealth', $this->microphoneHealth);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('roomCameraHealth', $this->roomCameraHealth);
-        $writer->writeObjectValue('speakerHealth', $this->speakerHealth);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('communicationSpeakerHealth', $this->getCommunicationSpeakerHealth());
+        $writer->writeObjectValue('contentCameraHealth', $this->getContentCameraHealth());
+        $writer->writeCollectionOfObjectValues('displayHealthCollection', $this->getDisplayHealthCollection());
+        $writer->writeObjectValue('microphoneHealth', $this->getMicrophoneHealth());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('roomCameraHealth', $this->getRoomCameraHealth());
+        $writer->writeObjectValue('speakerHealth', $this->getSpeakerHealth());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the communicationSpeakerHealth property value. The health details about the communication speaker.
      *  @param TeamworkPeripheralHealth|null $value Value to set for the communicationSpeakerHealth property.
     */
-    public function setCommunicationSpeakerHealth(?TeamworkPeripheralHealth $value ): void {
-        $this->communicationSpeakerHealth = $value;
+    public function setCommunicationSpeakerHealth(?TeamworkPeripheralHealth $value): void {
+        $this->getBackingStore()->set('communicationSpeakerHealth', $value);
     }
 
     /**
      * Sets the contentCameraHealth property value. The health details about the content camera.
      *  @param TeamworkPeripheralHealth|null $value Value to set for the contentCameraHealth property.
     */
-    public function setContentCameraHealth(?TeamworkPeripheralHealth $value ): void {
-        $this->contentCameraHealth = $value;
+    public function setContentCameraHealth(?TeamworkPeripheralHealth $value): void {
+        $this->getBackingStore()->set('contentCameraHealth', $value);
     }
 
     /**
      * Sets the displayHealthCollection property value. The health details about displays.
      *  @param array<TeamworkPeripheralHealth>|null $value Value to set for the displayHealthCollection property.
     */
-    public function setDisplayHealthCollection(?array $value ): void {
-        $this->displayHealthCollection = $value;
+    public function setDisplayHealthCollection(?array $value): void {
+        $this->getBackingStore()->set('displayHealthCollection', $value);
     }
 
     /**
      * Sets the microphoneHealth property value. The health details about the microphone.
      *  @param TeamworkPeripheralHealth|null $value Value to set for the microphoneHealth property.
     */
-    public function setMicrophoneHealth(?TeamworkPeripheralHealth $value ): void {
-        $this->microphoneHealth = $value;
+    public function setMicrophoneHealth(?TeamworkPeripheralHealth $value): void {
+        $this->getBackingStore()->set('microphoneHealth', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the roomCameraHealth property value. The health details about the room camera.
      *  @param TeamworkPeripheralHealth|null $value Value to set for the roomCameraHealth property.
     */
-    public function setRoomCameraHealth(?TeamworkPeripheralHealth $value ): void {
-        $this->roomCameraHealth = $value;
+    public function setRoomCameraHealth(?TeamworkPeripheralHealth $value): void {
+        $this->getBackingStore()->set('roomCameraHealth', $value);
     }
 
     /**
      * Sets the speakerHealth property value. The health details about the speaker.
      *  @param TeamworkPeripheralHealth|null $value Value to set for the speakerHealth property.
     */
-    public function setSpeakerHealth(?TeamworkPeripheralHealth $value ): void {
-        $this->speakerHealth = $value;
+    public function setSpeakerHealth(?TeamworkPeripheralHealth $value): void {
+        $this->getBackingStore()->set('speakerHealth', $value);
     }
 
 }

@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * @var bool|null $enforceSignatureCheck A value indicating whether signature check is enforced
-    */
-    private ?bool $enforceSignatureCheck = null;
-    
-    /**
-     * @var bool|null $runAs32Bit A value indicating whether this script should run as 32-bit
-    */
-    private ?bool $runAs32Bit = null;
-    
-    /**
-     * @var string|null $scriptContent The base64 encoded script content to detect Win32 Line of Business (LoB) app
-    */
-    private ?string $scriptContent = null;
-    
-    /**
      * Instantiates a new Win32LobAppPowerShellScriptDetection and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return bool|null
     */
     public function getEnforceSignatureCheck(): ?bool {
-        return $this->enforceSignatureCheck;
+        return $this->getBackingStore()->get('enforceSignatureCheck');
     }
 
     /**
@@ -66,7 +51,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return bool|null
     */
     public function getRunAs32Bit(): ?bool {
-        return $this->runAs32Bit;
+        return $this->getBackingStore()->get('runAs32Bit');
     }
 
     /**
@@ -74,7 +59,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
      * @return string|null
     */
     public function getScriptContent(): ?string {
-        return $this->scriptContent;
+        return $this->getBackingStore()->get('scriptContent');
     }
 
     /**
@@ -83,33 +68,33 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
-        $writer->writeBooleanValue('runAs32Bit', $this->runAs32Bit);
-        $writer->writeStringValue('scriptContent', $this->scriptContent);
+        $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());
+        $writer->writeStringValue('scriptContent', $this->getScriptContent());
     }
 
     /**
      * Sets the enforceSignatureCheck property value. A value indicating whether signature check is enforced
      *  @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
-    public function setEnforceSignatureCheck(?bool $value ): void {
-        $this->enforceSignatureCheck = $value;
+    public function setEnforceSignatureCheck(?bool $value): void {
+        $this->getBackingStore()->set('enforceSignatureCheck', $value);
     }
 
     /**
      * Sets the runAs32Bit property value. A value indicating whether this script should run as 32-bit
      *  @param bool|null $value Value to set for the runAs32Bit property.
     */
-    public function setRunAs32Bit(?bool $value ): void {
-        $this->runAs32Bit = $value;
+    public function setRunAs32Bit(?bool $value): void {
+        $this->getBackingStore()->set('runAs32Bit', $value);
     }
 
     /**
      * Sets the scriptContent property value. The base64 encoded script content to detect Win32 Line of Business (LoB) app
      *  @param string|null $value Value to set for the scriptContent property.
     */
-    public function setScriptContent(?string $value ): void {
-        $this->scriptContent = $value;
+    public function setScriptContent(?string $value): void {
+        $this->getBackingStore()->set('scriptContent', $value);
     }
 
 }

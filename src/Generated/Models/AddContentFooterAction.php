@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddContentFooterAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var ContentAlignment|null $alignment The alignment property
-    */
-    private ?ContentAlignment $alignment = null;
-    
-    /**
-     * @var string|null $fontColor Color of the font to use for the footer.
-    */
-    private ?string $fontColor = null;
-    
-    /**
-     * @var string|null $fontName Name of the font to use for the footer.
-    */
-    private ?string $fontName = null;
-    
-    /**
-     * @var int|null $fontSize Font size to use for the footer.
-    */
-    private ?int $fontSize = null;
-    
-    /**
-     * @var int|null $margin The margin of the header from the bottom of the document.
-    */
-    private ?int $margin = null;
-    
-    /**
-     * @var string|null $text The contents of the footer itself.
-    */
-    private ?string $text = null;
-    
-    /**
-     * @var string|null $uiElementName The name of the UI element where the footer should be placed.
-    */
-    private ?string $uiElementName = null;
-    
-    /**
      * Instantiates a new AddContentFooterAction and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return ContentAlignment|null
     */
     public function getAlignment(): ?ContentAlignment {
-        return $this->alignment;
+        return $this->getBackingStore()->get('alignment');
     }
 
     /**
@@ -90,7 +55,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->fontColor;
+        return $this->getBackingStore()->get('fontColor');
     }
 
     /**
@@ -98,7 +63,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getFontName(): ?string {
-        return $this->fontName;
+        return $this->getBackingStore()->get('fontName');
     }
 
     /**
@@ -106,7 +71,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->fontSize;
+        return $this->getBackingStore()->get('fontSize');
     }
 
     /**
@@ -114,7 +79,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return int|null
     */
     public function getMargin(): ?int {
-        return $this->margin;
+        return $this->getBackingStore()->get('margin');
     }
 
     /**
@@ -122,7 +87,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -130,7 +95,7 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
      * @return string|null
     */
     public function getUiElementName(): ?string {
-        return $this->uiElementName;
+        return $this->getBackingStore()->get('uiElementName');
     }
 
     /**
@@ -139,69 +104,69 @@ class AddContentFooterAction extends InformationProtectionAction implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('alignment', $this->alignment);
-        $writer->writeStringValue('fontColor', $this->fontColor);
-        $writer->writeStringValue('fontName', $this->fontName);
-        $writer->writeIntegerValue('fontSize', $this->fontSize);
-        $writer->writeIntegerValue('margin', $this->margin);
-        $writer->writeStringValue('text', $this->text);
-        $writer->writeStringValue('uiElementName', $this->uiElementName);
+        $writer->writeEnumValue('alignment', $this->getAlignment());
+        $writer->writeStringValue('fontColor', $this->getFontColor());
+        $writer->writeStringValue('fontName', $this->getFontName());
+        $writer->writeIntegerValue('fontSize', $this->getFontSize());
+        $writer->writeIntegerValue('margin', $this->getMargin());
+        $writer->writeStringValue('text', $this->getText());
+        $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }
 
     /**
      * Sets the alignment property value. The alignment property
      *  @param ContentAlignment|null $value Value to set for the alignment property.
     */
-    public function setAlignment(?ContentAlignment $value ): void {
-        $this->alignment = $value;
+    public function setAlignment(?ContentAlignment $value): void {
+        $this->getBackingStore()->set('alignment', $value);
     }
 
     /**
      * Sets the fontColor property value. Color of the font to use for the footer.
      *  @param string|null $value Value to set for the fontColor property.
     */
-    public function setFontColor(?string $value ): void {
-        $this->fontColor = $value;
+    public function setFontColor(?string $value): void {
+        $this->getBackingStore()->set('fontColor', $value);
     }
 
     /**
      * Sets the fontName property value. Name of the font to use for the footer.
      *  @param string|null $value Value to set for the fontName property.
     */
-    public function setFontName(?string $value ): void {
-        $this->fontName = $value;
+    public function setFontName(?string $value): void {
+        $this->getBackingStore()->set('fontName', $value);
     }
 
     /**
      * Sets the fontSize property value. Font size to use for the footer.
      *  @param int|null $value Value to set for the fontSize property.
     */
-    public function setFontSize(?int $value ): void {
-        $this->fontSize = $value;
+    public function setFontSize(?int $value): void {
+        $this->getBackingStore()->set('fontSize', $value);
     }
 
     /**
      * Sets the margin property value. The margin of the header from the bottom of the document.
      *  @param int|null $value Value to set for the margin property.
     */
-    public function setMargin(?int $value ): void {
-        $this->margin = $value;
+    public function setMargin(?int $value): void {
+        $this->getBackingStore()->set('margin', $value);
     }
 
     /**
      * Sets the text property value. The contents of the footer itself.
      *  @param string|null $value Value to set for the text property.
     */
-    public function setText(?string $value ): void {
-        $this->text = $value;
+    public function setText(?string $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
     /**
      * Sets the uiElementName property value. The name of the UI element where the footer should be placed.
      *  @param string|null $value Value to set for the uiElementName property.
     */
-    public function setUiElementName(?string $value ): void {
-        $this->uiElementName = $value;
+    public function setUiElementName(?string $value): void {
+        $this->getBackingStore()->set('uiElementName', $value);
     }
 
 }

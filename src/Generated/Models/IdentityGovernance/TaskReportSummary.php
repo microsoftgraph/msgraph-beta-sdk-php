@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TaskReportSummary implements AdditionalDataHolder, Parsable 
+class TaskReportSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $failedTasks The number of failed tasks in a report.
-    */
-    private ?int $failedTasks = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $successfulTasks The total number of successful tasks in a report.
-    */
-    private ?int $successfulTasks = null;
-    
-    /**
-     * @var int|null $totalTasks The total number of tasks in a report.
-    */
-    private ?int $totalTasks = null;
-    
-    /**
-     * @var int|null $unprocessedTasks The number of unprocessed tasks in a report.
-    */
-    private ?int $unprocessedTasks = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new taskReportSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.identityGovernance.taskReportSummary');
     }
@@ -60,8 +39,16 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedTasks(): ?int {
-        return $this->failedTasks;
+        return $this->getBackingStore()->get('failedTasks');
     }
 
     /**
@@ -92,7 +79,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -100,7 +87,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSuccessfulTasks(): ?int {
-        return $this->successfulTasks;
+        return $this->getBackingStore()->get('successfulTasks');
     }
 
     /**
@@ -108,7 +95,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalTasks(): ?int {
-        return $this->totalTasks;
+        return $this->getBackingStore()->get('totalTasks');
     }
 
     /**
@@ -116,7 +103,7 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getUnprocessedTasks(): ?int {
-        return $this->unprocessedTasks;
+        return $this->getBackingStore()->get('unprocessedTasks');
     }
 
     /**
@@ -124,60 +111,60 @@ class TaskReportSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('failedTasks', $this->failedTasks);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('successfulTasks', $this->successfulTasks);
-        $writer->writeIntegerValue('totalTasks', $this->totalTasks);
-        $writer->writeIntegerValue('unprocessedTasks', $this->unprocessedTasks);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('failedTasks', $this->getFailedTasks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('successfulTasks', $this->getSuccessfulTasks());
+        $writer->writeIntegerValue('totalTasks', $this->getTotalTasks());
+        $writer->writeIntegerValue('unprocessedTasks', $this->getUnprocessedTasks());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the failedTasks property value. The number of failed tasks in a report.
      *  @param int|null $value Value to set for the failedTasks property.
     */
-    public function setFailedTasks(?int $value ): void {
-        $this->failedTasks = $value;
+    public function setFailedTasks(?int $value): void {
+        $this->getBackingStore()->set('failedTasks', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the successfulTasks property value. The total number of successful tasks in a report.
      *  @param int|null $value Value to set for the successfulTasks property.
     */
-    public function setSuccessfulTasks(?int $value ): void {
-        $this->successfulTasks = $value;
+    public function setSuccessfulTasks(?int $value): void {
+        $this->getBackingStore()->set('successfulTasks', $value);
     }
 
     /**
      * Sets the totalTasks property value. The total number of tasks in a report.
      *  @param int|null $value Value to set for the totalTasks property.
     */
-    public function setTotalTasks(?int $value ): void {
-        $this->totalTasks = $value;
+    public function setTotalTasks(?int $value): void {
+        $this->getBackingStore()->set('totalTasks', $value);
     }
 
     /**
      * Sets the unprocessedTasks property value. The number of unprocessed tasks in a report.
      *  @param int|null $value Value to set for the unprocessedTasks property.
     */
-    public function setUnprocessedTasks(?int $value ): void {
-        $this->unprocessedTasks = $value;
+    public function setUnprocessedTasks(?int $value): void {
+        $this->getBackingStore()->set('unprocessedTasks', $value);
     }
 
 }

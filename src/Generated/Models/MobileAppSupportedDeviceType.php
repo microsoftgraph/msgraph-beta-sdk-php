@@ -6,38 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable 
+class MobileAppSupportedDeviceType implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $maximumOperatingSystemVersion Maximum OS version
-    */
-    private ?string $maximumOperatingSystemVersion = null;
-    
-    /**
-     * @var string|null $minimumOperatingSystemVersion Minimum OS version
-    */
-    private ?string $minimumOperatingSystemVersion = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DeviceType|null $type Device type.
-    */
-    private ?DeviceType $type = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new mobileAppSupportedDeviceType and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.mobileAppSupportedDeviceType');
     }
@@ -55,8 +39,16 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +70,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMaximumOperatingSystemVersion(): ?string {
-        return $this->maximumOperatingSystemVersion;
+        return $this->getBackingStore()->get('maximumOperatingSystemVersion');
     }
 
     /**
@@ -86,7 +78,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMinimumOperatingSystemVersion(): ?string {
-        return $this->minimumOperatingSystemVersion;
+        return $this->getBackingStore()->get('minimumOperatingSystemVersion');
     }
 
     /**
@@ -94,7 +86,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +94,7 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @return DeviceType|null
     */
     public function getType(): ?DeviceType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -110,51 +102,51 @@ class MobileAppSupportedDeviceType implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('maximumOperatingSystemVersion', $this->maximumOperatingSystemVersion);
-        $writer->writeStringValue('minimumOperatingSystemVersion', $this->minimumOperatingSystemVersion);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('type', $this->type);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('maximumOperatingSystemVersion', $this->getMaximumOperatingSystemVersion());
+        $writer->writeStringValue('minimumOperatingSystemVersion', $this->getMinimumOperatingSystemVersion());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('type', $this->getType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the maximumOperatingSystemVersion property value. Maximum OS version
      *  @param string|null $value Value to set for the maximumOperatingSystemVersion property.
     */
-    public function setMaximumOperatingSystemVersion(?string $value ): void {
-        $this->maximumOperatingSystemVersion = $value;
+    public function setMaximumOperatingSystemVersion(?string $value): void {
+        $this->getBackingStore()->set('maximumOperatingSystemVersion', $value);
     }
 
     /**
      * Sets the minimumOperatingSystemVersion property value. Minimum OS version
      *  @param string|null $value Value to set for the minimumOperatingSystemVersion property.
     */
-    public function setMinimumOperatingSystemVersion(?string $value ): void {
-        $this->minimumOperatingSystemVersion = $value;
+    public function setMinimumOperatingSystemVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumOperatingSystemVersion', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the type property value. Device type.
      *  @param DeviceType|null $value Value to set for the type property.
     */
-    public function setType(?DeviceType $value ): void {
-        $this->type = $value;
+    public function setType(?DeviceType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationProfileStatus extends Entity implements Parsable 
 {
     /**
-     * @var int|null $errorCount Number of errors during synchronization.
-    */
-    private ?int $errorCount = null;
-    
-    /**
-     * @var DateTime|null $lastActivityDateTime Date and time when most recent changes were observed in the profile.
-    */
-    private ?DateTime $lastActivityDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastSynchronizationDateTime Date and time of the most recent successful synchronization.
-    */
-    private ?DateTime $lastSynchronizationDateTime = null;
-    
-    /**
-     * @var EducationSynchronizationStatus|null $status The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
-    */
-    private ?EducationSynchronizationStatus $status = null;
-    
-    /**
-     * @var string|null $statusMessage Status message for the synchronization stage of the current profile.
-    */
-    private ?string $statusMessage = null;
-    
-    /**
      * Instantiates a new educationSynchronizationProfileStatus and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->errorCount;
+        return $this->getBackingStore()->get('errorCount');
     }
 
     /**
@@ -79,7 +54,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActivityDateTime(): ?DateTime {
-        return $this->lastActivityDateTime;
+        return $this->getBackingStore()->get('lastActivityDateTime');
     }
 
     /**
@@ -87,7 +62,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSynchronizationDateTime(): ?DateTime {
-        return $this->lastSynchronizationDateTime;
+        return $this->getBackingStore()->get('lastSynchronizationDateTime');
     }
 
     /**
@@ -95,7 +70,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return EducationSynchronizationStatus|null
     */
     public function getStatus(): ?EducationSynchronizationStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -103,7 +78,7 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getStatusMessage(): ?string {
-        return $this->statusMessage;
+        return $this->getBackingStore()->get('statusMessage');
     }
 
     /**
@@ -112,51 +87,51 @@ class EducationSynchronizationProfileStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('errorCount', $this->errorCount);
-        $writer->writeDateTimeValue('lastActivityDateTime', $this->lastActivityDateTime);
-        $writer->writeDateTimeValue('lastSynchronizationDateTime', $this->lastSynchronizationDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('statusMessage', $this->statusMessage);
+        $writer->writeIntegerValue('errorCount', $this->getErrorCount());
+        $writer->writeDateTimeValue('lastActivityDateTime', $this->getLastActivityDateTime());
+        $writer->writeDateTimeValue('lastSynchronizationDateTime', $this->getLastSynchronizationDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('statusMessage', $this->getStatusMessage());
     }
 
     /**
      * Sets the errorCount property value. Number of errors during synchronization.
      *  @param int|null $value Value to set for the errorCount property.
     */
-    public function setErrorCount(?int $value ): void {
-        $this->errorCount = $value;
+    public function setErrorCount(?int $value): void {
+        $this->getBackingStore()->set('errorCount', $value);
     }
 
     /**
      * Sets the lastActivityDateTime property value. Date and time when most recent changes were observed in the profile.
      *  @param DateTime|null $value Value to set for the lastActivityDateTime property.
     */
-    public function setLastActivityDateTime(?DateTime $value ): void {
-        $this->lastActivityDateTime = $value;
+    public function setLastActivityDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActivityDateTime', $value);
     }
 
     /**
      * Sets the lastSynchronizationDateTime property value. Date and time of the most recent successful synchronization.
      *  @param DateTime|null $value Value to set for the lastSynchronizationDateTime property.
     */
-    public function setLastSynchronizationDateTime(?DateTime $value ): void {
-        $this->lastSynchronizationDateTime = $value;
+    public function setLastSynchronizationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSynchronizationDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.
      *  @param EducationSynchronizationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?EducationSynchronizationStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?EducationSynchronizationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the statusMessage property value. Status message for the synchronization stage of the current profile.
      *  @param string|null $value Value to set for the statusMessage property.
     */
-    public function setStatusMessage(?string $value ): void {
-        $this->statusMessage = $value;
+    public function setStatusMessage(?string $value): void {
+        $this->getBackingStore()->set('statusMessage', $value);
     }
 
 }

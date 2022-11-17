@@ -13,31 +13,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtension extends CustomCalloutExtension implements Parsable 
 {
     /**
-     * @var CustomExtensionCallbackConfiguration|null $callbackConfiguration The callback configuration for a custom extension.
-    */
-    private ?CustomExtensionCallbackConfiguration $callbackConfiguration = null;
-    
-    /**
-     * @var User|null $createdBy The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
-    */
-    private ?User $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var User|null $lastModifiedBy The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
-    */
-    private ?User $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new CustomTaskExtension and sets the default values.
     */
     public function __construct() {
@@ -59,7 +34,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
      * @return CustomExtensionCallbackConfiguration|null
     */
     public function getCallbackConfiguration(): ?CustomExtensionCallbackConfiguration {
-        return $this->callbackConfiguration;
+        return $this->getBackingStore()->get('callbackConfiguration');
     }
 
     /**
@@ -67,7 +42,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
      * @return User|null
     */
     public function getCreatedBy(): ?User {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -75,7 +50,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -98,7 +73,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
      * @return User|null
     */
     public function getLastModifiedBy(): ?User {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -106,7 +81,7 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -115,51 +90,51 @@ class CustomTaskExtension extends CustomCalloutExtension implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('callbackConfiguration', $this->callbackConfiguration);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('callbackConfiguration', $this->getCallbackConfiguration());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the callbackConfiguration property value. The callback configuration for a custom extension.
      *  @param CustomExtensionCallbackConfiguration|null $value Value to set for the callbackConfiguration property.
     */
-    public function setCallbackConfiguration(?CustomExtensionCallbackConfiguration $value ): void {
-        $this->callbackConfiguration = $value;
+    public function setCallbackConfiguration(?CustomExtensionCallbackConfiguration $value): void {
+        $this->getBackingStore()->set('callbackConfiguration', $value);
     }
 
     /**
      * Sets the createdBy property value. The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
      *  @param User|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?User $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?User $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
      *  @param User|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?User $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?User $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

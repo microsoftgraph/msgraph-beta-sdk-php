@@ -6,38 +6,27 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable 
+class UploadSecretPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
+    private BackingStore $backingStore;
     
     /**
      * @var string|null $escapedUse The use property
     */
-    private ?string $escapedUse = null;
-    
-    /**
-     * @var int|null $exp The exp property
-    */
-    private ?int $exp = null;
-    
-    /**
-     * @var string|null $k The k property
-    */
-    private ?string $k = null;
-    
-    /**
-     * @var int|null $nbf The nbf property
-    */
-    private ?int $nbf = null;
+    public ?string $escapedUse = null;
     
     /**
      * Instantiates a new uploadSecretPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -54,8 +43,16 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -63,7 +60,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getExp(): ?int {
-        return $this->exp;
+        return $this->getBackingStore()->get('exp');
     }
 
     /**
@@ -85,7 +82,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getK(): ?string {
-        return $this->k;
+        return $this->getBackingStore()->get('k');
     }
 
     /**
@@ -93,7 +90,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getNbf(): ?int {
-        return $this->nbf;
+        return $this->getBackingStore()->get('nbf');
     }
 
     /**
@@ -101,7 +98,7 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUse(): ?string {
-        return $this->escapedUse;
+        return $this->getBackingStore()->get('escapedUse');
     }
 
     /**
@@ -109,51 +106,51 @@ class UploadSecretPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('use', $this->escapedUse);
-        $writer->writeIntegerValue('exp', $this->exp);
-        $writer->writeStringValue('k', $this->k);
-        $writer->writeIntegerValue('nbf', $this->nbf);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('use', $this->getEscapedUse());
+        $writer->writeIntegerValue('exp', $this->getExp());
+        $writer->writeStringValue('k', $this->getK());
+        $writer->writeIntegerValue('nbf', $this->getNbf());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the exp property value. The exp property
      *  @param int|null $value Value to set for the exp property.
     */
-    public function setExp(?int $value ): void {
-        $this->exp = $value;
+    public function setExp(?int $value): void {
+        $this->getBackingStore()->set('exp', $value);
     }
 
     /**
      * Sets the k property value. The k property
      *  @param string|null $value Value to set for the k property.
     */
-    public function setK(?string $value ): void {
-        $this->k = $value;
+    public function setK(?string $value): void {
+        $this->getBackingStore()->set('k', $value);
     }
 
     /**
      * Sets the nbf property value. The nbf property
      *  @param int|null $value Value to set for the nbf property.
     */
-    public function setNbf(?int $value ): void {
-        $this->nbf = $value;
+    public function setNbf(?int $value): void {
+        $this->getBackingStore()->set('nbf', $value);
     }
 
     /**
      * Sets the use property value. The use property
      *  @param string|null $value Value to set for the EscapedUse property.
     */
-    public function setUse(?string $value ): void {
-        $this->escapedUse = $value;
+    public function setUse(?string $value): void {
+        $this->getBackingStore()->set('escapedUse', $value);
     }
 
 }

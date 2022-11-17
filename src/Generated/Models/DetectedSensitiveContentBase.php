@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable 
+class DetectedSensitiveContentBase implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $confidence The confidence property
-    */
-    private ?int $confidence = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $id The id property
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $recommendedConfidence The recommendedConfidence property
-    */
-    private ?int $recommendedConfidence = null;
-    
-    /**
-     * @var int|null $uniqueCount The uniqueCount property
-    */
-    private ?int $uniqueCount = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new detectedSensitiveContentBase and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.detectedSensitiveContentBase');
     }
@@ -74,8 +48,16 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -83,7 +65,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getConfidence(): ?int {
-        return $this->confidence;
+        return $this->getBackingStore()->get('confidence');
     }
 
     /**
@@ -91,7 +73,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -115,7 +97,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -123,7 +105,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -131,7 +113,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getRecommendedConfidence(): ?int {
-        return $this->recommendedConfidence;
+        return $this->getBackingStore()->get('recommendedConfidence');
     }
 
     /**
@@ -139,7 +121,7 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getUniqueCount(): ?int {
-        return $this->uniqueCount;
+        return $this->getBackingStore()->get('uniqueCount');
     }
 
     /**
@@ -147,69 +129,69 @@ class DetectedSensitiveContentBase implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('confidence', $this->confidence);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('recommendedConfidence', $this->recommendedConfidence);
-        $writer->writeIntegerValue('uniqueCount', $this->uniqueCount);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('confidence', $this->getConfidence());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('recommendedConfidence', $this->getRecommendedConfidence());
+        $writer->writeIntegerValue('uniqueCount', $this->getUniqueCount());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the confidence property value. The confidence property
      *  @param int|null $value Value to set for the confidence property.
     */
-    public function setConfidence(?int $value ): void {
-        $this->confidence = $value;
+    public function setConfidence(?int $value): void {
+        $this->getBackingStore()->set('confidence', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the id property value. The id property
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recommendedConfidence property value. The recommendedConfidence property
      *  @param int|null $value Value to set for the recommendedConfidence property.
     */
-    public function setRecommendedConfidence(?int $value ): void {
-        $this->recommendedConfidence = $value;
+    public function setRecommendedConfidence(?int $value): void {
+        $this->getBackingStore()->set('recommendedConfidence', $value);
     }
 
     /**
      * Sets the uniqueCount property value. The uniqueCount property
      *  @param int|null $value Value to set for the uniqueCount property.
     */
-    public function setUniqueCount(?int $value ): void {
-        $this->uniqueCount = $value;
+    public function setUniqueCount(?int $value): void {
+        $this->getBackingStore()->set('uniqueCount', $value);
     }
 
 }

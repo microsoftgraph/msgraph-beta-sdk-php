@@ -10,187 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BookingAppointment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $additionalInformation Additional information that is sent to the customer when an appointment is confirmed.
-    */
-    private ?string $additionalInformation = null;
-    
-    /**
-     * @var string|null $anonymousJoinWebUrl Url of meeting to join anonymously.
-    */
-    private ?string $anonymousJoinWebUrl = null;
-    
-    /**
-     * @var string|null $customerEmailAddress The SMTP address of the bookingCustomer who is booking the appointment.
-    */
-    private ?string $customerEmailAddress = null;
-    
-    /**
-     * @var string|null $customerId The ID of the bookingCustomer for this appointment. If no ID is specified when an appointment is created, then a new bookingCustomer object is created. Once set, you should consider the customerId immutable.
-    */
-    private ?string $customerId = null;
-    
-    /**
-     * @var Location|null $customerLocation Represents location information for the bookingCustomer who is booking the appointment.
-    */
-    private ?Location $customerLocation = null;
-    
-    /**
-     * @var string|null $customerName The customer's name.
-    */
-    private ?string $customerName = null;
-    
-    /**
-     * @var string|null $customerNotes Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID.  You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by customerId.
-    */
-    private ?string $customerNotes = null;
-    
-    /**
-     * @var string|null $customerPhone The customer's phone number.
-    */
-    private ?string $customerPhone = null;
-    
-    /**
-     * @var array<BookingCustomerInformationBase>|null $customers It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
-    */
-    private ?array $customers = null;
-    
-    /**
-     * @var string|null $customerTimeZone The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
-    */
-    private ?string $customerTimeZone = null;
-    
-    /**
-     * @var DateInterval|null $duration The length of the appointment, denoted in ISO8601 format.
-    */
-    private ?DateInterval $duration = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $end The end property
-    */
-    private ?DateTimeTimeZone $end = null;
-    
-    /**
-     * @var int|null $filledAttendeesCount The current number of customers in the appointment.
-    */
-    private ?int $filledAttendeesCount = null;
-    
-    /**
-     * @var float|null $invoiceAmount The billed amount on the invoice.
-    */
-    private ?float $invoiceAmount = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $invoiceDate The date, time, and time zone of the invoice for this appointment.
-    */
-    private ?DateTimeTimeZone $invoiceDate = null;
-    
-    /**
-     * @var string|null $invoiceId The ID of the invoice.
-    */
-    private ?string $invoiceId = null;
-    
-    /**
-     * @var BookingInvoiceStatus|null $invoiceStatus The invoiceStatus property
-    */
-    private ?BookingInvoiceStatus $invoiceStatus = null;
-    
-    /**
-     * @var string|null $invoiceUrl The URL of the invoice in Microsoft Bookings.
-    */
-    private ?string $invoiceUrl = null;
-    
-    /**
-     * @var bool|null $isLocationOnline True indicates that the appointment will be held online. Default value is false.
-    */
-    private ?bool $isLocationOnline = null;
-    
-    /**
-     * @var string|null $joinWebUrl The URL of the online meeting for the appointment.
-    */
-    private ?string $joinWebUrl = null;
-    
-    /**
-     * @var int|null $maximumAttendeesCount The maximum number of customers allowed in an appointment. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
-    */
-    private ?int $maximumAttendeesCount = null;
-    
-    /**
-     * @var string|null $onlineMeetingUrl The onlineMeetingUrl property
-    */
-    private ?string $onlineMeetingUrl = null;
-    
-    /**
-     * @var bool|null $optOutOfCustomerEmail True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
-    */
-    private ?bool $optOutOfCustomerEmail = null;
-    
-    /**
-     * @var DateInterval|null $postBuffer The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.
-    */
-    private ?DateInterval $postBuffer = null;
-    
-    /**
-     * @var DateInterval|null $preBuffer The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.
-    */
-    private ?DateInterval $preBuffer = null;
-    
-    /**
-     * @var float|null $price The regular price for an appointment for the specified bookingService.
-    */
-    private ?float $price = null;
-    
-    /**
-     * @var BookingPriceType|null $priceType Represents the type of pricing of a booking service.
-    */
-    private ?BookingPriceType $priceType = null;
-    
-    /**
-     * @var array<BookingReminder>|null $reminders The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.
-    */
-    private ?array $reminders = null;
-    
-    /**
-     * @var string|null $selfServiceAppointmentId An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
-    */
-    private ?string $selfServiceAppointmentId = null;
-    
-    /**
-     * @var string|null $serviceId The ID of the bookingService associated with this appointment.
-    */
-    private ?string $serviceId = null;
-    
-    /**
-     * @var Location|null $serviceLocation The location where the service is delivered.
-    */
-    private ?Location $serviceLocation = null;
-    
-    /**
-     * @var string|null $serviceName The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property.
-    */
-    private ?string $serviceName = null;
-    
-    /**
-     * @var string|null $serviceNotes Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID.
-    */
-    private ?string $serviceNotes = null;
-    
-    /**
-     * @var bool|null $smsNotificationsEnabled True indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
-    */
-    private ?bool $smsNotificationsEnabled = null;
-    
-    /**
-     * @var array<string>|null $staffMemberIds The ID of each bookingStaffMember who is scheduled in this appointment.
-    */
-    private ?array $staffMemberIds = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $start The start property
-    */
-    private ?DateTimeTimeZone $start = null;
-    
-    /**
-     * Instantiates a new BookingAppointment and sets the default values.
+     * Instantiates a new bookingAppointment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -211,7 +31,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getAdditionalInformation(): ?string {
-        return $this->additionalInformation;
+        return $this->getBackingStore()->get('additionalInformation');
     }
 
     /**
@@ -219,7 +39,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getAnonymousJoinWebUrl(): ?string {
-        return $this->anonymousJoinWebUrl;
+        return $this->getBackingStore()->get('anonymousJoinWebUrl');
     }
 
     /**
@@ -227,7 +47,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerEmailAddress(): ?string {
-        return $this->customerEmailAddress;
+        return $this->getBackingStore()->get('customerEmailAddress');
     }
 
     /**
@@ -235,7 +55,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerId(): ?string {
-        return $this->customerId;
+        return $this->getBackingStore()->get('customerId');
     }
 
     /**
@@ -243,7 +63,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return Location|null
     */
     public function getCustomerLocation(): ?Location {
-        return $this->customerLocation;
+        return $this->getBackingStore()->get('customerLocation');
     }
 
     /**
@@ -251,7 +71,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerName(): ?string {
-        return $this->customerName;
+        return $this->getBackingStore()->get('customerName');
     }
 
     /**
@@ -259,7 +79,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerNotes(): ?string {
-        return $this->customerNotes;
+        return $this->getBackingStore()->get('customerNotes');
     }
 
     /**
@@ -267,7 +87,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerPhone(): ?string {
-        return $this->customerPhone;
+        return $this->getBackingStore()->get('customerPhone');
     }
 
     /**
@@ -275,7 +95,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return array<BookingCustomerInformationBase>|null
     */
     public function getCustomers(): ?array {
-        return $this->customers;
+        return $this->getBackingStore()->get('customers');
     }
 
     /**
@@ -283,7 +103,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getCustomerTimeZone(): ?string {
-        return $this->customerTimeZone;
+        return $this->getBackingStore()->get('customerTimeZone');
     }
 
     /**
@@ -291,7 +111,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDuration(): ?DateInterval {
-        return $this->duration;
+        return $this->getBackingStore()->get('duration');
     }
 
     /**
@@ -299,7 +119,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getEnd(): ?DateTimeTimeZone {
-        return $this->end;
+        return $this->getBackingStore()->get('end');
     }
 
     /**
@@ -353,7 +173,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return int|null
     */
     public function getFilledAttendeesCount(): ?int {
-        return $this->filledAttendeesCount;
+        return $this->getBackingStore()->get('filledAttendeesCount');
     }
 
     /**
@@ -361,7 +181,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return float|null
     */
     public function getInvoiceAmount(): ?float {
-        return $this->invoiceAmount;
+        return $this->getBackingStore()->get('invoiceAmount');
     }
 
     /**
@@ -369,7 +189,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getInvoiceDate(): ?DateTimeTimeZone {
-        return $this->invoiceDate;
+        return $this->getBackingStore()->get('invoiceDate');
     }
 
     /**
@@ -377,7 +197,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getInvoiceId(): ?string {
-        return $this->invoiceId;
+        return $this->getBackingStore()->get('invoiceId');
     }
 
     /**
@@ -385,7 +205,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return BookingInvoiceStatus|null
     */
     public function getInvoiceStatus(): ?BookingInvoiceStatus {
-        return $this->invoiceStatus;
+        return $this->getBackingStore()->get('invoiceStatus');
     }
 
     /**
@@ -393,7 +213,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getInvoiceUrl(): ?string {
-        return $this->invoiceUrl;
+        return $this->getBackingStore()->get('invoiceUrl');
     }
 
     /**
@@ -401,7 +221,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsLocationOnline(): ?bool {
-        return $this->isLocationOnline;
+        return $this->getBackingStore()->get('isLocationOnline');
     }
 
     /**
@@ -409,7 +229,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getJoinWebUrl(): ?string {
-        return $this->joinWebUrl;
+        return $this->getBackingStore()->get('joinWebUrl');
     }
 
     /**
@@ -417,7 +237,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return int|null
     */
     public function getMaximumAttendeesCount(): ?int {
-        return $this->maximumAttendeesCount;
+        return $this->getBackingStore()->get('maximumAttendeesCount');
     }
 
     /**
@@ -425,7 +245,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getOnlineMeetingUrl(): ?string {
-        return $this->onlineMeetingUrl;
+        return $this->getBackingStore()->get('onlineMeetingUrl');
     }
 
     /**
@@ -433,7 +253,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return bool|null
     */
     public function getOptOutOfCustomerEmail(): ?bool {
-        return $this->optOutOfCustomerEmail;
+        return $this->getBackingStore()->get('optOutOfCustomerEmail');
     }
 
     /**
@@ -441,7 +261,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getPostBuffer(): ?DateInterval {
-        return $this->postBuffer;
+        return $this->getBackingStore()->get('postBuffer');
     }
 
     /**
@@ -449,7 +269,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getPreBuffer(): ?DateInterval {
-        return $this->preBuffer;
+        return $this->getBackingStore()->get('preBuffer');
     }
 
     /**
@@ -457,7 +277,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return float|null
     */
     public function getPrice(): ?float {
-        return $this->price;
+        return $this->getBackingStore()->get('price');
     }
 
     /**
@@ -465,7 +285,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return BookingPriceType|null
     */
     public function getPriceType(): ?BookingPriceType {
-        return $this->priceType;
+        return $this->getBackingStore()->get('priceType');
     }
 
     /**
@@ -473,7 +293,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return array<BookingReminder>|null
     */
     public function getReminders(): ?array {
-        return $this->reminders;
+        return $this->getBackingStore()->get('reminders');
     }
 
     /**
@@ -481,7 +301,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getSelfServiceAppointmentId(): ?string {
-        return $this->selfServiceAppointmentId;
+        return $this->getBackingStore()->get('selfServiceAppointmentId');
     }
 
     /**
@@ -489,7 +309,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceId(): ?string {
-        return $this->serviceId;
+        return $this->getBackingStore()->get('serviceId');
     }
 
     /**
@@ -497,7 +317,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return Location|null
     */
     public function getServiceLocation(): ?Location {
-        return $this->serviceLocation;
+        return $this->getBackingStore()->get('serviceLocation');
     }
 
     /**
@@ -505,7 +325,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceName(): ?string {
-        return $this->serviceName;
+        return $this->getBackingStore()->get('serviceName');
     }
 
     /**
@@ -513,7 +333,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceNotes(): ?string {
-        return $this->serviceNotes;
+        return $this->getBackingStore()->get('serviceNotes');
     }
 
     /**
@@ -521,7 +341,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return bool|null
     */
     public function getSmsNotificationsEnabled(): ?bool {
-        return $this->smsNotificationsEnabled;
+        return $this->getBackingStore()->get('smsNotificationsEnabled');
     }
 
     /**
@@ -529,7 +349,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getStaffMemberIds(): ?array {
-        return $this->staffMemberIds;
+        return $this->getBackingStore()->get('staffMemberIds');
     }
 
     /**
@@ -537,7 +357,7 @@ class BookingAppointment extends Entity implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getStart(): ?DateTimeTimeZone {
-        return $this->start;
+        return $this->getBackingStore()->get('start');
     }
 
     /**
@@ -546,328 +366,328 @@ class BookingAppointment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('additionalInformation', $this->additionalInformation);
-        $writer->writeStringValue('anonymousJoinWebUrl', $this->anonymousJoinWebUrl);
-        $writer->writeStringValue('customerEmailAddress', $this->customerEmailAddress);
-        $writer->writeStringValue('customerId', $this->customerId);
-        $writer->writeObjectValue('customerLocation', $this->customerLocation);
-        $writer->writeStringValue('customerName', $this->customerName);
-        $writer->writeStringValue('customerNotes', $this->customerNotes);
-        $writer->writeStringValue('customerPhone', $this->customerPhone);
-        $writer->writeCollectionOfObjectValues('customers', $this->customers);
-        $writer->writeStringValue('customerTimeZone', $this->customerTimeZone);
-        $writer->writeObjectValue('end', $this->end);
-        $writer->writeFloatValue('invoiceAmount', $this->invoiceAmount);
-        $writer->writeObjectValue('invoiceDate', $this->invoiceDate);
-        $writer->writeStringValue('invoiceId', $this->invoiceId);
-        $writer->writeEnumValue('invoiceStatus', $this->invoiceStatus);
-        $writer->writeStringValue('invoiceUrl', $this->invoiceUrl);
-        $writer->writeBooleanValue('isLocationOnline', $this->isLocationOnline);
-        $writer->writeStringValue('joinWebUrl', $this->joinWebUrl);
-        $writer->writeIntegerValue('maximumAttendeesCount', $this->maximumAttendeesCount);
-        $writer->writeStringValue('onlineMeetingUrl', $this->onlineMeetingUrl);
-        $writer->writeBooleanValue('optOutOfCustomerEmail', $this->optOutOfCustomerEmail);
-        $writer->writeDateIntervalValue('postBuffer', $this->postBuffer);
-        $writer->writeDateIntervalValue('preBuffer', $this->preBuffer);
-        $writer->writeFloatValue('price', $this->price);
-        $writer->writeEnumValue('priceType', $this->priceType);
-        $writer->writeCollectionOfObjectValues('reminders', $this->reminders);
-        $writer->writeStringValue('selfServiceAppointmentId', $this->selfServiceAppointmentId);
-        $writer->writeStringValue('serviceId', $this->serviceId);
-        $writer->writeObjectValue('serviceLocation', $this->serviceLocation);
-        $writer->writeStringValue('serviceName', $this->serviceName);
-        $writer->writeStringValue('serviceNotes', $this->serviceNotes);
-        $writer->writeBooleanValue('smsNotificationsEnabled', $this->smsNotificationsEnabled);
-        $writer->writeCollectionOfPrimitiveValues('staffMemberIds', $this->staffMemberIds);
-        $writer->writeObjectValue('start', $this->start);
+        $writer->writeStringValue('additionalInformation', $this->getAdditionalInformation());
+        $writer->writeStringValue('anonymousJoinWebUrl', $this->getAnonymousJoinWebUrl());
+        $writer->writeStringValue('customerEmailAddress', $this->getCustomerEmailAddress());
+        $writer->writeStringValue('customerId', $this->getCustomerId());
+        $writer->writeObjectValue('customerLocation', $this->getCustomerLocation());
+        $writer->writeStringValue('customerName', $this->getCustomerName());
+        $writer->writeStringValue('customerNotes', $this->getCustomerNotes());
+        $writer->writeStringValue('customerPhone', $this->getCustomerPhone());
+        $writer->writeCollectionOfObjectValues('customers', $this->getCustomers());
+        $writer->writeStringValue('customerTimeZone', $this->getCustomerTimeZone());
+        $writer->writeObjectValue('end', $this->getEnd());
+        $writer->writeFloatValue('invoiceAmount', $this->getInvoiceAmount());
+        $writer->writeObjectValue('invoiceDate', $this->getInvoiceDate());
+        $writer->writeStringValue('invoiceId', $this->getInvoiceId());
+        $writer->writeEnumValue('invoiceStatus', $this->getInvoiceStatus());
+        $writer->writeStringValue('invoiceUrl', $this->getInvoiceUrl());
+        $writer->writeBooleanValue('isLocationOnline', $this->getIsLocationOnline());
+        $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
+        $writer->writeIntegerValue('maximumAttendeesCount', $this->getMaximumAttendeesCount());
+        $writer->writeStringValue('onlineMeetingUrl', $this->getOnlineMeetingUrl());
+        $writer->writeBooleanValue('optOutOfCustomerEmail', $this->getOptOutOfCustomerEmail());
+        $writer->writeDateIntervalValue('postBuffer', $this->getPostBuffer());
+        $writer->writeDateIntervalValue('preBuffer', $this->getPreBuffer());
+        $writer->writeFloatValue('price', $this->getPrice());
+        $writer->writeEnumValue('priceType', $this->getPriceType());
+        $writer->writeCollectionOfObjectValues('reminders', $this->getReminders());
+        $writer->writeStringValue('selfServiceAppointmentId', $this->getSelfServiceAppointmentId());
+        $writer->writeStringValue('serviceId', $this->getServiceId());
+        $writer->writeObjectValue('serviceLocation', $this->getServiceLocation());
+        $writer->writeStringValue('serviceName', $this->getServiceName());
+        $writer->writeStringValue('serviceNotes', $this->getServiceNotes());
+        $writer->writeBooleanValue('smsNotificationsEnabled', $this->getSmsNotificationsEnabled());
+        $writer->writeCollectionOfPrimitiveValues('staffMemberIds', $this->getStaffMemberIds());
+        $writer->writeObjectValue('start', $this->getStart());
     }
 
     /**
      * Sets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
      *  @param string|null $value Value to set for the additionalInformation property.
     */
-    public function setAdditionalInformation(?string $value ): void {
-        $this->additionalInformation = $value;
+    public function setAdditionalInformation(?string $value): void {
+        $this->getBackingStore()->set('additionalInformation', $value);
     }
 
     /**
      * Sets the anonymousJoinWebUrl property value. Url of meeting to join anonymously.
      *  @param string|null $value Value to set for the anonymousJoinWebUrl property.
     */
-    public function setAnonymousJoinWebUrl(?string $value ): void {
-        $this->anonymousJoinWebUrl = $value;
+    public function setAnonymousJoinWebUrl(?string $value): void {
+        $this->getBackingStore()->set('anonymousJoinWebUrl', $value);
     }
 
     /**
      * Sets the customerEmailAddress property value. The SMTP address of the bookingCustomer who is booking the appointment.
      *  @param string|null $value Value to set for the customerEmailAddress property.
     */
-    public function setCustomerEmailAddress(?string $value ): void {
-        $this->customerEmailAddress = $value;
+    public function setCustomerEmailAddress(?string $value): void {
+        $this->getBackingStore()->set('customerEmailAddress', $value);
     }
 
     /**
      * Sets the customerId property value. The ID of the bookingCustomer for this appointment. If no ID is specified when an appointment is created, then a new bookingCustomer object is created. Once set, you should consider the customerId immutable.
      *  @param string|null $value Value to set for the customerId property.
     */
-    public function setCustomerId(?string $value ): void {
-        $this->customerId = $value;
+    public function setCustomerId(?string $value): void {
+        $this->getBackingStore()->set('customerId', $value);
     }
 
     /**
      * Sets the customerLocation property value. Represents location information for the bookingCustomer who is booking the appointment.
      *  @param Location|null $value Value to set for the customerLocation property.
     */
-    public function setCustomerLocation(?Location $value ): void {
-        $this->customerLocation = $value;
+    public function setCustomerLocation(?Location $value): void {
+        $this->getBackingStore()->set('customerLocation', $value);
     }
 
     /**
      * Sets the customerName property value. The customer's name.
      *  @param string|null $value Value to set for the customerName property.
     */
-    public function setCustomerName(?string $value ): void {
-        $this->customerName = $value;
+    public function setCustomerName(?string $value): void {
+        $this->getBackingStore()->set('customerName', $value);
     }
 
     /**
      * Sets the customerNotes property value. Notes from the customer associated with this appointment. You can get the value only when reading this bookingAppointment by its ID.  You can set this property only when initially creating an appointment with a new customer. After that point, the value is computed from the customer represented by customerId.
      *  @param string|null $value Value to set for the customerNotes property.
     */
-    public function setCustomerNotes(?string $value ): void {
-        $this->customerNotes = $value;
+    public function setCustomerNotes(?string $value): void {
+        $this->getBackingStore()->set('customerNotes', $value);
     }
 
     /**
      * Sets the customerPhone property value. The customer's phone number.
      *  @param string|null $value Value to set for the customerPhone property.
     */
-    public function setCustomerPhone(?string $value ): void {
-        $this->customerPhone = $value;
+    public function setCustomerPhone(?string $value): void {
+        $this->getBackingStore()->set('customerPhone', $value);
     }
 
     /**
      * Sets the customers property value. It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
      *  @param array<BookingCustomerInformationBase>|null $value Value to set for the customers property.
     */
-    public function setCustomers(?array $value ): void {
-        $this->customers = $value;
+    public function setCustomers(?array $value): void {
+        $this->getBackingStore()->set('customers', $value);
     }
 
     /**
      * Sets the customerTimeZone property value. The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
      *  @param string|null $value Value to set for the customerTimeZone property.
     */
-    public function setCustomerTimeZone(?string $value ): void {
-        $this->customerTimeZone = $value;
+    public function setCustomerTimeZone(?string $value): void {
+        $this->getBackingStore()->set('customerTimeZone', $value);
     }
 
     /**
      * Sets the duration property value. The length of the appointment, denoted in ISO8601 format.
      *  @param DateInterval|null $value Value to set for the duration property.
     */
-    public function setDuration(?DateInterval $value ): void {
-        $this->duration = $value;
+    public function setDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('duration', $value);
     }
 
     /**
      * Sets the end property value. The end property
      *  @param DateTimeTimeZone|null $value Value to set for the end property.
     */
-    public function setEnd(?DateTimeTimeZone $value ): void {
-        $this->end = $value;
+    public function setEnd(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('end', $value);
     }
 
     /**
      * Sets the filledAttendeesCount property value. The current number of customers in the appointment.
      *  @param int|null $value Value to set for the filledAttendeesCount property.
     */
-    public function setFilledAttendeesCount(?int $value ): void {
-        $this->filledAttendeesCount = $value;
+    public function setFilledAttendeesCount(?int $value): void {
+        $this->getBackingStore()->set('filledAttendeesCount', $value);
     }
 
     /**
      * Sets the invoiceAmount property value. The billed amount on the invoice.
      *  @param float|null $value Value to set for the invoiceAmount property.
     */
-    public function setInvoiceAmount(?float $value ): void {
-        $this->invoiceAmount = $value;
+    public function setInvoiceAmount(?float $value): void {
+        $this->getBackingStore()->set('invoiceAmount', $value);
     }
 
     /**
      * Sets the invoiceDate property value. The date, time, and time zone of the invoice for this appointment.
      *  @param DateTimeTimeZone|null $value Value to set for the invoiceDate property.
     */
-    public function setInvoiceDate(?DateTimeTimeZone $value ): void {
-        $this->invoiceDate = $value;
+    public function setInvoiceDate(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('invoiceDate', $value);
     }
 
     /**
      * Sets the invoiceId property value. The ID of the invoice.
      *  @param string|null $value Value to set for the invoiceId property.
     */
-    public function setInvoiceId(?string $value ): void {
-        $this->invoiceId = $value;
+    public function setInvoiceId(?string $value): void {
+        $this->getBackingStore()->set('invoiceId', $value);
     }
 
     /**
      * Sets the invoiceStatus property value. The invoiceStatus property
      *  @param BookingInvoiceStatus|null $value Value to set for the invoiceStatus property.
     */
-    public function setInvoiceStatus(?BookingInvoiceStatus $value ): void {
-        $this->invoiceStatus = $value;
+    public function setInvoiceStatus(?BookingInvoiceStatus $value): void {
+        $this->getBackingStore()->set('invoiceStatus', $value);
     }
 
     /**
      * Sets the invoiceUrl property value. The URL of the invoice in Microsoft Bookings.
      *  @param string|null $value Value to set for the invoiceUrl property.
     */
-    public function setInvoiceUrl(?string $value ): void {
-        $this->invoiceUrl = $value;
+    public function setInvoiceUrl(?string $value): void {
+        $this->getBackingStore()->set('invoiceUrl', $value);
     }
 
     /**
      * Sets the isLocationOnline property value. True indicates that the appointment will be held online. Default value is false.
      *  @param bool|null $value Value to set for the isLocationOnline property.
     */
-    public function setIsLocationOnline(?bool $value ): void {
-        $this->isLocationOnline = $value;
+    public function setIsLocationOnline(?bool $value): void {
+        $this->getBackingStore()->set('isLocationOnline', $value);
     }
 
     /**
      * Sets the joinWebUrl property value. The URL of the online meeting for the appointment.
      *  @param string|null $value Value to set for the joinWebUrl property.
     */
-    public function setJoinWebUrl(?string $value ): void {
-        $this->joinWebUrl = $value;
+    public function setJoinWebUrl(?string $value): void {
+        $this->getBackingStore()->set('joinWebUrl', $value);
     }
 
     /**
      * Sets the maximumAttendeesCount property value. The maximum number of customers allowed in an appointment. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
      *  @param int|null $value Value to set for the maximumAttendeesCount property.
     */
-    public function setMaximumAttendeesCount(?int $value ): void {
-        $this->maximumAttendeesCount = $value;
+    public function setMaximumAttendeesCount(?int $value): void {
+        $this->getBackingStore()->set('maximumAttendeesCount', $value);
     }
 
     /**
      * Sets the onlineMeetingUrl property value. The onlineMeetingUrl property
      *  @param string|null $value Value to set for the onlineMeetingUrl property.
     */
-    public function setOnlineMeetingUrl(?string $value ): void {
-        $this->onlineMeetingUrl = $value;
+    public function setOnlineMeetingUrl(?string $value): void {
+        $this->getBackingStore()->set('onlineMeetingUrl', $value);
     }
 
     /**
      * Sets the optOutOfCustomerEmail property value. True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.
      *  @param bool|null $value Value to set for the optOutOfCustomerEmail property.
     */
-    public function setOptOutOfCustomerEmail(?bool $value ): void {
-        $this->optOutOfCustomerEmail = $value;
+    public function setOptOutOfCustomerEmail(?bool $value): void {
+        $this->getBackingStore()->set('optOutOfCustomerEmail', $value);
     }
 
     /**
      * Sets the postBuffer property value. The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.
      *  @param DateInterval|null $value Value to set for the postBuffer property.
     */
-    public function setPostBuffer(?DateInterval $value ): void {
-        $this->postBuffer = $value;
+    public function setPostBuffer(?DateInterval $value): void {
+        $this->getBackingStore()->set('postBuffer', $value);
     }
 
     /**
      * Sets the preBuffer property value. The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.
      *  @param DateInterval|null $value Value to set for the preBuffer property.
     */
-    public function setPreBuffer(?DateInterval $value ): void {
-        $this->preBuffer = $value;
+    public function setPreBuffer(?DateInterval $value): void {
+        $this->getBackingStore()->set('preBuffer', $value);
     }
 
     /**
      * Sets the price property value. The regular price for an appointment for the specified bookingService.
      *  @param float|null $value Value to set for the price property.
     */
-    public function setPrice(?float $value ): void {
-        $this->price = $value;
+    public function setPrice(?float $value): void {
+        $this->getBackingStore()->set('price', $value);
     }
 
     /**
      * Sets the priceType property value. Represents the type of pricing of a booking service.
      *  @param BookingPriceType|null $value Value to set for the priceType property.
     */
-    public function setPriceType(?BookingPriceType $value ): void {
-        $this->priceType = $value;
+    public function setPriceType(?BookingPriceType $value): void {
+        $this->getBackingStore()->set('priceType', $value);
     }
 
     /**
      * Sets the reminders property value. The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.
      *  @param array<BookingReminder>|null $value Value to set for the reminders property.
     */
-    public function setReminders(?array $value ): void {
-        $this->reminders = $value;
+    public function setReminders(?array $value): void {
+        $this->getBackingStore()->set('reminders', $value);
     }
 
     /**
      * Sets the selfServiceAppointmentId property value. An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer.
      *  @param string|null $value Value to set for the selfServiceAppointmentId property.
     */
-    public function setSelfServiceAppointmentId(?string $value ): void {
-        $this->selfServiceAppointmentId = $value;
+    public function setSelfServiceAppointmentId(?string $value): void {
+        $this->getBackingStore()->set('selfServiceAppointmentId', $value);
     }
 
     /**
      * Sets the serviceId property value. The ID of the bookingService associated with this appointment.
      *  @param string|null $value Value to set for the serviceId property.
     */
-    public function setServiceId(?string $value ): void {
-        $this->serviceId = $value;
+    public function setServiceId(?string $value): void {
+        $this->getBackingStore()->set('serviceId', $value);
     }
 
     /**
      * Sets the serviceLocation property value. The location where the service is delivered.
      *  @param Location|null $value Value to set for the serviceLocation property.
     */
-    public function setServiceLocation(?Location $value ): void {
-        $this->serviceLocation = $value;
+    public function setServiceLocation(?Location $value): void {
+        $this->getBackingStore()->set('serviceLocation', $value);
     }
 
     /**
      * Sets the serviceName property value. The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property.
      *  @param string|null $value Value to set for the serviceName property.
     */
-    public function setServiceName(?string $value ): void {
-        $this->serviceName = $value;
+    public function setServiceName(?string $value): void {
+        $this->getBackingStore()->set('serviceName', $value);
     }
 
     /**
      * Sets the serviceNotes property value. Notes from a bookingStaffMember. The value of this property is available only when reading this bookingAppointment by its ID.
      *  @param string|null $value Value to set for the serviceNotes property.
     */
-    public function setServiceNotes(?string $value ): void {
-        $this->serviceNotes = $value;
+    public function setServiceNotes(?string $value): void {
+        $this->getBackingStore()->set('serviceNotes', $value);
     }
 
     /**
      * Sets the smsNotificationsEnabled property value. True indicates SMS notifications will be sent to the customers for the appointment. Default value is false.
      *  @param bool|null $value Value to set for the smsNotificationsEnabled property.
     */
-    public function setSmsNotificationsEnabled(?bool $value ): void {
-        $this->smsNotificationsEnabled = $value;
+    public function setSmsNotificationsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('smsNotificationsEnabled', $value);
     }
 
     /**
      * Sets the staffMemberIds property value. The ID of each bookingStaffMember who is scheduled in this appointment.
      *  @param array<string>|null $value Value to set for the staffMemberIds property.
     */
-    public function setStaffMemberIds(?array $value ): void {
-        $this->staffMemberIds = $value;
+    public function setStaffMemberIds(?array $value): void {
+        $this->getBackingStore()->set('staffMemberIds', $value);
     }
 
     /**
      * Sets the start property value. The start property
      *  @param DateTimeTimeZone|null $value Value to set for the start property.
     */
-    public function setStart(?DateTimeTimeZone $value ): void {
-        $this->start = $value;
+    public function setStart(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('start', $value);
     }
 
 }

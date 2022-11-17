@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Security extends Entity implements Parsable 
 {
     /**
-     * @var InformationProtection|null $informationProtection The informationProtection property
-    */
-    private ?InformationProtection $informationProtection = null;
-    
-    /**
      * Instantiates a new security and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class Security extends Entity implements Parsable
      * @return InformationProtection|null
     */
     public function getInformationProtection(): ?InformationProtection {
-        return $this->informationProtection;
+        return $this->getBackingStore()->get('informationProtection');
     }
 
     /**
@@ -56,15 +51,15 @@ class Security extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('informationProtection', $this->informationProtection);
+        $writer->writeObjectValue('informationProtection', $this->getInformationProtection());
     }
 
     /**
      * Sets the informationProtection property value. The informationProtection property
      *  @param InformationProtection|null $value Value to set for the informationProtection property.
     */
-    public function setInformationProtection(?InformationProtection $value ): void {
-        $this->informationProtection = $value;
+    public function setInformationProtection(?InformationProtection $value): void {
+        $this->getBackingStore()->set('informationProtection', $value);
     }
 
 }

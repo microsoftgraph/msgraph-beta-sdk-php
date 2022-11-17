@@ -9,106 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicySettingMapping extends Entity implements Parsable 
 {
     /**
-     * @var string|null $admxSettingDefinitionId Admx Group Policy Id
-    */
-    private ?string $admxSettingDefinitionId = null;
-    
-    /**
-     * @var array<string>|null $childIdList List of Child Ids of the group policy setting.
-    */
-    private ?array $childIdList = null;
-    
-    /**
-     * @var string|null $intuneSettingDefinitionId The Intune Setting Definition Id
-    */
-    private ?string $intuneSettingDefinitionId = null;
-    
-    /**
-     * @var array<string>|null $intuneSettingUriList The list of Intune Setting URIs this group policy setting maps to
-    */
-    private ?array $intuneSettingUriList = null;
-    
-    /**
-     * @var bool|null $isMdmSupported Indicates if the setting is supported by Intune or not
-    */
-    private ?bool $isMdmSupported = null;
-    
-    /**
-     * @var string|null $mdmCspName The CSP name this group policy setting maps to.
-    */
-    private ?string $mdmCspName = null;
-    
-    /**
-     * @var int|null $mdmMinimumOSVersion The minimum OS version this mdm setting supports.
-    */
-    private ?int $mdmMinimumOSVersion = null;
-    
-    /**
-     * @var string|null $mdmSettingUri The MDM CSP URI this group policy setting maps to.
-    */
-    private ?string $mdmSettingUri = null;
-    
-    /**
-     * @var MdmSupportedState|null $mdmSupportedState Mdm Support Status of the setting.
-    */
-    private ?MdmSupportedState $mdmSupportedState = null;
-    
-    /**
-     * @var string|null $parentId Parent Id of the group policy setting.
-    */
-    private ?string $parentId = null;
-    
-    /**
-     * @var string|null $settingCategory The category the group policy setting is in.
-    */
-    private ?string $settingCategory = null;
-    
-    /**
-     * @var string|null $settingDisplayName The display name of this group policy setting.
-    */
-    private ?string $settingDisplayName = null;
-    
-    /**
-     * @var string|null $settingDisplayValue The display value of this group policy setting.
-    */
-    private ?string $settingDisplayValue = null;
-    
-    /**
-     * @var string|null $settingDisplayValueType The display value type of this group policy setting.
-    */
-    private ?string $settingDisplayValueType = null;
-    
-    /**
-     * @var string|null $settingName The name of this group policy setting.
-    */
-    private ?string $settingName = null;
-    
-    /**
-     * @var GroupPolicySettingScope|null $settingScope Scope of the group policy setting.
-    */
-    private ?GroupPolicySettingScope $settingScope = null;
-    
-    /**
-     * @var GroupPolicySettingType|null $settingType Setting type of the group policy.
-    */
-    private ?GroupPolicySettingType $settingType = null;
-    
-    /**
-     * @var string|null $settingValue The value of this group policy setting.
-    */
-    private ?string $settingValue = null;
-    
-    /**
-     * @var string|null $settingValueDisplayUnits The display units of this group policy setting value
-    */
-    private ?string $settingValueDisplayUnits = null;
-    
-    /**
-     * @var string|null $settingValueType The value type of this group policy setting.
-    */
-    private ?string $settingValueType = null;
-    
-    /**
      * Instantiates a new groupPolicySettingMapping and sets the default values.
     */
     public function __construct() {
@@ -130,7 +30,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getAdmxSettingDefinitionId(): ?string {
-        return $this->admxSettingDefinitionId;
+        return $this->getBackingStore()->get('admxSettingDefinitionId');
     }
 
     /**
@@ -138,7 +38,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getChildIdList(): ?array {
-        return $this->childIdList;
+        return $this->getBackingStore()->get('childIdList');
     }
 
     /**
@@ -176,7 +76,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getIntuneSettingDefinitionId(): ?string {
-        return $this->intuneSettingDefinitionId;
+        return $this->getBackingStore()->get('intuneSettingDefinitionId');
     }
 
     /**
@@ -184,7 +84,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getIntuneSettingUriList(): ?array {
-        return $this->intuneSettingUriList;
+        return $this->getBackingStore()->get('intuneSettingUriList');
     }
 
     /**
@@ -192,7 +92,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMdmSupported(): ?bool {
-        return $this->isMdmSupported;
+        return $this->getBackingStore()->get('isMdmSupported');
     }
 
     /**
@@ -200,7 +100,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmCspName(): ?string {
-        return $this->mdmCspName;
+        return $this->getBackingStore()->get('mdmCspName');
     }
 
     /**
@@ -208,7 +108,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return int|null
     */
     public function getMdmMinimumOSVersion(): ?int {
-        return $this->mdmMinimumOSVersion;
+        return $this->getBackingStore()->get('mdmMinimumOSVersion');
     }
 
     /**
@@ -216,7 +116,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmSettingUri(): ?string {
-        return $this->mdmSettingUri;
+        return $this->getBackingStore()->get('mdmSettingUri');
     }
 
     /**
@@ -224,7 +124,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return MdmSupportedState|null
     */
     public function getMdmSupportedState(): ?MdmSupportedState {
-        return $this->mdmSupportedState;
+        return $this->getBackingStore()->get('mdmSupportedState');
     }
 
     /**
@@ -232,7 +132,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getParentId(): ?string {
-        return $this->parentId;
+        return $this->getBackingStore()->get('parentId');
     }
 
     /**
@@ -240,7 +140,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingCategory(): ?string {
-        return $this->settingCategory;
+        return $this->getBackingStore()->get('settingCategory');
     }
 
     /**
@@ -248,7 +148,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayName(): ?string {
-        return $this->settingDisplayName;
+        return $this->getBackingStore()->get('settingDisplayName');
     }
 
     /**
@@ -256,7 +156,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayValue(): ?string {
-        return $this->settingDisplayValue;
+        return $this->getBackingStore()->get('settingDisplayValue');
     }
 
     /**
@@ -264,7 +164,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingDisplayValueType(): ?string {
-        return $this->settingDisplayValueType;
+        return $this->getBackingStore()->get('settingDisplayValueType');
     }
 
     /**
@@ -272,7 +172,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->settingName;
+        return $this->getBackingStore()->get('settingName');
     }
 
     /**
@@ -280,7 +180,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
-        return $this->settingScope;
+        return $this->getBackingStore()->get('settingScope');
     }
 
     /**
@@ -288,7 +188,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return GroupPolicySettingType|null
     */
     public function getSettingType(): ?GroupPolicySettingType {
-        return $this->settingType;
+        return $this->getBackingStore()->get('settingType');
     }
 
     /**
@@ -296,7 +196,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValue(): ?string {
-        return $this->settingValue;
+        return $this->getBackingStore()->get('settingValue');
     }
 
     /**
@@ -304,7 +204,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValueDisplayUnits(): ?string {
-        return $this->settingValueDisplayUnits;
+        return $this->getBackingStore()->get('settingValueDisplayUnits');
     }
 
     /**
@@ -312,7 +212,7 @@ class GroupPolicySettingMapping extends Entity implements Parsable
      * @return string|null
     */
     public function getSettingValueType(): ?string {
-        return $this->settingValueType;
+        return $this->getBackingStore()->get('settingValueType');
     }
 
     /**
@@ -321,186 +221,186 @@ class GroupPolicySettingMapping extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('admxSettingDefinitionId', $this->admxSettingDefinitionId);
-        $writer->writeCollectionOfPrimitiveValues('childIdList', $this->childIdList);
-        $writer->writeStringValue('intuneSettingDefinitionId', $this->intuneSettingDefinitionId);
-        $writer->writeCollectionOfPrimitiveValues('intuneSettingUriList', $this->intuneSettingUriList);
-        $writer->writeBooleanValue('isMdmSupported', $this->isMdmSupported);
-        $writer->writeStringValue('mdmCspName', $this->mdmCspName);
-        $writer->writeIntegerValue('mdmMinimumOSVersion', $this->mdmMinimumOSVersion);
-        $writer->writeStringValue('mdmSettingUri', $this->mdmSettingUri);
-        $writer->writeEnumValue('mdmSupportedState', $this->mdmSupportedState);
-        $writer->writeStringValue('parentId', $this->parentId);
-        $writer->writeStringValue('settingCategory', $this->settingCategory);
-        $writer->writeStringValue('settingDisplayName', $this->settingDisplayName);
-        $writer->writeStringValue('settingDisplayValue', $this->settingDisplayValue);
-        $writer->writeStringValue('settingDisplayValueType', $this->settingDisplayValueType);
-        $writer->writeStringValue('settingName', $this->settingName);
-        $writer->writeEnumValue('settingScope', $this->settingScope);
-        $writer->writeEnumValue('settingType', $this->settingType);
-        $writer->writeStringValue('settingValue', $this->settingValue);
-        $writer->writeStringValue('settingValueDisplayUnits', $this->settingValueDisplayUnits);
-        $writer->writeStringValue('settingValueType', $this->settingValueType);
+        $writer->writeStringValue('admxSettingDefinitionId', $this->getAdmxSettingDefinitionId());
+        $writer->writeCollectionOfPrimitiveValues('childIdList', $this->getChildIdList());
+        $writer->writeStringValue('intuneSettingDefinitionId', $this->getIntuneSettingDefinitionId());
+        $writer->writeCollectionOfPrimitiveValues('intuneSettingUriList', $this->getIntuneSettingUriList());
+        $writer->writeBooleanValue('isMdmSupported', $this->getIsMdmSupported());
+        $writer->writeStringValue('mdmCspName', $this->getMdmCspName());
+        $writer->writeIntegerValue('mdmMinimumOSVersion', $this->getMdmMinimumOSVersion());
+        $writer->writeStringValue('mdmSettingUri', $this->getMdmSettingUri());
+        $writer->writeEnumValue('mdmSupportedState', $this->getMdmSupportedState());
+        $writer->writeStringValue('parentId', $this->getParentId());
+        $writer->writeStringValue('settingCategory', $this->getSettingCategory());
+        $writer->writeStringValue('settingDisplayName', $this->getSettingDisplayName());
+        $writer->writeStringValue('settingDisplayValue', $this->getSettingDisplayValue());
+        $writer->writeStringValue('settingDisplayValueType', $this->getSettingDisplayValueType());
+        $writer->writeStringValue('settingName', $this->getSettingName());
+        $writer->writeEnumValue('settingScope', $this->getSettingScope());
+        $writer->writeEnumValue('settingType', $this->getSettingType());
+        $writer->writeStringValue('settingValue', $this->getSettingValue());
+        $writer->writeStringValue('settingValueDisplayUnits', $this->getSettingValueDisplayUnits());
+        $writer->writeStringValue('settingValueType', $this->getSettingValueType());
     }
 
     /**
      * Sets the admxSettingDefinitionId property value. Admx Group Policy Id
      *  @param string|null $value Value to set for the admxSettingDefinitionId property.
     */
-    public function setAdmxSettingDefinitionId(?string $value ): void {
-        $this->admxSettingDefinitionId = $value;
+    public function setAdmxSettingDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('admxSettingDefinitionId', $value);
     }
 
     /**
      * Sets the childIdList property value. List of Child Ids of the group policy setting.
      *  @param array<string>|null $value Value to set for the childIdList property.
     */
-    public function setChildIdList(?array $value ): void {
-        $this->childIdList = $value;
+    public function setChildIdList(?array $value): void {
+        $this->getBackingStore()->set('childIdList', $value);
     }
 
     /**
      * Sets the intuneSettingDefinitionId property value. The Intune Setting Definition Id
      *  @param string|null $value Value to set for the intuneSettingDefinitionId property.
     */
-    public function setIntuneSettingDefinitionId(?string $value ): void {
-        $this->intuneSettingDefinitionId = $value;
+    public function setIntuneSettingDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('intuneSettingDefinitionId', $value);
     }
 
     /**
      * Sets the intuneSettingUriList property value. The list of Intune Setting URIs this group policy setting maps to
      *  @param array<string>|null $value Value to set for the intuneSettingUriList property.
     */
-    public function setIntuneSettingUriList(?array $value ): void {
-        $this->intuneSettingUriList = $value;
+    public function setIntuneSettingUriList(?array $value): void {
+        $this->getBackingStore()->set('intuneSettingUriList', $value);
     }
 
     /**
      * Sets the isMdmSupported property value. Indicates if the setting is supported by Intune or not
      *  @param bool|null $value Value to set for the isMdmSupported property.
     */
-    public function setIsMdmSupported(?bool $value ): void {
-        $this->isMdmSupported = $value;
+    public function setIsMdmSupported(?bool $value): void {
+        $this->getBackingStore()->set('isMdmSupported', $value);
     }
 
     /**
      * Sets the mdmCspName property value. The CSP name this group policy setting maps to.
      *  @param string|null $value Value to set for the mdmCspName property.
     */
-    public function setMdmCspName(?string $value ): void {
-        $this->mdmCspName = $value;
+    public function setMdmCspName(?string $value): void {
+        $this->getBackingStore()->set('mdmCspName', $value);
     }
 
     /**
      * Sets the mdmMinimumOSVersion property value. The minimum OS version this mdm setting supports.
      *  @param int|null $value Value to set for the mdmMinimumOSVersion property.
     */
-    public function setMdmMinimumOSVersion(?int $value ): void {
-        $this->mdmMinimumOSVersion = $value;
+    public function setMdmMinimumOSVersion(?int $value): void {
+        $this->getBackingStore()->set('mdmMinimumOSVersion', $value);
     }
 
     /**
      * Sets the mdmSettingUri property value. The MDM CSP URI this group policy setting maps to.
      *  @param string|null $value Value to set for the mdmSettingUri property.
     */
-    public function setMdmSettingUri(?string $value ): void {
-        $this->mdmSettingUri = $value;
+    public function setMdmSettingUri(?string $value): void {
+        $this->getBackingStore()->set('mdmSettingUri', $value);
     }
 
     /**
      * Sets the mdmSupportedState property value. Mdm Support Status of the setting.
      *  @param MdmSupportedState|null $value Value to set for the mdmSupportedState property.
     */
-    public function setMdmSupportedState(?MdmSupportedState $value ): void {
-        $this->mdmSupportedState = $value;
+    public function setMdmSupportedState(?MdmSupportedState $value): void {
+        $this->getBackingStore()->set('mdmSupportedState', $value);
     }
 
     /**
      * Sets the parentId property value. Parent Id of the group policy setting.
      *  @param string|null $value Value to set for the parentId property.
     */
-    public function setParentId(?string $value ): void {
-        $this->parentId = $value;
+    public function setParentId(?string $value): void {
+        $this->getBackingStore()->set('parentId', $value);
     }
 
     /**
      * Sets the settingCategory property value. The category the group policy setting is in.
      *  @param string|null $value Value to set for the settingCategory property.
     */
-    public function setSettingCategory(?string $value ): void {
-        $this->settingCategory = $value;
+    public function setSettingCategory(?string $value): void {
+        $this->getBackingStore()->set('settingCategory', $value);
     }
 
     /**
      * Sets the settingDisplayName property value. The display name of this group policy setting.
      *  @param string|null $value Value to set for the settingDisplayName property.
     */
-    public function setSettingDisplayName(?string $value ): void {
-        $this->settingDisplayName = $value;
+    public function setSettingDisplayName(?string $value): void {
+        $this->getBackingStore()->set('settingDisplayName', $value);
     }
 
     /**
      * Sets the settingDisplayValue property value. The display value of this group policy setting.
      *  @param string|null $value Value to set for the settingDisplayValue property.
     */
-    public function setSettingDisplayValue(?string $value ): void {
-        $this->settingDisplayValue = $value;
+    public function setSettingDisplayValue(?string $value): void {
+        $this->getBackingStore()->set('settingDisplayValue', $value);
     }
 
     /**
      * Sets the settingDisplayValueType property value. The display value type of this group policy setting.
      *  @param string|null $value Value to set for the settingDisplayValueType property.
     */
-    public function setSettingDisplayValueType(?string $value ): void {
-        $this->settingDisplayValueType = $value;
+    public function setSettingDisplayValueType(?string $value): void {
+        $this->getBackingStore()->set('settingDisplayValueType', $value);
     }
 
     /**
      * Sets the settingName property value. The name of this group policy setting.
      *  @param string|null $value Value to set for the settingName property.
     */
-    public function setSettingName(?string $value ): void {
-        $this->settingName = $value;
+    public function setSettingName(?string $value): void {
+        $this->getBackingStore()->set('settingName', $value);
     }
 
     /**
      * Sets the settingScope property value. Scope of the group policy setting.
      *  @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
     */
-    public function setSettingScope(?GroupPolicySettingScope $value ): void {
-        $this->settingScope = $value;
+    public function setSettingScope(?GroupPolicySettingScope $value): void {
+        $this->getBackingStore()->set('settingScope', $value);
     }
 
     /**
      * Sets the settingType property value. Setting type of the group policy.
      *  @param GroupPolicySettingType|null $value Value to set for the settingType property.
     */
-    public function setSettingType(?GroupPolicySettingType $value ): void {
-        $this->settingType = $value;
+    public function setSettingType(?GroupPolicySettingType $value): void {
+        $this->getBackingStore()->set('settingType', $value);
     }
 
     /**
      * Sets the settingValue property value. The value of this group policy setting.
      *  @param string|null $value Value to set for the settingValue property.
     */
-    public function setSettingValue(?string $value ): void {
-        $this->settingValue = $value;
+    public function setSettingValue(?string $value): void {
+        $this->getBackingStore()->set('settingValue', $value);
     }
 
     /**
      * Sets the settingValueDisplayUnits property value. The display units of this group policy setting value
      *  @param string|null $value Value to set for the settingValueDisplayUnits property.
     */
-    public function setSettingValueDisplayUnits(?string $value ): void {
-        $this->settingValueDisplayUnits = $value;
+    public function setSettingValueDisplayUnits(?string $value): void {
+        $this->getBackingStore()->set('settingValueDisplayUnits', $value);
     }
 
     /**
      * Sets the settingValueType property value. The value type of this group policy setting.
      *  @param string|null $value Value to set for the settingValueType property.
     */
-    public function setSettingValueType(?string $value ): void {
-        $this->settingValueType = $value;
+    public function setSettingValueType(?string $value): void {
+        $this->getBackingStore()->set('settingValueType', $value);
     }
 
 }

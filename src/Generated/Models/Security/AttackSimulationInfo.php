@@ -8,43 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AttackSimulationInfo implements AdditionalDataHolder, Parsable 
+class AttackSimulationInfo implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $attackSimDateTime The date and time of the attack simulation.
-    */
-    private ?DateTime $attackSimDateTime = null;
-    
-    /**
-     * @var DateInterval|null $attackSimDurationTime The duration (in time) for the attack simulation.
-    */
-    private ?DateInterval $attackSimDurationTime = null;
-    
-    /**
-     * @var string|null $attackSimId The activity ID for the attack simulation.
-    */
-    private ?string $attackSimId = null;
-    
-    /**
-     * @var string|null $attackSimUserId The unique identifier for the user who got the attack simulation email.
-    */
-    private ?string $attackSimUserId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new attackSimulationInfo and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.security.attackSimulationInfo');
     }
@@ -62,8 +41,8 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -71,7 +50,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getAttackSimDateTime(): ?DateTime {
-        return $this->attackSimDateTime;
+        return $this->getBackingStore()->get('attackSimDateTime');
     }
 
     /**
@@ -79,7 +58,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @return DateInterval|null
     */
     public function getAttackSimDurationTime(): ?DateInterval {
-        return $this->attackSimDurationTime;
+        return $this->getBackingStore()->get('attackSimDurationTime');
     }
 
     /**
@@ -87,7 +66,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAttackSimId(): ?string {
-        return $this->attackSimId;
+        return $this->getBackingStore()->get('attackSimId');
     }
 
     /**
@@ -95,7 +74,15 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAttackSimUserId(): ?string {
-        return $this->attackSimUserId;
+        return $this->getBackingStore()->get('attackSimUserId');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -118,7 +105,7 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -126,60 +113,60 @@ class AttackSimulationInfo implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('attackSimDateTime', $this->attackSimDateTime);
-        $writer->writeDateIntervalValue('attackSimDurationTime', $this->attackSimDurationTime);
-        $writer->writeStringValue('attackSimId', $this->attackSimId);
-        $writer->writeStringValue('attackSimUserId', $this->attackSimUserId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('attackSimDateTime', $this->getAttackSimDateTime());
+        $writer->writeDateIntervalValue('attackSimDurationTime', $this->getAttackSimDurationTime());
+        $writer->writeStringValue('attackSimId', $this->getAttackSimId());
+        $writer->writeStringValue('attackSimUserId', $this->getAttackSimUserId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the attackSimDateTime property value. The date and time of the attack simulation.
      *  @param DateTime|null $value Value to set for the attackSimDateTime property.
     */
-    public function setAttackSimDateTime(?DateTime $value ): void {
-        $this->attackSimDateTime = $value;
+    public function setAttackSimDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('attackSimDateTime', $value);
     }
 
     /**
      * Sets the attackSimDurationTime property value. The duration (in time) for the attack simulation.
      *  @param DateInterval|null $value Value to set for the attackSimDurationTime property.
     */
-    public function setAttackSimDurationTime(?DateInterval $value ): void {
-        $this->attackSimDurationTime = $value;
+    public function setAttackSimDurationTime(?DateInterval $value): void {
+        $this->getBackingStore()->set('attackSimDurationTime', $value);
     }
 
     /**
      * Sets the attackSimId property value. The activity ID for the attack simulation.
      *  @param string|null $value Value to set for the attackSimId property.
     */
-    public function setAttackSimId(?string $value ): void {
-        $this->attackSimId = $value;
+    public function setAttackSimId(?string $value): void {
+        $this->getBackingStore()->set('attackSimId', $value);
     }
 
     /**
      * Sets the attackSimUserId property value. The unique identifier for the user who got the attack simulation email.
      *  @param string|null $value Value to set for the attackSimUserId property.
     */
-    public function setAttackSimUserId(?string $value ): void {
-        $this->attackSimUserId = $value;
+    public function setAttackSimUserId(?string $value): void {
+        $this->getBackingStore()->set('attackSimUserId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

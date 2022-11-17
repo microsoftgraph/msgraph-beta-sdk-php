@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Updates extends Entity implements Parsable 
 {
     /**
-     * @var Catalog|null $catalog Catalog of content that can be approved for deployment by the deployment service. Read-only.
-    */
-    private ?Catalog $catalog = null;
-    
-    /**
-     * @var array<Deployment>|null $deployments Deployments created using the deployment service. Read-only.
-    */
-    private ?array $deployments = null;
-    
-    /**
-     * @var array<ResourceConnection>|null $resourceConnections Service connections to external resources such as analytics workspaces.
-    */
-    private ?array $resourceConnections = null;
-    
-    /**
-     * @var array<UpdatableAsset>|null $updatableAssets Assets registered with the deployment service that can receive updates. Read-only.
-    */
-    private ?array $updatableAssets = null;
-    
-    /**
      * Instantiates a new updates and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class Updates extends Entity implements Parsable
      * @return Catalog|null
     */
     public function getCatalog(): ?Catalog {
-        return $this->catalog;
+        return $this->getBackingStore()->get('catalog');
     }
 
     /**
@@ -59,7 +39,7 @@ class Updates extends Entity implements Parsable
      * @return array<Deployment>|null
     */
     public function getDeployments(): ?array {
-        return $this->deployments;
+        return $this->getBackingStore()->get('deployments');
     }
 
     /**
@@ -81,7 +61,7 @@ class Updates extends Entity implements Parsable
      * @return array<ResourceConnection>|null
     */
     public function getResourceConnections(): ?array {
-        return $this->resourceConnections;
+        return $this->getBackingStore()->get('resourceConnections');
     }
 
     /**
@@ -89,7 +69,7 @@ class Updates extends Entity implements Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getUpdatableAssets(): ?array {
-        return $this->updatableAssets;
+        return $this->getBackingStore()->get('updatableAssets');
     }
 
     /**
@@ -98,42 +78,42 @@ class Updates extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('catalog', $this->catalog);
-        $writer->writeCollectionOfObjectValues('deployments', $this->deployments);
-        $writer->writeCollectionOfObjectValues('resourceConnections', $this->resourceConnections);
-        $writer->writeCollectionOfObjectValues('updatableAssets', $this->updatableAssets);
+        $writer->writeObjectValue('catalog', $this->getCatalog());
+        $writer->writeCollectionOfObjectValues('deployments', $this->getDeployments());
+        $writer->writeCollectionOfObjectValues('resourceConnections', $this->getResourceConnections());
+        $writer->writeCollectionOfObjectValues('updatableAssets', $this->getUpdatableAssets());
     }
 
     /**
      * Sets the catalog property value. Catalog of content that can be approved for deployment by the deployment service. Read-only.
      *  @param Catalog|null $value Value to set for the catalog property.
     */
-    public function setCatalog(?Catalog $value ): void {
-        $this->catalog = $value;
+    public function setCatalog(?Catalog $value): void {
+        $this->getBackingStore()->set('catalog', $value);
     }
 
     /**
      * Sets the deployments property value. Deployments created using the deployment service. Read-only.
      *  @param array<Deployment>|null $value Value to set for the deployments property.
     */
-    public function setDeployments(?array $value ): void {
-        $this->deployments = $value;
+    public function setDeployments(?array $value): void {
+        $this->getBackingStore()->set('deployments', $value);
     }
 
     /**
      * Sets the resourceConnections property value. Service connections to external resources such as analytics workspaces.
      *  @param array<ResourceConnection>|null $value Value to set for the resourceConnections property.
     */
-    public function setResourceConnections(?array $value ): void {
-        $this->resourceConnections = $value;
+    public function setResourceConnections(?array $value): void {
+        $this->getBackingStore()->set('resourceConnections', $value);
     }
 
     /**
      * Sets the updatableAssets property value. Assets registered with the deployment service that can receive updates. Read-only.
      *  @param array<UpdatableAsset>|null $value Value to set for the updatableAssets property.
     */
-    public function setUpdatableAssets(?array $value ): void {
-        $this->updatableAssets = $value;
+    public function setUpdatableAssets(?array $value): void {
+        $this->getBackingStore()->set('updatableAssets', $value);
     }
 
 }

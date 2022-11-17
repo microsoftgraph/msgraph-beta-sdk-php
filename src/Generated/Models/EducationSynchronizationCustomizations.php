@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationSynchronizationCustomizations extends EducationSynchronizationCustomizationsBase implements Parsable 
 {
     /**
-     * @var EducationSynchronizationCustomization|null $school Customizations for School entities.
-    */
-    private ?EducationSynchronizationCustomization $school = null;
-    
-    /**
-     * @var EducationSynchronizationCustomization|null $section Customizations for Section entities.
-    */
-    private ?EducationSynchronizationCustomization $section = null;
-    
-    /**
-     * @var EducationSynchronizationCustomization|null $student Customizations for Student entities.
-    */
-    private ?EducationSynchronizationCustomization $student = null;
-    
-    /**
-     * @var EducationSynchronizationCustomization|null $studentEnrollment Customizations for Student Enrollments.
-    */
-    private ?EducationSynchronizationCustomization $studentEnrollment = null;
-    
-    /**
-     * @var EducationSynchronizationCustomization|null $teacher Customizations for Teacher entities.
-    */
-    private ?EducationSynchronizationCustomization $teacher = null;
-    
-    /**
-     * @var EducationSynchronizationCustomization|null $teacherRoster Customizations for Teacher Rosters.
-    */
-    private ?EducationSynchronizationCustomization $teacherRoster = null;
-    
-    /**
      * Instantiates a new EducationSynchronizationCustomizations and sets the default values.
     */
     public function __construct() {
@@ -76,7 +46,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getSchool(): ?EducationSynchronizationCustomization {
-        return $this->school;
+        return $this->getBackingStore()->get('school');
     }
 
     /**
@@ -84,7 +54,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getSection(): ?EducationSynchronizationCustomization {
-        return $this->section;
+        return $this->getBackingStore()->get('section');
     }
 
     /**
@@ -92,7 +62,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudent(): ?EducationSynchronizationCustomization {
-        return $this->student;
+        return $this->getBackingStore()->get('student');
     }
 
     /**
@@ -100,7 +70,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getStudentEnrollment(): ?EducationSynchronizationCustomization {
-        return $this->studentEnrollment;
+        return $this->getBackingStore()->get('studentEnrollment');
     }
 
     /**
@@ -108,7 +78,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacher(): ?EducationSynchronizationCustomization {
-        return $this->teacher;
+        return $this->getBackingStore()->get('teacher');
     }
 
     /**
@@ -116,7 +86,7 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
      * @return EducationSynchronizationCustomization|null
     */
     public function getTeacherRoster(): ?EducationSynchronizationCustomization {
-        return $this->teacherRoster;
+        return $this->getBackingStore()->get('teacherRoster');
     }
 
     /**
@@ -125,60 +95,60 @@ class EducationSynchronizationCustomizations extends EducationSynchronizationCus
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('school', $this->school);
-        $writer->writeObjectValue('section', $this->section);
-        $writer->writeObjectValue('student', $this->student);
-        $writer->writeObjectValue('studentEnrollment', $this->studentEnrollment);
-        $writer->writeObjectValue('teacher', $this->teacher);
-        $writer->writeObjectValue('teacherRoster', $this->teacherRoster);
+        $writer->writeObjectValue('school', $this->getSchool());
+        $writer->writeObjectValue('section', $this->getSection());
+        $writer->writeObjectValue('student', $this->getStudent());
+        $writer->writeObjectValue('studentEnrollment', $this->getStudentEnrollment());
+        $writer->writeObjectValue('teacher', $this->getTeacher());
+        $writer->writeObjectValue('teacherRoster', $this->getTeacherRoster());
     }
 
     /**
      * Sets the school property value. Customizations for School entities.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the school property.
     */
-    public function setSchool(?EducationSynchronizationCustomization $value ): void {
-        $this->school = $value;
+    public function setSchool(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('school', $value);
     }
 
     /**
      * Sets the section property value. Customizations for Section entities.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the section property.
     */
-    public function setSection(?EducationSynchronizationCustomization $value ): void {
-        $this->section = $value;
+    public function setSection(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('section', $value);
     }
 
     /**
      * Sets the student property value. Customizations for Student entities.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the student property.
     */
-    public function setStudent(?EducationSynchronizationCustomization $value ): void {
-        $this->student = $value;
+    public function setStudent(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('student', $value);
     }
 
     /**
      * Sets the studentEnrollment property value. Customizations for Student Enrollments.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the studentEnrollment property.
     */
-    public function setStudentEnrollment(?EducationSynchronizationCustomization $value ): void {
-        $this->studentEnrollment = $value;
+    public function setStudentEnrollment(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('studentEnrollment', $value);
     }
 
     /**
      * Sets the teacher property value. Customizations for Teacher entities.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the teacher property.
     */
-    public function setTeacher(?EducationSynchronizationCustomization $value ): void {
-        $this->teacher = $value;
+    public function setTeacher(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('teacher', $value);
     }
 
     /**
      * Sets the teacherRoster property value. Customizations for Teacher Rosters.
      *  @param EducationSynchronizationCustomization|null $value Value to set for the teacherRoster property.
     */
-    public function setTeacherRoster(?EducationSynchronizationCustomization $value ): void {
-        $this->teacherRoster = $value;
+    public function setTeacherRoster(?EducationSynchronizationCustomization $value): void {
+        $this->getBackingStore()->set('teacherRoster', $value);
     }
 
 }

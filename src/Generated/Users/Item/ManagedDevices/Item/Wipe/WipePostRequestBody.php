@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WipePostRequestBody implements AdditionalDataHolder, Parsable 
+class WipePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $keepEnrollmentData The keepEnrollmentData property
-    */
-    private ?bool $keepEnrollmentData = null;
-    
-    /**
-     * @var bool|null $keepUserData The keepUserData property
-    */
-    private ?bool $keepUserData = null;
-    
-    /**
-     * @var string|null $macOsUnlockCode The macOsUnlockCode property
-    */
-    private ?string $macOsUnlockCode = null;
-    
-    /**
-     * @var bool|null $persistEsimDataPlan The persistEsimDataPlan property
-    */
-    private ?bool $persistEsimDataPlan = null;
-    
-    /**
-     * @var bool|null $useProtectedWipe The useProtectedWipe property
-    */
-    private ?bool $useProtectedWipe = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new wipePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -59,8 +38,16 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -83,7 +70,7 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getKeepEnrollmentData(): ?bool {
-        return $this->keepEnrollmentData;
+        return $this->getBackingStore()->get('keepEnrollmentData');
     }
 
     /**
@@ -91,7 +78,7 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getKeepUserData(): ?bool {
-        return $this->keepUserData;
+        return $this->getBackingStore()->get('keepUserData');
     }
 
     /**
@@ -99,7 +86,7 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMacOsUnlockCode(): ?string {
-        return $this->macOsUnlockCode;
+        return $this->getBackingStore()->get('macOsUnlockCode');
     }
 
     /**
@@ -107,7 +94,7 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getPersistEsimDataPlan(): ?bool {
-        return $this->persistEsimDataPlan;
+        return $this->getBackingStore()->get('persistEsimDataPlan');
     }
 
     /**
@@ -115,7 +102,7 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getUseProtectedWipe(): ?bool {
-        return $this->useProtectedWipe;
+        return $this->getBackingStore()->get('useProtectedWipe');
     }
 
     /**
@@ -123,60 +110,60 @@ class WipePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('keepEnrollmentData', $this->keepEnrollmentData);
-        $writer->writeBooleanValue('keepUserData', $this->keepUserData);
-        $writer->writeStringValue('macOsUnlockCode', $this->macOsUnlockCode);
-        $writer->writeBooleanValue('persistEsimDataPlan', $this->persistEsimDataPlan);
-        $writer->writeBooleanValue('useProtectedWipe', $this->useProtectedWipe);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('keepEnrollmentData', $this->getKeepEnrollmentData());
+        $writer->writeBooleanValue('keepUserData', $this->getKeepUserData());
+        $writer->writeStringValue('macOsUnlockCode', $this->getMacOsUnlockCode());
+        $writer->writeBooleanValue('persistEsimDataPlan', $this->getPersistEsimDataPlan());
+        $writer->writeBooleanValue('useProtectedWipe', $this->getUseProtectedWipe());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the keepEnrollmentData property value. The keepEnrollmentData property
      *  @param bool|null $value Value to set for the keepEnrollmentData property.
     */
-    public function setKeepEnrollmentData(?bool $value ): void {
-        $this->keepEnrollmentData = $value;
+    public function setKeepEnrollmentData(?bool $value): void {
+        $this->getBackingStore()->set('keepEnrollmentData', $value);
     }
 
     /**
      * Sets the keepUserData property value. The keepUserData property
      *  @param bool|null $value Value to set for the keepUserData property.
     */
-    public function setKeepUserData(?bool $value ): void {
-        $this->keepUserData = $value;
+    public function setKeepUserData(?bool $value): void {
+        $this->getBackingStore()->set('keepUserData', $value);
     }
 
     /**
      * Sets the macOsUnlockCode property value. The macOsUnlockCode property
      *  @param string|null $value Value to set for the macOsUnlockCode property.
     */
-    public function setMacOsUnlockCode(?string $value ): void {
-        $this->macOsUnlockCode = $value;
+    public function setMacOsUnlockCode(?string $value): void {
+        $this->getBackingStore()->set('macOsUnlockCode', $value);
     }
 
     /**
      * Sets the persistEsimDataPlan property value. The persistEsimDataPlan property
      *  @param bool|null $value Value to set for the persistEsimDataPlan property.
     */
-    public function setPersistEsimDataPlan(?bool $value ): void {
-        $this->persistEsimDataPlan = $value;
+    public function setPersistEsimDataPlan(?bool $value): void {
+        $this->getBackingStore()->set('persistEsimDataPlan', $value);
     }
 
     /**
      * Sets the useProtectedWipe property value. The useProtectedWipe property
      *  @param bool|null $value Value to set for the useProtectedWipe property.
     */
-    public function setUseProtectedWipe(?bool $value ): void {
-        $this->useProtectedWipe = $value;
+    public function setUseProtectedWipe(?bool $value): void {
+        $this->getBackingStore()->set('useProtectedWipe', $value);
     }
 
 }

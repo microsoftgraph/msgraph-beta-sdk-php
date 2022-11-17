@@ -12,71 +12,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LegalHold extends Entity implements Parsable 
 {
     /**
-     * @var string|null $contentQuery KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
-    */
-    private ?string $contentQuery = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy The user who created the legal hold.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time the legal hold was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The legal hold description.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the legal hold.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<string>|null $errors Lists any errors that happened while placing the hold.
-    */
-    private ?array $errors = null;
-    
-    /**
-     * @var bool|null $isEnabled Indicates whether the hold is enabled and actively holding content.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy the user who last modified the legal hold.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the legal hold was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<SiteSource>|null $siteSources Data source entity for SharePoint sites associated with the legal hold.
-    */
-    private ?array $siteSources = null;
-    
-    /**
-     * @var LegalHoldStatus|null $status The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
-    */
-    private ?LegalHoldStatus $status = null;
-    
-    /**
-     * @var array<UnifiedGroupSource>|null $unifiedGroupSources The unifiedGroupSources property
-    */
-    private ?array $unifiedGroupSources = null;
-    
-    /**
-     * @var array<UserSource>|null $userSources Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
-    */
-    private ?array $userSources = null;
-    
-    /**
      * Instantiates a new legalHold and sets the default values.
     */
     public function __construct() {
@@ -98,7 +33,7 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->contentQuery;
+        return $this->getBackingStore()->get('contentQuery');
     }
 
     /**
@@ -106,7 +41,7 @@ class LegalHold extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -114,7 +49,7 @@ class LegalHold extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -122,7 +57,7 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -130,7 +65,7 @@ class LegalHold extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -138,7 +73,7 @@ class LegalHold extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getErrors(): ?array {
-        return $this->errors;
+        return $this->getBackingStore()->get('errors');
     }
 
     /**
@@ -169,7 +104,7 @@ class LegalHold extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -177,7 +112,7 @@ class LegalHold extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -185,7 +120,7 @@ class LegalHold extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -193,7 +128,7 @@ class LegalHold extends Entity implements Parsable
      * @return array<SiteSource>|null
     */
     public function getSiteSources(): ?array {
-        return $this->siteSources;
+        return $this->getBackingStore()->get('siteSources');
     }
 
     /**
@@ -201,7 +136,7 @@ class LegalHold extends Entity implements Parsable
      * @return LegalHoldStatus|null
     */
     public function getStatus(): ?LegalHoldStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -209,7 +144,7 @@ class LegalHold extends Entity implements Parsable
      * @return array<UnifiedGroupSource>|null
     */
     public function getUnifiedGroupSources(): ?array {
-        return $this->unifiedGroupSources;
+        return $this->getBackingStore()->get('unifiedGroupSources');
     }
 
     /**
@@ -217,7 +152,7 @@ class LegalHold extends Entity implements Parsable
      * @return array<UserSource>|null
     */
     public function getUserSources(): ?array {
-        return $this->userSources;
+        return $this->getBackingStore()->get('userSources');
     }
 
     /**
@@ -226,123 +161,123 @@ class LegalHold extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('contentQuery', $this->contentQuery);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfPrimitiveValues('errors', $this->errors);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfObjectValues('siteSources', $this->siteSources);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfObjectValues('unifiedGroupSources', $this->unifiedGroupSources);
-        $writer->writeCollectionOfObjectValues('userSources', $this->userSources);
+        $writer->writeStringValue('contentQuery', $this->getContentQuery());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('errors', $this->getErrors());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('siteSources', $this->getSiteSources());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfObjectValues('unifiedGroupSources', $this->getUnifiedGroupSources());
+        $writer->writeCollectionOfObjectValues('userSources', $this->getUserSources());
     }
 
     /**
      * Sets the contentQuery property value. KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
      *  @param string|null $value Value to set for the contentQuery property.
     */
-    public function setContentQuery(?string $value ): void {
-        $this->contentQuery = $value;
+    public function setContentQuery(?string $value): void {
+        $this->getBackingStore()->set('contentQuery', $value);
     }
 
     /**
      * Sets the createdBy property value. The user who created the legal hold.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the legal hold was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The legal hold description.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the legal hold.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the errors property value. Lists any errors that happened while placing the hold.
      *  @param array<string>|null $value Value to set for the errors property.
     */
-    public function setErrors(?array $value ): void {
-        $this->errors = $value;
+    public function setErrors(?array $value): void {
+        $this->getBackingStore()->set('errors', $value);
     }
 
     /**
      * Sets the isEnabled property value. Indicates whether the hold is enabled and actively holding content.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. the user who last modified the legal hold.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the legal hold was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the siteSources property value. Data source entity for SharePoint sites associated with the legal hold.
      *  @param array<SiteSource>|null $value Value to set for the siteSources property.
     */
-    public function setSiteSources(?array $value ): void {
-        $this->siteSources = $value;
+    public function setSiteSources(?array $value): void {
+        $this->getBackingStore()->set('siteSources', $value);
     }
 
     /**
      * Sets the status property value. The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.
      *  @param LegalHoldStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?LegalHoldStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?LegalHoldStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the unifiedGroupSources property value. The unifiedGroupSources property
      *  @param array<UnifiedGroupSource>|null $value Value to set for the unifiedGroupSources property.
     */
-    public function setUnifiedGroupSources(?array $value ): void {
-        $this->unifiedGroupSources = $value;
+    public function setUnifiedGroupSources(?array $value): void {
+        $this->getBackingStore()->set('unifiedGroupSources', $value);
     }
 
     /**
      * Sets the userSources property value. Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.
      *  @param array<UserSource>|null $value Value to set for the userSources property.
     */
-    public function setUserSources(?array $value ): void {
-        $this->userSources = $value;
+    public function setUserSources(?array $value): void {
+        $this->getBackingStore()->set('userSources', $value);
     }
 
 }

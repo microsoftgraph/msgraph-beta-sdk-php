@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamworkDeviceActivity extends Entity implements Parsable 
 {
     /**
-     * @var TeamworkActivePeripherals|null $activePeripherals The active peripheral devices attached to the device.
-    */
-    private ?TeamworkActivePeripherals $activePeripherals = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy Identity of the user who created the device activity document.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The UTC date and time when the device activity document was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy Identity of the user who last modified the device activity details.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The UTC date and time when the device activity detail was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new teamworkDeviceActivity and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
      * @return TeamworkActivePeripherals|null
     */
     public function getActivePeripherals(): ?TeamworkActivePeripherals {
-        return $this->activePeripherals;
+        return $this->getBackingStore()->get('activePeripherals');
     }
 
     /**
@@ -64,7 +39,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -72,7 +47,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -95,7 +70,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -103,7 +78,7 @@ class TeamworkDeviceActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -112,51 +87,51 @@ class TeamworkDeviceActivity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('activePeripherals', $this->activePeripherals);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('activePeripherals', $this->getActivePeripherals());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the activePeripherals property value. The active peripheral devices attached to the device.
      *  @param TeamworkActivePeripherals|null $value Value to set for the activePeripherals property.
     */
-    public function setActivePeripherals(?TeamworkActivePeripherals $value ): void {
-        $this->activePeripherals = $value;
+    public function setActivePeripherals(?TeamworkActivePeripherals $value): void {
+        $this->getBackingStore()->set('activePeripherals', $value);
     }
 
     /**
      * Sets the createdBy property value. Identity of the user who created the device activity document.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The UTC date and time when the device activity document was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. Identity of the user who last modified the device activity details.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The UTC date and time when the device activity detail was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class NetworkInterface implements AdditionalDataHolder, Parsable 
+class NetworkInterface implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $description Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $ipV4Address Last IPv4 address associated with this NIC.
-    */
-    private ?string $ipV4Address = null;
-    
-    /**
-     * @var string|null $ipV6Address Last Public (aka global) IPv6 address associated with this NIC.
-    */
-    private ?string $ipV6Address = null;
-    
-    /**
-     * @var string|null $localIpV6Address Last local (link-local or site-local) IPv6 address associated with this NIC.
-    */
-    private ?string $localIpV6Address = null;
-    
-    /**
-     * @var string|null $macAddress MAC address of the NIC on this host.
-    */
-    private ?string $macAddress = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new networkInterface and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.networkInterface');
     }
@@ -65,8 +39,16 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +56,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -98,7 +80,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIpV4Address(): ?string {
-        return $this->ipV4Address;
+        return $this->getBackingStore()->get('ipV4Address');
     }
 
     /**
@@ -106,7 +88,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIpV6Address(): ?string {
-        return $this->ipV6Address;
+        return $this->getBackingStore()->get('ipV6Address');
     }
 
     /**
@@ -114,7 +96,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLocalIpV6Address(): ?string {
-        return $this->localIpV6Address;
+        return $this->getBackingStore()->get('localIpV6Address');
     }
 
     /**
@@ -122,7 +104,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getMacAddress(): ?string {
-        return $this->macAddress;
+        return $this->getBackingStore()->get('macAddress');
     }
 
     /**
@@ -130,7 +112,7 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -138,69 +120,69 @@ class NetworkInterface implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('ipV4Address', $this->ipV4Address);
-        $writer->writeStringValue('ipV6Address', $this->ipV6Address);
-        $writer->writeStringValue('localIpV6Address', $this->localIpV6Address);
-        $writer->writeStringValue('macAddress', $this->macAddress);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('ipV4Address', $this->getIpV4Address());
+        $writer->writeStringValue('ipV6Address', $this->getIpV6Address());
+        $writer->writeStringValue('localIpV6Address', $this->getLocalIpV6Address());
+        $writer->writeStringValue('macAddress', $this->getMacAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the description property value. Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the ipV4Address property value. Last IPv4 address associated with this NIC.
      *  @param string|null $value Value to set for the ipV4Address property.
     */
-    public function setIpV4Address(?string $value ): void {
-        $this->ipV4Address = $value;
+    public function setIpV4Address(?string $value): void {
+        $this->getBackingStore()->set('ipV4Address', $value);
     }
 
     /**
      * Sets the ipV6Address property value. Last Public (aka global) IPv6 address associated with this NIC.
      *  @param string|null $value Value to set for the ipV6Address property.
     */
-    public function setIpV6Address(?string $value ): void {
-        $this->ipV6Address = $value;
+    public function setIpV6Address(?string $value): void {
+        $this->getBackingStore()->set('ipV6Address', $value);
     }
 
     /**
      * Sets the localIpV6Address property value. Last local (link-local or site-local) IPv6 address associated with this NIC.
      *  @param string|null $value Value to set for the localIpV6Address property.
     */
-    public function setLocalIpV6Address(?string $value ): void {
-        $this->localIpV6Address = $value;
+    public function setLocalIpV6Address(?string $value): void {
+        $this->getBackingStore()->set('localIpV6Address', $value);
     }
 
     /**
      * Sets the macAddress property value. MAC address of the NIC on this host.
      *  @param string|null $value Value to set for the macAddress property.
     */
-    public function setMacAddress(?string $value ): void {
-        $this->macAddress = $value;
+    public function setMacAddress(?string $value): void {
+        $this->getBackingStore()->set('macAddress', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

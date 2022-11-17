@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable 
+class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ConditionalAccessConditions|null $conditionalAccessCondition Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk.
-    */
-    private ?ConditionalAccessConditions $conditionalAccessCondition = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ConditionalAccessRule|null $ruleSatisfied Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates.
-    */
-    private ?ConditionalAccessRule $ruleSatisfied = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new conditionalAccessRuleSatisfied and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.conditionalAccessRuleSatisfied');
     }
@@ -50,8 +39,16 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +56,7 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @return ConditionalAccessConditions|null
     */
     public function getConditionalAccessCondition(): ?ConditionalAccessConditions {
-        return $this->conditionalAccessCondition;
+        return $this->getBackingStore()->get('conditionalAccessCondition');
     }
 
     /**
@@ -80,7 +77,7 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +85,7 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @return ConditionalAccessRule|null
     */
     public function getRuleSatisfied(): ?ConditionalAccessRule {
-        return $this->ruleSatisfied;
+        return $this->getBackingStore()->get('ruleSatisfied');
     }
 
     /**
@@ -96,42 +93,42 @@ class ConditionalAccessRuleSatisfied implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('conditionalAccessCondition', $this->conditionalAccessCondition);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('ruleSatisfied', $this->ruleSatisfied);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('conditionalAccessCondition', $this->getConditionalAccessCondition());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('ruleSatisfied', $this->getRuleSatisfied());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the conditionalAccessCondition property value. Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client, ipAddressSeenByAzureAD, ipAddressSeenByResourceProvider, unknownFutureValue, servicePrincipals, servicePrincipalRisk. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals, servicePrincipalRisk.
      *  @param ConditionalAccessConditions|null $value Value to set for the conditionalAccessCondition property.
     */
-    public function setConditionalAccessCondition(?ConditionalAccessConditions $value ): void {
-        $this->conditionalAccessCondition = $value;
+    public function setConditionalAccessCondition(?ConditionalAccessConditions $value): void {
+        $this->getBackingStore()->set('conditionalAccessCondition', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the ruleSatisfied property value. Refers to the conditional access policy conditions that were satisfied. The possible values are: allApps, firstPartyApps, office365, appId, acr, appFilter, allUsers, guest, groupId, roleId, userId, allDevicePlatforms, devicePlatform, allLocations, insideCorpnet, allTrustedLocations, locationId, allDevices, deviceFilter, deviceState, unknownFutureValue, deviceFilterIncludeRuleNotMatched, allDeviceStates, anonymizedIPAddress, unfamiliarFeatures, nationStateIPAddress, realTimeThreatIntelligence, internalGuest, b2bCollaborationGuest, b2bCollaborationMember, b2bDirectConnectUser, otherExternalUser, serviceProvider. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: deviceFilterIncludeRuleNotMatched, allDeviceStates.
      *  @param ConditionalAccessRule|null $value Value to set for the ruleSatisfied property.
     */
-    public function setRuleSatisfied(?ConditionalAccessRule $value ): void {
-        $this->ruleSatisfied = $value;
+    public function setRuleSatisfied(?ConditionalAccessRule $value): void {
+        $this->getBackingStore()->set('ruleSatisfied', $value);
     }
 
 }

@@ -10,21 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceId The user experience analytics device id.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var DateTime|null $metricDateTime The user experience analytics metric date time.
-    */
-    private ?DateTime $metricDateTime = null;
-    
-    /**
-     * @var string|null $metricType The user experience analytics metric type.
-    */
-    private ?string $metricType = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsMetricHistory and sets the default values.
     */
     public function __construct() {
@@ -46,7 +31,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -67,7 +52,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getMetricDateTime(): ?DateTime {
-        return $this->metricDateTime;
+        return $this->getBackingStore()->get('metricDateTime');
     }
 
     /**
@@ -75,7 +60,7 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
      * @return string|null
     */
     public function getMetricType(): ?string {
-        return $this->metricType;
+        return $this->getBackingStore()->get('metricType');
     }
 
     /**
@@ -84,33 +69,33 @@ class UserExperienceAnalyticsMetricHistory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeDateTimeValue('metricDateTime', $this->metricDateTime);
-        $writer->writeStringValue('metricType', $this->metricType);
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeDateTimeValue('metricDateTime', $this->getMetricDateTime());
+        $writer->writeStringValue('metricType', $this->getMetricType());
     }
 
     /**
      * Sets the deviceId property value. The user experience analytics device id.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the metricDateTime property value. The user experience analytics metric date time.
      *  @param DateTime|null $value Value to set for the metricDateTime property.
     */
-    public function setMetricDateTime(?DateTime $value ): void {
-        $this->metricDateTime = $value;
+    public function setMetricDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('metricDateTime', $value);
     }
 
     /**
      * Sets the metricType property value. The user experience analytics metric type.
      *  @param string|null $value Value to set for the metricType property.
     */
-    public function setMetricType(?string $value ): void {
-        $this->metricType = $value;
+    public function setMetricType(?string $value): void {
+        $this->getBackingStore()->set('metricType', $value);
     }
 
 }

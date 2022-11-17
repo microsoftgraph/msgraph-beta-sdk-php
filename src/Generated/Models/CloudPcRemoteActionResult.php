@@ -7,58 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable 
+class CloudPcRemoteActionResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $actionName The specified action. Supported values in the Microsoft Endpoint Manager portal are: Reprovision, Resize, Restore. Supported values in enterprise Cloud PC devices are: Reboot, Rename, Reprovision, Troubleshoot.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $actionName = null;
-    
-    /**
-     * @var ActionState|null $actionState State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
-    */
-    private ?ActionState $actionState = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $cloudPcId The ID of the Cloud PC device on which the remote action is performed. Read-only.
-    */
-    private ?string $cloudPcId = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId The ID of the Intune managed device on which the remote action is performed. Read-only.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $startDateTime Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var CloudPcStatusDetails|null $statusDetails The details of the Cloud PC status.
-    */
-    private ?CloudPcStatusDetails $statusDetails = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new cloudPcRemoteActionResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.cloudPcRemoteActionResult');
     }
@@ -77,7 +41,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getActionName(): ?string {
-        return $this->actionName;
+        return $this->getBackingStore()->get('actionName');
     }
 
     /**
@@ -85,15 +49,23 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return ActionState|null
     */
     public function getActionState(): ?ActionState {
-        return $this->actionState;
+        return $this->getBackingStore()->get('actionState');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -101,7 +73,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCloudPcId(): ?string {
-        return $this->cloudPcId;
+        return $this->getBackingStore()->get('cloudPcId');
     }
 
     /**
@@ -127,7 +99,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -135,7 +107,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -143,7 +115,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -151,7 +123,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -159,7 +131,7 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @return CloudPcStatusDetails|null
     */
     public function getStatusDetails(): ?CloudPcStatusDetails {
-        return $this->statusDetails;
+        return $this->getBackingStore()->get('statusDetails');
     }
 
     /**
@@ -167,87 +139,87 @@ class CloudPcRemoteActionResult implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('actionName', $this->actionName);
-        $writer->writeEnumValue('actionState', $this->actionState);
-        $writer->writeStringValue('cloudPcId', $this->cloudPcId);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeObjectValue('statusDetails', $this->statusDetails);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('actionName', $this->getActionName());
+        $writer->writeEnumValue('actionState', $this->getActionState());
+        $writer->writeStringValue('cloudPcId', $this->getCloudPcId());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeObjectValue('statusDetails', $this->getStatusDetails());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actionName property value. The specified action. Supported values in the Microsoft Endpoint Manager portal are: Reprovision, Resize, Restore. Supported values in enterprise Cloud PC devices are: Reboot, Rename, Reprovision, Troubleshoot.
      *  @param string|null $value Value to set for the actionName property.
     */
-    public function setActionName(?string $value ): void {
-        $this->actionName = $value;
+    public function setActionName(?string $value): void {
+        $this->getBackingStore()->set('actionName', $value);
     }
 
     /**
      * Sets the actionState property value. State of the action. Possible values are: None, pending, canceled, active, done, failed, notSupported. Read-only.
      *  @param ActionState|null $value Value to set for the actionState property.
     */
-    public function setActionState(?ActionState $value ): void {
-        $this->actionState = $value;
+    public function setActionState(?ActionState $value): void {
+        $this->getBackingStore()->set('actionState', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the cloudPcId property value. The ID of the Cloud PC device on which the remote action is performed. Read-only.
      *  @param string|null $value Value to set for the cloudPcId property.
     */
-    public function setCloudPcId(?string $value ): void {
-        $this->cloudPcId = $value;
+    public function setCloudPcId(?string $value): void {
+        $this->getBackingStore()->set('cloudPcId', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Last update time for action. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. The ID of the Intune managed device on which the remote action is performed. Read-only.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the startDateTime property value. Time the action was initiated. The Timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the statusDetails property value. The details of the Cloud PC status.
      *  @param CloudPcStatusDetails|null $value Value to set for the statusDetails property.
     */
-    public function setStatusDetails(?CloudPcStatusDetails $value ): void {
-        $this->statusDetails = $value;
+    public function setStatusDetails(?CloudPcStatusDetails $value): void {
+        $this->getBackingStore()->set('statusDetails', $value);
     }
 
 }

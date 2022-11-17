@@ -6,33 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class Win32LobAppRequirement implements AdditionalDataHolder, Parsable 
+class Win32LobAppRequirement implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $detectionValue The detection value
-    */
-    private ?string $detectionValue = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var Win32LobAppDetectionOperator|null $operator Contains properties for detection operator.
-    */
-    private ?Win32LobAppDetectionOperator $operator = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new win32LobAppRequirement and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.win32LobAppRequirement');
     }
@@ -59,8 +48,16 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -68,7 +65,7 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDetectionValue(): ?string {
-        return $this->detectionValue;
+        return $this->getBackingStore()->get('detectionValue');
     }
 
     /**
@@ -89,7 +86,7 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -97,7 +94,7 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
-        return $this->operator;
+        return $this->getBackingStore()->get('operator');
     }
 
     /**
@@ -105,42 +102,42 @@ class Win32LobAppRequirement implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('detectionValue', $this->detectionValue);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('operator', $this->operator);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('detectionValue', $this->getDetectionValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('operator', $this->getOperator());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the detectionValue property value. The detection value
      *  @param string|null $value Value to set for the detectionValue property.
     */
-    public function setDetectionValue(?string $value ): void {
-        $this->detectionValue = $value;
+    public function setDetectionValue(?string $value): void {
+        $this->getBackingStore()->set('detectionValue', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
-    public function setOperator(?Win32LobAppDetectionOperator $value ): void {
-        $this->operator = $value;
+    public function setOperator(?Win32LobAppDetectionOperator $value): void {
+        $this->getBackingStore()->set('operator', $value);
     }
 
 }

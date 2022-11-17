@@ -10,56 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365ActiveUserCounts extends Entity implements Parsable 
 {
     /**
-     * @var int|null $exchange The number of active users in Exchange. Any user who can read and send email is considered an active user.
-    */
-    private ?int $exchange = null;
-    
-    /**
-     * @var int|null $office365 The number of active users in Microsoft 365. This number includes all the active users in Exchange, OneDrive, SharePoint, Skype For Business, Yammer, and Microsoft Teams. You can find the definition of active user for each product in the respective property description.
-    */
-    private ?int $office365 = null;
-    
-    /**
-     * @var int|null $oneDrive The number of active users in OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user.
-    */
-    private ?int $oneDrive = null;
-    
-    /**
-     * @var Date|null $reportDate The date on which a number of users were active.
-    */
-    private ?Date $reportDate = null;
-    
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
-    private ?string $reportPeriod = null;
-    
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
-    private ?Date $reportRefreshDate = null;
-    
-    /**
-     * @var int|null $sharePoint The number of active users in SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user.
-    */
-    private ?int $sharePoint = null;
-    
-    /**
-     * @var int|null $skypeForBusiness The number of active users in Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user.
-    */
-    private ?int $skypeForBusiness = null;
-    
-    /**
-     * @var int|null $teams The number of active users in Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user.
-    */
-    private ?int $teams = null;
-    
-    /**
-     * @var int|null $yammer The number of active users in Yammer. Any user who can post, read, or like messages is considered an active user.
-    */
-    private ?int $yammer = null;
-    
-    /**
      * Instantiates a new Office365ActiveUserCounts and sets the default values.
     */
     public function __construct() {
@@ -81,7 +31,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getExchange(): ?int {
-        return $this->exchange;
+        return $this->getBackingStore()->get('exchange');
     }
 
     /**
@@ -109,7 +59,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOffice365(): ?int {
-        return $this->office365;
+        return $this->getBackingStore()->get('office365');
     }
 
     /**
@@ -117,7 +67,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getOneDrive(): ?int {
-        return $this->oneDrive;
+        return $this->getBackingStore()->get('oneDrive');
     }
 
     /**
@@ -125,7 +75,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->reportDate;
+        return $this->getBackingStore()->get('reportDate');
     }
 
     /**
@@ -133,7 +83,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->reportPeriod;
+        return $this->getBackingStore()->get('reportPeriod');
     }
 
     /**
@@ -141,7 +91,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->reportRefreshDate;
+        return $this->getBackingStore()->get('reportRefreshDate');
     }
 
     /**
@@ -149,7 +99,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSharePoint(): ?int {
-        return $this->sharePoint;
+        return $this->getBackingStore()->get('sharePoint');
     }
 
     /**
@@ -157,7 +107,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getSkypeForBusiness(): ?int {
-        return $this->skypeForBusiness;
+        return $this->getBackingStore()->get('skypeForBusiness');
     }
 
     /**
@@ -165,7 +115,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTeams(): ?int {
-        return $this->teams;
+        return $this->getBackingStore()->get('teams');
     }
 
     /**
@@ -173,7 +123,7 @@ class Office365ActiveUserCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getYammer(): ?int {
-        return $this->yammer;
+        return $this->getBackingStore()->get('yammer');
     }
 
     /**
@@ -182,96 +132,96 @@ class Office365ActiveUserCounts extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('exchange', $this->exchange);
-        $writer->writeIntegerValue('office365', $this->office365);
-        $writer->writeIntegerValue('oneDrive', $this->oneDrive);
-        $writer->writeDateValue('reportDate', $this->reportDate);
-        $writer->writeStringValue('reportPeriod', $this->reportPeriod);
-        $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
-        $writer->writeIntegerValue('sharePoint', $this->sharePoint);
-        $writer->writeIntegerValue('skypeForBusiness', $this->skypeForBusiness);
-        $writer->writeIntegerValue('teams', $this->teams);
-        $writer->writeIntegerValue('yammer', $this->yammer);
+        $writer->writeIntegerValue('exchange', $this->getExchange());
+        $writer->writeIntegerValue('office365', $this->getOffice365());
+        $writer->writeIntegerValue('oneDrive', $this->getOneDrive());
+        $writer->writeDateValue('reportDate', $this->getReportDate());
+        $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
+        $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('sharePoint', $this->getSharePoint());
+        $writer->writeIntegerValue('skypeForBusiness', $this->getSkypeForBusiness());
+        $writer->writeIntegerValue('teams', $this->getTeams());
+        $writer->writeIntegerValue('yammer', $this->getYammer());
     }
 
     /**
      * Sets the exchange property value. The number of active users in Exchange. Any user who can read and send email is considered an active user.
      *  @param int|null $value Value to set for the exchange property.
     */
-    public function setExchange(?int $value ): void {
-        $this->exchange = $value;
+    public function setExchange(?int $value): void {
+        $this->getBackingStore()->set('exchange', $value);
     }
 
     /**
      * Sets the office365 property value. The number of active users in Microsoft 365. This number includes all the active users in Exchange, OneDrive, SharePoint, Skype For Business, Yammer, and Microsoft Teams. You can find the definition of active user for each product in the respective property description.
      *  @param int|null $value Value to set for the office365 property.
     */
-    public function setOffice365(?int $value ): void {
-        $this->office365 = $value;
+    public function setOffice365(?int $value): void {
+        $this->getBackingStore()->set('office365', $value);
     }
 
     /**
      * Sets the oneDrive property value. The number of active users in OneDrive. Any user who viewed or edited files, shared files internally or externally, or synced files is considered an active user.
      *  @param int|null $value Value to set for the oneDrive property.
     */
-    public function setOneDrive(?int $value ): void {
-        $this->oneDrive = $value;
+    public function setOneDrive(?int $value): void {
+        $this->getBackingStore()->set('oneDrive', $value);
     }
 
     /**
      * Sets the reportDate property value. The date on which a number of users were active.
      *  @param Date|null $value Value to set for the reportDate property.
     */
-    public function setReportDate(?Date $value ): void {
-        $this->reportDate = $value;
+    public function setReportDate(?Date $value): void {
+        $this->getBackingStore()->set('reportDate', $value);
     }
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
      *  @param string|null $value Value to set for the reportPeriod property.
     */
-    public function setReportPeriod(?string $value ): void {
-        $this->reportPeriod = $value;
+    public function setReportPeriod(?string $value): void {
+        $this->getBackingStore()->set('reportPeriod', $value);
     }
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
      *  @param Date|null $value Value to set for the reportRefreshDate property.
     */
-    public function setReportRefreshDate(?Date $value ): void {
-        $this->reportRefreshDate = $value;
+    public function setReportRefreshDate(?Date $value): void {
+        $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
      * Sets the sharePoint property value. The number of active users in SharePoint. Any user who viewed or edited files, shared files internally or externally, synced files, or viewed SharePoint pages is considered an active user.
      *  @param int|null $value Value to set for the sharePoint property.
     */
-    public function setSharePoint(?int $value ): void {
-        $this->sharePoint = $value;
+    public function setSharePoint(?int $value): void {
+        $this->getBackingStore()->set('sharePoint', $value);
     }
 
     /**
      * Sets the skypeForBusiness property value. The number of active users in Skype For Business. Any user who organized or participated in conferences, or joined peer-to-peer sessions is considered an active user.
      *  @param int|null $value Value to set for the skypeForBusiness property.
     */
-    public function setSkypeForBusiness(?int $value ): void {
-        $this->skypeForBusiness = $value;
+    public function setSkypeForBusiness(?int $value): void {
+        $this->getBackingStore()->set('skypeForBusiness', $value);
     }
 
     /**
      * Sets the teams property value. The number of active users in Microsoft Teams. Any user who posted messages in team channels, sent messages in private chat sessions, or participated in meetings or calls is considered an active user.
      *  @param int|null $value Value to set for the teams property.
     */
-    public function setTeams(?int $value ): void {
-        $this->teams = $value;
+    public function setTeams(?int $value): void {
+        $this->getBackingStore()->set('teams', $value);
     }
 
     /**
      * Sets the yammer property value. The number of active users in Yammer. Any user who can post, read, or like messages is considered an active user.
      *  @param int|null $value Value to set for the yammer property.
     */
-    public function setYammer(?int $value ): void {
-        $this->yammer = $value;
+    public function setYammer(?int $value): void {
+        $this->getBackingStore()->set('yammer', $value);
     }
 
 }

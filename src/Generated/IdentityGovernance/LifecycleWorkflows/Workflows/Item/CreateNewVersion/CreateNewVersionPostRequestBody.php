@@ -7,23 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CreateNewVersionPostRequestBody implements AdditionalDataHolder, Parsable 
+class CreateNewVersionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var Workflow|null $workflow The workflow property
-    */
-    private ?Workflow $workflow = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new createNewVersionPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -40,8 +39,16 @@ class CreateNewVersionPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -60,7 +67,7 @@ class CreateNewVersionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return Workflow|null
     */
     public function getWorkflow(): ?Workflow {
-        return $this->workflow;
+        return $this->getBackingStore()->get('workflow');
     }
 
     /**
@@ -68,24 +75,24 @@ class CreateNewVersionPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('workflow', $this->workflow);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('workflow', $this->getWorkflow());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the workflow property value. The workflow property
      *  @param Workflow|null $value Value to set for the workflow property.
     */
-    public function setWorkflow(?Workflow $value ): void {
-        $this->workflow = $value;
+    public function setWorkflow(?Workflow $value): void {
+        $this->getBackingStore()->set('workflow', $value);
     }
 
 }

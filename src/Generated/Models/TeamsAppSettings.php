@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamsAppSettings extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isChatResourceSpecificConsentEnabled Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
-    */
-    private ?bool $isChatResourceSpecificConsentEnabled = null;
-    
-    /**
      * Instantiates a new TeamsAppSettings and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class TeamsAppSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsChatResourceSpecificConsentEnabled(): ?bool {
-        return $this->isChatResourceSpecificConsentEnabled;
+        return $this->getBackingStore()->get('isChatResourceSpecificConsentEnabled');
     }
 
     /**
@@ -55,15 +50,15 @@ class TeamsAppSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isChatResourceSpecificConsentEnabled', $this->isChatResourceSpecificConsentEnabled);
+        $writer->writeBooleanValue('isChatResourceSpecificConsentEnabled', $this->getIsChatResourceSpecificConsentEnabled());
     }
 
     /**
      * Sets the isChatResourceSpecificConsentEnabled property value. Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
      *  @param bool|null $value Value to set for the isChatResourceSpecificConsentEnabled property.
     */
-    public function setIsChatResourceSpecificConsentEnabled(?bool $value ): void {
-        $this->isChatResourceSpecificConsentEnabled = $value;
+    public function setIsChatResourceSpecificConsentEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isChatResourceSpecificConsentEnabled', $value);
     }
 
 }

@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppRelationship extends Entity implements Parsable 
 {
     /**
-     * @var string|null $targetDisplayName The target mobile app's display name.
-    */
-    private ?string $targetDisplayName = null;
-    
-    /**
-     * @var string|null $targetDisplayVersion The target mobile app's display version.
-    */
-    private ?string $targetDisplayVersion = null;
-    
-    /**
-     * @var string|null $targetId The target mobile app's app id.
-    */
-    private ?string $targetId = null;
-    
-    /**
-     * @var string|null $targetPublisher The target mobile app's publisher.
-    */
-    private ?string $targetPublisher = null;
-    
-    /**
-     * @var MobileAppRelationshipType|null $targetType Indicates whether the target of a relationship is the parent or the child in the relationship.
-    */
-    private ?MobileAppRelationshipType $targetType = null;
-    
-    /**
      * Instantiates a new mobileAppRelationship and sets the default values.
     */
     public function __construct() {
@@ -78,7 +53,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetDisplayName(): ?string {
-        return $this->targetDisplayName;
+        return $this->getBackingStore()->get('targetDisplayName');
     }
 
     /**
@@ -86,7 +61,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetDisplayVersion(): ?string {
-        return $this->targetDisplayVersion;
+        return $this->getBackingStore()->get('targetDisplayVersion');
     }
 
     /**
@@ -94,7 +69,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetId(): ?string {
-        return $this->targetId;
+        return $this->getBackingStore()->get('targetId');
     }
 
     /**
@@ -102,7 +77,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetPublisher(): ?string {
-        return $this->targetPublisher;
+        return $this->getBackingStore()->get('targetPublisher');
     }
 
     /**
@@ -110,7 +85,7 @@ class MobileAppRelationship extends Entity implements Parsable
      * @return MobileAppRelationshipType|null
     */
     public function getTargetType(): ?MobileAppRelationshipType {
-        return $this->targetType;
+        return $this->getBackingStore()->get('targetType');
     }
 
     /**
@@ -119,51 +94,51 @@ class MobileAppRelationship extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetDisplayName', $this->targetDisplayName);
-        $writer->writeStringValue('targetDisplayVersion', $this->targetDisplayVersion);
-        $writer->writeStringValue('targetId', $this->targetId);
-        $writer->writeStringValue('targetPublisher', $this->targetPublisher);
-        $writer->writeEnumValue('targetType', $this->targetType);
+        $writer->writeStringValue('targetDisplayName', $this->getTargetDisplayName());
+        $writer->writeStringValue('targetDisplayVersion', $this->getTargetDisplayVersion());
+        $writer->writeStringValue('targetId', $this->getTargetId());
+        $writer->writeStringValue('targetPublisher', $this->getTargetPublisher());
+        $writer->writeEnumValue('targetType', $this->getTargetType());
     }
 
     /**
      * Sets the targetDisplayName property value. The target mobile app's display name.
      *  @param string|null $value Value to set for the targetDisplayName property.
     */
-    public function setTargetDisplayName(?string $value ): void {
-        $this->targetDisplayName = $value;
+    public function setTargetDisplayName(?string $value): void {
+        $this->getBackingStore()->set('targetDisplayName', $value);
     }
 
     /**
      * Sets the targetDisplayVersion property value. The target mobile app's display version.
      *  @param string|null $value Value to set for the targetDisplayVersion property.
     */
-    public function setTargetDisplayVersion(?string $value ): void {
-        $this->targetDisplayVersion = $value;
+    public function setTargetDisplayVersion(?string $value): void {
+        $this->getBackingStore()->set('targetDisplayVersion', $value);
     }
 
     /**
      * Sets the targetId property value. The target mobile app's app id.
      *  @param string|null $value Value to set for the targetId property.
     */
-    public function setTargetId(?string $value ): void {
-        $this->targetId = $value;
+    public function setTargetId(?string $value): void {
+        $this->getBackingStore()->set('targetId', $value);
     }
 
     /**
      * Sets the targetPublisher property value. The target mobile app's publisher.
      *  @param string|null $value Value to set for the targetPublisher property.
     */
-    public function setTargetPublisher(?string $value ): void {
-        $this->targetPublisher = $value;
+    public function setTargetPublisher(?string $value): void {
+        $this->getBackingStore()->set('targetPublisher', $value);
     }
 
     /**
      * Sets the targetType property value. Indicates whether the target of a relationship is the parent or the child in the relationship.
      *  @param MobileAppRelationshipType|null $value Value to set for the targetType property.
     */
-    public function setTargetType(?MobileAppRelationshipType $value ): void {
-        $this->targetType = $value;
+    public function setTargetType(?MobileAppRelationshipType $value): void {
+        $this->getBackingStore()->set('targetType', $value);
     }
 
 }

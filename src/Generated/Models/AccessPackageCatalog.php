@@ -10,76 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageCatalog extends Entity implements Parsable 
 {
     /**
-     * @var array<AccessPackageResourceRole>|null $accessPackageResourceRoles The roles in each resource in a catalog. Read-only.
-    */
-    private ?array $accessPackageResourceRoles = null;
-    
-    /**
-     * @var array<AccessPackageResource>|null $accessPackageResources The accessPackageResources property
-    */
-    private ?array $accessPackageResources = null;
-    
-    /**
-     * @var array<AccessPackageResourceScope>|null $accessPackageResourceScopes The accessPackageResourceScopes property
-    */
-    private ?array $accessPackageResourceScopes = null;
-    
-    /**
-     * @var array<AccessPackage>|null $accessPackages The access packages in this catalog. Read-only. Nullable. Supports $expand.
-    */
-    private ?array $accessPackages = null;
-    
-    /**
-     * @var string|null $catalogStatus Has the value Published if the access packages are available for management.
-    */
-    private ?string $catalogStatus = null;
-    
-    /**
-     * @var string|null $catalogType One of UserManaged or ServiceDefault.
-    */
-    private ?string $catalogType = null;
-    
-    /**
-     * @var string|null $createdBy UPN of the user who created this resource. Read-only.
-    */
-    private ?string $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var array<CustomAccessPackageWorkflowExtension>|null $customAccessPackageWorkflowExtensions The customAccessPackageWorkflowExtensions property
-    */
-    private ?array $customAccessPackageWorkflowExtensions = null;
-    
-    /**
-     * @var string|null $description The description of the access package catalog.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the access package catalog. Supports $filter (eq, contains).
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isExternallyVisible Whether the access packages in this catalog can be requested by users outside of the tenant.
-    */
-    private ?bool $isExternallyVisible = null;
-    
-    /**
-     * @var string|null $modifiedBy The UPN of the user who last modified this resource. Read-only.
-    */
-    private ?string $modifiedBy = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
      * Instantiates a new accessPackageCatalog and sets the default values.
     */
     public function __construct() {
@@ -101,7 +31,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return array<AccessPackageResourceRole>|null
     */
     public function getAccessPackageResourceRoles(): ?array {
-        return $this->accessPackageResourceRoles;
+        return $this->getBackingStore()->get('accessPackageResourceRoles');
     }
 
     /**
@@ -109,7 +39,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return array<AccessPackageResource>|null
     */
     public function getAccessPackageResources(): ?array {
-        return $this->accessPackageResources;
+        return $this->getBackingStore()->get('accessPackageResources');
     }
 
     /**
@@ -117,7 +47,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return array<AccessPackageResourceScope>|null
     */
     public function getAccessPackageResourceScopes(): ?array {
-        return $this->accessPackageResourceScopes;
+        return $this->getBackingStore()->get('accessPackageResourceScopes');
     }
 
     /**
@@ -125,7 +55,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return array<AccessPackage>|null
     */
     public function getAccessPackages(): ?array {
-        return $this->accessPackages;
+        return $this->getBackingStore()->get('accessPackages');
     }
 
     /**
@@ -133,7 +63,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogStatus(): ?string {
-        return $this->catalogStatus;
+        return $this->getBackingStore()->get('catalogStatus');
     }
 
     /**
@@ -141,7 +71,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getCatalogType(): ?string {
-        return $this->catalogType;
+        return $this->getBackingStore()->get('catalogType');
     }
 
     /**
@@ -149,7 +79,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -157,7 +87,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -165,7 +95,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return array<CustomAccessPackageWorkflowExtension>|null
     */
     public function getCustomAccessPackageWorkflowExtensions(): ?array {
-        return $this->customAccessPackageWorkflowExtensions;
+        return $this->getBackingStore()->get('customAccessPackageWorkflowExtensions');
     }
 
     /**
@@ -173,7 +103,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -181,7 +111,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -213,7 +143,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsExternallyVisible(): ?bool {
-        return $this->isExternallyVisible;
+        return $this->getBackingStore()->get('isExternallyVisible');
     }
 
     /**
@@ -221,7 +151,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->modifiedBy;
+        return $this->getBackingStore()->get('modifiedBy');
     }
 
     /**
@@ -229,7 +159,7 @@ class AccessPackageCatalog extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -238,132 +168,132 @@ class AccessPackageCatalog extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accessPackageResourceRoles', $this->accessPackageResourceRoles);
-        $writer->writeCollectionOfObjectValues('accessPackageResources', $this->accessPackageResources);
-        $writer->writeCollectionOfObjectValues('accessPackageResourceScopes', $this->accessPackageResourceScopes);
-        $writer->writeCollectionOfObjectValues('accessPackages', $this->accessPackages);
-        $writer->writeStringValue('catalogStatus', $this->catalogStatus);
-        $writer->writeStringValue('catalogType', $this->catalogType);
-        $writer->writeStringValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeCollectionOfObjectValues('customAccessPackageWorkflowExtensions', $this->customAccessPackageWorkflowExtensions);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isExternallyVisible', $this->isExternallyVisible);
-        $writer->writeStringValue('modifiedBy', $this->modifiedBy);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
+        $writer->writeCollectionOfObjectValues('accessPackageResourceRoles', $this->getAccessPackageResourceRoles());
+        $writer->writeCollectionOfObjectValues('accessPackageResources', $this->getAccessPackageResources());
+        $writer->writeCollectionOfObjectValues('accessPackageResourceScopes', $this->getAccessPackageResourceScopes());
+        $writer->writeCollectionOfObjectValues('accessPackages', $this->getAccessPackages());
+        $writer->writeStringValue('catalogStatus', $this->getCatalogStatus());
+        $writer->writeStringValue('catalogType', $this->getCatalogType());
+        $writer->writeStringValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('customAccessPackageWorkflowExtensions', $this->getCustomAccessPackageWorkflowExtensions());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isExternallyVisible', $this->getIsExternallyVisible());
+        $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
     }
 
     /**
      * Sets the accessPackageResourceRoles property value. The roles in each resource in a catalog. Read-only.
      *  @param array<AccessPackageResourceRole>|null $value Value to set for the accessPackageResourceRoles property.
     */
-    public function setAccessPackageResourceRoles(?array $value ): void {
-        $this->accessPackageResourceRoles = $value;
+    public function setAccessPackageResourceRoles(?array $value): void {
+        $this->getBackingStore()->set('accessPackageResourceRoles', $value);
     }
 
     /**
      * Sets the accessPackageResources property value. The accessPackageResources property
      *  @param array<AccessPackageResource>|null $value Value to set for the accessPackageResources property.
     */
-    public function setAccessPackageResources(?array $value ): void {
-        $this->accessPackageResources = $value;
+    public function setAccessPackageResources(?array $value): void {
+        $this->getBackingStore()->set('accessPackageResources', $value);
     }
 
     /**
      * Sets the accessPackageResourceScopes property value. The accessPackageResourceScopes property
      *  @param array<AccessPackageResourceScope>|null $value Value to set for the accessPackageResourceScopes property.
     */
-    public function setAccessPackageResourceScopes(?array $value ): void {
-        $this->accessPackageResourceScopes = $value;
+    public function setAccessPackageResourceScopes(?array $value): void {
+        $this->getBackingStore()->set('accessPackageResourceScopes', $value);
     }
 
     /**
      * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      *  @param array<AccessPackage>|null $value Value to set for the accessPackages property.
     */
-    public function setAccessPackages(?array $value ): void {
-        $this->accessPackages = $value;
+    public function setAccessPackages(?array $value): void {
+        $this->getBackingStore()->set('accessPackages', $value);
     }
 
     /**
      * Sets the catalogStatus property value. Has the value Published if the access packages are available for management.
      *  @param string|null $value Value to set for the catalogStatus property.
     */
-    public function setCatalogStatus(?string $value ): void {
-        $this->catalogStatus = $value;
+    public function setCatalogStatus(?string $value): void {
+        $this->getBackingStore()->set('catalogStatus', $value);
     }
 
     /**
      * Sets the catalogType property value. One of UserManaged or ServiceDefault.
      *  @param string|null $value Value to set for the catalogType property.
     */
-    public function setCatalogType(?string $value ): void {
-        $this->catalogType = $value;
+    public function setCatalogType(?string $value): void {
+        $this->getBackingStore()->set('catalogType', $value);
     }
 
     /**
      * Sets the createdBy property value. UPN of the user who created this resource. Read-only.
      *  @param string|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?string $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?string $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the customAccessPackageWorkflowExtensions property value. The customAccessPackageWorkflowExtensions property
      *  @param array<CustomAccessPackageWorkflowExtension>|null $value Value to set for the customAccessPackageWorkflowExtensions property.
     */
-    public function setCustomAccessPackageWorkflowExtensions(?array $value ): void {
-        $this->customAccessPackageWorkflowExtensions = $value;
+    public function setCustomAccessPackageWorkflowExtensions(?array $value): void {
+        $this->getBackingStore()->set('customAccessPackageWorkflowExtensions', $value);
     }
 
     /**
      * Sets the description property value. The description of the access package catalog.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isExternallyVisible property value. Whether the access packages in this catalog can be requested by users outside of the tenant.
      *  @param bool|null $value Value to set for the isExternallyVisible property.
     */
-    public function setIsExternallyVisible(?bool $value ): void {
-        $this->isExternallyVisible = $value;
+    public function setIsExternallyVisible(?bool $value): void {
+        $this->getBackingStore()->set('isExternallyVisible', $value);
     }
 
     /**
      * Sets the modifiedBy property value. The UPN of the user who last modified this resource. Read-only.
      *  @param string|null $value Value to set for the modifiedBy property.
     */
-    public function setModifiedBy(?string $value ): void {
-        $this->modifiedBy = $value;
+    public function setModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('modifiedBy', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
 }

@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtensionCallbackData extends CustomExtensionData implements Parsable 
 {
     /**
-     * @var CustomTaskExtensionOperationStatus|null $operationStatus Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
-    */
-    private ?CustomTaskExtensionOperationStatus $operationStatus = null;
-    
-    /**
      * Instantiates a new CustomTaskExtensionCallbackData and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
      * @return CustomTaskExtensionOperationStatus|null
     */
     public function getOperationStatus(): ?CustomTaskExtensionOperationStatus {
-        return $this->operationStatus;
+        return $this->getBackingStore()->get('operationStatus');
     }
 
     /**
@@ -56,15 +51,15 @@ class CustomTaskExtensionCallbackData extends CustomExtensionData implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('operationStatus', $this->operationStatus);
+        $writer->writeEnumValue('operationStatus', $this->getOperationStatus());
     }
 
     /**
      * Sets the operationStatus property value. Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
      *  @param CustomTaskExtensionOperationStatus|null $value Value to set for the operationStatus property.
     */
-    public function setOperationStatus(?CustomTaskExtensionOperationStatus $value ): void {
-        $this->operationStatus = $value;
+    public function setOperationStatus(?CustomTaskExtensionOperationStatus $value): void {
+        $this->getBackingStore()->set('operationStatus', $value);
     }
 
 }

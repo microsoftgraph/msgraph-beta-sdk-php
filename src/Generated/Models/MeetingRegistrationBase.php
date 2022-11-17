@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistrationBase extends Entity implements Parsable 
 {
     /**
-     * @var MeetingAudience|null $allowedRegistrant Specifies who can register for the meeting.
-    */
-    private ?MeetingAudience $allowedRegistrant = null;
-    
-    /**
-     * @var array<MeetingRegistrantBase>|null $registrants Registrants of the online meeting.
-    */
-    private ?array $registrants = null;
-    
-    /**
      * Instantiates a new meetingRegistrationBase and sets the default values.
     */
     public function __construct() {
@@ -48,7 +38,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
      * @return MeetingAudience|null
     */
     public function getAllowedRegistrant(): ?MeetingAudience {
-        return $this->allowedRegistrant;
+        return $this->getBackingStore()->get('allowedRegistrant');
     }
 
     /**
@@ -68,7 +58,7 @@ class MeetingRegistrationBase extends Entity implements Parsable
      * @return array<MeetingRegistrantBase>|null
     */
     public function getRegistrants(): ?array {
-        return $this->registrants;
+        return $this->getBackingStore()->get('registrants');
     }
 
     /**
@@ -77,24 +67,24 @@ class MeetingRegistrationBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowedRegistrant', $this->allowedRegistrant);
-        $writer->writeCollectionOfObjectValues('registrants', $this->registrants);
+        $writer->writeEnumValue('allowedRegistrant', $this->getAllowedRegistrant());
+        $writer->writeCollectionOfObjectValues('registrants', $this->getRegistrants());
     }
 
     /**
      * Sets the allowedRegistrant property value. Specifies who can register for the meeting.
      *  @param MeetingAudience|null $value Value to set for the allowedRegistrant property.
     */
-    public function setAllowedRegistrant(?MeetingAudience $value ): void {
-        $this->allowedRegistrant = $value;
+    public function setAllowedRegistrant(?MeetingAudience $value): void {
+        $this->getBackingStore()->set('allowedRegistrant', $value);
     }
 
     /**
      * Sets the registrants property value. Registrants of the online meeting.
      *  @param array<MeetingRegistrantBase>|null $value Value to set for the registrants property.
     */
-    public function setRegistrants(?array $value ): void {
-        $this->registrants = $value;
+    public function setRegistrants(?array $value): void {
+        $this->getBackingStore()->set('registrants', $value);
     }
 
 }

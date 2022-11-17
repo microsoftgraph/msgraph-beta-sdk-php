@@ -6,48 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsable 
+class ServicePrincipalLockConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $allProperties Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
-    */
-    private ?bool $allProperties = null;
-    
-    /**
-     * @var bool|null $credentialsWithUsageSign Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
-    */
-    private ?bool $credentialsWithUsageSign = null;
-    
-    /**
-     * @var bool|null $credentialsWithUsageVerify Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
-    */
-    private ?bool $credentialsWithUsageVerify = null;
-    
-    /**
-     * @var bool|null $isEnabled Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var bool|null $tokenEncryptionKeyId Locks the tokenEncryptionKeyId property for modification on the service principal.
-    */
-    private ?bool $tokenEncryptionKeyId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new servicePrincipalLockConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.servicePrincipalLockConfiguration');
     }
@@ -65,8 +39,8 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -74,7 +48,15 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return bool|null
     */
     public function getAllProperties(): ?bool {
-        return $this->allProperties;
+        return $this->getBackingStore()->get('allProperties');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -82,7 +64,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return bool|null
     */
     public function getCredentialsWithUsageSign(): ?bool {
-        return $this->credentialsWithUsageSign;
+        return $this->getBackingStore()->get('credentialsWithUsageSign');
     }
 
     /**
@@ -90,7 +72,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return bool|null
     */
     public function getCredentialsWithUsageVerify(): ?bool {
-        return $this->credentialsWithUsageVerify;
+        return $this->getBackingStore()->get('credentialsWithUsageVerify');
     }
 
     /**
@@ -114,7 +96,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -122,7 +104,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -130,7 +112,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @return bool|null
     */
     public function getTokenEncryptionKeyId(): ?bool {
-        return $this->tokenEncryptionKeyId;
+        return $this->getBackingStore()->get('tokenEncryptionKeyId');
     }
 
     /**
@@ -138,69 +120,69 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('allProperties', $this->allProperties);
-        $writer->writeBooleanValue('credentialsWithUsageSign', $this->credentialsWithUsageSign);
-        $writer->writeBooleanValue('credentialsWithUsageVerify', $this->credentialsWithUsageVerify);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeBooleanValue('tokenEncryptionKeyId', $this->tokenEncryptionKeyId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('allProperties', $this->getAllProperties());
+        $writer->writeBooleanValue('credentialsWithUsageSign', $this->getCredentialsWithUsageSign());
+        $writer->writeBooleanValue('credentialsWithUsageVerify', $this->getCredentialsWithUsageVerify());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeBooleanValue('tokenEncryptionKeyId', $this->getTokenEncryptionKeyId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allProperties property value. Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
      *  @param bool|null $value Value to set for the allProperties property.
     */
-    public function setAllProperties(?bool $value ): void {
-        $this->allProperties = $value;
+    public function setAllProperties(?bool $value): void {
+        $this->getBackingStore()->set('allProperties', $value);
     }
 
     /**
      * Sets the credentialsWithUsageSign property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
      *  @param bool|null $value Value to set for the credentialsWithUsageSign property.
     */
-    public function setCredentialsWithUsageSign(?bool $value ): void {
-        $this->credentialsWithUsageSign = $value;
+    public function setCredentialsWithUsageSign(?bool $value): void {
+        $this->getBackingStore()->set('credentialsWithUsageSign', $value);
     }
 
     /**
      * Sets the credentialsWithUsageVerify property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
      *  @param bool|null $value Value to set for the credentialsWithUsageVerify property.
     */
-    public function setCredentialsWithUsageVerify(?bool $value ): void {
-        $this->credentialsWithUsageVerify = $value;
+    public function setCredentialsWithUsageVerify(?bool $value): void {
+        $this->getBackingStore()->set('credentialsWithUsageVerify', $value);
     }
 
     /**
      * Sets the isEnabled property value. Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the tokenEncryptionKeyId property value. Locks the tokenEncryptionKeyId property for modification on the service principal.
      *  @param bool|null $value Value to set for the tokenEncryptionKeyId property.
     */
-    public function setTokenEncryptionKeyId(?bool $value ): void {
-        $this->tokenEncryptionKeyId = $value;
+    public function setTokenEncryptionKeyId(?bool $value): void {
+        $this->getBackingStore()->set('tokenEncryptionKeyId', $value);
     }
 
 }

@@ -7,43 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ClassificationInnerError implements AdditionalDataHolder, Parsable 
+class ClassificationInnerError implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $activityId The activityId property
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $activityId = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $clientRequestId The clientRequestId property
-    */
-    private ?string $clientRequestId = null;
-    
-    /**
-     * @var string|null $code The code property
-    */
-    private ?string $code = null;
-    
-    /**
-     * @var DateTime|null $errorDateTime The errorDateTime property
-    */
-    private ?DateTime $errorDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new classificationInnerError and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.classificationInnerError');
     }
@@ -62,15 +41,23 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getActivityId(): ?string {
-        return $this->activityId;
+        return $this->getBackingStore()->get('activityId');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +65,7 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getClientRequestId(): ?string {
-        return $this->clientRequestId;
+        return $this->getBackingStore()->get('clientRequestId');
     }
 
     /**
@@ -86,7 +73,7 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->code;
+        return $this->getBackingStore()->get('code');
     }
 
     /**
@@ -94,7 +81,7 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getErrorDateTime(): ?DateTime {
-        return $this->errorDateTime;
+        return $this->getBackingStore()->get('errorDateTime');
     }
 
     /**
@@ -117,7 +104,7 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -125,60 +112,60 @@ class ClassificationInnerError implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('activityId', $this->activityId);
-        $writer->writeStringValue('clientRequestId', $this->clientRequestId);
-        $writer->writeStringValue('code', $this->code);
-        $writer->writeDateTimeValue('errorDateTime', $this->errorDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('activityId', $this->getActivityId());
+        $writer->writeStringValue('clientRequestId', $this->getClientRequestId());
+        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeDateTimeValue('errorDateTime', $this->getErrorDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the activityId property value. The activityId property
      *  @param string|null $value Value to set for the activityId property.
     */
-    public function setActivityId(?string $value ): void {
-        $this->activityId = $value;
+    public function setActivityId(?string $value): void {
+        $this->getBackingStore()->set('activityId', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the clientRequestId property value. The clientRequestId property
      *  @param string|null $value Value to set for the clientRequestId property.
     */
-    public function setClientRequestId(?string $value ): void {
-        $this->clientRequestId = $value;
+    public function setClientRequestId(?string $value): void {
+        $this->getBackingStore()->set('clientRequestId', $value);
     }
 
     /**
      * Sets the code property value. The code property
      *  @param string|null $value Value to set for the code property.
     */
-    public function setCode(?string $value ): void {
-        $this->code = $value;
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
      * Sets the errorDateTime property value. The errorDateTime property
      *  @param DateTime|null $value Value to set for the errorDateTime property.
     */
-    public function setErrorDateTime(?DateTime $value ): void {
-        $this->errorDateTime = $value;
+    public function setErrorDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('errorDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

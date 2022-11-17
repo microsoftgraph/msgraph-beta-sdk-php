@@ -6,68 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EducationalActivityDetail implements AdditionalDataHolder, Parsable 
+class EducationalActivityDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $abbreviation Shortened name of the degree or program (example: PhD, MBA)
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $abbreviation = null;
-    
-    /**
-     * @var array<string>|null $activities Extracurricular activities undertaken alongside the program.
-    */
-    private ?array $activities = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $awards Any awards or honors associated with the program.
-    */
-    private ?array $awards = null;
-    
-    /**
-     * @var string|null $description Short description of the program provided by the user.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Long-form name of the program that the user has provided.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<string>|null $fieldsOfStudy Majors and minors associated with the program. (if applicable)
-    */
-    private ?array $fieldsOfStudy = null;
-    
-    /**
-     * @var string|null $grade The final grade, class, GPA or score.
-    */
-    private ?string $grade = null;
-    
-    /**
-     * @var string|null $notes Additional notes the user has provided.
-    */
-    private ?string $notes = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $webUrl Link to the degree or program page.
-    */
-    private ?string $webUrl = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new educationalActivityDetail and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.educationalActivityDetail');
     }
@@ -86,7 +40,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAbbreviation(): ?string {
-        return $this->abbreviation;
+        return $this->getBackingStore()->get('abbreviation');
     }
 
     /**
@@ -94,15 +48,15 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getActivities(): ?array {
-        return $this->activities;
+        return $this->getBackingStore()->get('activities');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -110,7 +64,15 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAwards(): ?array {
-        return $this->awards;
+        return $this->getBackingStore()->get('awards');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -118,7 +80,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -126,7 +88,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -154,7 +116,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getFieldsOfStudy(): ?array {
-        return $this->fieldsOfStudy;
+        return $this->getBackingStore()->get('fieldsOfStudy');
     }
 
     /**
@@ -162,7 +124,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getGrade(): ?string {
-        return $this->grade;
+        return $this->getBackingStore()->get('grade');
     }
 
     /**
@@ -170,7 +132,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNotes(): ?string {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -178,7 +140,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -186,7 +148,7 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -194,105 +156,105 @@ class EducationalActivityDetail implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('abbreviation', $this->abbreviation);
-        $writer->writeCollectionOfPrimitiveValues('activities', $this->activities);
-        $writer->writeCollectionOfPrimitiveValues('awards', $this->awards);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfPrimitiveValues('fieldsOfStudy', $this->fieldsOfStudy);
-        $writer->writeStringValue('grade', $this->grade);
-        $writer->writeStringValue('notes', $this->notes);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('webUrl', $this->webUrl);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('abbreviation', $this->getAbbreviation());
+        $writer->writeCollectionOfPrimitiveValues('activities', $this->getActivities());
+        $writer->writeCollectionOfPrimitiveValues('awards', $this->getAwards());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('fieldsOfStudy', $this->getFieldsOfStudy());
+        $writer->writeStringValue('grade', $this->getGrade());
+        $writer->writeStringValue('notes', $this->getNotes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the abbreviation property value. Shortened name of the degree or program (example: PhD, MBA)
      *  @param string|null $value Value to set for the abbreviation property.
     */
-    public function setAbbreviation(?string $value ): void {
-        $this->abbreviation = $value;
+    public function setAbbreviation(?string $value): void {
+        $this->getBackingStore()->set('abbreviation', $value);
     }
 
     /**
      * Sets the activities property value. Extracurricular activities undertaken alongside the program.
      *  @param array<string>|null $value Value to set for the activities property.
     */
-    public function setActivities(?array $value ): void {
-        $this->activities = $value;
+    public function setActivities(?array $value): void {
+        $this->getBackingStore()->set('activities', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the awards property value. Any awards or honors associated with the program.
      *  @param array<string>|null $value Value to set for the awards property.
     */
-    public function setAwards(?array $value ): void {
-        $this->awards = $value;
+    public function setAwards(?array $value): void {
+        $this->getBackingStore()->set('awards', $value);
     }
 
     /**
      * Sets the description property value. Short description of the program provided by the user.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Long-form name of the program that the user has provided.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the fieldsOfStudy property value. Majors and minors associated with the program. (if applicable)
      *  @param array<string>|null $value Value to set for the fieldsOfStudy property.
     */
-    public function setFieldsOfStudy(?array $value ): void {
-        $this->fieldsOfStudy = $value;
+    public function setFieldsOfStudy(?array $value): void {
+        $this->getBackingStore()->set('fieldsOfStudy', $value);
     }
 
     /**
      * Sets the grade property value. The final grade, class, GPA or score.
      *  @param string|null $value Value to set for the grade property.
     */
-    public function setGrade(?string $value ): void {
-        $this->grade = $value;
+    public function setGrade(?string $value): void {
+        $this->getBackingStore()->set('grade', $value);
     }
 
     /**
      * Sets the notes property value. Additional notes the user has provided.
      *  @param string|null $value Value to set for the notes property.
     */
-    public function setNotes(?string $value ): void {
-        $this->notes = $value;
+    public function setNotes(?string $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the webUrl property value. Link to the degree or program page.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

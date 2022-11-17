@@ -6,53 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsable 
+class DeviceManagementSettingComparison implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DeviceManagementComparisonResult|null $comparisonResult Setting comparison result type
-    */
-    private ?DeviceManagementComparisonResult $comparisonResult = null;
-    
-    /**
-     * @var string|null $currentValueJson JSON representation of current intent (or) template setting's value
-    */
-    private ?string $currentValueJson = null;
-    
-    /**
-     * @var string|null $definitionId The ID of the setting definition for this instance
-    */
-    private ?string $definitionId = null;
-    
-    /**
-     * @var string|null $displayName The setting's display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $id The setting ID
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var string|null $newValueJson JSON representation of new template setting's value
-    */
-    private ?string $newValueJson = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementSettingComparison and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.deviceManagementSettingComparison');
     }
@@ -70,8 +39,16 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +56,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return DeviceManagementComparisonResult|null
     */
     public function getComparisonResult(): ?DeviceManagementComparisonResult {
-        return $this->comparisonResult;
+        return $this->getBackingStore()->get('comparisonResult');
     }
 
     /**
@@ -87,7 +64,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getCurrentValueJson(): ?string {
-        return $this->currentValueJson;
+        return $this->getBackingStore()->get('currentValueJson');
     }
 
     /**
@@ -95,7 +72,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getDefinitionId(): ?string {
-        return $this->definitionId;
+        return $this->getBackingStore()->get('definitionId');
     }
 
     /**
@@ -103,7 +80,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -128,7 +105,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -136,7 +113,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getNewValueJson(): ?string {
-        return $this->newValueJson;
+        return $this->getBackingStore()->get('newValueJson');
     }
 
     /**
@@ -144,7 +121,7 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -152,78 +129,78 @@ class DeviceManagementSettingComparison implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('comparisonResult', $this->comparisonResult);
-        $writer->writeStringValue('currentValueJson', $this->currentValueJson);
-        $writer->writeStringValue('definitionId', $this->definitionId);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeStringValue('newValueJson', $this->newValueJson);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('comparisonResult', $this->getComparisonResult());
+        $writer->writeStringValue('currentValueJson', $this->getCurrentValueJson());
+        $writer->writeStringValue('definitionId', $this->getDefinitionId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeStringValue('newValueJson', $this->getNewValueJson());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the comparisonResult property value. Setting comparison result type
      *  @param DeviceManagementComparisonResult|null $value Value to set for the comparisonResult property.
     */
-    public function setComparisonResult(?DeviceManagementComparisonResult $value ): void {
-        $this->comparisonResult = $value;
+    public function setComparisonResult(?DeviceManagementComparisonResult $value): void {
+        $this->getBackingStore()->set('comparisonResult', $value);
     }
 
     /**
      * Sets the currentValueJson property value. JSON representation of current intent (or) template setting's value
      *  @param string|null $value Value to set for the currentValueJson property.
     */
-    public function setCurrentValueJson(?string $value ): void {
-        $this->currentValueJson = $value;
+    public function setCurrentValueJson(?string $value): void {
+        $this->getBackingStore()->set('currentValueJson', $value);
     }
 
     /**
      * Sets the definitionId property value. The ID of the setting definition for this instance
      *  @param string|null $value Value to set for the definitionId property.
     */
-    public function setDefinitionId(?string $value ): void {
-        $this->definitionId = $value;
+    public function setDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('definitionId', $value);
     }
 
     /**
      * Sets the displayName property value. The setting's display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the id property value. The setting ID
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the newValueJson property value. JSON representation of new template setting's value
      *  @param string|null $value Value to set for the newValueJson property.
     */
-    public function setNewValueJson(?string $value ): void {
-        $this->newValueJson = $value;
+    public function setNewValueJson(?string $value): void {
+        $this->getBackingStore()->set('newValueJson', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -12,21 +12,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SearchEntity extends Entity implements Parsable 
 {
     /**
-     * @var array<Acronym>|null $acronyms Administrative answer in Microsoft Search results to define common acronyms in a organization.
-    */
-    private ?array $acronyms = null;
-    
-    /**
-     * @var array<Bookmark>|null $bookmarks Administrative answer in Microsoft Search results for common search queries in an organization.
-    */
-    private ?array $bookmarks = null;
-    
-    /**
-     * @var array<Qna>|null $qnas Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
-    */
-    private ?array $qnas = null;
-    
-    /**
      * Instantiates a new SearchEntity and sets the default values.
     */
     public function __construct() {
@@ -48,7 +33,7 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Acronym>|null
     */
     public function getAcronyms(): ?array {
-        return $this->acronyms;
+        return $this->getBackingStore()->get('acronyms');
     }
 
     /**
@@ -56,7 +41,7 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Bookmark>|null
     */
     public function getBookmarks(): ?array {
-        return $this->bookmarks;
+        return $this->getBackingStore()->get('bookmarks');
     }
 
     /**
@@ -77,7 +62,7 @@ class SearchEntity extends Entity implements Parsable
      * @return array<Qna>|null
     */
     public function getQnas(): ?array {
-        return $this->qnas;
+        return $this->getBackingStore()->get('qnas');
     }
 
     /**
@@ -86,33 +71,33 @@ class SearchEntity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('acronyms', $this->acronyms);
-        $writer->writeCollectionOfObjectValues('bookmarks', $this->bookmarks);
-        $writer->writeCollectionOfObjectValues('qnas', $this->qnas);
+        $writer->writeCollectionOfObjectValues('acronyms', $this->getAcronyms());
+        $writer->writeCollectionOfObjectValues('bookmarks', $this->getBookmarks());
+        $writer->writeCollectionOfObjectValues('qnas', $this->getQnas());
     }
 
     /**
      * Sets the acronyms property value. Administrative answer in Microsoft Search results to define common acronyms in a organization.
      *  @param array<Acronym>|null $value Value to set for the acronyms property.
     */
-    public function setAcronyms(?array $value ): void {
-        $this->acronyms = $value;
+    public function setAcronyms(?array $value): void {
+        $this->getBackingStore()->set('acronyms', $value);
     }
 
     /**
      * Sets the bookmarks property value. Administrative answer in Microsoft Search results for common search queries in an organization.
      *  @param array<Bookmark>|null $value Value to set for the bookmarks property.
     */
-    public function setBookmarks(?array $value ): void {
-        $this->bookmarks = $value;
+    public function setBookmarks(?array $value): void {
+        $this->getBackingStore()->set('bookmarks', $value);
     }
 
     /**
      * Sets the qnas property value. Administrative answer in Microsoft Search results which provide answers for specific search keywords in an organization.
      *  @param array<Qna>|null $value Value to set for the qnas property.
     */
-    public function setQnas(?array $value ): void {
-        $this->qnas = $value;
+    public function setQnas(?array $value): void {
+        $this->getBackingStore()->set('qnas', $value);
     }
 
 }

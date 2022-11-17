@@ -6,73 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MatchingLabel implements AdditionalDataHolder, Parsable 
+class MatchingLabel implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ApplicationMode|null $applicationMode The applicationMode property
-    */
-    private ?ApplicationMode $applicationMode = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $id The id property
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property
-    */
-    private ?bool $isEndpointProtectionEnabled = null;
-    
-    /**
-     * @var array<LabelActionBase>|null $labelActions The labelActions property
-    */
-    private ?array $labelActions = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $policyTip The policyTip property
-    */
-    private ?string $policyTip = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var string|null $toolTip The toolTip property
-    */
-    private ?string $toolTip = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new matchingLabel and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.matchingLabel');
     }
@@ -90,8 +39,8 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -99,7 +48,15 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return ApplicationMode|null
     */
     public function getApplicationMode(): ?ApplicationMode {
-        return $this->applicationMode;
+        return $this->getBackingStore()->get('applicationMode');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -107,7 +64,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -115,7 +72,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -144,7 +101,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -152,7 +109,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsEndpointProtectionEnabled(): ?bool {
-        return $this->isEndpointProtectionEnabled;
+        return $this->getBackingStore()->get('isEndpointProtectionEnabled');
     }
 
     /**
@@ -160,7 +117,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return array<LabelActionBase>|null
     */
     public function getLabelActions(): ?array {
-        return $this->labelActions;
+        return $this->getBackingStore()->get('labelActions');
     }
 
     /**
@@ -168,7 +125,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -176,7 +133,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -184,7 +141,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPolicyTip(): ?string {
-        return $this->policyTip;
+        return $this->getBackingStore()->get('policyTip');
     }
 
     /**
@@ -192,7 +149,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -200,7 +157,7 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getToolTip(): ?string {
-        return $this->toolTip;
+        return $this->getBackingStore()->get('toolTip');
     }
 
     /**
@@ -208,114 +165,114 @@ class MatchingLabel implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('applicationMode', $this->applicationMode);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->isEndpointProtectionEnabled);
-        $writer->writeCollectionOfObjectValues('labelActions', $this->labelActions);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('policyTip', $this->policyTip);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeStringValue('toolTip', $this->toolTip);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('applicationMode', $this->getApplicationMode());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->getIsEndpointProtectionEnabled());
+        $writer->writeCollectionOfObjectValues('labelActions', $this->getLabelActions());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('policyTip', $this->getPolicyTip());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeStringValue('toolTip', $this->getToolTip());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the applicationMode property value. The applicationMode property
      *  @param ApplicationMode|null $value Value to set for the applicationMode property.
     */
-    public function setApplicationMode(?ApplicationMode $value ): void {
-        $this->applicationMode = $value;
+    public function setApplicationMode(?ApplicationMode $value): void {
+        $this->getBackingStore()->set('applicationMode', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the id property value. The id property
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the isEndpointProtectionEnabled property value. The isEndpointProtectionEnabled property
      *  @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
     */
-    public function setIsEndpointProtectionEnabled(?bool $value ): void {
-        $this->isEndpointProtectionEnabled = $value;
+    public function setIsEndpointProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEndpointProtectionEnabled', $value);
     }
 
     /**
      * Sets the labelActions property value. The labelActions property
      *  @param array<LabelActionBase>|null $value Value to set for the labelActions property.
     */
-    public function setLabelActions(?array $value ): void {
-        $this->labelActions = $value;
+    public function setLabelActions(?array $value): void {
+        $this->getBackingStore()->set('labelActions', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the policyTip property value. The policyTip property
      *  @param string|null $value Value to set for the policyTip property.
     */
-    public function setPolicyTip(?string $value ): void {
-        $this->policyTip = $value;
+    public function setPolicyTip(?string $value): void {
+        $this->getBackingStore()->set('policyTip', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the toolTip property value. The toolTip property
      *  @param string|null $value Value to set for the toolTip property.
     */
-    public function setToolTip(?string $value ): void {
-        $this->toolTip = $value;
+    public function setToolTip(?string $value): void {
+        $this->getBackingStore()->set('toolTip', $value);
     }
 
 }

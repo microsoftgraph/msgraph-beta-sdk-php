@@ -7,48 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $backlightBrightness The brightness level on the device (0-100). Not applicable for Microsoft Teams Rooms devices.
-    */
-    private ?int $backlightBrightness = null;
-    
-    /**
-     * @var DateInterval|null $backlightTimeout Timeout for backlight (30-3600 secs). Not applicable for Teams Rooms devices.
-    */
-    private ?DateInterval $backlightTimeout = null;
-    
-    /**
-     * @var bool|null $isHighContrastEnabled True if high contrast mode is enabled. Not applicable for Teams Rooms devices.
-    */
-    private ?bool $isHighContrastEnabled = null;
-    
-    /**
-     * @var bool|null $isScreensaverEnabled True if screensaver is enabled. Not applicable for Teams Rooms devices.
-    */
-    private ?bool $isScreensaverEnabled = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateInterval|null $screensaverTimeout Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices.
-    */
-    private ?DateInterval $screensaverTimeout = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkDisplayScreenConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.teamworkDisplayScreenConfiguration');
     }
@@ -66,8 +40,16 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -75,7 +57,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return int|null
     */
     public function getBacklightBrightness(): ?int {
-        return $this->backlightBrightness;
+        return $this->getBackingStore()->get('backlightBrightness');
     }
 
     /**
@@ -83,7 +65,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return DateInterval|null
     */
     public function getBacklightTimeout(): ?DateInterval {
-        return $this->backlightTimeout;
+        return $this->getBackingStore()->get('backlightTimeout');
     }
 
     /**
@@ -107,7 +89,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return bool|null
     */
     public function getIsHighContrastEnabled(): ?bool {
-        return $this->isHighContrastEnabled;
+        return $this->getBackingStore()->get('isHighContrastEnabled');
     }
 
     /**
@@ -115,7 +97,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return bool|null
     */
     public function getIsScreensaverEnabled(): ?bool {
-        return $this->isScreensaverEnabled;
+        return $this->getBackingStore()->get('isScreensaverEnabled');
     }
 
     /**
@@ -123,7 +105,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -131,7 +113,7 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @return DateInterval|null
     */
     public function getScreensaverTimeout(): ?DateInterval {
-        return $this->screensaverTimeout;
+        return $this->getBackingStore()->get('screensaverTimeout');
     }
 
     /**
@@ -139,69 +121,69 @@ class TeamworkDisplayScreenConfiguration implements AdditionalDataHolder, Parsab
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('backlightBrightness', $this->backlightBrightness);
-        $writer->writeDateIntervalValue('backlightTimeout', $this->backlightTimeout);
-        $writer->writeBooleanValue('isHighContrastEnabled', $this->isHighContrastEnabled);
-        $writer->writeBooleanValue('isScreensaverEnabled', $this->isScreensaverEnabled);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateIntervalValue('screensaverTimeout', $this->screensaverTimeout);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('backlightBrightness', $this->getBacklightBrightness());
+        $writer->writeDateIntervalValue('backlightTimeout', $this->getBacklightTimeout());
+        $writer->writeBooleanValue('isHighContrastEnabled', $this->getIsHighContrastEnabled());
+        $writer->writeBooleanValue('isScreensaverEnabled', $this->getIsScreensaverEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateIntervalValue('screensaverTimeout', $this->getScreensaverTimeout());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the backlightBrightness property value. The brightness level on the device (0-100). Not applicable for Microsoft Teams Rooms devices.
      *  @param int|null $value Value to set for the backlightBrightness property.
     */
-    public function setBacklightBrightness(?int $value ): void {
-        $this->backlightBrightness = $value;
+    public function setBacklightBrightness(?int $value): void {
+        $this->getBackingStore()->set('backlightBrightness', $value);
     }
 
     /**
      * Sets the backlightTimeout property value. Timeout for backlight (30-3600 secs). Not applicable for Teams Rooms devices.
      *  @param DateInterval|null $value Value to set for the backlightTimeout property.
     */
-    public function setBacklightTimeout(?DateInterval $value ): void {
-        $this->backlightTimeout = $value;
+    public function setBacklightTimeout(?DateInterval $value): void {
+        $this->getBackingStore()->set('backlightTimeout', $value);
     }
 
     /**
      * Sets the isHighContrastEnabled property value. True if high contrast mode is enabled. Not applicable for Teams Rooms devices.
      *  @param bool|null $value Value to set for the isHighContrastEnabled property.
     */
-    public function setIsHighContrastEnabled(?bool $value ): void {
-        $this->isHighContrastEnabled = $value;
+    public function setIsHighContrastEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHighContrastEnabled', $value);
     }
 
     /**
      * Sets the isScreensaverEnabled property value. True if screensaver is enabled. Not applicable for Teams Rooms devices.
      *  @param bool|null $value Value to set for the isScreensaverEnabled property.
     */
-    public function setIsScreensaverEnabled(?bool $value ): void {
-        $this->isScreensaverEnabled = $value;
+    public function setIsScreensaverEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isScreensaverEnabled', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the screensaverTimeout property value. Screensaver timeout from 30 to 3600 secs. Not applicable for Teams Rooms devices.
      *  @param DateInterval|null $value Value to set for the screensaverTimeout property.
     */
-    public function setScreensaverTimeout(?DateInterval $value ): void {
-        $this->screensaverTimeout = $value;
+    public function setScreensaverTimeout(?DateInterval $value): void {
+        $this->getBackingStore()->set('screensaverTimeout', $value);
     }
 
 }

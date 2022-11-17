@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptWithTemplate extends EncryptContent implements Parsable 
 {
     /**
-     * @var bool|null $availableForEncryption The availableForEncryption property
-    */
-    private ?bool $availableForEncryption = null;
-    
-    /**
-     * @var string|null $templateId The templateId property
-    */
-    private ?string $templateId = null;
-    
-    /**
      * Instantiates a new EncryptWithTemplate and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
      * @return bool|null
     */
     public function getAvailableForEncryption(): ?bool {
-        return $this->availableForEncryption;
+        return $this->getBackingStore()->get('availableForEncryption');
     }
 
     /**
@@ -60,7 +50,7 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -69,24 +59,24 @@ class EncryptWithTemplate extends EncryptContent implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('availableForEncryption', $this->availableForEncryption);
-        $writer->writeStringValue('templateId', $this->templateId);
+        $writer->writeBooleanValue('availableForEncryption', $this->getAvailableForEncryption());
+        $writer->writeStringValue('templateId', $this->getTemplateId());
     }
 
     /**
      * Sets the availableForEncryption property value. The availableForEncryption property
      *  @param bool|null $value Value to set for the availableForEncryption property.
     */
-    public function setAvailableForEncryption(?bool $value ): void {
-        $this->availableForEncryption = $value;
+    public function setAvailableForEncryption(?bool $value): void {
+        $this->getBackingStore()->set('availableForEncryption', $value);
     }
 
     /**
      * Sets the templateId property value. The templateId property
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
 }

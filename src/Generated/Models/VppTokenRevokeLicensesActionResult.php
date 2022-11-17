@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements Parsable 
 {
     /**
-     * @var VppTokenActionFailureReason|null $actionFailureReason Possible types of reasons for an Apple Volume Purchase Program token action failure.
-    */
-    private ?VppTokenActionFailureReason $actionFailureReason = null;
-    
-    /**
-     * @var int|null $failedLicensesCount A count of the number of licenses that failed to revoke.
-    */
-    private ?int $failedLicensesCount = null;
-    
-    /**
-     * @var int|null $totalLicensesCount A count of the number of licenses that were attempted to revoke.
-    */
-    private ?int $totalLicensesCount = null;
-    
-    /**
      * Instantiates a new VppTokenRevokeLicensesActionResult and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
      * @return VppTokenActionFailureReason|null
     */
     public function getActionFailureReason(): ?VppTokenActionFailureReason {
-        return $this->actionFailureReason;
+        return $this->getBackingStore()->get('actionFailureReason');
     }
 
     /**
@@ -53,7 +38,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
      * @return int|null
     */
     public function getFailedLicensesCount(): ?int {
-        return $this->failedLicensesCount;
+        return $this->getBackingStore()->get('failedLicensesCount');
     }
 
     /**
@@ -74,7 +59,7 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
      * @return int|null
     */
     public function getTotalLicensesCount(): ?int {
-        return $this->totalLicensesCount;
+        return $this->getBackingStore()->get('totalLicensesCount');
     }
 
     /**
@@ -83,33 +68,33 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('actionFailureReason', $this->actionFailureReason);
-        $writer->writeIntegerValue('failedLicensesCount', $this->failedLicensesCount);
-        $writer->writeIntegerValue('totalLicensesCount', $this->totalLicensesCount);
+        $writer->writeEnumValue('actionFailureReason', $this->getActionFailureReason());
+        $writer->writeIntegerValue('failedLicensesCount', $this->getFailedLicensesCount());
+        $writer->writeIntegerValue('totalLicensesCount', $this->getTotalLicensesCount());
     }
 
     /**
      * Sets the actionFailureReason property value. Possible types of reasons for an Apple Volume Purchase Program token action failure.
      *  @param VppTokenActionFailureReason|null $value Value to set for the actionFailureReason property.
     */
-    public function setActionFailureReason(?VppTokenActionFailureReason $value ): void {
-        $this->actionFailureReason = $value;
+    public function setActionFailureReason(?VppTokenActionFailureReason $value): void {
+        $this->getBackingStore()->set('actionFailureReason', $value);
     }
 
     /**
      * Sets the failedLicensesCount property value. A count of the number of licenses that failed to revoke.
      *  @param int|null $value Value to set for the failedLicensesCount property.
     */
-    public function setFailedLicensesCount(?int $value ): void {
-        $this->failedLicensesCount = $value;
+    public function setFailedLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('failedLicensesCount', $value);
     }
 
     /**
      * Sets the totalLicensesCount property value. A count of the number of licenses that were attempted to revoke.
      *  @param int|null $value Value to set for the totalLicensesCount property.
     */
-    public function setTotalLicensesCount(?int $value ): void {
-        $this->totalLicensesCount = $value;
+    public function setTotalLicensesCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicensesCount', $value);
     }
 
 }

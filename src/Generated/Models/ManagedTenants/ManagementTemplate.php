@@ -12,86 +12,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplate extends Entity implements Parsable 
 {
     /**
-     * @var ManagementCategory|null $category The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-    */
-    private ?ManagementCategory $category = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description for the management template. Optional. Read-only.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name for the management template. Required. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<ActionUrl>|null $informationLinks The informationLinks property
-    */
-    private ?array $informationLinks = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
-     * @var array<ManagementTemplateCollection>|null $managementTemplateCollections The managementTemplateCollections property
-    */
-    private ?array $managementTemplateCollections = null;
-    
-    /**
-     * @var array<ManagementTemplateStep>|null $managementTemplateSteps The managementTemplateSteps property
-    */
-    private ?array $managementTemplateSteps = null;
-    
-    /**
-     * @var array<TemplateParameter>|null $parameters The collection of parameters used by the management template. Optional. Read-only.
-    */
-    private ?array $parameters = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var ManagementProvider|null $provider The provider property
-    */
-    private ?ManagementProvider $provider = null;
-    
-    /**
-     * @var string|null $userImpact The userImpact property
-    */
-    private ?string $userImpact = null;
-    
-    /**
-     * @var int|null $version The version property
-    */
-    private ?int $version = null;
-    
-    /**
-     * @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management template. Optional. Read-only.
-    */
-    private ?array $workloadActions = null;
-    
-    /**
      * Instantiates a new managementTemplate and sets the default values.
     */
     public function __construct() {
@@ -113,7 +33,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -121,7 +41,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -129,7 +49,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -137,7 +57,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -145,7 +65,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -179,7 +99,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return array<ActionUrl>|null
     */
     public function getInformationLinks(): ?array {
-        return $this->informationLinks;
+        return $this->getBackingStore()->get('informationLinks');
     }
 
     /**
@@ -187,7 +107,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -195,7 +115,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -203,7 +123,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return array<ManagementTemplateCollection>|null
     */
     public function getManagementTemplateCollections(): ?array {
-        return $this->managementTemplateCollections;
+        return $this->getBackingStore()->get('managementTemplateCollections');
     }
 
     /**
@@ -211,7 +131,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return array<ManagementTemplateStep>|null
     */
     public function getManagementTemplateSteps(): ?array {
-        return $this->managementTemplateSteps;
+        return $this->getBackingStore()->get('managementTemplateSteps');
     }
 
     /**
@@ -219,7 +139,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return array<TemplateParameter>|null
     */
     public function getParameters(): ?array {
-        return $this->parameters;
+        return $this->getBackingStore()->get('parameters');
     }
 
     /**
@@ -227,7 +147,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -235,7 +155,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return ManagementProvider|null
     */
     public function getProvider(): ?ManagementProvider {
-        return $this->provider;
+        return $this->getBackingStore()->get('provider');
     }
 
     /**
@@ -243,7 +163,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getUserImpact(): ?string {
-        return $this->userImpact;
+        return $this->getBackingStore()->get('userImpact');
     }
 
     /**
@@ -251,7 +171,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -259,7 +179,7 @@ class ManagementTemplate extends Entity implements Parsable
      * @return array<WorkloadAction>|null
     */
     public function getWorkloadActions(): ?array {
-        return $this->workloadActions;
+        return $this->getBackingStore()->get('workloadActions');
     }
 
     /**
@@ -268,150 +188,150 @@ class ManagementTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('informationLinks', $this->informationLinks);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
-        $writer->writeCollectionOfObjectValues('managementTemplateCollections', $this->managementTemplateCollections);
-        $writer->writeCollectionOfObjectValues('managementTemplateSteps', $this->managementTemplateSteps);
-        $writer->writeCollectionOfObjectValues('parameters', $this->parameters);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeEnumValue('provider', $this->provider);
-        $writer->writeStringValue('userImpact', $this->userImpact);
-        $writer->writeIntegerValue('version', $this->version);
-        $writer->writeCollectionOfObjectValues('workloadActions', $this->workloadActions);
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('informationLinks', $this->getInformationLinks());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeCollectionOfObjectValues('managementTemplateCollections', $this->getManagementTemplateCollections());
+        $writer->writeCollectionOfObjectValues('managementTemplateSteps', $this->getManagementTemplateSteps());
+        $writer->writeCollectionOfObjectValues('parameters', $this->getParameters());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeEnumValue('provider', $this->getProvider());
+        $writer->writeStringValue('userImpact', $this->getUserImpact());
+        $writer->writeIntegerValue('version', $this->getVersion());
+        $writer->writeCollectionOfObjectValues('workloadActions', $this->getWorkloadActions());
     }
 
     /**
      * Sets the category property value. The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
      *  @param ManagementCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?ManagementCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?ManagementCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description for the management template. Optional. Read-only.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the management template. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the informationLinks property value. The informationLinks property
      *  @param array<ActionUrl>|null $value Value to set for the informationLinks property.
     */
-    public function setInformationLinks(?array $value ): void {
-        $this->informationLinks = $value;
+    public function setInformationLinks(?array $value): void {
+        $this->getBackingStore()->set('informationLinks', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
      * Sets the managementTemplateCollections property value. The managementTemplateCollections property
      *  @param array<ManagementTemplateCollection>|null $value Value to set for the managementTemplateCollections property.
     */
-    public function setManagementTemplateCollections(?array $value ): void {
-        $this->managementTemplateCollections = $value;
+    public function setManagementTemplateCollections(?array $value): void {
+        $this->getBackingStore()->set('managementTemplateCollections', $value);
     }
 
     /**
      * Sets the managementTemplateSteps property value. The managementTemplateSteps property
      *  @param array<ManagementTemplateStep>|null $value Value to set for the managementTemplateSteps property.
     */
-    public function setManagementTemplateSteps(?array $value ): void {
-        $this->managementTemplateSteps = $value;
+    public function setManagementTemplateSteps(?array $value): void {
+        $this->getBackingStore()->set('managementTemplateSteps', $value);
     }
 
     /**
      * Sets the parameters property value. The collection of parameters used by the management template. Optional. Read-only.
      *  @param array<TemplateParameter>|null $value Value to set for the parameters property.
     */
-    public function setParameters(?array $value ): void {
-        $this->parameters = $value;
+    public function setParameters(?array $value): void {
+        $this->getBackingStore()->set('parameters', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the provider property value. The provider property
      *  @param ManagementProvider|null $value Value to set for the provider property.
     */
-    public function setProvider(?ManagementProvider $value ): void {
-        $this->provider = $value;
+    public function setProvider(?ManagementProvider $value): void {
+        $this->getBackingStore()->set('provider', $value);
     }
 
     /**
      * Sets the userImpact property value. The userImpact property
      *  @param string|null $value Value to set for the userImpact property.
     */
-    public function setUserImpact(?string $value ): void {
-        $this->userImpact = $value;
+    public function setUserImpact(?string $value): void {
+        $this->getBackingStore()->set('userImpact', $value);
     }
 
     /**
      * Sets the version property value. The version property
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
     /**
      * Sets the workloadActions property value. The collection of workload actions associated with the management template. Optional. Read-only.
      *  @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
     */
-    public function setWorkloadActions(?array $value ): void {
-        $this->workloadActions = $value;
+    public function setWorkloadActions(?array $value): void {
+        $this->getBackingStore()->set('workloadActions', $value);
     }
 
 }

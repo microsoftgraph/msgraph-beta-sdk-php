@@ -6,83 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AttributeDefinition implements AdditionalDataHolder, Parsable 
+class AttributeDefinition implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $anchor true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization.
-    */
-    private ?bool $anchor = null;
-    
-    /**
-     * @var array<StringKeyStringValuePair>|null $apiExpressions The apiExpressions property
-    */
-    private ?array $apiExpressions = null;
-    
-    /**
-     * @var bool|null $caseExact true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute.
-    */
-    private ?bool $caseExact = null;
-    
-    /**
-     * @var string|null $defaultValue The defaultValue property
-    */
-    private ?string $defaultValue = null;
-    
-    /**
-     * @var bool|null $flowNullValues 'true' to allow null values for attributes.
-    */
-    private ?bool $flowNullValues = null;
-    
-    /**
-     * @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-    */
-    private ?array $metadata = null;
-    
-    /**
-     * @var bool|null $multivalued true if an attribute can have multiple values. Default is false.
-    */
-    private ?bool $multivalued = null;
-    
-    /**
-     * @var Mutability|null $mutability The mutability property
-    */
-    private ?Mutability $mutability = null;
-    
-    /**
-     * @var string|null $name Name of the attribute. Must be unique within the object definition. Not nullable.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<ReferencedObject>|null $referencedObjects For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
-    */
-    private ?array $referencedObjects = null;
-    
-    /**
-     * @var bool|null $required true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error.
-    */
-    private ?bool $required = null;
-    
-    /**
-     * @var AttributeType|null $type The type property
-    */
-    private ?AttributeType $type = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new attributeDefinition and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.attributeDefinition');
     }
@@ -100,8 +39,8 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -109,7 +48,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAnchor(): ?bool {
-        return $this->anchor;
+        return $this->getBackingStore()->get('anchor');
     }
 
     /**
@@ -117,7 +56,15 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return array<StringKeyStringValuePair>|null
     */
     public function getApiExpressions(): ?array {
-        return $this->apiExpressions;
+        return $this->getBackingStore()->get('apiExpressions');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -125,7 +72,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getCaseExact(): ?bool {
-        return $this->caseExact;
+        return $this->getBackingStore()->get('caseExact');
     }
 
     /**
@@ -133,7 +80,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -164,7 +111,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getFlowNullValues(): ?bool {
-        return $this->flowNullValues;
+        return $this->getBackingStore()->get('flowNullValues');
     }
 
     /**
@@ -172,7 +119,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return array<MetadataEntry>|null
     */
     public function getMetadata(): ?array {
-        return $this->metadata;
+        return $this->getBackingStore()->get('metadata');
     }
 
     /**
@@ -180,7 +127,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getMultivalued(): ?bool {
-        return $this->multivalued;
+        return $this->getBackingStore()->get('multivalued');
     }
 
     /**
@@ -188,7 +135,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return Mutability|null
     */
     public function getMutability(): ?Mutability {
-        return $this->mutability;
+        return $this->getBackingStore()->get('mutability');
     }
 
     /**
@@ -196,7 +143,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -204,7 +151,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -212,7 +159,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return array<ReferencedObject>|null
     */
     public function getReferencedObjects(): ?array {
-        return $this->referencedObjects;
+        return $this->getBackingStore()->get('referencedObjects');
     }
 
     /**
@@ -220,7 +167,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->required;
+        return $this->getBackingStore()->get('required');
     }
 
     /**
@@ -228,7 +175,7 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @return AttributeType|null
     */
     public function getType(): ?AttributeType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -236,132 +183,132 @@ class AttributeDefinition implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('anchor', $this->anchor);
-        $writer->writeCollectionOfObjectValues('apiExpressions', $this->apiExpressions);
-        $writer->writeBooleanValue('caseExact', $this->caseExact);
-        $writer->writeStringValue('defaultValue', $this->defaultValue);
-        $writer->writeBooleanValue('flowNullValues', $this->flowNullValues);
-        $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
-        $writer->writeBooleanValue('multivalued', $this->multivalued);
-        $writer->writeEnumValue('mutability', $this->mutability);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfObjectValues('referencedObjects', $this->referencedObjects);
-        $writer->writeBooleanValue('required', $this->required);
-        $writer->writeEnumValue('type', $this->type);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('anchor', $this->getAnchor());
+        $writer->writeCollectionOfObjectValues('apiExpressions', $this->getApiExpressions());
+        $writer->writeBooleanValue('caseExact', $this->getCaseExact());
+        $writer->writeStringValue('defaultValue', $this->getDefaultValue());
+        $writer->writeBooleanValue('flowNullValues', $this->getFlowNullValues());
+        $writer->writeCollectionOfObjectValues('metadata', $this->getMetadata());
+        $writer->writeBooleanValue('multivalued', $this->getMultivalued());
+        $writer->writeEnumValue('mutability', $this->getMutability());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfObjectValues('referencedObjects', $this->getReferencedObjects());
+        $writer->writeBooleanValue('required', $this->getRequired());
+        $writer->writeEnumValue('type', $this->getType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the anchor property value. true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization.
      *  @param bool|null $value Value to set for the anchor property.
     */
-    public function setAnchor(?bool $value ): void {
-        $this->anchor = $value;
+    public function setAnchor(?bool $value): void {
+        $this->getBackingStore()->set('anchor', $value);
     }
 
     /**
      * Sets the apiExpressions property value. The apiExpressions property
      *  @param array<StringKeyStringValuePair>|null $value Value to set for the apiExpressions property.
     */
-    public function setApiExpressions(?array $value ): void {
-        $this->apiExpressions = $value;
+    public function setApiExpressions(?array $value): void {
+        $this->getBackingStore()->set('apiExpressions', $value);
     }
 
     /**
      * Sets the caseExact property value. true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute.
      *  @param bool|null $value Value to set for the caseExact property.
     */
-    public function setCaseExact(?bool $value ): void {
-        $this->caseExact = $value;
+    public function setCaseExact(?bool $value): void {
+        $this->getBackingStore()->set('caseExact', $value);
     }
 
     /**
      * Sets the defaultValue property value. The defaultValue property
      *  @param string|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?string $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?string $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
     /**
      * Sets the flowNullValues property value. 'true' to allow null values for attributes.
      *  @param bool|null $value Value to set for the flowNullValues property.
     */
-    public function setFlowNullValues(?bool $value ): void {
-        $this->flowNullValues = $value;
+    public function setFlowNullValues(?bool $value): void {
+        $this->getBackingStore()->set('flowNullValues', $value);
     }
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
      *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
-    public function setMetadata(?array $value ): void {
-        $this->metadata = $value;
+    public function setMetadata(?array $value): void {
+        $this->getBackingStore()->set('metadata', $value);
     }
 
     /**
      * Sets the multivalued property value. true if an attribute can have multiple values. Default is false.
      *  @param bool|null $value Value to set for the multivalued property.
     */
-    public function setMultivalued(?bool $value ): void {
-        $this->multivalued = $value;
+    public function setMultivalued(?bool $value): void {
+        $this->getBackingStore()->set('multivalued', $value);
     }
 
     /**
      * Sets the mutability property value. The mutability property
      *  @param Mutability|null $value Value to set for the mutability property.
     */
-    public function setMutability(?Mutability $value ): void {
-        $this->mutability = $value;
+    public function setMutability(?Mutability $value): void {
+        $this->getBackingStore()->set('mutability', $value);
     }
 
     /**
      * Sets the name property value. Name of the attribute. Must be unique within the object definition. Not nullable.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the referencedObjects property value. For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
      *  @param array<ReferencedObject>|null $value Value to set for the referencedObjects property.
     */
-    public function setReferencedObjects(?array $value ): void {
-        $this->referencedObjects = $value;
+    public function setReferencedObjects(?array $value): void {
+        $this->getBackingStore()->set('referencedObjects', $value);
     }
 
     /**
      * Sets the required property value. true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error.
      *  @param bool|null $value Value to set for the required property.
     */
-    public function setRequired(?bool $value ): void {
-        $this->required = $value;
+    public function setRequired(?bool $value): void {
+        $this->getBackingStore()->set('required', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param AttributeType|null $value Value to set for the type property.
     */
-    public function setType(?AttributeType $value ): void {
-        $this->type = $value;
+    public function setType(?AttributeType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

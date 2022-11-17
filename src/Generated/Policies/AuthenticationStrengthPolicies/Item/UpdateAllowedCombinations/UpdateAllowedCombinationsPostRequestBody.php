@@ -7,23 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<AuthenticationMethodModes>|null $allowedCombinations The allowedCombinations property
-    */
-    private ?array $allowedCombinations = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateAllowedCombinationsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -40,8 +39,8 @@ class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, 
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -49,7 +48,15 @@ class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, 
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAllowedCombinations(): ?array {
-        return $this->allowedCombinations;
+        return $this->getBackingStore()->get('allowedCombinations');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -68,24 +75,24 @@ class UpdateAllowedCombinationsPostRequestBody implements AdditionalDataHolder, 
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfEnumValues('allowedCombinations', $this->allowedCombinations);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfEnumValues('allowedCombinations', $this->getAllowedCombinations());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowedCombinations property value. The allowedCombinations property
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the allowedCombinations property.
     */
-    public function setAllowedCombinations(?array $value ): void {
-        $this->allowedCombinations = $value;
+    public function setAllowedCombinations(?array $value): void {
+        $this->getBackingStore()->set('allowedCombinations', $value);
     }
 
 }

@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder, Parsable 
+class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $completedDeviceScopeIds A collection of the user experience analytics device scope Unique Identifiers that are enabled and finished recalculating the report metric.
-    */
-    private ?array $completedDeviceScopeIds = null;
-    
-    /**
-     * @var array<string>|null $insufficientDataDeviceScopeIds A collection of user experience analytics device scope Unique Identitfiers that are enabled but there is insufficient data to calculate results.
-    */
-    private ?array $insufficientDataDeviceScopeIds = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $totalDeviceScopes The total number of user experience analytics device scopes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $totalDeviceScopes = null;
-    
-    /**
-     * @var int|null $totalDeviceScopesEnabled The total number of user experience analytics device scopes that are enabled. Valid values -2147483648 to 2147483647
-    */
-    private ?int $totalDeviceScopesEnabled = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new userExperienceAnalyticsDeviceScopeSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceScopeSummary');
     }
@@ -60,8 +39,16 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +56,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getCompletedDeviceScopeIds(): ?array {
-        return $this->completedDeviceScopeIds;
+        return $this->getBackingStore()->get('completedDeviceScopeIds');
     }
 
     /**
@@ -92,7 +79,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return array<string>|null
     */
     public function getInsufficientDataDeviceScopeIds(): ?array {
-        return $this->insufficientDataDeviceScopeIds;
+        return $this->getBackingStore()->get('insufficientDataDeviceScopeIds');
     }
 
     /**
@@ -100,7 +87,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +95,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return int|null
     */
     public function getTotalDeviceScopes(): ?int {
-        return $this->totalDeviceScopes;
+        return $this->getBackingStore()->get('totalDeviceScopes');
     }
 
     /**
@@ -116,7 +103,7 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @return int|null
     */
     public function getTotalDeviceScopesEnabled(): ?int {
-        return $this->totalDeviceScopesEnabled;
+        return $this->getBackingStore()->get('totalDeviceScopesEnabled');
     }
 
     /**
@@ -124,60 +111,60 @@ class UserExperienceAnalyticsDeviceScopeSummary implements AdditionalDataHolder,
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('completedDeviceScopeIds', $this->completedDeviceScopeIds);
-        $writer->writeCollectionOfPrimitiveValues('insufficientDataDeviceScopeIds', $this->insufficientDataDeviceScopeIds);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('totalDeviceScopes', $this->totalDeviceScopes);
-        $writer->writeIntegerValue('totalDeviceScopesEnabled', $this->totalDeviceScopesEnabled);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('completedDeviceScopeIds', $this->getCompletedDeviceScopeIds());
+        $writer->writeCollectionOfPrimitiveValues('insufficientDataDeviceScopeIds', $this->getInsufficientDataDeviceScopeIds());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('totalDeviceScopes', $this->getTotalDeviceScopes());
+        $writer->writeIntegerValue('totalDeviceScopesEnabled', $this->getTotalDeviceScopesEnabled());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the completedDeviceScopeIds property value. A collection of the user experience analytics device scope Unique Identifiers that are enabled and finished recalculating the report metric.
      *  @param array<string>|null $value Value to set for the completedDeviceScopeIds property.
     */
-    public function setCompletedDeviceScopeIds(?array $value ): void {
-        $this->completedDeviceScopeIds = $value;
+    public function setCompletedDeviceScopeIds(?array $value): void {
+        $this->getBackingStore()->set('completedDeviceScopeIds', $value);
     }
 
     /**
      * Sets the insufficientDataDeviceScopeIds property value. A collection of user experience analytics device scope Unique Identitfiers that are enabled but there is insufficient data to calculate results.
      *  @param array<string>|null $value Value to set for the insufficientDataDeviceScopeIds property.
     */
-    public function setInsufficientDataDeviceScopeIds(?array $value ): void {
-        $this->insufficientDataDeviceScopeIds = $value;
+    public function setInsufficientDataDeviceScopeIds(?array $value): void {
+        $this->getBackingStore()->set('insufficientDataDeviceScopeIds', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the totalDeviceScopes property value. The total number of user experience analytics device scopes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the totalDeviceScopes property.
     */
-    public function setTotalDeviceScopes(?int $value ): void {
-        $this->totalDeviceScopes = $value;
+    public function setTotalDeviceScopes(?int $value): void {
+        $this->getBackingStore()->set('totalDeviceScopes', $value);
     }
 
     /**
      * Sets the totalDeviceScopesEnabled property value. The total number of user experience analytics device scopes that are enabled. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the totalDeviceScopesEnabled property.
     */
-    public function setTotalDeviceScopesEnabled(?int $value ): void {
-        $this->totalDeviceScopesEnabled = $value;
+    public function setTotalDeviceScopesEnabled(?int $value): void {
+        $this->getBackingStore()->set('totalDeviceScopesEnabled', $value);
     }
 
 }

@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsable 
+class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $lifetimeInMinutes Lifetime (minutes)
-    */
-    private ?int $lifetimeInMinutes = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $securityDiffieHellmanGroup Diffie-Hellman Group
-    */
-    private ?int $securityDiffieHellmanGroup = null;
-    
-    /**
-     * @var VpnEncryptionAlgorithmType|null $securityEncryptionAlgorithm Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-    */
-    private ?VpnEncryptionAlgorithmType $securityEncryptionAlgorithm = null;
-    
-    /**
-     * @var VpnIntegrityAlgorithmType|null $securityIntegrityAlgorithm Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
-    */
-    private ?VpnIntegrityAlgorithmType $securityIntegrityAlgorithm = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new iosVpnSecurityAssociationParameters and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.iosVpnSecurityAssociationParameters');
     }
@@ -60,8 +39,16 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -84,7 +71,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @return int|null
     */
     public function getLifetimeInMinutes(): ?int {
-        return $this->lifetimeInMinutes;
+        return $this->getBackingStore()->get('lifetimeInMinutes');
     }
 
     /**
@@ -92,7 +79,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -100,7 +87,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @return int|null
     */
     public function getSecurityDiffieHellmanGroup(): ?int {
-        return $this->securityDiffieHellmanGroup;
+        return $this->getBackingStore()->get('securityDiffieHellmanGroup');
     }
 
     /**
@@ -108,7 +95,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getSecurityEncryptionAlgorithm(): ?VpnEncryptionAlgorithmType {
-        return $this->securityEncryptionAlgorithm;
+        return $this->getBackingStore()->get('securityEncryptionAlgorithm');
     }
 
     /**
@@ -116,7 +103,7 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getSecurityIntegrityAlgorithm(): ?VpnIntegrityAlgorithmType {
-        return $this->securityIntegrityAlgorithm;
+        return $this->getBackingStore()->get('securityIntegrityAlgorithm');
     }
 
     /**
@@ -124,60 +111,60 @@ class IosVpnSecurityAssociationParameters implements AdditionalDataHolder, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('lifetimeInMinutes', $this->lifetimeInMinutes);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('securityDiffieHellmanGroup', $this->securityDiffieHellmanGroup);
-        $writer->writeEnumValue('securityEncryptionAlgorithm', $this->securityEncryptionAlgorithm);
-        $writer->writeEnumValue('securityIntegrityAlgorithm', $this->securityIntegrityAlgorithm);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('lifetimeInMinutes', $this->getLifetimeInMinutes());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('securityDiffieHellmanGroup', $this->getSecurityDiffieHellmanGroup());
+        $writer->writeEnumValue('securityEncryptionAlgorithm', $this->getSecurityEncryptionAlgorithm());
+        $writer->writeEnumValue('securityIntegrityAlgorithm', $this->getSecurityIntegrityAlgorithm());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the lifetimeInMinutes property value. Lifetime (minutes)
      *  @param int|null $value Value to set for the lifetimeInMinutes property.
     */
-    public function setLifetimeInMinutes(?int $value ): void {
-        $this->lifetimeInMinutes = $value;
+    public function setLifetimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('lifetimeInMinutes', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the securityDiffieHellmanGroup property value. Diffie-Hellman Group
      *  @param int|null $value Value to set for the securityDiffieHellmanGroup property.
     */
-    public function setSecurityDiffieHellmanGroup(?int $value ): void {
-        $this->securityDiffieHellmanGroup = $value;
+    public function setSecurityDiffieHellmanGroup(?int $value): void {
+        $this->getBackingStore()->set('securityDiffieHellmanGroup', $value);
     }
 
     /**
      * Sets the securityEncryptionAlgorithm property value. Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
      *  @param VpnEncryptionAlgorithmType|null $value Value to set for the securityEncryptionAlgorithm property.
     */
-    public function setSecurityEncryptionAlgorithm(?VpnEncryptionAlgorithmType $value ): void {
-        $this->securityEncryptionAlgorithm = $value;
+    public function setSecurityEncryptionAlgorithm(?VpnEncryptionAlgorithmType $value): void {
+        $this->getBackingStore()->set('securityEncryptionAlgorithm', $value);
     }
 
     /**
      * Sets the securityIntegrityAlgorithm property value. Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
      *  @param VpnIntegrityAlgorithmType|null $value Value to set for the securityIntegrityAlgorithm property.
     */
-    public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value ): void {
-        $this->securityIntegrityAlgorithm = $value;
+    public function setSecurityIntegrityAlgorithm(?VpnIntegrityAlgorithmType $value): void {
+        $this->getBackingStore()->set('securityIntegrityAlgorithm', $value);
     }
 
 }

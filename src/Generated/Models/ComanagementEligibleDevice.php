@@ -9,101 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ComanagementEligibleDevice extends Entity implements Parsable 
 {
     /**
-     * @var DeviceRegistrationState|null $clientRegistrationStatus Device registration status.
-    */
-    private ?DeviceRegistrationState $clientRegistrationStatus = null;
-    
-    /**
-     * @var string|null $deviceName DeviceName
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var DeviceType|null $deviceType Device type.
-    */
-    private ?DeviceType $deviceType = null;
-    
-    /**
-     * @var int|null $entitySource EntitySource
-    */
-    private ?int $entitySource = null;
-    
-    /**
-     * @var ManagementAgentType|null $managementAgents Management agent type.
-    */
-    private ?ManagementAgentType $managementAgents = null;
-    
-    /**
-     * @var ManagementState|null $managementState Management state of device in Microsoft Intune.
-    */
-    private ?ManagementState $managementState = null;
-    
-    /**
-     * @var string|null $manufacturer Manufacturer
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $mdmStatus MDMStatus
-    */
-    private ?string $mdmStatus = null;
-    
-    /**
-     * @var string|null $model Model
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var string|null $osDescription OSDescription
-    */
-    private ?string $osDescription = null;
-    
-    /**
-     * @var string|null $osVersion OSVersion
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var OwnerType|null $ownerType Owner type of device.
-    */
-    private ?OwnerType $ownerType = null;
-    
-    /**
-     * @var string|null $referenceId ReferenceId
-    */
-    private ?string $referenceId = null;
-    
-    /**
-     * @var string|null $serialNumber SerialNumber
-    */
-    private ?string $serialNumber = null;
-    
-    /**
-     * @var ComanagementEligibleType|null $status The status property
-    */
-    private ?ComanagementEligibleType $status = null;
-    
-    /**
-     * @var string|null $upn UPN
-    */
-    private ?string $upn = null;
-    
-    /**
-     * @var string|null $userEmail UserEmail
-    */
-    private ?string $userEmail = null;
-    
-    /**
-     * @var string|null $userId UserId
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userName UserName
-    */
-    private ?string $userName = null;
-    
-    /**
      * Instantiates a new comanagementEligibleDevice and sets the default values.
     */
     public function __construct() {
@@ -125,7 +30,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return DeviceRegistrationState|null
     */
     public function getClientRegistrationStatus(): ?DeviceRegistrationState {
-        return $this->clientRegistrationStatus;
+        return $this->getBackingStore()->get('clientRegistrationStatus');
     }
 
     /**
@@ -133,7 +38,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -141,7 +46,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return DeviceType|null
     */
     public function getDeviceType(): ?DeviceType {
-        return $this->deviceType;
+        return $this->getBackingStore()->get('deviceType');
     }
 
     /**
@@ -149,7 +54,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return int|null
     */
     public function getEntitySource(): ?int {
-        return $this->entitySource;
+        return $this->getBackingStore()->get('entitySource');
     }
 
     /**
@@ -186,7 +91,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ManagementAgentType|null
     */
     public function getManagementAgents(): ?ManagementAgentType {
-        return $this->managementAgents;
+        return $this->getBackingStore()->get('managementAgents');
     }
 
     /**
@@ -194,7 +99,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ManagementState|null
     */
     public function getManagementState(): ?ManagementState {
-        return $this->managementState;
+        return $this->getBackingStore()->get('managementState');
     }
 
     /**
@@ -202,7 +107,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -210,7 +115,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getMdmStatus(): ?string {
-        return $this->mdmStatus;
+        return $this->getBackingStore()->get('mdmStatus');
     }
 
     /**
@@ -218,7 +123,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -226,7 +131,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsDescription(): ?string {
-        return $this->osDescription;
+        return $this->getBackingStore()->get('osDescription');
     }
 
     /**
@@ -234,7 +139,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -242,7 +147,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
-        return $this->ownerType;
+        return $this->getBackingStore()->get('ownerType');
     }
 
     /**
@@ -250,7 +155,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getReferenceId(): ?string {
-        return $this->referenceId;
+        return $this->getBackingStore()->get('referenceId');
     }
 
     /**
@@ -258,7 +163,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->serialNumber;
+        return $this->getBackingStore()->get('serialNumber');
     }
 
     /**
@@ -266,7 +171,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return ComanagementEligibleType|null
     */
     public function getStatus(): ?ComanagementEligibleType {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -274,7 +179,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUpn(): ?string {
-        return $this->upn;
+        return $this->getBackingStore()->get('upn');
     }
 
     /**
@@ -282,7 +187,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserEmail(): ?string {
-        return $this->userEmail;
+        return $this->getBackingStore()->get('userEmail');
     }
 
     /**
@@ -290,7 +195,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -298,7 +203,7 @@ class ComanagementEligibleDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -307,177 +212,177 @@ class ComanagementEligibleDevice extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('clientRegistrationStatus', $this->clientRegistrationStatus);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeEnumValue('deviceType', $this->deviceType);
-        $writer->writeIntegerValue('entitySource', $this->entitySource);
-        $writer->writeEnumValue('managementAgents', $this->managementAgents);
-        $writer->writeEnumValue('managementState', $this->managementState);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('mdmStatus', $this->mdmStatus);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeStringValue('osDescription', $this->osDescription);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeEnumValue('ownerType', $this->ownerType);
-        $writer->writeStringValue('referenceId', $this->referenceId);
-        $writer->writeStringValue('serialNumber', $this->serialNumber);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('upn', $this->upn);
-        $writer->writeStringValue('userEmail', $this->userEmail);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userName', $this->userName);
+        $writer->writeEnumValue('clientRegistrationStatus', $this->getClientRegistrationStatus());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeEnumValue('deviceType', $this->getDeviceType());
+        $writer->writeIntegerValue('entitySource', $this->getEntitySource());
+        $writer->writeEnumValue('managementAgents', $this->getManagementAgents());
+        $writer->writeEnumValue('managementState', $this->getManagementState());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('mdmStatus', $this->getMdmStatus());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('osDescription', $this->getOsDescription());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeEnumValue('ownerType', $this->getOwnerType());
+        $writer->writeStringValue('referenceId', $this->getReferenceId());
+        $writer->writeStringValue('serialNumber', $this->getSerialNumber());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('upn', $this->getUpn());
+        $writer->writeStringValue('userEmail', $this->getUserEmail());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userName', $this->getUserName());
     }
 
     /**
      * Sets the clientRegistrationStatus property value. Device registration status.
      *  @param DeviceRegistrationState|null $value Value to set for the clientRegistrationStatus property.
     */
-    public function setClientRegistrationStatus(?DeviceRegistrationState $value ): void {
-        $this->clientRegistrationStatus = $value;
+    public function setClientRegistrationStatus(?DeviceRegistrationState $value): void {
+        $this->getBackingStore()->set('clientRegistrationStatus', $value);
     }
 
     /**
      * Sets the deviceName property value. DeviceName
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the deviceType property value. Device type.
      *  @param DeviceType|null $value Value to set for the deviceType property.
     */
-    public function setDeviceType(?DeviceType $value ): void {
-        $this->deviceType = $value;
+    public function setDeviceType(?DeviceType $value): void {
+        $this->getBackingStore()->set('deviceType', $value);
     }
 
     /**
      * Sets the entitySource property value. EntitySource
      *  @param int|null $value Value to set for the entitySource property.
     */
-    public function setEntitySource(?int $value ): void {
-        $this->entitySource = $value;
+    public function setEntitySource(?int $value): void {
+        $this->getBackingStore()->set('entitySource', $value);
     }
 
     /**
      * Sets the managementAgents property value. Management agent type.
      *  @param ManagementAgentType|null $value Value to set for the managementAgents property.
     */
-    public function setManagementAgents(?ManagementAgentType $value ): void {
-        $this->managementAgents = $value;
+    public function setManagementAgents(?ManagementAgentType $value): void {
+        $this->getBackingStore()->set('managementAgents', $value);
     }
 
     /**
      * Sets the managementState property value. Management state of device in Microsoft Intune.
      *  @param ManagementState|null $value Value to set for the managementState property.
     */
-    public function setManagementState(?ManagementState $value ): void {
-        $this->managementState = $value;
+    public function setManagementState(?ManagementState $value): void {
+        $this->getBackingStore()->set('managementState', $value);
     }
 
     /**
      * Sets the manufacturer property value. Manufacturer
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the mdmStatus property value. MDMStatus
      *  @param string|null $value Value to set for the mdmStatus property.
     */
-    public function setMdmStatus(?string $value ): void {
-        $this->mdmStatus = $value;
+    public function setMdmStatus(?string $value): void {
+        $this->getBackingStore()->set('mdmStatus', $value);
     }
 
     /**
      * Sets the model property value. Model
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the osDescription property value. OSDescription
      *  @param string|null $value Value to set for the osDescription property.
     */
-    public function setOsDescription(?string $value ): void {
-        $this->osDescription = $value;
+    public function setOsDescription(?string $value): void {
+        $this->getBackingStore()->set('osDescription', $value);
     }
 
     /**
      * Sets the osVersion property value. OSVersion
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the ownerType property value. Owner type of device.
      *  @param OwnerType|null $value Value to set for the ownerType property.
     */
-    public function setOwnerType(?OwnerType $value ): void {
-        $this->ownerType = $value;
+    public function setOwnerType(?OwnerType $value): void {
+        $this->getBackingStore()->set('ownerType', $value);
     }
 
     /**
      * Sets the referenceId property value. ReferenceId
      *  @param string|null $value Value to set for the referenceId property.
     */
-    public function setReferenceId(?string $value ): void {
-        $this->referenceId = $value;
+    public function setReferenceId(?string $value): void {
+        $this->getBackingStore()->set('referenceId', $value);
     }
 
     /**
      * Sets the serialNumber property value. SerialNumber
      *  @param string|null $value Value to set for the serialNumber property.
     */
-    public function setSerialNumber(?string $value ): void {
-        $this->serialNumber = $value;
+    public function setSerialNumber(?string $value): void {
+        $this->getBackingStore()->set('serialNumber', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param ComanagementEligibleType|null $value Value to set for the status property.
     */
-    public function setStatus(?ComanagementEligibleType $value ): void {
-        $this->status = $value;
+    public function setStatus(?ComanagementEligibleType $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the upn property value. UPN
      *  @param string|null $value Value to set for the upn property.
     */
-    public function setUpn(?string $value ): void {
-        $this->upn = $value;
+    public function setUpn(?string $value): void {
+        $this->getBackingStore()->set('upn', $value);
     }
 
     /**
      * Sets the userEmail property value. UserEmail
      *  @param string|null $value Value to set for the userEmail property.
     */
-    public function setUserEmail(?string $value ): void {
-        $this->userEmail = $value;
+    public function setUserEmail(?string $value): void {
+        $this->getBackingStore()->set('userEmail', $value);
     }
 
     /**
      * Sets the userId property value. UserId
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userName property value. UserName
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
 }

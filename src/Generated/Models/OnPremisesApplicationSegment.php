@@ -6,43 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable 
+class OnPremisesApplicationSegment implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $alternateUrl If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
-    */
-    private ?string $alternateUrl = null;
-    
-    /**
-     * @var array<CorsConfiguration>|null $corsConfigurations CORS Rule definition for a particular application segment.
-    */
-    private ?array $corsConfigurations = null;
-    
-    /**
-     * @var string|null $externalUrl The published external URL for the application segment; for example, https://intranet.contoso.com./
-    */
-    private ?string $externalUrl = null;
-    
-    /**
-     * @var string|null $internalUrl The internal URL of the application segment; for example, https://intranet/.
-    */
-    private ?string $internalUrl = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new onPremisesApplicationSegment and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.onPremisesApplicationSegment');
     }
@@ -60,8 +39,8 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +48,15 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAlternateUrl(): ?string {
-        return $this->alternateUrl;
+        return $this->getBackingStore()->get('alternateUrl');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -77,7 +64,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @return array<CorsConfiguration>|null
     */
     public function getCorsConfigurations(): ?array {
-        return $this->corsConfigurations;
+        return $this->getBackingStore()->get('corsConfigurations');
     }
 
     /**
@@ -85,7 +72,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getExternalUrl(): ?string {
-        return $this->externalUrl;
+        return $this->getBackingStore()->get('externalUrl');
     }
 
     /**
@@ -108,7 +95,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getInternalUrl(): ?string {
-        return $this->internalUrl;
+        return $this->getBackingStore()->get('internalUrl');
     }
 
     /**
@@ -116,7 +103,7 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -124,60 +111,60 @@ class OnPremisesApplicationSegment implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('alternateUrl', $this->alternateUrl);
-        $writer->writeCollectionOfObjectValues('corsConfigurations', $this->corsConfigurations);
-        $writer->writeStringValue('externalUrl', $this->externalUrl);
-        $writer->writeStringValue('internalUrl', $this->internalUrl);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('alternateUrl', $this->getAlternateUrl());
+        $writer->writeCollectionOfObjectValues('corsConfigurations', $this->getCorsConfigurations());
+        $writer->writeStringValue('externalUrl', $this->getExternalUrl());
+        $writer->writeStringValue('internalUrl', $this->getInternalUrl());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the alternateUrl property value. If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
      *  @param string|null $value Value to set for the alternateUrl property.
     */
-    public function setAlternateUrl(?string $value ): void {
-        $this->alternateUrl = $value;
+    public function setAlternateUrl(?string $value): void {
+        $this->getBackingStore()->set('alternateUrl', $value);
     }
 
     /**
      * Sets the corsConfigurations property value. CORS Rule definition for a particular application segment.
      *  @param array<CorsConfiguration>|null $value Value to set for the corsConfigurations property.
     */
-    public function setCorsConfigurations(?array $value ): void {
-        $this->corsConfigurations = $value;
+    public function setCorsConfigurations(?array $value): void {
+        $this->getBackingStore()->set('corsConfigurations', $value);
     }
 
     /**
      * Sets the externalUrl property value. The published external URL for the application segment; for example, https://intranet.contoso.com./
      *  @param string|null $value Value to set for the externalUrl property.
     */
-    public function setExternalUrl(?string $value ): void {
-        $this->externalUrl = $value;
+    public function setExternalUrl(?string $value): void {
+        $this->getBackingStore()->set('externalUrl', $value);
     }
 
     /**
      * Sets the internalUrl property value. The internal URL of the application segment; for example, https://intranet/.
      *  @param string|null $value Value to set for the internalUrl property.
     */
-    public function setInternalUrl(?string $value ): void {
-        $this->internalUrl = $value;
+    public function setInternalUrl(?string $value): void {
+        $this->getBackingStore()->set('internalUrl', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

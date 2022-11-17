@@ -7,53 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SynchronizationQuarantine implements AdditionalDataHolder, Parsable 
+class SynchronizationQuarantine implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $currentBegan Date and time when the quarantine was last evaluated and imposed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $currentBegan = null;
-    
-    /**
-     * @var SynchronizationError|null $error Describes the error(s) that occurred when putting the synchronization job into quarantine.
-    */
-    private ?SynchronizationError $error = null;
-    
-    /**
-     * @var DateTime|null $nextAttempt Date and time when the next attempt to re-evaluate the quarantine will be made. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $nextAttempt = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var QuarantineReason|null $reason The reason property
-    */
-    private ?QuarantineReason $reason = null;
-    
-    /**
-     * @var DateTime|null $seriesBegan Date and time when the quarantine was first imposed in this series (a series starts when a quarantine is first imposed, and is reset as soon as the quarantine is lifted). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $seriesBegan = null;
-    
-    /**
-     * @var int|null $seriesCount Number of times in this series the quarantine was re-evaluated and left in effect (a series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted).
-    */
-    private ?int $seriesCount = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new synchronizationQuarantine and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
         $this->setOdataType('#microsoft.graph.synchronizationQuarantine');
     }
@@ -71,8 +40,16 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +57,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getCurrentBegan(): ?DateTime {
-        return $this->currentBegan;
+        return $this->getBackingStore()->get('currentBegan');
     }
 
     /**
@@ -88,7 +65,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return SynchronizationError|null
     */
     public function getError(): ?SynchronizationError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -113,7 +90,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getNextAttempt(): ?DateTime {
-        return $this->nextAttempt;
+        return $this->getBackingStore()->get('nextAttempt');
     }
 
     /**
@@ -121,7 +98,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -129,7 +106,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return QuarantineReason|null
     */
     public function getReason(): ?QuarantineReason {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -137,7 +114,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getSeriesBegan(): ?DateTime {
-        return $this->seriesBegan;
+        return $this->getBackingStore()->get('seriesBegan');
     }
 
     /**
@@ -145,7 +122,7 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSeriesCount(): ?int {
-        return $this->seriesCount;
+        return $this->getBackingStore()->get('seriesCount');
     }
 
     /**
@@ -153,78 +130,78 @@ class SynchronizationQuarantine implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('currentBegan', $this->currentBegan);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeDateTimeValue('nextAttempt', $this->nextAttempt);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('reason', $this->reason);
-        $writer->writeDateTimeValue('seriesBegan', $this->seriesBegan);
-        $writer->writeIntegerValue('seriesCount', $this->seriesCount);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('currentBegan', $this->getCurrentBegan());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeDateTimeValue('nextAttempt', $this->getNextAttempt());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('reason', $this->getReason());
+        $writer->writeDateTimeValue('seriesBegan', $this->getSeriesBegan());
+        $writer->writeIntegerValue('seriesCount', $this->getSeriesCount());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the currentBegan property value. Date and time when the quarantine was last evaluated and imposed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the currentBegan property.
     */
-    public function setCurrentBegan(?DateTime $value ): void {
-        $this->currentBegan = $value;
+    public function setCurrentBegan(?DateTime $value): void {
+        $this->getBackingStore()->set('currentBegan', $value);
     }
 
     /**
      * Sets the error property value. Describes the error(s) that occurred when putting the synchronization job into quarantine.
      *  @param SynchronizationError|null $value Value to set for the error property.
     */
-    public function setError(?SynchronizationError $value ): void {
-        $this->error = $value;
+    public function setError(?SynchronizationError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the nextAttempt property value. Date and time when the next attempt to re-evaluate the quarantine will be made. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the nextAttempt property.
     */
-    public function setNextAttempt(?DateTime $value ): void {
-        $this->nextAttempt = $value;
+    public function setNextAttempt(?DateTime $value): void {
+        $this->getBackingStore()->set('nextAttempt', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the reason property value. The reason property
      *  @param QuarantineReason|null $value Value to set for the reason property.
     */
-    public function setReason(?QuarantineReason $value ): void {
-        $this->reason = $value;
+    public function setReason(?QuarantineReason $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
     /**
      * Sets the seriesBegan property value. Date and time when the quarantine was first imposed in this series (a series starts when a quarantine is first imposed, and is reset as soon as the quarantine is lifted). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the seriesBegan property.
     */
-    public function setSeriesBegan(?DateTime $value ): void {
-        $this->seriesBegan = $value;
+    public function setSeriesBegan(?DateTime $value): void {
+        $this->getBackingStore()->set('seriesBegan', $value);
     }
 
     /**
      * Sets the seriesCount property value. Number of times in this series the quarantine was re-evaluated and left in effect (a series starts when quarantine is first imposed, and is reset as soon as quarantine is lifted).
      *  @param int|null $value Value to set for the seriesCount property.
     */
-    public function setSeriesCount(?int $value ): void {
-        $this->seriesCount = $value;
+    public function setSeriesCount(?int $value): void {
+        $this->getBackingStore()->set('seriesCount', $value);
     }
 
 }

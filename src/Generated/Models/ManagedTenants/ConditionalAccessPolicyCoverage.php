@@ -11,26 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessPolicyCoverage extends Entity implements Parsable 
 {
     /**
-     * @var string|null $conditionalAccessPolicyState The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
-    */
-    private ?string $conditionalAccessPolicyState = null;
-    
-    /**
-     * @var DateTime|null $latestPolicyModifiedDateTime The date and time the conditional access policy was last modified. Required. Read-only.
-    */
-    private ?DateTime $latestPolicyModifiedDateTime = null;
-    
-    /**
-     * @var bool|null $requiresDeviceCompliance A flag indicating whether the conditional access policy requires device compliance. Required. Read-only.
-    */
-    private ?bool $requiresDeviceCompliance = null;
-    
-    /**
-     * @var string|null $tenantDisplayName The display name for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantDisplayName = null;
-    
-    /**
      * Instantiates a new conditionalAccessPolicyCoverage and sets the default values.
     */
     public function __construct() {
@@ -52,7 +32,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return string|null
     */
     public function getConditionalAccessPolicyState(): ?string {
-        return $this->conditionalAccessPolicyState;
+        return $this->getBackingStore()->get('conditionalAccessPolicyState');
     }
 
     /**
@@ -74,7 +54,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLatestPolicyModifiedDateTime(): ?DateTime {
-        return $this->latestPolicyModifiedDateTime;
+        return $this->getBackingStore()->get('latestPolicyModifiedDateTime');
     }
 
     /**
@@ -82,7 +62,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequiresDeviceCompliance(): ?bool {
-        return $this->requiresDeviceCompliance;
+        return $this->getBackingStore()->get('requiresDeviceCompliance');
     }
 
     /**
@@ -90,7 +70,7 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantDisplayName(): ?string {
-        return $this->tenantDisplayName;
+        return $this->getBackingStore()->get('tenantDisplayName');
     }
 
     /**
@@ -99,42 +79,42 @@ class ConditionalAccessPolicyCoverage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('conditionalAccessPolicyState', $this->conditionalAccessPolicyState);
-        $writer->writeDateTimeValue('latestPolicyModifiedDateTime', $this->latestPolicyModifiedDateTime);
-        $writer->writeBooleanValue('requiresDeviceCompliance', $this->requiresDeviceCompliance);
-        $writer->writeStringValue('tenantDisplayName', $this->tenantDisplayName);
+        $writer->writeStringValue('conditionalAccessPolicyState', $this->getConditionalAccessPolicyState());
+        $writer->writeDateTimeValue('latestPolicyModifiedDateTime', $this->getLatestPolicyModifiedDateTime());
+        $writer->writeBooleanValue('requiresDeviceCompliance', $this->getRequiresDeviceCompliance());
+        $writer->writeStringValue('tenantDisplayName', $this->getTenantDisplayName());
     }
 
     /**
      * Sets the conditionalAccessPolicyState property value. The state for the conditional access policy. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. Read-only.
      *  @param string|null $value Value to set for the conditionalAccessPolicyState property.
     */
-    public function setConditionalAccessPolicyState(?string $value ): void {
-        $this->conditionalAccessPolicyState = $value;
+    public function setConditionalAccessPolicyState(?string $value): void {
+        $this->getBackingStore()->set('conditionalAccessPolicyState', $value);
     }
 
     /**
      * Sets the latestPolicyModifiedDateTime property value. The date and time the conditional access policy was last modified. Required. Read-only.
      *  @param DateTime|null $value Value to set for the latestPolicyModifiedDateTime property.
     */
-    public function setLatestPolicyModifiedDateTime(?DateTime $value ): void {
-        $this->latestPolicyModifiedDateTime = $value;
+    public function setLatestPolicyModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('latestPolicyModifiedDateTime', $value);
     }
 
     /**
      * Sets the requiresDeviceCompliance property value. A flag indicating whether the conditional access policy requires device compliance. Required. Read-only.
      *  @param bool|null $value Value to set for the requiresDeviceCompliance property.
     */
-    public function setRequiresDeviceCompliance(?bool $value ): void {
-        $this->requiresDeviceCompliance = $value;
+    public function setRequiresDeviceCompliance(?bool $value): void {
+        $this->getBackingStore()->set('requiresDeviceCompliance', $value);
     }
 
     /**
      * Sets the tenantDisplayName property value. The display name for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantDisplayName property.
     */
-    public function setTenantDisplayName(?string $value ): void {
-        $this->tenantDisplayName = $value;
+    public function setTenantDisplayName(?string $value): void {
+        $this->getBackingStore()->set('tenantDisplayName', $value);
     }
 
 }

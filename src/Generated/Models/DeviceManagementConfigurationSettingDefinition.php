@@ -9,96 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingDefinition extends Entity implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationSettingAccessTypes|null $accessTypes The accessTypes property
-    */
-    private ?DeviceManagementConfigurationSettingAccessTypes $accessTypes = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingApplicability|null $applicability Details which device setting is applicable on
-    */
-    private ?DeviceManagementConfigurationSettingApplicability $applicability = null;
-    
-    /**
-     * @var string|null $baseUri Base CSP Path
-    */
-    private ?string $baseUri = null;
-    
-    /**
-     * @var string|null $categoryId Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
-    */
-    private ?string $categoryId = null;
-    
-    /**
-     * @var string|null $description Description of the item
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name of the item
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $helpText Help text of the item
-    */
-    private ?string $helpText = null;
-    
-    /**
-     * @var array<string>|null $infoUrls List of links more info for the setting can be found at
-    */
-    private ?array $infoUrls = null;
-    
-    /**
-     * @var array<string>|null $keywords Tokens which to search settings on
-    */
-    private ?array $keywords = null;
-    
-    /**
-     * @var string|null $name Name of the item
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingOccurrence|null $occurrence Indicates whether the setting is required or not
-    */
-    private ?DeviceManagementConfigurationSettingOccurrence $occurrence = null;
-    
-    /**
-     * @var string|null $offsetUri Offset CSP Path from Base
-    */
-    private ?string $offsetUri = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationReferredSettingInformation>|null $referredSettingInformationList List of referred setting information.
-    */
-    private ?array $referredSettingInformationList = null;
-    
-    /**
-     * @var string|null $rootDefinitionId Root setting definition if the setting is a child setting.
-    */
-    private ?string $rootDefinitionId = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingUsage|null $settingUsage Supported setting types
-    */
-    private ?DeviceManagementConfigurationSettingUsage $settingUsage = null;
-    
-    /**
-     * @var DeviceManagementConfigurationControlType|null $uxBehavior Setting control type representation in the UX
-    */
-    private ?DeviceManagementConfigurationControlType $uxBehavior = null;
-    
-    /**
-     * @var string|null $version Item Version
-    */
-    private ?string $version = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingVisibility|null $visibility Supported setting types
-    */
-    private ?DeviceManagementConfigurationSettingVisibility $visibility = null;
-    
-    /**
      * Instantiates a new deviceManagementConfigurationSettingDefinition and sets the default values.
     */
     public function __construct() {
@@ -133,7 +43,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingAccessTypes|null
     */
     public function getAccessTypes(): ?DeviceManagementConfigurationSettingAccessTypes {
-        return $this->accessTypes;
+        return $this->getBackingStore()->get('accessTypes');
     }
 
     /**
@@ -141,7 +51,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingApplicability|null
     */
     public function getApplicability(): ?DeviceManagementConfigurationSettingApplicability {
-        return $this->applicability;
+        return $this->getBackingStore()->get('applicability');
     }
 
     /**
@@ -149,7 +59,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getBaseUri(): ?string {
-        return $this->baseUri;
+        return $this->getBackingStore()->get('baseUri');
     }
 
     /**
@@ -157,7 +67,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getCategoryId(): ?string {
-        return $this->categoryId;
+        return $this->getBackingStore()->get('categoryId');
     }
 
     /**
@@ -165,7 +75,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -173,7 +83,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -209,7 +119,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getHelpText(): ?string {
-        return $this->helpText;
+        return $this->getBackingStore()->get('helpText');
     }
 
     /**
@@ -217,7 +127,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return array<string>|null
     */
     public function getInfoUrls(): ?array {
-        return $this->infoUrls;
+        return $this->getBackingStore()->get('infoUrls');
     }
 
     /**
@@ -225,7 +135,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return array<string>|null
     */
     public function getKeywords(): ?array {
-        return $this->keywords;
+        return $this->getBackingStore()->get('keywords');
     }
 
     /**
@@ -233,7 +143,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -241,7 +151,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingOccurrence|null
     */
     public function getOccurrence(): ?DeviceManagementConfigurationSettingOccurrence {
-        return $this->occurrence;
+        return $this->getBackingStore()->get('occurrence');
     }
 
     /**
@@ -249,7 +159,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getOffsetUri(): ?string {
-        return $this->offsetUri;
+        return $this->getBackingStore()->get('offsetUri');
     }
 
     /**
@@ -257,7 +167,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return array<DeviceManagementConfigurationReferredSettingInformation>|null
     */
     public function getReferredSettingInformationList(): ?array {
-        return $this->referredSettingInformationList;
+        return $this->getBackingStore()->get('referredSettingInformationList');
     }
 
     /**
@@ -265,7 +175,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getRootDefinitionId(): ?string {
-        return $this->rootDefinitionId;
+        return $this->getBackingStore()->get('rootDefinitionId');
     }
 
     /**
@@ -273,7 +183,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingUsage|null
     */
     public function getSettingUsage(): ?DeviceManagementConfigurationSettingUsage {
-        return $this->settingUsage;
+        return $this->getBackingStore()->get('settingUsage');
     }
 
     /**
@@ -281,7 +191,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationControlType|null
     */
     public function getUxBehavior(): ?DeviceManagementConfigurationControlType {
-        return $this->uxBehavior;
+        return $this->getBackingStore()->get('uxBehavior');
     }
 
     /**
@@ -289,7 +199,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -297,7 +207,7 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
      * @return DeviceManagementConfigurationSettingVisibility|null
     */
     public function getVisibility(): ?DeviceManagementConfigurationSettingVisibility {
-        return $this->visibility;
+        return $this->getBackingStore()->get('visibility');
     }
 
     /**
@@ -306,168 +216,168 @@ class DeviceManagementConfigurationSettingDefinition extends Entity implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('accessTypes', $this->accessTypes);
-        $writer->writeObjectValue('applicability', $this->applicability);
-        $writer->writeStringValue('baseUri', $this->baseUri);
-        $writer->writeStringValue('categoryId', $this->categoryId);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('helpText', $this->helpText);
-        $writer->writeCollectionOfPrimitiveValues('infoUrls', $this->infoUrls);
-        $writer->writeCollectionOfPrimitiveValues('keywords', $this->keywords);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('occurrence', $this->occurrence);
-        $writer->writeStringValue('offsetUri', $this->offsetUri);
-        $writer->writeCollectionOfObjectValues('referredSettingInformationList', $this->referredSettingInformationList);
-        $writer->writeStringValue('rootDefinitionId', $this->rootDefinitionId);
-        $writer->writeEnumValue('settingUsage', $this->settingUsage);
-        $writer->writeEnumValue('uxBehavior', $this->uxBehavior);
-        $writer->writeStringValue('version', $this->version);
-        $writer->writeEnumValue('visibility', $this->visibility);
+        $writer->writeEnumValue('accessTypes', $this->getAccessTypes());
+        $writer->writeObjectValue('applicability', $this->getApplicability());
+        $writer->writeStringValue('baseUri', $this->getBaseUri());
+        $writer->writeStringValue('categoryId', $this->getCategoryId());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('helpText', $this->getHelpText());
+        $writer->writeCollectionOfPrimitiveValues('infoUrls', $this->getInfoUrls());
+        $writer->writeCollectionOfPrimitiveValues('keywords', $this->getKeywords());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('occurrence', $this->getOccurrence());
+        $writer->writeStringValue('offsetUri', $this->getOffsetUri());
+        $writer->writeCollectionOfObjectValues('referredSettingInformationList', $this->getReferredSettingInformationList());
+        $writer->writeStringValue('rootDefinitionId', $this->getRootDefinitionId());
+        $writer->writeEnumValue('settingUsage', $this->getSettingUsage());
+        $writer->writeEnumValue('uxBehavior', $this->getUxBehavior());
+        $writer->writeStringValue('version', $this->getVersion());
+        $writer->writeEnumValue('visibility', $this->getVisibility());
     }
 
     /**
      * Sets the accessTypes property value. The accessTypes property
      *  @param DeviceManagementConfigurationSettingAccessTypes|null $value Value to set for the accessTypes property.
     */
-    public function setAccessTypes(?DeviceManagementConfigurationSettingAccessTypes $value ): void {
-        $this->accessTypes = $value;
+    public function setAccessTypes(?DeviceManagementConfigurationSettingAccessTypes $value): void {
+        $this->getBackingStore()->set('accessTypes', $value);
     }
 
     /**
      * Sets the applicability property value. Details which device setting is applicable on
      *  @param DeviceManagementConfigurationSettingApplicability|null $value Value to set for the applicability property.
     */
-    public function setApplicability(?DeviceManagementConfigurationSettingApplicability $value ): void {
-        $this->applicability = $value;
+    public function setApplicability(?DeviceManagementConfigurationSettingApplicability $value): void {
+        $this->getBackingStore()->set('applicability', $value);
     }
 
     /**
      * Sets the baseUri property value. Base CSP Path
      *  @param string|null $value Value to set for the baseUri property.
     */
-    public function setBaseUri(?string $value ): void {
-        $this->baseUri = $value;
+    public function setBaseUri(?string $value): void {
+        $this->getBackingStore()->set('baseUri', $value);
     }
 
     /**
      * Sets the categoryId property value. Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
      *  @param string|null $value Value to set for the categoryId property.
     */
-    public function setCategoryId(?string $value ): void {
-        $this->categoryId = $value;
+    public function setCategoryId(?string $value): void {
+        $this->getBackingStore()->set('categoryId', $value);
     }
 
     /**
      * Sets the description property value. Description of the item
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name of the item
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the helpText property value. Help text of the item
      *  @param string|null $value Value to set for the helpText property.
     */
-    public function setHelpText(?string $value ): void {
-        $this->helpText = $value;
+    public function setHelpText(?string $value): void {
+        $this->getBackingStore()->set('helpText', $value);
     }
 
     /**
      * Sets the infoUrls property value. List of links more info for the setting can be found at
      *  @param array<string>|null $value Value to set for the infoUrls property.
     */
-    public function setInfoUrls(?array $value ): void {
-        $this->infoUrls = $value;
+    public function setInfoUrls(?array $value): void {
+        $this->getBackingStore()->set('infoUrls', $value);
     }
 
     /**
      * Sets the keywords property value. Tokens which to search settings on
      *  @param array<string>|null $value Value to set for the keywords property.
     */
-    public function setKeywords(?array $value ): void {
-        $this->keywords = $value;
+    public function setKeywords(?array $value): void {
+        $this->getBackingStore()->set('keywords', $value);
     }
 
     /**
      * Sets the name property value. Name of the item
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the occurrence property value. Indicates whether the setting is required or not
      *  @param DeviceManagementConfigurationSettingOccurrence|null $value Value to set for the occurrence property.
     */
-    public function setOccurrence(?DeviceManagementConfigurationSettingOccurrence $value ): void {
-        $this->occurrence = $value;
+    public function setOccurrence(?DeviceManagementConfigurationSettingOccurrence $value): void {
+        $this->getBackingStore()->set('occurrence', $value);
     }
 
     /**
      * Sets the offsetUri property value. Offset CSP Path from Base
      *  @param string|null $value Value to set for the offsetUri property.
     */
-    public function setOffsetUri(?string $value ): void {
-        $this->offsetUri = $value;
+    public function setOffsetUri(?string $value): void {
+        $this->getBackingStore()->set('offsetUri', $value);
     }
 
     /**
      * Sets the referredSettingInformationList property value. List of referred setting information.
      *  @param array<DeviceManagementConfigurationReferredSettingInformation>|null $value Value to set for the referredSettingInformationList property.
     */
-    public function setReferredSettingInformationList(?array $value ): void {
-        $this->referredSettingInformationList = $value;
+    public function setReferredSettingInformationList(?array $value): void {
+        $this->getBackingStore()->set('referredSettingInformationList', $value);
     }
 
     /**
      * Sets the rootDefinitionId property value. Root setting definition if the setting is a child setting.
      *  @param string|null $value Value to set for the rootDefinitionId property.
     */
-    public function setRootDefinitionId(?string $value ): void {
-        $this->rootDefinitionId = $value;
+    public function setRootDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('rootDefinitionId', $value);
     }
 
     /**
      * Sets the settingUsage property value. Supported setting types
      *  @param DeviceManagementConfigurationSettingUsage|null $value Value to set for the settingUsage property.
     */
-    public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value ): void {
-        $this->settingUsage = $value;
+    public function setSettingUsage(?DeviceManagementConfigurationSettingUsage $value): void {
+        $this->getBackingStore()->set('settingUsage', $value);
     }
 
     /**
      * Sets the uxBehavior property value. Setting control type representation in the UX
      *  @param DeviceManagementConfigurationControlType|null $value Value to set for the uxBehavior property.
     */
-    public function setUxBehavior(?DeviceManagementConfigurationControlType $value ): void {
-        $this->uxBehavior = $value;
+    public function setUxBehavior(?DeviceManagementConfigurationControlType $value): void {
+        $this->getBackingStore()->set('uxBehavior', $value);
     }
 
     /**
      * Sets the version property value. Item Version
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
     /**
      * Sets the visibility property value. Supported setting types
      *  @param DeviceManagementConfigurationSettingVisibility|null $value Value to set for the visibility property.
     */
-    public function setVisibility(?DeviceManagementConfigurationSettingVisibility $value ): void {
-        $this->visibility = $value;
+    public function setVisibility(?DeviceManagementConfigurationSettingVisibility $value): void {
+        $this->getBackingStore()->set('visibility', $value);
     }
 
 }

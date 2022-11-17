@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnsupportedGroupPolicyExtension extends Entity implements Parsable 
 {
     /**
-     * @var string|null $extensionType ExtensionType of the unsupported extension.
-    */
-    private ?string $extensionType = null;
-    
-    /**
-     * @var string|null $namespaceUrl Namespace Url of the unsupported extension.
-    */
-    private ?string $namespaceUrl = null;
-    
-    /**
-     * @var string|null $nodeName Node name of the unsupported extension.
-    */
-    private ?string $nodeName = null;
-    
-    /**
-     * @var GroupPolicySettingScope|null $settingScope Scope of the group policy setting.
-    */
-    private ?GroupPolicySettingScope $settingScope = null;
-    
-    /**
      * Instantiates a new unsupportedGroupPolicyExtension and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getExtensionType(): ?string {
-        return $this->extensionType;
+        return $this->getBackingStore()->get('extensionType');
     }
 
     /**
@@ -72,7 +52,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getNamespaceUrl(): ?string {
-        return $this->namespaceUrl;
+        return $this->getBackingStore()->get('namespaceUrl');
     }
 
     /**
@@ -80,7 +60,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getNodeName(): ?string {
-        return $this->nodeName;
+        return $this->getBackingStore()->get('nodeName');
     }
 
     /**
@@ -88,7 +68,7 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
      * @return GroupPolicySettingScope|null
     */
     public function getSettingScope(): ?GroupPolicySettingScope {
-        return $this->settingScope;
+        return $this->getBackingStore()->get('settingScope');
     }
 
     /**
@@ -97,42 +77,42 @@ class UnsupportedGroupPolicyExtension extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('extensionType', $this->extensionType);
-        $writer->writeStringValue('namespaceUrl', $this->namespaceUrl);
-        $writer->writeStringValue('nodeName', $this->nodeName);
-        $writer->writeEnumValue('settingScope', $this->settingScope);
+        $writer->writeStringValue('extensionType', $this->getExtensionType());
+        $writer->writeStringValue('namespaceUrl', $this->getNamespaceUrl());
+        $writer->writeStringValue('nodeName', $this->getNodeName());
+        $writer->writeEnumValue('settingScope', $this->getSettingScope());
     }
 
     /**
      * Sets the extensionType property value. ExtensionType of the unsupported extension.
      *  @param string|null $value Value to set for the extensionType property.
     */
-    public function setExtensionType(?string $value ): void {
-        $this->extensionType = $value;
+    public function setExtensionType(?string $value): void {
+        $this->getBackingStore()->set('extensionType', $value);
     }
 
     /**
      * Sets the namespaceUrl property value. Namespace Url of the unsupported extension.
      *  @param string|null $value Value to set for the namespaceUrl property.
     */
-    public function setNamespaceUrl(?string $value ): void {
-        $this->namespaceUrl = $value;
+    public function setNamespaceUrl(?string $value): void {
+        $this->getBackingStore()->set('namespaceUrl', $value);
     }
 
     /**
      * Sets the nodeName property value. Node name of the unsupported extension.
      *  @param string|null $value Value to set for the nodeName property.
     */
-    public function setNodeName(?string $value ): void {
-        $this->nodeName = $value;
+    public function setNodeName(?string $value): void {
+        $this->getBackingStore()->set('nodeName', $value);
     }
 
     /**
      * Sets the settingScope property value. Scope of the group policy setting.
      *  @param GroupPolicySettingScope|null $value Value to set for the settingScope property.
     */
-    public function setSettingScope(?GroupPolicySettingScope $value ): void {
-        $this->settingScope = $value;
+    public function setSettingScope(?GroupPolicySettingScope $value): void {
+        $this->getBackingStore()->set('settingScope', $value);
     }
 
 }
