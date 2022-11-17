@@ -10,7 +10,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServicePrincipal extends DirectoryObject implements Parsable 
 {
     /**
-     * @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+     * @var bool|null $accountEnabled true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
     */
     private ?bool $accountEnabled = null;
     
@@ -290,7 +290,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     private ?VerifiedPublisher $verifiedPublisher = null;
     
     /**
-     * Instantiates a new ServicePrincipal and sets the default values.
+     * Instantiates a new servicePrincipal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -307,7 +307,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+     * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
      * @return bool|null
     */
     public function getAccountEnabled(): ?bool {
@@ -885,7 +885,7 @@ class ServicePrincipal extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+     * Sets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
      *  @param bool|null $value Value to set for the accountEnabled property.
     */
     public function setAccountEnabled(?bool $value ): void {

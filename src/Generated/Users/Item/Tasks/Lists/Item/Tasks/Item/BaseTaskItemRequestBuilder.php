@@ -26,35 +26,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class BaseTaskItemRequestBuilder 
 {
     /**
-     * The checklistItems property
+     * Provides operations to manage the checklistItems property of the microsoft.graph.baseTask entity.
     */
     public function checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extensions property
+     * Provides operations to manage the extensions property of the microsoft.graph.baseTask entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The linkedResources property
+     * Provides operations to manage the linkedResources property of the microsoft.graph.baseTask entity.
     */
     public function linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The move property
+     * Provides operations to call the move method.
     */
     public function move(): MoveRequestBuilder {
         return new MoveRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The parentList property
+     * Provides operations to manage the parentList property of the microsoft.graph.baseTask entity.
     */
     public function parentList(): ParentListRequestBuilder {
         return new ParentListRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -76,7 +76,7 @@ class BaseTaskItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.tasks.lists.item.tasks.item.checklistItems.item collection
+     * Provides operations to manage the checklistItems property of the microsoft.graph.baseTask entity.
      * @param string $id Unique identifier of the item
      * @return ChecklistItemItemRequestBuilder
     */
@@ -187,7 +187,7 @@ class BaseTaskItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.tasks.lists.item.tasks.item.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.baseTask entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
     */
@@ -217,7 +217,7 @@ class BaseTaskItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.tasks.lists.item.tasks.item.linkedResources.item collection
+     * Provides operations to manage the linkedResources property of the microsoft.graph.baseTask entity.
      * @param string $id Unique identifier of the item
      * @return LinkedResource_v2ItemRequestBuilder
     */

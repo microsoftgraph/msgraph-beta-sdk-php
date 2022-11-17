@@ -34,49 +34,49 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MobileAppItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The categories property
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatuses property
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.mobileApp entity.
     */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The installSummary property
+     * Provides operations to manage the installSummary property of the microsoft.graph.mobileApp entity.
     */
     public function installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedMobileLobApp property
+     * Casts the previous resource to managedMobileLobApp.
     */
     public function managedMobileLobApp(): ManagedMobileLobAppRequestBuilder {
         return new ManagedMobileLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileLobApp property
+     * Casts the previous resource to mobileLobApp.
     */
     public function mobileLobApp(): MobileLobAppRequestBuilder {
         return new MobileLobAppRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -88,7 +88,7 @@ class MobileAppItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The relationships property
+     * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
     */
     public function relationships(): RelationshipsRequestBuilder {
         return new RelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -100,7 +100,7 @@ class MobileAppItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The updateRelationships property
+     * Provides operations to call the updateRelationships method.
     */
     public function updateRelationships(): UpdateRelationshipsRequestBuilder {
         return new UpdateRelationshipsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -112,14 +112,14 @@ class MobileAppItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userStatuses property
+     * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
     */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppAssignmentItemRequestBuilder
     */
@@ -130,7 +130,7 @@ class MobileAppItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.categories.item collection
+     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppCategoryItemRequestBuilder
     */
@@ -241,7 +241,7 @@ class MobileAppItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppInstallStatusItemRequestBuilder
     */
@@ -301,7 +301,7 @@ class MobileAppItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.relationships.item collection
+     * Provides operations to manage the relationships property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppRelationshipItemRequestBuilder
     */
@@ -312,7 +312,7 @@ class MobileAppItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.mobileApps.item.userStatuses.item collection
+     * Provides operations to manage the userStatuses property of the microsoft.graph.mobileApp entity.
      * @param string $id Unique identifier of the item
      * @return UserAppInstallStatusItemRequestBuilder
     */

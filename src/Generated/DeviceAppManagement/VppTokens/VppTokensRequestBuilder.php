@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class VppTokensRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -39,7 +39,7 @@ class VppTokensRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The syncLicenseCounts property
+     * Provides operations to call the syncLicenseCounts method.
     */
     public function syncLicenseCounts(): SyncLicenseCountsRequestBuilder {
         return new SyncLicenseCountsRequestBuilder($this->pathParameters, $this->requestAdapter);

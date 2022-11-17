@@ -30,14 +30,14 @@ class VppTokenItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The revokeLicenses property
+     * Provides operations to call the revokeLicenses method.
     */
     public function revokeLicenses(): RevokeLicensesRequestBuilder {
         return new RevokeLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The syncLicenses property
+     * Provides operations to call the syncLicenses method.
     */
     public function syncLicenses(): SyncLicensesRequestBuilder {
         return new SyncLicensesRequestBuilder($this->pathParameters, $this->requestAdapter);

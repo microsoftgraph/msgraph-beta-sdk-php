@@ -25,17 +25,17 @@ class TaskDefinition extends Entity implements Parsable
     private ?string $description = null;
     
     /**
-     * @var string|null $displayName The display name of the taskDefinition`.
+     * @var string|null $displayName The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
     */
     private ?string $displayName = null;
     
     /**
-     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a workflow task object.
+     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
     */
     private ?array $parameters = null;
     
     /**
-     * @var int|null $version The version number of the taskDefinition. New records are pushed when we add support for new parameters.
+     * @var int|null $version The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
     */
     private ?int $version = null;
     
@@ -81,7 +81,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the displayName property value. The display name of the taskDefinition`.
+     * Gets the displayName property value. The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
      * @return string|null
     */
     public function getDisplayName(): ?string {
@@ -105,7 +105,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the parameters property value. The parameters that must be supplied when creating a workflow task object.
+     * Gets the parameters property value. The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
      * @return array<Parameter>|null
     */
     public function getParameters(): ?array {
@@ -113,7 +113,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Gets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.
+     * Gets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
      * @return int|null
     */
     public function getVersion(): ?int {
@@ -159,7 +159,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the displayName property value. The display name of the taskDefinition`.
+     * Sets the displayName property value. The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
      *  @param string|null $value Value to set for the displayName property.
     */
     public function setDisplayName(?string $value ): void {
@@ -167,7 +167,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the parameters property value. The parameters that must be supplied when creating a workflow task object.
+     * Sets the parameters property value. The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
      *  @param array<Parameter>|null $value Value to set for the parameters property.
     */
     public function setParameters(?array $value ): void {
@@ -175,7 +175,7 @@ class TaskDefinition extends Entity implements Parsable
     }
 
     /**
-     * Sets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.
+     * Sets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the version property.
     */
     public function setVersion(?int $value ): void {

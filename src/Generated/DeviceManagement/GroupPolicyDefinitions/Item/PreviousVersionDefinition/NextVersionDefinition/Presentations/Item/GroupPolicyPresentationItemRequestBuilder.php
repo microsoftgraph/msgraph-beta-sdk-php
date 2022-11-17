@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyPresentationItemRequestBuilder 
 {
     /**
-     * The definition property
+     * Provides operations to manage the definition property of the microsoft.graph.groupPolicyPresentation entity.
     */
     public function definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -52,77 +52,77 @@ class DirectoryRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceNamespaces property
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
     */
     public function resourceNamespaces(): ResourceNamespacesRequestBuilder {
         return new ResourceNamespacesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignmentApprovals property
+     * Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.
     */
     public function roleAssignmentApprovals(): RoleAssignmentApprovalsRequestBuilder {
         return new RoleAssignmentApprovalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignments property
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
     */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignmentScheduleInstances property
+     * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
     */
     public function roleAssignmentScheduleInstances(): RoleAssignmentScheduleInstancesRequestBuilder {
         return new RoleAssignmentScheduleInstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignmentScheduleRequests property
+     * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
     */
     public function roleAssignmentScheduleRequests(): RoleAssignmentScheduleRequestsRequestBuilder {
         return new RoleAssignmentScheduleRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignmentSchedules property
+     * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
     */
     public function roleAssignmentSchedules(): RoleAssignmentSchedulesRequestBuilder {
         return new RoleAssignmentSchedulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinitions property
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
     */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleEligibilityScheduleInstances property
+     * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
     */
     public function roleEligibilityScheduleInstances(): RoleEligibilityScheduleInstancesRequestBuilder {
         return new RoleEligibilityScheduleInstancesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleEligibilityScheduleRequests property
+     * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
     */
     public function roleEligibilityScheduleRequests(): RoleEligibilityScheduleRequestsRequestBuilder {
         return new RoleEligibilityScheduleRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleEligibilitySchedules property
+     * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
     */
     public function roleEligibilitySchedules(): RoleEligibilitySchedulesRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The transitiveRoleAssignments property
+     * Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.rbacApplication entity.
     */
     public function transitiveRoleAssignments(): TransitiveRoleAssignmentsRequestBuilder {
         return new TransitiveRoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -273,7 +273,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.resourceNamespaces.item collection
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRbacResourceNamespaceItemRequestBuilder
     */
@@ -284,7 +284,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleAssignmentApprovals.item collection
+     * Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return ApprovalItemRequestBuilder
     */
@@ -295,7 +295,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleAssignments.item collection
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedRoleManagementDirectoryRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder
     */
@@ -306,7 +306,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleAssignmentScheduleInstances.item collection
+     * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder
     */
@@ -317,7 +317,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleAssignmentScheduleRequests.item collection
+     * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleAssignmentScheduleRequestItemRequestBuilder
     */
@@ -328,7 +328,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleAssignmentSchedules.item collection
+     * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleAssignmentScheduleItemRequestBuilder
     */
@@ -339,7 +339,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleDefinitions.item collection
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleDefinitionItemRequestBuilder
     */
@@ -350,7 +350,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleEligibilityScheduleInstances.item collection
+     * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder
     */
@@ -361,7 +361,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleEligibilityScheduleRequests.item collection
+     * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
     */
@@ -372,7 +372,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.roleEligibilitySchedules.item collection
+     * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedRoleEligibilityScheduleItemRequestBuilder
     */
@@ -399,7 +399,7 @@ class DirectoryRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.roleManagement.directory.transitiveRoleAssignments.item collection
+     * Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.rbacApplication entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedRoleManagementDirectoryTransitiveRoleAssignmentsItemUnifiedRoleAssignmentItemRequestBuilder
     */

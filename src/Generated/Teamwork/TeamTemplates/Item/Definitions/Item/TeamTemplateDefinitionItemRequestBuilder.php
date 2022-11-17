@@ -29,7 +29,7 @@ class TeamTemplateDefinitionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The teamDefinition property
+     * Provides operations to manage the teamDefinition property of the microsoft.graph.teamTemplateDefinition entity.
     */
     public function teamDefinition(): TeamDefinitionRequestBuilder {
         return new TeamDefinitionRequestBuilder($this->pathParameters, $this->requestAdapter);

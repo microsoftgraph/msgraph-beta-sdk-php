@@ -30,14 +30,14 @@ class RoleDefinitionRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resource property
+     * Provides operations to manage the resource property of the microsoft.graph.governanceRoleDefinition entity.
     */
     public function resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleSetting property
+     * Provides operations to manage the roleSetting property of the microsoft.graph.governanceRoleDefinition entity.
     */
     public function roleSetting(): RoleSettingRequestBuilder {
         return new RoleSettingRequestBuilder($this->pathParameters, $this->requestAdapter);

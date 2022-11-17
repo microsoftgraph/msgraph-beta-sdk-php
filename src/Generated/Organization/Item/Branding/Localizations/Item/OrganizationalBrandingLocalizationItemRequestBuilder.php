@@ -23,21 +23,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OrganizationalBrandingLocalizationItemRequestBuilder 
 {
     /**
-     * The backgroundImage property
+     * Provides operations to manage the media for the organization entity.
     */
     public function backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bannerLogo property
+     * Provides operations to manage the media for the organization entity.
     */
     public function bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The favicon property
+     * Provides operations to manage the media for the organization entity.
     */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -54,14 +54,14 @@ class OrganizationalBrandingLocalizationItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The squareLogo property
+     * Provides operations to manage the media for the organization entity.
     */
     public function squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The squareLogoDark property
+     * Provides operations to manage the media for the organization entity.
     */
     public function squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder($this->pathParameters, $this->requestAdapter);

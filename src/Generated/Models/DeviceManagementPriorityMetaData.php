@@ -20,6 +20,11 @@ class DeviceManagementPriorityMetaData implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
+     * @var int|null $priority Priority of the policy. Valid values 1 to 500
+    */
+    private ?int $priority = null;
+    
+    /**
      * Instantiates a new deviceManagementPriorityMetaData and sets the default values.
     */
     public function __construct() {
@@ -52,6 +57,7 @@ class DeviceManagementPriorityMetaData implements AdditionalDataHolder, Parsable
         $o = $this;
         return  [
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'priority' => fn(ParseNode $n) => $o->setPriority($n->getIntegerValue()),
         ];
     }
 
@@ -64,11 +70,20 @@ class DeviceManagementPriorityMetaData implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the priority property value. Priority of the policy. Valid values 1 to 500
+     * @return int|null
+    */
+    public function getPriority(): ?int {
+        return $this->priority;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeStringValue('@odata.type', $this->odataType);
+        $writer->writeIntegerValue('priority', $this->priority);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -86,6 +101,14 @@ class DeviceManagementPriorityMetaData implements AdditionalDataHolder, Parsable
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
+    }
+
+    /**
+     * Sets the priority property value. Priority of the policy. Valid values 1 to 500
+     *  @param int|null $value Value to set for the priority property.
+    */
+    public function setPriority(?int $value ): void {
+        $this->priority = $value;
     }
 
 }

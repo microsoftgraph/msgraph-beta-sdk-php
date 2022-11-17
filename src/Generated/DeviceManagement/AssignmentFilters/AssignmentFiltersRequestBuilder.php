@@ -24,14 +24,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AssignmentFiltersRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enable property
+     * Provides operations to call the enable method.
     */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class AssignmentFiltersRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The validateFilter property
+     * Provides operations to call the validateFilter method.
     */
     public function validateFilter(): ValidateFilterRequestBuilder {
         return new ValidateFilterRequestBuilder($this->pathParameters, $this->requestAdapter);

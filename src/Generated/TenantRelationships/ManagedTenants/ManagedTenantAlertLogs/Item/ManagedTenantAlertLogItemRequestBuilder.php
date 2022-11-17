@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantAlertLogItemRequestBuilder 
 {
     /**
-     * The alert property
+     * Provides operations to manage the alert property of the microsoft.graph.managedTenants.managedTenantAlertLog entity.
     */
     public function alert(): AlertRequestBuilder {
         return new AlertRequestBuilder($this->pathParameters, $this->requestAdapter);

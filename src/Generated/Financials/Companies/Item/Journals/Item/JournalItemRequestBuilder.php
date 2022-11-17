@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class JournalItemRequestBuilder 
 {
     /**
-     * The account property
+     * Provides operations to manage the account property of the microsoft.graph.journal entity.
     */
     public function account(): AccountRequestBuilder {
         return new AccountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The journalLines property
+     * Provides operations to manage the journalLines property of the microsoft.graph.journal entity.
     */
     public function journalLines(): JournalLinesRequestBuilder {
         return new JournalLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,7 +41,7 @@ class JournalItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The post property
+     * Provides operations to call the post method.
     */
     public function post(): PostRequestBuilder {
         return new PostRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -177,7 +177,7 @@ class JournalItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.journals.item.journalLines.item collection
+     * Provides operations to manage the journalLines property of the microsoft.graph.journal entity.
      * @param string $id Unique identifier of the item
      * @return JournalLineItemRequestBuilder
     */

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantItemRequestBuilder 
 {
     /**
-     * The offboardTenant property
+     * Provides operations to call the offboardTenant method.
     */
     public function offboardTenant(): OffboardTenantRequestBuilder {
         return new OffboardTenantRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class TenantItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resetTenantOnboardingStatus property
+     * Provides operations to call the resetTenantOnboardingStatus method.
     */
     public function resetTenantOnboardingStatus(): ResetTenantOnboardingStatusRequestBuilder {
         return new ResetTenantOnboardingStatusRequestBuilder($this->pathParameters, $this->requestAdapter);

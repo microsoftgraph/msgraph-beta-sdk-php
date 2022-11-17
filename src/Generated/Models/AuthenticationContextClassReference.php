@@ -24,7 +24,7 @@ class AuthenticationContextClassReference extends Entity implements Parsable
     private ?bool $isAvailable = null;
     
     /**
-     * Instantiates a new AuthenticationContextClassReference and sets the default values.
+     * Instantiates a new authenticationContextClassReference and sets the default values.
     */
     public function __construct() {
         parent::__construct();

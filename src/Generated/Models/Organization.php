@@ -55,6 +55,11 @@ class Organization extends DirectoryObject implements Parsable
     private ?DateTime $createdDateTime = null;
     
     /**
+     * @var string|null $defaultUsageLocation Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+    */
+    private ?string $defaultUsageLocation = null;
+    
+    /**
      * @var DirectorySizeQuota|null $directorySizeQuota The directory size quota information of an organization.
     */
     private ?DirectorySizeQuota $directorySizeQuota = null;
@@ -239,6 +244,14 @@ class Organization extends DirectoryObject implements Parsable
     }
 
     /**
+     * Gets the defaultUsageLocation property value. Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+     * @return string|null
+    */
+    public function getDefaultUsageLocation(): ?string {
+        return $this->defaultUsageLocation;
+    }
+
+    /**
      * Gets the directorySizeQuota property value. The directory size quota information of an organization.
      * @return DirectorySizeQuota|null
     */
@@ -278,6 +291,7 @@ class Organization extends DirectoryObject implements Parsable
             'country' => fn(ParseNode $n) => $o->setCountry($n->getStringValue()),
             'countryLetterCode' => fn(ParseNode $n) => $o->setCountryLetterCode($n->getStringValue()),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'defaultUsageLocation' => fn(ParseNode $n) => $o->setDefaultUsageLocation($n->getStringValue()),
             'directorySizeQuota' => fn(ParseNode $n) => $o->setDirectorySizeQuota($n->getObjectValue([DirectorySizeQuota::class, 'createFromDiscriminatorValue'])),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
             'extensions' => fn(ParseNode $n) => $o->setExtensions($n->getCollectionOfObjectValues([Extension::class, 'createFromDiscriminatorValue'])),
@@ -443,6 +457,7 @@ class Organization extends DirectoryObject implements Parsable
         $writer->writeStringValue('country', $this->country);
         $writer->writeStringValue('countryLetterCode', $this->countryLetterCode);
         $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
+        $writer->writeStringValue('defaultUsageLocation', $this->defaultUsageLocation);
         $writer->writeObjectValue('directorySizeQuota', $this->directorySizeQuota);
         $writer->writeStringValue('displayName', $this->displayName);
         $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
@@ -534,6 +549,14 @@ class Organization extends DirectoryObject implements Parsable
     */
     public function setCreatedDateTime(?DateTime $value ): void {
         $this->createdDateTime = $value;
+    }
+
+    /**
+     * Sets the defaultUsageLocation property value. Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+     *  @param string|null $value Value to set for the defaultUsageLocation property.
+    */
+    public function setDefaultUsageLocation(?string $value ): void {
+        $this->defaultUsageLocation = $value;
     }
 
     /**

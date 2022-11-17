@@ -31,14 +31,14 @@ class EnrollmentProfileItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The setDefaultProfile property
+     * Provides operations to call the setDefaultProfile method.
     */
     public function setDefaultProfile(): SetDefaultProfileRequestBuilder {
         return new SetDefaultProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateDeviceProfileAssignment property
+     * Provides operations to call the updateDeviceProfileAssignment method.
     */
     public function updateDeviceProfileAssignment(): UpdateDeviceProfileAssignmentRequestBuilder {
         return new UpdateDeviceProfileAssignmentRequestBuilder($this->pathParameters, $this->requestAdapter);

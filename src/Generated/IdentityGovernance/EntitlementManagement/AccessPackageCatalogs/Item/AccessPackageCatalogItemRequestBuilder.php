@@ -28,35 +28,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageCatalogItemRequestBuilder 
 {
     /**
-     * The accessPackageResourceRoles property
+     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageCatalog entity.
     */
     public function accessPackageResourceRoles(): AccessPackageResourceRolesRequestBuilder {
         return new AccessPackageResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResources property
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageCatalog entity.
     */
     public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
         return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceScopes property
+     * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageCatalog entity.
     */
     public function accessPackageResourceScopes(): AccessPackageResourceScopesRequestBuilder {
         return new AccessPackageResourceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackages property
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
     */
     public function accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customAccessPackageWorkflowExtensions property
+     * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
     */
     public function customAccessPackageWorkflowExtensions(): CustomAccessPackageWorkflowExtensionsRequestBuilder {
         return new CustomAccessPackageWorkflowExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,7 +78,7 @@ class AccessPackageCatalogItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackageResourceRoles.item collection
+     * Provides operations to manage the accessPackageResourceRoles property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceRoleItemRequestBuilder
     */
@@ -89,7 +89,7 @@ class AccessPackageCatalogItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackageResources.item collection
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceItemRequestBuilder
     */
@@ -100,7 +100,7 @@ class AccessPackageCatalogItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackageResourceScopes.item collection
+     * Provides operations to manage the accessPackageResourceScopes property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceScopeItemRequestBuilder
     */
@@ -111,7 +111,7 @@ class AccessPackageCatalogItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.accessPackages.item collection
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageItemRequestBuilder
     */
@@ -203,7 +203,7 @@ class AccessPackageCatalogItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageCatalogs.item.customAccessPackageWorkflowExtensions.item collection
+     * Provides operations to manage the customAccessPackageWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
      * @param string $id Unique identifier of the item
      * @return CustomAccessPackageWorkflowExtensionItemRequestBuilder
     */

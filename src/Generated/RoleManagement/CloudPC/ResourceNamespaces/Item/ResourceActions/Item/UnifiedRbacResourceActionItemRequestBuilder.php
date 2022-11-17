@@ -29,7 +29,7 @@ class UnifiedRbacResourceActionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceScope property
+     * Provides operations to manage the resourceScope property of the microsoft.graph.unifiedRbacResourceAction entity.
     */
     public function resourceScope(): ResourceScopeRequestBuilder {
         return new ResourceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);

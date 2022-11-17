@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class RiskyServicePrincipalItemRequestBuilder 
 {
     /**
-     * The history property
+     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
     */
     public function history(): HistoryRequestBuilder {
         return new HistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -161,7 +161,7 @@ class RiskyServicePrincipalItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityProtection.riskyServicePrincipals.item.history.item collection
+     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
      * @param string $id Unique identifier of the item
      * @return RiskyServicePrincipalHistoryItemItemRequestBuilder
     */

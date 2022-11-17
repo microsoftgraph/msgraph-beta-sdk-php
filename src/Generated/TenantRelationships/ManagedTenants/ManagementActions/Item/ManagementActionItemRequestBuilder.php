@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementActionItemRequestBuilder 
 {
     /**
-     * The apply property
+     * Provides operations to call the apply method.
     */
     public function apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder($this->pathParameters, $this->requestAdapter);

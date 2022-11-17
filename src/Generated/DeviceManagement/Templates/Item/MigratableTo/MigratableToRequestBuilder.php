@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MigratableToRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The importOffice365DeviceConfigurationPolicies property
+     * Provides operations to call the importOffice365DeviceConfigurationPolicies method.
     */
     public function importOffice365DeviceConfigurationPolicies(): ImportOffice365DeviceConfigurationPoliciesRequestBuilder {
         return new ImportOffice365DeviceConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);

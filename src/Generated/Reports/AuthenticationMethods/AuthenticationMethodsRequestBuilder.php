@@ -39,7 +39,7 @@ class AuthenticationMethodsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userRegistrationDetails property
+     * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
     */
     public function userRegistrationDetails(): UserRegistrationDetailsRequestBuilder {
         return new UserRegistrationDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -185,7 +185,7 @@ class AuthenticationMethodsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.reports.authenticationMethods.userRegistrationDetails.item collection
+     * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
      * @param string $id Unique identifier of the item
      * @return UserRegistrationDetailsItemRequestBuilder
     */

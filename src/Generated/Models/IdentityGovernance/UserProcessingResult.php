@@ -12,7 +12,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserProcessingResult extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
+     * @var DateTime|null $completedDateTime The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $completedDateTime = null;
     
@@ -27,12 +27,12 @@ class UserProcessingResult extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var DateTime|null $scheduledDateTime The date time that the workflow is scheduled to be executed for a user.
+     * @var DateTime|null $scheduledDateTime The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $scheduledDateTime = null;
     
     /**
-     * @var DateTime|null $startedDateTime The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
+     * @var DateTime|null $startedDateTime The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $startedDateTime = null;
     
@@ -84,7 +84,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
+     * Gets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -129,7 +129,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.
+     * Gets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getScheduledDateTime(): ?DateTime {
@@ -137,7 +137,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
+     * Gets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -212,7 +212,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
+     * Sets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -236,7 +236,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.
+     * Sets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
     public function setScheduledDateTime(?DateTime $value ): void {
@@ -244,7 +244,7 @@ class UserProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
+     * Sets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {

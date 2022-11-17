@@ -11,12 +11,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskReport extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time that the associated run completed. Value is null if the run has not completed.
+     * @var DateTime|null $completedDateTime The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var int|null $failedUsersCount The number of users in the run execution for which the associated task failed.
+     * @var int|null $failedUsersCount The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $failedUsersCount = null;
     
@@ -41,7 +41,7 @@ class TaskReport extends Entity implements Parsable
     private ?DateTime $startedDateTime = null;
     
     /**
-     * @var int|null $successfulUsersCount The number of users in the run execution for which the associated task succeeded.
+     * @var int|null $successfulUsersCount The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $successfulUsersCount = null;
     
@@ -61,12 +61,12 @@ class TaskReport extends Entity implements Parsable
     private ?array $taskProcessingResults = null;
     
     /**
-     * @var int|null $totalUsersCount The total number of users in the run execution for which the associated task was scheduled to execute.
+     * @var int|null $totalUsersCount The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $totalUsersCount = null;
     
     /**
-     * @var int|null $unprocessedUsersCount The number of users in the run execution for which the associated task is queued, in progress, or canceled.
+     * @var int|null $unprocessedUsersCount The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?int $unprocessedUsersCount = null;
     
@@ -88,7 +88,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.
+     * Gets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -96,7 +96,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.
+     * Gets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getFailedUsersCount(): ?int {
@@ -158,7 +158,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.
+     * Gets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getSuccessfulUsersCount(): ?int {
@@ -190,7 +190,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.
+     * Gets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getTotalUsersCount(): ?int {
@@ -198,7 +198,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Gets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.
+     * Gets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return int|null
     */
     public function getUnprocessedUsersCount(): ?int {
@@ -226,7 +226,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.
+     * Sets the completedDateTime property value. The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -234,7 +234,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.
+     * Sets the failedUsersCount property value. The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the failedUsersCount property.
     */
     public function setFailedUsersCount(?int $value ): void {
@@ -274,7 +274,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.
+     * Sets the successfulUsersCount property value. The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the successfulUsersCount property.
     */
     public function setSuccessfulUsersCount(?int $value ): void {
@@ -306,7 +306,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.
+     * Sets the totalUsersCount property value. The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the totalUsersCount property.
     */
     public function setTotalUsersCount(?int $value ): void {
@@ -314,7 +314,7 @@ class TaskReport extends Entity implements Parsable
     }
 
     /**
-     * Sets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.
+     * Sets the unprocessedUsersCount property value. The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the unprocessedUsersCount property.
     */
     public function setUnprocessedUsersCount(?int $value ): void {

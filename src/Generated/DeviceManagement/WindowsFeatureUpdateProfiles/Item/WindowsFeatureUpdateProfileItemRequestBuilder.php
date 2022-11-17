@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsFeatureUpdateProfileItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class WindowsFeatureUpdateProfileItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsFeatureUpdateProfiles.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsFeatureUpdateProfile entity.
      * @param string $id Unique identifier of the item
      * @return WindowsFeatureUpdateProfileAssignmentItemRequestBuilder
     */

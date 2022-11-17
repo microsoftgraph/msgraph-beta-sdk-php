@@ -24,7 +24,7 @@ class CompanyInformationItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The picture property
+     * Provides operations to manage the media for the financials entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);

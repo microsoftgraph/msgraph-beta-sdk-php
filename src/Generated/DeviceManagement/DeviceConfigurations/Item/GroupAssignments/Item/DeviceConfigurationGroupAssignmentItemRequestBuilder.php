@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceConfigurationGroupAssignmentItemRequestBuilder 
 {
     /**
-     * The deviceConfiguration property
+     * Provides operations to manage the deviceConfiguration property of the microsoft.graph.deviceConfigurationGroupAssignment entity.
     */
     public function deviceConfiguration(): DeviceConfigurationRequestBuilder {
         return new DeviceConfigurationRequestBuilder($this->pathParameters, $this->requestAdapter);

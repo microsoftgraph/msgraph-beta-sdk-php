@@ -17,6 +17,11 @@ class Admin implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
+     * @var Edge|null $edge A container for Microsoft Edge resources. Read-only.
+    */
+    private ?Edge $edge = null;
+    
+    /**
      * @var string|null $odataType The OdataType property
     */
     private ?string $odataType = null;
@@ -67,12 +72,21 @@ class Admin implements AdditionalDataHolder, Parsable
     }
 
     /**
+     * Gets the edge property value. A container for Microsoft Edge resources. Read-only.
+     * @return Edge|null
+    */
+    public function getEdge(): ?Edge {
+        return $this->edge;
+    }
+
+    /**
      * The deserialization information for the current model
      * @return array<string, callable>
     */
     public function getFieldDeserializers(): array {
         $o = $this;
         return  [
+            'edge' => fn(ParseNode $n) => $o->setEdge($n->getObjectValue([Edge::class, 'createFromDiscriminatorValue'])),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
             'reportSettings' => fn(ParseNode $n) => $o->setReportSettings($n->getObjectValue([AdminReportSettings::class, 'createFromDiscriminatorValue'])),
             'serviceAnnouncement' => fn(ParseNode $n) => $o->setServiceAnnouncement($n->getObjectValue([ServiceAnnouncement::class, 'createFromDiscriminatorValue'])),
@@ -126,6 +140,7 @@ class Admin implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
+        $writer->writeObjectValue('edge', $this->edge);
         $writer->writeStringValue('@odata.type', $this->odataType);
         $writer->writeObjectValue('reportSettings', $this->reportSettings);
         $writer->writeObjectValue('serviceAnnouncement', $this->serviceAnnouncement);
@@ -140,6 +155,14 @@ class Admin implements AdditionalDataHolder, Parsable
     */
     public function setAdditionalData(?array $value ): void {
         $this->additionalData = $value;
+    }
+
+    /**
+     * Sets the edge property value. A container for Microsoft Edge resources. Read-only.
+     *  @param Edge|null $value Value to set for the edge property.
+    */
+    public function setEdge(?Edge $value ): void {
+        $this->edge = $value;
     }
 
     /**

@@ -29,7 +29,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OutlookRequestBuilder 
 {
     /**
-     * The masterCategories property
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
     */
     public function masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -46,21 +46,21 @@ class OutlookRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The taskFolders property
+     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
     */
     public function taskFolders(): TaskFoldersRequestBuilder {
         return new TaskFoldersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taskGroups property
+     * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
     */
     public function taskGroups(): TaskGroupsRequestBuilder {
         return new TaskGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tasks property
+     * Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -127,7 +127,7 @@ class OutlookRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.outlook.masterCategories.item collection
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
      * @return OutlookCategoryItemRequestBuilder
     */
@@ -163,7 +163,7 @@ class OutlookRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.outlook.taskFolders.item collection
+     * Provides operations to manage the taskFolders property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
      * @return OutlookTaskFolderItemRequestBuilder
     */
@@ -174,7 +174,7 @@ class OutlookRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.outlook.taskGroups.item collection
+     * Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
      * @return OutlookTaskGroupItemRequestBuilder
     */
@@ -185,7 +185,7 @@ class OutlookRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.outlook.tasks.item collection
+     * Provides operations to manage the tasks property of the microsoft.graph.outlookUser entity.
      * @param string $id Unique identifier of the item
      * @return OutlookTaskItemRequestBuilder
     */

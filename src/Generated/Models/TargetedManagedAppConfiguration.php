@@ -39,6 +39,11 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     private ?bool $isAssigned = null;
     
     /**
+     * @var AppManagementLevel|null $targetedAppManagementLevels Management levels for apps
+    */
+    private ?AppManagementLevel $targetedAppManagementLevels = null;
+    
+    /**
      * Instantiates a new TargetedManagedAppConfiguration and sets the default values.
     */
     public function __construct() {
@@ -108,6 +113,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
             'deployedAppCount' => fn(ParseNode $n) => $o->setDeployedAppCount($n->getIntegerValue()),
             'deploymentSummary' => fn(ParseNode $n) => $o->setDeploymentSummary($n->getObjectValue([ManagedAppPolicyDeploymentSummary::class, 'createFromDiscriminatorValue'])),
             'isAssigned' => fn(ParseNode $n) => $o->setIsAssigned($n->getBooleanValue()),
+            'targetedAppManagementLevels' => fn(ParseNode $n) => $o->setTargetedAppManagementLevels($n->getEnumValue(AppManagementLevel::class)),
         ]);
     }
 
@@ -117,6 +123,14 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     */
     public function getIsAssigned(): ?bool {
         return $this->isAssigned;
+    }
+
+    /**
+     * Gets the targetedAppManagementLevels property value. Management levels for apps
+     * @return AppManagementLevel|null
+    */
+    public function getTargetedAppManagementLevels(): ?AppManagementLevel {
+        return $this->targetedAppManagementLevels;
     }
 
     /**
@@ -131,6 +145,7 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
         $writer->writeIntegerValue('deployedAppCount', $this->deployedAppCount);
         $writer->writeObjectValue('deploymentSummary', $this->deploymentSummary);
         $writer->writeBooleanValue('isAssigned', $this->isAssigned);
+        $writer->writeEnumValue('targetedAppManagementLevels', $this->targetedAppManagementLevels);
     }
 
     /**
@@ -179,6 +194,14 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements
     */
     public function setIsAssigned(?bool $value ): void {
         $this->isAssigned = $value;
+    }
+
+    /**
+     * Sets the targetedAppManagementLevels property value. Management levels for apps
+     *  @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
+    */
+    public function setTargetedAppManagementLevels(?AppManagementLevel $value ): void {
+        $this->targetedAppManagementLevels = $value;
     }
 
 }

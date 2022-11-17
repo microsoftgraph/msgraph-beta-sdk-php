@@ -27,49 +27,49 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedDevicesRequestBuilder 
 {
     /**
-     * The bulkReprovisionCloudPc property
+     * Provides operations to call the bulkReprovisionCloudPc method.
     */
     public function bulkReprovisionCloudPc(): BulkReprovisionCloudPcRequestBuilder {
         return new BulkReprovisionCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bulkRestoreCloudPc property
+     * Provides operations to call the bulkRestoreCloudPc method.
     */
     public function bulkRestoreCloudPc(): BulkRestoreCloudPcRequestBuilder {
         return new BulkRestoreCloudPcRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The bulkSetCloudPcReviewStatus property
+     * Provides operations to call the bulkSetCloudPcReviewStatus method.
     */
     public function bulkSetCloudPcReviewStatus(): BulkSetCloudPcReviewStatusRequestBuilder {
         return new BulkSetCloudPcReviewStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The downloadAppDiagnostics property
+     * Provides operations to call the downloadAppDiagnostics method.
     */
     public function downloadAppDiagnostics(): DownloadAppDiagnosticsRequestBuilder {
         return new DownloadAppDiagnosticsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The executeAction property
+     * Provides operations to call the executeAction method.
     */
     public function executeAction(): ExecuteActionRequestBuilder {
         return new ExecuteActionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The moveDevicesToOU property
+     * Provides operations to call the moveDevicesToOU method.
     */
     public function moveDevicesToOU(): MoveDevicesToOURequestBuilder {
         return new MoveDevicesToOURequestBuilder($this->pathParameters, $this->requestAdapter);

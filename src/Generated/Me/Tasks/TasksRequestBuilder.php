@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TasksRequestBuilder 
 {
     /**
-     * The alltasks property
+     * Provides operations to manage the alltasks property of the microsoft.graph.tasks entity.
     */
     public function alltasks(): AlltasksRequestBuilder {
         return new AlltasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The lists property
+     * Provides operations to manage the lists property of the microsoft.graph.tasks entity.
     */
     public function lists(): ListsRequestBuilder {
         return new ListsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -51,7 +51,7 @@ class TasksRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.tasks.alltasks.item collection
+     * Provides operations to manage the alltasks property of the microsoft.graph.tasks entity.
      * @param string $id Unique identifier of the item
      * @return BaseTaskItemRequestBuilder
     */
@@ -181,7 +181,7 @@ class TasksRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.tasks.lists.item collection
+     * Provides operations to manage the lists property of the microsoft.graph.tasks entity.
      * @param string $id Unique identifier of the item
      * @return BaseTaskListItemRequestBuilder
     */

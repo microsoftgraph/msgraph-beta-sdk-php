@@ -23,21 +23,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class EmbeddedSIMActivationCodePoolItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStates property
+     * Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
     */
     public function deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.embeddedSIMActivationCodePools.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.
      * @param string $id Unique identifier of the item
      * @return EmbeddedSIMActivationCodePoolAssignmentItemRequestBuilder
     */
@@ -170,7 +170,7 @@ class EmbeddedSIMActivationCodePoolItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.embeddedSIMActivationCodePools.item.deviceStates.item collection
+     * Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
      * @param string $id Unique identifier of the item
      * @return EmbeddedSIMDeviceStateItemRequestBuilder
     */

@@ -26,28 +26,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageAssignmentItemRequestBuilder 
 {
     /**
-     * The accessPackage property
+     * Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignment entity.
     */
     public function accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentPolicy property
+     * Provides operations to manage the accessPackageAssignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.
     */
     public function accessPackageAssignmentPolicy(): AccessPackageAssignmentPolicyRequestBuilder {
         return new AccessPackageAssignmentPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentRequests property
+     * Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.accessPackageAssignment entity.
     */
     public function accessPackageAssignmentRequests(): AccessPackageAssignmentRequestsRequestBuilder {
         return new AccessPackageAssignmentRequestsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageAssignmentResourceRoles property
+     * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.accessPackageAssignment entity.
     */
     public function accessPackageAssignmentResourceRoles(): AccessPackageAssignmentResourceRolesRequestBuilder {
         return new AccessPackageAssignmentResourceRolesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -59,7 +59,7 @@ class AccessPackageAssignmentItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The reprocess property
+     * Provides operations to call the reprocess method.
     */
     public function reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -71,7 +71,7 @@ class AccessPackageAssignmentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The target property
+     * Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity.
     */
     public function target(): TargetRequestBuilder {
         return new TargetRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -83,7 +83,7 @@ class AccessPackageAssignmentItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackageAssignmentRequests.item collection
+     * Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.accessPackageAssignment entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentRequestItemRequestBuilder
     */
@@ -94,7 +94,7 @@ class AccessPackageAssignmentItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageAssignments.item.accessPackageAssignmentResourceRoles.item collection
+     * Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.accessPackageAssignment entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageAssignmentResourceRoleItemRequestBuilder
     */

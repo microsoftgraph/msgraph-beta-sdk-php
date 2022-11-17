@@ -24,7 +24,7 @@ class ProgramControlItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The program property
+     * Provides operations to manage the program property of the microsoft.graph.programControl entity.
     */
     public function program(): ProgramRequestBuilder {
         return new ProgramRequestBuilder($this->pathParameters, $this->requestAdapter);

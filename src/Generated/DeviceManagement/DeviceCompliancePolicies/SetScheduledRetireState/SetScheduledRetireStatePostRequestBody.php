@@ -21,6 +21,11 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     private ?array $managedDeviceIds = null;
     
     /**
+     * @var bool|null $scopedToAllDevices The scopedToAllDevices property
+    */
+    private ?bool $scopedToAllDevices = null;
+    
+    /**
      * @var ScheduledRetireState|null $state Cancel or confirm scheduled retire 
     */
     private ?ScheduledRetireState $state = null;
@@ -57,6 +62,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
         $o = $this;
         return  [
             'managedDeviceIds' => fn(ParseNode $n) => $o->setManagedDeviceIds($n->getCollectionOfPrimitiveValues()),
+            'scopedToAllDevices' => fn(ParseNode $n) => $o->setScopedToAllDevices($n->getBooleanValue()),
             'state' => fn(ParseNode $n) => $o->setState($n->getEnumValue(ScheduledRetireState::class)),
         ];
     }
@@ -67,6 +73,14 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     */
     public function getManagedDeviceIds(): ?array {
         return $this->managedDeviceIds;
+    }
+
+    /**
+     * Gets the scopedToAllDevices property value. The scopedToAllDevices property
+     * @return bool|null
+    */
+    public function getScopedToAllDevices(): ?bool {
+        return $this->scopedToAllDevices;
     }
 
     /**
@@ -83,6 +97,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     */
     public function serialize(SerializationWriter $writer): void {
         $writer->writeCollectionOfPrimitiveValues('managedDeviceIds', $this->managedDeviceIds);
+        $writer->writeBooleanValue('scopedToAllDevices', $this->scopedToAllDevices);
         $writer->writeEnumValue('state', $this->state);
         $writer->writeAdditionalData($this->additionalData);
     }
@@ -101,6 +116,14 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
     */
     public function setManagedDeviceIds(?array $value ): void {
         $this->managedDeviceIds = $value;
+    }
+
+    /**
+     * Sets the scopedToAllDevices property value. The scopedToAllDevices property
+     *  @param bool|null $value Value to set for the scopedToAllDevices property.
+    */
+    public function setScopedToAllDevices(?bool $value ): void {
+        $this->scopedToAllDevices = $value;
     }
 
     /**

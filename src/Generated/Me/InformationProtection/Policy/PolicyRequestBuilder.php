@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PolicyRequestBuilder 
 {
     /**
-     * The labels property
+     * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
     */
     public function labels(): LabelsRequestBuilder {
         return new LabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -161,7 +161,7 @@ class PolicyRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.informationProtection.policy.labels.item collection
+     * Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
      * @param string $id Unique identifier of the item
      * @return InformationProtectionLabelItemRequestBuilder
     */

@@ -21,7 +21,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ResourcesRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -33,7 +33,7 @@ class ResourcesRequestBuilder
     private array $pathParameters;
     
     /**
-     * The register property
+     * Provides operations to call the register method.
     */
     public function register(): RegisterRequestBuilder {
         return new RegisterRequestBuilder($this->pathParameters, $this->requestAdapter);

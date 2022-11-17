@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ExternalItemItemRequestBuilder 
 {
     /**
-     * The activities property
+     * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
     */
     public function activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The addActivities property
+     * Provides operations to call the addActivities method.
     */
     public function addActivities(): AddActivitiesRequestBuilder {
         return new AddActivitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -50,7 +50,7 @@ class ExternalItemItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.connections.item.items.item.activities.item collection
+     * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
      * @param string $id Unique identifier of the item
      * @return ExternalActivityItemRequestBuilder
     */

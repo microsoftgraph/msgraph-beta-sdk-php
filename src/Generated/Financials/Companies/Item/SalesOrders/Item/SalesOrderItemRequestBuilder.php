@@ -23,14 +23,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SalesOrderItemRequestBuilder 
 {
     /**
-     * The currency property
+     * Provides operations to manage the currency property of the microsoft.graph.salesOrder entity.
     */
     public function currency(): CurrencyRequestBuilder {
         return new CurrencyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customer property
+     * Provides operations to manage the customer property of the microsoft.graph.salesOrder entity.
     */
     public function customer(): CustomerRequestBuilder {
         return new CustomerRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class SalesOrderItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentTerm property
+     * Provides operations to manage the paymentTerm property of the microsoft.graph.salesOrder entity.
     */
     public function paymentTerm(): PaymentTermRequestBuilder {
         return new PaymentTermRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -54,7 +54,7 @@ class SalesOrderItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The salesOrderLines property
+     * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
     */
     public function salesOrderLines(): SalesOrderLinesRequestBuilder {
         return new SalesOrderLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -165,7 +165,7 @@ class SalesOrderItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesOrders.item.salesOrderLines.item collection
+     * Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
      * @param string $id Unique identifier of the item
      * @return SalesOrderLineItemRequestBuilder
     */

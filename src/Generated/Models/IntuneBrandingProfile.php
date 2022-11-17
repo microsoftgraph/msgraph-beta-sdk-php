@@ -145,6 +145,11 @@ class IntuneBrandingProfile extends Entity implements Parsable
     private ?bool $showAzureADEnterpriseApps = null;
     
     /**
+     * @var bool|null $showConfigurationManagerApps Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
+    */
+    private ?bool $showConfigurationManagerApps = null;
+    
+    /**
      * @var bool|null $showDisplayNameNextToLogo Boolean that represents whether the administrator-supplied display name will be shown next to the logo image or not
     */
     private ?bool $showDisplayNameNextToLogo = null;
@@ -170,7 +175,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
     private ?MimeContent $themeColorLogo = null;
     
     /**
-     * Instantiates a new IntuneBrandingProfile and sets the default values.
+     * Instantiates a new intuneBrandingProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -324,6 +329,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
             'roleScopeTagIds' => fn(ParseNode $n) => $o->setRoleScopeTagIds($n->getCollectionOfPrimitiveValues()),
             'sendDeviceOwnershipChangePushNotification' => fn(ParseNode $n) => $o->setSendDeviceOwnershipChangePushNotification($n->getBooleanValue()),
             'showAzureADEnterpriseApps' => fn(ParseNode $n) => $o->setShowAzureADEnterpriseApps($n->getBooleanValue()),
+            'showConfigurationManagerApps' => fn(ParseNode $n) => $o->setShowConfigurationManagerApps($n->getBooleanValue()),
             'showDisplayNameNextToLogo' => fn(ParseNode $n) => $o->setShowDisplayNameNextToLogo($n->getBooleanValue()),
             'showLogo' => fn(ParseNode $n) => $o->setShowLogo($n->getBooleanValue()),
             'showOfficeWebApps' => fn(ParseNode $n) => $o->setShowOfficeWebApps($n->getBooleanValue()),
@@ -445,6 +451,14 @@ class IntuneBrandingProfile extends Entity implements Parsable
     }
 
     /**
+     * Gets the showConfigurationManagerApps property value. Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
+     * @return bool|null
+    */
+    public function getShowConfigurationManagerApps(): ?bool {
+        return $this->showConfigurationManagerApps;
+    }
+
+    /**
      * Gets the showDisplayNameNextToLogo property value. Boolean that represents whether the administrator-supplied display name will be shown next to the logo image or not
      * @return bool|null
     */
@@ -517,6 +531,7 @@ class IntuneBrandingProfile extends Entity implements Parsable
         $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
         $writer->writeBooleanValue('sendDeviceOwnershipChangePushNotification', $this->sendDeviceOwnershipChangePushNotification);
         $writer->writeBooleanValue('showAzureADEnterpriseApps', $this->showAzureADEnterpriseApps);
+        $writer->writeBooleanValue('showConfigurationManagerApps', $this->showConfigurationManagerApps);
         $writer->writeBooleanValue('showDisplayNameNextToLogo', $this->showDisplayNameNextToLogo);
         $writer->writeBooleanValue('showLogo', $this->showLogo);
         $writer->writeBooleanValue('showOfficeWebApps', $this->showOfficeWebApps);
@@ -738,6 +753,14 @@ class IntuneBrandingProfile extends Entity implements Parsable
     */
     public function setShowAzureADEnterpriseApps(?bool $value ): void {
         $this->showAzureADEnterpriseApps = $value;
+    }
+
+    /**
+     * Sets the showConfigurationManagerApps property value. Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
+     *  @param bool|null $value Value to set for the showConfigurationManagerApps property.
+    */
+    public function setShowConfigurationManagerApps(?bool $value ): void {
+        $this->showConfigurationManagerApps = $value;
     }
 
     /**

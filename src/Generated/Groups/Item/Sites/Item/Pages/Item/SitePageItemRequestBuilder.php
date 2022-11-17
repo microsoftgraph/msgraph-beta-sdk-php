@@ -24,7 +24,7 @@ class SitePageItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The publish property
+     * Provides operations to call the publish method.
     */
     public function publish(): PublishRequestBuilder {
         return new PublishRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AnalyticsRequestBuilder 
 {
     /**
-     * The activityStatistics property
+     * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
     */
     public function activityStatistics(): ActivityStatisticsRequestBuilder {
         return new ActivityStatisticsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class AnalyticsRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.analytics.activityStatistics.item collection
+     * Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
      * @param string $id Unique identifier of the item
      * @return ActivityStatisticsItemRequestBuilder
     */

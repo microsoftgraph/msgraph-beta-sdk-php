@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceEnvironmentItemRequestBuilder 
 {
     /**
-     * The accessPackageResources property
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageResourceEnvironment entity.
     */
     public function accessPackageResources(): AccessPackageResourcesRequestBuilder {
         return new AccessPackageResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class AccessPackageResourceEnvironmentItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.entitlementManagement.accessPackageResourceEnvironments.item.accessPackageResources.item collection
+     * Provides operations to manage the accessPackageResources property of the microsoft.graph.accessPackageResourceEnvironment entity.
      * @param string $id Unique identifier of the item
      * @return AccessPackageResourceItemRequestBuilder
     */

@@ -22,14 +22,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UpdatableAssetItemRequestBuilder 
 {
     /**
-     * The addMembers property
+     * Provides operations to call the addMembers method.
     */
     public function addMembers(): AddMembersRequestBuilder {
         return new AddMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The addMembersById property
+     * Provides operations to call the addMembersById method.
     */
     public function addMembersById(): AddMembersByIdRequestBuilder {
         return new AddMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -41,14 +41,14 @@ class UpdatableAssetItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The removeMembers property
+     * Provides operations to call the removeMembers method.
     */
     public function removeMembers(): RemoveMembersRequestBuilder {
         return new RemoveMembersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The removeMembersById property
+     * Provides operations to call the removeMembersById method.
     */
     public function removeMembersById(): RemoveMembersByIdRequestBuilder {
         return new RemoveMembersByIdRequestBuilder($this->pathParameters, $this->requestAdapter);

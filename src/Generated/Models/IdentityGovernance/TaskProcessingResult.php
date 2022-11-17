@@ -12,12 +12,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskProcessingResult extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
+     * @var DateTime|null $completedDateTime The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $completedDateTime = null;
     
     /**
-     * @var DateTime|null $createdDateTime The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
+     * @var DateTime|null $createdDateTime The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $createdDateTime = null;
     
@@ -32,7 +32,7 @@ class TaskProcessingResult extends Entity implements Parsable
     private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
     
     /**
-     * @var DateTime|null $startedDateTime The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
+     * @var DateTime|null $startedDateTime The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     */
     private ?DateTime $startedDateTime = null;
     
@@ -64,7 +64,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
+     * Gets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
@@ -72,7 +72,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the createdDateTime property value. The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
+     * Gets the createdDateTime property value. The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
@@ -113,7 +113,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Gets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
+     * Gets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
@@ -152,7 +152,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
+     * Sets the completedDateTime property value. The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
     public function setCompletedDateTime(?DateTime $value ): void {
@@ -160,7 +160,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the createdDateTime property value. The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
+     * Sets the createdDateTime property value. The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
     public function setCreatedDateTime(?DateTime $value ): void {
@@ -184,7 +184,7 @@ class TaskProcessingResult extends Entity implements Parsable
     }
 
     /**
-     * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
+     * Sets the startedDateTime property value. The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
     public function setStartedDateTime(?DateTime $value ): void {

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementTemplateStepDeploymentItemRequestBuilder 
 {
     /**
-     * The changeDeploymentStatus property
+     * Provides operations to call the changeDeploymentStatus method.
     */
     public function changeDeploymentStatus(): ChangeDeploymentStatusRequestBuilder {
         return new ChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class ManagementTemplateStepDeploymentItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The templateStepVersion property
+     * Provides operations to manage the templateStepVersion property of the microsoft.graph.managedTenants.managementTemplateStepDeployment entity.
     */
     public function templateStepVersion(): TemplateStepVersionRequestBuilder {
         return new TemplateStepVersionRequestBuilder($this->pathParameters, $this->requestAdapter);

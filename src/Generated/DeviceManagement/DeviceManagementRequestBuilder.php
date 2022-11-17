@@ -116,7 +116,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagedDevicesSummary\G
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetComanagementEligibleDevicesSummary\GetComanagementEligibleDevicesSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissions\GetEffectivePermissionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetEffectivePermissionsWithScope\GetEffectivePermissionsWithScopeRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\GetOrganizationalMessageTenantConsent\GetOrganizationalMessageTenantConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByIdsWithIds\GetRoleScopeTagsByIdsWithIdsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetRoleScopeTagsByResourceWithResource\GetRoleScopeTagsByResourceWithResourceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\GetSuggestedEnrollmentLimitWithEnrollmentType\GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder;
@@ -170,11 +169,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates
 use Microsoft\Graph\Beta\Generated\DeviceManagement\NotificationMessageTemplates\NotificationMessageTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\Item\OemWarrantyInformationOnboardingItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\OemWarrantyInformationOnboarding\OemWarrantyInformationOnboardingRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails\Item\OrganizationalMessageDetailItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageDetails\OrganizationalMessageDetailsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\Item\OrganizationalMessageGuidedContentItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\OrganizationalMessageGuidedContents\OrganizationalMessageGuidedContentsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\PostOrganizationalMessageTenantConsent\PostOrganizationalMessageTenantConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\Item\RemoteActionAuditItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteActionAudits\RemoteActionAuditsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\RemoteAssistancePartners\Item\RemoteAssistancePartnerItemRequestBuilder;
@@ -211,7 +205,6 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\Item\Term
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TermsAndConditions\TermsAndConditionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\Item\DeviceManagementTroubleshootingEventItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\TroubleshootingEvents\TroubleshootingEventsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UpdateOrganizationalMessageTenantConsent\UpdateOrganizationalMessageTenantConsentRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\Item\UserExperienceAnalyticsAnomalyItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomaly\UserExperienceAnalyticsAnomalyRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsAnomalyDevice\Item\UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder;
@@ -279,13 +272,13 @@ use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsModel
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsNotAutopilotReadyDevice\Item\UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsNotAutopilotReadyDevice\UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsOverview\UserExperienceAnalyticsOverviewRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRegressionSummary\UserExperienceAnalyticsRegressionSummaryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemoteConnection\Item\UserExperienceAnalyticsRemoteConnectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsRemoteConnection\UserExperienceAnalyticsRemoteConnectionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\Item\UserExperienceAnalyticsResourcePerformanceItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsResourcePerformance\UserExperienceAnalyticsResourcePerformanceRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\Item\UserExperienceAnalyticsScoreHistoryItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsScoreHistory\UserExperienceAnalyticsScoreHistoryRequestBuilder;
+use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizedDeviceScopes\UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevices\UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric\UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DeviceManagement\UserExperienceAnalyticsWorkFromAnywhereMetrics\Item\UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder;
@@ -333,619 +326,605 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementRequestBuilder 
 {
     /**
-     * The advancedThreatProtectionOnboardingStateSummary property
+     * Provides operations to manage the advancedThreatProtectionOnboardingStateSummary property of the microsoft.graph.deviceManagement entity.
     */
     public function advancedThreatProtectionOnboardingStateSummary(): AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder {
         return new AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidDeviceOwnerEnrollmentProfiles property
+     * Provides operations to manage the androidDeviceOwnerEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function androidDeviceOwnerEnrollmentProfiles(): AndroidDeviceOwnerEnrollmentProfilesRequestBuilder {
         return new AndroidDeviceOwnerEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidForWorkAppConfigurationSchemas property
+     * Provides operations to manage the androidForWorkAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
     */
     public function androidForWorkAppConfigurationSchemas(): AndroidForWorkAppConfigurationSchemasRequestBuilder {
         return new AndroidForWorkAppConfigurationSchemasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidForWorkEnrollmentProfiles property
+     * Provides operations to manage the androidForWorkEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function androidForWorkEnrollmentProfiles(): AndroidForWorkEnrollmentProfilesRequestBuilder {
         return new AndroidForWorkEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidForWorkSettings property
+     * Provides operations to manage the androidForWorkSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function androidForWorkSettings(): AndroidForWorkSettingsRequestBuilder {
         return new AndroidForWorkSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidManagedStoreAccountEnterpriseSettings property
+     * Provides operations to manage the androidManagedStoreAccountEnterpriseSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function androidManagedStoreAccountEnterpriseSettings(): AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder {
         return new AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The androidManagedStoreAppConfigurationSchemas property
+     * Provides operations to manage the androidManagedStoreAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
     */
     public function androidManagedStoreAppConfigurationSchemas(): AndroidManagedStoreAppConfigurationSchemasRequestBuilder {
         return new AndroidManagedStoreAppConfigurationSchemasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The applePushNotificationCertificate property
+     * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
     */
     public function applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The appleUserInitiatedEnrollmentProfiles property
+     * Provides operations to manage the appleUserInitiatedEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function appleUserInitiatedEnrollmentProfiles(): AppleUserInitiatedEnrollmentProfilesRequestBuilder {
         return new AppleUserInitiatedEnrollmentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignmentFilters property
+     * Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
     */
     public function assignmentFilters(): AssignmentFiltersRequestBuilder {
         return new AssignmentFiltersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The auditEvents property
+     * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
     */
     public function auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The autopilotEvents property
+     * Provides operations to manage the autopilotEvents property of the microsoft.graph.deviceManagement entity.
     */
     public function autopilotEvents(): AutopilotEventsRequestBuilder {
         return new AutopilotEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cartToClassAssociations property
+     * Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
     */
     public function cartToClassAssociations(): CartToClassAssociationsRequestBuilder {
         return new CartToClassAssociationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The categories property
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagement entity.
     */
     public function categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The certificateConnectorDetails property
+     * Provides operations to manage the certificateConnectorDetails property of the microsoft.graph.deviceManagement entity.
     */
     public function certificateConnectorDetails(): CertificateConnectorDetailsRequestBuilder {
         return new CertificateConnectorDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The chromeOSOnboardingSettings property
+     * Provides operations to manage the chromeOSOnboardingSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function chromeOSOnboardingSettings(): ChromeOSOnboardingSettingsRequestBuilder {
         return new ChromeOSOnboardingSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The cloudPCConnectivityIssues property
+     * Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
     */
     public function cloudPCConnectivityIssues(): CloudPCConnectivityIssuesRequestBuilder {
         return new CloudPCConnectivityIssuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The comanagedDevices property
+     * Provides operations to manage the comanagedDevices property of the microsoft.graph.deviceManagement entity.
     */
     public function comanagedDevices(): ComanagedDevicesRequestBuilder {
         return new ComanagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The comanagementEligibleDevices property
+     * Provides operations to manage the comanagementEligibleDevices property of the microsoft.graph.deviceManagement entity.
     */
     public function comanagementEligibleDevices(): ComanagementEligibleDevicesRequestBuilder {
         return new ComanagementEligibleDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The complianceCategories property
+     * Provides operations to manage the complianceCategories property of the microsoft.graph.deviceManagement entity.
     */
     public function complianceCategories(): ComplianceCategoriesRequestBuilder {
         return new ComplianceCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The complianceManagementPartners property
+     * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
     */
     public function complianceManagementPartners(): ComplianceManagementPartnersRequestBuilder {
         return new ComplianceManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The compliancePolicies property
+     * Provides operations to manage the compliancePolicies property of the microsoft.graph.deviceManagement entity.
     */
     public function compliancePolicies(): CompliancePoliciesRequestBuilder {
         return new CompliancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The complianceSettings property
+     * Provides operations to manage the complianceSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function complianceSettings(): ComplianceSettingsRequestBuilder {
         return new ComplianceSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The conditionalAccessSettings property
+     * Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function conditionalAccessSettings(): ConditionalAccessSettingsRequestBuilder {
         return new ConditionalAccessSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configManagerCollections property
+     * Provides operations to manage the configManagerCollections property of the microsoft.graph.deviceManagement entity.
     */
     public function configManagerCollections(): ConfigManagerCollectionsRequestBuilder {
         return new ConfigManagerCollectionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configurationCategories property
+     * Provides operations to manage the configurationCategories property of the microsoft.graph.deviceManagement entity.
     */
     public function configurationCategories(): ConfigurationCategoriesRequestBuilder {
         return new ConfigurationCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configurationPolicies property
+     * Provides operations to manage the configurationPolicies property of the microsoft.graph.deviceManagement entity.
     */
     public function configurationPolicies(): ConfigurationPoliciesRequestBuilder {
         return new ConfigurationPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configurationPolicyTemplates property
+     * Provides operations to manage the configurationPolicyTemplates property of the microsoft.graph.deviceManagement entity.
     */
     public function configurationPolicyTemplates(): ConfigurationPolicyTemplatesRequestBuilder {
         return new ConfigurationPolicyTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The configurationSettings property
+     * Provides operations to manage the configurationSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function configurationSettings(): ConfigurationSettingsRequestBuilder {
         return new ConfigurationSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dataSharingConsents property
+     * Provides operations to manage the dataSharingConsents property of the microsoft.graph.deviceManagement entity.
     */
     public function dataSharingConsents(): DataSharingConsentsRequestBuilder {
         return new DataSharingConsentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The depOnboardingSettings property
+     * Provides operations to manage the depOnboardingSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function depOnboardingSettings(): DepOnboardingSettingsRequestBuilder {
         return new DepOnboardingSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The derivedCredentials property
+     * Provides operations to manage the derivedCredentials property of the microsoft.graph.deviceManagement entity.
     */
     public function derivedCredentials(): DerivedCredentialsRequestBuilder {
         return new DerivedCredentialsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The detectedApps property
+     * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
     */
     public function detectedApps(): DetectedAppsRequestBuilder {
         return new DetectedAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCategories property
+     * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceCategories(): DeviceCategoriesRequestBuilder {
         return new DeviceCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCompliancePolicies property
+     * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceCompliancePolicies(): DeviceCompliancePoliciesRequestBuilder {
         return new DeviceCompliancePoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCompliancePolicyDeviceStateSummary property
+     * Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceCompliancePolicyDeviceStateSummary(): DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
         return new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCompliancePolicySettingStateSummaries property
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceComplianceScripts property
+     * Provides operations to manage the deviceComplianceScripts property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceComplianceScripts(): DeviceComplianceScriptsRequestBuilder {
         return new DeviceComplianceScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurationConflictSummary property
+     * Provides operations to manage the deviceConfigurationConflictSummary property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationConflictSummary(): DeviceConfigurationConflictSummaryRequestBuilder {
         return new DeviceConfigurationConflictSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurationDeviceStateSummaries property
+     * Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationDeviceStateSummaries(): DeviceConfigurationDeviceStateSummariesRequestBuilder {
         return new DeviceConfigurationDeviceStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurationRestrictedAppsViolations property
+     * Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationRestrictedAppsViolations(): DeviceConfigurationRestrictedAppsViolationsRequestBuilder {
         return new DeviceConfigurationRestrictedAppsViolationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurations property
+     * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurations(): DeviceConfigurationsRequestBuilder {
         return new DeviceConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurationsAllManagedDeviceCertificateStates property
+     * Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationsAllManagedDeviceCertificateStates(): DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder {
         return new DeviceConfigurationsAllManagedDeviceCertificateStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceConfigurationUserStateSummaries property
+     * Provides operations to manage the deviceConfigurationUserStateSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceConfigurationUserStateSummaries(): DeviceConfigurationUserStateSummariesRequestBuilder {
         return new DeviceConfigurationUserStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceCustomAttributeShellScripts property
+     * Provides operations to manage the deviceCustomAttributeShellScripts property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceCustomAttributeShellScripts(): DeviceCustomAttributeShellScriptsRequestBuilder {
         return new DeviceCustomAttributeShellScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceEnrollmentConfigurations property
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
         return new DeviceEnrollmentConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceHealthScripts property
+     * Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceHealthScripts(): DeviceHealthScriptsRequestBuilder {
         return new DeviceHealthScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceManagementPartners property
+     * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceManagementPartners(): DeviceManagementPartnersRequestBuilder {
         return new DeviceManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceManagementScripts property
+     * Provides operations to manage the deviceManagementScripts property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceManagementScripts(): DeviceManagementScriptsRequestBuilder {
         return new DeviceManagementScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceShellScripts property
+     * Provides operations to manage the deviceShellScripts property of the microsoft.graph.deviceManagement entity.
     */
     public function deviceShellScripts(): DeviceShellScriptsRequestBuilder {
         return new DeviceShellScriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The domainJoinConnectors property
+     * Provides operations to manage the domainJoinConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function domainJoinConnectors(): DomainJoinConnectorsRequestBuilder {
         return new DomainJoinConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The embeddedSIMActivationCodePools property
+     * Provides operations to manage the embeddedSIMActivationCodePools property of the microsoft.graph.deviceManagement entity.
     */
     public function embeddedSIMActivationCodePools(): EmbeddedSIMActivationCodePoolsRequestBuilder {
         return new EmbeddedSIMActivationCodePoolsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enableAndroidDeviceAdministratorEnrollment property
+     * Provides operations to call the enableAndroidDeviceAdministratorEnrollment method.
     */
     public function enableAndroidDeviceAdministratorEnrollment(): EnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
         return new EnableAndroidDeviceAdministratorEnrollmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enableLegacyPcManagement property
+     * Provides operations to call the enableLegacyPcManagement method.
     */
     public function enableLegacyPcManagement(): EnableLegacyPcManagementRequestBuilder {
         return new EnableLegacyPcManagementRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enableUnlicensedAdminstrators property
+     * Provides operations to call the enableUnlicensedAdminstrators method.
     */
     public function enableUnlicensedAdminstrators(): EnableUnlicensedAdminstratorsRequestBuilder {
         return new EnableUnlicensedAdminstratorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateAssignmentFilter property
+     * Provides operations to call the evaluateAssignmentFilter method.
     */
     public function evaluateAssignmentFilter(): EvaluateAssignmentFilterRequestBuilder {
         return new EvaluateAssignmentFilterRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exchangeConnectors property
+     * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function exchangeConnectors(): ExchangeConnectorsRequestBuilder {
         return new ExchangeConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exchangeOnPremisesPolicies property
+     * Provides operations to manage the exchangeOnPremisesPolicies property of the microsoft.graph.deviceManagement entity.
     */
     public function exchangeOnPremisesPolicies(): ExchangeOnPremisesPoliciesRequestBuilder {
         return new ExchangeOnPremisesPoliciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exchangeOnPremisesPolicy property
+     * Provides operations to manage the exchangeOnPremisesPolicy property of the microsoft.graph.deviceManagement entity.
     */
     public function exchangeOnPremisesPolicy(): ExchangeOnPremisesPolicyRequestBuilder {
         return new ExchangeOnPremisesPolicyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The getAssignmentFiltersStatusDetails property
+     * Provides operations to call the getAssignmentFiltersStatusDetails method.
     */
     public function getAssignmentFiltersStatusDetails(): GetAssignmentFiltersStatusDetailsRequestBuilder {
         return new GetAssignmentFiltersStatusDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyCategories property
+     * Provides operations to manage the groupPolicyCategories property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyCategories(): GroupPolicyCategoriesRequestBuilder {
         return new GroupPolicyCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyConfigurations property
+     * Provides operations to manage the groupPolicyConfigurations property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyConfigurations(): GroupPolicyConfigurationsRequestBuilder {
         return new GroupPolicyConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyDefinitionFiles property
+     * Provides operations to manage the groupPolicyDefinitionFiles property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyDefinitionFiles(): GroupPolicyDefinitionFilesRequestBuilder {
         return new GroupPolicyDefinitionFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyDefinitions property
+     * Provides operations to manage the groupPolicyDefinitions property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyDefinitions(): GroupPolicyDefinitionsRequestBuilder {
         return new GroupPolicyDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyMigrationReports property
+     * Provides operations to manage the groupPolicyMigrationReports property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyMigrationReports(): GroupPolicyMigrationReportsRequestBuilder {
         return new GroupPolicyMigrationReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyObjectFiles property
+     * Provides operations to manage the groupPolicyObjectFiles property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyObjectFiles(): GroupPolicyObjectFilesRequestBuilder {
         return new GroupPolicyObjectFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupPolicyUploadedDefinitionFiles property
+     * Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.
     */
     public function groupPolicyUploadedDefinitionFiles(): GroupPolicyUploadedDefinitionFilesRequestBuilder {
         return new GroupPolicyUploadedDefinitionFilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The importedDeviceIdentities property
+     * Provides operations to manage the importedDeviceIdentities property of the microsoft.graph.deviceManagement entity.
     */
     public function importedDeviceIdentities(): ImportedDeviceIdentitiesRequestBuilder {
         return new ImportedDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The importedWindowsAutopilotDeviceIdentities property
+     * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
     */
     public function importedWindowsAutopilotDeviceIdentities(): ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The intents property
+     * Provides operations to manage the intents property of the microsoft.graph.deviceManagement entity.
     */
     public function intents(): IntentsRequestBuilder {
         return new IntentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The intuneBrandingProfiles property
+     * Provides operations to manage the intuneBrandingProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function intuneBrandingProfiles(): IntuneBrandingProfilesRequestBuilder {
         return new IntuneBrandingProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The iosUpdateStatuses property
+     * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
     */
     public function iosUpdateStatuses(): IosUpdateStatusesRequestBuilder {
         return new IosUpdateStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The macOSSoftwareUpdateAccountSummaries property
+     * Provides operations to manage the macOSSoftwareUpdateAccountSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function macOSSoftwareUpdateAccountSummaries(): MacOSSoftwareUpdateAccountSummariesRequestBuilder {
         return new MacOSSoftwareUpdateAccountSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDeviceEncryptionStates property
+     * Provides operations to manage the managedDeviceEncryptionStates property of the microsoft.graph.deviceManagement entity.
     */
     public function managedDeviceEncryptionStates(): ManagedDeviceEncryptionStatesRequestBuilder {
         return new ManagedDeviceEncryptionStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDeviceOverview property
+     * Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity.
     */
     public function managedDeviceOverview(): ManagedDeviceOverviewRequestBuilder {
         return new ManagedDeviceOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The managedDevices property
+     * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
     */
     public function managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftTunnelConfigurations property
+     * Provides operations to manage the microsoftTunnelConfigurations property of the microsoft.graph.deviceManagement entity.
     */
     public function microsoftTunnelConfigurations(): MicrosoftTunnelConfigurationsRequestBuilder {
         return new MicrosoftTunnelConfigurationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftTunnelHealthThresholds property
+     * Provides operations to manage the microsoftTunnelHealthThresholds property of the microsoft.graph.deviceManagement entity.
     */
     public function microsoftTunnelHealthThresholds(): MicrosoftTunnelHealthThresholdsRequestBuilder {
         return new MicrosoftTunnelHealthThresholdsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftTunnelServerLogCollectionResponses property
+     * Provides operations to manage the microsoftTunnelServerLogCollectionResponses property of the microsoft.graph.deviceManagement entity.
     */
     public function microsoftTunnelServerLogCollectionResponses(): MicrosoftTunnelServerLogCollectionResponsesRequestBuilder {
         return new MicrosoftTunnelServerLogCollectionResponsesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The microsoftTunnelSites property
+     * Provides operations to manage the microsoftTunnelSites property of the microsoft.graph.deviceManagement entity.
     */
     public function microsoftTunnelSites(): MicrosoftTunnelSitesRequestBuilder {
         return new MicrosoftTunnelSitesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileAppTroubleshootingEvents property
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
     */
     public function mobileAppTroubleshootingEvents(): MobileAppTroubleshootingEventsRequestBuilder {
         return new MobileAppTroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mobileThreatDefenseConnectors property
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function mobileThreatDefenseConnectors(): MobileThreatDefenseConnectorsRequestBuilder {
         return new MobileThreatDefenseConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The monitoring property
+     * Provides operations to manage the monitoring property of the microsoft.graph.deviceManagement entity.
     */
     public function monitoring(): MonitoringRequestBuilder {
         return new MonitoringRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The ndesConnectors property
+     * Provides operations to manage the ndesConnectors property of the microsoft.graph.deviceManagement entity.
     */
     public function ndesConnectors(): NdesConnectorsRequestBuilder {
         return new NdesConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The notificationMessageTemplates property
+     * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
     */
     public function notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The oemWarrantyInformationOnboarding property
+     * Provides operations to manage the oemWarrantyInformationOnboarding property of the microsoft.graph.deviceManagement entity.
     */
     public function oemWarrantyInformationOnboarding(): OemWarrantyInformationOnboardingRequestBuilder {
         return new OemWarrantyInformationOnboardingRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The organizationalMessageDetails property
-    */
-    public function organizationalMessageDetails(): OrganizationalMessageDetailsRequestBuilder {
-        return new OrganizationalMessageDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The organizationalMessageGuidedContents property
-    */
-    public function organizationalMessageGuidedContents(): OrganizationalMessageGuidedContentsRequestBuilder {
-        return new OrganizationalMessageGuidedContentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -954,35 +933,28 @@ class DeviceManagementRequestBuilder
     private array $pathParameters;
     
     /**
-     * The postOrganizationalMessageTenantConsent property
-    */
-    public function postOrganizationalMessageTenantConsent(): PostOrganizationalMessageTenantConsentRequestBuilder {
-        return new PostOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The remoteActionAudits property
+     * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
     */
     public function remoteActionAudits(): RemoteActionAuditsRequestBuilder {
         return new RemoteActionAuditsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The remoteAssistancePartners property
+     * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
     */
     public function remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The remoteAssistanceSettings property
+     * Provides operations to manage the remoteAssistanceSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function remoteAssistanceSettings(): RemoteAssistanceSettingsRequestBuilder {
         return new RemoteAssistanceSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reports property
+     * Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.
     */
     public function reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -994,122 +966,115 @@ class DeviceManagementRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The resourceAccessProfiles property
+     * Provides operations to manage the resourceAccessProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function resourceAccessProfiles(): ResourceAccessProfilesRequestBuilder {
         return new ResourceAccessProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The resourceOperations property
+     * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
     */
     public function resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reusablePolicySettings property
+     * Provides operations to manage the reusablePolicySettings property of the microsoft.graph.deviceManagement entity.
     */
     public function reusablePolicySettings(): ReusablePolicySettingsRequestBuilder {
         return new ReusablePolicySettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The reusableSettings property
+     * Provides operations to manage the reusableSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function reusableSettings(): ReusableSettingsRequestBuilder {
         return new ReusableSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleAssignments property
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
     */
     public function roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleDefinitions property
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
     */
     public function roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The roleScopeTags property
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceManagement entity.
     */
     public function roleScopeTags(): RoleScopeTagsRequestBuilder {
         return new RoleScopeTagsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sendCustomNotificationToCompanyPortal property
+     * Provides operations to call the sendCustomNotificationToCompanyPortal method.
     */
     public function sendCustomNotificationToCompanyPortal(): SendCustomNotificationToCompanyPortalRequestBuilder {
         return new SendCustomNotificationToCompanyPortalRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The settingDefinitions property
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagement entity.
     */
     public function settingDefinitions(): SettingDefinitionsRequestBuilder {
         return new SettingDefinitionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The softwareUpdateStatusSummary property
+     * Provides operations to manage the softwareUpdateStatusSummary property of the microsoft.graph.deviceManagement entity.
     */
     public function softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder {
         return new SoftwareUpdateStatusSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The telecomExpenseManagementPartners property
+     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
     */
     public function telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
         return new TelecomExpenseManagementPartnersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The templates property
+     * Provides operations to manage the templates property of the microsoft.graph.deviceManagement entity.
     */
     public function templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The templateSettings property
+     * Provides operations to manage the templateSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function templateSettings(): TemplateSettingsRequestBuilder {
         return new TemplateSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The tenantAttachRBAC property
+     * Provides operations to manage the tenantAttachRBAC property of the microsoft.graph.deviceManagement entity.
     */
     public function tenantAttachRBAC(): TenantAttachRBACRequestBuilder {
         return new TenantAttachRBACRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The termsAndConditions property
+     * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
     */
     public function termsAndConditions(): TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The troubleshootingEvents property
+     * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
     */
     public function troubleshootingEvents(): TroubleshootingEventsRequestBuilder {
         return new TroubleshootingEventsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The updateOrganizationalMessageTenantConsent property
-    */
-    public function updateOrganizationalMessageTenantConsent(): UpdateOrganizationalMessageTenantConsentRequestBuilder {
-        return new UpdateOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -1118,413 +1083,406 @@ class DeviceManagementRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userExperienceAnalyticsAnomaly property
+     * Provides operations to manage the userExperienceAnalyticsAnomaly property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAnomaly(): UserExperienceAnalyticsAnomalyRequestBuilder {
         return new UserExperienceAnalyticsAnomalyRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAnomalyDevice property
+     * Provides operations to manage the userExperienceAnalyticsAnomalyDevice property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAnomalyDevice(): UserExperienceAnalyticsAnomalyDeviceRequestBuilder {
         return new UserExperienceAnalyticsAnomalyDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthApplicationPerformance property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthApplicationPerformance(): UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder {
         return new UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthDeviceModelPerformance property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDeviceModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthDeviceModelPerformance(): UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthDevicePerformance property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthDevicePerformance(): UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthDevicePerformanceDetails property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformanceDetails property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthDevicePerformanceDetails(): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder {
         return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthOSVersionPerformance property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthOSVersionPerformance(): UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder {
         return new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsAppHealthOverview property
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOverview property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsAppHealthOverview(): UserExperienceAnalyticsAppHealthOverviewRequestBuilder {
         return new UserExperienceAnalyticsAppHealthOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBaselines property
+     * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBaselines(): UserExperienceAnalyticsBaselinesRequestBuilder {
         return new UserExperienceAnalyticsBaselinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthAppImpact property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthAppImpact property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthAppImpact(): UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthAppImpactRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthCapacityDetails property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthCapacityDetails property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthCapacityDetails(): UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthCapacityDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthDeviceAppImpact property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceAppImpact property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthDeviceAppImpact(): UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDeviceAppImpactRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthDevicePerformance property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthDevicePerformance(): UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory(): UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthModelPerformance property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthModelPerformance(): UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthOsPerformance property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthOsPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthOsPerformance(): UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthOsPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsBatteryHealthRuntimeDetails property
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthRuntimeDetails property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsBatteryHealthRuntimeDetails(): UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder {
         return new UserExperienceAnalyticsBatteryHealthRuntimeDetailsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsCategories property
+     * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsCategories(): UserExperienceAnalyticsCategoriesRequestBuilder {
         return new UserExperienceAnalyticsCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceMetricHistory property
+     * Provides operations to manage the userExperienceAnalyticsDeviceMetricHistory property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceMetricHistory(): UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder {
         return new UserExperienceAnalyticsDeviceMetricHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDevicePerformance property
+     * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDevicePerformance(): UserExperienceAnalyticsDevicePerformanceRequestBuilder {
         return new UserExperienceAnalyticsDevicePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceScope property
+     * Provides operations to manage the userExperienceAnalyticsDeviceScope property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceScope(): UserExperienceAnalyticsDeviceScopeRequestBuilder {
         return new UserExperienceAnalyticsDeviceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceScopes property
+     * Provides operations to manage the userExperienceAnalyticsDeviceScopes property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceScopes(): UserExperienceAnalyticsDeviceScopesRequestBuilder {
         return new UserExperienceAnalyticsDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceScores property
+     * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceScores(): UserExperienceAnalyticsDeviceScoresRequestBuilder {
         return new UserExperienceAnalyticsDeviceScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceStartupHistory property
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceStartupHistory(): UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceStartupProcesses property
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceStartupProcesses(): UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDeviceStartupProcessPerformance property
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDeviceStartupProcessPerformance(): UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder {
         return new UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsDevicesWithoutCloudIdentity property
+     * Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsDevicesWithoutCloudIdentity(): UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder {
         return new UserExperienceAnalyticsDevicesWithoutCloudIdentityRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsImpactingProcess property
+     * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsImpactingProcess(): UserExperienceAnalyticsImpactingProcessRequestBuilder {
         return new UserExperienceAnalyticsImpactingProcessRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsMetricHistory property
+     * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsMetricHistory(): UserExperienceAnalyticsMetricHistoryRequestBuilder {
         return new UserExperienceAnalyticsMetricHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsModelScores property
+     * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsModelScores(): UserExperienceAnalyticsModelScoresRequestBuilder {
         return new UserExperienceAnalyticsModelScoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsNotAutopilotReadyDevice property
+     * Provides operations to manage the userExperienceAnalyticsNotAutopilotReadyDevice property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsNotAutopilotReadyDevice(): UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder {
         return new UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsOverview property
+     * Provides operations to manage the userExperienceAnalyticsOverview property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsOverview(): UserExperienceAnalyticsOverviewRequestBuilder {
         return new UserExperienceAnalyticsOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsRegressionSummary property
-    */
-    public function userExperienceAnalyticsRegressionSummary(): UserExperienceAnalyticsRegressionSummaryRequestBuilder {
-        return new UserExperienceAnalyticsRegressionSummaryRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * The userExperienceAnalyticsRemoteConnection property
+     * Provides operations to manage the userExperienceAnalyticsRemoteConnection property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsRemoteConnection(): UserExperienceAnalyticsRemoteConnectionRequestBuilder {
         return new UserExperienceAnalyticsRemoteConnectionRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsResourcePerformance property
+     * Provides operations to manage the userExperienceAnalyticsResourcePerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsResourcePerformance(): UserExperienceAnalyticsResourcePerformanceRequestBuilder {
         return new UserExperienceAnalyticsResourcePerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsScoreHistory property
+     * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsScoreHistory(): UserExperienceAnalyticsScoreHistoryRequestBuilder {
         return new UserExperienceAnalyticsScoreHistoryRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsWorkFromAnywhereMetrics property
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsWorkFromAnywhereMetrics(): UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userExperienceAnalyticsWorkFromAnywhereModelPerformance property
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
     */
     public function userExperienceAnalyticsWorkFromAnywhereModelPerformance(): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder {
         return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userPfxCertificates property
+     * Provides operations to manage the userPfxCertificates property of the microsoft.graph.deviceManagement entity.
     */
     public function userPfxCertificates(): UserPfxCertificatesRequestBuilder {
         return new UserPfxCertificatesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The virtualEndpoint property
+     * Provides operations to manage the virtualEndpoint property of the microsoft.graph.deviceManagement entity.
     */
     public function virtualEndpoint(): VirtualEndpointRequestBuilder {
         return new VirtualEndpointRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsAutopilotDeploymentProfiles property
+     * Provides operations to manage the windowsAutopilotDeploymentProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsAutopilotDeploymentProfiles(): WindowsAutopilotDeploymentProfilesRequestBuilder {
         return new WindowsAutopilotDeploymentProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsAutopilotDeviceIdentities property
+     * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsAutopilotSettings property
+     * Provides operations to manage the windowsAutopilotSettings property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsAutopilotSettings(): WindowsAutopilotSettingsRequestBuilder {
         return new WindowsAutopilotSettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsDriverUpdateProfiles property
+     * Provides operations to manage the windowsDriverUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsDriverUpdateProfiles(): WindowsDriverUpdateProfilesRequestBuilder {
         return new WindowsDriverUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsFeatureUpdateProfiles property
+     * Provides operations to manage the windowsFeatureUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsFeatureUpdateProfiles(): WindowsFeatureUpdateProfilesRequestBuilder {
         return new WindowsFeatureUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsInformationProtectionAppLearningSummaries property
+     * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsInformationProtectionAppLearningSummaries(): WindowsInformationProtectionAppLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsInformationProtectionNetworkLearningSummaries property
+     * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsMalwareInformation property
+     * Provides operations to manage the windowsMalwareInformation property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsMalwareInformation(): WindowsMalwareInformationRequestBuilder {
         return new WindowsMalwareInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsQualityUpdateProfiles property
+     * Provides operations to manage the windowsQualityUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsQualityUpdateProfiles(): WindowsQualityUpdateProfilesRequestBuilder {
         return new WindowsQualityUpdateProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsUpdateCatalogItems property
+     * Provides operations to manage the windowsUpdateCatalogItems property of the microsoft.graph.deviceManagement entity.
     */
     public function windowsUpdateCatalogItems(): WindowsUpdateCatalogItemsRequestBuilder {
         return new WindowsUpdateCatalogItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The zebraFotaArtifacts property
+     * Provides operations to manage the zebraFotaArtifacts property of the microsoft.graph.deviceManagement entity.
     */
     public function zebraFotaArtifacts(): ZebraFotaArtifactsRequestBuilder {
         return new ZebraFotaArtifactsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The zebraFotaConnector property
+     * Provides operations to manage the zebraFotaConnector property of the microsoft.graph.deviceManagement entity.
     */
     public function zebraFotaConnector(): ZebraFotaConnectorRequestBuilder {
         return new ZebraFotaConnectorRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The zebraFotaDeployments property
+     * Provides operations to manage the zebraFotaDeployments property of the microsoft.graph.deviceManagement entity.
     */
     public function zebraFotaDeployments(): ZebraFotaDeploymentsRequestBuilder {
         return new ZebraFotaDeploymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.androidDeviceOwnerEnrollmentProfiles.item collection
+     * Provides operations to manage the androidDeviceOwnerEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AndroidDeviceOwnerEnrollmentProfileItemRequestBuilder
     */
@@ -1535,7 +1493,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.androidForWorkAppConfigurationSchemas.item collection
+     * Provides operations to manage the androidForWorkAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AndroidForWorkAppConfigurationSchemaItemRequestBuilder
     */
@@ -1546,7 +1504,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.androidForWorkEnrollmentProfiles.item collection
+     * Provides operations to manage the androidForWorkEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AndroidForWorkEnrollmentProfileItemRequestBuilder
     */
@@ -1557,7 +1515,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.androidManagedStoreAppConfigurationSchemas.item collection
+     * Provides operations to manage the androidManagedStoreAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AndroidManagedStoreAppConfigurationSchemaItemRequestBuilder
     */
@@ -1568,7 +1526,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.appleUserInitiatedEnrollmentProfiles.item collection
+     * Provides operations to manage the appleUserInitiatedEnrollmentProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AppleUserInitiatedEnrollmentProfileItemRequestBuilder
     */
@@ -1579,7 +1537,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.assignmentFilters.item collection
+     * Provides operations to manage the assignmentFilters property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceAndAppManagementAssignmentFilterItemRequestBuilder
     */
@@ -1590,7 +1548,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.auditEvents.item collection
+     * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return AuditEventItemRequestBuilder
     */
@@ -1601,7 +1559,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.autopilotEvents.item collection
+     * Provides operations to manage the autopilotEvents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementAutopilotEventItemRequestBuilder
     */
@@ -1612,7 +1570,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.cartToClassAssociations.item collection
+     * Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return CartToClassAssociationItemRequestBuilder
     */
@@ -1623,7 +1581,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.categories.item collection
+     * Provides operations to manage the categories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementSettingCategoryItemRequestBuilder
     */
@@ -1634,7 +1592,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.certificateConnectorDetails.item collection
+     * Provides operations to manage the certificateConnectorDetails property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return CertificateConnectorDetailsItemRequestBuilder
     */
@@ -1645,7 +1603,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.chromeOSOnboardingSettings.item collection
+     * Provides operations to manage the chromeOSOnboardingSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ChromeOSOnboardingSettingsItemRequestBuilder
     */
@@ -1656,7 +1614,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.cloudPCConnectivityIssues.item collection
+     * Provides operations to manage the cloudPCConnectivityIssues property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return CloudPCConnectivityIssueItemRequestBuilder
     */
@@ -1667,7 +1625,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.comanagedDevices.item collection
+     * Provides operations to manage the comanagedDevices property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementComanagedDevicesItemManagedDeviceItemRequestBuilder
     */
@@ -1678,7 +1636,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.comanagementEligibleDevices.item collection
+     * Provides operations to manage the comanagementEligibleDevices property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ComanagementEligibleDeviceItemRequestBuilder
     */
@@ -1689,7 +1647,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.complianceCategories.item collection
+     * Provides operations to manage the complianceCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementComplianceCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder
     */
@@ -1700,7 +1658,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.complianceManagementPartners.item collection
+     * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ComplianceManagementPartnerItemRequestBuilder
     */
@@ -1711,7 +1669,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.compliancePolicies.item collection
+     * Provides operations to manage the compliancePolicies property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementCompliancePolicyItemRequestBuilder
     */
@@ -1722,7 +1680,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.complianceSettings.item collection
+     * Provides operations to manage the complianceSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementComplianceSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
@@ -1733,7 +1691,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configManagerCollections.item collection
+     * Provides operations to manage the configManagerCollections property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ConfigManagerCollectionItemRequestBuilder
     */
@@ -1744,7 +1702,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configurationCategories.item collection
+     * Provides operations to manage the configurationCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementConfigurationCategoriesItemDeviceManagementConfigurationCategoryItemRequestBuilder
     */
@@ -1755,7 +1713,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configurationPolicies.item collection
+     * Provides operations to manage the configurationPolicies property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationPolicyItemRequestBuilder
     */
@@ -1766,7 +1724,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configurationPolicyTemplates.item collection
+     * Provides operations to manage the configurationPolicyTemplates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationPolicyTemplateItemRequestBuilder
     */
@@ -1777,7 +1735,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.configurationSettings.item collection
+     * Provides operations to manage the configurationSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementConfigurationSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
@@ -1848,7 +1806,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.dataSharingConsents.item collection
+     * Provides operations to manage the dataSharingConsents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DataSharingConsentItemRequestBuilder
     */
@@ -1859,7 +1817,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.depOnboardingSettings.item collection
+     * Provides operations to manage the depOnboardingSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DepOnboardingSettingItemRequestBuilder
     */
@@ -1870,7 +1828,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.derivedCredentials.item collection
+     * Provides operations to manage the derivedCredentials property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementDerivedCredentialSettingsItemRequestBuilder
     */
@@ -1881,7 +1839,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.detectedApps.item collection
+     * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DetectedAppItemRequestBuilder
     */
@@ -1892,7 +1850,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceCategories.item collection
+     * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCategoryItemRequestBuilder
     */
@@ -1903,7 +1861,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceCompliancePolicies.item collection
+     * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCompliancePolicyItemRequestBuilder
     */
@@ -1914,7 +1872,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
     */
@@ -1925,7 +1883,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceComplianceScripts.item collection
+     * Provides operations to manage the deviceComplianceScripts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceComplianceScriptItemRequestBuilder
     */
@@ -1936,7 +1894,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurationConflictSummary.item collection
+     * Provides operations to manage the deviceConfigurationConflictSummary property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationConflictSummaryItemRequestBuilder
     */
@@ -1947,7 +1905,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurationRestrictedAppsViolations.item collection
+     * Provides operations to manage the deviceConfigurationRestrictedAppsViolations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return RestrictedAppsViolationItemRequestBuilder
     */
@@ -1958,7 +1916,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurationsAllManagedDeviceCertificateStates.item collection
+     * Provides operations to manage the deviceConfigurationsAllManagedDeviceCertificateStates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ManagedAllDeviceCertificateStateItemRequestBuilder
     */
@@ -1969,7 +1927,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item collection
+     * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationItemRequestBuilder
     */
@@ -1980,7 +1938,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceCustomAttributeShellScripts.item collection
+     * Provides operations to manage the deviceCustomAttributeShellScripts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceCustomAttributeShellScriptItemRequestBuilder
     */
@@ -1991,7 +1949,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceEnrollmentConfigurations.item collection
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceEnrollmentConfigurationItemRequestBuilder
     */
@@ -2002,7 +1960,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceHealthScripts.item collection
+     * Provides operations to manage the deviceHealthScripts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceHealthScriptItemRequestBuilder
     */
@@ -2013,7 +1971,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceManagementPartners.item collection
+     * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementPartnerItemRequestBuilder
     */
@@ -2024,7 +1982,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceManagementScripts.item collection
+     * Provides operations to manage the deviceManagementScripts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptItemRequestBuilder
     */
@@ -2035,7 +1993,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceShellScripts.item collection
+     * Provides operations to manage the deviceShellScripts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceShellScriptItemRequestBuilder
     */
@@ -2046,7 +2004,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.domainJoinConnectors.item collection
+     * Provides operations to manage the domainJoinConnectors property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementDomainJoinConnectorItemRequestBuilder
     */
@@ -2057,7 +2015,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.embeddedSIMActivationCodePools.item collection
+     * Provides operations to manage the embeddedSIMActivationCodePools property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return EmbeddedSIMActivationCodePoolItemRequestBuilder
     */
@@ -2068,7 +2026,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.exchangeConnectors.item collection
+     * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementExchangeConnectorItemRequestBuilder
     */
@@ -2079,7 +2037,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.exchangeOnPremisesPolicies.item collection
+     * Provides operations to manage the exchangeOnPremisesPolicies property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementExchangeOnPremisesPolicyItemRequestBuilder
     */
@@ -2150,14 +2108,6 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Provides operations to call the getOrganizationalMessageTenantConsent method.
-     * @return GetOrganizationalMessageTenantConsentRequestBuilder
-    */
-    public function getOrganizationalMessageTenantConsent(): GetOrganizationalMessageTenantConsentRequestBuilder {
-        return new GetOrganizationalMessageTenantConsentRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-
-    /**
      * Provides operations to call the getRoleScopeTagsByIds method.
      * @param string $ids Usage: ids={ids}
      * @return GetRoleScopeTagsByIdsWithIdsRequestBuilder
@@ -2185,7 +2135,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyCategories.item collection
+     * Provides operations to manage the groupPolicyCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyCategoryItemRequestBuilder
     */
@@ -2196,7 +2146,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyConfigurations.item collection
+     * Provides operations to manage the groupPolicyConfigurations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyConfigurationItemRequestBuilder
     */
@@ -2207,7 +2157,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyDefinitionFiles.item collection
+     * Provides operations to manage the groupPolicyDefinitionFiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyDefinitionFileItemRequestBuilder
     */
@@ -2218,7 +2168,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyDefinitions.item collection
+     * Provides operations to manage the groupPolicyDefinitions property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyDefinitionItemRequestBuilder
     */
@@ -2229,7 +2179,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyMigrationReports.item collection
+     * Provides operations to manage the groupPolicyMigrationReports property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyMigrationReportItemRequestBuilder
     */
@@ -2240,7 +2190,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyObjectFiles.item collection
+     * Provides operations to manage the groupPolicyObjectFiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyObjectFileItemRequestBuilder
     */
@@ -2251,7 +2201,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.groupPolicyUploadedDefinitionFiles.item collection
+     * Provides operations to manage the groupPolicyUploadedDefinitionFiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return GroupPolicyUploadedDefinitionFileItemRequestBuilder
     */
@@ -2262,7 +2212,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.importedDeviceIdentities.item collection
+     * Provides operations to manage the importedDeviceIdentities property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ImportedDeviceIdentityItemRequestBuilder
     */
@@ -2273,7 +2223,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
+     * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
     */
@@ -2284,7 +2234,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intents.item collection
+     * Provides operations to manage the intents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementIntentItemRequestBuilder
     */
@@ -2295,7 +2245,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.intuneBrandingProfiles.item collection
+     * Provides operations to manage the intuneBrandingProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return IntuneBrandingProfileItemRequestBuilder
     */
@@ -2306,7 +2256,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.iosUpdateStatuses.item collection
+     * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return IosUpdateDeviceStatusItemRequestBuilder
     */
@@ -2317,7 +2267,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.macOSSoftwareUpdateAccountSummaries.item collection
+     * Provides operations to manage the macOSSoftwareUpdateAccountSummaries property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MacOSSoftwareUpdateAccountSummaryItemRequestBuilder
     */
@@ -2328,7 +2278,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.managedDeviceEncryptionStates.item collection
+     * Provides operations to manage the managedDeviceEncryptionStates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ManagedDeviceEncryptionStateItemRequestBuilder
     */
@@ -2339,7 +2289,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.managedDevices.item collection
+     * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementManagedDevicesItemManagedDeviceItemRequestBuilder
     */
@@ -2350,7 +2300,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.microsoftTunnelConfigurations.item collection
+     * Provides operations to manage the microsoftTunnelConfigurations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelConfigurationItemRequestBuilder
     */
@@ -2361,7 +2311,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.microsoftTunnelHealthThresholds.item collection
+     * Provides operations to manage the microsoftTunnelHealthThresholds property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelHealthThresholdItemRequestBuilder
     */
@@ -2372,7 +2322,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.microsoftTunnelServerLogCollectionResponses.item collection
+     * Provides operations to manage the microsoftTunnelServerLogCollectionResponses property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelServerLogCollectionResponseItemRequestBuilder
     */
@@ -2383,7 +2333,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.microsoftTunnelSites.item collection
+     * Provides operations to manage the microsoftTunnelSites property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftTunnelSiteItemRequestBuilder
     */
@@ -2394,7 +2344,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.mobileAppTroubleshootingEvents.item collection
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MobileAppTroubleshootingEventItemRequestBuilder
     */
@@ -2405,7 +2355,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.mobileThreatDefenseConnectors.item collection
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MobileThreatDefenseConnectorItemRequestBuilder
     */
@@ -2416,7 +2366,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.ndesConnectors.item collection
+     * Provides operations to manage the ndesConnectors property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return NdesConnectorItemRequestBuilder
     */
@@ -2427,7 +2377,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.notificationMessageTemplates.item collection
+     * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return NotificationMessageTemplateItemRequestBuilder
     */
@@ -2438,7 +2388,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.oemWarrantyInformationOnboarding.item collection
+     * Provides operations to manage the oemWarrantyInformationOnboarding property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return OemWarrantyInformationOnboardingItemRequestBuilder
     */
@@ -2446,28 +2396,6 @@ class DeviceManagementRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['oemWarrantyInformationOnboarding%2Did'] = $id;
         return new OemWarrantyInformationOnboardingItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.organizationalMessageDetails.item collection
-     * @param string $id Unique identifier of the item
-     * @return OrganizationalMessageDetailItemRequestBuilder
-    */
-    public function organizationalMessageDetailsById(string $id): OrganizationalMessageDetailItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['organizationalMessageDetail%2Did'] = $id;
-        return new OrganizationalMessageDetailItemRequestBuilder($urlTplParams, $this->requestAdapter);
-    }
-
-    /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.organizationalMessageGuidedContents.item collection
-     * @param string $id Unique identifier of the item
-     * @return OrganizationalMessageGuidedContentItemRequestBuilder
-    */
-    public function organizationalMessageGuidedContentsById(string $id): OrganizationalMessageGuidedContentItemRequestBuilder {
-        $urlTplParams = $this->pathParameters;
-        $urlTplParams['organizationalMessageGuidedContent%2Did'] = $id;
-        return new OrganizationalMessageGuidedContentItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**
@@ -2491,7 +2419,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.remoteActionAudits.item collection
+     * Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return RemoteActionAuditItemRequestBuilder
     */
@@ -2502,7 +2430,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.remoteAssistancePartners.item collection
+     * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return RemoteAssistancePartnerItemRequestBuilder
     */
@@ -2513,7 +2441,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.resourceAccessProfiles.item collection
+     * Provides operations to manage the resourceAccessProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementResourceAccessProfileBaseItemRequestBuilder
     */
@@ -2524,7 +2452,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.resourceOperations.item collection
+     * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ResourceOperationItemRequestBuilder
     */
@@ -2535,7 +2463,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusablePolicySettings.item collection
+     * Provides operations to manage the reusablePolicySettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementReusablePolicySettingItemRequestBuilder
     */
@@ -2546,7 +2474,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.reusableSettings.item collection
+     * Provides operations to manage the reusableSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementReusableSettingsItemDeviceManagementConfigurationSettingDefinitionItemRequestBuilder
     */
@@ -2557,7 +2485,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.roleAssignments.item collection
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceAndAppManagementRoleAssignmentItemRequestBuilder
     */
@@ -2568,7 +2496,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.roleDefinitions.item collection
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return RoleDefinitionItemRequestBuilder
     */
@@ -2579,7 +2507,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.roleScopeTags.item collection
+     * Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return RoleScopeTagItemRequestBuilder
     */
@@ -2599,7 +2527,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.settingDefinitions.item collection
+     * Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementSettingDefinitionItemRequestBuilder
     */
@@ -2610,7 +2538,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.telecomExpenseManagementPartners.item collection
+     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return TelecomExpenseManagementPartnerItemRequestBuilder
     */
@@ -2621,7 +2549,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templates.item collection
+     * Provides operations to manage the templates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementTemplateItemRequestBuilder
     */
@@ -2632,7 +2560,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.templateSettings.item collection
+     * Provides operations to manage the templateSettings property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementConfigurationSettingTemplateItemRequestBuilder
     */
@@ -2643,7 +2571,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.termsAndConditions.item collection
+     * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return TermsAndConditionsItemRequestBuilder
     */
@@ -2654,7 +2582,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.troubleshootingEvents.item collection
+     * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementTroubleshootingEventItemRequestBuilder
     */
@@ -2665,7 +2593,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAnomaly.item collection
+     * Provides operations to manage the userExperienceAnalyticsAnomaly property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAnomalyItemRequestBuilder
     */
@@ -2676,7 +2604,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAnomalyDevice.item collection
+     * Provides operations to manage the userExperienceAnalyticsAnomalyDevice property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAnomalyDeviceItemRequestBuilder
     */
@@ -2687,7 +2615,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionItemRequestBuilder
     */
@@ -2698,7 +2626,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder
     */
@@ -2709,7 +2637,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilder
     */
@@ -2720,7 +2648,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthApplicationPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder
     */
@@ -2731,7 +2659,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder
     */
@@ -2742,7 +2670,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthDeviceModelPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDeviceModelPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilder
     */
@@ -2753,7 +2681,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthDevicePerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder
     */
@@ -2764,7 +2692,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthDevicePerformanceDetails.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformanceDetails property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetailsItemRequestBuilder
     */
@@ -2775,7 +2703,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsAppHealthOSVersionPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder
     */
@@ -2786,7 +2714,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBaselines.item collection
+     * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBaselineItemRequestBuilder
     */
@@ -2797,7 +2725,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthAppImpact.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthAppImpact property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthAppImpactItemRequestBuilder
     */
@@ -2808,7 +2736,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthDeviceAppImpact.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceAppImpact property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthDeviceAppImpactItemRequestBuilder
     */
@@ -2819,7 +2747,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthDevicePerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthDevicePerformanceItemRequestBuilder
     */
@@ -2830,7 +2758,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistoryItemRequestBuilder
     */
@@ -2841,7 +2769,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthModelPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthModelPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthModelPerformanceItemRequestBuilder
     */
@@ -2852,7 +2780,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsBatteryHealthOsPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsBatteryHealthOsPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsBatteryHealthOsPerformanceItemRequestBuilder
     */
@@ -2863,7 +2791,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsCategories.item collection
+     * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsCategoryItemRequestBuilder
     */
@@ -2874,7 +2802,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceMetricHistory.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceMetricHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsDeviceMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder
     */
@@ -2885,7 +2813,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDevicePerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
     */
@@ -2896,7 +2824,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceScopes.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceScopes property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceScopeItemRequestBuilder
     */
@@ -2907,7 +2835,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceScores.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceScoresItemRequestBuilder
     */
@@ -2918,7 +2846,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceStartupHistory.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
     */
@@ -2929,7 +2857,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceStartupProcesses.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder
     */
@@ -2940,7 +2868,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDeviceStartupProcessPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcessPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceStartupProcessPerformanceItemRequestBuilder
     */
@@ -2951,7 +2879,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsDevicesWithoutCloudIdentity.item collection
+     * Provides operations to manage the userExperienceAnalyticsDevicesWithoutCloudIdentity property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsDeviceWithoutCloudIdentityItemRequestBuilder
     */
@@ -2962,7 +2890,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsImpactingProcess.item collection
+     * Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsImpactingProcessItemRequestBuilder
     */
@@ -2973,7 +2901,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsMetricHistory.item collection
+     * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDeviceManagementUserExperienceAnalyticsMetricHistoryItemUserExperienceAnalyticsMetricHistoryItemRequestBuilder
     */
@@ -2984,7 +2912,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsModelScores.item collection
+     * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsModelScoresItemRequestBuilder
     */
@@ -2995,7 +2923,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsNotAutopilotReadyDevice.item collection
+     * Provides operations to manage the userExperienceAnalyticsNotAutopilotReadyDevice property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsNotAutopilotReadyDeviceItemRequestBuilder
     */
@@ -3006,7 +2934,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsRemoteConnection.item collection
+     * Provides operations to manage the userExperienceAnalyticsRemoteConnection property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsRemoteConnectionItemRequestBuilder
     */
@@ -3017,7 +2945,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsResourcePerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsResourcePerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsResourcePerformanceItemRequestBuilder
     */
@@ -3028,7 +2956,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsScoreHistory.item collection
+     * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsScoreHistoryItemRequestBuilder
     */
@@ -3036,6 +2964,14 @@ class DeviceManagementRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['userExperienceAnalyticsScoreHistory%2Did'] = $id;
         return new UserExperienceAnalyticsScoreHistoryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
+     * @return UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder
+    */
+    public function userExperienceAnalyticsSummarizedDeviceScopes(): UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder {
+        return new UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**
@@ -3047,7 +2983,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsWorkFromAnywhereMetrics.item collection
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
     */
@@ -3058,7 +2994,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsWorkFromAnywhereModelPerformance.item collection
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder
     */
@@ -3069,7 +3005,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userPfxCertificates.item collection
+     * Provides operations to manage the userPfxCertificates property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return UserPFXCertificateItemRequestBuilder
     */
@@ -3089,7 +3025,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsAutopilotDeploymentProfiles.item collection
+     * Provides operations to manage the windowsAutopilotDeploymentProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsAutopilotDeploymentProfileItemRequestBuilder
     */
@@ -3100,7 +3036,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsAutopilotDeviceIdentities.item collection
+     * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsAutopilotDeviceIdentityItemRequestBuilder
     */
@@ -3111,7 +3047,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsDriverUpdateProfiles.item collection
+     * Provides operations to manage the windowsDriverUpdateProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsDriverUpdateProfileItemRequestBuilder
     */
@@ -3122,7 +3058,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsFeatureUpdateProfiles.item collection
+     * Provides operations to manage the windowsFeatureUpdateProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsFeatureUpdateProfileItemRequestBuilder
     */
@@ -3133,7 +3069,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
+     * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsInformationProtectionAppLearningSummaryItemRequestBuilder
     */
@@ -3144,7 +3080,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
+     * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
     */
@@ -3155,7 +3091,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsMalwareInformation.item collection
+     * Provides operations to manage the windowsMalwareInformation property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsMalwareInformationItemRequestBuilder
     */
@@ -3166,7 +3102,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsQualityUpdateProfiles.item collection
+     * Provides operations to manage the windowsQualityUpdateProfiles property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsQualityUpdateProfileItemRequestBuilder
     */
@@ -3177,7 +3113,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.windowsUpdateCatalogItems.item collection
+     * Provides operations to manage the windowsUpdateCatalogItems property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return WindowsUpdateCatalogItemItemRequestBuilder
     */
@@ -3188,7 +3124,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.zebraFotaArtifacts.item collection
+     * Provides operations to manage the zebraFotaArtifacts property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ZebraFotaArtifactItemRequestBuilder
     */
@@ -3199,7 +3135,7 @@ class DeviceManagementRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.zebraFotaDeployments.item collection
+     * Provides operations to manage the zebraFotaDeployments property of the microsoft.graph.deviceManagement entity.
      * @param string $id Unique identifier of the item
      * @return ZebraFotaDeploymentItemRequestBuilder
     */

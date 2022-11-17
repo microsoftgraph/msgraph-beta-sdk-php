@@ -32,7 +32,7 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The siteSources property
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
     */
     public function siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -44,7 +44,7 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userSources property
+     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
     */
     public function userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -190,7 +190,7 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cases.ediscoveryCases.item.legalHolds.item.siteSources.item collection
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
      * @param string $id Unique identifier of the item
      * @return SiteSourceItemRequestBuilder
     */
@@ -201,7 +201,7 @@ class EdiscoveryHoldPolicyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.cases.ediscoveryCases.item.legalHolds.item.userSources.item collection
+     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryHoldPolicy entity.
      * @param string $id Unique identifier of the item
      * @return UserSourceItemRequestBuilder
     */

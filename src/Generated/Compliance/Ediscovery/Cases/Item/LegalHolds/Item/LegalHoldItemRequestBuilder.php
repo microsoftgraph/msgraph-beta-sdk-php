@@ -34,14 +34,14 @@ class LegalHoldItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The siteSources property
+     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
     */
     public function siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unifiedGroupSources property
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
     */
     public function unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -53,7 +53,7 @@ class LegalHoldItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userSources property
+     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.legalHold entity.
     */
     public function userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -199,7 +199,7 @@ class LegalHoldItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.legalHolds.item.siteSources.item collection
+     * Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.legalHold entity.
      * @param string $id Unique identifier of the item
      * @return SiteSourceItemRequestBuilder
     */
@@ -210,7 +210,7 @@ class LegalHoldItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.legalHolds.item.unifiedGroupSources.item collection
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.legalHold entity.
      * @param string $id Unique identifier of the item
      * @return UnifiedGroupSourceItemRequestBuilder
     */
@@ -221,7 +221,7 @@ class LegalHoldItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.compliance.ediscovery.cases.item.legalHolds.item.userSources.item collection
+     * Provides operations to manage the userSources property of the microsoft.graph.ediscovery.legalHold entity.
      * @param string $id Unique identifier of the item
      * @return UserSourceItemRequestBuilder
     */

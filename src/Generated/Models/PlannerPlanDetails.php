@@ -9,12 +9,12 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerPlanDetails extends PlannerDelta implements Parsable 
 {
     /**
-     * @var PlannerCategoryDescriptions|null $categoryDescriptions An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
+     * @var PlannerCategoryDescriptions|null $categoryDescriptions An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.
     */
     private ?PlannerCategoryDescriptions $categoryDescriptions = null;
     
     /**
-     * @var PlannerPlanContextDetailsCollection|null $contextDetails Read-only. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container.
+     * @var PlannerPlanContextDetailsCollection|null $contextDetails A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container. Read-only.
     */
     private ?PlannerPlanContextDetailsCollection $contextDetails = null;
     
@@ -41,7 +41,7 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
+     * Gets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.
      * @return PlannerCategoryDescriptions|null
     */
     public function getCategoryDescriptions(): ?PlannerCategoryDescriptions {
@@ -49,7 +49,7 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the contextDetails property value. Read-only. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container.
+     * Gets the contextDetails property value. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container. Read-only.
      * @return PlannerPlanContextDetailsCollection|null
     */
     public function getContextDetails(): ?PlannerPlanContextDetailsCollection {
@@ -89,7 +89,7 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
+     * Sets the categoryDescriptions property value. An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.
      *  @param PlannerCategoryDescriptions|null $value Value to set for the categoryDescriptions property.
     */
     public function setCategoryDescriptions(?PlannerCategoryDescriptions $value ): void {
@@ -97,7 +97,7 @@ class PlannerPlanDetails extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the contextDetails property value. Read-only. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container.
+     * Sets the contextDetails property value. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container. Read-only.
      *  @param PlannerPlanContextDetailsCollection|null $value Value to set for the contextDetails property.
     */
     public function setContextDetails(?PlannerPlanContextDetailsCollection $value ): void {

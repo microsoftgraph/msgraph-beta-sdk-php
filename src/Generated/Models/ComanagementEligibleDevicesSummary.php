@@ -45,6 +45,11 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     private ?string $odataType = null;
     
     /**
+     * @var int|null $scheduledForEnrollmentCount Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999
+    */
+    private ?int $scheduledForEnrollmentCount = null;
+    
+    /**
      * Instantiates a new comanagementEligibleDevicesSummary and sets the default values.
     */
     public function __construct() {
@@ -106,6 +111,7 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
             'ineligibleCount' => fn(ParseNode $n) => $o->setIneligibleCount($n->getIntegerValue()),
             'needsOsUpdateCount' => fn(ParseNode $n) => $o->setNeedsOsUpdateCount($n->getIntegerValue()),
             '@odata.type' => fn(ParseNode $n) => $o->setOdataType($n->getStringValue()),
+            'scheduledForEnrollmentCount' => fn(ParseNode $n) => $o->setScheduledForEnrollmentCount($n->getIntegerValue()),
         ];
     }
 
@@ -134,6 +140,14 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     }
 
     /**
+     * Gets the scheduledForEnrollmentCount property value. Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999
+     * @return int|null
+    */
+    public function getScheduledForEnrollmentCount(): ?int {
+        return $this->scheduledForEnrollmentCount;
+    }
+
+    /**
      * Serializes information the current object
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
@@ -144,6 +158,7 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
         $writer->writeIntegerValue('ineligibleCount', $this->ineligibleCount);
         $writer->writeIntegerValue('needsOsUpdateCount', $this->needsOsUpdateCount);
         $writer->writeStringValue('@odata.type', $this->odataType);
+        $writer->writeIntegerValue('scheduledForEnrollmentCount', $this->scheduledForEnrollmentCount);
         $writer->writeAdditionalData($this->additionalData);
     }
 
@@ -201,6 +216,14 @@ class ComanagementEligibleDevicesSummary implements AdditionalDataHolder, Parsab
     */
     public function setOdataType(?string $value ): void {
         $this->odataType = $value;
+    }
+
+    /**
+     * Sets the scheduledForEnrollmentCount property value. Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999
+     *  @param int|null $value Value to set for the scheduledForEnrollmentCount property.
+    */
+    public function setScheduledForEnrollmentCount(?int $value ): void {
+        $this->scheduledForEnrollmentCount = $value;
     }
 
 }

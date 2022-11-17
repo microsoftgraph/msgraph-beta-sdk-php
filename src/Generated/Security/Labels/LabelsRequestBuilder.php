@@ -30,7 +30,7 @@ class LabelsRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The retentionLabels property
+     * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
     */
     public function retentionLabels(): RetentionLabelsRequestBuilder {
         return new RetentionLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class LabelsRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.security.labels.retentionLabels.item collection
+     * Provides operations to manage the retentionLabels property of the microsoft.graph.security.labelsRoot entity.
      * @param string $id Unique identifier of the item
      * @return RetentionLabelItemRequestBuilder
     */

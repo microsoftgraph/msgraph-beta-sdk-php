@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class GroupPolicyPresentationValueItemRequestBuilder 
 {
     /**
-     * The definitionValue property
+     * Provides operations to manage the definitionValue property of the microsoft.graph.groupPolicyPresentationValue entity.
     */
     public function definitionValue(): DefinitionValueRequestBuilder {
         return new DefinitionValueRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -32,7 +32,7 @@ class GroupPolicyPresentationValueItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The presentation property
+     * Provides operations to manage the presentation property of the microsoft.graph.groupPolicyPresentationValue entity.
     */
     public function presentation(): PresentationRequestBuilder {
         return new PresentationRequestBuilder($this->pathParameters, $this->requestAdapter);

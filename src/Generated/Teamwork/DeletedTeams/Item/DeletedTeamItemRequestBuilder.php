@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeletedTeamItemRequestBuilder 
 {
     /**
-     * The channels property
+     * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
     */
     public function channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class DeletedTeamItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.teamwork.deletedTeams.item.channels.item collection
+     * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
      * @param string $id Unique identifier of the item
      * @return ChannelItemRequestBuilder
     */

@@ -25,28 +25,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsAutopilotDeviceIdentityItemRequestBuilder 
 {
     /**
-     * The assignResourceAccountToDevice property
+     * Provides operations to call the assignResourceAccountToDevice method.
     */
     public function assignResourceAccountToDevice(): AssignResourceAccountToDeviceRequestBuilder {
         return new AssignResourceAccountToDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignUserToDevice property
+     * Provides operations to call the assignUserToDevice method.
     */
     public function assignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deploymentProfile property
+     * Provides operations to manage the deploymentProfile property of the microsoft.graph.windowsAutopilotDeviceIdentity entity.
     */
     public function deploymentProfile(): DeploymentProfileRequestBuilder {
         return new DeploymentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The intendedDeploymentProfile property
+     * Provides operations to manage the intendedDeploymentProfile property of the microsoft.graph.windowsAutopilotDeviceIdentity entity.
     */
     public function intendedDeploymentProfile(): IntendedDeploymentProfileRequestBuilder {
         return new IntendedDeploymentProfileRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -63,21 +63,21 @@ class WindowsAutopilotDeviceIdentityItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The unassignResourceAccountFromDevice property
+     * Provides operations to call the unassignResourceAccountFromDevice method.
     */
     public function unassignResourceAccountFromDevice(): UnassignResourceAccountFromDeviceRequestBuilder {
         return new UnassignResourceAccountFromDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unassignUserFromDevice property
+     * Provides operations to call the unassignUserFromDevice method.
     */
     public function unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
         return new UnassignUserFromDeviceRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The updateDeviceProperties property
+     * Provides operations to call the updateDeviceProperties method.
     */
     public function updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
         return new UpdateDevicePropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);

@@ -84,6 +84,11 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     private ?string $minimumRequiredSdkVersion = null;
     
     /**
+     * @var string|null $minimumWarningSdkVersion Versions less than the specified version will result in warning message on the managed app from accessing company data.
+    */
+    private ?string $minimumWarningSdkVersion = null;
+    
+    /**
      * @var string|null $minimumWipeSdkVersion Versions less than the specified version will block the managed app from accessing company data.
     */
     private ?string $minimumWipeSdkVersion = null;
@@ -233,6 +238,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
             'filterOpenInToOnlyManagedApps' => fn(ParseNode $n) => $o->setFilterOpenInToOnlyManagedApps($n->getBooleanValue()),
             'managedUniversalLinks' => fn(ParseNode $n) => $o->setManagedUniversalLinks($n->getCollectionOfPrimitiveValues()),
             'minimumRequiredSdkVersion' => fn(ParseNode $n) => $o->setMinimumRequiredSdkVersion($n->getStringValue()),
+            'minimumWarningSdkVersion' => fn(ParseNode $n) => $o->setMinimumWarningSdkVersion($n->getStringValue()),
             'minimumWipeSdkVersion' => fn(ParseNode $n) => $o->setMinimumWipeSdkVersion($n->getStringValue()),
             'protectInboundDataFromUnknownSources' => fn(ParseNode $n) => $o->setProtectInboundDataFromUnknownSources($n->getBooleanValue()),
             'thirdPartyKeyboardsBlocked' => fn(ParseNode $n) => $o->setThirdPartyKeyboardsBlocked($n->getBooleanValue()),
@@ -261,6 +267,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function getMinimumRequiredSdkVersion(): ?string {
         return $this->minimumRequiredSdkVersion;
+    }
+
+    /**
+     * Gets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
+     * @return string|null
+    */
+    public function getMinimumWarningSdkVersion(): ?string {
+        return $this->minimumWarningSdkVersion;
     }
 
     /**
@@ -308,6 +322,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
         $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->filterOpenInToOnlyManagedApps);
         $writer->writeCollectionOfPrimitiveValues('managedUniversalLinks', $this->managedUniversalLinks);
         $writer->writeStringValue('minimumRequiredSdkVersion', $this->minimumRequiredSdkVersion);
+        $writer->writeStringValue('minimumWarningSdkVersion', $this->minimumWarningSdkVersion);
         $writer->writeStringValue('minimumWipeSdkVersion', $this->minimumWipeSdkVersion);
         $writer->writeBooleanValue('protectInboundDataFromUnknownSources', $this->protectInboundDataFromUnknownSources);
         $writer->writeBooleanValue('thirdPartyKeyboardsBlocked', $this->thirdPartyKeyboardsBlocked);
@@ -431,6 +446,14 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function setMinimumRequiredSdkVersion(?string $value ): void {
         $this->minimumRequiredSdkVersion = $value;
+    }
+
+    /**
+     * Sets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
+     *  @param string|null $value Value to set for the minimumWarningSdkVersion property.
+    */
+    public function setMinimumWarningSdkVersion(?string $value ): void {
+        $this->minimumWarningSdkVersion = $value;
     }
 
     /**

@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagedTenantAlertRuleDefinitionItemRequestBuilder 
 {
     /**
-     * The alertRules property
+     * Provides operations to manage the alertRules property of the microsoft.graph.managedTenants.managedTenantAlertRuleDefinition entity.
     */
     public function alertRules(): AlertRulesRequestBuilder {
         return new AlertRulesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -42,7 +42,7 @@ class ManagedTenantAlertRuleDefinitionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.tenantRelationships.managedTenants.managedTenantAlertRuleDefinitions.item.alertRules.item collection
+     * Provides operations to manage the alertRules property of the microsoft.graph.managedTenants.managedTenantAlertRuleDefinition entity.
      * @param string $id Unique identifier of the item
      * @return ManagedTenantAlertRuleItemRequestBuilder
     */

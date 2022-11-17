@@ -28,28 +28,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OnlineMeetingItemRequestBuilder 
 {
     /**
-     * The alternativeRecording property
+     * Provides operations to manage the media for the commsApplication entity.
     */
     public function alternativeRecording(): AlternativeRecordingRequestBuilder {
         return new AlternativeRecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The attendanceReports property
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
     */
     public function attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The attendeeReport property
+     * Provides operations to manage the media for the commsApplication entity.
     */
     public function attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The meetingAttendanceReport property
+     * Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.
     */
     public function meetingAttendanceReport(): MeetingAttendanceReportRequestBuilder {
         return new MeetingAttendanceReportRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -61,14 +61,14 @@ class OnlineMeetingItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recording property
+     * Provides operations to manage the media for the commsApplication entity.
     */
     public function recording(): RecordingRequestBuilder {
         return new RecordingRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The registration property
+     * Provides operations to manage the registration property of the microsoft.graph.onlineMeeting entity.
     */
     public function registration(): RegistrationRequestBuilder {
         return new RegistrationRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -80,7 +80,7 @@ class OnlineMeetingItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The transcripts property
+     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
     */
     public function transcripts(): TranscriptsRequestBuilder {
         return new TranscriptsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -92,14 +92,14 @@ class OnlineMeetingItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The virtualAppointment property
+     * Provides operations to manage the virtualAppointment property of the microsoft.graph.onlineMeeting entity.
     */
     public function virtualAppointment(): VirtualAppointmentRequestBuilder {
         return new VirtualAppointmentRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.app.onlineMeetings.item.attendanceReports.item collection
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
      * @param string $id Unique identifier of the item
      * @return MeetingAttendanceReportItemRequestBuilder
     */
@@ -249,7 +249,7 @@ class OnlineMeetingItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.app.onlineMeetings.item.transcripts.item collection
+     * Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.
      * @param string $id Unique identifier of the item
      * @return CallTranscriptItemRequestBuilder
     */

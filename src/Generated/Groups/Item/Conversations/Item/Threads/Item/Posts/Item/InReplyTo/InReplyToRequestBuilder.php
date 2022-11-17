@@ -30,35 +30,35 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class InReplyToRequestBuilder 
 {
     /**
-     * The attachments property
+     * Provides operations to manage the attachments property of the microsoft.graph.post entity.
     */
     public function attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The extensions property
+     * Provides operations to manage the extensions property of the microsoft.graph.post entity.
     */
     public function extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The forward property
+     * Provides operations to call the forward method.
     */
     public function forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The mentions property
+     * Provides operations to manage the mentions property of the microsoft.graph.post entity.
     */
     public function mentions(): MentionsRequestBuilder {
         return new MentionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The multiValueExtendedProperties property
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.
     */
     public function multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -70,7 +70,7 @@ class InReplyToRequestBuilder
     private array $pathParameters;
     
     /**
-     * The reply property
+     * Provides operations to call the reply method.
     */
     public function reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -82,7 +82,7 @@ class InReplyToRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The singleValueExtendedProperties property
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.
     */
     public function singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -94,7 +94,7 @@ class InReplyToRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.conversations.item.threads.item.posts.item.inReplyTo.attachments.item collection
+     * Provides operations to manage the attachments property of the microsoft.graph.post entity.
      * @param string $id Unique identifier of the item
      * @return AttachmentItemRequestBuilder
     */
@@ -141,7 +141,7 @@ class InReplyToRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.conversations.item.threads.item.posts.item.inReplyTo.extensions.item collection
+     * Provides operations to manage the extensions property of the microsoft.graph.post entity.
      * @param string $id Unique identifier of the item
      * @return ExtensionItemRequestBuilder
     */
@@ -171,7 +171,7 @@ class InReplyToRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.conversations.item.threads.item.posts.item.inReplyTo.mentions.item collection
+     * Provides operations to manage the mentions property of the microsoft.graph.post entity.
      * @param string $id Unique identifier of the item
      * @return MentionItemRequestBuilder
     */
@@ -182,7 +182,7 @@ class InReplyToRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.conversations.item.threads.item.posts.item.inReplyTo.multiValueExtendedProperties.item collection
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.post entity.
      * @param string $id Unique identifier of the item
      * @return MultiValueLegacyExtendedPropertyItemRequestBuilder
     */
@@ -193,7 +193,7 @@ class InReplyToRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.groups.item.conversations.item.threads.item.posts.item.inReplyTo.singleValueExtendedProperties.item collection
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.post entity.
      * @param string $id Unique identifier of the item
      * @return SingleValueLegacyExtendedPropertyItemRequestBuilder
     */

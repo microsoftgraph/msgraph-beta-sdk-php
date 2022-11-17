@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceManagementScriptUserStateItemRequestBuilder 
 {
     /**
-     * The deviceRunStates property
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScriptUserState entity.
     */
     public function deviceRunStates(): DeviceRunStatesRequestBuilder {
         return new DeviceRunStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -142,7 +142,7 @@ class DeviceManagementScriptUserStateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceManagementScripts.item.userRunStates.item.deviceRunStates.item collection
+     * Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScriptUserState entity.
      * @param string $id Unique identifier of the item
      * @return DeviceManagementScriptDeviceStateItemRequestBuilder
     */

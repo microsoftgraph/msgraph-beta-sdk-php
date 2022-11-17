@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class PermissionRequestBuilder 
 {
     /**
-     * The grant property
+     * Provides operations to call the grant method.
     */
     public function grant(): GrantRequestBuilder {
         return new GrantRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class PermissionRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The revokeGrants property
+     * Provides operations to call the revokeGrants method.
     */
     public function revokeGrants(): RevokeGrantsRequestBuilder {
         return new RevokeGrantsRequestBuilder($this->pathParameters, $this->requestAdapter);

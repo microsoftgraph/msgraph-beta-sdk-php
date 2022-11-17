@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class MobilityManagementPolicyItemRequestBuilder 
 {
     /**
-     * The includedGroups property
+     * Provides operations to manage the includedGroups property of the microsoft.graph.mobilityManagementPolicy entity.
     */
     public function includedGroups(): IncludedGroupsRequestBuilder {
         return new IncludedGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);

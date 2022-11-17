@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class AccessPackageResourceRoleScopeItemRequestBuilder 
 {
     /**
-     * The accessPackageResourceRole property
+     * Provides operations to manage the accessPackageResourceRole property of the microsoft.graph.accessPackageResourceRoleScope entity.
     */
     public function accessPackageResourceRole(): AccessPackageResourceRoleRequestBuilder {
         return new AccessPackageResourceRoleRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The accessPackageResourceScope property
+     * Provides operations to manage the accessPackageResourceScope property of the microsoft.graph.accessPackageResourceRoleScope entity.
     */
     public function accessPackageResourceScope(): AccessPackageResourceScopeRequestBuilder {
         return new AccessPackageResourceScopeRequestBuilder($this->pathParameters, $this->requestAdapter);

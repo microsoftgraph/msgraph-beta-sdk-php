@@ -34,49 +34,49 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DeviceConfigurationItemRequestBuilder 
 {
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignedAccessMultiModeProfiles property
+     * Provides operations to call the assignedAccessMultiModeProfiles method.
     */
     public function assignedAccessMultiModeProfiles(): AssignedAccessMultiModeProfilesRequestBuilder {
         return new AssignedAccessMultiModeProfilesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceSettingStateSummaries property
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
     */
     public function deviceSettingStateSummaries(): DeviceSettingStateSummariesRequestBuilder {
         return new DeviceSettingStateSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatuses property
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
     */
     public function deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The deviceStatusOverview property
+     * Provides operations to manage the deviceStatusOverview property of the microsoft.graph.deviceConfiguration entity.
     */
     public function deviceStatusOverview(): DeviceStatusOverviewRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The groupAssignments property
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceConfiguration entity.
     */
     public function groupAssignments(): GroupAssignmentsRequestBuilder {
         return new GroupAssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -98,28 +98,28 @@ class DeviceConfigurationItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The userStatuses property
+     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
     */
     public function userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The userStatusOverview property
+     * Provides operations to manage the userStatusOverview property of the microsoft.graph.deviceConfiguration entity.
     */
     public function userStatusOverview(): UserStatusOverviewRequestBuilder {
         return new UserStatusOverviewRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The windowsPrivacyAccessControls property
+     * Provides operations to call the windowsPrivacyAccessControls method.
     */
     public function windowsPrivacyAccessControls(): WindowsPrivacyAccessControlsRequestBuilder {
         return new WindowsPrivacyAccessControlsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationAssignmentItemRequestBuilder
     */
@@ -230,7 +230,7 @@ class DeviceConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item.deviceSettingStateSummaries.item collection
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return SettingStateDeviceSummaryItemRequestBuilder
     */
@@ -241,7 +241,7 @@ class DeviceConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item.deviceStatuses.item collection
+     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationDeviceStatusItemRequestBuilder
     */
@@ -280,7 +280,7 @@ class DeviceConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item.groupAssignments.item collection
+     * Provides operations to manage the groupAssignments property of the microsoft.graph.deviceConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationGroupAssignmentItemRequestBuilder
     */
@@ -311,7 +311,7 @@ class DeviceConfigurationItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.deviceConfigurations.item.userStatuses.item collection
+     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
      * @param string $id Unique identifier of the item
      * @return DeviceConfigurationUserStatusItemRequestBuilder
     */

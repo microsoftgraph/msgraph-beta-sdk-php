@@ -14,7 +14,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome implements Parsa
     private ?EducationResource $feedbackResource = null;
     
     /**
-     * @var EducationFeedbackResourceOutcomeStatus|null $resourceStatus The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, and unknownFutureValue.
+     * @var EducationFeedbackResourceOutcomeStatus|null $resourceStatus The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.
     */
     private ?EducationFeedbackResourceOutcomeStatus $resourceStatus = null;
     
@@ -56,7 +56,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome implements Parsa
     }
 
     /**
-     * Gets the resourceStatus property value. The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, and unknownFutureValue.
+     * Gets the resourceStatus property value. The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.
      * @return EducationFeedbackResourceOutcomeStatus|null
     */
     public function getResourceStatus(): ?EducationFeedbackResourceOutcomeStatus {
@@ -82,7 +82,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome implements Parsa
     }
 
     /**
-     * Sets the resourceStatus property value. The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, and unknownFutureValue.
+     * Sets the resourceStatus property value. The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.
      *  @param EducationFeedbackResourceOutcomeStatus|null $value Value to set for the resourceStatus property.
     */
     public function setResourceStatus(?EducationFeedbackResourceOutcomeStatus $value ): void {

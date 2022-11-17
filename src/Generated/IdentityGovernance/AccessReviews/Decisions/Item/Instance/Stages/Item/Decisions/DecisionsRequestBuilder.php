@@ -22,7 +22,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DecisionsRequestBuilder 
 {
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -34,7 +34,7 @@ class DecisionsRequestBuilder
     private array $pathParameters;
     
     /**
-     * The recordAllDecisions property
+     * Provides operations to call the recordAllDecisions method.
     */
     public function recordAllDecisions(): RecordAllDecisionsRequestBuilder {
         return new RecordAllDecisionsRequestBuilder($this->pathParameters, $this->requestAdapter);

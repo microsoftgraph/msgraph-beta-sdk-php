@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class UserExperienceAnalyticsCategoryItemRequestBuilder 
 {
     /**
-     * The metricValues property
+     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
     */
     public function metricValues(): MetricValuesRequestBuilder {
         return new MetricValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -161,7 +161,7 @@ class UserExperienceAnalyticsCategoryItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceManagement.userExperienceAnalyticsCategories.item.metricValues.item collection
+     * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
      * @param string $id Unique identifier of the item
      * @return UserExperienceAnalyticsMetricItemRequestBuilder
     */

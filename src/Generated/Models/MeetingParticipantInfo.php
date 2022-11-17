@@ -15,7 +15,7 @@ class MeetingParticipantInfo implements AdditionalDataHolder, Parsable
     private array $additionalData;
     
     /**
-     * @var IdentitySet|null $identity Identity information of the participant.
+     * @var IdentitySet|null $identity Identity information of the participant. Only the user property is used for onlineMeeting participants.
     */
     private ?IdentitySet $identity = null;
     
@@ -74,7 +74,7 @@ class MeetingParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the identity property value. Identity information of the participant.
+     * Gets the identity property value. Identity information of the participant. Only the user property is used for onlineMeeting participants.
      * @return IdentitySet|null
     */
     public function getIdentity(): ?IdentitySet {
@@ -126,7 +126,7 @@ class MeetingParticipantInfo implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the identity property value. Identity information of the participant.
+     * Sets the identity property value. Identity information of the participant. Only the user property is used for onlineMeeting participants.
      *  @param IdentitySet|null $value Value to set for the identity property.
     */
     public function setIdentity(?IdentitySet $value ): void {

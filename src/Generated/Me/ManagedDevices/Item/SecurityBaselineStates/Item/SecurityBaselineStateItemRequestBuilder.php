@@ -30,7 +30,7 @@ class SecurityBaselineStateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The settingStates property
+     * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
     */
     public function settingStates(): SettingStatesRequestBuilder {
         return new SettingStatesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class SecurityBaselineStateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.me.managedDevices.item.securityBaselineStates.item.settingStates.item collection
+     * Provides operations to manage the settingStates property of the microsoft.graph.securityBaselineState entity.
      * @param string $id Unique identifier of the item
      * @return SecurityBaselineSettingStateItemRequestBuilder
     */

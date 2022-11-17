@@ -30,7 +30,7 @@ class IosLobApp extends MobileLobApp implements Parsable
     private ?DateTime $expirationDateTime = null;
     
     /**
-     * @var string|null $identityVersion The identity version.
+     * @var string|null $identityVersion The identity version. This property is being deprecated in 2211(November 2022)
     */
     private ?string $identityVersion = null;
     
@@ -111,7 +111,7 @@ class IosLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Gets the identityVersion property value. The identity version.
+     * Gets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
      * @return string|null
     */
     public function getIdentityVersion(): ?string {
@@ -182,7 +182,7 @@ class IosLobApp extends MobileLobApp implements Parsable
     }
 
     /**
-     * Sets the identityVersion property value. The identity version.
+     * Sets the identityVersion property value. The identity version. This property is being deprecated in 2211(November 2022)
      *  @param string|null $value Value to set for the identityVersion property.
     */
     public function setIdentityVersion(?string $value ): void {

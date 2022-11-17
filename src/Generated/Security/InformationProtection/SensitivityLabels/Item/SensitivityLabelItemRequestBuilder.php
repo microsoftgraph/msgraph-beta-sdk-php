@@ -19,7 +19,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class SensitivityLabelItemRequestBuilder 
 {
     /**
-     * The parent property
+     * Provides operations to manage the parent property of the microsoft.graph.security.sensitivityLabel entity.
     */
     public function parent(): ParentRequestBuilder {
         return new ParentRequestBuilder($this->pathParameters, $this->requestAdapter);

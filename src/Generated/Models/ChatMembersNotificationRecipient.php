@@ -9,7 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChatMembersNotificationRecipient extends TeamworkNotificationRecipient implements Parsable 
 {
     /**
-     * @var string|null $chatId The chat's identifier.
+     * @var string|null $chatId The unique identifier for the chat whose members should receive the notifications.
     */
     private ?string $chatId = null;
     
@@ -31,7 +31,7 @@ class ChatMembersNotificationRecipient extends TeamworkNotificationRecipient imp
     }
 
     /**
-     * Gets the chatId property value. The chat's identifier.
+     * Gets the chatId property value. The unique identifier for the chat whose members should receive the notifications.
      * @return string|null
     */
     public function getChatId(): ?string {
@@ -59,7 +59,7 @@ class ChatMembersNotificationRecipient extends TeamworkNotificationRecipient imp
     }
 
     /**
-     * Sets the chatId property value. The chat's identifier.
+     * Sets the chatId property value. The unique identifier for the chat whose members should receive the notifications.
      *  @param string|null $value Value to set for the chatId property.
     */
     public function setChatId(?string $value ): void {

@@ -21,14 +21,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class ManagementActionTenantDeploymentStatusesRequestBuilder 
 {
     /**
-     * The changeDeploymentStatus property
+     * Provides operations to call the changeDeploymentStatus method.
     */
     public function changeDeploymentStatus(): ChangeDeploymentStatusRequestBuilder {
         return new ChangeDeploymentStatusRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The Count property
+     * Provides operations to count the resources in the collection.
     */
     public function count(): CountRequestBuilder {
         return new CountRequestBuilder($this->pathParameters, $this->requestAdapter);

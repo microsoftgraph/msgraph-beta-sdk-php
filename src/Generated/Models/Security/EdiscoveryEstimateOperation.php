@@ -44,7 +44,7 @@ class EdiscoveryEstimateOperation extends CaseOperation implements Parsable
     private ?int $unindexedItemsSize = null;
     
     /**
-     * Instantiates a new ediscoveryEstimateOperation and sets the default values.
+     * Instantiates a new EdiscoveryEstimateOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();

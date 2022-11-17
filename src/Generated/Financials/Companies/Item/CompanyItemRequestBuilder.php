@@ -88,119 +88,119 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class CompanyItemRequestBuilder 
 {
     /**
-     * The accounts property
+     * Provides operations to manage the accounts property of the microsoft.graph.company entity.
     */
     public function accounts(): AccountsRequestBuilder {
         return new AccountsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The agedAccountsPayable property
+     * Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
     */
     public function agedAccountsPayable(): AgedAccountsPayableRequestBuilder {
         return new AgedAccountsPayableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The agedAccountsReceivable property
+     * Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
     */
     public function agedAccountsReceivable(): AgedAccountsReceivableRequestBuilder {
         return new AgedAccountsReceivableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The companyInformation property
+     * Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
     */
     public function companyInformation(): CompanyInformationRequestBuilder {
         return new CompanyInformationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The countriesRegions property
+     * Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
     */
     public function countriesRegions(): CountriesRegionsRequestBuilder {
         return new CountriesRegionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The currencies property
+     * Provides operations to manage the currencies property of the microsoft.graph.company entity.
     */
     public function currencies(): CurrenciesRequestBuilder {
         return new CurrenciesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customerPaymentJournals property
+     * Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.
     */
     public function customerPaymentJournals(): CustomerPaymentJournalsRequestBuilder {
         return new CustomerPaymentJournalsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customerPayments property
+     * Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
     */
     public function customerPayments(): CustomerPaymentsRequestBuilder {
         return new CustomerPaymentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The customers property
+     * Provides operations to manage the customers property of the microsoft.graph.company entity.
     */
     public function customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dimensions property
+     * Provides operations to manage the dimensions property of the microsoft.graph.company entity.
     */
     public function dimensions(): DimensionsRequestBuilder {
         return new DimensionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The dimensionValues property
+     * Provides operations to manage the dimensionValues property of the microsoft.graph.company entity.
     */
     public function dimensionValues(): DimensionValuesRequestBuilder {
         return new DimensionValuesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The employees property
+     * Provides operations to manage the employees property of the microsoft.graph.company entity.
     */
     public function employees(): EmployeesRequestBuilder {
         return new EmployeesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The generalLedgerEntries property
+     * Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.
     */
     public function generalLedgerEntries(): GeneralLedgerEntriesRequestBuilder {
         return new GeneralLedgerEntriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The itemCategories property
+     * Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
     */
     public function itemCategories(): ItemCategoriesRequestBuilder {
         return new ItemCategoriesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The items property
+     * Provides operations to manage the items property of the microsoft.graph.company entity.
     */
     public function items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The journalLines property
+     * Provides operations to manage the journalLines property of the microsoft.graph.company entity.
     */
     public function journalLines(): JournalLinesRequestBuilder {
         return new JournalLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The journals property
+     * Provides operations to manage the journals property of the microsoft.graph.company entity.
     */
     public function journals(): JournalsRequestBuilder {
         return new JournalsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -212,35 +212,35 @@ class CompanyItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The paymentMethods property
+     * Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.
     */
     public function paymentMethods(): PaymentMethodsRequestBuilder {
         return new PaymentMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The paymentTerms property
+     * Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.
     */
     public function paymentTerms(): PaymentTermsRequestBuilder {
         return new PaymentTermsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The picture property
+     * Provides operations to manage the picture property of the microsoft.graph.company entity.
     */
     public function picture(): PictureRequestBuilder {
         return new PictureRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The purchaseInvoiceLines property
+     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.company entity.
     */
     public function purchaseInvoiceLines(): PurchaseInvoiceLinesRequestBuilder {
         return new PurchaseInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The purchaseInvoices property
+     * Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.
     */
     public function purchaseInvoices(): PurchaseInvoicesRequestBuilder {
         return new PurchaseInvoicesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -252,84 +252,84 @@ class CompanyItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The salesCreditMemoLines property
+     * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.company entity.
     */
     public function salesCreditMemoLines(): SalesCreditMemoLinesRequestBuilder {
         return new SalesCreditMemoLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesCreditMemos property
+     * Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.
     */
     public function salesCreditMemos(): SalesCreditMemosRequestBuilder {
         return new SalesCreditMemosRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesInvoiceLines property
+     * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.company entity.
     */
     public function salesInvoiceLines(): SalesInvoiceLinesRequestBuilder {
         return new SalesInvoiceLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesInvoices property
+     * Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
     */
     public function salesInvoices(): SalesInvoicesRequestBuilder {
         return new SalesInvoicesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesOrderLines property
+     * Provides operations to manage the salesOrderLines property of the microsoft.graph.company entity.
     */
     public function salesOrderLines(): SalesOrderLinesRequestBuilder {
         return new SalesOrderLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesOrders property
+     * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
     */
     public function salesOrders(): SalesOrdersRequestBuilder {
         return new SalesOrdersRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesQuoteLines property
+     * Provides operations to manage the salesQuoteLines property of the microsoft.graph.company entity.
     */
     public function salesQuoteLines(): SalesQuoteLinesRequestBuilder {
         return new SalesQuoteLinesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The salesQuotes property
+     * Provides operations to manage the salesQuotes property of the microsoft.graph.company entity.
     */
     public function salesQuotes(): SalesQuotesRequestBuilder {
         return new SalesQuotesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The shipmentMethods property
+     * Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.
     */
     public function shipmentMethods(): ShipmentMethodsRequestBuilder {
         return new ShipmentMethodsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taxAreas property
+     * Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
     */
     public function taxAreas(): TaxAreasRequestBuilder {
         return new TaxAreasRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The taxGroups property
+     * Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
     */
     public function taxGroups(): TaxGroupsRequestBuilder {
         return new TaxGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The unitsOfMeasure property
+     * Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
     */
     public function unitsOfMeasure(): UnitsOfMeasureRequestBuilder {
         return new UnitsOfMeasureRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -341,14 +341,14 @@ class CompanyItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * The vendors property
+     * Provides operations to manage the vendors property of the microsoft.graph.company entity.
     */
     public function vendors(): VendorsRequestBuilder {
         return new VendorsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.accounts.item collection
+     * Provides operations to manage the accounts property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return AccountItemRequestBuilder
     */
@@ -359,7 +359,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.agedAccountsPayable.item collection
+     * Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return AgedAccountsPayableItemRequestBuilder
     */
@@ -370,7 +370,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.agedAccountsReceivable.item collection
+     * Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return AgedAccountsReceivableItemRequestBuilder
     */
@@ -381,7 +381,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.companyInformation.item collection
+     * Provides operations to manage the companyInformation property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CompanyInformationItemRequestBuilder
     */
@@ -403,7 +403,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.countriesRegions.item collection
+     * Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CountryRegionItemRequestBuilder
     */
@@ -439,7 +439,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.currencies.item collection
+     * Provides operations to manage the currencies property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CurrencyItemRequestBuilder
     */
@@ -450,7 +450,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.customerPaymentJournals.item collection
+     * Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CustomerPaymentJournalItemRequestBuilder
     */
@@ -461,7 +461,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.customerPayments.item collection
+     * Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CustomerPaymentItemRequestBuilder
     */
@@ -472,7 +472,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.customers.item collection
+     * Provides operations to manage the customers property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return CustomerItemRequestBuilder
     */
@@ -483,7 +483,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.dimensions.item collection
+     * Provides operations to manage the dimensions property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return DimensionItemRequestBuilder
     */
@@ -494,7 +494,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.dimensionValues.item collection
+     * Provides operations to manage the dimensionValues property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return DimensionValueItemRequestBuilder
     */
@@ -505,7 +505,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.employees.item collection
+     * Provides operations to manage the employees property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return EmployeeItemRequestBuilder
     */
@@ -516,7 +516,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.generalLedgerEntries.item collection
+     * Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return GeneralLedgerEntryItemRequestBuilder
     */
@@ -546,7 +546,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.itemCategories.item collection
+     * Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return ItemCategoryItemRequestBuilder
     */
@@ -557,7 +557,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.items.item collection
+     * Provides operations to manage the items property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return ItemItemRequestBuilder
     */
@@ -568,7 +568,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.journalLines.item collection
+     * Provides operations to manage the journalLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return JournalLineItemRequestBuilder
     */
@@ -579,7 +579,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.journals.item collection
+     * Provides operations to manage the journals property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return JournalItemRequestBuilder
     */
@@ -590,7 +590,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.paymentMethods.item collection
+     * Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return PaymentMethodItemRequestBuilder
     */
@@ -601,7 +601,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.paymentTerms.item collection
+     * Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return PaymentTermItemRequestBuilder
     */
@@ -612,7 +612,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.picture.item collection
+     * Provides operations to manage the picture property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return PictureItemRequestBuilder
     */
@@ -623,7 +623,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.purchaseInvoiceLines.item collection
+     * Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return PurchaseInvoiceLineItemRequestBuilder
     */
@@ -634,7 +634,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.purchaseInvoices.item collection
+     * Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return PurchaseInvoiceItemRequestBuilder
     */
@@ -645,7 +645,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesCreditMemoLines.item collection
+     * Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesCreditMemoLineItemRequestBuilder
     */
@@ -656,7 +656,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesCreditMemos.item collection
+     * Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesCreditMemoItemRequestBuilder
     */
@@ -667,7 +667,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesInvoiceLines.item collection
+     * Provides operations to manage the salesInvoiceLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesInvoiceLineItemRequestBuilder
     */
@@ -678,7 +678,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesInvoices.item collection
+     * Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesInvoiceItemRequestBuilder
     */
@@ -689,7 +689,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesOrderLines.item collection
+     * Provides operations to manage the salesOrderLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesOrderLineItemRequestBuilder
     */
@@ -700,7 +700,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesOrders.item collection
+     * Provides operations to manage the salesOrders property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesOrderItemRequestBuilder
     */
@@ -711,7 +711,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesQuoteLines.item collection
+     * Provides operations to manage the salesQuoteLines property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesQuoteLineItemRequestBuilder
     */
@@ -722,7 +722,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.salesQuotes.item collection
+     * Provides operations to manage the salesQuotes property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return SalesQuoteItemRequestBuilder
     */
@@ -733,7 +733,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.shipmentMethods.item collection
+     * Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return ShipmentMethodItemRequestBuilder
     */
@@ -744,7 +744,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.taxAreas.item collection
+     * Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return TaxAreaItemRequestBuilder
     */
@@ -755,7 +755,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.taxGroups.item collection
+     * Provides operations to manage the taxGroups property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return TaxGroupItemRequestBuilder
     */
@@ -766,7 +766,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.unitsOfMeasure.item collection
+     * Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return UnitOfMeasureItemRequestBuilder
     */
@@ -777,7 +777,7 @@ class CompanyItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.financials.companies.item.vendors.item collection
+     * Provides operations to manage the vendors property of the microsoft.graph.company entity.
      * @param string $id Unique identifier of the item
      * @return VendorItemRequestBuilder
     */

@@ -10,6 +10,11 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceLogCollectionResponse extends Entity implements Parsable 
 {
     /**
+     * @var string|null $enrolledByUser The User Principal Name (UPN) of the user that enrolled the device
+    */
+    private ?string $enrolledByUser = null;
+    
+    /**
      * @var int|null $errorCode The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
     */
     private ?int $errorCode = null;
@@ -67,6 +72,14 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     }
 
     /**
+     * Gets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
+     * @return string|null
+    */
+    public function getEnrolledByUser(): ?string {
+        return $this->enrolledByUser;
+    }
+
+    /**
      * Gets the errorCode property value. The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
      * @return int|null
     */
@@ -89,6 +102,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     public function getFieldDeserializers(): array {
         $o = $this;
         return array_merge(parent::getFieldDeserializers(), [
+            'enrolledByUser' => fn(ParseNode $n) => $o->setEnrolledByUser($n->getStringValue()),
             'errorCode' => fn(ParseNode $n) => $o->setErrorCode($n->getIntegerValue()),
             'expirationDateTimeUTC' => fn(ParseNode $n) => $o->setExpirationDateTimeUTC($n->getDateTimeValue()),
             'initiatedByUserPrincipalName' => fn(ParseNode $n) => $o->setInitiatedByUserPrincipalName($n->getStringValue()),
@@ -154,6 +168,7 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
+        $writer->writeStringValue('enrolledByUser', $this->enrolledByUser);
         $writer->writeIntegerValue('errorCode', $this->errorCode);
         $writer->writeDateTimeValue('expirationDateTimeUTC', $this->expirationDateTimeUTC);
         $writer->writeStringValue('initiatedByUserPrincipalName', $this->initiatedByUserPrincipalName);
@@ -162,6 +177,14 @@ class DeviceLogCollectionResponse extends Entity implements Parsable
         $writer->writeDateTimeValue('requestedDateTimeUTC', $this->requestedDateTimeUTC);
         $writer->writeFloatValue('size', $this->size);
         $writer->writeStringValue('status', $this->status);
+    }
+
+    /**
+     * Sets the enrolledByUser property value. The User Principal Name (UPN) of the user that enrolled the device
+     *  @param string|null $value Value to set for the enrolledByUser property.
+    */
+    public function setEnrolledByUser(?string $value ): void {
+        $this->enrolledByUser = $value;
     }
 
     /**

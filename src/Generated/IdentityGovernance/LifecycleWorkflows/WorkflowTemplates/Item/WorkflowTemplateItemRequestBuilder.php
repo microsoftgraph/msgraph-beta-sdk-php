@@ -30,7 +30,7 @@ class WorkflowTemplateItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The tasks property
+     * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowTemplate entity.
     */
     public function tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class WorkflowTemplateItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.identityGovernance.lifecycleWorkflows.workflowTemplates.item.tasks.item collection
+     * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowTemplate entity.
      * @param string $id Unique identifier of the item
      * @return TaskItemRequestBuilder
     */

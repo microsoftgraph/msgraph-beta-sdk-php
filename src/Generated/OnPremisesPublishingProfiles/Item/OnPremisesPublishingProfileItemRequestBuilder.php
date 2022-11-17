@@ -28,28 +28,28 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OnPremisesPublishingProfileItemRequestBuilder 
 {
     /**
-     * The agentGroups property
+     * Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
     */
     public function agentGroups(): AgentGroupsRequestBuilder {
         return new AgentGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The agents property
+     * Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.
     */
     public function agents(): AgentsRequestBuilder {
         return new AgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The connectorGroups property
+     * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
     */
     public function connectorGroups(): ConnectorGroupsRequestBuilder {
         return new ConnectorGroupsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The connectors property
+     * Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
     */
     public function connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -61,7 +61,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     private array $pathParameters;
     
     /**
-     * The publishedResources property
+     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
     */
     public function publishedResources(): PublishedResourcesRequestBuilder {
         return new PublishedResourcesRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -78,7 +78,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.agentGroups.item collection
+     * Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
      * @return OnPremisesAgentGroupItemRequestBuilder
     */
@@ -89,7 +89,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.agents.item collection
+     * Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
      * @return OnPremisesAgentItemRequestBuilder
     */
@@ -100,7 +100,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.connectorGroups.item collection
+     * Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
      * @return ConnectorGroupItemRequestBuilder
     */
@@ -111,7 +111,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.connectors.item collection
+     * Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
      * @return ConnectorItemRequestBuilder
     */
@@ -261,7 +261,7 @@ class OnPremisesPublishingProfileItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.onPremisesPublishingProfiles.item.publishedResources.item collection
+     * Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
      * @param string $id Unique identifier of the item
      * @return PublishedResourceItemRequestBuilder
     */

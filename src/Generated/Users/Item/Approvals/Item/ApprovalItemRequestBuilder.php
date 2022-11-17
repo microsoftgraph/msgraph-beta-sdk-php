@@ -30,7 +30,7 @@ class ApprovalItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The steps property
+     * Provides operations to manage the steps property of the microsoft.graph.approval entity.
     */
     public function steps(): StepsRequestBuilder {
         return new StepsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -181,7 +181,7 @@ class ApprovalItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.users.item.approvals.item.steps.item collection
+     * Provides operations to manage the steps property of the microsoft.graph.approval entity.
      * @param string $id Unique identifier of the item
      * @return ApprovalStepItemRequestBuilder
     */

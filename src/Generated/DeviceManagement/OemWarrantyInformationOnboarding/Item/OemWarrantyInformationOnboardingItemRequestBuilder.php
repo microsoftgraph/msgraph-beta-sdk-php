@@ -20,14 +20,14 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class OemWarrantyInformationOnboardingItemRequestBuilder 
 {
     /**
-     * The disable property
+     * Provides operations to call the disable method.
     */
     public function disable(): DisableRequestBuilder {
         return new DisableRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The enable property
+     * Provides operations to call the enable method.
     */
     public function enable(): EnableRequestBuilder {
         return new EnableRequestBuilder($this->pathParameters, $this->requestAdapter);

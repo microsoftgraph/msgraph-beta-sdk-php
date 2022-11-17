@@ -20,12 +20,12 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     private ?string $odataType = null;
     
     /**
-     * @var bool|null $v10_10 When TRUE, indicates macOS 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @var bool|null $v10_10 When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     */
     private ?bool $v10_10 = null;
     
     /**
-     * @var bool|null $v10_11 When TRUE, indicates macOS 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @var bool|null $v10_11 When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     */
     private ?bool $v10_11 = null;
     
@@ -50,17 +50,17 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     private ?bool $v10_15 = null;
     
     /**
-     * @var bool|null $v10_7 When TRUE, indicates macOS 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @var bool|null $v10_7 When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     */
     private ?bool $v10_7 = null;
     
     /**
-     * @var bool|null $v10_8 When TRUE, indicates macOS 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @var bool|null $v10_8 When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     */
     private ?bool $v10_8 = null;
     
     /**
-     * @var bool|null $v10_9 When TRUE, indicates macOS 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * @var bool|null $v10_9 When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     */
     private ?bool $v10_9 = null;
     
@@ -136,7 +136,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the v10_10 property value. When TRUE, indicates macOS 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_10 property value. When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      * @return bool|null
     */
     public function getV10_10(): ?bool {
@@ -144,7 +144,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the v10_11 property value. When TRUE, indicates macOS 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_11 property value. When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      * @return bool|null
     */
     public function getV10_11(): ?bool {
@@ -184,7 +184,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the v10_7 property value. When TRUE, indicates macOS 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_7 property value. When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      * @return bool|null
     */
     public function getV10_7(): ?bool {
@@ -192,7 +192,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the v10_8 property value. When TRUE, indicates macOS 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_8 property value. When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      * @return bool|null
     */
     public function getV10_8(): ?bool {
@@ -200,7 +200,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Gets the v10_9 property value. When TRUE, indicates macOS 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Gets the v10_9 property value. When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      * @return bool|null
     */
     public function getV10_9(): ?bool {
@@ -269,7 +269,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the v10_10 property value. When TRUE, indicates macOS 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_10 property value. When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      *  @param bool|null $value Value to set for the v10_10 property.
     */
     public function setV10_10(?bool $value ): void {
@@ -277,7 +277,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the v10_11 property value. When TRUE, indicates macOS 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_11 property value. When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      *  @param bool|null $value Value to set for the v10_11 property.
     */
     public function setV10_11(?bool $value ): void {
@@ -317,7 +317,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the v10_7 property value. When TRUE, indicates macOS 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_7 property value. When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      *  @param bool|null $value Value to set for the v10_7 property.
     */
     public function setV10_7(?bool $value ): void {
@@ -325,7 +325,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the v10_8 property value. When TRUE, indicates macOS 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_8 property value. When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      *  @param bool|null $value Value to set for the v10_8 property.
     */
     public function setV10_8(?bool $value ): void {
@@ -333,7 +333,7 @@ class MacOSMinimumOperatingSystem implements AdditionalDataHolder, Parsable
     }
 
     /**
-     * Sets the v10_9 property value. When TRUE, indicates macOS 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+     * Sets the v10_9 property value. When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
      *  @param bool|null $value Value to set for the v10_9 property.
     */
     public function setV10_9(?bool $value ): void {

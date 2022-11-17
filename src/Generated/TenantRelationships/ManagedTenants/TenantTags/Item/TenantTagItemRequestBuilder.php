@@ -20,7 +20,7 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class TenantTagItemRequestBuilder 
 {
     /**
-     * The assignTag property
+     * Provides operations to call the assignTag method.
     */
     public function assignTag(): AssignTagRequestBuilder {
         return new AssignTagRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -37,7 +37,7 @@ class TenantTagItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The unassignTag property
+     * Provides operations to call the unassignTag method.
     */
     public function unassignTag(): UnassignTagRequestBuilder {
         return new UnassignTagRequestBuilder($this->pathParameters, $this->requestAdapter);

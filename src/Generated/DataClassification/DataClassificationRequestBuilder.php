@@ -39,70 +39,70 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class DataClassificationRequestBuilder 
 {
     /**
-     * The classifyExactMatches property
+     * Provides operations to call the classifyExactMatches method.
     */
     public function classifyExactMatches(): ClassifyExactMatchesRequestBuilder {
         return new ClassifyExactMatchesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The classifyFile property
+     * Provides operations to call the classifyFile method.
     */
     public function classifyFile(): ClassifyFileRequestBuilder {
         return new ClassifyFileRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The classifyFileJobs property
+     * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
     */
     public function classifyFileJobs(): ClassifyFileJobsRequestBuilder {
         return new ClassifyFileJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The classifyText property
+     * Provides operations to call the classifyText method.
     */
     public function classifyText(): ClassifyTextRequestBuilder {
         return new ClassifyTextRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The classifyTextJobs property
+     * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
     */
     public function classifyTextJobs(): ClassifyTextJobsRequestBuilder {
         return new ClassifyTextJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateDlpPoliciesJobs property
+     * Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.
     */
     public function evaluateDlpPoliciesJobs(): EvaluateDlpPoliciesJobsRequestBuilder {
         return new EvaluateDlpPoliciesJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The evaluateLabelJobs property
+     * Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
     */
     public function evaluateLabelJobs(): EvaluateLabelJobsRequestBuilder {
         return new EvaluateLabelJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exactMatchDataStores property
+     * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
     */
     public function exactMatchDataStores(): ExactMatchDataStoresRequestBuilder {
         return new ExactMatchDataStoresRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The exactMatchUploadAgents property
+     * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
     */
     public function exactMatchUploadAgents(): ExactMatchUploadAgentsRequestBuilder {
         return new ExactMatchUploadAgentsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The jobs property
+     * Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.
     */
     public function jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -119,14 +119,14 @@ class DataClassificationRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The sensitiveTypes property
+     * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
     */
     public function sensitiveTypes(): SensitiveTypesRequestBuilder {
         return new SensitiveTypesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The sensitivityLabels property
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.
     */
     public function sensitivityLabels(): SensitivityLabelsRequestBuilder {
         return new SensitivityLabelsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -138,7 +138,7 @@ class DataClassificationRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.classifyFileJobs.item collection
+     * Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder
     */
@@ -149,7 +149,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.classifyTextJobs.item collection
+     * Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder
     */
@@ -220,7 +220,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.evaluateDlpPoliciesJobs.item collection
+     * Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDataClassificationEvaluateDlpPoliciesJobsItemJobResponseBaseItemRequestBuilder
     */
@@ -231,7 +231,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.evaluateLabelJobs.item collection
+     * Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDataClassificationEvaluateLabelJobsItemJobResponseBaseItemRequestBuilder
     */
@@ -242,7 +242,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.exactMatchDataStores.item collection
+     * Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return ExactMatchDataStoreItemRequestBuilder
     */
@@ -253,7 +253,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.exactMatchUploadAgents.item collection
+     * Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return ExactMatchUploadAgentItemRequestBuilder
     */
@@ -283,7 +283,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.jobs.item collection
+     * Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return MicrosoftGraphBetaGeneratedDataClassificationJobsItemJobResponseBaseItemRequestBuilder
     */
@@ -314,7 +314,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.sensitiveTypes.item collection
+     * Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return SensitiveTypeItemRequestBuilder
     */
@@ -325,7 +325,7 @@ class DataClassificationRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.dataClassification.sensitivityLabels.item collection
+     * Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.
      * @param string $id Unique identifier of the item
      * @return SensitivityLabelItemRequestBuilder
     */

@@ -15,22 +15,22 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     private array $additionalData;
     
     /**
-     * @var bool|null $allProperties The allProperties property
+     * @var bool|null $allProperties Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
     */
     private ?bool $allProperties = null;
     
     /**
-     * @var bool|null $credentialsWithUsageSign The credentialsWithUsageSign property
+     * @var bool|null $credentialsWithUsageSign Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
     */
     private ?bool $credentialsWithUsageSign = null;
     
     /**
-     * @var bool|null $credentialsWithUsageVerify The credentialsWithUsageVerify property
+     * @var bool|null $credentialsWithUsageVerify Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
     */
     private ?bool $credentialsWithUsageVerify = null;
     
     /**
-     * @var bool|null $isEnabled The isEnabled property
+     * @var bool|null $isEnabled Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
     */
     private ?bool $isEnabled = null;
     
@@ -40,7 +40,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     private ?string $odataType = null;
     
     /**
-     * @var bool|null $tokenEncryptionKeyId The tokenEncryptionKeyId property
+     * @var bool|null $tokenEncryptionKeyId Locks the tokenEncryptionKeyId property for modification on the service principal.
     */
     private ?bool $tokenEncryptionKeyId = null;
     
@@ -70,7 +70,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the allProperties property value. The allProperties property
+     * Gets the allProperties property value. Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
      * @return bool|null
     */
     public function getAllProperties(): ?bool {
@@ -78,7 +78,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the credentialsWithUsageSign property value. The credentialsWithUsageSign property
+     * Gets the credentialsWithUsageSign property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
      * @return bool|null
     */
     public function getCredentialsWithUsageSign(): ?bool {
@@ -86,7 +86,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the credentialsWithUsageVerify property value. The credentialsWithUsageVerify property
+     * Gets the credentialsWithUsageVerify property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
      * @return bool|null
     */
     public function getCredentialsWithUsageVerify(): ?bool {
@@ -110,7 +110,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
@@ -126,7 +126,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Gets the tokenEncryptionKeyId property value. The tokenEncryptionKeyId property
+     * Gets the tokenEncryptionKeyId property value. Locks the tokenEncryptionKeyId property for modification on the service principal.
      * @return bool|null
     */
     public function getTokenEncryptionKeyId(): ?bool {
@@ -156,7 +156,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the allProperties property value. The allProperties property
+     * Sets the allProperties property value. Enables locking all sensitive properties. The sensitive properties are keyCredentials, passwordCredentials, and tokenEncryptionKeyId.
      *  @param bool|null $value Value to set for the allProperties property.
     */
     public function setAllProperties(?bool $value ): void {
@@ -164,7 +164,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the credentialsWithUsageSign property value. The credentialsWithUsageSign property
+     * Sets the credentialsWithUsageSign property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Sign.
      *  @param bool|null $value Value to set for the credentialsWithUsageSign property.
     */
     public function setCredentialsWithUsageSign(?bool $value ): void {
@@ -172,7 +172,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the credentialsWithUsageVerify property value. The credentialsWithUsageVerify property
+     * Sets the credentialsWithUsageVerify property value. Locks the keyCredentials and passwordCredentials properties for modification where credential usage type is Verify. This locks OAuth service principals.
      *  @param bool|null $value Value to set for the credentialsWithUsageVerify property.
     */
     public function setCredentialsWithUsageVerify(?bool $value ): void {
@@ -180,7 +180,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Enables or disables service principal lock configuration. To allow the sensitive properties to be updated, update this property to false to disable the lock on the service principal.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
     public function setIsEnabled(?bool $value ): void {
@@ -196,7 +196,7 @@ class ServicePrincipalLockConfiguration implements AdditionalDataHolder, Parsabl
     }
 
     /**
-     * Sets the tokenEncryptionKeyId property value. The tokenEncryptionKeyId property
+     * Sets the tokenEncryptionKeyId property value. Locks the tokenEncryptionKeyId property for modification on the service principal.
      *  @param bool|null $value Value to set for the tokenEncryptionKeyId property.
     */
     public function setTokenEncryptionKeyId(?bool $value ): void {

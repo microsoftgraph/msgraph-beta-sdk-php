@@ -24,21 +24,21 @@ use Microsoft\Kiota\Abstractions\Serialization\ParsableFactory;
 class WindowsManagedAppProtectionItemRequestBuilder 
 {
     /**
-     * The apps property
+     * Provides operations to manage the apps property of the microsoft.graph.windowsManagedAppProtection entity.
     */
     public function apps(): AppsRequestBuilder {
         return new AppsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assign property
+     * Provides operations to call the assign method.
     */
     public function assign(): AssignRequestBuilder {
         return new AssignRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
-     * The assignments property
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsManagedAppProtection entity.
     */
     public function assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -55,7 +55,7 @@ class WindowsManagedAppProtectionItemRequestBuilder
     private RequestAdapter $requestAdapter;
     
     /**
-     * The targetApps property
+     * Provides operations to call the targetApps method.
     */
     public function targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder($this->pathParameters, $this->requestAdapter);
@@ -67,7 +67,7 @@ class WindowsManagedAppProtectionItemRequestBuilder
     private string $urlTemplate;
     
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.windowsManagedAppProtections.item.apps.item collection
+     * Provides operations to manage the apps property of the microsoft.graph.windowsManagedAppProtection entity.
      * @param string $id Unique identifier of the item
      * @return ManagedMobileAppItemRequestBuilder
     */
@@ -78,7 +78,7 @@ class WindowsManagedAppProtectionItemRequestBuilder
     }
 
     /**
-     * Gets an item from the Microsoft\Graph\Beta\Generated.deviceAppManagement.windowsManagedAppProtections.item.assignments.item collection
+     * Provides operations to manage the assignments property of the microsoft.graph.windowsManagedAppProtection entity.
      * @param string $id Unique identifier of the item
      * @return TargetedManagedAppPolicyAssignmentItemRequestBuilder
     */
