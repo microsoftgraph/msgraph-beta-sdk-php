@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignmentTarget implements Parsable 
 {
     /**
-     * @var string|null $groupId The id of the assignment's target group
-    */
-    private ?string $groupId = null;
-    
-    /**
-     * @var string|null $servicePlanId The servicePlanId property
-    */
-    private ?string $servicePlanId = null;
-    
-    /**
      * Instantiates a new CloudPcManagementGroupAssignmentTarget and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->groupId;
+        return $this->getBackingStore()->get('groupId');
     }
 
     /**
@@ -60,7 +50,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
      * @return string|null
     */
     public function getServicePlanId(): ?string {
-        return $this->servicePlanId;
+        return $this->getBackingStore()->get('servicePlanId');
     }
 
     /**
@@ -69,24 +59,24 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('groupId', $this->groupId);
-        $writer->writeStringValue('servicePlanId', $this->servicePlanId);
+        $writer->writeStringValue('groupId', $this->getGroupId());
+        $writer->writeStringValue('servicePlanId', $this->getServicePlanId());
     }
 
     /**
      * Sets the groupId property value. The id of the assignment's target group
      *  @param string|null $value Value to set for the groupId property.
     */
-    public function setGroupId(?string $value ): void {
-        $this->groupId = $value;
+    public function setGroupId(?string $value): void {
+        $this->getBackingStore()->set('groupId', $value);
     }
 
     /**
      * Sets the servicePlanId property value. The servicePlanId property
      *  @param string|null $value Value to set for the servicePlanId property.
     */
-    public function setServicePlanId(?string $value ): void {
-        $this->servicePlanId = $value;
+    public function setServicePlanId(?string $value): void {
+        $this->getBackingStore()->set('servicePlanId', $value);
     }
 
 }

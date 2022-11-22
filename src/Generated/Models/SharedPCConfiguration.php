@@ -10,96 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class SharedPCConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var SharedPCAccountManagerPolicy|null $accountManagerPolicy Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.
-    */
-    private ?SharedPCAccountManagerPolicy $accountManagerPolicy = null;
-    
-    /**
-     * @var SharedPCAllowedAccountType|null $allowedAccounts Type of accounts that are allowed to share the PC.
-    */
-    private ?SharedPCAllowedAccountType $allowedAccounts = null;
-    
-    /**
-     * @var bool|null $allowLocalStorage Specifies whether local storage is allowed on a shared PC.
-    */
-    private ?bool $allowLocalStorage = null;
-    
-    /**
-     * @var bool|null $disableAccountManager Disables the account manager for shared PC mode.
-    */
-    private ?bool $disableAccountManager = null;
-    
-    /**
-     * @var bool|null $disableEduPolicies Specifies whether the default shared PC education environment policies should be disabled. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true.
-    */
-    private ?bool $disableEduPolicies = null;
-    
-    /**
-     * @var bool|null $disablePowerPolicies Specifies whether the default shared PC power policies should be disabled.
-    */
-    private ?bool $disablePowerPolicies = null;
-    
-    /**
-     * @var bool|null $disableSignInOnResume Disables the requirement to sign in whenever the device wakes up from sleep mode.
-    */
-    private ?bool $disableSignInOnResume = null;
-    
-    /**
-     * @var bool|null $enabled Enables shared PC mode and applies the shared pc policies.
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var Enablement|null $fastFirstSignIn Possible values of a property
-    */
-    private ?Enablement $fastFirstSignIn = null;
-    
-    /**
-     * @var int|null $idleTimeBeforeSleepInSeconds Specifies the time in seconds that a device must sit idle before the PC goes to sleep. Setting this value to 0 prevents the sleep timeout from occurring.
-    */
-    private ?int $idleTimeBeforeSleepInSeconds = null;
-    
-    /**
-     * @var string|null $kioskAppDisplayName Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.
-    */
-    private ?string $kioskAppDisplayName = null;
-    
-    /**
-     * @var string|null $kioskAppUserModelId Specifies the application user model ID of the app to use with assigned access.
-    */
-    private ?string $kioskAppUserModelId = null;
-    
-    /**
-     * @var Enablement|null $localStorage Possible values of a property
-    */
-    private ?Enablement $localStorage = null;
-    
-    /**
-     * @var Time|null $maintenanceStartTime Specifies the daily start time of maintenance hour.
-    */
-    private ?Time $maintenanceStartTime = null;
-    
-    /**
-     * @var Enablement|null $setAccountManager Possible values of a property
-    */
-    private ?Enablement $setAccountManager = null;
-    
-    /**
-     * @var Enablement|null $setEduPolicies Possible values of a property
-    */
-    private ?Enablement $setEduPolicies = null;
-    
-    /**
-     * @var Enablement|null $setPowerPolicies Possible values of a property
-    */
-    private ?Enablement $setPowerPolicies = null;
-    
-    /**
-     * @var Enablement|null $signInOnResume Possible values of a property
-    */
-    private ?Enablement $signInOnResume = null;
-    
-    /**
      * Instantiates a new SharedPCConfiguration and sets the default values.
     */
     public function __construct() {
@@ -121,7 +31,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return SharedPCAccountManagerPolicy|null
     */
     public function getAccountManagerPolicy(): ?SharedPCAccountManagerPolicy {
-        return $this->accountManagerPolicy;
+        return $this->getBackingStore()->get('accountManagerPolicy');
     }
 
     /**
@@ -129,7 +39,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return SharedPCAllowedAccountType|null
     */
     public function getAllowedAccounts(): ?SharedPCAllowedAccountType {
-        return $this->allowedAccounts;
+        return $this->getBackingStore()->get('allowedAccounts');
     }
 
     /**
@@ -137,7 +47,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getAllowLocalStorage(): ?bool {
-        return $this->allowLocalStorage;
+        return $this->getBackingStore()->get('allowLocalStorage');
     }
 
     /**
@@ -145,7 +55,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableAccountManager(): ?bool {
-        return $this->disableAccountManager;
+        return $this->getBackingStore()->get('disableAccountManager');
     }
 
     /**
@@ -153,7 +63,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableEduPolicies(): ?bool {
-        return $this->disableEduPolicies;
+        return $this->getBackingStore()->get('disableEduPolicies');
     }
 
     /**
@@ -161,7 +71,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisablePowerPolicies(): ?bool {
-        return $this->disablePowerPolicies;
+        return $this->getBackingStore()->get('disablePowerPolicies');
     }
 
     /**
@@ -169,7 +79,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getDisableSignInOnResume(): ?bool {
-        return $this->disableSignInOnResume;
+        return $this->getBackingStore()->get('disableSignInOnResume');
     }
 
     /**
@@ -177,7 +87,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -185,7 +95,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getFastFirstSignIn(): ?Enablement {
-        return $this->fastFirstSignIn;
+        return $this->getBackingStore()->get('fastFirstSignIn');
     }
 
     /**
@@ -221,7 +131,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getIdleTimeBeforeSleepInSeconds(): ?int {
-        return $this->idleTimeBeforeSleepInSeconds;
+        return $this->getBackingStore()->get('idleTimeBeforeSleepInSeconds');
     }
 
     /**
@@ -229,7 +139,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getKioskAppDisplayName(): ?string {
-        return $this->kioskAppDisplayName;
+        return $this->getBackingStore()->get('kioskAppDisplayName');
     }
 
     /**
@@ -237,7 +147,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getKioskAppUserModelId(): ?string {
-        return $this->kioskAppUserModelId;
+        return $this->getBackingStore()->get('kioskAppUserModelId');
     }
 
     /**
@@ -245,7 +155,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getLocalStorage(): ?Enablement {
-        return $this->localStorage;
+        return $this->getBackingStore()->get('localStorage');
     }
 
     /**
@@ -253,7 +163,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getMaintenanceStartTime(): ?Time {
-        return $this->maintenanceStartTime;
+        return $this->getBackingStore()->get('maintenanceStartTime');
     }
 
     /**
@@ -261,7 +171,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetAccountManager(): ?Enablement {
-        return $this->setAccountManager;
+        return $this->getBackingStore()->get('setAccountManager');
     }
 
     /**
@@ -269,7 +179,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetEduPolicies(): ?Enablement {
-        return $this->setEduPolicies;
+        return $this->getBackingStore()->get('setEduPolicies');
     }
 
     /**
@@ -277,7 +187,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSetPowerPolicies(): ?Enablement {
-        return $this->setPowerPolicies;
+        return $this->getBackingStore()->get('setPowerPolicies');
     }
 
     /**
@@ -285,7 +195,7 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
      * @return Enablement|null
     */
     public function getSignInOnResume(): ?Enablement {
-        return $this->signInOnResume;
+        return $this->getBackingStore()->get('signInOnResume');
     }
 
     /**
@@ -294,168 +204,168 @@ class SharedPCConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accountManagerPolicy', $this->accountManagerPolicy);
-        $writer->writeEnumValue('allowedAccounts', $this->allowedAccounts);
-        $writer->writeBooleanValue('allowLocalStorage', $this->allowLocalStorage);
-        $writer->writeBooleanValue('disableAccountManager', $this->disableAccountManager);
-        $writer->writeBooleanValue('disableEduPolicies', $this->disableEduPolicies);
-        $writer->writeBooleanValue('disablePowerPolicies', $this->disablePowerPolicies);
-        $writer->writeBooleanValue('disableSignInOnResume', $this->disableSignInOnResume);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeEnumValue('fastFirstSignIn', $this->fastFirstSignIn);
-        $writer->writeIntegerValue('idleTimeBeforeSleepInSeconds', $this->idleTimeBeforeSleepInSeconds);
-        $writer->writeStringValue('kioskAppDisplayName', $this->kioskAppDisplayName);
-        $writer->writeStringValue('kioskAppUserModelId', $this->kioskAppUserModelId);
-        $writer->writeEnumValue('localStorage', $this->localStorage);
-        $writer->writeTimeValue('maintenanceStartTime', $this->maintenanceStartTime);
-        $writer->writeEnumValue('setAccountManager', $this->setAccountManager);
-        $writer->writeEnumValue('setEduPolicies', $this->setEduPolicies);
-        $writer->writeEnumValue('setPowerPolicies', $this->setPowerPolicies);
-        $writer->writeEnumValue('signInOnResume', $this->signInOnResume);
+        $writer->writeObjectValue('accountManagerPolicy', $this->getAccountManagerPolicy());
+        $writer->writeEnumValue('allowedAccounts', $this->getAllowedAccounts());
+        $writer->writeBooleanValue('allowLocalStorage', $this->getAllowLocalStorage());
+        $writer->writeBooleanValue('disableAccountManager', $this->getDisableAccountManager());
+        $writer->writeBooleanValue('disableEduPolicies', $this->getDisableEduPolicies());
+        $writer->writeBooleanValue('disablePowerPolicies', $this->getDisablePowerPolicies());
+        $writer->writeBooleanValue('disableSignInOnResume', $this->getDisableSignInOnResume());
+        $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeEnumValue('fastFirstSignIn', $this->getFastFirstSignIn());
+        $writer->writeIntegerValue('idleTimeBeforeSleepInSeconds', $this->getIdleTimeBeforeSleepInSeconds());
+        $writer->writeStringValue('kioskAppDisplayName', $this->getKioskAppDisplayName());
+        $writer->writeStringValue('kioskAppUserModelId', $this->getKioskAppUserModelId());
+        $writer->writeEnumValue('localStorage', $this->getLocalStorage());
+        $writer->writeTimeValue('maintenanceStartTime', $this->getMaintenanceStartTime());
+        $writer->writeEnumValue('setAccountManager', $this->getSetAccountManager());
+        $writer->writeEnumValue('setEduPolicies', $this->getSetEduPolicies());
+        $writer->writeEnumValue('setPowerPolicies', $this->getSetPowerPolicies());
+        $writer->writeEnumValue('signInOnResume', $this->getSignInOnResume());
     }
 
     /**
      * Sets the accountManagerPolicy property value. Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.
      *  @param SharedPCAccountManagerPolicy|null $value Value to set for the accountManagerPolicy property.
     */
-    public function setAccountManagerPolicy(?SharedPCAccountManagerPolicy $value ): void {
-        $this->accountManagerPolicy = $value;
+    public function setAccountManagerPolicy(?SharedPCAccountManagerPolicy $value): void {
+        $this->getBackingStore()->set('accountManagerPolicy', $value);
     }
 
     /**
      * Sets the allowedAccounts property value. Type of accounts that are allowed to share the PC.
      *  @param SharedPCAllowedAccountType|null $value Value to set for the allowedAccounts property.
     */
-    public function setAllowedAccounts(?SharedPCAllowedAccountType $value ): void {
-        $this->allowedAccounts = $value;
+    public function setAllowedAccounts(?SharedPCAllowedAccountType $value): void {
+        $this->getBackingStore()->set('allowedAccounts', $value);
     }
 
     /**
      * Sets the allowLocalStorage property value. Specifies whether local storage is allowed on a shared PC.
      *  @param bool|null $value Value to set for the allowLocalStorage property.
     */
-    public function setAllowLocalStorage(?bool $value ): void {
-        $this->allowLocalStorage = $value;
+    public function setAllowLocalStorage(?bool $value): void {
+        $this->getBackingStore()->set('allowLocalStorage', $value);
     }
 
     /**
      * Sets the disableAccountManager property value. Disables the account manager for shared PC mode.
      *  @param bool|null $value Value to set for the disableAccountManager property.
     */
-    public function setDisableAccountManager(?bool $value ): void {
-        $this->disableAccountManager = $value;
+    public function setDisableAccountManager(?bool $value): void {
+        $this->getBackingStore()->set('disableAccountManager', $value);
     }
 
     /**
      * Sets the disableEduPolicies property value. Specifies whether the default shared PC education environment policies should be disabled. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true.
      *  @param bool|null $value Value to set for the disableEduPolicies property.
     */
-    public function setDisableEduPolicies(?bool $value ): void {
-        $this->disableEduPolicies = $value;
+    public function setDisableEduPolicies(?bool $value): void {
+        $this->getBackingStore()->set('disableEduPolicies', $value);
     }
 
     /**
      * Sets the disablePowerPolicies property value. Specifies whether the default shared PC power policies should be disabled.
      *  @param bool|null $value Value to set for the disablePowerPolicies property.
     */
-    public function setDisablePowerPolicies(?bool $value ): void {
-        $this->disablePowerPolicies = $value;
+    public function setDisablePowerPolicies(?bool $value): void {
+        $this->getBackingStore()->set('disablePowerPolicies', $value);
     }
 
     /**
      * Sets the disableSignInOnResume property value. Disables the requirement to sign in whenever the device wakes up from sleep mode.
      *  @param bool|null $value Value to set for the disableSignInOnResume property.
     */
-    public function setDisableSignInOnResume(?bool $value ): void {
-        $this->disableSignInOnResume = $value;
+    public function setDisableSignInOnResume(?bool $value): void {
+        $this->getBackingStore()->set('disableSignInOnResume', $value);
     }
 
     /**
      * Sets the enabled property value. Enables shared PC mode and applies the shared pc policies.
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the fastFirstSignIn property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the fastFirstSignIn property.
     */
-    public function setFastFirstSignIn(?Enablement $value ): void {
-        $this->fastFirstSignIn = $value;
+    public function setFastFirstSignIn(?Enablement $value): void {
+        $this->getBackingStore()->set('fastFirstSignIn', $value);
     }
 
     /**
      * Sets the idleTimeBeforeSleepInSeconds property value. Specifies the time in seconds that a device must sit idle before the PC goes to sleep. Setting this value to 0 prevents the sleep timeout from occurring.
      *  @param int|null $value Value to set for the idleTimeBeforeSleepInSeconds property.
     */
-    public function setIdleTimeBeforeSleepInSeconds(?int $value ): void {
-        $this->idleTimeBeforeSleepInSeconds = $value;
+    public function setIdleTimeBeforeSleepInSeconds(?int $value): void {
+        $this->getBackingStore()->set('idleTimeBeforeSleepInSeconds', $value);
     }
 
     /**
      * Sets the kioskAppDisplayName property value. Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.
      *  @param string|null $value Value to set for the kioskAppDisplayName property.
     */
-    public function setKioskAppDisplayName(?string $value ): void {
-        $this->kioskAppDisplayName = $value;
+    public function setKioskAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('kioskAppDisplayName', $value);
     }
 
     /**
      * Sets the kioskAppUserModelId property value. Specifies the application user model ID of the app to use with assigned access.
      *  @param string|null $value Value to set for the kioskAppUserModelId property.
     */
-    public function setKioskAppUserModelId(?string $value ): void {
-        $this->kioskAppUserModelId = $value;
+    public function setKioskAppUserModelId(?string $value): void {
+        $this->getBackingStore()->set('kioskAppUserModelId', $value);
     }
 
     /**
      * Sets the localStorage property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the localStorage property.
     */
-    public function setLocalStorage(?Enablement $value ): void {
-        $this->localStorage = $value;
+    public function setLocalStorage(?Enablement $value): void {
+        $this->getBackingStore()->set('localStorage', $value);
     }
 
     /**
      * Sets the maintenanceStartTime property value. Specifies the daily start time of maintenance hour.
      *  @param Time|null $value Value to set for the maintenanceStartTime property.
     */
-    public function setMaintenanceStartTime(?Time $value ): void {
-        $this->maintenanceStartTime = $value;
+    public function setMaintenanceStartTime(?Time $value): void {
+        $this->getBackingStore()->set('maintenanceStartTime', $value);
     }
 
     /**
      * Sets the setAccountManager property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setAccountManager property.
     */
-    public function setSetAccountManager(?Enablement $value ): void {
-        $this->setAccountManager = $value;
+    public function setSetAccountManager(?Enablement $value): void {
+        $this->getBackingStore()->set('setAccountManager', $value);
     }
 
     /**
      * Sets the setEduPolicies property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setEduPolicies property.
     */
-    public function setSetEduPolicies(?Enablement $value ): void {
-        $this->setEduPolicies = $value;
+    public function setSetEduPolicies(?Enablement $value): void {
+        $this->getBackingStore()->set('setEduPolicies', $value);
     }
 
     /**
      * Sets the setPowerPolicies property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the setPowerPolicies property.
     */
-    public function setSetPowerPolicies(?Enablement $value ): void {
-        $this->setPowerPolicies = $value;
+    public function setSetPowerPolicies(?Enablement $value): void {
+        $this->getBackingStore()->set('setPowerPolicies', $value);
     }
 
     /**
      * Sets the signInOnResume property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the signInOnResume property.
     */
-    public function setSignInOnResume(?Enablement $value ): void {
-        $this->signInOnResume = $value;
+    public function setSignInOnResume(?Enablement $value): void {
+        $this->getBackingStore()->set('signInOnResume', $value);
     }
 
 }

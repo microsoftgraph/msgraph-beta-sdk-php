@@ -10,46 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Journal extends Entity implements Parsable 
 {
     /**
-     * @var Account|null $account The account property
-    */
-    private ?Account $account = null;
-    
-    /**
-     * @var string|null $balancingAccountId The balancingAccountId property
-    */
-    private ?string $balancingAccountId = null;
-    
-    /**
-     * @var string|null $balancingAccountNumber The balancingAccountNumber property
-    */
-    private ?string $balancingAccountNumber = null;
-    
-    /**
-     * @var string|null $code The code property
-    */
-    private ?string $code = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<JournalLine>|null $journalLines The journalLines property
-    */
-    private ?array $journalLines = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new journal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.journal');
     }
 
     /**
@@ -66,7 +30,7 @@ class Journal extends Entity implements Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->account;
+        return $this->getBackingStore()->get('account');
     }
 
     /**
@@ -74,7 +38,7 @@ class Journal extends Entity implements Parsable
      * @return string|null
     */
     public function getBalancingAccountId(): ?string {
-        return $this->balancingAccountId;
+        return $this->getBackingStore()->get('balancingAccountId');
     }
 
     /**
@@ -82,7 +46,7 @@ class Journal extends Entity implements Parsable
      * @return string|null
     */
     public function getBalancingAccountNumber(): ?string {
-        return $this->balancingAccountNumber;
+        return $this->getBackingStore()->get('balancingAccountNumber');
     }
 
     /**
@@ -90,7 +54,7 @@ class Journal extends Entity implements Parsable
      * @return string|null
     */
     public function getCode(): ?string {
-        return $this->code;
+        return $this->getBackingStore()->get('code');
     }
 
     /**
@@ -98,7 +62,7 @@ class Journal extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -123,7 +87,7 @@ class Journal extends Entity implements Parsable
      * @return array<JournalLine>|null
     */
     public function getJournalLines(): ?array {
-        return $this->journalLines;
+        return $this->getBackingStore()->get('journalLines');
     }
 
     /**
@@ -131,7 +95,7 @@ class Journal extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -140,69 +104,69 @@ class Journal extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('account', $this->account);
-        $writer->writeStringValue('balancingAccountId', $this->balancingAccountId);
-        $writer->writeStringValue('balancingAccountNumber', $this->balancingAccountNumber);
-        $writer->writeStringValue('code', $this->code);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('journalLines', $this->journalLines);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('account', $this->getAccount());
+        $writer->writeStringValue('balancingAccountId', $this->getBalancingAccountId());
+        $writer->writeStringValue('balancingAccountNumber', $this->getBalancingAccountNumber());
+        $writer->writeStringValue('code', $this->getCode());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('journalLines', $this->getJournalLines());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the account property value. The account property
      *  @param Account|null $value Value to set for the account property.
     */
-    public function setAccount(?Account $value ): void {
-        $this->account = $value;
+    public function setAccount(?Account $value): void {
+        $this->getBackingStore()->set('account', $value);
     }
 
     /**
      * Sets the balancingAccountId property value. The balancingAccountId property
      *  @param string|null $value Value to set for the balancingAccountId property.
     */
-    public function setBalancingAccountId(?string $value ): void {
-        $this->balancingAccountId = $value;
+    public function setBalancingAccountId(?string $value): void {
+        $this->getBackingStore()->set('balancingAccountId', $value);
     }
 
     /**
      * Sets the balancingAccountNumber property value. The balancingAccountNumber property
      *  @param string|null $value Value to set for the balancingAccountNumber property.
     */
-    public function setBalancingAccountNumber(?string $value ): void {
-        $this->balancingAccountNumber = $value;
+    public function setBalancingAccountNumber(?string $value): void {
+        $this->getBackingStore()->set('balancingAccountNumber', $value);
     }
 
     /**
      * Sets the code property value. The code property
      *  @param string|null $value Value to set for the code property.
     */
-    public function setCode(?string $value ): void {
-        $this->code = $value;
+    public function setCode(?string $value): void {
+        $this->getBackingStore()->set('code', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the journalLines property value. The journalLines property
      *  @param array<JournalLine>|null $value Value to set for the journalLines property.
     */
-    public function setJournalLines(?array $value ): void {
-        $this->journalLines = $value;
+    public function setJournalLines(?array $value): void {
+        $this->getBackingStore()->set('journalLines', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

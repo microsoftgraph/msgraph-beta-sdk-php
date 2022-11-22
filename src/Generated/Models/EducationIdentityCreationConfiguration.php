@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationIdentityCreationConfiguration extends EducationIdentitySynchronizationConfiguration implements Parsable 
 {
     /**
-     * @var array<EducationIdentityDomain>|null $userDomains The userDomains property
-    */
-    private ?array $userDomains = null;
-    
-    /**
      * Instantiates a new EducationIdentityCreationConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
      * @return array<EducationIdentityDomain>|null
     */
     public function getUserDomains(): ?array {
-        return $this->userDomains;
+        return $this->getBackingStore()->get('userDomains');
     }
 
     /**
@@ -55,15 +50,15 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('userDomains', $this->userDomains);
+        $writer->writeCollectionOfObjectValues('userDomains', $this->getUserDomains());
     }
 
     /**
      * Sets the userDomains property value. The userDomains property
      *  @param array<EducationIdentityDomain>|null $value Value to set for the userDomains property.
     */
-    public function setUserDomains(?array $value ): void {
-        $this->userDomains = $value;
+    public function setUserDomains(?array $value): void {
+        $this->getBackingStore()->set('userDomains', $value);
     }
 
 }

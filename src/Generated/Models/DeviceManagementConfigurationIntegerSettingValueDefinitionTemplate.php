@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate implements AdditionalDataHolder, Parsable 
+class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $maxValue Integer Setting Maximum Value. Valid values -2147483648 to 2147483647
-    */
-    private ?int $maxValue = null;
-    
-    /**
-     * @var int|null $minValue Integer Setting Minimum Value. Valid values -2147483648 to 2147483647
-    */
-    private ?int $minValue = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceManagementConfigurationIntegerSettingValueDefinitionTemplate and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinitionTemplate');
     }
 
     /**
@@ -50,8 +38,16 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +68,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return int|null
     */
     public function getMaxValue(): ?int {
-        return $this->maxValue;
+        return $this->getBackingStore()->get('maxValue');
     }
 
     /**
@@ -80,7 +76,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return int|null
     */
     public function getMinValue(): ?int {
-        return $this->minValue;
+        return $this->getBackingStore()->get('minValue');
     }
 
     /**
@@ -88,7 +84,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate impleme
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('maxValue', $this->maxValue);
-        $writer->writeIntegerValue('minValue', $this->minValue);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('maxValue', $this->getMaxValue());
+        $writer->writeIntegerValue('minValue', $this->getMinValue());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the maxValue property value. Integer Setting Maximum Value. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the maxValue property.
     */
-    public function setMaxValue(?int $value ): void {
-        $this->maxValue = $value;
+    public function setMaxValue(?int $value): void {
+        $this->getBackingStore()->set('maxValue', $value);
     }
 
     /**
      * Sets the minValue property value. Integer Setting Minimum Value. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the minValue property.
     */
-    public function setMinValue(?int $value ): void {
-        $this->minValue = $value;
+    public function setMinValue(?int $value): void {
+        $this->getBackingStore()->set('minValue', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

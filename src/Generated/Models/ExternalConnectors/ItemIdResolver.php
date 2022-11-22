@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemIdResolver extends UrlToItemResolverBase implements Parsable 
 {
     /**
-     * @var string|null $itemId Pattern that specifies how to form the ID of the external item that the URL represents. The named groups from the regular expression in urlPattern within the urlMatchInfo can be referenced by inserting the group name inside curly brackets.
-    */
-    private ?string $itemId = null;
-    
-    /**
-     * @var UrlMatchInfo|null $urlMatchInfo Configurations to match and resolve URL.
-    */
-    private ?UrlMatchInfo $urlMatchInfo = null;
-    
-    /**
      * Instantiates a new ItemIdResolver and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
      * @return string|null
     */
     public function getItemId(): ?string {
-        return $this->itemId;
+        return $this->getBackingStore()->get('itemId');
     }
 
     /**
@@ -60,7 +50,7 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
      * @return UrlMatchInfo|null
     */
     public function getUrlMatchInfo(): ?UrlMatchInfo {
-        return $this->urlMatchInfo;
+        return $this->getBackingStore()->get('urlMatchInfo');
     }
 
     /**
@@ -69,24 +59,24 @@ class ItemIdResolver extends UrlToItemResolverBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('itemId', $this->itemId);
-        $writer->writeObjectValue('urlMatchInfo', $this->urlMatchInfo);
+        $writer->writeStringValue('itemId', $this->getItemId());
+        $writer->writeObjectValue('urlMatchInfo', $this->getUrlMatchInfo());
     }
 
     /**
      * Sets the itemId property value. Pattern that specifies how to form the ID of the external item that the URL represents. The named groups from the regular expression in urlPattern within the urlMatchInfo can be referenced by inserting the group name inside curly brackets.
      *  @param string|null $value Value to set for the itemId property.
     */
-    public function setItemId(?string $value ): void {
-        $this->itemId = $value;
+    public function setItemId(?string $value): void {
+        $this->getBackingStore()->set('itemId', $value);
     }
 
     /**
      * Sets the urlMatchInfo property value. Configurations to match and resolve URL.
      *  @param UrlMatchInfo|null $value Value to set for the urlMatchInfo property.
     */
-    public function setUrlMatchInfo(?UrlMatchInfo $value ): void {
-        $this->urlMatchInfo = $value;
+    public function setUrlMatchInfo(?UrlMatchInfo $value): void {
+        $this->getBackingStore()->set('urlMatchInfo', $value);
     }
 
 }

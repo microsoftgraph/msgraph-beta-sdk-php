@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonAward extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $description Descpription of the award or honor.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Name of the award or honor.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var Date|null $issuedDate The date that the award or honor was granted.
-    */
-    private ?Date $issuedDate = null;
-    
-    /**
-     * @var string|null $issuingAuthority Authority which granted the award or honor.
-    */
-    private ?string $issuingAuthority = null;
-    
-    /**
-     * @var string|null $thumbnailUrl URL referencing a thumbnail of the award or honor.
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
-     * @var string|null $webUrl URL referencing the award or honor.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new PersonAward and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -69,7 +39,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -93,7 +63,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getIssuedDate(): ?Date {
-        return $this->issuedDate;
+        return $this->getBackingStore()->get('issuedDate');
     }
 
     /**
@@ -101,7 +71,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getIssuingAuthority(): ?string {
-        return $this->issuingAuthority;
+        return $this->getBackingStore()->get('issuingAuthority');
     }
 
     /**
@@ -109,7 +79,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -117,7 +87,7 @@ class PersonAward extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -126,60 +96,60 @@ class PersonAward extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateValue('issuedDate', $this->issuedDate);
-        $writer->writeStringValue('issuingAuthority', $this->issuingAuthority);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateValue('issuedDate', $this->getIssuedDate());
+        $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the description property value. Descpription of the award or honor.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the award or honor.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the issuedDate property value. The date that the award or honor was granted.
      *  @param Date|null $value Value to set for the issuedDate property.
     */
-    public function setIssuedDate(?Date $value ): void {
-        $this->issuedDate = $value;
+    public function setIssuedDate(?Date $value): void {
+        $this->getBackingStore()->set('issuedDate', $value);
     }
 
     /**
      * Sets the issuingAuthority property value. Authority which granted the award or honor.
      *  @param string|null $value Value to set for the issuingAuthority property.
     */
-    public function setIssuingAuthority(?string $value ): void {
-        $this->issuingAuthority = $value;
+    public function setIssuingAuthority(?string $value): void {
+        $this->getBackingStore()->set('issuingAuthority', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. URL referencing a thumbnail of the award or honor.
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
     /**
      * Sets the webUrl property value. URL referencing the award or honor.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

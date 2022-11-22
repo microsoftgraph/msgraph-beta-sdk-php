@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class EducationSynchronizationProfile extends Entity implements Parsable 
 {
     /**
-     * @var EducationSynchronizationDataProvider|null $dataProvider The dataProvider property
-    */
-    private ?EducationSynchronizationDataProvider $dataProvider = null;
-    
-    /**
-     * @var string|null $displayName Name of the configuration profile for syncing identities.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<EducationSynchronizationError>|null $errors All errors associated with this synchronization profile.
-    */
-    private ?array $errors = null;
-    
-    /**
-     * @var Date|null $expirationDate The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
-    */
-    private ?Date $expirationDate = null;
-    
-    /**
-     * @var bool|null $handleSpecialCharacterConstraint Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
-    */
-    private ?bool $handleSpecialCharacterConstraint = null;
-    
-    /**
-     * @var EducationIdentitySynchronizationConfiguration|null $identitySynchronizationConfiguration The identitySynchronizationConfiguration property
-    */
-    private ?EducationIdentitySynchronizationConfiguration $identitySynchronizationConfiguration = null;
-    
-    /**
-     * @var array<EducationSynchronizationLicenseAssignment>|null $licensesToAssign License setup configuration.
-    */
-    private ?array $licensesToAssign = null;
-    
-    /**
-     * @var EducationSynchronizationProfileStatus|null $profileStatus The synchronization status.
-    */
-    private ?EducationSynchronizationProfileStatus $profileStatus = null;
-    
-    /**
-     * @var EducationSynchronizationProfileState|null $state The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
-    */
-    private ?EducationSynchronizationProfileState $state = null;
-    
-    /**
      * Instantiates a new educationSynchronizationProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.educationSynchronizationProfile');
     }
 
     /**
@@ -76,7 +30,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationDataProvider|null
     */
     public function getDataProvider(): ?EducationSynchronizationDataProvider {
-        return $this->dataProvider;
+        return $this->getBackingStore()->get('dataProvider');
     }
 
     /**
@@ -84,7 +38,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -92,7 +46,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return array<EducationSynchronizationError>|null
     */
     public function getErrors(): ?array {
-        return $this->errors;
+        return $this->getBackingStore()->get('errors');
     }
 
     /**
@@ -100,7 +54,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return Date|null
     */
     public function getExpirationDate(): ?Date {
-        return $this->expirationDate;
+        return $this->getBackingStore()->get('expirationDate');
     }
 
     /**
@@ -127,7 +81,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getHandleSpecialCharacterConstraint(): ?bool {
-        return $this->handleSpecialCharacterConstraint;
+        return $this->getBackingStore()->get('handleSpecialCharacterConstraint');
     }
 
     /**
@@ -135,7 +89,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationIdentitySynchronizationConfiguration|null
     */
     public function getIdentitySynchronizationConfiguration(): ?EducationIdentitySynchronizationConfiguration {
-        return $this->identitySynchronizationConfiguration;
+        return $this->getBackingStore()->get('identitySynchronizationConfiguration');
     }
 
     /**
@@ -143,7 +97,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return array<EducationSynchronizationLicenseAssignment>|null
     */
     public function getLicensesToAssign(): ?array {
-        return $this->licensesToAssign;
+        return $this->getBackingStore()->get('licensesToAssign');
     }
 
     /**
@@ -151,7 +105,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationProfileStatus|null
     */
     public function getProfileStatus(): ?EducationSynchronizationProfileStatus {
-        return $this->profileStatus;
+        return $this->getBackingStore()->get('profileStatus');
     }
 
     /**
@@ -159,7 +113,7 @@ class EducationSynchronizationProfile extends Entity implements Parsable
      * @return EducationSynchronizationProfileState|null
     */
     public function getState(): ?EducationSynchronizationProfileState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -168,87 +122,87 @@ class EducationSynchronizationProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('dataProvider', $this->dataProvider);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('errors', $this->errors);
-        $writer->writeDateValue('expirationDate', $this->expirationDate);
-        $writer->writeBooleanValue('handleSpecialCharacterConstraint', $this->handleSpecialCharacterConstraint);
-        $writer->writeObjectValue('identitySynchronizationConfiguration', $this->identitySynchronizationConfiguration);
-        $writer->writeCollectionOfObjectValues('licensesToAssign', $this->licensesToAssign);
-        $writer->writeObjectValue('profileStatus', $this->profileStatus);
-        $writer->writeEnumValue('state', $this->state);
+        $writer->writeObjectValue('dataProvider', $this->getDataProvider());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
+        $writer->writeDateValue('expirationDate', $this->getExpirationDate());
+        $writer->writeBooleanValue('handleSpecialCharacterConstraint', $this->getHandleSpecialCharacterConstraint());
+        $writer->writeObjectValue('identitySynchronizationConfiguration', $this->getIdentitySynchronizationConfiguration());
+        $writer->writeCollectionOfObjectValues('licensesToAssign', $this->getLicensesToAssign());
+        $writer->writeObjectValue('profileStatus', $this->getProfileStatus());
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the dataProvider property value. The dataProvider property
      *  @param EducationSynchronizationDataProvider|null $value Value to set for the dataProvider property.
     */
-    public function setDataProvider(?EducationSynchronizationDataProvider $value ): void {
-        $this->dataProvider = $value;
+    public function setDataProvider(?EducationSynchronizationDataProvider $value): void {
+        $this->getBackingStore()->set('dataProvider', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the configuration profile for syncing identities.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the errors property value. All errors associated with this synchronization profile.
      *  @param array<EducationSynchronizationError>|null $value Value to set for the errors property.
     */
-    public function setErrors(?array $value ): void {
-        $this->errors = $value;
+    public function setErrors(?array $value): void {
+        $this->getBackingStore()->set('errors', $value);
     }
 
     /**
      * Sets the expirationDate property value. The date the profile should be considered expired and cease syncing. Provide the date in YYYY-MM-DD format, following ISO 8601. Maximum value is 18 months from profile creation.  (optional)
      *  @param Date|null $value Value to set for the expirationDate property.
     */
-    public function setExpirationDate(?Date $value ): void {
-        $this->expirationDate = $value;
+    public function setExpirationDate(?Date $value): void {
+        $this->getBackingStore()->set('expirationDate', $value);
     }
 
     /**
      * Sets the handleSpecialCharacterConstraint property value. Determines if School Data Sync should automatically replace unsupported special characters while syncing from source.
      *  @param bool|null $value Value to set for the handleSpecialCharacterConstraint property.
     */
-    public function setHandleSpecialCharacterConstraint(?bool $value ): void {
-        $this->handleSpecialCharacterConstraint = $value;
+    public function setHandleSpecialCharacterConstraint(?bool $value): void {
+        $this->getBackingStore()->set('handleSpecialCharacterConstraint', $value);
     }
 
     /**
      * Sets the identitySynchronizationConfiguration property value. The identitySynchronizationConfiguration property
      *  @param EducationIdentitySynchronizationConfiguration|null $value Value to set for the identitySynchronizationConfiguration property.
     */
-    public function setIdentitySynchronizationConfiguration(?EducationIdentitySynchronizationConfiguration $value ): void {
-        $this->identitySynchronizationConfiguration = $value;
+    public function setIdentitySynchronizationConfiguration(?EducationIdentitySynchronizationConfiguration $value): void {
+        $this->getBackingStore()->set('identitySynchronizationConfiguration', $value);
     }
 
     /**
      * Sets the licensesToAssign property value. License setup configuration.
      *  @param array<EducationSynchronizationLicenseAssignment>|null $value Value to set for the licensesToAssign property.
     */
-    public function setLicensesToAssign(?array $value ): void {
-        $this->licensesToAssign = $value;
+    public function setLicensesToAssign(?array $value): void {
+        $this->getBackingStore()->set('licensesToAssign', $value);
     }
 
     /**
      * Sets the profileStatus property value. The synchronization status.
      *  @param EducationSynchronizationProfileStatus|null $value Value to set for the profileStatus property.
     */
-    public function setProfileStatus(?EducationSynchronizationProfileStatus $value ): void {
-        $this->profileStatus = $value;
+    public function setProfileStatus(?EducationSynchronizationProfileStatus $value): void {
+        $this->getBackingStore()->set('profileStatus', $value);
     }
 
     /**
      * Sets the state property value. The state of the profile. Possible values are: provisioning, provisioned, provisioningFailed, deleting, deletionFailed.
      *  @param EducationSynchronizationProfileState|null $value Value to set for the state property.
     */
-    public function setState(?EducationSynchronizationProfileState $value ): void {
-        $this->state = $value;
+    public function setState(?EducationSynchronizationProfileState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

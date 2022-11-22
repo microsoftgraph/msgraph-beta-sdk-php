@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAnswerString extends AccessPackageAnswer implements Parsable 
 {
     /**
-     * @var string|null $value The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
-    */
-    private ?string $value = null;
-    
-    /**
      * Instantiates a new AccessPackageAnswerString and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AccessPackageAnswerString extends AccessPackageAnswer implements Parsable
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class AccessPackageAnswerString extends AccessPackageAnswer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('value', $this->value);
+        $writer->writeStringValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

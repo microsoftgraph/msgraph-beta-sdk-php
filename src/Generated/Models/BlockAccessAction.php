@@ -13,7 +13,6 @@ class BlockAccessAction extends DlpActionInfo implements Parsable
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.blockAccessAction');
     }
 
     /**

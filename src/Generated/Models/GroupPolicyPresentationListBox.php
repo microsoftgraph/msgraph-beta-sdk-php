@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var bool|null $explicitValue If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
-    */
-    private ?bool $explicitValue = null;
-    
-    /**
-     * @var string|null $valuePrefix Not yet documented
-    */
-    private ?string $valuePrefix = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationListBox and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
      * @return bool|null
     */
     public function getExplicitValue(): ?bool {
-        return $this->explicitValue;
+        return $this->getBackingStore()->get('explicitValue');
     }
 
     /**
@@ -60,7 +50,7 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
      * @return string|null
     */
     public function getValuePrefix(): ?string {
-        return $this->valuePrefix;
+        return $this->getBackingStore()->get('valuePrefix');
     }
 
     /**
@@ -69,24 +59,24 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('explicitValue', $this->explicitValue);
-        $writer->writeStringValue('valuePrefix', $this->valuePrefix);
+        $writer->writeBooleanValue('explicitValue', $this->getExplicitValue());
+        $writer->writeStringValue('valuePrefix', $this->getValuePrefix());
     }
 
     /**
      * Sets the explicitValue property value. If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
      *  @param bool|null $value Value to set for the explicitValue property.
     */
-    public function setExplicitValue(?bool $value ): void {
-        $this->explicitValue = $value;
+    public function setExplicitValue(?bool $value): void {
+        $this->getBackingStore()->set('explicitValue', $value);
     }
 
     /**
      * Sets the valuePrefix property value. Not yet documented
      *  @param string|null $value Value to set for the valuePrefix property.
     */
-    public function setValuePrefix(?string $value ): void {
-        $this->valuePrefix = $value;
+    public function setValuePrefix(?string $value): void {
+        $this->getBackingStore()->set('valuePrefix', $value);
     }
 
 }

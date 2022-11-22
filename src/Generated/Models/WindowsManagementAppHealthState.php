@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementAppHealthState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceName Name of the device on which Windows management app is installed.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $deviceOSVersion Windows 10 OS version of the device on which Windows management app is installed.
-    */
-    private ?string $deviceOSVersion = null;
-    
-    /**
-     * @var HealthState|null $healthState Indicates health state of the Windows management app.
-    */
-    private ?HealthState $healthState = null;
-    
-    /**
-     * @var string|null $installedVersion Windows management app installed version.
-    */
-    private ?string $installedVersion = null;
-    
-    /**
-     * @var DateTime|null $lastCheckInDateTime Windows management app last check-in time.
-    */
-    private ?DateTime $lastCheckInDateTime = null;
-    
-    /**
      * Instantiates a new windowsManagementAppHealthState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsManagementAppHealthState');
     }
 
     /**
@@ -56,7 +30,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -64,7 +38,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceOSVersion(): ?string {
-        return $this->deviceOSVersion;
+        return $this->getBackingStore()->get('deviceOSVersion');
     }
 
     /**
@@ -87,7 +61,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return HealthState|null
     */
     public function getHealthState(): ?HealthState {
-        return $this->healthState;
+        return $this->getBackingStore()->get('healthState');
     }
 
     /**
@@ -95,7 +69,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return string|null
     */
     public function getInstalledVersion(): ?string {
-        return $this->installedVersion;
+        return $this->getBackingStore()->get('installedVersion');
     }
 
     /**
@@ -103,7 +77,7 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->lastCheckInDateTime;
+        return $this->getBackingStore()->get('lastCheckInDateTime');
     }
 
     /**
@@ -112,51 +86,51 @@ class WindowsManagementAppHealthState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('deviceOSVersion', $this->deviceOSVersion);
-        $writer->writeEnumValue('healthState', $this->healthState);
-        $writer->writeStringValue('installedVersion', $this->installedVersion);
-        $writer->writeDateTimeValue('lastCheckInDateTime', $this->lastCheckInDateTime);
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('deviceOSVersion', $this->getDeviceOSVersion());
+        $writer->writeEnumValue('healthState', $this->getHealthState());
+        $writer->writeStringValue('installedVersion', $this->getInstalledVersion());
+        $writer->writeDateTimeValue('lastCheckInDateTime', $this->getLastCheckInDateTime());
     }
 
     /**
      * Sets the deviceName property value. Name of the device on which Windows management app is installed.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the deviceOSVersion property value. Windows 10 OS version of the device on which Windows management app is installed.
      *  @param string|null $value Value to set for the deviceOSVersion property.
     */
-    public function setDeviceOSVersion(?string $value ): void {
-        $this->deviceOSVersion = $value;
+    public function setDeviceOSVersion(?string $value): void {
+        $this->getBackingStore()->set('deviceOSVersion', $value);
     }
 
     /**
      * Sets the healthState property value. Indicates health state of the Windows management app.
      *  @param HealthState|null $value Value to set for the healthState property.
     */
-    public function setHealthState(?HealthState $value ): void {
-        $this->healthState = $value;
+    public function setHealthState(?HealthState $value): void {
+        $this->getBackingStore()->set('healthState', $value);
     }
 
     /**
      * Sets the installedVersion property value. Windows management app installed version.
      *  @param string|null $value Value to set for the installedVersion property.
     */
-    public function setInstalledVersion(?string $value ): void {
-        $this->installedVersion = $value;
+    public function setInstalledVersion(?string $value): void {
+        $this->getBackingStore()->set('installedVersion', $value);
     }
 
     /**
      * Sets the lastCheckInDateTime property value. Windows management app last check-in time.
      *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
-    public function setLastCheckInDateTime(?DateTime $value ): void {
-        $this->lastCheckInDateTime = $value;
+    public function setLastCheckInDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckInDateTime', $value);
     }
 
 }

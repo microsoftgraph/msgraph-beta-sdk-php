@@ -10,16 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class AndroidForWorkTrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var string|null $certFileName File name to display in UI.
-    */
-    private ?string $certFileName = null;
-    
-    /**
-     * @var StreamInterface|null $trustedRootCertificate Trusted Root Certificate
-    */
-    private ?StreamInterface $trustedRootCertificate = null;
-    
-    /**
      * Instantiates a new androidForWorkTrustedRootCertificate and sets the default values.
     */
     public function __construct() {
@@ -41,7 +31,7 @@ class AndroidForWorkTrustedRootCertificate extends DeviceConfiguration implement
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->certFileName;
+        return $this->getBackingStore()->get('certFileName');
     }
 
     /**
@@ -58,10 +48,10 @@ class AndroidForWorkTrustedRootCertificate extends DeviceConfiguration implement
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getTrustedRootCertificate(): StreamInterface {
-        return $this->trustedRootCertificate;
+    public function getTrustedRootCertificate(): ?StreamInterface {
+        return $this->getBackingStore()->get('trustedRootCertificate');
     }
 
     /**
@@ -70,24 +60,24 @@ class AndroidForWorkTrustedRootCertificate extends DeviceConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('certFileName', $this->certFileName);
-        $writer->writeBinaryContent('trustedRootCertificate', $this->trustedRootCertificate);
+        $writer->writeStringValue('certFileName', $this->getCertFileName());
+        $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 
     /**
      * Sets the certFileName property value. File name to display in UI.
      *  @param string|null $value Value to set for the certFileName property.
     */
-    public function setCertFileName(?string $value ): void {
-        $this->certFileName = $value;
+    public function setCertFileName(?string $value): void {
+        $this->getBackingStore()->set('certFileName', $value);
     }
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate
      *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
-    public function setTrustedRootCertificate(?StreamInterface $value ): void {
-        $this->trustedRootCertificate = $value;
+    public function setTrustedRootCertificate(?StreamInterface $value): void {
+        $this->getBackingStore()->set('trustedRootCertificate', $value);
     }
 
 }

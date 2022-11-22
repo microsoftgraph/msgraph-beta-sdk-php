@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyDefinitionValue extends Entity implements Parsable 
 {
     /**
-     * @var GroupPolicyConfigurationType|null $configurationType Group Policy Configuration Type
-    */
-    private ?GroupPolicyConfigurationType $configurationType = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time the object was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var GroupPolicyDefinition|null $definition The associated group policy definition with the value.
-    */
-    private ?GroupPolicyDefinition $definition = null;
-    
-    /**
-     * @var bool|null $enabled Enables or disables the associated group policy definition.
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<GroupPolicyPresentationValue>|null $presentationValues The associated group policy presentation values with the definition value.
-    */
-    private ?array $presentationValues = null;
-    
-    /**
      * Instantiates a new groupPolicyDefinitionValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyDefinitionValue');
     }
 
     /**
@@ -61,7 +30,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return GroupPolicyConfigurationType|null
     */
     public function getConfigurationType(): ?GroupPolicyConfigurationType {
-        return $this->configurationType;
+        return $this->getBackingStore()->get('configurationType');
     }
 
     /**
@@ -69,7 +38,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -77,7 +46,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getDefinition(): ?GroupPolicyDefinition {
-        return $this->definition;
+        return $this->getBackingStore()->get('definition');
     }
 
     /**
@@ -85,7 +54,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -109,7 +78,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -117,7 +86,7 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
      * @return array<GroupPolicyPresentationValue>|null
     */
     public function getPresentationValues(): ?array {
-        return $this->presentationValues;
+        return $this->getBackingStore()->get('presentationValues');
     }
 
     /**
@@ -126,60 +95,60 @@ class GroupPolicyDefinitionValue extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('configurationType', $this->configurationType);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('definition', $this->definition);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfObjectValues('presentationValues', $this->presentationValues);
+        $writer->writeEnumValue('configurationType', $this->getConfigurationType());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('definition', $this->getDefinition());
+        $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('presentationValues', $this->getPresentationValues());
     }
 
     /**
      * Sets the configurationType property value. Group Policy Configuration Type
      *  @param GroupPolicyConfigurationType|null $value Value to set for the configurationType property.
     */
-    public function setConfigurationType(?GroupPolicyConfigurationType $value ): void {
-        $this->configurationType = $value;
+    public function setConfigurationType(?GroupPolicyConfigurationType $value): void {
+        $this->getBackingStore()->set('configurationType', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the object was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the definition property value. The associated group policy definition with the value.
      *  @param GroupPolicyDefinition|null $value Value to set for the definition property.
     */
-    public function setDefinition(?GroupPolicyDefinition $value ): void {
-        $this->definition = $value;
+    public function setDefinition(?GroupPolicyDefinition $value): void {
+        $this->getBackingStore()->set('definition', $value);
     }
 
     /**
      * Sets the enabled property value. Enables or disables the associated group policy definition.
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the presentationValues property value. The associated group policy presentation values with the definition value.
      *  @param array<GroupPolicyPresentationValue>|null $value Value to set for the presentationValues property.
     */
-    public function setPresentationValues(?array $value ): void {
-        $this->presentationValues = $value;
+    public function setPresentationValues(?array $value): void {
+        $this->getBackingStore()->set('presentationValues', $value);
     }
 
 }

@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TeamTemplate extends Entity implements Parsable 
 {
     /**
-     * @var array<TeamTemplateDefinition>|null $definitions The definitions property
-    */
-    private ?array $definitions = null;
-    
-    /**
      * Instantiates a new teamTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.teamTemplate');
     }
 
     /**
@@ -35,7 +29,7 @@ class TeamTemplate extends Entity implements Parsable
      * @return array<TeamTemplateDefinition>|null
     */
     public function getDefinitions(): ?array {
-        return $this->definitions;
+        return $this->getBackingStore()->get('definitions');
     }
 
     /**
@@ -55,15 +49,15 @@ class TeamTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('definitions', $this->definitions);
+        $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
     }
 
     /**
      * Sets the definitions property value. The definitions property
      *  @param array<TeamTemplateDefinition>|null $value Value to set for the definitions property.
     */
-    public function setDefinitions(?array $value ): void {
-        $this->definitions = $value;
+    public function setDefinitions(?array $value): void {
+        $this->getBackingStore()->set('definitions', $value);
     }
 
 }

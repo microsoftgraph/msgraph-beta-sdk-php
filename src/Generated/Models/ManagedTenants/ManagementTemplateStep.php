@@ -12,71 +12,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementTemplateStep extends Entity implements Parsable 
 {
     /**
-     * @var ManagementTemplateStepVersion|null $acceptedVersion The acceptedVersion property
-    */
-    private ?ManagementTemplateStepVersion $acceptedVersion = null;
-    
-    /**
-     * @var ManagementCategory|null $category The category property
-    */
-    private ?ManagementCategory $category = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
-     * @var ManagementTemplate|null $managementTemplate The managementTemplate property
-    */
-    private ?ManagementTemplate $managementTemplate = null;
-    
-    /**
-     * @var ActionUrl|null $portalLink The portalLink property
-    */
-    private ?ActionUrl $portalLink = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var array<ManagementTemplateStepVersion>|null $versions The versions property
-    */
-    private ?array $versions = null;
-    
-    /**
      * Instantiates a new managementTemplateStep and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managementTemplateStep');
     }
 
     /**
@@ -93,7 +32,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementTemplateStepVersion|null
     */
     public function getAcceptedVersion(): ?ManagementTemplateStepVersion {
-        return $this->acceptedVersion;
+        return $this->getBackingStore()->get('acceptedVersion');
     }
 
     /**
@@ -101,7 +40,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -109,7 +48,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -117,7 +56,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -125,7 +64,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -133,7 +72,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -163,7 +102,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -171,7 +110,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -179,7 +118,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ManagementTemplate|null
     */
     public function getManagementTemplate(): ?ManagementTemplate {
-        return $this->managementTemplate;
+        return $this->getBackingStore()->get('managementTemplate');
     }
 
     /**
@@ -187,7 +126,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return ActionUrl|null
     */
     public function getPortalLink(): ?ActionUrl {
-        return $this->portalLink;
+        return $this->getBackingStore()->get('portalLink');
     }
 
     /**
@@ -195,7 +134,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -203,7 +142,7 @@ class ManagementTemplateStep extends Entity implements Parsable
      * @return array<ManagementTemplateStepVersion>|null
     */
     public function getVersions(): ?array {
-        return $this->versions;
+        return $this->getBackingStore()->get('versions');
     }
 
     /**
@@ -212,114 +151,114 @@ class ManagementTemplateStep extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('acceptedVersion', $this->acceptedVersion);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
-        $writer->writeObjectValue('managementTemplate', $this->managementTemplate);
-        $writer->writeObjectValue('portalLink', $this->portalLink);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeCollectionOfObjectValues('versions', $this->versions);
+        $writer->writeObjectValue('acceptedVersion', $this->getAcceptedVersion());
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeObjectValue('managementTemplate', $this->getManagementTemplate());
+        $writer->writeObjectValue('portalLink', $this->getPortalLink());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeCollectionOfObjectValues('versions', $this->getVersions());
     }
 
     /**
      * Sets the acceptedVersion property value. The acceptedVersion property
      *  @param ManagementTemplateStepVersion|null $value Value to set for the acceptedVersion property.
     */
-    public function setAcceptedVersion(?ManagementTemplateStepVersion $value ): void {
-        $this->acceptedVersion = $value;
+    public function setAcceptedVersion(?ManagementTemplateStepVersion $value): void {
+        $this->getBackingStore()->set('acceptedVersion', $value);
     }
 
     /**
      * Sets the category property value. The category property
      *  @param ManagementCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?ManagementCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?ManagementCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
      * Sets the managementTemplate property value. The managementTemplate property
      *  @param ManagementTemplate|null $value Value to set for the managementTemplate property.
     */
-    public function setManagementTemplate(?ManagementTemplate $value ): void {
-        $this->managementTemplate = $value;
+    public function setManagementTemplate(?ManagementTemplate $value): void {
+        $this->getBackingStore()->set('managementTemplate', $value);
     }
 
     /**
      * Sets the portalLink property value. The portalLink property
      *  @param ActionUrl|null $value Value to set for the portalLink property.
     */
-    public function setPortalLink(?ActionUrl $value ): void {
-        $this->portalLink = $value;
+    public function setPortalLink(?ActionUrl $value): void {
+        $this->getBackingStore()->set('portalLink', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the versions property value. The versions property
      *  @param array<ManagementTemplateStepVersion>|null $value Value to set for the versions property.
     */
-    public function setVersions(?array $value ): void {
-        $this->versions = $value;
+    public function setVersions(?array $value): void {
+        $this->getBackingStore()->set('versions', $value);
     }
 
 }

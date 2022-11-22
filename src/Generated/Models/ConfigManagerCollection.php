@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigManagerCollection extends Entity implements Parsable 
 {
     /**
-     * @var string|null $collectionIdentifier The collection identifier in SCCM.
-    */
-    private ?string $collectionIdentifier = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The created date.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $displayName The DisplayName.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $hierarchyIdentifier The Hierarchy Identifier.
-    */
-    private ?string $hierarchyIdentifier = null;
-    
-    /**
-     * @var string|null $hierarchyName The HierarchyName.
-    */
-    private ?string $hierarchyName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The last modified date.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new configManagerCollection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.configManagerCollection');
     }
 
     /**
@@ -61,7 +30,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getCollectionIdentifier(): ?string {
-        return $this->collectionIdentifier;
+        return $this->getBackingStore()->get('collectionIdentifier');
     }
 
     /**
@@ -69,7 +38,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -77,7 +46,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -101,7 +70,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getHierarchyIdentifier(): ?string {
-        return $this->hierarchyIdentifier;
+        return $this->getBackingStore()->get('hierarchyIdentifier');
     }
 
     /**
@@ -109,7 +78,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return string|null
     */
     public function getHierarchyName(): ?string {
-        return $this->hierarchyName;
+        return $this->getBackingStore()->get('hierarchyName');
     }
 
     /**
@@ -117,7 +86,7 @@ class ConfigManagerCollection extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -126,60 +95,60 @@ class ConfigManagerCollection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('collectionIdentifier', $this->collectionIdentifier);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('hierarchyIdentifier', $this->hierarchyIdentifier);
-        $writer->writeStringValue('hierarchyName', $this->hierarchyName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeStringValue('collectionIdentifier', $this->getCollectionIdentifier());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('hierarchyIdentifier', $this->getHierarchyIdentifier());
+        $writer->writeStringValue('hierarchyName', $this->getHierarchyName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the collectionIdentifier property value. The collection identifier in SCCM.
      *  @param string|null $value Value to set for the collectionIdentifier property.
     */
-    public function setCollectionIdentifier(?string $value ): void {
-        $this->collectionIdentifier = $value;
+    public function setCollectionIdentifier(?string $value): void {
+        $this->getBackingStore()->set('collectionIdentifier', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The created date.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. The DisplayName.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the hierarchyIdentifier property value. The Hierarchy Identifier.
      *  @param string|null $value Value to set for the hierarchyIdentifier property.
     */
-    public function setHierarchyIdentifier(?string $value ): void {
-        $this->hierarchyIdentifier = $value;
+    public function setHierarchyIdentifier(?string $value): void {
+        $this->getBackingStore()->set('hierarchyIdentifier', $value);
     }
 
     /**
      * Sets the hierarchyName property value. The HierarchyName.
      *  @param string|null $value Value to set for the hierarchyName property.
     */
-    public function setHierarchyName(?string $value ): void {
-        $this->hierarchyName = $value;
+    public function setHierarchyName(?string $value): void {
+        $this->getBackingStore()->set('hierarchyName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The last modified date.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable 
 {
     /**
-     * @var AccessReviewScheduleSettings|null $settings The settings property
-    */
-    private ?AccessReviewScheduleSettings $settings = null;
-    
-    /**
      * Instantiates a new DirectoryRoleAccessReviewPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.directoryRoleAccessReviewPolicy');
     }
 
     /**
@@ -46,7 +40,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable
      * @return AccessReviewScheduleSettings|null
     */
     public function getSettings(): ?AccessReviewScheduleSettings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -55,15 +49,15 @@ class DirectoryRoleAccessReviewPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
      * Sets the settings property value. The settings property
      *  @param AccessReviewScheduleSettings|null $value Value to set for the settings property.
     */
-    public function setSettings(?AccessReviewScheduleSettings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?AccessReviewScheduleSettings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

@@ -10,141 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SubjectRightsRequest extends Entity implements Parsable 
 {
     /**
-     * @var Identity|null $assignedTo Identity that the request is assigned to.
-    */
-    private ?Identity $assignedTo = null;
-    
-    /**
-     * @var DateTime|null $closedDateTime The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $closedDateTime = null;
-    
-    /**
-     * @var string|null $contentQuery KQL based content query that should be used for search. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
-    */
-    private ?string $contentQuery = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy Identity information for the entity that created the request.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DataSubject|null $dataSubject Information about the data subject.
-    */
-    private ?DataSubject $dataSubject = null;
-    
-    /**
-     * @var DataSubjectType|null $dataSubjectType The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
-    */
-    private ?DataSubjectType $dataSubjectType = null;
-    
-    /**
-     * @var string|null $description Description for the request.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The name of the request.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $externalId The external ID for the request that is immutable after creation and is used for tracking the request for the external system. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var array<SubjectRightsRequestHistory>|null $history Collection of history change events.
-    */
-    private ?array $history = null;
-    
-    /**
-     * @var bool|null $includeAllVersions Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
-    */
-    private ?bool $includeAllVersions = null;
-    
-    /**
-     * @var bool|null $includeAuthoredContent Include content authored by the data subject. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
-    */
-    private ?bool $includeAuthoredContent = null;
-    
-    /**
-     * @var SubjectRightsRequestDetail|null $insight Insight about the request.
-    */
-    private ?SubjectRightsRequestDetail $insight = null;
-    
-    /**
-     * @var DateTime|null $internalDueDateTime The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $internalDueDateTime = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy Identity information for the entity that last modified the request.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var SubjectRightsRequestMailboxLocation|null $mailboxlocations The mailboxlocations property
-    */
-    private ?SubjectRightsRequestMailboxLocation $mailboxlocations = null;
-    
-    /**
-     * @var array<AuthoredNote>|null $notes List of notes associated with the request.
-    */
-    private ?array $notes = null;
-    
-    /**
-     * @var bool|null $pauseAfterEstimate Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
-    */
-    private ?bool $pauseAfterEstimate = null;
-    
-    /**
-     * @var array<string>|null $regulations List of regulations that this request will fulfill.
-    */
-    private ?array $regulations = null;
-    
-    /**
-     * @var SubjectRightsRequestSiteLocation|null $sitelocations The sitelocations property
-    */
-    private ?SubjectRightsRequestSiteLocation $sitelocations = null;
-    
-    /**
-     * @var array<SubjectRightsRequestStageDetail>|null $stages Information about the different stages for the request.
-    */
-    private ?array $stages = null;
-    
-    /**
-     * @var SubjectRightsRequestStatus|null $status The status of the request. Possible values are: active, closed, unknownFutureValue.
-    */
-    private ?SubjectRightsRequestStatus $status = null;
-    
-    /**
-     * @var Team|null $team Information about the Microsoft Teams team that was created for the request.
-    */
-    private ?Team $team = null;
-    
-    /**
-     * @var SubjectRightsRequestType|null $type The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
-    */
-    private ?SubjectRightsRequestType $type = null;
-    
-    /**
-     * Instantiates a new SubjectRightsRequest and sets the default values.
+     * Instantiates a new subjectRightsRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.subjectRightsRequest');
     }
 
     /**
@@ -161,7 +30,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return Identity|null
     */
     public function getAssignedTo(): ?Identity {
-        return $this->assignedTo;
+        return $this->getBackingStore()->get('assignedTo');
     }
 
     /**
@@ -169,7 +38,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getClosedDateTime(): ?DateTime {
-        return $this->closedDateTime;
+        return $this->getBackingStore()->get('closedDateTime');
     }
 
     /**
@@ -177,7 +46,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getContentQuery(): ?string {
-        return $this->contentQuery;
+        return $this->getBackingStore()->get('contentQuery');
     }
 
     /**
@@ -185,7 +54,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -193,7 +62,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -201,7 +70,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DataSubject|null
     */
     public function getDataSubject(): ?DataSubject {
-        return $this->dataSubject;
+        return $this->getBackingStore()->get('dataSubject');
     }
 
     /**
@@ -209,7 +78,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DataSubjectType|null
     */
     public function getDataSubjectType(): ?DataSubjectType {
-        return $this->dataSubjectType;
+        return $this->getBackingStore()->get('dataSubjectType');
     }
 
     /**
@@ -217,7 +86,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -225,7 +94,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -233,7 +102,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -277,7 +146,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return array<SubjectRightsRequestHistory>|null
     */
     public function getHistory(): ?array {
-        return $this->history;
+        return $this->getBackingStore()->get('history');
     }
 
     /**
@@ -285,7 +154,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getIncludeAllVersions(): ?bool {
-        return $this->includeAllVersions;
+        return $this->getBackingStore()->get('includeAllVersions');
     }
 
     /**
@@ -293,7 +162,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getIncludeAuthoredContent(): ?bool {
-        return $this->includeAuthoredContent;
+        return $this->getBackingStore()->get('includeAuthoredContent');
     }
 
     /**
@@ -301,7 +170,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return SubjectRightsRequestDetail|null
     */
     public function getInsight(): ?SubjectRightsRequestDetail {
-        return $this->insight;
+        return $this->getBackingStore()->get('insight');
     }
 
     /**
@@ -309,7 +178,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getInternalDueDateTime(): ?DateTime {
-        return $this->internalDueDateTime;
+        return $this->getBackingStore()->get('internalDueDateTime');
     }
 
     /**
@@ -317,7 +186,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -325,7 +194,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -333,7 +202,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return SubjectRightsRequestMailboxLocation|null
     */
     public function getMailboxlocations(): ?SubjectRightsRequestMailboxLocation {
-        return $this->mailboxlocations;
+        return $this->getBackingStore()->get('mailboxlocations');
     }
 
     /**
@@ -341,7 +210,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return array<AuthoredNote>|null
     */
     public function getNotes(): ?array {
-        return $this->notes;
+        return $this->getBackingStore()->get('notes');
     }
 
     /**
@@ -349,7 +218,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return bool|null
     */
     public function getPauseAfterEstimate(): ?bool {
-        return $this->pauseAfterEstimate;
+        return $this->getBackingStore()->get('pauseAfterEstimate');
     }
 
     /**
@@ -357,7 +226,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRegulations(): ?array {
-        return $this->regulations;
+        return $this->getBackingStore()->get('regulations');
     }
 
     /**
@@ -365,7 +234,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return SubjectRightsRequestSiteLocation|null
     */
     public function getSitelocations(): ?SubjectRightsRequestSiteLocation {
-        return $this->sitelocations;
+        return $this->getBackingStore()->get('sitelocations');
     }
 
     /**
@@ -373,7 +242,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return array<SubjectRightsRequestStageDetail>|null
     */
     public function getStages(): ?array {
-        return $this->stages;
+        return $this->getBackingStore()->get('stages');
     }
 
     /**
@@ -381,7 +250,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return SubjectRightsRequestStatus|null
     */
     public function getStatus(): ?SubjectRightsRequestStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -389,7 +258,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return Team|null
     */
     public function getTeam(): ?Team {
-        return $this->team;
+        return $this->getBackingStore()->get('team');
     }
 
     /**
@@ -397,7 +266,7 @@ class SubjectRightsRequest extends Entity implements Parsable
      * @return SubjectRightsRequestType|null
     */
     public function getType(): ?SubjectRightsRequestType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -406,240 +275,240 @@ class SubjectRightsRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('assignedTo', $this->assignedTo);
-        $writer->writeDateTimeValue('closedDateTime', $this->closedDateTime);
-        $writer->writeStringValue('contentQuery', $this->contentQuery);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('dataSubject', $this->dataSubject);
-        $writer->writeEnumValue('dataSubjectType', $this->dataSubjectType);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeCollectionOfObjectValues('history', $this->history);
-        $writer->writeBooleanValue('includeAllVersions', $this->includeAllVersions);
-        $writer->writeBooleanValue('includeAuthoredContent', $this->includeAuthoredContent);
-        $writer->writeObjectValue('insight', $this->insight);
-        $writer->writeDateTimeValue('internalDueDateTime', $this->internalDueDateTime);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('mailboxlocations', $this->mailboxlocations);
-        $writer->writeCollectionOfObjectValues('notes', $this->notes);
-        $writer->writeBooleanValue('pauseAfterEstimate', $this->pauseAfterEstimate);
-        $writer->writeCollectionOfPrimitiveValues('regulations', $this->regulations);
-        $writer->writeObjectValue('sitelocations', $this->sitelocations);
-        $writer->writeCollectionOfObjectValues('stages', $this->stages);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeObjectValue('team', $this->team);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeObjectValue('assignedTo', $this->getAssignedTo());
+        $writer->writeDateTimeValue('closedDateTime', $this->getClosedDateTime());
+        $writer->writeStringValue('contentQuery', $this->getContentQuery());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('dataSubject', $this->getDataSubject());
+        $writer->writeEnumValue('dataSubjectType', $this->getDataSubjectType());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeCollectionOfObjectValues('history', $this->getHistory());
+        $writer->writeBooleanValue('includeAllVersions', $this->getIncludeAllVersions());
+        $writer->writeBooleanValue('includeAuthoredContent', $this->getIncludeAuthoredContent());
+        $writer->writeObjectValue('insight', $this->getInsight());
+        $writer->writeDateTimeValue('internalDueDateTime', $this->getInternalDueDateTime());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('mailboxlocations', $this->getMailboxlocations());
+        $writer->writeCollectionOfObjectValues('notes', $this->getNotes());
+        $writer->writeBooleanValue('pauseAfterEstimate', $this->getPauseAfterEstimate());
+        $writer->writeCollectionOfPrimitiveValues('regulations', $this->getRegulations());
+        $writer->writeObjectValue('sitelocations', $this->getSitelocations());
+        $writer->writeCollectionOfObjectValues('stages', $this->getStages());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeObjectValue('team', $this->getTeam());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the assignedTo property value. Identity that the request is assigned to.
      *  @param Identity|null $value Value to set for the assignedTo property.
     */
-    public function setAssignedTo(?Identity $value ): void {
-        $this->assignedTo = $value;
+    public function setAssignedTo(?Identity $value): void {
+        $this->getBackingStore()->set('assignedTo', $value);
     }
 
     /**
      * Sets the closedDateTime property value. The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the closedDateTime property.
     */
-    public function setClosedDateTime(?DateTime $value ): void {
-        $this->closedDateTime = $value;
+    public function setClosedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('closedDateTime', $value);
     }
 
     /**
      * Sets the contentQuery property value. KQL based content query that should be used for search. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      *  @param string|null $value Value to set for the contentQuery property.
     */
-    public function setContentQuery(?string $value ): void {
-        $this->contentQuery = $value;
+    public function setContentQuery(?string $value): void {
+        $this->getBackingStore()->set('contentQuery', $value);
     }
 
     /**
      * Sets the createdBy property value. Identity information for the entity that created the request.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the dataSubject property value. Information about the data subject.
      *  @param DataSubject|null $value Value to set for the dataSubject property.
     */
-    public function setDataSubject(?DataSubject $value ): void {
-        $this->dataSubject = $value;
+    public function setDataSubject(?DataSubject $value): void {
+        $this->getBackingStore()->set('dataSubject', $value);
     }
 
     /**
      * Sets the dataSubjectType property value. The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.
      *  @param DataSubjectType|null $value Value to set for the dataSubjectType property.
     */
-    public function setDataSubjectType(?DataSubjectType $value ): void {
-        $this->dataSubjectType = $value;
+    public function setDataSubjectType(?DataSubjectType $value): void {
+        $this->getBackingStore()->set('dataSubjectType', $value);
     }
 
     /**
      * Sets the description property value. Description for the request.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the request.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the externalId property value. The external ID for the request that is immutable after creation and is used for tracking the request for the external system. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the history property value. Collection of history change events.
      *  @param array<SubjectRightsRequestHistory>|null $value Value to set for the history property.
     */
-    public function setHistory(?array $value ): void {
-        $this->history = $value;
+    public function setHistory(?array $value): void {
+        $this->getBackingStore()->set('history', $value);
     }
 
     /**
      * Sets the includeAllVersions property value. Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      *  @param bool|null $value Value to set for the includeAllVersions property.
     */
-    public function setIncludeAllVersions(?bool $value ): void {
-        $this->includeAllVersions = $value;
+    public function setIncludeAllVersions(?bool $value): void {
+        $this->getBackingStore()->set('includeAllVersions', $value);
     }
 
     /**
      * Sets the includeAuthoredContent property value. Include content authored by the data subject. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      *  @param bool|null $value Value to set for the includeAuthoredContent property.
     */
-    public function setIncludeAuthoredContent(?bool $value ): void {
-        $this->includeAuthoredContent = $value;
+    public function setIncludeAuthoredContent(?bool $value): void {
+        $this->getBackingStore()->set('includeAuthoredContent', $value);
     }
 
     /**
      * Sets the insight property value. Insight about the request.
      *  @param SubjectRightsRequestDetail|null $value Value to set for the insight property.
     */
-    public function setInsight(?SubjectRightsRequestDetail $value ): void {
-        $this->insight = $value;
+    public function setInsight(?SubjectRightsRequestDetail $value): void {
+        $this->getBackingStore()->set('insight', $value);
     }
 
     /**
      * Sets the internalDueDateTime property value. The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the internalDueDateTime property.
     */
-    public function setInternalDueDateTime(?DateTime $value ): void {
-        $this->internalDueDateTime = $value;
+    public function setInternalDueDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('internalDueDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. Identity information for the entity that last modified the request.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the mailboxlocations property value. The mailboxlocations property
      *  @param SubjectRightsRequestMailboxLocation|null $value Value to set for the mailboxlocations property.
     */
-    public function setMailboxlocations(?SubjectRightsRequestMailboxLocation $value ): void {
-        $this->mailboxlocations = $value;
+    public function setMailboxlocations(?SubjectRightsRequestMailboxLocation $value): void {
+        $this->getBackingStore()->set('mailboxlocations', $value);
     }
 
     /**
      * Sets the notes property value. List of notes associated with the request.
      *  @param array<AuthoredNote>|null $value Value to set for the notes property.
     */
-    public function setNotes(?array $value ): void {
-        $this->notes = $value;
+    public function setNotes(?array $value): void {
+        $this->getBackingStore()->set('notes', $value);
     }
 
     /**
      * Sets the pauseAfterEstimate property value. Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
      *  @param bool|null $value Value to set for the pauseAfterEstimate property.
     */
-    public function setPauseAfterEstimate(?bool $value ): void {
-        $this->pauseAfterEstimate = $value;
+    public function setPauseAfterEstimate(?bool $value): void {
+        $this->getBackingStore()->set('pauseAfterEstimate', $value);
     }
 
     /**
      * Sets the regulations property value. List of regulations that this request will fulfill.
      *  @param array<string>|null $value Value to set for the regulations property.
     */
-    public function setRegulations(?array $value ): void {
-        $this->regulations = $value;
+    public function setRegulations(?array $value): void {
+        $this->getBackingStore()->set('regulations', $value);
     }
 
     /**
      * Sets the sitelocations property value. The sitelocations property
      *  @param SubjectRightsRequestSiteLocation|null $value Value to set for the sitelocations property.
     */
-    public function setSitelocations(?SubjectRightsRequestSiteLocation $value ): void {
-        $this->sitelocations = $value;
+    public function setSitelocations(?SubjectRightsRequestSiteLocation $value): void {
+        $this->getBackingStore()->set('sitelocations', $value);
     }
 
     /**
      * Sets the stages property value. Information about the different stages for the request.
      *  @param array<SubjectRightsRequestStageDetail>|null $value Value to set for the stages property.
     */
-    public function setStages(?array $value ): void {
-        $this->stages = $value;
+    public function setStages(?array $value): void {
+        $this->getBackingStore()->set('stages', $value);
     }
 
     /**
      * Sets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
      *  @param SubjectRightsRequestStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?SubjectRightsRequestStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?SubjectRightsRequestStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the team property value. Information about the Microsoft Teams team that was created for the request.
      *  @param Team|null $value Value to set for the team property.
     */
-    public function setTeam(?Team $value ): void {
-        $this->team = $value;
+    public function setTeam(?Team $value): void {
+        $this->getBackingStore()->set('team', $value);
     }
 
     /**
      * Sets the type property value. The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.
      *  @param SubjectRightsRequestType|null $value Value to set for the type property.
     */
-    public function setType(?SubjectRightsRequestType $value ): void {
-        $this->type = $value;
+    public function setType(?SubjectRightsRequestType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -49,10 +49,14 @@ use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\Management
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementIntents\ManagementIntentsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\Item\ManagementTemplateCollectionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollections\ManagementTemplateCollectionsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\Item\ManagementTemplateCollectionTenantSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateCollectionTenantSummaries\ManagementTemplateCollectionTenantSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplates\Item\ManagementTemplateItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplates\ManagementTemplatesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\Item\ManagementTemplateStepItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateSteps\ManagementTemplateStepsRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepTenantSummaries\Item\ManagementTemplateStepTenantSummaryItemRequestBuilder;
+use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepTenantSummaries\ManagementTemplateStepTenantSummariesRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\Item\ManagementTemplateStepVersionItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\ManagementTemplateStepVersions\ManagementTemplateStepVersionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\TenantRelationships\ManagedTenants\MyRoles\Item\MyRoleTenantItemRequestBuilder;
@@ -229,6 +233,13 @@ class ManagedTenantsRequestBuilder
     }
     
     /**
+     * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function managementTemplateCollectionTenantSummaries(): ManagementTemplateCollectionTenantSummariesRequestBuilder {
+        return new ManagementTemplateCollectionTenantSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
      * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
     */
     public function managementTemplates(): ManagementTemplatesRequestBuilder {
@@ -240,6 +251,13 @@ class ManagedTenantsRequestBuilder
     */
     public function managementTemplateSteps(): ManagementTemplateStepsRequestBuilder {
         return new ManagementTemplateStepsRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+    */
+    public function managementTemplateStepTenantSummaries(): ManagementTemplateStepTenantSummariesRequestBuilder {
+        return new ManagementTemplateStepTenantSummariesRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -671,6 +689,17 @@ class ManagedTenantsRequestBuilder
     }
 
     /**
+     * Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return ManagementTemplateCollectionTenantSummaryItemRequestBuilder
+    */
+    public function managementTemplateCollectionTenantSummariesById(string $id): ManagementTemplateCollectionTenantSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateCollectionTenantSummary%2Did'] = $id;
+        return new ManagementTemplateCollectionTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
      * Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
      * @param string $id Unique identifier of the item
      * @return ManagementTemplateItemRequestBuilder
@@ -690,6 +719,17 @@ class ManagedTenantsRequestBuilder
         $urlTplParams = $this->pathParameters;
         $urlTplParams['managementTemplateStep%2Did'] = $id;
         return new ManagementTemplateStepItemRequestBuilder($urlTplParams, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
+     * @param string $id Unique identifier of the item
+     * @return ManagementTemplateStepTenantSummaryItemRequestBuilder
+    */
+    public function managementTemplateStepTenantSummariesById(string $id): ManagementTemplateStepTenantSummaryItemRequestBuilder {
+        $urlTplParams = $this->pathParameters;
+        $urlTplParams['managementTemplateStepTenantSummary%2Did'] = $id;
+        return new ManagementTemplateStepTenantSummaryItemRequestBuilder($urlTplParams, $this->requestAdapter);
     }
 
     /**

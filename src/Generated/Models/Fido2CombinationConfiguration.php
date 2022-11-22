@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Fido2CombinationConfiguration extends AuthenticationCombinationConfiguration implements Parsable 
 {
     /**
-     * @var array<string>|null $allowedAAGUIDs A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
-    */
-    private ?array $allowedAAGUIDs = null;
-    
-    /**
      * Instantiates a new Fido2CombinationConfiguration and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
      * @return array<string>|null
     */
     public function getAllowedAAGUIDs(): ?array {
-        return $this->allowedAAGUIDs;
+        return $this->getBackingStore()->get('allowedAAGUIDs');
     }
 
     /**
@@ -55,15 +50,15 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('allowedAAGUIDs', $this->allowedAAGUIDs);
+        $writer->writeCollectionOfPrimitiveValues('allowedAAGUIDs', $this->getAllowedAAGUIDs());
     }
 
     /**
      * Sets the allowedAAGUIDs property value. A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
      *  @param array<string>|null $value Value to set for the allowedAAGUIDs property.
     */
-    public function setAllowedAAGUIDs(?array $value ): void {
-        $this->allowedAAGUIDs = $value;
+    public function setAllowedAAGUIDs(?array $value): void {
+        $this->getBackingStore()->set('allowedAAGUIDs', $value);
     }
 
 }

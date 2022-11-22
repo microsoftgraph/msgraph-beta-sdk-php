@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Parsable 
 {
     /**
-     * @var UpdateCategory|null $updateCategory The updateCategory property
-    */
-    private ?UpdateCategory $updateCategory = null;
-    
-    /**
      * Instantiates a new UpdateManagementEnrollment and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
-        return $this->updateCategory;
+        return $this->getBackingStore()->get('updateCategory');
     }
 
     /**
@@ -55,15 +50,15 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('updateCategory', $this->updateCategory);
+        $writer->writeEnumValue('updateCategory', $this->getUpdateCategory());
     }
 
     /**
      * Sets the updateCategory property value. The updateCategory property
      *  @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
-    public function setUpdateCategory(?UpdateCategory $value ): void {
-        $this->updateCategory = $value;
+    public function setUpdateCategory(?UpdateCategory $value): void {
+        $this->getBackingStore()->set('updateCategory', $value);
     }
 
 }

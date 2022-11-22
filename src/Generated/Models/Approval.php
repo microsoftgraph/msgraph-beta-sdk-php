@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Approval extends Entity implements Parsable 
 {
     /**
-     * @var array<ApprovalStep>|null $steps The steps property
-    */
-    private ?array $steps = null;
-    
-    /**
      * Instantiates a new approval and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.approval');
     }
 
     /**
@@ -46,7 +40,7 @@ class Approval extends Entity implements Parsable
      * @return array<ApprovalStep>|null
     */
     public function getSteps(): ?array {
-        return $this->steps;
+        return $this->getBackingStore()->get('steps');
     }
 
     /**
@@ -55,15 +49,15 @@ class Approval extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('steps', $this->steps);
+        $writer->writeCollectionOfObjectValues('steps', $this->getSteps());
     }
 
     /**
      * Sets the steps property value. The steps property
      *  @param array<ApprovalStep>|null $value Value to set for the steps property.
     */
-    public function setSteps(?array $value ): void {
-        $this->steps = $value;
+    public function setSteps(?array $value): void {
+        $this->getBackingStore()->set('steps', $value);
     }
 
 }

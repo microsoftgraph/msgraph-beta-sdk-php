@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DetectedSensitiveContent extends DetectedSensitiveContentBase implements Parsable 
 {
     /**
-     * @var array<ClassificationAttribute>|null $classificationAttributes The classificationAttributes property
-    */
-    private ?array $classificationAttributes = null;
-    
-    /**
-     * @var ClassificationMethod|null $classificationMethod The classificationMethod property
-    */
-    private ?ClassificationMethod $classificationMethod = null;
-    
-    /**
-     * @var array<SensitiveContentLocation>|null $matches The matches property
-    */
-    private ?array $matches = null;
-    
-    /**
-     * @var SensitiveTypeScope|null $scope The scope property
-    */
-    private ?SensitiveTypeScope $scope = null;
-    
-    /**
-     * @var SensitiveTypeSource|null $sensitiveTypeSource The sensitiveTypeSource property
-    */
-    private ?SensitiveTypeSource $sensitiveTypeSource = null;
-    
-    /**
      * Instantiates a new DetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.detectedSensitiveContent');
     }
 
     /**
@@ -62,7 +36,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return array<ClassificationAttribute>|null
     */
     public function getClassificationAttributes(): ?array {
-        return $this->classificationAttributes;
+        return $this->getBackingStore()->get('classificationAttributes');
     }
 
     /**
@@ -70,7 +44,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return ClassificationMethod|null
     */
     public function getClassificationMethod(): ?ClassificationMethod {
-        return $this->classificationMethod;
+        return $this->getBackingStore()->get('classificationMethod');
     }
 
     /**
@@ -93,7 +67,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return array<SensitiveContentLocation>|null
     */
     public function getMatches(): ?array {
-        return $this->matches;
+        return $this->getBackingStore()->get('matches');
     }
 
     /**
@@ -101,7 +75,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return SensitiveTypeScope|null
     */
     public function getScope(): ?SensitiveTypeScope {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -109,7 +83,7 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
      * @return SensitiveTypeSource|null
     */
     public function getSensitiveTypeSource(): ?SensitiveTypeSource {
-        return $this->sensitiveTypeSource;
+        return $this->getBackingStore()->get('sensitiveTypeSource');
     }
 
     /**
@@ -118,51 +92,51 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('classificationAttributes', $this->classificationAttributes);
-        $writer->writeEnumValue('classificationMethod', $this->classificationMethod);
-        $writer->writeCollectionOfObjectValues('matches', $this->matches);
-        $writer->writeEnumValue('scope', $this->scope);
-        $writer->writeEnumValue('sensitiveTypeSource', $this->sensitiveTypeSource);
+        $writer->writeCollectionOfObjectValues('classificationAttributes', $this->getClassificationAttributes());
+        $writer->writeEnumValue('classificationMethod', $this->getClassificationMethod());
+        $writer->writeCollectionOfObjectValues('matches', $this->getMatches());
+        $writer->writeEnumValue('scope', $this->getScope());
+        $writer->writeEnumValue('sensitiveTypeSource', $this->getSensitiveTypeSource());
     }
 
     /**
      * Sets the classificationAttributes property value. The classificationAttributes property
      *  @param array<ClassificationAttribute>|null $value Value to set for the classificationAttributes property.
     */
-    public function setClassificationAttributes(?array $value ): void {
-        $this->classificationAttributes = $value;
+    public function setClassificationAttributes(?array $value): void {
+        $this->getBackingStore()->set('classificationAttributes', $value);
     }
 
     /**
      * Sets the classificationMethod property value. The classificationMethod property
      *  @param ClassificationMethod|null $value Value to set for the classificationMethod property.
     */
-    public function setClassificationMethod(?ClassificationMethod $value ): void {
-        $this->classificationMethod = $value;
+    public function setClassificationMethod(?ClassificationMethod $value): void {
+        $this->getBackingStore()->set('classificationMethod', $value);
     }
 
     /**
      * Sets the matches property value. The matches property
      *  @param array<SensitiveContentLocation>|null $value Value to set for the matches property.
     */
-    public function setMatches(?array $value ): void {
-        $this->matches = $value;
+    public function setMatches(?array $value): void {
+        $this->getBackingStore()->set('matches', $value);
     }
 
     /**
      * Sets the scope property value. The scope property
      *  @param SensitiveTypeScope|null $value Value to set for the scope property.
     */
-    public function setScope(?SensitiveTypeScope $value ): void {
-        $this->scope = $value;
+    public function setScope(?SensitiveTypeScope $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the sensitiveTypeSource property value. The sensitiveTypeSource property
      *  @param SensitiveTypeSource|null $value Value to set for the sensitiveTypeSource property.
     */
-    public function setSensitiveTypeSource(?SensitiveTypeSource $value ): void {
-        $this->sensitiveTypeSource = $value;
+    public function setSensitiveTypeSource(?SensitiveTypeSource $value): void {
+        $this->getBackingStore()->set('sensitiveTypeSource', $value);
     }
 
 }

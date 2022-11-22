@@ -11,10 +11,13 @@ use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\ChangeUserAccountTyp
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\EndGracePeriod\EndGracePeriodRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcConnectivityHistory\GetCloudPcConnectivityHistoryRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetCloudPcLaunchInfo\GetCloudPcLaunchInfoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetShiftWorkCloudPcAccessState\GetShiftWorkCloudPcAccessStateRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\GetSupportedCloudPcRemoteActions\GetSupportedCloudPcRemoteActionsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reboot\RebootRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Rename\RenameRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Reprovision\ReprovisionRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Restore\RestoreRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\RetryPartnerAgentInstallation\RetryPartnerAgentInstallationRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Users\Item\CloudPCs\Item\Troubleshoot\TroubleshootRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
 use Microsoft\Kiota\Abstractions\RequestAdapter;
@@ -76,6 +79,13 @@ class CloudPCItemRequestBuilder
     */
     public function restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to call the retryPartnerAgentInstallation method.
+    */
+    public function retryPartnerAgentInstallation(): RetryPartnerAgentInstallationRequestBuilder {
+        return new RetryPartnerAgentInstallationRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**
@@ -223,6 +233,22 @@ class CloudPCItemRequestBuilder
     */
     public function getCloudPcLaunchInfo(): GetCloudPcLaunchInfoRequestBuilder {
         return new GetCloudPcLaunchInfoRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the getShiftWorkCloudPcAccessState method.
+     * @return GetShiftWorkCloudPcAccessStateRequestBuilder
+    */
+    public function getShiftWorkCloudPcAccessState(): GetShiftWorkCloudPcAccessStateRequestBuilder {
+        return new GetShiftWorkCloudPcAccessStateRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+
+    /**
+     * Provides operations to call the getSupportedCloudPcRemoteActions method.
+     * @return GetSupportedCloudPcRemoteActionsRequestBuilder
+    */
+    public function getSupportedCloudPcRemoteActions(): GetSupportedCloudPcRemoteActionsRequestBuilder {
+        return new GetSupportedCloudPcRemoteActionsRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
 
     /**

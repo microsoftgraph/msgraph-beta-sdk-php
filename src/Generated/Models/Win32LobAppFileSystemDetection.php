@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Parsable 
 {
     /**
-     * @var bool|null $check32BitOn64System A value indicating whether this file or folder is for checking 32-bit app on 64-bit system
-    */
-    private ?bool $check32BitOn64System = null;
-    
-    /**
-     * @var Win32LobAppFileSystemDetectionType|null $detectionType Contains all supported file system detection type.
-    */
-    private ?Win32LobAppFileSystemDetectionType $detectionType = null;
-    
-    /**
-     * @var string|null $detectionValue The file or folder detection value
-    */
-    private ?string $detectionValue = null;
-    
-    /**
-     * @var string|null $fileOrFolderName The file or folder name to detect Win32 Line of Business (LoB) app
-    */
-    private ?string $fileOrFolderName = null;
-    
-    /**
-     * @var Win32LobAppDetectionOperator|null $operator Contains properties for detection operator.
-    */
-    private ?Win32LobAppDetectionOperator $operator = null;
-    
-    /**
-     * @var string|null $path The file or folder path to detect Win32 Line of Business (LoB) app
-    */
-    private ?string $path = null;
-    
-    /**
      * Instantiates a new Win32LobAppFileSystemDetection and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return bool|null
     */
     public function getCheck32BitOn64System(): ?bool {
-        return $this->check32BitOn64System;
+        return $this->getBackingStore()->get('check32BitOn64System');
     }
 
     /**
@@ -68,7 +38,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return Win32LobAppFileSystemDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppFileSystemDetectionType {
-        return $this->detectionType;
+        return $this->getBackingStore()->get('detectionType');
     }
 
     /**
@@ -76,7 +46,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return string|null
     */
     public function getDetectionValue(): ?string {
-        return $this->detectionValue;
+        return $this->getBackingStore()->get('detectionValue');
     }
 
     /**
@@ -100,7 +70,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return string|null
     */
     public function getFileOrFolderName(): ?string {
-        return $this->fileOrFolderName;
+        return $this->getBackingStore()->get('fileOrFolderName');
     }
 
     /**
@@ -108,7 +78,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return Win32LobAppDetectionOperator|null
     */
     public function getOperator(): ?Win32LobAppDetectionOperator {
-        return $this->operator;
+        return $this->getBackingStore()->get('operator');
     }
 
     /**
@@ -116,7 +86,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
      * @return string|null
     */
     public function getPath(): ?string {
-        return $this->path;
+        return $this->getBackingStore()->get('path');
     }
 
     /**
@@ -125,60 +95,60 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('check32BitOn64System', $this->check32BitOn64System);
-        $writer->writeEnumValue('detectionType', $this->detectionType);
-        $writer->writeStringValue('detectionValue', $this->detectionValue);
-        $writer->writeStringValue('fileOrFolderName', $this->fileOrFolderName);
-        $writer->writeEnumValue('operator', $this->operator);
-        $writer->writeStringValue('path', $this->path);
+        $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
+        $writer->writeEnumValue('detectionType', $this->getDetectionType());
+        $writer->writeStringValue('detectionValue', $this->getDetectionValue());
+        $writer->writeStringValue('fileOrFolderName', $this->getFileOrFolderName());
+        $writer->writeEnumValue('operator', $this->getOperator());
+        $writer->writeStringValue('path', $this->getPath());
     }
 
     /**
      * Sets the check32BitOn64System property value. A value indicating whether this file or folder is for checking 32-bit app on 64-bit system
      *  @param bool|null $value Value to set for the check32BitOn64System property.
     */
-    public function setCheck32BitOn64System(?bool $value ): void {
-        $this->check32BitOn64System = $value;
+    public function setCheck32BitOn64System(?bool $value): void {
+        $this->getBackingStore()->set('check32BitOn64System', $value);
     }
 
     /**
      * Sets the detectionType property value. Contains all supported file system detection type.
      *  @param Win32LobAppFileSystemDetectionType|null $value Value to set for the detectionType property.
     */
-    public function setDetectionType(?Win32LobAppFileSystemDetectionType $value ): void {
-        $this->detectionType = $value;
+    public function setDetectionType(?Win32LobAppFileSystemDetectionType $value): void {
+        $this->getBackingStore()->set('detectionType', $value);
     }
 
     /**
      * Sets the detectionValue property value. The file or folder detection value
      *  @param string|null $value Value to set for the detectionValue property.
     */
-    public function setDetectionValue(?string $value ): void {
-        $this->detectionValue = $value;
+    public function setDetectionValue(?string $value): void {
+        $this->getBackingStore()->set('detectionValue', $value);
     }
 
     /**
      * Sets the fileOrFolderName property value. The file or folder name to detect Win32 Line of Business (LoB) app
      *  @param string|null $value Value to set for the fileOrFolderName property.
     */
-    public function setFileOrFolderName(?string $value ): void {
-        $this->fileOrFolderName = $value;
+    public function setFileOrFolderName(?string $value): void {
+        $this->getBackingStore()->set('fileOrFolderName', $value);
     }
 
     /**
      * Sets the operator property value. Contains properties for detection operator.
      *  @param Win32LobAppDetectionOperator|null $value Value to set for the operator property.
     */
-    public function setOperator(?Win32LobAppDetectionOperator $value ): void {
-        $this->operator = $value;
+    public function setOperator(?Win32LobAppDetectionOperator $value): void {
+        $this->getBackingStore()->set('operator', $value);
     }
 
     /**
      * Sets the path property value. The file or folder path to detect Win32 Line of Business (LoB) app
      *  @param string|null $value Value to set for the path property.
     */
-    public function setPath(?string $value ): void {
-        $this->path = $value;
+    public function setPath(?string $value): void {
+        $this->getBackingStore()->set('path', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhoneXAPCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * @var array<WindowsPhoneXAP>|null $value The value property
-    */
-    private ?array $value = null;
-    
-    /**
      * Instantiates a new WindowsPhoneXAPCollectionResponse and sets the default values.
     */
     public function __construct() {
@@ -45,7 +40,7 @@ class WindowsPhoneXAPCollectionResponse extends BaseCollectionPaginationCountRes
      * @return array<WindowsPhoneXAP>|null
     */
     public function getValue(): ?array {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -54,15 +49,15 @@ class WindowsPhoneXAPCollectionResponse extends BaseCollectionPaginationCountRes
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('value', $this->value);
+        $writer->writeCollectionOfObjectValues('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The value property
      *  @param array<WindowsPhoneXAP>|null $value Value to set for the value property.
     */
-    public function setValue(?array $value ): void {
-        $this->value = $value;
+    public function setValue(?array $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

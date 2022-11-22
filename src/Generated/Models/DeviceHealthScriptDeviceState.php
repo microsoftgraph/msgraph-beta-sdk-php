@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptDeviceState extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $assignmentFilterIds A list of the assignment filter ids used for health script applicability evaluation
-    */
-    private ?array $assignmentFilterIds = null;
-    
-    /**
-     * @var RunState|null $detectionState Indicates the type of execution status of the device management script.
-    */
-    private ?RunState $detectionState = null;
-    
-    /**
-     * @var DateTime|null $expectedStateUpdateDateTime The next timestamp of when the device health script is expected to execute
-    */
-    private ?DateTime $expectedStateUpdateDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastStateUpdateDateTime The last timestamp of when the device health script executed
-    */
-    private ?DateTime $lastStateUpdateDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime The last time that Intune Managment Extension synced with Intune
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var ManagedDevice|null $managedDevice The managed device on which the device health script executed
-    */
-    private ?ManagedDevice $managedDevice = null;
-    
-    /**
-     * @var string|null $postRemediationDetectionScriptError Error from the detection script after remediation
-    */
-    private ?string $postRemediationDetectionScriptError = null;
-    
-    /**
-     * @var string|null $postRemediationDetectionScriptOutput Detection script output after remediation
-    */
-    private ?string $postRemediationDetectionScriptOutput = null;
-    
-    /**
-     * @var string|null $preRemediationDetectionScriptError Error from the detection script before remediation
-    */
-    private ?string $preRemediationDetectionScriptError = null;
-    
-    /**
-     * @var string|null $preRemediationDetectionScriptOutput Output of the detection script before remediation
-    */
-    private ?string $preRemediationDetectionScriptOutput = null;
-    
-    /**
-     * @var string|null $remediationScriptError Error output of the remediation script
-    */
-    private ?string $remediationScriptError = null;
-    
-    /**
-     * @var RemediationState|null $remediationState Indicates the type of execution status of the device management script.
-    */
-    private ?RemediationState $remediationState = null;
-    
-    /**
      * Instantiates a new deviceHealthScriptDeviceState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceHealthScriptDeviceState');
     }
 
     /**
@@ -91,7 +30,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAssignmentFilterIds(): ?array {
-        return $this->assignmentFilterIds;
+        return $this->getBackingStore()->get('assignmentFilterIds');
     }
 
     /**
@@ -99,7 +38,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return RunState|null
     */
     public function getDetectionState(): ?RunState {
-        return $this->detectionState;
+        return $this->getBackingStore()->get('detectionState');
     }
 
     /**
@@ -107,7 +46,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpectedStateUpdateDateTime(): ?DateTime {
-        return $this->expectedStateUpdateDateTime;
+        return $this->getBackingStore()->get('expectedStateUpdateDateTime');
     }
 
     /**
@@ -137,7 +76,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastStateUpdateDateTime(): ?DateTime {
-        return $this->lastStateUpdateDateTime;
+        return $this->getBackingStore()->get('lastStateUpdateDateTime');
     }
 
     /**
@@ -145,7 +84,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -153,7 +92,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return ManagedDevice|null
     */
     public function getManagedDevice(): ?ManagedDevice {
-        return $this->managedDevice;
+        return $this->getBackingStore()->get('managedDevice');
     }
 
     /**
@@ -161,7 +100,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getPostRemediationDetectionScriptError(): ?string {
-        return $this->postRemediationDetectionScriptError;
+        return $this->getBackingStore()->get('postRemediationDetectionScriptError');
     }
 
     /**
@@ -169,7 +108,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getPostRemediationDetectionScriptOutput(): ?string {
-        return $this->postRemediationDetectionScriptOutput;
+        return $this->getBackingStore()->get('postRemediationDetectionScriptOutput');
     }
 
     /**
@@ -177,7 +116,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getPreRemediationDetectionScriptError(): ?string {
-        return $this->preRemediationDetectionScriptError;
+        return $this->getBackingStore()->get('preRemediationDetectionScriptError');
     }
 
     /**
@@ -185,7 +124,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getPreRemediationDetectionScriptOutput(): ?string {
-        return $this->preRemediationDetectionScriptOutput;
+        return $this->getBackingStore()->get('preRemediationDetectionScriptOutput');
     }
 
     /**
@@ -193,7 +132,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getRemediationScriptError(): ?string {
-        return $this->remediationScriptError;
+        return $this->getBackingStore()->get('remediationScriptError');
     }
 
     /**
@@ -201,7 +140,7 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
      * @return RemediationState|null
     */
     public function getRemediationState(): ?RemediationState {
-        return $this->remediationState;
+        return $this->getBackingStore()->get('remediationState');
     }
 
     /**
@@ -210,114 +149,114 @@ class DeviceHealthScriptDeviceState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('assignmentFilterIds', $this->assignmentFilterIds);
-        $writer->writeEnumValue('detectionState', $this->detectionState);
-        $writer->writeDateTimeValue('expectedStateUpdateDateTime', $this->expectedStateUpdateDateTime);
-        $writer->writeDateTimeValue('lastStateUpdateDateTime', $this->lastStateUpdateDateTime);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeObjectValue('managedDevice', $this->managedDevice);
-        $writer->writeStringValue('postRemediationDetectionScriptError', $this->postRemediationDetectionScriptError);
-        $writer->writeStringValue('postRemediationDetectionScriptOutput', $this->postRemediationDetectionScriptOutput);
-        $writer->writeStringValue('preRemediationDetectionScriptError', $this->preRemediationDetectionScriptError);
-        $writer->writeStringValue('preRemediationDetectionScriptOutput', $this->preRemediationDetectionScriptOutput);
-        $writer->writeStringValue('remediationScriptError', $this->remediationScriptError);
-        $writer->writeEnumValue('remediationState', $this->remediationState);
+        $writer->writeCollectionOfPrimitiveValues('assignmentFilterIds', $this->getAssignmentFilterIds());
+        $writer->writeEnumValue('detectionState', $this->getDetectionState());
+        $writer->writeDateTimeValue('expectedStateUpdateDateTime', $this->getExpectedStateUpdateDateTime());
+        $writer->writeDateTimeValue('lastStateUpdateDateTime', $this->getLastStateUpdateDateTime());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeObjectValue('managedDevice', $this->getManagedDevice());
+        $writer->writeStringValue('postRemediationDetectionScriptError', $this->getPostRemediationDetectionScriptError());
+        $writer->writeStringValue('postRemediationDetectionScriptOutput', $this->getPostRemediationDetectionScriptOutput());
+        $writer->writeStringValue('preRemediationDetectionScriptError', $this->getPreRemediationDetectionScriptError());
+        $writer->writeStringValue('preRemediationDetectionScriptOutput', $this->getPreRemediationDetectionScriptOutput());
+        $writer->writeStringValue('remediationScriptError', $this->getRemediationScriptError());
+        $writer->writeEnumValue('remediationState', $this->getRemediationState());
     }
 
     /**
      * Sets the assignmentFilterIds property value. A list of the assignment filter ids used for health script applicability evaluation
      *  @param array<string>|null $value Value to set for the assignmentFilterIds property.
     */
-    public function setAssignmentFilterIds(?array $value ): void {
-        $this->assignmentFilterIds = $value;
+    public function setAssignmentFilterIds(?array $value): void {
+        $this->getBackingStore()->set('assignmentFilterIds', $value);
     }
 
     /**
      * Sets the detectionState property value. Indicates the type of execution status of the device management script.
      *  @param RunState|null $value Value to set for the detectionState property.
     */
-    public function setDetectionState(?RunState $value ): void {
-        $this->detectionState = $value;
+    public function setDetectionState(?RunState $value): void {
+        $this->getBackingStore()->set('detectionState', $value);
     }
 
     /**
      * Sets the expectedStateUpdateDateTime property value. The next timestamp of when the device health script is expected to execute
      *  @param DateTime|null $value Value to set for the expectedStateUpdateDateTime property.
     */
-    public function setExpectedStateUpdateDateTime(?DateTime $value ): void {
-        $this->expectedStateUpdateDateTime = $value;
+    public function setExpectedStateUpdateDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expectedStateUpdateDateTime', $value);
     }
 
     /**
      * Sets the lastStateUpdateDateTime property value. The last timestamp of when the device health script executed
      *  @param DateTime|null $value Value to set for the lastStateUpdateDateTime property.
     */
-    public function setLastStateUpdateDateTime(?DateTime $value ): void {
-        $this->lastStateUpdateDateTime = $value;
+    public function setLastStateUpdateDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastStateUpdateDateTime', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. The last time that Intune Managment Extension synced with Intune
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the managedDevice property value. The managed device on which the device health script executed
      *  @param ManagedDevice|null $value Value to set for the managedDevice property.
     */
-    public function setManagedDevice(?ManagedDevice $value ): void {
-        $this->managedDevice = $value;
+    public function setManagedDevice(?ManagedDevice $value): void {
+        $this->getBackingStore()->set('managedDevice', $value);
     }
 
     /**
      * Sets the postRemediationDetectionScriptError property value. Error from the detection script after remediation
      *  @param string|null $value Value to set for the postRemediationDetectionScriptError property.
     */
-    public function setPostRemediationDetectionScriptError(?string $value ): void {
-        $this->postRemediationDetectionScriptError = $value;
+    public function setPostRemediationDetectionScriptError(?string $value): void {
+        $this->getBackingStore()->set('postRemediationDetectionScriptError', $value);
     }
 
     /**
      * Sets the postRemediationDetectionScriptOutput property value. Detection script output after remediation
      *  @param string|null $value Value to set for the postRemediationDetectionScriptOutput property.
     */
-    public function setPostRemediationDetectionScriptOutput(?string $value ): void {
-        $this->postRemediationDetectionScriptOutput = $value;
+    public function setPostRemediationDetectionScriptOutput(?string $value): void {
+        $this->getBackingStore()->set('postRemediationDetectionScriptOutput', $value);
     }
 
     /**
      * Sets the preRemediationDetectionScriptError property value. Error from the detection script before remediation
      *  @param string|null $value Value to set for the preRemediationDetectionScriptError property.
     */
-    public function setPreRemediationDetectionScriptError(?string $value ): void {
-        $this->preRemediationDetectionScriptError = $value;
+    public function setPreRemediationDetectionScriptError(?string $value): void {
+        $this->getBackingStore()->set('preRemediationDetectionScriptError', $value);
     }
 
     /**
      * Sets the preRemediationDetectionScriptOutput property value. Output of the detection script before remediation
      *  @param string|null $value Value to set for the preRemediationDetectionScriptOutput property.
     */
-    public function setPreRemediationDetectionScriptOutput(?string $value ): void {
-        $this->preRemediationDetectionScriptOutput = $value;
+    public function setPreRemediationDetectionScriptOutput(?string $value): void {
+        $this->getBackingStore()->set('preRemediationDetectionScriptOutput', $value);
     }
 
     /**
      * Sets the remediationScriptError property value. Error output of the remediation script
      *  @param string|null $value Value to set for the remediationScriptError property.
     */
-    public function setRemediationScriptError(?string $value ): void {
-        $this->remediationScriptError = $value;
+    public function setRemediationScriptError(?string $value): void {
+        $this->getBackingStore()->set('remediationScriptError', $value);
     }
 
     /**
      * Sets the remediationState property value. Indicates the type of execution status of the device management script.
      *  @param RemediationState|null $value Value to set for the remediationState property.
     */
-    public function setRemediationState(?RemediationState $value ): void {
-        $this->remediationState = $value;
+    public function setRemediationState(?RemediationState $value): void {
+        $this->getBackingStore()->set('remediationState', $value);
     }
 
 }

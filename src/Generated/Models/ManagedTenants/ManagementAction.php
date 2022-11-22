@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementAction extends Entity implements Parsable 
 {
     /**
-     * @var ManagementCategory|null $category The category property
-    */
-    private ?ManagementCategory $category = null;
-    
-    /**
-     * @var string|null $description The description for the management action. Optional. Read-only.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name for the management action. Optional. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $referenceTemplateId The reference for the management template used to generate the management action. Required. Read-only.
-    */
-    private ?string $referenceTemplateId = null;
-    
-    /**
-     * @var int|null $referenceTemplateVersion The referenceTemplateVersion property
-    */
-    private ?int $referenceTemplateVersion = null;
-    
-    /**
-     * @var array<WorkloadAction>|null $workloadActions The collection of workload actions associated with the management action. Required. Read-only.
-    */
-    private ?array $workloadActions = null;
-    
-    /**
      * Instantiates a new managementAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managementAction');
     }
 
     /**
@@ -61,7 +30,7 @@ class ManagementAction extends Entity implements Parsable
      * @return ManagementCategory|null
     */
     public function getCategory(): ?ManagementCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -69,7 +38,7 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -77,7 +46,7 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -101,7 +70,7 @@ class ManagementAction extends Entity implements Parsable
      * @return string|null
     */
     public function getReferenceTemplateId(): ?string {
-        return $this->referenceTemplateId;
+        return $this->getBackingStore()->get('referenceTemplateId');
     }
 
     /**
@@ -109,7 +78,7 @@ class ManagementAction extends Entity implements Parsable
      * @return int|null
     */
     public function getReferenceTemplateVersion(): ?int {
-        return $this->referenceTemplateVersion;
+        return $this->getBackingStore()->get('referenceTemplateVersion');
     }
 
     /**
@@ -117,7 +86,7 @@ class ManagementAction extends Entity implements Parsable
      * @return array<WorkloadAction>|null
     */
     public function getWorkloadActions(): ?array {
-        return $this->workloadActions;
+        return $this->getBackingStore()->get('workloadActions');
     }
 
     /**
@@ -126,60 +95,60 @@ class ManagementAction extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('referenceTemplateId', $this->referenceTemplateId);
-        $writer->writeIntegerValue('referenceTemplateVersion', $this->referenceTemplateVersion);
-        $writer->writeCollectionOfObjectValues('workloadActions', $this->workloadActions);
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('referenceTemplateId', $this->getReferenceTemplateId());
+        $writer->writeIntegerValue('referenceTemplateVersion', $this->getReferenceTemplateVersion());
+        $writer->writeCollectionOfObjectValues('workloadActions', $this->getWorkloadActions());
     }
 
     /**
      * Sets the category property value. The category property
      *  @param ManagementCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?ManagementCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?ManagementCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the description property value. The description for the management action. Optional. Read-only.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the management action. Optional. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the referenceTemplateId property value. The reference for the management template used to generate the management action. Required. Read-only.
      *  @param string|null $value Value to set for the referenceTemplateId property.
     */
-    public function setReferenceTemplateId(?string $value ): void {
-        $this->referenceTemplateId = $value;
+    public function setReferenceTemplateId(?string $value): void {
+        $this->getBackingStore()->set('referenceTemplateId', $value);
     }
 
     /**
      * Sets the referenceTemplateVersion property value. The referenceTemplateVersion property
      *  @param int|null $value Value to set for the referenceTemplateVersion property.
     */
-    public function setReferenceTemplateVersion(?int $value ): void {
-        $this->referenceTemplateVersion = $value;
+    public function setReferenceTemplateVersion(?int $value): void {
+        $this->getBackingStore()->set('referenceTemplateVersion', $value);
     }
 
     /**
      * Sets the workloadActions property value. The collection of workload actions associated with the management action. Required. Read-only.
      *  @param array<WorkloadAction>|null $value Value to set for the workloadActions property.
     */
-    public function setWorkloadActions(?array $value ): void {
-        $this->workloadActions = $value;
+    public function setWorkloadActions(?array $value): void {
+        $this->getBackingStore()->set('workloadActions', $value);
     }
 
 }

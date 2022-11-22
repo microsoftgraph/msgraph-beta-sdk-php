@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension implements Parsable 
 {
     /**
-     * @var array<OnTokenIssuanceStartReturnClaim>|null $claimsForTokenConfiguration The claimsForTokenConfiguration property
-    */
-    private ?array $claimsForTokenConfiguration = null;
-    
-    /**
      * Instantiates a new OnTokenIssuanceStartCustomExtension and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
      * @return array<OnTokenIssuanceStartReturnClaim>|null
     */
     public function getClaimsForTokenConfiguration(): ?array {
-        return $this->claimsForTokenConfiguration;
+        return $this->getBackingStore()->get('claimsForTokenConfiguration');
     }
 
     /**
@@ -55,15 +50,15 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('claimsForTokenConfiguration', $this->claimsForTokenConfiguration);
+        $writer->writeCollectionOfObjectValues('claimsForTokenConfiguration', $this->getClaimsForTokenConfiguration());
     }
 
     /**
      * Sets the claimsForTokenConfiguration property value. The claimsForTokenConfiguration property
      *  @param array<OnTokenIssuanceStartReturnClaim>|null $value Value to set for the claimsForTokenConfiguration property.
     */
-    public function setClaimsForTokenConfiguration(?array $value ): void {
-        $this->claimsForTokenConfiguration = $value;
+    public function setClaimsForTokenConfiguration(?array $value): void {
+        $this->getBackingStore()->set('claimsForTokenConfiguration', $value);
     }
 
 }

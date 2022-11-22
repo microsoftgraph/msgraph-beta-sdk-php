@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsMetric extends Entity implements Parsable 
 {
     /**
-     * @var string|null $unit The unit of the user experience analytics metric.
-    */
-    private ?string $unit = null;
-    
-    /**
-     * @var float|null $value The value of the user experience analytics metric.
-    */
-    private ?float $value = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsMetric and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsMetric');
     }
 
     /**
@@ -52,7 +41,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
      * @return string|null
     */
     public function getUnit(): ?string {
-        return $this->unit;
+        return $this->getBackingStore()->get('unit');
     }
 
     /**
@@ -60,7 +49,7 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
      * @return float|null
     */
     public function getValue(): ?float {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -69,24 +58,24 @@ class UserExperienceAnalyticsMetric extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('unit', $this->unit);
-        $writer->writeFloatValue('value', $this->value);
+        $writer->writeStringValue('unit', $this->getUnit());
+        $writer->writeFloatValue('value', $this->getValue());
     }
 
     /**
      * Sets the unit property value. The unit of the user experience analytics metric.
      *  @param string|null $value Value to set for the unit property.
     */
-    public function setUnit(?string $value ): void {
-        $this->unit = $value;
+    public function setUnit(?string $value): void {
+        $this->getBackingStore()->set('unit', $value);
     }
 
     /**
      * Sets the value property value. The value of the user experience analytics metric.
      *  @param float|null $value Value to set for the value property.
     */
-    public function setValue(?float $value ): void {
-        $this->value = $value;
+    public function setValue(?float $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

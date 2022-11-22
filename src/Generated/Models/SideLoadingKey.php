@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SideLoadingKey extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description Side Loading Key description displayed to the ITPro Admins..
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Side Loading Key Name displayed to the ITPro Admins.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $lastUpdatedDateTime Side Loading Key Last Updated Date displayed to the ITPro Admins.
-    */
-    private ?string $lastUpdatedDateTime = null;
-    
-    /**
-     * @var int|null $totalActivation Side Loading Key Total Activation displayed to the ITPro Admins.
-    */
-    private ?int $totalActivation = null;
-    
-    /**
-     * @var string|null $value Side Loading Key Value, it is 5x5 value, seperated by hiphens.
-    */
-    private ?string $value = null;
-    
-    /**
      * Instantiates a new sideLoadingKey and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sideLoadingKey');
     }
 
     /**
@@ -55,7 +29,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -63,7 +37,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -86,7 +60,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @return string|null
     */
     public function getLastUpdatedDateTime(): ?string {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -94,7 +68,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalActivation(): ?int {
-        return $this->totalActivation;
+        return $this->getBackingStore()->get('totalActivation');
     }
 
     /**
@@ -102,7 +76,7 @@ class SideLoadingKey extends Entity implements Parsable
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -111,51 +85,51 @@ class SideLoadingKey extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeIntegerValue('totalActivation', $this->totalActivation);
-        $writer->writeStringValue('value', $this->value);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeIntegerValue('totalActivation', $this->getTotalActivation());
+        $writer->writeStringValue('value', $this->getValue());
     }
 
     /**
      * Sets the description property value. Side Loading Key description displayed to the ITPro Admins..
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Side Loading Key Name displayed to the ITPro Admins.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Side Loading Key Last Updated Date displayed to the ITPro Admins.
      *  @param string|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?string $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?string $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the totalActivation property value. Side Loading Key Total Activation displayed to the ITPro Admins.
      *  @param int|null $value Value to set for the totalActivation property.
     */
-    public function setTotalActivation(?int $value ): void {
-        $this->totalActivation = $value;
+    public function setTotalActivation(?int $value): void {
+        $this->getBackingStore()->set('totalActivation', $value);
     }
 
     /**
      * Sets the value property value. Side Loading Key Value, it is 5x5 value, seperated by hiphens.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

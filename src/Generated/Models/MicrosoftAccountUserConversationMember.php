@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftAccountUserConversationMember extends ConversationMember implements Parsable 
 {
     /**
-     * @var string|null $userId ID of the user.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new MicrosoftAccountUserConversationMember and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class MicrosoftAccountUserConversationMember extends ConversationMember implemen
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -55,15 +50,15 @@ class MicrosoftAccountUserConversationMember extends ConversationMember implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the userId property value. ID of the user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

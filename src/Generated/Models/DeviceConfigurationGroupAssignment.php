@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceConfiguration|null $deviceConfiguration The navigation link to the Device Configuration being targeted.
-    */
-    private ?DeviceConfiguration $deviceConfiguration = null;
-    
-    /**
-     * @var bool|null $excludeGroup Indicates if this group is should be excluded. Defaults that the group should be included
-    */
-    private ?bool $excludeGroup = null;
-    
-    /**
-     * @var string|null $targetGroupId The Id of the AAD group we are targeting the device configuration to.
-    */
-    private ?string $targetGroupId = null;
-    
-    /**
      * Instantiates a new deviceConfigurationGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceConfigurationGroupAssignment');
     }
 
     /**
@@ -45,7 +29,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return DeviceConfiguration|null
     */
     public function getDeviceConfiguration(): ?DeviceConfiguration {
-        return $this->deviceConfiguration;
+        return $this->getBackingStore()->get('deviceConfiguration');
     }
 
     /**
@@ -53,7 +37,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getExcludeGroup(): ?bool {
-        return $this->excludeGroup;
+        return $this->getBackingStore()->get('excludeGroup');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->targetGroupId;
+        return $this->getBackingStore()->get('targetGroupId');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceConfigurationGroupAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('deviceConfiguration', $this->deviceConfiguration);
-        $writer->writeBooleanValue('excludeGroup', $this->excludeGroup);
-        $writer->writeStringValue('targetGroupId', $this->targetGroupId);
+        $writer->writeObjectValue('deviceConfiguration', $this->getDeviceConfiguration());
+        $writer->writeBooleanValue('excludeGroup', $this->getExcludeGroup());
+        $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 
     /**
      * Sets the deviceConfiguration property value. The navigation link to the Device Configuration being targeted.
      *  @param DeviceConfiguration|null $value Value to set for the deviceConfiguration property.
     */
-    public function setDeviceConfiguration(?DeviceConfiguration $value ): void {
-        $this->deviceConfiguration = $value;
+    public function setDeviceConfiguration(?DeviceConfiguration $value): void {
+        $this->getBackingStore()->set('deviceConfiguration', $value);
     }
 
     /**
      * Sets the excludeGroup property value. Indicates if this group is should be excluded. Defaults that the group should be included
      *  @param bool|null $value Value to set for the excludeGroup property.
     */
-    public function setExcludeGroup(?bool $value ): void {
-        $this->excludeGroup = $value;
+    public function setExcludeGroup(?bool $value): void {
+        $this->getBackingStore()->set('excludeGroup', $value);
     }
 
     /**
      * Sets the targetGroupId property value. The Id of the AAD group we are targeting the device configuration to.
      *  @param string|null $value Value to set for the targetGroupId property.
     */
-    public function setTargetGroupId(?string $value ): void {
-        $this->targetGroupId = $value;
+    public function setTargetGroupId(?string $value): void {
+        $this->getBackingStore()->set('targetGroupId', $value);
     }
 
 }

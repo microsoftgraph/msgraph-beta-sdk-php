@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable 
 {
     /**
-     * @var string|null $userId The ID of the AzureAD user that will be locked to this kiosk configuration
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user accounts that will be locked to this kiosk configuration
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new WindowsKioskAzureADUser and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -60,7 +50,7 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -69,24 +59,24 @@ class WindowsKioskAzureADUser extends WindowsKioskUser implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the userId property value. The ID of the AzureAD user that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user accounts that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

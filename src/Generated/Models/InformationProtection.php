@@ -9,41 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtection extends Entity implements Parsable 
 {
     /**
-     * @var Bitlocker|null $bitlocker The bitlocker property
-    */
-    private ?Bitlocker $bitlocker = null;
-    
-    /**
-     * @var array<DataLossPreventionPolicy>|null $dataLossPreventionPolicies The dataLossPreventionPolicies property
-    */
-    private ?array $dataLossPreventionPolicies = null;
-    
-    /**
-     * @var InformationProtectionPolicy|null $policy The policy property
-    */
-    private ?InformationProtectionPolicy $policy = null;
-    
-    /**
-     * @var array<SensitivityLabel>|null $sensitivityLabels The sensitivityLabels property
-    */
-    private ?array $sensitivityLabels = null;
-    
-    /**
-     * @var SensitivityPolicySettings|null $sensitivityPolicySettings The sensitivityPolicySettings property
-    */
-    private ?SensitivityPolicySettings $sensitivityPolicySettings = null;
-    
-    /**
-     * @var array<ThreatAssessmentRequest>|null $threatAssessmentRequests The threatAssessmentRequests property
-    */
-    private ?array $threatAssessmentRequests = null;
-    
-    /**
      * Instantiates a new informationProtection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.informationProtection');
     }
 
     /**
@@ -60,7 +29,7 @@ class InformationProtection extends Entity implements Parsable
      * @return Bitlocker|null
     */
     public function getBitlocker(): ?Bitlocker {
-        return $this->bitlocker;
+        return $this->getBackingStore()->get('bitlocker');
     }
 
     /**
@@ -68,7 +37,7 @@ class InformationProtection extends Entity implements Parsable
      * @return array<DataLossPreventionPolicy>|null
     */
     public function getDataLossPreventionPolicies(): ?array {
-        return $this->dataLossPreventionPolicies;
+        return $this->getBackingStore()->get('dataLossPreventionPolicies');
     }
 
     /**
@@ -92,7 +61,7 @@ class InformationProtection extends Entity implements Parsable
      * @return InformationProtectionPolicy|null
     */
     public function getPolicy(): ?InformationProtectionPolicy {
-        return $this->policy;
+        return $this->getBackingStore()->get('policy');
     }
 
     /**
@@ -100,7 +69,7 @@ class InformationProtection extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSensitivityLabels(): ?array {
-        return $this->sensitivityLabels;
+        return $this->getBackingStore()->get('sensitivityLabels');
     }
 
     /**
@@ -108,7 +77,7 @@ class InformationProtection extends Entity implements Parsable
      * @return SensitivityPolicySettings|null
     */
     public function getSensitivityPolicySettings(): ?SensitivityPolicySettings {
-        return $this->sensitivityPolicySettings;
+        return $this->getBackingStore()->get('sensitivityPolicySettings');
     }
 
     /**
@@ -116,7 +85,7 @@ class InformationProtection extends Entity implements Parsable
      * @return array<ThreatAssessmentRequest>|null
     */
     public function getThreatAssessmentRequests(): ?array {
-        return $this->threatAssessmentRequests;
+        return $this->getBackingStore()->get('threatAssessmentRequests');
     }
 
     /**
@@ -125,60 +94,60 @@ class InformationProtection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('bitlocker', $this->bitlocker);
-        $writer->writeCollectionOfObjectValues('dataLossPreventionPolicies', $this->dataLossPreventionPolicies);
-        $writer->writeObjectValue('policy', $this->policy);
-        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->sensitivityLabels);
-        $writer->writeObjectValue('sensitivityPolicySettings', $this->sensitivityPolicySettings);
-        $writer->writeCollectionOfObjectValues('threatAssessmentRequests', $this->threatAssessmentRequests);
+        $writer->writeObjectValue('bitlocker', $this->getBitlocker());
+        $writer->writeCollectionOfObjectValues('dataLossPreventionPolicies', $this->getDataLossPreventionPolicies());
+        $writer->writeObjectValue('policy', $this->getPolicy());
+        $writer->writeCollectionOfObjectValues('sensitivityLabels', $this->getSensitivityLabels());
+        $writer->writeObjectValue('sensitivityPolicySettings', $this->getSensitivityPolicySettings());
+        $writer->writeCollectionOfObjectValues('threatAssessmentRequests', $this->getThreatAssessmentRequests());
     }
 
     /**
      * Sets the bitlocker property value. The bitlocker property
      *  @param Bitlocker|null $value Value to set for the bitlocker property.
     */
-    public function setBitlocker(?Bitlocker $value ): void {
-        $this->bitlocker = $value;
+    public function setBitlocker(?Bitlocker $value): void {
+        $this->getBackingStore()->set('bitlocker', $value);
     }
 
     /**
      * Sets the dataLossPreventionPolicies property value. The dataLossPreventionPolicies property
      *  @param array<DataLossPreventionPolicy>|null $value Value to set for the dataLossPreventionPolicies property.
     */
-    public function setDataLossPreventionPolicies(?array $value ): void {
-        $this->dataLossPreventionPolicies = $value;
+    public function setDataLossPreventionPolicies(?array $value): void {
+        $this->getBackingStore()->set('dataLossPreventionPolicies', $value);
     }
 
     /**
      * Sets the policy property value. The policy property
      *  @param InformationProtectionPolicy|null $value Value to set for the policy property.
     */
-    public function setPolicy(?InformationProtectionPolicy $value ): void {
-        $this->policy = $value;
+    public function setPolicy(?InformationProtectionPolicy $value): void {
+        $this->getBackingStore()->set('policy', $value);
     }
 
     /**
      * Sets the sensitivityLabels property value. The sensitivityLabels property
      *  @param array<SensitivityLabel>|null $value Value to set for the sensitivityLabels property.
     */
-    public function setSensitivityLabels(?array $value ): void {
-        $this->sensitivityLabels = $value;
+    public function setSensitivityLabels(?array $value): void {
+        $this->getBackingStore()->set('sensitivityLabels', $value);
     }
 
     /**
      * Sets the sensitivityPolicySettings property value. The sensitivityPolicySettings property
      *  @param SensitivityPolicySettings|null $value Value to set for the sensitivityPolicySettings property.
     */
-    public function setSensitivityPolicySettings(?SensitivityPolicySettings $value ): void {
-        $this->sensitivityPolicySettings = $value;
+    public function setSensitivityPolicySettings(?SensitivityPolicySettings $value): void {
+        $this->getBackingStore()->set('sensitivityPolicySettings', $value);
     }
 
     /**
      * Sets the threatAssessmentRequests property value. The threatAssessmentRequests property
      *  @param array<ThreatAssessmentRequest>|null $value Value to set for the threatAssessmentRequests property.
     */
-    public function setThreatAssessmentRequests(?array $value ): void {
-        $this->threatAssessmentRequests = $value;
+    public function setThreatAssessmentRequests(?array $value): void {
+        $this->getBackingStore()->set('threatAssessmentRequests', $value);
     }
 
 }

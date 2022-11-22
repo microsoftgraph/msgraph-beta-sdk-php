@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnPremisesDirectorySynchronization extends Entity implements Parsable 
 {
     /**
-     * @var OnPremisesDirectorySynchronizationConfiguration|null $configuration The configuration property
-    */
-    private ?OnPremisesDirectorySynchronizationConfiguration $configuration = null;
-    
-    /**
-     * @var OnPremisesDirectorySynchronizationFeature|null $features The features property
-    */
-    private ?OnPremisesDirectorySynchronizationFeature $features = null;
-    
-    /**
      * Instantiates a new onPremisesDirectorySynchronization and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.onPremisesDirectorySynchronization');
     }
 
     /**
@@ -40,7 +29,7 @@ class OnPremisesDirectorySynchronization extends Entity implements Parsable
      * @return OnPremisesDirectorySynchronizationConfiguration|null
     */
     public function getConfiguration(): ?OnPremisesDirectorySynchronizationConfiguration {
-        return $this->configuration;
+        return $this->getBackingStore()->get('configuration');
     }
 
     /**
@@ -48,7 +37,7 @@ class OnPremisesDirectorySynchronization extends Entity implements Parsable
      * @return OnPremisesDirectorySynchronizationFeature|null
     */
     public function getFeatures(): ?OnPremisesDirectorySynchronizationFeature {
-        return $this->features;
+        return $this->getBackingStore()->get('features');
     }
 
     /**
@@ -69,24 +58,24 @@ class OnPremisesDirectorySynchronization extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('configuration', $this->configuration);
-        $writer->writeObjectValue('features', $this->features);
+        $writer->writeObjectValue('configuration', $this->getConfiguration());
+        $writer->writeObjectValue('features', $this->getFeatures());
     }
 
     /**
      * Sets the configuration property value. The configuration property
      *  @param OnPremisesDirectorySynchronizationConfiguration|null $value Value to set for the configuration property.
     */
-    public function setConfiguration(?OnPremisesDirectorySynchronizationConfiguration $value ): void {
-        $this->configuration = $value;
+    public function setConfiguration(?OnPremisesDirectorySynchronizationConfiguration $value): void {
+        $this->getBackingStore()->set('configuration', $value);
     }
 
     /**
      * Sets the features property value. The features property
      *  @param OnPremisesDirectorySynchronizationFeature|null $value Value to set for the features property.
     */
-    public function setFeatures(?OnPremisesDirectorySynchronizationFeature $value ): void {
-        $this->features = $value;
+    public function setFeatures(?OnPremisesDirectorySynchronizationFeature $value): void {
+        $this->getBackingStore()->set('features', $value);
     }
 
 }

@@ -9,66 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $allowDeviceResetOnInstallFailure Allow or block device reset on installation failure
-    */
-    private ?bool $allowDeviceResetOnInstallFailure = null;
-    
-    /**
-     * @var bool|null $allowDeviceUseOnInstallFailure Allow the user to continue using the device on installation failure
-    */
-    private ?bool $allowDeviceUseOnInstallFailure = null;
-    
-    /**
-     * @var bool|null $allowLogCollectionOnInstallFailure Allow or block log collection on installation failure
-    */
-    private ?bool $allowLogCollectionOnInstallFailure = null;
-    
-    /**
-     * @var bool|null $allowNonBlockingAppInstallation Install all required apps as non blocking apps during white glove
-    */
-    private ?bool $allowNonBlockingAppInstallation = null;
-    
-    /**
-     * @var bool|null $blockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
-    */
-    private ?bool $blockDeviceSetupRetryByUser = null;
-    
-    /**
-     * @var string|null $customErrorMessage Set custom error message to show upon installation failure
-    */
-    private ?string $customErrorMessage = null;
-    
-    /**
-     * @var bool|null $disableUserStatusTrackingAfterFirstUser Only show installation progress for first user post enrollment
-    */
-    private ?bool $disableUserStatusTrackingAfterFirstUser = null;
-    
-    /**
-     * @var int|null $installProgressTimeoutInMinutes Set installation progress timeout in minutes
-    */
-    private ?int $installProgressTimeoutInMinutes = null;
-    
-    /**
-     * @var bool|null $installQualityUpdates Allows quality updates installation during OOBE
-    */
-    private ?bool $installQualityUpdates = null;
-    
-    /**
-     * @var array<string>|null $selectedMobileAppIds Selected applications to track the installation status
-    */
-    private ?array $selectedMobileAppIds = null;
-    
-    /**
-     * @var bool|null $showInstallationProgress Show or hide installation progress to user
-    */
-    private ?bool $showInstallationProgress = null;
-    
-    /**
-     * @var bool|null $trackInstallProgressForAutopilotOnly Only show installation progress for Autopilot enrollment scenarios
-    */
-    private ?bool $trackInstallProgressForAutopilotOnly = null;
-    
-    /**
      * Instantiates a new Windows10EnrollmentCompletionPageConfiguration and sets the default values.
     */
     public function __construct() {
@@ -90,7 +30,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowDeviceResetOnInstallFailure(): ?bool {
-        return $this->allowDeviceResetOnInstallFailure;
+        return $this->getBackingStore()->get('allowDeviceResetOnInstallFailure');
     }
 
     /**
@@ -98,7 +38,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowDeviceUseOnInstallFailure(): ?bool {
-        return $this->allowDeviceUseOnInstallFailure;
+        return $this->getBackingStore()->get('allowDeviceUseOnInstallFailure');
     }
 
     /**
@@ -106,7 +46,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowLogCollectionOnInstallFailure(): ?bool {
-        return $this->allowLogCollectionOnInstallFailure;
+        return $this->getBackingStore()->get('allowLogCollectionOnInstallFailure');
     }
 
     /**
@@ -114,7 +54,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getAllowNonBlockingAppInstallation(): ?bool {
-        return $this->allowNonBlockingAppInstallation;
+        return $this->getBackingStore()->get('allowNonBlockingAppInstallation');
     }
 
     /**
@@ -122,7 +62,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getBlockDeviceSetupRetryByUser(): ?bool {
-        return $this->blockDeviceSetupRetryByUser;
+        return $this->getBackingStore()->get('blockDeviceSetupRetryByUser');
     }
 
     /**
@@ -130,7 +70,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return string|null
     */
     public function getCustomErrorMessage(): ?string {
-        return $this->customErrorMessage;
+        return $this->getBackingStore()->get('customErrorMessage');
     }
 
     /**
@@ -138,7 +78,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getDisableUserStatusTrackingAfterFirstUser(): ?bool {
-        return $this->disableUserStatusTrackingAfterFirstUser;
+        return $this->getBackingStore()->get('disableUserStatusTrackingAfterFirstUser');
     }
 
     /**
@@ -168,7 +108,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return int|null
     */
     public function getInstallProgressTimeoutInMinutes(): ?int {
-        return $this->installProgressTimeoutInMinutes;
+        return $this->getBackingStore()->get('installProgressTimeoutInMinutes');
     }
 
     /**
@@ -176,7 +116,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getInstallQualityUpdates(): ?bool {
-        return $this->installQualityUpdates;
+        return $this->getBackingStore()->get('installQualityUpdates');
     }
 
     /**
@@ -184,7 +124,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return array<string>|null
     */
     public function getSelectedMobileAppIds(): ?array {
-        return $this->selectedMobileAppIds;
+        return $this->getBackingStore()->get('selectedMobileAppIds');
     }
 
     /**
@@ -192,7 +132,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getShowInstallationProgress(): ?bool {
-        return $this->showInstallationProgress;
+        return $this->getBackingStore()->get('showInstallationProgress');
     }
 
     /**
@@ -200,7 +140,7 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
      * @return bool|null
     */
     public function getTrackInstallProgressForAutopilotOnly(): ?bool {
-        return $this->trackInstallProgressForAutopilotOnly;
+        return $this->getBackingStore()->get('trackInstallProgressForAutopilotOnly');
     }
 
     /**
@@ -209,114 +149,114 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowDeviceResetOnInstallFailure', $this->allowDeviceResetOnInstallFailure);
-        $writer->writeBooleanValue('allowDeviceUseOnInstallFailure', $this->allowDeviceUseOnInstallFailure);
-        $writer->writeBooleanValue('allowLogCollectionOnInstallFailure', $this->allowLogCollectionOnInstallFailure);
-        $writer->writeBooleanValue('allowNonBlockingAppInstallation', $this->allowNonBlockingAppInstallation);
-        $writer->writeBooleanValue('blockDeviceSetupRetryByUser', $this->blockDeviceSetupRetryByUser);
-        $writer->writeStringValue('customErrorMessage', $this->customErrorMessage);
-        $writer->writeBooleanValue('disableUserStatusTrackingAfterFirstUser', $this->disableUserStatusTrackingAfterFirstUser);
-        $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->installProgressTimeoutInMinutes);
-        $writer->writeBooleanValue('installQualityUpdates', $this->installQualityUpdates);
-        $writer->writeCollectionOfPrimitiveValues('selectedMobileAppIds', $this->selectedMobileAppIds);
-        $writer->writeBooleanValue('showInstallationProgress', $this->showInstallationProgress);
-        $writer->writeBooleanValue('trackInstallProgressForAutopilotOnly', $this->trackInstallProgressForAutopilotOnly);
+        $writer->writeBooleanValue('allowDeviceResetOnInstallFailure', $this->getAllowDeviceResetOnInstallFailure());
+        $writer->writeBooleanValue('allowDeviceUseOnInstallFailure', $this->getAllowDeviceUseOnInstallFailure());
+        $writer->writeBooleanValue('allowLogCollectionOnInstallFailure', $this->getAllowLogCollectionOnInstallFailure());
+        $writer->writeBooleanValue('allowNonBlockingAppInstallation', $this->getAllowNonBlockingAppInstallation());
+        $writer->writeBooleanValue('blockDeviceSetupRetryByUser', $this->getBlockDeviceSetupRetryByUser());
+        $writer->writeStringValue('customErrorMessage', $this->getCustomErrorMessage());
+        $writer->writeBooleanValue('disableUserStatusTrackingAfterFirstUser', $this->getDisableUserStatusTrackingAfterFirstUser());
+        $writer->writeIntegerValue('installProgressTimeoutInMinutes', $this->getInstallProgressTimeoutInMinutes());
+        $writer->writeBooleanValue('installQualityUpdates', $this->getInstallQualityUpdates());
+        $writer->writeCollectionOfPrimitiveValues('selectedMobileAppIds', $this->getSelectedMobileAppIds());
+        $writer->writeBooleanValue('showInstallationProgress', $this->getShowInstallationProgress());
+        $writer->writeBooleanValue('trackInstallProgressForAutopilotOnly', $this->getTrackInstallProgressForAutopilotOnly());
     }
 
     /**
      * Sets the allowDeviceResetOnInstallFailure property value. Allow or block device reset on installation failure
      *  @param bool|null $value Value to set for the allowDeviceResetOnInstallFailure property.
     */
-    public function setAllowDeviceResetOnInstallFailure(?bool $value ): void {
-        $this->allowDeviceResetOnInstallFailure = $value;
+    public function setAllowDeviceResetOnInstallFailure(?bool $value): void {
+        $this->getBackingStore()->set('allowDeviceResetOnInstallFailure', $value);
     }
 
     /**
      * Sets the allowDeviceUseOnInstallFailure property value. Allow the user to continue using the device on installation failure
      *  @param bool|null $value Value to set for the allowDeviceUseOnInstallFailure property.
     */
-    public function setAllowDeviceUseOnInstallFailure(?bool $value ): void {
-        $this->allowDeviceUseOnInstallFailure = $value;
+    public function setAllowDeviceUseOnInstallFailure(?bool $value): void {
+        $this->getBackingStore()->set('allowDeviceUseOnInstallFailure', $value);
     }
 
     /**
      * Sets the allowLogCollectionOnInstallFailure property value. Allow or block log collection on installation failure
      *  @param bool|null $value Value to set for the allowLogCollectionOnInstallFailure property.
     */
-    public function setAllowLogCollectionOnInstallFailure(?bool $value ): void {
-        $this->allowLogCollectionOnInstallFailure = $value;
+    public function setAllowLogCollectionOnInstallFailure(?bool $value): void {
+        $this->getBackingStore()->set('allowLogCollectionOnInstallFailure', $value);
     }
 
     /**
      * Sets the allowNonBlockingAppInstallation property value. Install all required apps as non blocking apps during white glove
      *  @param bool|null $value Value to set for the allowNonBlockingAppInstallation property.
     */
-    public function setAllowNonBlockingAppInstallation(?bool $value ): void {
-        $this->allowNonBlockingAppInstallation = $value;
+    public function setAllowNonBlockingAppInstallation(?bool $value): void {
+        $this->getBackingStore()->set('allowNonBlockingAppInstallation', $value);
     }
 
     /**
      * Sets the blockDeviceSetupRetryByUser property value. Allow the user to retry the setup on installation failure
      *  @param bool|null $value Value to set for the blockDeviceSetupRetryByUser property.
     */
-    public function setBlockDeviceSetupRetryByUser(?bool $value ): void {
-        $this->blockDeviceSetupRetryByUser = $value;
+    public function setBlockDeviceSetupRetryByUser(?bool $value): void {
+        $this->getBackingStore()->set('blockDeviceSetupRetryByUser', $value);
     }
 
     /**
      * Sets the customErrorMessage property value. Set custom error message to show upon installation failure
      *  @param string|null $value Value to set for the customErrorMessage property.
     */
-    public function setCustomErrorMessage(?string $value ): void {
-        $this->customErrorMessage = $value;
+    public function setCustomErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('customErrorMessage', $value);
     }
 
     /**
      * Sets the disableUserStatusTrackingAfterFirstUser property value. Only show installation progress for first user post enrollment
      *  @param bool|null $value Value to set for the disableUserStatusTrackingAfterFirstUser property.
     */
-    public function setDisableUserStatusTrackingAfterFirstUser(?bool $value ): void {
-        $this->disableUserStatusTrackingAfterFirstUser = $value;
+    public function setDisableUserStatusTrackingAfterFirstUser(?bool $value): void {
+        $this->getBackingStore()->set('disableUserStatusTrackingAfterFirstUser', $value);
     }
 
     /**
      * Sets the installProgressTimeoutInMinutes property value. Set installation progress timeout in minutes
      *  @param int|null $value Value to set for the installProgressTimeoutInMinutes property.
     */
-    public function setInstallProgressTimeoutInMinutes(?int $value ): void {
-        $this->installProgressTimeoutInMinutes = $value;
+    public function setInstallProgressTimeoutInMinutes(?int $value): void {
+        $this->getBackingStore()->set('installProgressTimeoutInMinutes', $value);
     }
 
     /**
      * Sets the installQualityUpdates property value. Allows quality updates installation during OOBE
      *  @param bool|null $value Value to set for the installQualityUpdates property.
     */
-    public function setInstallQualityUpdates(?bool $value ): void {
-        $this->installQualityUpdates = $value;
+    public function setInstallQualityUpdates(?bool $value): void {
+        $this->getBackingStore()->set('installQualityUpdates', $value);
     }
 
     /**
      * Sets the selectedMobileAppIds property value. Selected applications to track the installation status
      *  @param array<string>|null $value Value to set for the selectedMobileAppIds property.
     */
-    public function setSelectedMobileAppIds(?array $value ): void {
-        $this->selectedMobileAppIds = $value;
+    public function setSelectedMobileAppIds(?array $value): void {
+        $this->getBackingStore()->set('selectedMobileAppIds', $value);
     }
 
     /**
      * Sets the showInstallationProgress property value. Show or hide installation progress to user
      *  @param bool|null $value Value to set for the showInstallationProgress property.
     */
-    public function setShowInstallationProgress(?bool $value ): void {
-        $this->showInstallationProgress = $value;
+    public function setShowInstallationProgress(?bool $value): void {
+        $this->getBackingStore()->set('showInstallationProgress', $value);
     }
 
     /**
      * Sets the trackInstallProgressForAutopilotOnly property value. Only show installation progress for Autopilot enrollment scenarios
      *  @param bool|null $value Value to set for the trackInstallProgressForAutopilotOnly property.
     */
-    public function setTrackInstallProgressForAutopilotOnly(?bool $value ): void {
-        $this->trackInstallProgressForAutopilotOnly = $value;
+    public function setTrackInstallProgressForAutopilotOnly(?bool $value): void {
+        $this->getBackingStore()->set('trackInstallProgressForAutopilotOnly', $value);
     }
 
 }

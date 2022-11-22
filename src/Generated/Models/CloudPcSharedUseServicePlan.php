@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSharedUseServicePlan extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $totalCount The totalCount property
-    */
-    private ?int $totalCount = null;
-    
-    /**
-     * @var int|null $usedCount The usedCount property
-    */
-    private ?int $usedCount = null;
-    
-    /**
-     * Instantiates a new CloudPcSharedUseServicePlan and sets the default values.
+     * Instantiates a new cloudPcSharedUseServicePlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcSharedUseServicePlan');
     }
 
     /**
@@ -45,7 +29,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,7 +50,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalCount(): ?int {
-        return $this->totalCount;
+        return $this->getBackingStore()->get('totalCount');
     }
 
     /**
@@ -74,7 +58,7 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
      * @return int|null
     */
     public function getUsedCount(): ?int {
-        return $this->usedCount;
+        return $this->getBackingStore()->get('usedCount');
     }
 
     /**
@@ -83,33 +67,33 @@ class CloudPcSharedUseServicePlan extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('totalCount', $this->totalCount);
-        $writer->writeIntegerValue('usedCount', $this->usedCount);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('totalCount', $this->getTotalCount());
+        $writer->writeIntegerValue('usedCount', $this->getUsedCount());
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the totalCount property value. The totalCount property
      *  @param int|null $value Value to set for the totalCount property.
     */
-    public function setTotalCount(?int $value ): void {
-        $this->totalCount = $value;
+    public function setTotalCount(?int $value): void {
+        $this->getBackingStore()->set('totalCount', $value);
     }
 
     /**
      * Sets the usedCount property value. The usedCount property
      *  @param int|null $value Value to set for the usedCount property.
     */
-    public function setUsedCount(?int $value ): void {
-        $this->usedCount = $value;
+    public function setUsedCount(?int $value): void {
+        $this->getBackingStore()->set('usedCount', $value);
     }
 
 }

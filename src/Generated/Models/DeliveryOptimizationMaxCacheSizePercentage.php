@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMaxCacheSize implements Parsable 
 {
     /**
-     * @var int|null $maximumCacheSizePercentage Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100
-    */
-    private ?int $maximumCacheSizePercentage = null;
-    
-    /**
      * Instantiates a new DeliveryOptimizationMaxCacheSizePercentage and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
      * @return int|null
     */
     public function getMaximumCacheSizePercentage(): ?int {
-        return $this->maximumCacheSizePercentage;
+        return $this->getBackingStore()->get('maximumCacheSizePercentage');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeliveryOptimizationMaxCacheSizePercentage extends DeliveryOptimizationMax
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('maximumCacheSizePercentage', $this->maximumCacheSizePercentage);
+        $writer->writeIntegerValue('maximumCacheSizePercentage', $this->getMaximumCacheSizePercentage());
     }
 
     /**
      * Sets the maximumCacheSizePercentage property value. Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100
      *  @param int|null $value Value to set for the maximumCacheSizePercentage property.
     */
-    public function setMaximumCacheSizePercentage(?int $value ): void {
-        $this->maximumCacheSizePercentage = $value;
+    public function setMaximumCacheSizePercentage(?int $value): void {
+        $this->getBackingStore()->set('maximumCacheSizePercentage', $value);
     }
 
 }

@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Parsable 
+class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $status The status of the role assignment request. The value can be InProgress or Closed.
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var array<KeyValue>|null $statusDetails The details of the status of the role assignment request. It represents the evaluation results of different rules.
-    */
-    private ?array $statusDetails = null;
-    
-    /**
-     * @var string|null $subStatus The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
-    */
-    private ?string $subStatus = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new governanceRoleAssignmentRequestStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.governanceRoleAssignmentRequestStatus');
     }
 
     /**
@@ -55,8 +38,16 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +69,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -86,7 +77,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -94,7 +85,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @return array<KeyValue>|null
     */
     public function getStatusDetails(): ?array {
-        return $this->statusDetails;
+        return $this->getBackingStore()->get('statusDetails');
     }
 
     /**
@@ -102,7 +93,7 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getSubStatus(): ?string {
-        return $this->subStatus;
+        return $this->getBackingStore()->get('subStatus');
     }
 
     /**
@@ -110,51 +101,59 @@ class GovernanceRoleAssignmentRequestStatus implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeCollectionOfObjectValues('statusDetails', $this->statusDetails);
-        $writer->writeStringValue('subStatus', $this->subStatus);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeCollectionOfObjectValues('statusDetails', $this->getStatusDetails());
+        $writer->writeStringValue('subStatus', $this->getSubStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. The status of the role assignment request. The value can be InProgress or Closed.
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the statusDetails property value. The details of the status of the role assignment request. It represents the evaluation results of different rules.
      *  @param array<KeyValue>|null $value Value to set for the statusDetails property.
     */
-    public function setStatusDetails(?array $value ): void {
-        $this->statusDetails = $value;
+    public function setStatusDetails(?array $value): void {
+        $this->getBackingStore()->set('statusDetails', $value);
     }
 
     /**
      * Sets the subStatus property value. The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
      *  @param string|null $value Value to set for the subStatus property.
     */
-    public function setSubStatus(?string $value ): void {
-        $this->subStatus = $value;
+    public function setSubStatus(?string $value): void {
+        $this->getBackingStore()->set('subStatus', $value);
     }
 
 }

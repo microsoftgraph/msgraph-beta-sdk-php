@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AttributeMappingFunctionSchema extends Entity implements Parsable 
 {
     /**
-     * @var array<AttributeMappingParameterSchema>|null $parameters Collection of function parameters.
-    */
-    private ?array $parameters = null;
-    
-    /**
-     * Instantiates a new attributeMappingFunctionSchema and sets the default values.
+     * Instantiates a new AttributeMappingFunctionSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.attributeMappingFunctionSchema');
     }
 
     /**
@@ -46,7 +40,7 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
      * @return array<AttributeMappingParameterSchema>|null
     */
     public function getParameters(): ?array {
-        return $this->parameters;
+        return $this->getBackingStore()->get('parameters');
     }
 
     /**
@@ -55,15 +49,15 @@ class AttributeMappingFunctionSchema extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('parameters', $this->parameters);
+        $writer->writeCollectionOfObjectValues('parameters', $this->getParameters());
     }
 
     /**
      * Sets the parameters property value. Collection of function parameters.
      *  @param array<AttributeMappingParameterSchema>|null $value Value to set for the parameters property.
     */
-    public function setParameters(?array $value ): void {
-        $this->parameters = $value;
+    public function setParameters(?array $value): void {
+        $this->getBackingStore()->set('parameters', $value);
     }
 
 }

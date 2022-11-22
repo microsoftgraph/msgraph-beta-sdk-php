@@ -6,65 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MatchingDlpRule implements AdditionalDataHolder, Parsable 
+class MatchingDlpRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<DlpActionInfo>|null $actions The actions property
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?array $actions = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $isMostRestrictive The isMostRestrictive property
-    */
-    private ?bool $isMostRestrictive = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $policyId The policyId property
-    */
-    private ?string $policyId = null;
-    
-    /**
-     * @var string|null $policyName The policyName property
-    */
-    private ?string $policyName = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var string|null $ruleId The ruleId property
-    */
-    private ?string $ruleId = null;
-    
-    /**
-     * @var RuleMode|null $ruleMode The ruleMode property
-    */
-    private ?RuleMode $ruleMode = null;
-    
-    /**
-     * @var string|null $ruleName The ruleName property
-    */
-    private ?string $ruleName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new matchingDlpRule and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.matchingDlpRule');
     }
 
     /**
@@ -81,15 +39,23 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return array<DlpActionInfo>|null
     */
     public function getActions(): ?array {
-        return $this->actions;
+        return $this->getBackingStore()->get('actions');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -116,7 +82,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsMostRestrictive(): ?bool {
-        return $this->isMostRestrictive;
+        return $this->getBackingStore()->get('isMostRestrictive');
     }
 
     /**
@@ -124,7 +90,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -132,7 +98,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPolicyId(): ?string {
-        return $this->policyId;
+        return $this->getBackingStore()->get('policyId');
     }
 
     /**
@@ -140,7 +106,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPolicyName(): ?string {
-        return $this->policyName;
+        return $this->getBackingStore()->get('policyName');
     }
 
     /**
@@ -148,7 +114,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -156,7 +122,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRuleId(): ?string {
-        return $this->ruleId;
+        return $this->getBackingStore()->get('ruleId');
     }
 
     /**
@@ -164,7 +130,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return RuleMode|null
     */
     public function getRuleMode(): ?RuleMode {
-        return $this->ruleMode;
+        return $this->getBackingStore()->get('ruleMode');
     }
 
     /**
@@ -172,7 +138,7 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRuleName(): ?string {
-        return $this->ruleName;
+        return $this->getBackingStore()->get('ruleName');
     }
 
     /**
@@ -180,96 +146,104 @@ class MatchingDlpRule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('actions', $this->actions);
-        $writer->writeBooleanValue('isMostRestrictive', $this->isMostRestrictive);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('policyId', $this->policyId);
-        $writer->writeStringValue('policyName', $this->policyName);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeStringValue('ruleId', $this->ruleId);
-        $writer->writeEnumValue('ruleMode', $this->ruleMode);
-        $writer->writeStringValue('ruleName', $this->ruleName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('actions', $this->getActions());
+        $writer->writeBooleanValue('isMostRestrictive', $this->getIsMostRestrictive());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('policyId', $this->getPolicyId());
+        $writer->writeStringValue('policyName', $this->getPolicyName());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeStringValue('ruleId', $this->getRuleId());
+        $writer->writeEnumValue('ruleMode', $this->getRuleMode());
+        $writer->writeStringValue('ruleName', $this->getRuleName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actions property value. The actions property
      *  @param array<DlpActionInfo>|null $value Value to set for the actions property.
     */
-    public function setActions(?array $value ): void {
-        $this->actions = $value;
+    public function setActions(?array $value): void {
+        $this->getBackingStore()->set('actions', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the isMostRestrictive property value. The isMostRestrictive property
      *  @param bool|null $value Value to set for the isMostRestrictive property.
     */
-    public function setIsMostRestrictive(?bool $value ): void {
-        $this->isMostRestrictive = $value;
+    public function setIsMostRestrictive(?bool $value): void {
+        $this->getBackingStore()->set('isMostRestrictive', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the policyId property value. The policyId property
      *  @param string|null $value Value to set for the policyId property.
     */
-    public function setPolicyId(?string $value ): void {
-        $this->policyId = $value;
+    public function setPolicyId(?string $value): void {
+        $this->getBackingStore()->set('policyId', $value);
     }
 
     /**
      * Sets the policyName property value. The policyName property
      *  @param string|null $value Value to set for the policyName property.
     */
-    public function setPolicyName(?string $value ): void {
-        $this->policyName = $value;
+    public function setPolicyName(?string $value): void {
+        $this->getBackingStore()->set('policyName', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the ruleId property value. The ruleId property
      *  @param string|null $value Value to set for the ruleId property.
     */
-    public function setRuleId(?string $value ): void {
-        $this->ruleId = $value;
+    public function setRuleId(?string $value): void {
+        $this->getBackingStore()->set('ruleId', $value);
     }
 
     /**
      * Sets the ruleMode property value. The ruleMode property
      *  @param RuleMode|null $value Value to set for the ruleMode property.
     */
-    public function setRuleMode(?RuleMode $value ): void {
-        $this->ruleMode = $value;
+    public function setRuleMode(?RuleMode $value): void {
+        $this->getBackingStore()->set('ruleMode', $value);
     }
 
     /**
      * Sets the ruleName property value. The ruleName property
      *  @param string|null $value Value to set for the ruleName property.
     */
-    public function setRuleName(?string $value ): void {
-        $this->ruleName = $value;
+    public function setRuleName(?string $value): void {
+        $this->getBackingStore()->set('ruleName', $value);
     }
 
 }

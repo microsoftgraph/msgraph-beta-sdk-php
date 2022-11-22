@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationGroupSettingValue|null $groupSettingValue The groupSettingValue property
-    */
-    private ?DeviceManagementConfigurationGroupSettingValue $groupSettingValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationGroupSettingInstance and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
      * @return DeviceManagementConfigurationGroupSettingValue|null
     */
     public function getGroupSettingValue(): ?DeviceManagementConfigurationGroupSettingValue {
-        return $this->groupSettingValue;
+        return $this->getBackingStore()->get('groupSettingValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationGroupSettingInstance extends DeviceManagement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('groupSettingValue', $this->groupSettingValue);
+        $writer->writeObjectValue('groupSettingValue', $this->getGroupSettingValue());
     }
 
     /**
      * Sets the groupSettingValue property value. The groupSettingValue property
      *  @param DeviceManagementConfigurationGroupSettingValue|null $value Value to set for the groupSettingValue property.
     */
-    public function setGroupSettingValue(?DeviceManagementConfigurationGroupSettingValue $value ): void {
-        $this->groupSettingValue = $value;
+    public function setGroupSettingValue(?DeviceManagementConfigurationGroupSettingValue $value): void {
+        $this->getBackingStore()->set('groupSettingValue', $value);
     }
 
 }

@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationCount extends Entity implements Parsable 
 {
     /**
-     * @var int|null $totalUserCount Provides the total user count in the tenant.
-    */
-    private ?int $totalUserCount = null;
-    
-    /**
-     * @var array<UserRegistrationCount>|null $userRegistrationCounts A collection of registration count and status information for users in your tenant.
-    */
-    private ?array $userRegistrationCounts = null;
-    
-    /**
      * Instantiates a new CredentialUserRegistrationCount and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.credentialUserRegistrationCount');
     }
 
     /**
@@ -52,7 +41,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUserCount(): ?int {
-        return $this->totalUserCount;
+        return $this->getBackingStore()->get('totalUserCount');
     }
 
     /**
@@ -60,7 +49,7 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
      * @return array<UserRegistrationCount>|null
     */
     public function getUserRegistrationCounts(): ?array {
-        return $this->userRegistrationCounts;
+        return $this->getBackingStore()->get('userRegistrationCounts');
     }
 
     /**
@@ -69,24 +58,24 @@ class CredentialUserRegistrationCount extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('totalUserCount', $this->totalUserCount);
-        $writer->writeCollectionOfObjectValues('userRegistrationCounts', $this->userRegistrationCounts);
+        $writer->writeIntegerValue('totalUserCount', $this->getTotalUserCount());
+        $writer->writeCollectionOfObjectValues('userRegistrationCounts', $this->getUserRegistrationCounts());
     }
 
     /**
      * Sets the totalUserCount property value. Provides the total user count in the tenant.
      *  @param int|null $value Value to set for the totalUserCount property.
     */
-    public function setTotalUserCount(?int $value ): void {
-        $this->totalUserCount = $value;
+    public function setTotalUserCount(?int $value): void {
+        $this->getBackingStore()->set('totalUserCount', $value);
     }
 
     /**
      * Sets the userRegistrationCounts property value. A collection of registration count and status information for users in your tenant.
      *  @param array<UserRegistrationCount>|null $value Value to set for the userRegistrationCounts property.
     */
-    public function setUserRegistrationCounts(?array $value ): void {
-        $this->userRegistrationCounts = $value;
+    public function setUserRegistrationCounts(?array $value): void {
+        $this->getBackingStore()->set('userRegistrationCounts', $value);
     }
 
 }

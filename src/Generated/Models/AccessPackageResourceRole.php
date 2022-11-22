@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageResourceRole extends Entity implements Parsable 
 {
     /**
-     * @var AccessPackageResource|null $accessPackageResource The accessPackageResource property
-    */
-    private ?AccessPackageResource $accessPackageResource = null;
-    
-    /**
-     * @var string|null $description A description for the resource role.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the resource role such as the role defined by the application.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $originId The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
-    */
-    private ?string $originId = null;
-    
-    /**
-     * @var string|null $originSystem The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
-    */
-    private ?string $originSystem = null;
-    
-    /**
      * Instantiates a new accessPackageResourceRole and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessPackageResourceRole');
     }
 
     /**
@@ -55,7 +29,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return AccessPackageResource|null
     */
     public function getAccessPackageResource(): ?AccessPackageResource {
-        return $this->accessPackageResource;
+        return $this->getBackingStore()->get('accessPackageResource');
     }
 
     /**
@@ -63,7 +37,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -71,7 +45,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -94,7 +68,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginId(): ?string {
-        return $this->originId;
+        return $this->getBackingStore()->get('originId');
     }
 
     /**
@@ -102,7 +76,7 @@ class AccessPackageResourceRole extends Entity implements Parsable
      * @return string|null
     */
     public function getOriginSystem(): ?string {
-        return $this->originSystem;
+        return $this->getBackingStore()->get('originSystem');
     }
 
     /**
@@ -111,51 +85,51 @@ class AccessPackageResourceRole extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessPackageResource', $this->accessPackageResource);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('originId', $this->originId);
-        $writer->writeStringValue('originSystem', $this->originSystem);
+        $writer->writeObjectValue('accessPackageResource', $this->getAccessPackageResource());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('originId', $this->getOriginId());
+        $writer->writeStringValue('originSystem', $this->getOriginSystem());
     }
 
     /**
      * Sets the accessPackageResource property value. The accessPackageResource property
      *  @param AccessPackageResource|null $value Value to set for the accessPackageResource property.
     */
-    public function setAccessPackageResource(?AccessPackageResource $value ): void {
-        $this->accessPackageResource = $value;
+    public function setAccessPackageResource(?AccessPackageResource $value): void {
+        $this->getBackingStore()->set('accessPackageResource', $value);
     }
 
     /**
      * Sets the description property value. A description for the resource role.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the resource role such as the role defined by the application.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the originId property value. The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
      *  @param string|null $value Value to set for the originId property.
     */
-    public function setOriginId(?string $value ): void {
-        $this->originId = $value;
+    public function setOriginId(?string $value): void {
+        $this->getBackingStore()->set('originId', $value);
     }
 
     /**
      * Sets the originSystem property value. The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
      *  @param string|null $value Value to set for the originSystem property.
     */
-    public function setOriginSystem(?string $value ): void {
-        $this->originSystem = $value;
+    public function setOriginSystem(?string $value): void {
+        $this->getBackingStore()->set('originSystem', $value);
     }
 
 }

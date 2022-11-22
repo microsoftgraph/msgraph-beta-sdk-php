@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Catalog extends Entity implements Parsable 
 {
     /**
-     * @var array<CatalogEntry>|null $entries Lists the content that you can approve for deployment. Read-only.
-    */
-    private ?array $entries = null;
-    
-    /**
      * Instantiates a new catalog and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsUpdates.catalog');
     }
 
     /**
@@ -36,7 +30,7 @@ class Catalog extends Entity implements Parsable
      * @return array<CatalogEntry>|null
     */
     public function getEntries(): ?array {
-        return $this->entries;
+        return $this->getBackingStore()->get('entries');
     }
 
     /**
@@ -56,15 +50,15 @@ class Catalog extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('entries', $this->entries);
+        $writer->writeCollectionOfObjectValues('entries', $this->getEntries());
     }
 
     /**
      * Sets the entries property value. Lists the content that you can approve for deployment. Read-only.
      *  @param array<CatalogEntry>|null $value Value to set for the entries property.
     */
-    public function setEntries(?array $value ): void {
-        $this->entries = $value;
+    public function setEntries(?array $value): void {
+        $this->getBackingStore()->set('entries', $value);
     }
 
 }

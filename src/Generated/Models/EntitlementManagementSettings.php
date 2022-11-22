@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EntitlementManagementSettings extends Entity implements Parsable 
 {
     /**
-     * @var int|null $daysUntilExternalUserDeletedAfterBlocked If externalUserLifecycleAction is BlockSignInAndDelete, the number of days after an external user is blocked from sign in before their account is deleted.
-    */
-    private ?int $daysUntilExternalUserDeletedAfterBlocked = null;
-    
-    /**
-     * @var string|null $externalUserLifecycleAction One of None, BlockSignIn, or BlockSignInAndDelete.
-    */
-    private ?string $externalUserLifecycleAction = null;
-    
-    /**
      * Instantiates a new entitlementManagementSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.entitlementManagementSettings');
     }
 
     /**
@@ -40,7 +29,7 @@ class EntitlementManagementSettings extends Entity implements Parsable
      * @return int|null
     */
     public function getDaysUntilExternalUserDeletedAfterBlocked(): ?int {
-        return $this->daysUntilExternalUserDeletedAfterBlocked;
+        return $this->getBackingStore()->get('daysUntilExternalUserDeletedAfterBlocked');
     }
 
     /**
@@ -48,7 +37,7 @@ class EntitlementManagementSettings extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalUserLifecycleAction(): ?string {
-        return $this->externalUserLifecycleAction;
+        return $this->getBackingStore()->get('externalUserLifecycleAction');
     }
 
     /**
@@ -69,24 +58,24 @@ class EntitlementManagementSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('daysUntilExternalUserDeletedAfterBlocked', $this->daysUntilExternalUserDeletedAfterBlocked);
-        $writer->writeStringValue('externalUserLifecycleAction', $this->externalUserLifecycleAction);
+        $writer->writeIntegerValue('daysUntilExternalUserDeletedAfterBlocked', $this->getDaysUntilExternalUserDeletedAfterBlocked());
+        $writer->writeStringValue('externalUserLifecycleAction', $this->getExternalUserLifecycleAction());
     }
 
     /**
      * Sets the daysUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is BlockSignInAndDelete, the number of days after an external user is blocked from sign in before their account is deleted.
      *  @param int|null $value Value to set for the daysUntilExternalUserDeletedAfterBlocked property.
     */
-    public function setDaysUntilExternalUserDeletedAfterBlocked(?int $value ): void {
-        $this->daysUntilExternalUserDeletedAfterBlocked = $value;
+    public function setDaysUntilExternalUserDeletedAfterBlocked(?int $value): void {
+        $this->getBackingStore()->set('daysUntilExternalUserDeletedAfterBlocked', $value);
     }
 
     /**
      * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      *  @param string|null $value Value to set for the externalUserLifecycleAction property.
     */
-    public function setExternalUserLifecycleAction(?string $value ): void {
-        $this->externalUserLifecycleAction = $value;
+    public function setExternalUserLifecycleAction(?string $value): void {
+        $this->getBackingStore()->set('externalUserLifecycleAction', $value);
     }
 
 }

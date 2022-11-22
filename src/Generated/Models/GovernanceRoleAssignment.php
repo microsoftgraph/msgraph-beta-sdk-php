@@ -10,81 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceRoleAssignment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $assignmentState The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
-    */
-    private ?string $assignmentState = null;
-    
-    /**
-     * @var DateTime|null $endDateTime For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var string|null $externalId The external ID the resource that is used to identify the role assignment in the provider.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var GovernanceRoleAssignment|null $linkedEligibleRoleAssignment Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
-    */
-    private ?GovernanceRoleAssignment $linkedEligibleRoleAssignment = null;
-    
-    /**
-     * @var string|null $linkedEligibleRoleAssignmentId If this is an active assignment and created due to activation on an eligible assignment, it represents the ID of that eligible assignment; Otherwise, the value is null.
-    */
-    private ?string $linkedEligibleRoleAssignmentId = null;
-    
-    /**
-     * @var string|null $memberType The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
-    */
-    private ?string $memberType = null;
-    
-    /**
-     * @var GovernanceResource|null $resource Read-only. The resource associated with the role assignment.
-    */
-    private ?GovernanceResource $resource = null;
-    
-    /**
-     * @var string|null $resourceId Required. The ID of the resource which the role assignment is associated with.
-    */
-    private ?string $resourceId = null;
-    
-    /**
-     * @var GovernanceRoleDefinition|null $roleDefinition Read-only. The role definition associated with the role assignment.
-    */
-    private ?GovernanceRoleDefinition $roleDefinition = null;
-    
-    /**
-     * @var string|null $roleDefinitionId Required. The ID of the role definition which the role assignment is associated with.
-    */
-    private ?string $roleDefinitionId = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $status The status property
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var GovernanceSubject|null $subject Read-only. The subject associated with the role assignment.
-    */
-    private ?GovernanceSubject $subject = null;
-    
-    /**
-     * @var string|null $subjectId Required. The ID of the subject which the role assignment is associated with.
-    */
-    private ?string $subjectId = null;
-    
-    /**
      * Instantiates a new governanceRoleAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.governanceRoleAssignment');
     }
 
     /**
@@ -101,7 +30,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignmentState(): ?string {
-        return $this->assignmentState;
+        return $this->getBackingStore()->get('assignmentState');
     }
 
     /**
@@ -109,7 +38,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -117,7 +46,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -149,7 +78,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return GovernanceRoleAssignment|null
     */
     public function getLinkedEligibleRoleAssignment(): ?GovernanceRoleAssignment {
-        return $this->linkedEligibleRoleAssignment;
+        return $this->getBackingStore()->get('linkedEligibleRoleAssignment');
     }
 
     /**
@@ -157,7 +86,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getLinkedEligibleRoleAssignmentId(): ?string {
-        return $this->linkedEligibleRoleAssignmentId;
+        return $this->getBackingStore()->get('linkedEligibleRoleAssignmentId');
     }
 
     /**
@@ -165,7 +94,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getMemberType(): ?string {
-        return $this->memberType;
+        return $this->getBackingStore()->get('memberType');
     }
 
     /**
@@ -173,7 +102,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return GovernanceResource|null
     */
     public function getResource(): ?GovernanceResource {
-        return $this->resource;
+        return $this->getBackingStore()->get('resource');
     }
 
     /**
@@ -181,7 +110,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->resourceId;
+        return $this->getBackingStore()->get('resourceId');
     }
 
     /**
@@ -189,7 +118,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return GovernanceRoleDefinition|null
     */
     public function getRoleDefinition(): ?GovernanceRoleDefinition {
-        return $this->roleDefinition;
+        return $this->getBackingStore()->get('roleDefinition');
     }
 
     /**
@@ -197,7 +126,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleDefinitionId(): ?string {
-        return $this->roleDefinitionId;
+        return $this->getBackingStore()->get('roleDefinitionId');
     }
 
     /**
@@ -205,7 +134,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -213,7 +142,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -221,7 +150,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return GovernanceSubject|null
     */
     public function getSubject(): ?GovernanceSubject {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -229,7 +158,7 @@ class GovernanceRoleAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getSubjectId(): ?string {
-        return $this->subjectId;
+        return $this->getBackingStore()->get('subjectId');
     }
 
     /**
@@ -238,132 +167,132 @@ class GovernanceRoleAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('assignmentState', $this->assignmentState);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeObjectValue('linkedEligibleRoleAssignment', $this->linkedEligibleRoleAssignment);
-        $writer->writeStringValue('linkedEligibleRoleAssignmentId', $this->linkedEligibleRoleAssignmentId);
-        $writer->writeStringValue('memberType', $this->memberType);
-        $writer->writeObjectValue('resource', $this->resource);
-        $writer->writeStringValue('resourceId', $this->resourceId);
-        $writer->writeObjectValue('roleDefinition', $this->roleDefinition);
-        $writer->writeStringValue('roleDefinitionId', $this->roleDefinitionId);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeObjectValue('subject', $this->subject);
-        $writer->writeStringValue('subjectId', $this->subjectId);
+        $writer->writeStringValue('assignmentState', $this->getAssignmentState());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeObjectValue('linkedEligibleRoleAssignment', $this->getLinkedEligibleRoleAssignment());
+        $writer->writeStringValue('linkedEligibleRoleAssignmentId', $this->getLinkedEligibleRoleAssignmentId());
+        $writer->writeStringValue('memberType', $this->getMemberType());
+        $writer->writeObjectValue('resource', $this->getResource());
+        $writer->writeStringValue('resourceId', $this->getResourceId());
+        $writer->writeObjectValue('roleDefinition', $this->getRoleDefinition());
+        $writer->writeStringValue('roleDefinitionId', $this->getRoleDefinitionId());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeObjectValue('subject', $this->getSubject());
+        $writer->writeStringValue('subjectId', $this->getSubjectId());
     }
 
     /**
      * Sets the assignmentState property value. The state of the assignment. The value can be Eligible for eligible assignment or Active if it is directly assigned Active by administrators, or activated on an eligible assignment by the users.
      *  @param string|null $value Value to set for the assignmentState property.
     */
-    public function setAssignmentState(?string $value ): void {
-        $this->assignmentState = $value;
+    public function setAssignmentState(?string $value): void {
+        $this->getBackingStore()->set('assignmentState', $value);
     }
 
     /**
      * Sets the endDateTime property value. For a non-permanent role assignment, this is the time when the role assignment will be expired. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the externalId property value. The external ID the resource that is used to identify the role assignment in the provider.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the linkedEligibleRoleAssignment property value. Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.
      *  @param GovernanceRoleAssignment|null $value Value to set for the linkedEligibleRoleAssignment property.
     */
-    public function setLinkedEligibleRoleAssignment(?GovernanceRoleAssignment $value ): void {
-        $this->linkedEligibleRoleAssignment = $value;
+    public function setLinkedEligibleRoleAssignment(?GovernanceRoleAssignment $value): void {
+        $this->getBackingStore()->set('linkedEligibleRoleAssignment', $value);
     }
 
     /**
      * Sets the linkedEligibleRoleAssignmentId property value. If this is an active assignment and created due to activation on an eligible assignment, it represents the ID of that eligible assignment; Otherwise, the value is null.
      *  @param string|null $value Value to set for the linkedEligibleRoleAssignmentId property.
     */
-    public function setLinkedEligibleRoleAssignmentId(?string $value ): void {
-        $this->linkedEligibleRoleAssignmentId = $value;
+    public function setLinkedEligibleRoleAssignmentId(?string $value): void {
+        $this->getBackingStore()->set('linkedEligibleRoleAssignmentId', $value);
     }
 
     /**
      * Sets the memberType property value. The type of member. The value can be: Inherited (if the role assignment is inherited from a parent resource scope), Group (if the role assignment is not inherited, but comes from the membership of a group assignment), or User (if the role assignment is neither inherited nor from a group assignment).
      *  @param string|null $value Value to set for the memberType property.
     */
-    public function setMemberType(?string $value ): void {
-        $this->memberType = $value;
+    public function setMemberType(?string $value): void {
+        $this->getBackingStore()->set('memberType', $value);
     }
 
     /**
      * Sets the resource property value. Read-only. The resource associated with the role assignment.
      *  @param GovernanceResource|null $value Value to set for the resource property.
     */
-    public function setResource(?GovernanceResource $value ): void {
-        $this->resource = $value;
+    public function setResource(?GovernanceResource $value): void {
+        $this->getBackingStore()->set('resource', $value);
     }
 
     /**
      * Sets the resourceId property value. Required. The ID of the resource which the role assignment is associated with.
      *  @param string|null $value Value to set for the resourceId property.
     */
-    public function setResourceId(?string $value ): void {
-        $this->resourceId = $value;
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
     /**
      * Sets the roleDefinition property value. Read-only. The role definition associated with the role assignment.
      *  @param GovernanceRoleDefinition|null $value Value to set for the roleDefinition property.
     */
-    public function setRoleDefinition(?GovernanceRoleDefinition $value ): void {
-        $this->roleDefinition = $value;
+    public function setRoleDefinition(?GovernanceRoleDefinition $value): void {
+        $this->getBackingStore()->set('roleDefinition', $value);
     }
 
     /**
      * Sets the roleDefinitionId property value. Required. The ID of the role definition which the role assignment is associated with.
      *  @param string|null $value Value to set for the roleDefinitionId property.
     */
-    public function setRoleDefinitionId(?string $value ): void {
-        $this->roleDefinitionId = $value;
+    public function setRoleDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('roleDefinitionId', $value);
     }
 
     /**
      * Sets the startDateTime property value. The start time of the role assignment. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the subject property value. Read-only. The subject associated with the role assignment.
      *  @param GovernanceSubject|null $value Value to set for the subject property.
     */
-    public function setSubject(?GovernanceSubject $value ): void {
-        $this->subject = $value;
+    public function setSubject(?GovernanceSubject $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the subjectId property value. Required. The ID of the subject which the role assignment is associated with.
      *  @param string|null $value Value to set for the subjectId property.
     */
-    public function setSubjectId(?string $value ): void {
-        $this->subjectId = $value;
+    public function setSubjectId(?string $value): void {
+        $this->getBackingStore()->set('subjectId', $value);
     }
 
 }

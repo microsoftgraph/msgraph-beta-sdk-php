@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcExternalPartnerSetting extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $enableConnection Enable or disable the connection to an external partner. If true, an external partner API will accept incoming calls from external partners. Required. Supports $filter (eq).
-    */
-    private ?bool $enableConnection = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime Last data sync time for this external partner. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var string|null $partnerId The external partner ID.
-    */
-    private ?string $partnerId = null;
-    
-    /**
-     * @var CloudPcExternalPartnerStatus|null $status The status property
-    */
-    private ?CloudPcExternalPartnerStatus $status = null;
-    
-    /**
-     * @var string|null $statusDetails Status details message.
-    */
-    private ?string $statusDetails = null;
-    
-    /**
      * Instantiates a new CloudPcExternalPartnerSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcExternalPartnerSetting');
     }
 
     /**
@@ -56,7 +30,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableConnection(): ?bool {
-        return $this->enableConnection;
+        return $this->getBackingStore()->get('enableConnection');
     }
 
     /**
@@ -79,7 +53,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -87,7 +61,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getPartnerId(): ?string {
-        return $this->partnerId;
+        return $this->getBackingStore()->get('partnerId');
     }
 
     /**
@@ -95,7 +69,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return CloudPcExternalPartnerStatus|null
     */
     public function getStatus(): ?CloudPcExternalPartnerStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -103,7 +77,7 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getStatusDetails(): ?string {
-        return $this->statusDetails;
+        return $this->getBackingStore()->get('statusDetails');
     }
 
     /**
@@ -112,51 +86,51 @@ class CloudPcExternalPartnerSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('enableConnection', $this->enableConnection);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeStringValue('partnerId', $this->partnerId);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('statusDetails', $this->statusDetails);
+        $writer->writeBooleanValue('enableConnection', $this->getEnableConnection());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('partnerId', $this->getPartnerId());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('statusDetails', $this->getStatusDetails());
     }
 
     /**
      * Sets the enableConnection property value. Enable or disable the connection to an external partner. If true, an external partner API will accept incoming calls from external partners. Required. Supports $filter (eq).
      *  @param bool|null $value Value to set for the enableConnection property.
     */
-    public function setEnableConnection(?bool $value ): void {
-        $this->enableConnection = $value;
+    public function setEnableConnection(?bool $value): void {
+        $this->getBackingStore()->set('enableConnection', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. Last data sync time for this external partner. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the partnerId property value. The external partner ID.
      *  @param string|null $value Value to set for the partnerId property.
     */
-    public function setPartnerId(?string $value ): void {
-        $this->partnerId = $value;
+    public function setPartnerId(?string $value): void {
+        $this->getBackingStore()->set('partnerId', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param CloudPcExternalPartnerStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?CloudPcExternalPartnerStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?CloudPcExternalPartnerStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the statusDetails property value. Status details message.
      *  @param string|null $value Value to set for the statusDetails property.
     */
-    public function setStatusDetails(?string $value ): void {
-        $this->statusDetails = $value;
+    public function setStatusDetails(?string $value): void {
+        $this->getBackingStore()->set('statusDetails', $value);
     }
 
 }

@@ -10,96 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceConfigurationAssignment>|null $assignments The list of assignments for the device configuration profile.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime DateTime the object was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Admin provided description of the Device Configuration.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var DeviceManagementApplicabilityRuleDeviceMode|null $deviceManagementApplicabilityRuleDeviceMode The device mode applicability rule for this Policy.
-    */
-    private ?DeviceManagementApplicabilityRuleDeviceMode $deviceManagementApplicabilityRuleDeviceMode = null;
-    
-    /**
-     * @var DeviceManagementApplicabilityRuleOsEdition|null $deviceManagementApplicabilityRuleOsEdition The OS edition applicability for this Policy.
-    */
-    private ?DeviceManagementApplicabilityRuleOsEdition $deviceManagementApplicabilityRuleOsEdition = null;
-    
-    /**
-     * @var DeviceManagementApplicabilityRuleOsVersion|null $deviceManagementApplicabilityRuleOsVersion The OS version applicability rule for this Policy.
-    */
-    private ?DeviceManagementApplicabilityRuleOsVersion $deviceManagementApplicabilityRuleOsVersion = null;
-    
-    /**
-     * @var array<SettingStateDeviceSummary>|null $deviceSettingStateSummaries Device Configuration Setting State Device Summary
-    */
-    private ?array $deviceSettingStateSummaries = null;
-    
-    /**
-     * @var array<DeviceConfigurationDeviceStatus>|null $deviceStatuses Device configuration installation status by device.
-    */
-    private ?array $deviceStatuses = null;
-    
-    /**
-     * @var DeviceConfigurationDeviceOverview|null $deviceStatusOverview Device Configuration devices status overview
-    */
-    private ?DeviceConfigurationDeviceOverview $deviceStatusOverview = null;
-    
-    /**
-     * @var string|null $displayName Admin provided name of the device configuration.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<DeviceConfigurationGroupAssignment>|null $groupAssignments The list of group assignments for the device configuration profile.
-    */
-    private ?array $groupAssignments = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var bool|null $supportsScopeTags Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
-    */
-    private ?bool $supportsScopeTags = null;
-    
-    /**
-     * @var array<DeviceConfigurationUserStatus>|null $userStatuses Device configuration installation status by user.
-    */
-    private ?array $userStatuses = null;
-    
-    /**
-     * @var DeviceConfigurationUserOverview|null $userStatusOverview Device Configuration users status overview
-    */
-    private ?DeviceConfigurationUserOverview $userStatusOverview = null;
-    
-    /**
-     * @var int|null $version Version of the device configuration.
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new deviceConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceConfiguration');
     }
 
     /**
@@ -259,7 +173,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<DeviceConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -267,7 +181,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -275,7 +189,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -283,7 +197,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DeviceManagementApplicabilityRuleDeviceMode|null
     */
     public function getDeviceManagementApplicabilityRuleDeviceMode(): ?DeviceManagementApplicabilityRuleDeviceMode {
-        return $this->deviceManagementApplicabilityRuleDeviceMode;
+        return $this->getBackingStore()->get('deviceManagementApplicabilityRuleDeviceMode');
     }
 
     /**
@@ -291,7 +205,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DeviceManagementApplicabilityRuleOsEdition|null
     */
     public function getDeviceManagementApplicabilityRuleOsEdition(): ?DeviceManagementApplicabilityRuleOsEdition {
-        return $this->deviceManagementApplicabilityRuleOsEdition;
+        return $this->getBackingStore()->get('deviceManagementApplicabilityRuleOsEdition');
     }
 
     /**
@@ -299,7 +213,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DeviceManagementApplicabilityRuleOsVersion|null
     */
     public function getDeviceManagementApplicabilityRuleOsVersion(): ?DeviceManagementApplicabilityRuleOsVersion {
-        return $this->deviceManagementApplicabilityRuleOsVersion;
+        return $this->getBackingStore()->get('deviceManagementApplicabilityRuleOsVersion');
     }
 
     /**
@@ -307,7 +221,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<SettingStateDeviceSummary>|null
     */
     public function getDeviceSettingStateSummaries(): ?array {
-        return $this->deviceSettingStateSummaries;
+        return $this->getBackingStore()->get('deviceSettingStateSummaries');
     }
 
     /**
@@ -315,7 +229,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<DeviceConfigurationDeviceStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->deviceStatuses;
+        return $this->getBackingStore()->get('deviceStatuses');
     }
 
     /**
@@ -323,7 +237,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DeviceConfigurationDeviceOverview|null
     */
     public function getDeviceStatusOverview(): ?DeviceConfigurationDeviceOverview {
-        return $this->deviceStatusOverview;
+        return $this->getBackingStore()->get('deviceStatusOverview');
     }
 
     /**
@@ -331,7 +245,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -366,7 +280,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<DeviceConfigurationGroupAssignment>|null
     */
     public function getGroupAssignments(): ?array {
-        return $this->groupAssignments;
+        return $this->getBackingStore()->get('groupAssignments');
     }
 
     /**
@@ -374,7 +288,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -382,7 +296,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -390,7 +304,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return bool|null
     */
     public function getSupportsScopeTags(): ?bool {
-        return $this->supportsScopeTags;
+        return $this->getBackingStore()->get('supportsScopeTags');
     }
 
     /**
@@ -398,7 +312,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return array<DeviceConfigurationUserStatus>|null
     */
     public function getUserStatuses(): ?array {
-        return $this->userStatuses;
+        return $this->getBackingStore()->get('userStatuses');
     }
 
     /**
@@ -406,7 +320,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return DeviceConfigurationUserOverview|null
     */
     public function getUserStatusOverview(): ?DeviceConfigurationUserOverview {
-        return $this->userStatusOverview;
+        return $this->getBackingStore()->get('userStatusOverview');
     }
 
     /**
@@ -414,7 +328,7 @@ class DeviceConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -423,158 +337,158 @@ class DeviceConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeObjectValue('deviceManagementApplicabilityRuleDeviceMode', $this->deviceManagementApplicabilityRuleDeviceMode);
-        $writer->writeObjectValue('deviceManagementApplicabilityRuleOsEdition', $this->deviceManagementApplicabilityRuleOsEdition);
-        $writer->writeObjectValue('deviceManagementApplicabilityRuleOsVersion', $this->deviceManagementApplicabilityRuleOsVersion);
-        $writer->writeCollectionOfObjectValues('deviceSettingStateSummaries', $this->deviceSettingStateSummaries);
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->deviceStatuses);
-        $writer->writeObjectValue('deviceStatusOverview', $this->deviceStatusOverview);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
-        $writer->writeObjectValue('userStatusOverview', $this->userStatusOverview);
-        $writer->writeIntegerValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeObjectValue('deviceManagementApplicabilityRuleDeviceMode', $this->getDeviceManagementApplicabilityRuleDeviceMode());
+        $writer->writeObjectValue('deviceManagementApplicabilityRuleOsEdition', $this->getDeviceManagementApplicabilityRuleOsEdition());
+        $writer->writeObjectValue('deviceManagementApplicabilityRuleOsVersion', $this->getDeviceManagementApplicabilityRuleOsVersion());
+        $writer->writeCollectionOfObjectValues('deviceSettingStateSummaries', $this->getDeviceSettingStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
+        $writer->writeObjectValue('deviceStatusOverview', $this->getDeviceStatusOverview());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeCollectionOfObjectValues('userStatuses', $this->getUserStatuses());
+        $writer->writeObjectValue('userStatusOverview', $this->getUserStatusOverview());
+        $writer->writeIntegerValue('version', $this->getVersion());
     }
 
     /**
      * Sets the assignments property value. The list of assignments for the device configuration profile.
      *  @param array<DeviceConfigurationAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Admin provided description of the Device Configuration.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceManagementApplicabilityRuleDeviceMode property value. The device mode applicability rule for this Policy.
      *  @param DeviceManagementApplicabilityRuleDeviceMode|null $value Value to set for the deviceManagementApplicabilityRuleDeviceMode property.
     */
-    public function setDeviceManagementApplicabilityRuleDeviceMode(?DeviceManagementApplicabilityRuleDeviceMode $value ): void {
-        $this->deviceManagementApplicabilityRuleDeviceMode = $value;
+    public function setDeviceManagementApplicabilityRuleDeviceMode(?DeviceManagementApplicabilityRuleDeviceMode $value): void {
+        $this->getBackingStore()->set('deviceManagementApplicabilityRuleDeviceMode', $value);
     }
 
     /**
      * Sets the deviceManagementApplicabilityRuleOsEdition property value. The OS edition applicability for this Policy.
      *  @param DeviceManagementApplicabilityRuleOsEdition|null $value Value to set for the deviceManagementApplicabilityRuleOsEdition property.
     */
-    public function setDeviceManagementApplicabilityRuleOsEdition(?DeviceManagementApplicabilityRuleOsEdition $value ): void {
-        $this->deviceManagementApplicabilityRuleOsEdition = $value;
+    public function setDeviceManagementApplicabilityRuleOsEdition(?DeviceManagementApplicabilityRuleOsEdition $value): void {
+        $this->getBackingStore()->set('deviceManagementApplicabilityRuleOsEdition', $value);
     }
 
     /**
      * Sets the deviceManagementApplicabilityRuleOsVersion property value. The OS version applicability rule for this Policy.
      *  @param DeviceManagementApplicabilityRuleOsVersion|null $value Value to set for the deviceManagementApplicabilityRuleOsVersion property.
     */
-    public function setDeviceManagementApplicabilityRuleOsVersion(?DeviceManagementApplicabilityRuleOsVersion $value ): void {
-        $this->deviceManagementApplicabilityRuleOsVersion = $value;
+    public function setDeviceManagementApplicabilityRuleOsVersion(?DeviceManagementApplicabilityRuleOsVersion $value): void {
+        $this->getBackingStore()->set('deviceManagementApplicabilityRuleOsVersion', $value);
     }
 
     /**
      * Sets the deviceSettingStateSummaries property value. Device Configuration Setting State Device Summary
      *  @param array<SettingStateDeviceSummary>|null $value Value to set for the deviceSettingStateSummaries property.
     */
-    public function setDeviceSettingStateSummaries(?array $value ): void {
-        $this->deviceSettingStateSummaries = $value;
+    public function setDeviceSettingStateSummaries(?array $value): void {
+        $this->getBackingStore()->set('deviceSettingStateSummaries', $value);
     }
 
     /**
      * Sets the deviceStatuses property value. Device configuration installation status by device.
      *  @param array<DeviceConfigurationDeviceStatus>|null $value Value to set for the deviceStatuses property.
     */
-    public function setDeviceStatuses(?array $value ): void {
-        $this->deviceStatuses = $value;
+    public function setDeviceStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceStatuses', $value);
     }
 
     /**
      * Sets the deviceStatusOverview property value. Device Configuration devices status overview
      *  @param DeviceConfigurationDeviceOverview|null $value Value to set for the deviceStatusOverview property.
     */
-    public function setDeviceStatusOverview(?DeviceConfigurationDeviceOverview $value ): void {
-        $this->deviceStatusOverview = $value;
+    public function setDeviceStatusOverview(?DeviceConfigurationDeviceOverview $value): void {
+        $this->getBackingStore()->set('deviceStatusOverview', $value);
     }
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the groupAssignments property value. The list of group assignments for the device configuration profile.
      *  @param array<DeviceConfigurationGroupAssignment>|null $value Value to set for the groupAssignments property.
     */
-    public function setGroupAssignments(?array $value ): void {
-        $this->groupAssignments = $value;
+    public function setGroupAssignments(?array $value): void {
+        $this->getBackingStore()->set('groupAssignments', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the supportsScopeTags property value. Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
      *  @param bool|null $value Value to set for the supportsScopeTags property.
     */
-    public function setSupportsScopeTags(?bool $value ): void {
-        $this->supportsScopeTags = $value;
+    public function setSupportsScopeTags(?bool $value): void {
+        $this->getBackingStore()->set('supportsScopeTags', $value);
     }
 
     /**
      * Sets the userStatuses property value. Device configuration installation status by user.
      *  @param array<DeviceConfigurationUserStatus>|null $value Value to set for the userStatuses property.
     */
-    public function setUserStatuses(?array $value ): void {
-        $this->userStatuses = $value;
+    public function setUserStatuses(?array $value): void {
+        $this->getBackingStore()->set('userStatuses', $value);
     }
 
     /**
      * Sets the userStatusOverview property value. Device Configuration users status overview
      *  @param DeviceConfigurationUserOverview|null $value Value to set for the userStatusOverview property.
     */
-    public function setUserStatusOverview(?DeviceConfigurationUserOverview $value ): void {
-        $this->userStatusOverview = $value;
+    public function setUserStatusOverview(?DeviceConfigurationUserOverview $value): void {
+        $this->getBackingStore()->set('userStatusOverview', $value);
     }
 
     /**
      * Sets the version property value. Version of the device configuration.
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

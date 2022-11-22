@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PersonAnnotation extends ItemFacet implements Parsable 
 {
     /**
-     * @var ItemBody|null $detail Contains the detail of the note itself.
-    */
-    private ?ItemBody $detail = null;
-    
-    /**
-     * @var string|null $displayName Contains a friendly name for the note.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
      * Instantiates a new PersonAnnotation and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
      * @return ItemBody|null
     */
     public function getDetail(): ?ItemBody {
-        return $this->detail;
+        return $this->getBackingStore()->get('detail');
     }
 
     /**
@@ -53,7 +38,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +59,7 @@ class PersonAnnotation extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -83,33 +68,33 @@ class PersonAnnotation extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('detail', $this->detail);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
+        $writer->writeObjectValue('detail', $this->getDetail());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
     }
 
     /**
      * Sets the detail property value. Contains the detail of the note itself.
      *  @param ItemBody|null $value Value to set for the detail property.
     */
-    public function setDetail(?ItemBody $value ): void {
-        $this->detail = $value;
+    public function setDetail(?ItemBody $value): void {
+        $this->getBackingStore()->set('detail', $value);
     }
 
     /**
      * Sets the displayName property value. Contains a friendly name for the note.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
 }

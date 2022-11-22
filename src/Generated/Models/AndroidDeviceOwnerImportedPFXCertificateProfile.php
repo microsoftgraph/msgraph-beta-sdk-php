@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase implements Parsable 
 {
     /**
-     * @var AndroidDeviceOwnerCertificateAccessType|null $certificateAccessType Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-    */
-    private ?AndroidDeviceOwnerCertificateAccessType $certificateAccessType = null;
-    
-    /**
-     * @var IntendedPurpose|null $intendedPurpose PFX Import Options.
-    */
-    private ?IntendedPurpose $intendedPurpose = null;
-    
-    /**
-     * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    */
-    private ?array $managedDeviceCertificateStates = null;
-    
-    /**
-     * @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $silentCertificateAccessDetails Certificate access information. This collection can contain a maximum of 50 elements.
-    */
-    private ?array $silentCertificateAccessDetails = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
      * @return AndroidDeviceOwnerCertificateAccessType|null
     */
     public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
-        return $this->certificateAccessType;
+        return $this->getBackingStore()->get('certificateAccessType');
     }
 
     /**
@@ -72,7 +52,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
      * @return IntendedPurpose|null
     */
     public function getIntendedPurpose(): ?IntendedPurpose {
-        return $this->intendedPurpose;
+        return $this->getBackingStore()->get('intendedPurpose');
     }
 
     /**
@@ -80,7 +60,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->managedDeviceCertificateStates;
+        return $this->getBackingStore()->get('managedDeviceCertificateStates');
     }
 
     /**
@@ -88,7 +68,7 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
      * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
     */
     public function getSilentCertificateAccessDetails(): ?array {
-        return $this->silentCertificateAccessDetails;
+        return $this->getBackingStore()->get('silentCertificateAccessDetails');
     }
 
     /**
@@ -97,42 +77,42 @@ class AndroidDeviceOwnerImportedPFXCertificateProfile extends AndroidDeviceOwner
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('certificateAccessType', $this->certificateAccessType);
-        $writer->writeEnumValue('intendedPurpose', $this->intendedPurpose);
-        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
-        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->silentCertificateAccessDetails);
+        $writer->writeEnumValue('certificateAccessType', $this->getCertificateAccessType());
+        $writer->writeEnumValue('intendedPurpose', $this->getIntendedPurpose());
+        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->getSilentCertificateAccessDetails());
     }
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
      *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
-    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value ): void {
-        $this->certificateAccessType = $value;
+    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
+        $this->getBackingStore()->set('certificateAccessType', $value);
     }
 
     /**
      * Sets the intendedPurpose property value. PFX Import Options.
      *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
-    public function setIntendedPurpose(?IntendedPurpose $value ): void {
-        $this->intendedPurpose = $value;
+    public function setIntendedPurpose(?IntendedPurpose $value): void {
+        $this->getBackingStore()->set('intendedPurpose', $value);
     }
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
-    public function setManagedDeviceCertificateStates(?array $value ): void {
-        $this->managedDeviceCertificateStates = $value;
+    public function setManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
     }
 
     /**
      * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
      *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
     */
-    public function setSilentCertificateAccessDetails(?array $value ): void {
-        $this->silentCertificateAccessDetails = $value;
+    public function setSilentCertificateAccessDetails(?array $value): void {
+        $this->getBackingStore()->set('silentCertificateAccessDetails', $value);
     }
 
 }

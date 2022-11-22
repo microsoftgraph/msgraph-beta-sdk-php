@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlannerPlan extends PlannerDelta implements Parsable 
 {
     /**
-     * @var array<PlannerBucket>|null $buckets Collection of buckets in the plan. Read-only. Nullable.
-    */
-    private ?array $buckets = null;
-    
-    /**
-     * @var PlannerPlanContainer|null $container Identifies the container of the plan. After it is set, this property can’t be updated. Required.
-    */
-    private ?PlannerPlanContainer $container = null;
-    
-    /**
-     * @var PlannerPlanContextCollection|null $contexts Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
-    */
-    private ?PlannerPlanContextCollection $contexts = null;
-    
-    /**
-     * @var IdentitySet|null $createdBy Read-only. The user who created the plan.
-    */
-    private ?IdentitySet $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var PlannerPlanDetails|null $details Additional details about the plan. Read-only. Nullable.
-    */
-    private ?PlannerPlanDetails $details = null;
-    
-    /**
-     * @var string|null $owner The owner property
-    */
-    private ?string $owner = null;
-    
-    /**
-     * @var array<PlannerTask>|null $tasks Collection of tasks in the plan. Read-only. Nullable.
-    */
-    private ?array $tasks = null;
-    
-    /**
-     * @var string|null $title Required. Title of the plan.
-    */
-    private ?string $title = null;
-    
-    /**
      * Instantiates a new plannerPlan and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.plannerPlan');
     }
 
     /**
@@ -76,7 +30,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return array<PlannerBucket>|null
     */
     public function getBuckets(): ?array {
-        return $this->buckets;
+        return $this->getBackingStore()->get('buckets');
     }
 
     /**
@@ -84,7 +38,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return PlannerPlanContainer|null
     */
     public function getContainer(): ?PlannerPlanContainer {
-        return $this->container;
+        return $this->getBackingStore()->get('container');
     }
 
     /**
@@ -92,7 +46,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return PlannerPlanContextCollection|null
     */
     public function getContexts(): ?PlannerPlanContextCollection {
-        return $this->contexts;
+        return $this->getBackingStore()->get('contexts');
     }
 
     /**
@@ -100,7 +54,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return IdentitySet|null
     */
     public function getCreatedBy(): ?IdentitySet {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -108,7 +62,15 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
+    }
+
+    /**
+     * Gets the creationSource property value. The creationSource property
+     * @return PlannerPlanCreation|null
+    */
+    public function getCreationSource(): ?PlannerPlanCreation {
+        return $this->getBackingStore()->get('creationSource');
     }
 
     /**
@@ -116,7 +78,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return PlannerPlanDetails|null
     */
     public function getDetails(): ?PlannerPlanDetails {
-        return $this->details;
+        return $this->getBackingStore()->get('details');
     }
 
     /**
@@ -131,6 +93,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
             'contexts' => fn(ParseNode $n) => $o->setContexts($n->getObjectValue([PlannerPlanContextCollection::class, 'createFromDiscriminatorValue'])),
             'createdBy' => fn(ParseNode $n) => $o->setCreatedBy($n->getObjectValue([IdentitySet::class, 'createFromDiscriminatorValue'])),
             'createdDateTime' => fn(ParseNode $n) => $o->setCreatedDateTime($n->getDateTimeValue()),
+            'creationSource' => fn(ParseNode $n) => $o->setCreationSource($n->getObjectValue([PlannerPlanCreation::class, 'createFromDiscriminatorValue'])),
             'details' => fn(ParseNode $n) => $o->setDetails($n->getObjectValue([PlannerPlanDetails::class, 'createFromDiscriminatorValue'])),
             'owner' => fn(ParseNode $n) => $o->setOwner($n->getStringValue()),
             'tasks' => fn(ParseNode $n) => $o->setTasks($n->getCollectionOfObjectValues([PlannerTask::class, 'createFromDiscriminatorValue'])),
@@ -143,7 +106,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getOwner(): ?string {
-        return $this->owner;
+        return $this->getBackingStore()->get('owner');
     }
 
     /**
@@ -151,7 +114,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return array<PlannerTask>|null
     */
     public function getTasks(): ?array {
-        return $this->tasks;
+        return $this->getBackingStore()->get('tasks');
     }
 
     /**
@@ -159,7 +122,7 @@ class PlannerPlan extends PlannerDelta implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->title;
+        return $this->getBackingStore()->get('title');
     }
 
     /**
@@ -168,87 +131,96 @@ class PlannerPlan extends PlannerDelta implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('buckets', $this->buckets);
-        $writer->writeObjectValue('container', $this->container);
-        $writer->writeObjectValue('contexts', $this->contexts);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('details', $this->details);
-        $writer->writeStringValue('owner', $this->owner);
-        $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
-        $writer->writeStringValue('title', $this->title);
+        $writer->writeCollectionOfObjectValues('buckets', $this->getBuckets());
+        $writer->writeObjectValue('container', $this->getContainer());
+        $writer->writeObjectValue('contexts', $this->getContexts());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('creationSource', $this->getCreationSource());
+        $writer->writeObjectValue('details', $this->getDetails());
+        $writer->writeStringValue('owner', $this->getOwner());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
+        $writer->writeStringValue('title', $this->getTitle());
     }
 
     /**
      * Sets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
      *  @param array<PlannerBucket>|null $value Value to set for the buckets property.
     */
-    public function setBuckets(?array $value ): void {
-        $this->buckets = $value;
+    public function setBuckets(?array $value): void {
+        $this->getBackingStore()->set('buckets', $value);
     }
 
     /**
      * Sets the container property value. Identifies the container of the plan. After it is set, this property can’t be updated. Required.
      *  @param PlannerPlanContainer|null $value Value to set for the container property.
     */
-    public function setContainer(?PlannerPlanContainer $value ): void {
-        $this->container = $value;
+    public function setContainer(?PlannerPlanContainer $value): void {
+        $this->getBackingStore()->set('container', $value);
     }
 
     /**
      * Sets the contexts property value. Read-only. Additional user experiences in which this plan is used, represented as plannerPlanContext entries.
      *  @param PlannerPlanContextCollection|null $value Value to set for the contexts property.
     */
-    public function setContexts(?PlannerPlanContextCollection $value ): void {
-        $this->contexts = $value;
+    public function setContexts(?PlannerPlanContextCollection $value): void {
+        $this->getBackingStore()->set('contexts', $value);
     }
 
     /**
      * Sets the createdBy property value. Read-only. The user who created the plan.
      *  @param IdentitySet|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?IdentitySet $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
+    }
+
+    /**
+     * Sets the creationSource property value. The creationSource property
+     *  @param PlannerPlanCreation|null $value Value to set for the creationSource property.
+    */
+    public function setCreationSource(?PlannerPlanCreation $value): void {
+        $this->getBackingStore()->set('creationSource', $value);
     }
 
     /**
      * Sets the details property value. Additional details about the plan. Read-only. Nullable.
      *  @param PlannerPlanDetails|null $value Value to set for the details property.
     */
-    public function setDetails(?PlannerPlanDetails $value ): void {
-        $this->details = $value;
+    public function setDetails(?PlannerPlanDetails $value): void {
+        $this->getBackingStore()->set('details', $value);
     }
 
     /**
      * Sets the owner property value. The owner property
      *  @param string|null $value Value to set for the owner property.
     */
-    public function setOwner(?string $value ): void {
-        $this->owner = $value;
+    public function setOwner(?string $value): void {
+        $this->getBackingStore()->set('owner', $value);
     }
 
     /**
      * Sets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
      *  @param array<PlannerTask>|null $value Value to set for the tasks property.
     */
-    public function setTasks(?array $value ): void {
-        $this->tasks = $value;
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
     /**
      * Sets the title property value. Required. Title of the plan.
      *  @param string|null $value Value to set for the title property.
     */
-    public function setTitle(?string $value ): void {
-        $this->title = $value;
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
     }
 
 }

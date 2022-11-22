@@ -10,16 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class UserConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $binaryData The binaryData property
-    */
-    private ?StreamInterface $binaryData = null;
-    
-    /**
      * Instantiates a new userConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userConfiguration');
     }
 
     /**
@@ -33,10 +27,10 @@ class UserConfiguration extends Entity implements Parsable
 
     /**
      * Gets the binaryData property value. The binaryData property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getBinaryData(): StreamInterface {
-        return $this->binaryData;
+    public function getBinaryData(): ?StreamInterface {
+        return $this->getBackingStore()->get('binaryData');
     }
 
     /**
@@ -56,15 +50,15 @@ class UserConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('binaryData', $this->binaryData);
+        $writer->writeBinaryContent('binaryData', $this->getBinaryData());
     }
 
     /**
      * Sets the binaryData property value. The binaryData property
      *  @param StreamInterface|null $value Value to set for the binaryData property.
     */
-    public function setBinaryData(?StreamInterface $value ): void {
-        $this->binaryData = $value;
+    public function setBinaryData(?StreamInterface $value): void {
+        $this->getBackingStore()->set('binaryData', $value);
     }
 
 }

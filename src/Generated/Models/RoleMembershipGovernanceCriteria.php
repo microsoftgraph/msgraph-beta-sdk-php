@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Parsable 
 {
     /**
-     * @var string|null $roleId The roleId property
-    */
-    private ?string $roleId = null;
-    
-    /**
-     * @var string|null $roleTemplateId The roleTemplateId property
-    */
-    private ?string $roleTemplateId = null;
-    
-    /**
      * Instantiates a new RoleMembershipGovernanceCriteria and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->roleId;
+        return $this->getBackingStore()->get('roleId');
     }
 
     /**
@@ -60,7 +50,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
      * @return string|null
     */
     public function getRoleTemplateId(): ?string {
-        return $this->roleTemplateId;
+        return $this->getBackingStore()->get('roleTemplateId');
     }
 
     /**
@@ -69,24 +59,24 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('roleId', $this->roleId);
-        $writer->writeStringValue('roleTemplateId', $this->roleTemplateId);
+        $writer->writeStringValue('roleId', $this->getRoleId());
+        $writer->writeStringValue('roleTemplateId', $this->getRoleTemplateId());
     }
 
     /**
      * Sets the roleId property value. The roleId property
      *  @param string|null $value Value to set for the roleId property.
     */
-    public function setRoleId(?string $value ): void {
-        $this->roleId = $value;
+    public function setRoleId(?string $value): void {
+        $this->getBackingStore()->set('roleId', $value);
     }
 
     /**
      * Sets the roleTemplateId property value. The roleTemplateId property
      *  @param string|null $value Value to set for the roleTemplateId property.
     */
-    public function setRoleTemplateId(?string $value ): void {
-        $this->roleTemplateId = $value;
+    public function setRoleTemplateId(?string $value): void {
+        $this->getBackingStore()->set('roleTemplateId', $value);
     }
 
 }

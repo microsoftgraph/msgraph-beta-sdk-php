@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingCategory extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The category name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $hasRequiredSetting The category contains top level required setting
-    */
-    private ?bool $hasRequiredSetting = null;
-    
-    /**
-     * @var array<DeviceManagementSettingDefinition>|null $settingDefinitions The setting definitions this category contains
-    */
-    private ?array $settingDefinitions = null;
-    
-    /**
      * Instantiates a new deviceManagementSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementSettingCategory');
     }
 
     /**
@@ -53,7 +37,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasRequiredSetting(): ?bool {
-        return $this->hasRequiredSetting;
+        return $this->getBackingStore()->get('hasRequiredSetting');
     }
 
     /**
@@ -82,7 +66,7 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
      * @return array<DeviceManagementSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->settingDefinitions;
+        return $this->getBackingStore()->get('settingDefinitions');
     }
 
     /**
@@ -91,33 +75,33 @@ class DeviceManagementSettingCategory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('hasRequiredSetting', $this->hasRequiredSetting);
-        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->settingDefinitions);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('hasRequiredSetting', $this->getHasRequiredSetting());
+        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
     }
 
     /**
      * Sets the displayName property value. The category name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the hasRequiredSetting property value. The category contains top level required setting
      *  @param bool|null $value Value to set for the hasRequiredSetting property.
     */
-    public function setHasRequiredSetting(?bool $value ): void {
-        $this->hasRequiredSetting = $value;
+    public function setHasRequiredSetting(?bool $value): void {
+        $this->getBackingStore()->set('hasRequiredSetting', $value);
     }
 
     /**
      * Sets the settingDefinitions property value. The setting definitions this category contains
      *  @param array<DeviceManagementSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
-    public function setSettingDefinitions(?array $value ): void {
-        $this->settingDefinitions = $value;
+    public function setSettingDefinitions(?array $value): void {
+        $this->getBackingStore()->set('settingDefinitions', $value);
     }
 
 }

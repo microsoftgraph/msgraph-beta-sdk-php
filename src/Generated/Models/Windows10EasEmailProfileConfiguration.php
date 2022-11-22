@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfigurationBase implements Parsable 
 {
     /**
-     * @var string|null $accountName Account name.
-    */
-    private ?string $accountName = null;
-    
-    /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
-    */
-    private ?EmailSyncDuration $durationOfEmailToSync = null;
-    
-    /**
-     * @var UserEmailSource|null $emailAddressSource Possible values for username source or email source.
-    */
-    private ?UserEmailSource $emailAddressSource = null;
-    
-    /**
-     * @var EmailSyncSchedule|null $emailSyncSchedule Possible values for email sync schedule.
-    */
-    private ?EmailSyncSchedule $emailSyncSchedule = null;
-    
-    /**
-     * @var string|null $hostName Exchange location that (URL) that the native mail app connects to.
-    */
-    private ?string $hostName = null;
-    
-    /**
-     * @var bool|null $requireSsl Indicates whether or not to use SSL.
-    */
-    private ?bool $requireSsl = null;
-    
-    /**
-     * @var bool|null $syncCalendar Whether or not to sync the calendar.
-    */
-    private ?bool $syncCalendar = null;
-    
-    /**
-     * @var bool|null $syncContacts Whether or not to sync contacts.
-    */
-    private ?bool $syncContacts = null;
-    
-    /**
-     * @var bool|null $syncTasks Whether or not to sync tasks.
-    */
-    private ?bool $syncTasks = null;
-    
-    /**
      * Instantiates a new Windows10EasEmailProfileConfiguration and sets the default values.
     */
     public function __construct() {
@@ -75,7 +30,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return string|null
     */
     public function getAccountName(): ?string {
-        return $this->accountName;
+        return $this->getBackingStore()->get('accountName');
     }
 
     /**
@@ -83,7 +38,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->durationOfEmailToSync;
+        return $this->getBackingStore()->get('durationOfEmailToSync');
     }
 
     /**
@@ -91,7 +46,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->emailAddressSource;
+        return $this->getBackingStore()->get('emailAddressSource');
     }
 
     /**
@@ -99,7 +54,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return EmailSyncSchedule|null
     */
     public function getEmailSyncSchedule(): ?EmailSyncSchedule {
-        return $this->emailSyncSchedule;
+        return $this->getBackingStore()->get('emailSyncSchedule');
     }
 
     /**
@@ -126,7 +81,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->hostName;
+        return $this->getBackingStore()->get('hostName');
     }
 
     /**
@@ -134,7 +89,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->requireSsl;
+        return $this->getBackingStore()->get('requireSsl');
     }
 
     /**
@@ -142,7 +97,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncCalendar(): ?bool {
-        return $this->syncCalendar;
+        return $this->getBackingStore()->get('syncCalendar');
     }
 
     /**
@@ -150,7 +105,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncContacts(): ?bool {
-        return $this->syncContacts;
+        return $this->getBackingStore()->get('syncContacts');
     }
 
     /**
@@ -158,7 +113,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
      * @return bool|null
     */
     public function getSyncTasks(): ?bool {
-        return $this->syncTasks;
+        return $this->getBackingStore()->get('syncTasks');
     }
 
     /**
@@ -167,87 +122,87 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('accountName', $this->accountName);
-        $writer->writeEnumValue('durationOfEmailToSync', $this->durationOfEmailToSync);
-        $writer->writeEnumValue('emailAddressSource', $this->emailAddressSource);
-        $writer->writeEnumValue('emailSyncSchedule', $this->emailSyncSchedule);
-        $writer->writeStringValue('hostName', $this->hostName);
-        $writer->writeBooleanValue('requireSsl', $this->requireSsl);
-        $writer->writeBooleanValue('syncCalendar', $this->syncCalendar);
-        $writer->writeBooleanValue('syncContacts', $this->syncContacts);
-        $writer->writeBooleanValue('syncTasks', $this->syncTasks);
+        $writer->writeStringValue('accountName', $this->getAccountName());
+        $writer->writeEnumValue('durationOfEmailToSync', $this->getDurationOfEmailToSync());
+        $writer->writeEnumValue('emailAddressSource', $this->getEmailAddressSource());
+        $writer->writeEnumValue('emailSyncSchedule', $this->getEmailSyncSchedule());
+        $writer->writeStringValue('hostName', $this->getHostName());
+        $writer->writeBooleanValue('requireSsl', $this->getRequireSsl());
+        $writer->writeBooleanValue('syncCalendar', $this->getSyncCalendar());
+        $writer->writeBooleanValue('syncContacts', $this->getSyncContacts());
+        $writer->writeBooleanValue('syncTasks', $this->getSyncTasks());
     }
 
     /**
      * Sets the accountName property value. Account name.
      *  @param string|null $value Value to set for the accountName property.
     */
-    public function setAccountName(?string $value ): void {
-        $this->accountName = $value;
+    public function setAccountName(?string $value): void {
+        $this->getBackingStore()->set('accountName', $value);
     }
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
-    public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
-        $this->durationOfEmailToSync = $value;
+    public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
+        $this->getBackingStore()->set('durationOfEmailToSync', $value);
     }
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
-    public function setEmailAddressSource(?UserEmailSource $value ): void {
-        $this->emailAddressSource = $value;
+    public function setEmailAddressSource(?UserEmailSource $value): void {
+        $this->getBackingStore()->set('emailAddressSource', $value);
     }
 
     /**
      * Sets the emailSyncSchedule property value. Possible values for email sync schedule.
      *  @param EmailSyncSchedule|null $value Value to set for the emailSyncSchedule property.
     */
-    public function setEmailSyncSchedule(?EmailSyncSchedule $value ): void {
-        $this->emailSyncSchedule = $value;
+    public function setEmailSyncSchedule(?EmailSyncSchedule $value): void {
+        $this->getBackingStore()->set('emailSyncSchedule', $value);
     }
 
     /**
      * Sets the hostName property value. Exchange location that (URL) that the native mail app connects to.
      *  @param string|null $value Value to set for the hostName property.
     */
-    public function setHostName(?string $value ): void {
-        $this->hostName = $value;
+    public function setHostName(?string $value): void {
+        $this->getBackingStore()->set('hostName', $value);
     }
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
      *  @param bool|null $value Value to set for the requireSsl property.
     */
-    public function setRequireSsl(?bool $value ): void {
-        $this->requireSsl = $value;
+    public function setRequireSsl(?bool $value): void {
+        $this->getBackingStore()->set('requireSsl', $value);
     }
 
     /**
      * Sets the syncCalendar property value. Whether or not to sync the calendar.
      *  @param bool|null $value Value to set for the syncCalendar property.
     */
-    public function setSyncCalendar(?bool $value ): void {
-        $this->syncCalendar = $value;
+    public function setSyncCalendar(?bool $value): void {
+        $this->getBackingStore()->set('syncCalendar', $value);
     }
 
     /**
      * Sets the syncContacts property value. Whether or not to sync contacts.
      *  @param bool|null $value Value to set for the syncContacts property.
     */
-    public function setSyncContacts(?bool $value ): void {
-        $this->syncContacts = $value;
+    public function setSyncContacts(?bool $value): void {
+        $this->getBackingStore()->set('syncContacts', $value);
     }
 
     /**
      * Sets the syncTasks property value. Whether or not to sync tasks.
      *  @param bool|null $value Value to set for the syncTasks property.
     */
-    public function setSyncTasks(?bool $value ): void {
-        $this->syncTasks = $value;
+    public function setSyncTasks(?bool $value): void {
+        $this->getBackingStore()->set('syncTasks', $value);
     }
 
 }

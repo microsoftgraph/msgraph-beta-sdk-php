@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WindowsKioskProfile implements AdditionalDataHolder, Parsable 
+class WindowsKioskProfile implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var WindowsKioskAppConfiguration|null $appConfiguration The app base class used to identify the application info for the kiosk configuration
-    */
-    private ?WindowsKioskAppConfiguration $appConfiguration = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $profileId Key of the entity.
-    */
-    private ?string $profileId = null;
-    
-    /**
-     * @var string|null $profileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-    */
-    private ?string $profileName = null;
-    
-    /**
-     * @var array<WindowsKioskUser>|null $userAccountsConfiguration The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
-    */
-    private ?array $userAccountsConfiguration = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new windowsKioskProfile and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.windowsKioskProfile');
     }
 
     /**
@@ -60,8 +38,8 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +47,15 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @return WindowsKioskAppConfiguration|null
     */
     public function getAppConfiguration(): ?WindowsKioskAppConfiguration {
-        return $this->appConfiguration;
+        return $this->getBackingStore()->get('appConfiguration');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -92,7 +78,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -100,7 +86,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProfileId(): ?string {
-        return $this->profileId;
+        return $this->getBackingStore()->get('profileId');
     }
 
     /**
@@ -108,7 +94,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProfileName(): ?string {
-        return $this->profileName;
+        return $this->getBackingStore()->get('profileName');
     }
 
     /**
@@ -116,7 +102,7 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @return array<WindowsKioskUser>|null
     */
     public function getUserAccountsConfiguration(): ?array {
-        return $this->userAccountsConfiguration;
+        return $this->getBackingStore()->get('userAccountsConfiguration');
     }
 
     /**
@@ -124,60 +110,68 @@ class WindowsKioskProfile implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('appConfiguration', $this->appConfiguration);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('profileId', $this->profileId);
-        $writer->writeStringValue('profileName', $this->profileName);
-        $writer->writeCollectionOfObjectValues('userAccountsConfiguration', $this->userAccountsConfiguration);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('appConfiguration', $this->getAppConfiguration());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('profileId', $this->getProfileId());
+        $writer->writeStringValue('profileName', $this->getProfileName());
+        $writer->writeCollectionOfObjectValues('userAccountsConfiguration', $this->getUserAccountsConfiguration());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the appConfiguration property value. The app base class used to identify the application info for the kiosk configuration
      *  @param WindowsKioskAppConfiguration|null $value Value to set for the appConfiguration property.
     */
-    public function setAppConfiguration(?WindowsKioskAppConfiguration $value ): void {
-        $this->appConfiguration = $value;
+    public function setAppConfiguration(?WindowsKioskAppConfiguration $value): void {
+        $this->getBackingStore()->set('appConfiguration', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the profileId property value. Key of the entity.
      *  @param string|null $value Value to set for the profileId property.
     */
-    public function setProfileId(?string $value ): void {
-        $this->profileId = $value;
+    public function setProfileId(?string $value): void {
+        $this->getBackingStore()->set('profileId', $value);
     }
 
     /**
      * Sets the profileName property value. This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
      *  @param string|null $value Value to set for the profileName property.
     */
-    public function setProfileName(?string $value ): void {
-        $this->profileName = $value;
+    public function setProfileName(?string $value): void {
+        $this->getBackingStore()->set('profileName', $value);
     }
 
     /**
      * Sets the userAccountsConfiguration property value. The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
      *  @param array<WindowsKioskUser>|null $value Value to set for the userAccountsConfiguration property.
     */
-    public function setUserAccountsConfiguration(?array $value ): void {
-        $this->userAccountsConfiguration = $value;
+    public function setUserAccountsConfiguration(?array $value): void {
+        $this->getBackingStore()->set('userAccountsConfiguration', $value);
     }
 
 }

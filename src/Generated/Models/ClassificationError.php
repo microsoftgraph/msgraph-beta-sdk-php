@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClassificationError extends ClassifcationErrorBase implements Parsable 
 {
     /**
-     * @var array<ClassifcationErrorBase>|null $details The details property
-    */
-    private ?array $details = null;
-    
-    /**
      * Instantiates a new ClassificationError and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.classificationError');
     }
 
     /**
@@ -35,7 +29,7 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
      * @return array<ClassifcationErrorBase>|null
     */
     public function getDetails(): ?array {
-        return $this->details;
+        return $this->getBackingStore()->get('details');
     }
 
     /**
@@ -55,15 +49,15 @@ class ClassificationError extends ClassifcationErrorBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('details', $this->details);
+        $writer->writeCollectionOfObjectValues('details', $this->getDetails());
     }
 
     /**
      * Sets the details property value. The details property
      *  @param array<ClassifcationErrorBase>|null $value Value to set for the details property.
     */
-    public function setDetails(?array $value ): void {
-        $this->details = $value;
+    public function setDetails(?array $value): void {
+        $this->getBackingStore()->set('details', $value);
     }
 
 }

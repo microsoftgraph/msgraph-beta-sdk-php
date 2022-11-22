@@ -10,16 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule implements Parsable 
 {
     /**
-     * @var Time|null $time At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    */
-    private ?Time $time = null;
-    
-    /**
-     * @var bool|null $useUtc Indicate if the time is Utc or client local time.
-    */
-    private ?bool $useUtc = null;
-    
-    /**
      * Instantiates a new DeviceHealthScriptTimeSchedule and sets the default values.
     */
     public function __construct() {
@@ -61,7 +51,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
      * @return Time|null
     */
     public function getTime(): ?Time {
-        return $this->time;
+        return $this->getBackingStore()->get('time');
     }
 
     /**
@@ -69,7 +59,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
      * @return bool|null
     */
     public function getUseUtc(): ?bool {
-        return $this->useUtc;
+        return $this->getBackingStore()->get('useUtc');
     }
 
     /**
@@ -78,24 +68,24 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeTimeValue('time', $this->time);
-        $writer->writeBooleanValue('useUtc', $this->useUtc);
+        $writer->writeTimeValue('time', $this->getTime());
+        $writer->writeBooleanValue('useUtc', $this->getUseUtc());
     }
 
     /**
      * Sets the time property value. At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
      *  @param Time|null $value Value to set for the time property.
     */
-    public function setTime(?Time $value ): void {
-        $this->time = $value;
+    public function setTime(?Time $value): void {
+        $this->getBackingStore()->set('time', $value);
     }
 
     /**
      * Sets the useUtc property value. Indicate if the time is Utc or client local time.
      *  @param bool|null $value Value to set for the useUtc property.
     */
-    public function setUseUtc(?bool $value ): void {
-        $this->useUtc = $value;
+    public function setUseUtc(?bool $value): void {
+        $this->getBackingStore()->set('useUtc', $value);
     }
 
 }

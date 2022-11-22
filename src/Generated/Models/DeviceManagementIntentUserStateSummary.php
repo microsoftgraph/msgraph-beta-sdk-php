@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentUserStateSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $conflictCount Number of users in conflict
-    */
-    private ?int $conflictCount = null;
-    
-    /**
-     * @var int|null $errorCount Number of error users
-    */
-    private ?int $errorCount = null;
-    
-    /**
-     * @var int|null $failedCount Number of failed users
-    */
-    private ?int $failedCount = null;
-    
-    /**
-     * @var int|null $notApplicableCount Number of not applicable users
-    */
-    private ?int $notApplicableCount = null;
-    
-    /**
-     * @var int|null $successCount Number of succeeded users
-    */
-    private ?int $successCount = null;
-    
-    /**
      * Instantiates a new deviceManagementIntentUserStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementIntentUserStateSummary');
     }
 
     /**
@@ -55,7 +29,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictCount(): ?int {
-        return $this->conflictCount;
+        return $this->getBackingStore()->get('conflictCount');
     }
 
     /**
@@ -63,7 +37,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorCount(): ?int {
-        return $this->errorCount;
+        return $this->getBackingStore()->get('errorCount');
     }
 
     /**
@@ -71,7 +45,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedCount(): ?int {
-        return $this->failedCount;
+        return $this->getBackingStore()->get('failedCount');
     }
 
     /**
@@ -94,7 +68,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableCount(): ?int {
-        return $this->notApplicableCount;
+        return $this->getBackingStore()->get('notApplicableCount');
     }
 
     /**
@@ -102,7 +76,7 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessCount(): ?int {
-        return $this->successCount;
+        return $this->getBackingStore()->get('successCount');
     }
 
     /**
@@ -111,51 +85,51 @@ class DeviceManagementIntentUserStateSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('conflictCount', $this->conflictCount);
-        $writer->writeIntegerValue('errorCount', $this->errorCount);
-        $writer->writeIntegerValue('failedCount', $this->failedCount);
-        $writer->writeIntegerValue('notApplicableCount', $this->notApplicableCount);
-        $writer->writeIntegerValue('successCount', $this->successCount);
+        $writer->writeIntegerValue('conflictCount', $this->getConflictCount());
+        $writer->writeIntegerValue('errorCount', $this->getErrorCount());
+        $writer->writeIntegerValue('failedCount', $this->getFailedCount());
+        $writer->writeIntegerValue('notApplicableCount', $this->getNotApplicableCount());
+        $writer->writeIntegerValue('successCount', $this->getSuccessCount());
     }
 
     /**
      * Sets the conflictCount property value. Number of users in conflict
      *  @param int|null $value Value to set for the conflictCount property.
     */
-    public function setConflictCount(?int $value ): void {
-        $this->conflictCount = $value;
+    public function setConflictCount(?int $value): void {
+        $this->getBackingStore()->set('conflictCount', $value);
     }
 
     /**
      * Sets the errorCount property value. Number of error users
      *  @param int|null $value Value to set for the errorCount property.
     */
-    public function setErrorCount(?int $value ): void {
-        $this->errorCount = $value;
+    public function setErrorCount(?int $value): void {
+        $this->getBackingStore()->set('errorCount', $value);
     }
 
     /**
      * Sets the failedCount property value. Number of failed users
      *  @param int|null $value Value to set for the failedCount property.
     */
-    public function setFailedCount(?int $value ): void {
-        $this->failedCount = $value;
+    public function setFailedCount(?int $value): void {
+        $this->getBackingStore()->set('failedCount', $value);
     }
 
     /**
      * Sets the notApplicableCount property value. Number of not applicable users
      *  @param int|null $value Value to set for the notApplicableCount property.
     */
-    public function setNotApplicableCount(?int $value ): void {
-        $this->notApplicableCount = $value;
+    public function setNotApplicableCount(?int $value): void {
+        $this->getBackingStore()->set('notApplicableCount', $value);
     }
 
     /**
      * Sets the successCount property value. Number of succeeded users
      *  @param int|null $value Value to set for the successCount property.
     */
-    public function setSuccessCount(?int $value ): void {
-        $this->successCount = $value;
+    public function setSuccessCount(?int $value): void {
+        $this->getBackingStore()->set('successCount', $value);
     }
 
 }

@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcSubscription extends Entity implements Parsable 
 {
     /**
-     * @var string|null $subscriptionId The ID of the subscription.
-    */
-    private ?string $subscriptionId = null;
-    
-    /**
-     * @var string|null $subscriptionName The name of the subscription.
-    */
-    private ?string $subscriptionName = null;
-    
-    /**
      * Instantiates a new cloudPcSubscription and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcSubscription');
     }
 
     /**
@@ -52,7 +41,7 @@ class CloudPcSubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
-        return $this->subscriptionId;
+        return $this->getBackingStore()->get('subscriptionId');
     }
 
     /**
@@ -60,7 +49,7 @@ class CloudPcSubscription extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionName(): ?string {
-        return $this->subscriptionName;
+        return $this->getBackingStore()->get('subscriptionName');
     }
 
     /**
@@ -69,24 +58,24 @@ class CloudPcSubscription extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('subscriptionId', $this->subscriptionId);
-        $writer->writeStringValue('subscriptionName', $this->subscriptionName);
+        $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
+        $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
     }
 
     /**
      * Sets the subscriptionId property value. The ID of the subscription.
      *  @param string|null $value Value to set for the subscriptionId property.
     */
-    public function setSubscriptionId(?string $value ): void {
-        $this->subscriptionId = $value;
+    public function setSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('subscriptionId', $value);
     }
 
     /**
      * Sets the subscriptionName property value. The name of the subscription.
      *  @param string|null $value Value to set for the subscriptionName property.
     */
-    public function setSubscriptionName(?string $value ): void {
-        $this->subscriptionName = $value;
+    public function setSubscriptionName(?string $value): void {
+        $this->getBackingStore()->set('subscriptionName', $value);
     }
 
 }

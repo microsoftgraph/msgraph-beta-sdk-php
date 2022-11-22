@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OperationalInsightsConnection extends ResourceConnection implements Parsable 
 {
     /**
-     * @var string|null $azureResourceGroupName The name of the Azure resource group that contains the Log Analytics workspace.
-    */
-    private ?string $azureResourceGroupName = null;
-    
-    /**
-     * @var string|null $azureSubscriptionId The Azure subscription ID that contains the Log Analytics workspace.
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $workspaceName The name of the Log Analytics workspace.
-    */
-    private ?string $workspaceName = null;
-    
-    /**
      * Instantiates a new OperationalInsightsConnection and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getAzureResourceGroupName(): ?string {
-        return $this->azureResourceGroupName;
+        return $this->getBackingStore()->get('azureResourceGroupName');
     }
 
     /**
@@ -53,7 +38,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -74,7 +59,7 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
      * @return string|null
     */
     public function getWorkspaceName(): ?string {
-        return $this->workspaceName;
+        return $this->getBackingStore()->get('workspaceName');
     }
 
     /**
@@ -83,33 +68,33 @@ class OperationalInsightsConnection extends ResourceConnection implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureResourceGroupName', $this->azureResourceGroupName);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('workspaceName', $this->workspaceName);
+        $writer->writeStringValue('azureResourceGroupName', $this->getAzureResourceGroupName());
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('workspaceName', $this->getWorkspaceName());
     }
 
     /**
      * Sets the azureResourceGroupName property value. The name of the Azure resource group that contains the Log Analytics workspace.
      *  @param string|null $value Value to set for the azureResourceGroupName property.
     */
-    public function setAzureResourceGroupName(?string $value ): void {
-        $this->azureResourceGroupName = $value;
+    public function setAzureResourceGroupName(?string $value): void {
+        $this->getBackingStore()->set('azureResourceGroupName', $value);
     }
 
     /**
      * Sets the azureSubscriptionId property value. The Azure subscription ID that contains the Log Analytics workspace.
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the workspaceName property value. The name of the Log Analytics workspace.
      *  @param string|null $value Value to set for the workspaceName property.
     */
-    public function setWorkspaceName(?string $value ): void {
-        $this->workspaceName = $value;
+    public function setWorkspaceName(?string $value): void {
+        $this->getBackingStore()->set('workspaceName', $value);
     }
 
 }

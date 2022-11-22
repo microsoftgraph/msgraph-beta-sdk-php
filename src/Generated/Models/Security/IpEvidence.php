@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IpEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $ipAddress The value of the IP Address, can be either in V4 address or V6 address format.
-    */
-    private ?string $ipAddress = null;
-    
-    /**
      * Instantiates a new IpEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.ipEvidence');
     }
 
     /**
@@ -46,7 +40,7 @@ class IpEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getIpAddress(): ?string {
-        return $this->ipAddress;
+        return $this->getBackingStore()->get('ipAddress');
     }
 
     /**
@@ -55,15 +49,15 @@ class IpEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('ipAddress', $this->ipAddress);
+        $writer->writeStringValue('ipAddress', $this->getIpAddress());
     }
 
     /**
      * Sets the ipAddress property value. The value of the IP Address, can be either in V4 address or V6 address format.
      *  @param string|null $value Value to set for the ipAddress property.
     */
-    public function setIpAddress(?string $value ): void {
-        $this->ipAddress = $value;
+    public function setIpAddress(?string $value): void {
+        $this->getBackingStore()->set('ipAddress', $value);
     }
 
 }

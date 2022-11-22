@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsOverview extends Entity implements Parsable 
 {
     /**
-     * @var array<UserExperienceAnalyticsInsight>|null $insights The user experience analytics insights.
-    */
-    private ?array $insights = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsOverview');
     }
 
     /**
@@ -46,7 +40,7 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
      * @return array<UserExperienceAnalyticsInsight>|null
     */
     public function getInsights(): ?array {
-        return $this->insights;
+        return $this->getBackingStore()->get('insights');
     }
 
     /**
@@ -55,15 +49,15 @@ class UserExperienceAnalyticsOverview extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('insights', $this->insights);
+        $writer->writeCollectionOfObjectValues('insights', $this->getInsights());
     }
 
     /**
      * Sets the insights property value. The user experience analytics insights.
      *  @param array<UserExperienceAnalyticsInsight>|null $value Value to set for the insights property.
     */
-    public function setInsights(?array $value ): void {
-        $this->insights = $value;
+    public function setInsights(?array $value): void {
+        $this->getBackingStore()->set('insights', $value);
     }
 
 }

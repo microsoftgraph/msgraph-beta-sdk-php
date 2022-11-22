@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingStringLengthConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var int|null $maximumLength The maximum permitted string length
-    */
-    private ?int $maximumLength = null;
-    
-    /**
-     * @var int|null $minimumLength The minimum permitted string length
-    */
-    private ?int $minimumLength = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingStringLengthConstraint and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
      * @return int|null
     */
     public function getMaximumLength(): ?int {
-        return $this->maximumLength;
+        return $this->getBackingStore()->get('maximumLength');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
      * @return int|null
     */
     public function getMinimumLength(): ?int {
-        return $this->minimumLength;
+        return $this->getBackingStore()->get('minimumLength');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementSettingStringLengthConstraint extends DeviceManagementCons
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('maximumLength', $this->maximumLength);
-        $writer->writeIntegerValue('minimumLength', $this->minimumLength);
+        $writer->writeIntegerValue('maximumLength', $this->getMaximumLength());
+        $writer->writeIntegerValue('minimumLength', $this->getMinimumLength());
     }
 
     /**
      * Sets the maximumLength property value. The maximum permitted string length
      *  @param int|null $value Value to set for the maximumLength property.
     */
-    public function setMaximumLength(?int $value ): void {
-        $this->maximumLength = $value;
+    public function setMaximumLength(?int $value): void {
+        $this->getBackingStore()->set('maximumLength', $value);
     }
 
     /**
      * Sets the minimumLength property value. The minimum permitted string length
      *  @param int|null $value Value to set for the minimumLength property.
     */
-    public function setMinimumLength(?int $value ): void {
-        $this->minimumLength = $value;
+    public function setMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('minimumLength', $value);
     }
 
 }

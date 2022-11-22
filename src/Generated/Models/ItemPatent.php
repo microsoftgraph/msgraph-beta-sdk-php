@@ -10,41 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class ItemPatent extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $description Descpription of the patent or filing.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Title of the patent or filing.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isPending Indicates the patent is pending.
-    */
-    private ?bool $isPending = null;
-    
-    /**
-     * @var Date|null $issuedDate The date that the patent was granted.
-    */
-    private ?Date $issuedDate = null;
-    
-    /**
-     * @var string|null $issuingAuthority Authority which granted the patent.
-    */
-    private ?string $issuingAuthority = null;
-    
-    /**
-     * @var string|null $number The patent number.
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var string|null $webUrl URL referencing the patent or filing.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new ItemPatent and sets the default values.
     */
     public function __construct() {
@@ -66,7 +31,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -74,7 +39,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -99,7 +64,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return bool|null
     */
     public function getIsPending(): ?bool {
-        return $this->isPending;
+        return $this->getBackingStore()->get('isPending');
     }
 
     /**
@@ -107,7 +72,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getIssuedDate(): ?Date {
-        return $this->issuedDate;
+        return $this->getBackingStore()->get('issuedDate');
     }
 
     /**
@@ -115,7 +80,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getIssuingAuthority(): ?string {
-        return $this->issuingAuthority;
+        return $this->getBackingStore()->get('issuingAuthority');
     }
 
     /**
@@ -123,7 +88,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -131,7 +96,7 @@ class ItemPatent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -140,69 +105,69 @@ class ItemPatent extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isPending', $this->isPending);
-        $writer->writeDateValue('issuedDate', $this->issuedDate);
-        $writer->writeStringValue('issuingAuthority', $this->issuingAuthority);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isPending', $this->getIsPending());
+        $writer->writeDateValue('issuedDate', $this->getIssuedDate());
+        $writer->writeStringValue('issuingAuthority', $this->getIssuingAuthority());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the description property value. Descpription of the patent or filing.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Title of the patent or filing.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isPending property value. Indicates the patent is pending.
      *  @param bool|null $value Value to set for the isPending property.
     */
-    public function setIsPending(?bool $value ): void {
-        $this->isPending = $value;
+    public function setIsPending(?bool $value): void {
+        $this->getBackingStore()->set('isPending', $value);
     }
 
     /**
      * Sets the issuedDate property value. The date that the patent was granted.
      *  @param Date|null $value Value to set for the issuedDate property.
     */
-    public function setIssuedDate(?Date $value ): void {
-        $this->issuedDate = $value;
+    public function setIssuedDate(?Date $value): void {
+        $this->getBackingStore()->set('issuedDate', $value);
     }
 
     /**
      * Sets the issuingAuthority property value. Authority which granted the patent.
      *  @param string|null $value Value to set for the issuingAuthority property.
     */
-    public function setIssuingAuthority(?string $value ): void {
-        $this->issuingAuthority = $value;
+    public function setIssuingAuthority(?string $value): void {
+        $this->getBackingStore()->set('issuingAuthority', $value);
     }
 
     /**
      * Sets the number property value. The patent number.
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the webUrl property value. URL referencing the patent or filing.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

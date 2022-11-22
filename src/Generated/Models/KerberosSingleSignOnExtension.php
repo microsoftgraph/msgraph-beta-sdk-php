@@ -9,111 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * @var string|null $activeDirectorySiteCode Gets or sets the Active Directory site.
-    */
-    private ?string $activeDirectorySiteCode = null;
-    
-    /**
-     * @var bool|null $blockActiveDirectorySiteAutoDiscovery Enables or disables whether the Kerberos extension can automatically determine its site name.
-    */
-    private ?bool $blockActiveDirectorySiteAutoDiscovery = null;
-    
-    /**
-     * @var bool|null $blockAutomaticLogin Enables or disables Keychain usage.
-    */
-    private ?bool $blockAutomaticLogin = null;
-    
-    /**
-     * @var string|null $cacheName Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
-    */
-    private ?string $cacheName = null;
-    
-    /**
-     * @var array<string>|null $credentialBundleIdAccessControlList Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
-    */
-    private ?array $credentialBundleIdAccessControlList = null;
-    
-    /**
-     * @var array<string>|null $domainRealms Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
-    */
-    private ?array $domainRealms = null;
-    
-    /**
-     * @var array<string>|null $domains Gets or sets a list of hosts or domain names for which the app extension performs SSO.
-    */
-    private ?array $domains = null;
-    
-    /**
-     * @var bool|null $isDefaultRealm When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
-    */
-    private ?bool $isDefaultRealm = null;
-    
-    /**
-     * @var bool|null $passwordBlockModification Enables or disables password changes.
-    */
-    private ?bool $passwordBlockModification = null;
-    
-    /**
-     * @var string|null $passwordChangeUrl Gets or sets the URL that the user will be sent to when they initiate a password change.
-    */
-    private ?string $passwordChangeUrl = null;
-    
-    /**
-     * @var bool|null $passwordEnableLocalSync Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
-    */
-    private ?bool $passwordEnableLocalSync = null;
-    
-    /**
-     * @var int|null $passwordExpirationDays Overrides the default password expiration in days. For most domains, this value is calculated automatically.
-    */
-    private ?int $passwordExpirationDays = null;
-    
-    /**
-     * @var int|null $passwordExpirationNotificationDays Gets or sets the number of days until the user is notified that their password will expire (default is 15).
-    */
-    private ?int $passwordExpirationNotificationDays = null;
-    
-    /**
-     * @var int|null $passwordMinimumAgeDays Gets or sets the minimum number of days until a user can change their password again.
-    */
-    private ?int $passwordMinimumAgeDays = null;
-    
-    /**
-     * @var int|null $passwordMinimumLength Gets or sets the minimum length of a password.
-    */
-    private ?int $passwordMinimumLength = null;
-    
-    /**
-     * @var int|null $passwordPreviousPasswordBlockCount Gets or sets the number of previous passwords to block.
-    */
-    private ?int $passwordPreviousPasswordBlockCount = null;
-    
-    /**
-     * @var bool|null $passwordRequireActiveDirectoryComplexity Enables or disables whether passwords must meet Active Directory's complexity requirements.
-    */
-    private ?bool $passwordRequireActiveDirectoryComplexity = null;
-    
-    /**
-     * @var string|null $passwordRequirementsDescription Gets or sets a description of the password complexity requirements.
-    */
-    private ?string $passwordRequirementsDescription = null;
-    
-    /**
-     * @var string|null $realm Gets or sets the case-sensitive realm name for this profile.
-    */
-    private ?string $realm = null;
-    
-    /**
-     * @var bool|null $requireUserPresence Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
-    */
-    private ?bool $requireUserPresence = null;
-    
-    /**
-     * @var string|null $userPrincipalName Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new KerberosSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
@@ -135,7 +30,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getActiveDirectorySiteCode(): ?string {
-        return $this->activeDirectorySiteCode;
+        return $this->getBackingStore()->get('activeDirectorySiteCode');
     }
 
     /**
@@ -143,7 +38,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getBlockActiveDirectorySiteAutoDiscovery(): ?bool {
-        return $this->blockActiveDirectorySiteAutoDiscovery;
+        return $this->getBackingStore()->get('blockActiveDirectorySiteAutoDiscovery');
     }
 
     /**
@@ -151,7 +46,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getBlockAutomaticLogin(): ?bool {
-        return $this->blockAutomaticLogin;
+        return $this->getBackingStore()->get('blockAutomaticLogin');
     }
 
     /**
@@ -159,7 +54,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getCacheName(): ?string {
-        return $this->cacheName;
+        return $this->getBackingStore()->get('cacheName');
     }
 
     /**
@@ -167,7 +62,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getCredentialBundleIdAccessControlList(): ?array {
-        return $this->credentialBundleIdAccessControlList;
+        return $this->getBackingStore()->get('credentialBundleIdAccessControlList');
     }
 
     /**
@@ -175,7 +70,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getDomainRealms(): ?array {
-        return $this->domainRealms;
+        return $this->getBackingStore()->get('domainRealms');
     }
 
     /**
@@ -183,7 +78,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->domains;
+        return $this->getBackingStore()->get('domains');
     }
 
     /**
@@ -222,7 +117,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getIsDefaultRealm(): ?bool {
-        return $this->isDefaultRealm;
+        return $this->getBackingStore()->get('isDefaultRealm');
     }
 
     /**
@@ -230,7 +125,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordBlockModification(): ?bool {
-        return $this->passwordBlockModification;
+        return $this->getBackingStore()->get('passwordBlockModification');
     }
 
     /**
@@ -238,7 +133,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getPasswordChangeUrl(): ?string {
-        return $this->passwordChangeUrl;
+        return $this->getBackingStore()->get('passwordChangeUrl');
     }
 
     /**
@@ -246,7 +141,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordEnableLocalSync(): ?bool {
-        return $this->passwordEnableLocalSync;
+        return $this->getBackingStore()->get('passwordEnableLocalSync');
     }
 
     /**
@@ -254,7 +149,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->passwordExpirationDays;
+        return $this->getBackingStore()->get('passwordExpirationDays');
     }
 
     /**
@@ -262,7 +157,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordExpirationNotificationDays(): ?int {
-        return $this->passwordExpirationNotificationDays;
+        return $this->getBackingStore()->get('passwordExpirationNotificationDays');
     }
 
     /**
@@ -270,7 +165,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordMinimumAgeDays(): ?int {
-        return $this->passwordMinimumAgeDays;
+        return $this->getBackingStore()->get('passwordMinimumAgeDays');
     }
 
     /**
@@ -278,7 +173,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->passwordMinimumLength;
+        return $this->getBackingStore()->get('passwordMinimumLength');
     }
 
     /**
@@ -286,7 +181,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->passwordPreviousPasswordBlockCount;
+        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
     }
 
     /**
@@ -294,7 +189,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getPasswordRequireActiveDirectoryComplexity(): ?bool {
-        return $this->passwordRequireActiveDirectoryComplexity;
+        return $this->getBackingStore()->get('passwordRequireActiveDirectoryComplexity');
     }
 
     /**
@@ -302,7 +197,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getPasswordRequirementsDescription(): ?string {
-        return $this->passwordRequirementsDescription;
+        return $this->getBackingStore()->get('passwordRequirementsDescription');
     }
 
     /**
@@ -310,7 +205,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->realm;
+        return $this->getBackingStore()->get('realm');
     }
 
     /**
@@ -318,7 +213,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return bool|null
     */
     public function getRequireUserPresence(): ?bool {
-        return $this->requireUserPresence;
+        return $this->getBackingStore()->get('requireUserPresence');
     }
 
     /**
@@ -326,7 +221,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -335,195 +230,195 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('activeDirectorySiteCode', $this->activeDirectorySiteCode);
-        $writer->writeBooleanValue('blockActiveDirectorySiteAutoDiscovery', $this->blockActiveDirectorySiteAutoDiscovery);
-        $writer->writeBooleanValue('blockAutomaticLogin', $this->blockAutomaticLogin);
-        $writer->writeStringValue('cacheName', $this->cacheName);
-        $writer->writeCollectionOfPrimitiveValues('credentialBundleIdAccessControlList', $this->credentialBundleIdAccessControlList);
-        $writer->writeCollectionOfPrimitiveValues('domainRealms', $this->domainRealms);
-        $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
-        $writer->writeBooleanValue('isDefaultRealm', $this->isDefaultRealm);
-        $writer->writeBooleanValue('passwordBlockModification', $this->passwordBlockModification);
-        $writer->writeStringValue('passwordChangeUrl', $this->passwordChangeUrl);
-        $writer->writeBooleanValue('passwordEnableLocalSync', $this->passwordEnableLocalSync);
-        $writer->writeIntegerValue('passwordExpirationDays', $this->passwordExpirationDays);
-        $writer->writeIntegerValue('passwordExpirationNotificationDays', $this->passwordExpirationNotificationDays);
-        $writer->writeIntegerValue('passwordMinimumAgeDays', $this->passwordMinimumAgeDays);
-        $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
-        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->passwordPreviousPasswordBlockCount);
-        $writer->writeBooleanValue('passwordRequireActiveDirectoryComplexity', $this->passwordRequireActiveDirectoryComplexity);
-        $writer->writeStringValue('passwordRequirementsDescription', $this->passwordRequirementsDescription);
-        $writer->writeStringValue('realm', $this->realm);
-        $writer->writeBooleanValue('requireUserPresence', $this->requireUserPresence);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('activeDirectorySiteCode', $this->getActiveDirectorySiteCode());
+        $writer->writeBooleanValue('blockActiveDirectorySiteAutoDiscovery', $this->getBlockActiveDirectorySiteAutoDiscovery());
+        $writer->writeBooleanValue('blockAutomaticLogin', $this->getBlockAutomaticLogin());
+        $writer->writeStringValue('cacheName', $this->getCacheName());
+        $writer->writeCollectionOfPrimitiveValues('credentialBundleIdAccessControlList', $this->getCredentialBundleIdAccessControlList());
+        $writer->writeCollectionOfPrimitiveValues('domainRealms', $this->getDomainRealms());
+        $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
+        $writer->writeBooleanValue('isDefaultRealm', $this->getIsDefaultRealm());
+        $writer->writeBooleanValue('passwordBlockModification', $this->getPasswordBlockModification());
+        $writer->writeStringValue('passwordChangeUrl', $this->getPasswordChangeUrl());
+        $writer->writeBooleanValue('passwordEnableLocalSync', $this->getPasswordEnableLocalSync());
+        $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());
+        $writer->writeIntegerValue('passwordExpirationNotificationDays', $this->getPasswordExpirationNotificationDays());
+        $writer->writeIntegerValue('passwordMinimumAgeDays', $this->getPasswordMinimumAgeDays());
+        $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
+        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->getPasswordPreviousPasswordBlockCount());
+        $writer->writeBooleanValue('passwordRequireActiveDirectoryComplexity', $this->getPasswordRequireActiveDirectoryComplexity());
+        $writer->writeStringValue('passwordRequirementsDescription', $this->getPasswordRequirementsDescription());
+        $writer->writeStringValue('realm', $this->getRealm());
+        $writer->writeBooleanValue('requireUserPresence', $this->getRequireUserPresence());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the activeDirectorySiteCode property value. Gets or sets the Active Directory site.
      *  @param string|null $value Value to set for the activeDirectorySiteCode property.
     */
-    public function setActiveDirectorySiteCode(?string $value ): void {
-        $this->activeDirectorySiteCode = $value;
+    public function setActiveDirectorySiteCode(?string $value): void {
+        $this->getBackingStore()->set('activeDirectorySiteCode', $value);
     }
 
     /**
      * Sets the blockActiveDirectorySiteAutoDiscovery property value. Enables or disables whether the Kerberos extension can automatically determine its site name.
      *  @param bool|null $value Value to set for the blockActiveDirectorySiteAutoDiscovery property.
     */
-    public function setBlockActiveDirectorySiteAutoDiscovery(?bool $value ): void {
-        $this->blockActiveDirectorySiteAutoDiscovery = $value;
+    public function setBlockActiveDirectorySiteAutoDiscovery(?bool $value): void {
+        $this->getBackingStore()->set('blockActiveDirectorySiteAutoDiscovery', $value);
     }
 
     /**
      * Sets the blockAutomaticLogin property value. Enables or disables Keychain usage.
      *  @param bool|null $value Value to set for the blockAutomaticLogin property.
     */
-    public function setBlockAutomaticLogin(?bool $value ): void {
-        $this->blockAutomaticLogin = $value;
+    public function setBlockAutomaticLogin(?bool $value): void {
+        $this->getBackingStore()->set('blockAutomaticLogin', $value);
     }
 
     /**
      * Sets the cacheName property value. Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
      *  @param string|null $value Value to set for the cacheName property.
     */
-    public function setCacheName(?string $value ): void {
-        $this->cacheName = $value;
+    public function setCacheName(?string $value): void {
+        $this->getBackingStore()->set('cacheName', $value);
     }
 
     /**
      * Sets the credentialBundleIdAccessControlList property value. Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
      *  @param array<string>|null $value Value to set for the credentialBundleIdAccessControlList property.
     */
-    public function setCredentialBundleIdAccessControlList(?array $value ): void {
-        $this->credentialBundleIdAccessControlList = $value;
+    public function setCredentialBundleIdAccessControlList(?array $value): void {
+        $this->getBackingStore()->set('credentialBundleIdAccessControlList', $value);
     }
 
     /**
      * Sets the domainRealms property value. Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
      *  @param array<string>|null $value Value to set for the domainRealms property.
     */
-    public function setDomainRealms(?array $value ): void {
-        $this->domainRealms = $value;
+    public function setDomainRealms(?array $value): void {
+        $this->getBackingStore()->set('domainRealms', $value);
     }
 
     /**
      * Sets the domains property value. Gets or sets a list of hosts or domain names for which the app extension performs SSO.
      *  @param array<string>|null $value Value to set for the domains property.
     */
-    public function setDomains(?array $value ): void {
-        $this->domains = $value;
+    public function setDomains(?array $value): void {
+        $this->getBackingStore()->set('domains', $value);
     }
 
     /**
      * Sets the isDefaultRealm property value. When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
      *  @param bool|null $value Value to set for the isDefaultRealm property.
     */
-    public function setIsDefaultRealm(?bool $value ): void {
-        $this->isDefaultRealm = $value;
+    public function setIsDefaultRealm(?bool $value): void {
+        $this->getBackingStore()->set('isDefaultRealm', $value);
     }
 
     /**
      * Sets the passwordBlockModification property value. Enables or disables password changes.
      *  @param bool|null $value Value to set for the passwordBlockModification property.
     */
-    public function setPasswordBlockModification(?bool $value ): void {
-        $this->passwordBlockModification = $value;
+    public function setPasswordBlockModification(?bool $value): void {
+        $this->getBackingStore()->set('passwordBlockModification', $value);
     }
 
     /**
      * Sets the passwordChangeUrl property value. Gets or sets the URL that the user will be sent to when they initiate a password change.
      *  @param string|null $value Value to set for the passwordChangeUrl property.
     */
-    public function setPasswordChangeUrl(?string $value ): void {
-        $this->passwordChangeUrl = $value;
+    public function setPasswordChangeUrl(?string $value): void {
+        $this->getBackingStore()->set('passwordChangeUrl', $value);
     }
 
     /**
      * Sets the passwordEnableLocalSync property value. Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
      *  @param bool|null $value Value to set for the passwordEnableLocalSync property.
     */
-    public function setPasswordEnableLocalSync(?bool $value ): void {
-        $this->passwordEnableLocalSync = $value;
+    public function setPasswordEnableLocalSync(?bool $value): void {
+        $this->getBackingStore()->set('passwordEnableLocalSync', $value);
     }
 
     /**
      * Sets the passwordExpirationDays property value. Overrides the default password expiration in days. For most domains, this value is calculated automatically.
      *  @param int|null $value Value to set for the passwordExpirationDays property.
     */
-    public function setPasswordExpirationDays(?int $value ): void {
-        $this->passwordExpirationDays = $value;
+    public function setPasswordExpirationDays(?int $value): void {
+        $this->getBackingStore()->set('passwordExpirationDays', $value);
     }
 
     /**
      * Sets the passwordExpirationNotificationDays property value. Gets or sets the number of days until the user is notified that their password will expire (default is 15).
      *  @param int|null $value Value to set for the passwordExpirationNotificationDays property.
     */
-    public function setPasswordExpirationNotificationDays(?int $value ): void {
-        $this->passwordExpirationNotificationDays = $value;
+    public function setPasswordExpirationNotificationDays(?int $value): void {
+        $this->getBackingStore()->set('passwordExpirationNotificationDays', $value);
     }
 
     /**
      * Sets the passwordMinimumAgeDays property value. Gets or sets the minimum number of days until a user can change their password again.
      *  @param int|null $value Value to set for the passwordMinimumAgeDays property.
     */
-    public function setPasswordMinimumAgeDays(?int $value ): void {
-        $this->passwordMinimumAgeDays = $value;
+    public function setPasswordMinimumAgeDays(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumAgeDays', $value);
     }
 
     /**
      * Sets the passwordMinimumLength property value. Gets or sets the minimum length of a password.
      *  @param int|null $value Value to set for the passwordMinimumLength property.
     */
-    public function setPasswordMinimumLength(?int $value ): void {
-        $this->passwordMinimumLength = $value;
+    public function setPasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumLength', $value);
     }
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. Gets or sets the number of previous passwords to block.
      *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
-    public function setPasswordPreviousPasswordBlockCount(?int $value ): void {
-        $this->passwordPreviousPasswordBlockCount = $value;
+    public function setPasswordPreviousPasswordBlockCount(?int $value): void {
+        $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
     }
 
     /**
      * Sets the passwordRequireActiveDirectoryComplexity property value. Enables or disables whether passwords must meet Active Directory's complexity requirements.
      *  @param bool|null $value Value to set for the passwordRequireActiveDirectoryComplexity property.
     */
-    public function setPasswordRequireActiveDirectoryComplexity(?bool $value ): void {
-        $this->passwordRequireActiveDirectoryComplexity = $value;
+    public function setPasswordRequireActiveDirectoryComplexity(?bool $value): void {
+        $this->getBackingStore()->set('passwordRequireActiveDirectoryComplexity', $value);
     }
 
     /**
      * Sets the passwordRequirementsDescription property value. Gets or sets a description of the password complexity requirements.
      *  @param string|null $value Value to set for the passwordRequirementsDescription property.
     */
-    public function setPasswordRequirementsDescription(?string $value ): void {
-        $this->passwordRequirementsDescription = $value;
+    public function setPasswordRequirementsDescription(?string $value): void {
+        $this->getBackingStore()->set('passwordRequirementsDescription', $value);
     }
 
     /**
      * Sets the realm property value. Gets or sets the case-sensitive realm name for this profile.
      *  @param string|null $value Value to set for the realm property.
     */
-    public function setRealm(?string $value ): void {
-        $this->realm = $value;
+    public function setRealm(?string $value): void {
+        $this->getBackingStore()->set('realm', $value);
     }
 
     /**
      * Sets the requireUserPresence property value. Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
      *  @param bool|null $value Value to set for the requireUserPresence property.
     */
-    public function setRequireUserPresence(?bool $value ): void {
-        $this->requireUserPresence = $value;
+    public function setRequireUserPresence(?bool $value): void {
+        $this->getBackingStore()->set('requireUserPresence', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

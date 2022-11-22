@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IpReferenceData implements AdditionalDataHolder, Parsable 
+class IpReferenceData implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $asn The asn property
-    */
-    private ?int $asn = null;
-    
-    /**
-     * @var string|null $city The city property
-    */
-    private ?string $city = null;
-    
-    /**
-     * @var string|null $countryOrRegionCode The countryOrRegionCode property
-    */
-    private ?string $countryOrRegionCode = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $organization The organization property
-    */
-    private ?string $organization = null;
-    
-    /**
-     * @var string|null $state The state property
-    */
-    private ?string $state = null;
-    
-    /**
-     * @var string|null $vendor The vendor property
-    */
-    private ?string $vendor = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new ipReferenceData and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.ipReferenceData');
     }
 
     /**
@@ -70,8 +38,8 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -79,7 +47,15 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getAsn(): ?int {
-        return $this->asn;
+        return $this->getBackingStore()->get('asn');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -87,7 +63,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->city;
+        return $this->getBackingStore()->get('city');
     }
 
     /**
@@ -95,7 +71,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCountryOrRegionCode(): ?string {
-        return $this->countryOrRegionCode;
+        return $this->getBackingStore()->get('countryOrRegionCode');
     }
 
     /**
@@ -120,7 +96,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,7 +104,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOrganization(): ?string {
-        return $this->organization;
+        return $this->getBackingStore()->get('organization');
     }
 
     /**
@@ -136,7 +112,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -144,7 +120,7 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->vendor;
+        return $this->getBackingStore()->get('vendor');
     }
 
     /**
@@ -152,78 +128,86 @@ class IpReferenceData implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('asn', $this->asn);
-        $writer->writeStringValue('city', $this->city);
-        $writer->writeStringValue('countryOrRegionCode', $this->countryOrRegionCode);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('organization', $this->organization);
-        $writer->writeStringValue('state', $this->state);
-        $writer->writeStringValue('vendor', $this->vendor);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('asn', $this->getAsn());
+        $writer->writeStringValue('city', $this->getCity());
+        $writer->writeStringValue('countryOrRegionCode', $this->getCountryOrRegionCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('organization', $this->getOrganization());
+        $writer->writeStringValue('state', $this->getState());
+        $writer->writeStringValue('vendor', $this->getVendor());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the asn property value. The asn property
      *  @param int|null $value Value to set for the asn property.
     */
-    public function setAsn(?int $value ): void {
-        $this->asn = $value;
+    public function setAsn(?int $value): void {
+        $this->getBackingStore()->set('asn', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the city property value. The city property
      *  @param string|null $value Value to set for the city property.
     */
-    public function setCity(?string $value ): void {
-        $this->city = $value;
+    public function setCity(?string $value): void {
+        $this->getBackingStore()->set('city', $value);
     }
 
     /**
      * Sets the countryOrRegionCode property value. The countryOrRegionCode property
      *  @param string|null $value Value to set for the countryOrRegionCode property.
     */
-    public function setCountryOrRegionCode(?string $value ): void {
-        $this->countryOrRegionCode = $value;
+    public function setCountryOrRegionCode(?string $value): void {
+        $this->getBackingStore()->set('countryOrRegionCode', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the organization property value. The organization property
      *  @param string|null $value Value to set for the organization property.
     */
-    public function setOrganization(?string $value ): void {
-        $this->organization = $value;
+    public function setOrganization(?string $value): void {
+        $this->getBackingStore()->set('organization', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
-    public function setState(?string $value ): void {
-        $this->state = $value;
+    public function setState(?string $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the vendor property value. The vendor property
      *  @param string|null $value Value to set for the vendor property.
     */
-    public function setVendor(?string $value ): void {
-        $this->vendor = $value;
+    public function setVendor(?string $value): void {
+        $this->getBackingStore()->set('vendor', $value);
     }
 
 }

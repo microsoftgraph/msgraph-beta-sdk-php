@@ -7,40 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable 
+class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var Windows10AppsUpdateRecurrence|null $recurrence Possible values for App update on Windows10 recurrence.
-    */
-    private ?Windows10AppsUpdateRecurrence $recurrence = null;
-    
-    /**
-     * @var bool|null $runImmediatelyIfAfterStartDateTime If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
-    */
-    private ?bool $runImmediatelyIfAfterStartDateTime = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The start time for the force restart.
-    */
-    private ?DateTime $startDateTime = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new windows10AppsForceUpdateSchedule and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.windows10AppsForceUpdateSchedule');
     }
 
     /**
@@ -56,8 +39,16 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +70,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -87,7 +78,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @return Windows10AppsUpdateRecurrence|null
     */
     public function getRecurrence(): ?Windows10AppsUpdateRecurrence {
-        return $this->recurrence;
+        return $this->getBackingStore()->get('recurrence');
     }
 
     /**
@@ -95,7 +86,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getRunImmediatelyIfAfterStartDateTime(): ?bool {
-        return $this->runImmediatelyIfAfterStartDateTime;
+        return $this->getBackingStore()->get('runImmediatelyIfAfterStartDateTime');
     }
 
     /**
@@ -103,7 +94,7 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -111,51 +102,59 @@ class Windows10AppsForceUpdateSchedule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('recurrence', $this->recurrence);
-        $writer->writeBooleanValue('runImmediatelyIfAfterStartDateTime', $this->runImmediatelyIfAfterStartDateTime);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('recurrence', $this->getRecurrence());
+        $writer->writeBooleanValue('runImmediatelyIfAfterStartDateTime', $this->getRunImmediatelyIfAfterStartDateTime());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recurrence property value. Possible values for App update on Windows10 recurrence.
      *  @param Windows10AppsUpdateRecurrence|null $value Value to set for the recurrence property.
     */
-    public function setRecurrence(?Windows10AppsUpdateRecurrence $value ): void {
-        $this->recurrence = $value;
+    public function setRecurrence(?Windows10AppsUpdateRecurrence $value): void {
+        $this->getBackingStore()->set('recurrence', $value);
     }
 
     /**
      * Sets the runImmediatelyIfAfterStartDateTime property value. If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
      *  @param bool|null $value Value to set for the runImmediatelyIfAfterStartDateTime property.
     */
-    public function setRunImmediatelyIfAfterStartDateTime(?bool $value ): void {
-        $this->runImmediatelyIfAfterStartDateTime = $value;
+    public function setRunImmediatelyIfAfterStartDateTime(?bool $value): void {
+        $this->getBackingStore()->set('runImmediatelyIfAfterStartDateTime', $value);
     }
 
     /**
      * Sets the startDateTime property value. The start time for the force restart.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
 }

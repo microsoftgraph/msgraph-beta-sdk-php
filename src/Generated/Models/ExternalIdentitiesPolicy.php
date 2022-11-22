@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalIdentitiesPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var bool|null $allowDeletedIdentitiesDataRemoval Reserved for future use.
-    */
-    private ?bool $allowDeletedIdentitiesDataRemoval = null;
-    
-    /**
-     * @var bool|null $allowExternalIdentitiesToLeave Defines whether external users can leave the guest tenant. If set to false, self-service controls are disabled, and the admin of the guest tenant must manually remove the external user from the guest tenant. When the external user leaves the tenant, their data in the guest tenant is first soft-deleted then permanently deleted in 30 days.
-    */
-    private ?bool $allowExternalIdentitiesToLeave = null;
-    
-    /**
      * Instantiates a new ExternalIdentitiesPolicy and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowDeletedIdentitiesDataRemoval(): ?bool {
-        return $this->allowDeletedIdentitiesDataRemoval;
+        return $this->getBackingStore()->get('allowDeletedIdentitiesDataRemoval');
     }
 
     /**
@@ -48,7 +38,7 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getAllowExternalIdentitiesToLeave(): ?bool {
-        return $this->allowExternalIdentitiesToLeave;
+        return $this->getBackingStore()->get('allowExternalIdentitiesToLeave');
     }
 
     /**
@@ -69,24 +59,24 @@ class ExternalIdentitiesPolicy extends PolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowDeletedIdentitiesDataRemoval', $this->allowDeletedIdentitiesDataRemoval);
-        $writer->writeBooleanValue('allowExternalIdentitiesToLeave', $this->allowExternalIdentitiesToLeave);
+        $writer->writeBooleanValue('allowDeletedIdentitiesDataRemoval', $this->getAllowDeletedIdentitiesDataRemoval());
+        $writer->writeBooleanValue('allowExternalIdentitiesToLeave', $this->getAllowExternalIdentitiesToLeave());
     }
 
     /**
      * Sets the allowDeletedIdentitiesDataRemoval property value. Reserved for future use.
      *  @param bool|null $value Value to set for the allowDeletedIdentitiesDataRemoval property.
     */
-    public function setAllowDeletedIdentitiesDataRemoval(?bool $value ): void {
-        $this->allowDeletedIdentitiesDataRemoval = $value;
+    public function setAllowDeletedIdentitiesDataRemoval(?bool $value): void {
+        $this->getBackingStore()->set('allowDeletedIdentitiesDataRemoval', $value);
     }
 
     /**
      * Sets the allowExternalIdentitiesToLeave property value. Defines whether external users can leave the guest tenant. If set to false, self-service controls are disabled, and the admin of the guest tenant must manually remove the external user from the guest tenant. When the external user leaves the tenant, their data in the guest tenant is first soft-deleted then permanently deleted in 30 days.
      *  @param bool|null $value Value to set for the allowExternalIdentitiesToLeave property.
     */
-    public function setAllowExternalIdentitiesToLeave(?bool $value ): void {
-        $this->allowExternalIdentitiesToLeave = $value;
+    public function setAllowExternalIdentitiesToLeave(?bool $value): void {
+        $this->getBackingStore()->set('allowExternalIdentitiesToLeave', $value);
     }
 
 }

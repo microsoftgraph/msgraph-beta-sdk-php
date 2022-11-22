@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
-    */
-    private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
-    
-    /**
-     * @var int|null $certificateValidityPeriodValue Value for the Certificate Validity Period.
-    */
-    private ?int $certificateValidityPeriodValue = null;
-    
-    /**
-     * @var array<ExtendedKeyUsage>|null $extendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $extendedKeyUsages = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-    */
-    private ?int $renewalThresholdPercentage = null;
-    
-    /**
-     * @var AndroidDeviceOwnerTrustedRootCertificate|null $rootCertificate Trusted Root Certificate.
-    */
-    private ?AndroidDeviceOwnerTrustedRootCertificate $rootCertificate = null;
-    
-    /**
-     * @var SubjectAlternativeNameType|null $subjectAlternativeNameType Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-    */
-    private ?SubjectAlternativeNameType $subjectAlternativeNameType = null;
-    
-    /**
-     * @var SubjectNameFormat|null $subjectNameFormat Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
-    */
-    private ?SubjectNameFormat $subjectNameFormat = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerCertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -74,7 +39,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->certificateValidityPeriodScale;
+        return $this->getBackingStore()->get('certificateValidityPeriodScale');
     }
 
     /**
@@ -82,7 +47,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->certificateValidityPeriodValue;
+        return $this->getBackingStore()->get('certificateValidityPeriodValue');
     }
 
     /**
@@ -90,7 +55,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->extendedKeyUsages;
+        return $this->getBackingStore()->get('extendedKeyUsages');
     }
 
     /**
@@ -115,7 +80,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
+        return $this->getBackingStore()->get('renewalThresholdPercentage');
     }
 
     /**
@@ -123,7 +88,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return AndroidDeviceOwnerTrustedRootCertificate|null
     */
     public function getRootCertificate(): ?AndroidDeviceOwnerTrustedRootCertificate {
-        return $this->rootCertificate;
+        return $this->getBackingStore()->get('rootCertificate');
     }
 
     /**
@@ -131,7 +96,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return SubjectAlternativeNameType|null
     */
     public function getSubjectAlternativeNameType(): ?SubjectAlternativeNameType {
-        return $this->subjectAlternativeNameType;
+        return $this->getBackingStore()->get('subjectAlternativeNameType');
     }
 
     /**
@@ -139,7 +104,7 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
      * @return SubjectNameFormat|null
     */
     public function getSubjectNameFormat(): ?SubjectNameFormat {
-        return $this->subjectNameFormat;
+        return $this->getBackingStore()->get('subjectNameFormat');
     }
 
     /**
@@ -148,69 +113,69 @@ class AndroidDeviceOwnerCertificateProfileBase extends DeviceConfiguration imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('certificateValidityPeriodScale', $this->certificateValidityPeriodScale);
-        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
-        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->extendedKeyUsages);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
-        $writer->writeObjectValue('rootCertificate', $this->rootCertificate);
-        $writer->writeEnumValue('subjectAlternativeNameType', $this->subjectAlternativeNameType);
-        $writer->writeEnumValue('subjectNameFormat', $this->subjectNameFormat);
+        $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
+        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
+        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
+        $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
+        $writer->writeObjectValue('rootCertificate', $this->getRootCertificate());
+        $writer->writeEnumValue('subjectAlternativeNameType', $this->getSubjectAlternativeNameType());
+        $writer->writeEnumValue('subjectNameFormat', $this->getSubjectNameFormat());
     }
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
-    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
-        $this->certificateValidityPeriodScale = $value;
+    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period.
      *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
-    public function setCertificateValidityPeriodValue(?int $value ): void {
-        $this->certificateValidityPeriodValue = $value;
+    public function setCertificateValidityPeriodValue(?int $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
     }
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
-    public function setExtendedKeyUsages(?array $value ): void {
-        $this->extendedKeyUsages = $value;
+    public function setExtendedKeyUsages(?array $value): void {
+        $this->getBackingStore()->set('extendedKeyUsages', $value);
     }
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage. Valid values 1 to 99
      *  @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
+    public function setRenewalThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('renewalThresholdPercentage', $value);
     }
 
     /**
      * Sets the rootCertificate property value. Trusted Root Certificate.
      *  @param AndroidDeviceOwnerTrustedRootCertificate|null $value Value to set for the rootCertificate property.
     */
-    public function setRootCertificate(?AndroidDeviceOwnerTrustedRootCertificate $value ): void {
-        $this->rootCertificate = $value;
+    public function setRootCertificate(?AndroidDeviceOwnerTrustedRootCertificate $value): void {
+        $this->getBackingStore()->set('rootCertificate', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameType property value. Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
      *  @param SubjectAlternativeNameType|null $value Value to set for the subjectAlternativeNameType property.
     */
-    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value ): void {
-        $this->subjectAlternativeNameType = $value;
+    public function setSubjectAlternativeNameType(?SubjectAlternativeNameType $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameType', $value);
     }
 
     /**
      * Sets the subjectNameFormat property value. Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
      *  @param SubjectNameFormat|null $value Value to set for the subjectNameFormat property.
     */
-    public function setSubjectNameFormat(?SubjectNameFormat $value ): void {
-        $this->subjectNameFormat = $value;
+    public function setSubjectNameFormat(?SubjectNameFormat $value): void {
+        $this->getBackingStore()->set('subjectNameFormat', $value);
     }
 
 }

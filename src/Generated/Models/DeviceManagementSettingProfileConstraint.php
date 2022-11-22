@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingProfileConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var string|null $source The source of the entity
-    */
-    private ?string $source = null;
-    
-    /**
-     * @var array<string>|null $types A collection of types this entity carries
-    */
-    private ?array $types = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingProfileConstraint and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
      * @return string|null
     */
     public function getSource(): ?string {
-        return $this->source;
+        return $this->getBackingStore()->get('source');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
      * @return array<string>|null
     */
     public function getTypes(): ?array {
-        return $this->types;
+        return $this->getBackingStore()->get('types');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementSettingProfileConstraint extends DeviceManagementConstrain
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('source', $this->source);
-        $writer->writeCollectionOfPrimitiveValues('types', $this->types);
+        $writer->writeStringValue('source', $this->getSource());
+        $writer->writeCollectionOfPrimitiveValues('types', $this->getTypes());
     }
 
     /**
      * Sets the source property value. The source of the entity
      *  @param string|null $value Value to set for the source property.
     */
-    public function setSource(?string $value ): void {
-        $this->source = $value;
+    public function setSource(?string $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the types property value. A collection of types this entity carries
      *  @param array<string>|null $value Value to set for the types property.
     */
-    public function setTypes(?array $value ): void {
-        $this->types = $value;
+    public function setTypes(?array $value): void {
+        $this->getBackingStore()->set('types', $value);
     }
 
 }

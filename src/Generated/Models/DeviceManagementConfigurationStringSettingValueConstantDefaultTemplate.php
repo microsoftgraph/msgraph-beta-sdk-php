@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationStringSettingValueDefaultTemplate implements Parsable 
 {
     /**
-     * @var string|null $constantValue Default Constant Value
-    */
-    private ?string $constantValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate ext
      * @return string|null
     */
     public function getConstantValue(): ?string {
-        return $this->constantValue;
+        return $this->getBackingStore()->get('constantValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate ext
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('constantValue', $this->constantValue);
+        $writer->writeStringValue('constantValue', $this->getConstantValue());
     }
 
     /**
      * Sets the constantValue property value. Default Constant Value
      *  @param string|null $value Value to set for the constantValue property.
     */
-    public function setConstantValue(?string $value ): void {
-        $this->constantValue = $value;
+    public function setConstantValue(?string $value): void {
+        $this->getBackingStore()->set('constantValue', $value);
     }
 
 }

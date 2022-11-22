@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable 
+class DeviceComplianceScriptRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DataType|null $dataType Data types for rules.
-    */
-    private ?DataType $dataType = null;
-    
-    /**
-     * @var DeviceComplianceScriptRuleDataType|null $deviceComplianceScriptRuleDataType Data types for rules.
-    */
-    private ?DeviceComplianceScriptRuleDataType $deviceComplianceScriptRuleDataType = null;
-    
-    /**
-     * @var DeviceComplianceScriptRulOperator|null $deviceComplianceScriptRulOperator Operator for rules.
-    */
-    private ?DeviceComplianceScriptRulOperator $deviceComplianceScriptRulOperator = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $operand Operand specified in the rule.
-    */
-    private ?string $operand = null;
-    
-    /**
-     * @var Operator|null $operator Operator for rules.
-    */
-    private ?Operator $operator = null;
-    
-    /**
-     * @var string|null $settingName Setting name specified in the rule.
-    */
-    private ?string $settingName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new deviceComplianceScriptRule and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.deviceComplianceScriptRule');
     }
 
     /**
@@ -70,8 +38,16 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +55,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return DataType|null
     */
     public function getDataType(): ?DataType {
-        return $this->dataType;
+        return $this->getBackingStore()->get('dataType');
     }
 
     /**
@@ -87,7 +63,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return DeviceComplianceScriptRuleDataType|null
     */
     public function getDeviceComplianceScriptRuleDataType(): ?DeviceComplianceScriptRuleDataType {
-        return $this->deviceComplianceScriptRuleDataType;
+        return $this->getBackingStore()->get('deviceComplianceScriptRuleDataType');
     }
 
     /**
@@ -95,7 +71,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return DeviceComplianceScriptRulOperator|null
     */
     public function getDeviceComplianceScriptRulOperator(): ?DeviceComplianceScriptRulOperator {
-        return $this->deviceComplianceScriptRulOperator;
+        return $this->getBackingStore()->get('deviceComplianceScriptRulOperator');
     }
 
     /**
@@ -120,7 +96,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,7 +104,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOperand(): ?string {
-        return $this->operand;
+        return $this->getBackingStore()->get('operand');
     }
 
     /**
@@ -136,7 +112,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return Operator|null
     */
     public function getOperator(): ?Operator {
-        return $this->operator;
+        return $this->getBackingStore()->get('operator');
     }
 
     /**
@@ -144,7 +120,7 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSettingName(): ?string {
-        return $this->settingName;
+        return $this->getBackingStore()->get('settingName');
     }
 
     /**
@@ -152,78 +128,86 @@ class DeviceComplianceScriptRule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('dataType', $this->dataType);
-        $writer->writeEnumValue('deviceComplianceScriptRuleDataType', $this->deviceComplianceScriptRuleDataType);
-        $writer->writeEnumValue('deviceComplianceScriptRulOperator', $this->deviceComplianceScriptRulOperator);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('operand', $this->operand);
-        $writer->writeEnumValue('operator', $this->operator);
-        $writer->writeStringValue('settingName', $this->settingName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('dataType', $this->getDataType());
+        $writer->writeEnumValue('deviceComplianceScriptRuleDataType', $this->getDeviceComplianceScriptRuleDataType());
+        $writer->writeEnumValue('deviceComplianceScriptRulOperator', $this->getDeviceComplianceScriptRulOperator());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('operand', $this->getOperand());
+        $writer->writeEnumValue('operator', $this->getOperator());
+        $writer->writeStringValue('settingName', $this->getSettingName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the dataType property value. Data types for rules.
      *  @param DataType|null $value Value to set for the dataType property.
     */
-    public function setDataType(?DataType $value ): void {
-        $this->dataType = $value;
+    public function setDataType(?DataType $value): void {
+        $this->getBackingStore()->set('dataType', $value);
     }
 
     /**
      * Sets the deviceComplianceScriptRuleDataType property value. Data types for rules.
      *  @param DeviceComplianceScriptRuleDataType|null $value Value to set for the deviceComplianceScriptRuleDataType property.
     */
-    public function setDeviceComplianceScriptRuleDataType(?DeviceComplianceScriptRuleDataType $value ): void {
-        $this->deviceComplianceScriptRuleDataType = $value;
+    public function setDeviceComplianceScriptRuleDataType(?DeviceComplianceScriptRuleDataType $value): void {
+        $this->getBackingStore()->set('deviceComplianceScriptRuleDataType', $value);
     }
 
     /**
      * Sets the deviceComplianceScriptRulOperator property value. Operator for rules.
      *  @param DeviceComplianceScriptRulOperator|null $value Value to set for the deviceComplianceScriptRulOperator property.
     */
-    public function setDeviceComplianceScriptRulOperator(?DeviceComplianceScriptRulOperator $value ): void {
-        $this->deviceComplianceScriptRulOperator = $value;
+    public function setDeviceComplianceScriptRulOperator(?DeviceComplianceScriptRulOperator $value): void {
+        $this->getBackingStore()->set('deviceComplianceScriptRulOperator', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the operand property value. Operand specified in the rule.
      *  @param string|null $value Value to set for the operand property.
     */
-    public function setOperand(?string $value ): void {
-        $this->operand = $value;
+    public function setOperand(?string $value): void {
+        $this->getBackingStore()->set('operand', $value);
     }
 
     /**
      * Sets the operator property value. Operator for rules.
      *  @param Operator|null $value Value to set for the operator property.
     */
-    public function setOperator(?Operator $value ): void {
-        $this->operator = $value;
+    public function setOperator(?Operator $value): void {
+        $this->getBackingStore()->set('operator', $value);
     }
 
     /**
      * Sets the settingName property value. Setting name specified in the rule.
      *  @param string|null $value Value to set for the settingName property.
     */
-    public function setSettingName(?string $value ): void {
-        $this->settingName = $value;
+    public function setSettingName(?string $value): void {
+        $this->getBackingStore()->set('settingName', $value);
     }
 
 }

@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DispositionReviewStage extends Entity implements Parsable 
 {
     /**
-     * @var string|null $name Name representing each stage within a collection.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<string>|null $reviewersEmailAddresses A collection of reviewers at each stage.
-    */
-    private ?array $reviewersEmailAddresses = null;
-    
-    /**
-     * @var int|null $stageNumber The sequence number for each stage of the disposition review.
-    */
-    private ?int $stageNumber = null;
-    
-    /**
      * Instantiates a new dispositionReviewStage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.dispositionReviewStage');
     }
 
     /**
@@ -59,7 +43,7 @@ class DispositionReviewStage extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -67,7 +51,7 @@ class DispositionReviewStage extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getReviewersEmailAddresses(): ?array {
-        return $this->reviewersEmailAddresses;
+        return $this->getBackingStore()->get('reviewersEmailAddresses');
     }
 
     /**
@@ -75,7 +59,7 @@ class DispositionReviewStage extends Entity implements Parsable
      * @return int|null
     */
     public function getStageNumber(): ?int {
-        return $this->stageNumber;
+        return $this->getBackingStore()->get('stageNumber');
     }
 
     /**
@@ -84,33 +68,33 @@ class DispositionReviewStage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfPrimitiveValues('reviewersEmailAddresses', $this->reviewersEmailAddresses);
-        $writer->writeIntegerValue('stageNumber', $this->stageNumber);
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfPrimitiveValues('reviewersEmailAddresses', $this->getReviewersEmailAddresses());
+        $writer->writeIntegerValue('stageNumber', $this->getStageNumber());
     }
 
     /**
      * Sets the name property value. Name representing each stage within a collection.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the reviewersEmailAddresses property value. A collection of reviewers at each stage.
      *  @param array<string>|null $value Value to set for the reviewersEmailAddresses property.
     */
-    public function setReviewersEmailAddresses(?array $value ): void {
-        $this->reviewersEmailAddresses = $value;
+    public function setReviewersEmailAddresses(?array $value): void {
+        $this->getBackingStore()->set('reviewersEmailAddresses', $value);
     }
 
     /**
      * Sets the stageNumber property value. The sequence number for each stage of the disposition review.
      *  @param int|null $value Value to set for the stageNumber property.
     */
-    public function setStageNumber(?int $value ): void {
-        $this->stageNumber = $value;
+    public function setStageNumber(?int $value): void {
+        $this->getBackingStore()->set('stageNumber', $value);
     }
 
 }

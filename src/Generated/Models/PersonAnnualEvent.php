@@ -10,21 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PersonAnnualEvent extends ItemFacet implements Parsable 
 {
     /**
-     * @var Date|null $date The date property
-    */
-    private ?Date $date = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var PersonAnnualEventType|null $type The type property
-    */
-    private ?PersonAnnualEventType $type = null;
-    
-    /**
      * Instantiates a new PersonAnnualEvent and sets the default values.
     */
     public function __construct() {
@@ -46,7 +31,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
      * @return Date|null
     */
     public function getDate(): ?Date {
-        return $this->date;
+        return $this->getBackingStore()->get('date');
     }
 
     /**
@@ -54,7 +39,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -75,7 +60,7 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
      * @return PersonAnnualEventType|null
     */
     public function getType(): ?PersonAnnualEventType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -84,33 +69,33 @@ class PersonAnnualEvent extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateValue('date', $this->date);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('type', $this->type);
+        $writer->writeDateValue('date', $this->getDate());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('type', $this->getType());
     }
 
     /**
      * Sets the date property value. The date property
      *  @param Date|null $value Value to set for the date property.
     */
-    public function setDate(?Date $value ): void {
-        $this->date = $value;
+    public function setDate(?Date $value): void {
+        $this->getBackingStore()->set('date', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param PersonAnnualEventType|null $value Value to set for the type property.
     */
-    public function setType(?PersonAnnualEventType $value ): void {
-        $this->type = $value;
+    public function setType(?PersonAnnualEventType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

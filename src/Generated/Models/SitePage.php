@@ -9,32 +9,7 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SitePage extends BaseItem implements Parsable 
 {
     /**
-     * @var ContentTypeInfo|null $contentType The content type of the page.
-    */
-    private ?ContentTypeInfo $contentType = null;
-    
-    /**
-     * @var string|null $pageLayoutType The pageLayoutType property
-    */
-    private ?string $pageLayoutType = null;
-    
-    /**
-     * @var PublicationFacet|null $publishingState The publishingState property
-    */
-    private ?PublicationFacet $publishingState = null;
-    
-    /**
-     * @var string|null $title The title property
-    */
-    private ?string $title = null;
-    
-    /**
-     * @var array<WebPart>|null $webParts The webParts property
-    */
-    private ?array $webParts = null;
-    
-    /**
-     * Instantiates a new sitePage and sets the default values.
+     * Instantiates a new SitePage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
@@ -55,7 +30,7 @@ class SitePage extends BaseItem implements Parsable
      * @return ContentTypeInfo|null
     */
     public function getContentType(): ?ContentTypeInfo {
-        return $this->contentType;
+        return $this->getBackingStore()->get('contentType');
     }
 
     /**
@@ -78,7 +53,7 @@ class SitePage extends BaseItem implements Parsable
      * @return string|null
     */
     public function getPageLayoutType(): ?string {
-        return $this->pageLayoutType;
+        return $this->getBackingStore()->get('pageLayoutType');
     }
 
     /**
@@ -86,7 +61,7 @@ class SitePage extends BaseItem implements Parsable
      * @return PublicationFacet|null
     */
     public function getPublishingState(): ?PublicationFacet {
-        return $this->publishingState;
+        return $this->getBackingStore()->get('publishingState');
     }
 
     /**
@@ -94,7 +69,7 @@ class SitePage extends BaseItem implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->title;
+        return $this->getBackingStore()->get('title');
     }
 
     /**
@@ -102,7 +77,7 @@ class SitePage extends BaseItem implements Parsable
      * @return array<WebPart>|null
     */
     public function getWebParts(): ?array {
-        return $this->webParts;
+        return $this->getBackingStore()->get('webParts');
     }
 
     /**
@@ -111,51 +86,51 @@ class SitePage extends BaseItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('contentType', $this->contentType);
-        $writer->writeStringValue('pageLayoutType', $this->pageLayoutType);
-        $writer->writeObjectValue('publishingState', $this->publishingState);
-        $writer->writeStringValue('title', $this->title);
-        $writer->writeCollectionOfObjectValues('webParts', $this->webParts);
+        $writer->writeObjectValue('contentType', $this->getContentType());
+        $writer->writeStringValue('pageLayoutType', $this->getPageLayoutType());
+        $writer->writeObjectValue('publishingState', $this->getPublishingState());
+        $writer->writeStringValue('title', $this->getTitle());
+        $writer->writeCollectionOfObjectValues('webParts', $this->getWebParts());
     }
 
     /**
      * Sets the contentType property value. The content type of the page.
      *  @param ContentTypeInfo|null $value Value to set for the contentType property.
     */
-    public function setContentType(?ContentTypeInfo $value ): void {
-        $this->contentType = $value;
+    public function setContentType(?ContentTypeInfo $value): void {
+        $this->getBackingStore()->set('contentType', $value);
     }
 
     /**
      * Sets the pageLayoutType property value. The pageLayoutType property
      *  @param string|null $value Value to set for the pageLayoutType property.
     */
-    public function setPageLayoutType(?string $value ): void {
-        $this->pageLayoutType = $value;
+    public function setPageLayoutType(?string $value): void {
+        $this->getBackingStore()->set('pageLayoutType', $value);
     }
 
     /**
      * Sets the publishingState property value. The publishingState property
      *  @param PublicationFacet|null $value Value to set for the publishingState property.
     */
-    public function setPublishingState(?PublicationFacet $value ): void {
-        $this->publishingState = $value;
+    public function setPublishingState(?PublicationFacet $value): void {
+        $this->getBackingStore()->set('publishingState', $value);
     }
 
     /**
      * Sets the title property value. The title property
      *  @param string|null $value Value to set for the title property.
     */
-    public function setTitle(?string $value ): void {
-        $this->title = $value;
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
     }
 
     /**
      * Sets the webParts property value. The webParts property
      *  @param array<WebPart>|null $value Value to set for the webParts property.
     */
-    public function setWebParts(?array $value ): void {
-        $this->webParts = $value;
+    public function setWebParts(?array $value): void {
+        $this->getBackingStore()->set('webParts', $value);
     }
 
 }

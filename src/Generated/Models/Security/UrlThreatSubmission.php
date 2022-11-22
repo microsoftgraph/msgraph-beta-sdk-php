@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UrlThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * @var string|null $webUrl Denotes the webUrl that needs to be submitted.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new UrlThreatSubmission and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class UrlThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class UrlThreatSubmission extends ThreatSubmission implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the webUrl property value. Denotes the webUrl that needs to be submitted.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemActivityOLD extends Entity implements Parsable 
 {
     /**
-     * @var ItemActionSet|null $action The action property
-    */
-    private ?ItemActionSet $action = null;
-    
-    /**
-     * @var IdentitySet|null $actor The actor property
-    */
-    private ?IdentitySet $actor = null;
-    
-    /**
-     * @var DriveItem|null $driveItem The driveItem property
-    */
-    private ?DriveItem $driveItem = null;
-    
-    /**
-     * @var ListItem|null $listItem The listItem property
-    */
-    private ?ListItem $listItem = null;
-    
-    /**
-     * @var ItemActivityTimeSet|null $times The times property
-    */
-    private ?ItemActivityTimeSet $times = null;
-    
-    /**
      * Instantiates a new itemActivityOLD and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.itemActivityOLD');
     }
 
     /**
@@ -55,7 +29,7 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ItemActionSet|null
     */
     public function getAction(): ?ItemActionSet {
-        return $this->action;
+        return $this->getBackingStore()->get('action');
     }
 
     /**
@@ -63,7 +37,7 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getActor(): ?IdentitySet {
-        return $this->actor;
+        return $this->getBackingStore()->get('actor');
     }
 
     /**
@@ -71,7 +45,7 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return DriveItem|null
     */
     public function getDriveItem(): ?DriveItem {
-        return $this->driveItem;
+        return $this->getBackingStore()->get('driveItem');
     }
 
     /**
@@ -94,7 +68,7 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ListItem|null
     */
     public function getListItem(): ?ListItem {
-        return $this->listItem;
+        return $this->getBackingStore()->get('listItem');
     }
 
     /**
@@ -102,7 +76,7 @@ class ItemActivityOLD extends Entity implements Parsable
      * @return ItemActivityTimeSet|null
     */
     public function getTimes(): ?ItemActivityTimeSet {
-        return $this->times;
+        return $this->getBackingStore()->get('times');
     }
 
     /**
@@ -111,51 +85,51 @@ class ItemActivityOLD extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('action', $this->action);
-        $writer->writeObjectValue('actor', $this->actor);
-        $writer->writeObjectValue('driveItem', $this->driveItem);
-        $writer->writeObjectValue('listItem', $this->listItem);
-        $writer->writeObjectValue('times', $this->times);
+        $writer->writeObjectValue('action', $this->getAction());
+        $writer->writeObjectValue('actor', $this->getActor());
+        $writer->writeObjectValue('driveItem', $this->getDriveItem());
+        $writer->writeObjectValue('listItem', $this->getListItem());
+        $writer->writeObjectValue('times', $this->getTimes());
     }
 
     /**
      * Sets the action property value. The action property
      *  @param ItemActionSet|null $value Value to set for the action property.
     */
-    public function setAction(?ItemActionSet $value ): void {
-        $this->action = $value;
+    public function setAction(?ItemActionSet $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
      * Sets the actor property value. The actor property
      *  @param IdentitySet|null $value Value to set for the actor property.
     */
-    public function setActor(?IdentitySet $value ): void {
-        $this->actor = $value;
+    public function setActor(?IdentitySet $value): void {
+        $this->getBackingStore()->set('actor', $value);
     }
 
     /**
      * Sets the driveItem property value. The driveItem property
      *  @param DriveItem|null $value Value to set for the driveItem property.
     */
-    public function setDriveItem(?DriveItem $value ): void {
-        $this->driveItem = $value;
+    public function setDriveItem(?DriveItem $value): void {
+        $this->getBackingStore()->set('driveItem', $value);
     }
 
     /**
      * Sets the listItem property value. The listItem property
      *  @param ListItem|null $value Value to set for the listItem property.
     */
-    public function setListItem(?ListItem $value ): void {
-        $this->listItem = $value;
+    public function setListItem(?ListItem $value): void {
+        $this->getBackingStore()->set('listItem', $value);
     }
 
     /**
      * Sets the times property value. The times property
      *  @param ItemActivityTimeSet|null $value Value to set for the times property.
     */
-    public function setTimes(?ItemActivityTimeSet $value ): void {
-        $this->times = $value;
+    public function setTimes(?ItemActivityTimeSet $value): void {
+        $this->getBackingStore()->set('times', $value);
     }
 
 }

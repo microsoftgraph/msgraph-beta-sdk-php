@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Creation time of the Assignment Filter.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Description of the Assignment Filter.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName DisplayName of the Assignment Filter.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified time of the Assignment Filter.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<PayloadByFilter>|null $payloads Associated assignments for a specific filter
-    */
-    private ?array $payloads = null;
-    
-    /**
-     * @var DevicePlatformType|null $platform Supported platform types.
-    */
-    private ?DevicePlatformType $platform = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTags RoleScopeTags of the Assignment Filter.
-    */
-    private ?array $roleScopeTags = null;
-    
-    /**
-     * @var string|null $rule Rule definition of the Assignment Filter.
-    */
-    private ?string $rule = null;
-    
-    /**
      * Instantiates a new deviceAndAppManagementAssignmentFilter and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceAndAppManagementAssignmentFilter');
     }
 
     /**
@@ -78,7 +37,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -86,7 +45,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -94,7 +53,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -120,7 +79,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -128,7 +87,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return array<PayloadByFilter>|null
     */
     public function getPayloads(): ?array {
-        return $this->payloads;
+        return $this->getBackingStore()->get('payloads');
     }
 
     /**
@@ -136,7 +95,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -144,7 +103,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTags(): ?array {
-        return $this->roleScopeTags;
+        return $this->getBackingStore()->get('roleScopeTags');
     }
 
     /**
@@ -152,7 +111,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
      * @return string|null
     */
     public function getRule(): ?string {
-        return $this->rule;
+        return $this->getBackingStore()->get('rule');
     }
 
     /**
@@ -161,78 +120,78 @@ class DeviceAndAppManagementAssignmentFilter extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfObjectValues('payloads', $this->payloads);
-        $writer->writeEnumValue('platform', $this->platform);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->roleScopeTags);
-        $writer->writeStringValue('rule', $this->rule);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('payloads', $this->getPayloads());
+        $writer->writeEnumValue('platform', $this->getPlatform());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTags', $this->getRoleScopeTags());
+        $writer->writeStringValue('rule', $this->getRule());
     }
 
     /**
      * Sets the createdDateTime property value. Creation time of the Assignment Filter.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Description of the Assignment Filter.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. DisplayName of the Assignment Filter.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the Assignment Filter.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the payloads property value. Associated assignments for a specific filter
      *  @param array<PayloadByFilter>|null $value Value to set for the payloads property.
     */
-    public function setPayloads(?array $value ): void {
-        $this->payloads = $value;
+    public function setPayloads(?array $value): void {
+        $this->getBackingStore()->set('payloads', $value);
     }
 
     /**
      * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
-    public function setPlatform(?DevicePlatformType $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**
      * Sets the roleScopeTags property value. RoleScopeTags of the Assignment Filter.
      *  @param array<string>|null $value Value to set for the roleScopeTags property.
     */
-    public function setRoleScopeTags(?array $value ): void {
-        $this->roleScopeTags = $value;
+    public function setRoleScopeTags(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTags', $value);
     }
 
     /**
      * Sets the rule property value. Rule definition of the Assignment Filter.
      *  @param string|null $value Value to set for the rule property.
     */
-    public function setRule(?string $value ): void {
-        $this->rule = $value;
+    public function setRule(?string $value): void {
+        $this->getBackingStore()->set('rule', $value);
     }
 
 }

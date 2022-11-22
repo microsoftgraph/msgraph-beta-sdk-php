@@ -10,21 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class FileClassificationRequest extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $file The file property
-    */
-    private ?StreamInterface $file = null;
-    
-    /**
-     * @var array<string>|null $sensitiveTypeIds The sensitiveTypeIds property
-    */
-    private ?array $sensitiveTypeIds = null;
-    
-    /**
      * Instantiates a new FileClassificationRequest and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.fileClassificationRequest');
     }
 
     /**
@@ -50,10 +39,10 @@ class FileClassificationRequest extends Entity implements Parsable
 
     /**
      * Gets the file property value. The file property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getFile(): StreamInterface {
-        return $this->file;
+    public function getFile(): ?StreamInterface {
+        return $this->getBackingStore()->get('file');
     }
 
     /**
@@ -61,7 +50,7 @@ class FileClassificationRequest extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
-        return $this->sensitiveTypeIds;
+        return $this->getBackingStore()->get('sensitiveTypeIds');
     }
 
     /**
@@ -70,24 +59,24 @@ class FileClassificationRequest extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('file', $this->file);
-        $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->sensitiveTypeIds);
+        $writer->writeBinaryContent('file', $this->getFile());
+        $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->getSensitiveTypeIds());
     }
 
     /**
      * Sets the file property value. The file property
      *  @param StreamInterface|null $value Value to set for the file property.
     */
-    public function setFile(?StreamInterface $value ): void {
-        $this->file = $value;
+    public function setFile(?StreamInterface $value): void {
+        $this->getBackingStore()->set('file', $value);
     }
 
     /**
      * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
      *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
-    public function setSensitiveTypeIds(?array $value ): void {
-        $this->sensitiveTypeIds = $value;
+    public function setSensitiveTypeIds(?array $value): void {
+        $this->getBackingStore()->set('sensitiveTypeIds', $value);
     }
 
 }

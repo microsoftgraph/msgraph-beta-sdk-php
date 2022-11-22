@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable 
+class EvaluateLabelJobResultGroup implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var EvaluateLabelJobResult|null $automatic The automatic property
-    */
-    private ?EvaluateLabelJobResult $automatic = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var EvaluateLabelJobResult|null $recommended The recommended property
-    */
-    private ?EvaluateLabelJobResult $recommended = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new evaluateLabelJobResultGroup and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.evaluateLabelJobResultGroup');
     }
 
     /**
@@ -50,8 +38,8 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -59,7 +47,15 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @return EvaluateLabelJobResult|null
     */
     public function getAutomatic(): ?EvaluateLabelJobResult {
-        return $this->automatic;
+        return $this->getBackingStore()->get('automatic');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -80,7 +76,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +84,7 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @return EvaluateLabelJobResult|null
     */
     public function getRecommended(): ?EvaluateLabelJobResult {
-        return $this->recommended;
+        return $this->getBackingStore()->get('recommended');
     }
 
     /**
@@ -96,42 +92,50 @@ class EvaluateLabelJobResultGroup implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('automatic', $this->automatic);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('recommended', $this->recommended);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('automatic', $this->getAutomatic());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('recommended', $this->getRecommended());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the automatic property value. The automatic property
      *  @param EvaluateLabelJobResult|null $value Value to set for the automatic property.
     */
-    public function setAutomatic(?EvaluateLabelJobResult $value ): void {
-        $this->automatic = $value;
+    public function setAutomatic(?EvaluateLabelJobResult $value): void {
+        $this->getBackingStore()->set('automatic', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the recommended property value. The recommended property
      *  @param EvaluateLabelJobResult|null $value Value to set for the recommended property.
     */
-    public function setRecommended(?EvaluateLabelJobResult $value ): void {
-        $this->recommended = $value;
+    public function setRecommended(?EvaluateLabelJobResult $value): void {
+        $this->getBackingStore()->set('recommended', $value);
     }
 
 }

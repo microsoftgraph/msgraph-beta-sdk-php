@@ -9,41 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $configurationEndpointUrl Configuration endpoint url to use for Enrollment
-    */
-    private ?string $configurationEndpointUrl = null;
-    
-    /**
-     * @var string|null $description Description of the profile
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Name of the profile
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $enableAuthenticationViaCompanyPortal Indicates to authenticate with Apple Setup Assistant instead of Company Portal.
-    */
-    private ?bool $enableAuthenticationViaCompanyPortal = null;
-    
-    /**
-     * @var bool|null $requireCompanyPortalOnSetupAssistantEnrolledDevices Indicates that Company Portal is required on setup assistant enrolled devices
-    */
-    private ?bool $requireCompanyPortalOnSetupAssistantEnrolledDevices = null;
-    
-    /**
-     * @var bool|null $requiresUserAuthentication Indicates if the profile requires user authentication
-    */
-    private ?bool $requiresUserAuthentication = null;
-    
-    /**
      * Instantiates a new enrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.enrollmentProfile');
     }
 
     /**
@@ -70,7 +39,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getConfigurationEndpointUrl(): ?string {
-        return $this->configurationEndpointUrl;
+        return $this->getBackingStore()->get('configurationEndpointUrl');
     }
 
     /**
@@ -78,7 +47,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -86,7 +55,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -94,7 +63,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnableAuthenticationViaCompanyPortal(): ?bool {
-        return $this->enableAuthenticationViaCompanyPortal;
+        return $this->getBackingStore()->get('enableAuthenticationViaCompanyPortal');
     }
 
     /**
@@ -118,7 +87,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequireCompanyPortalOnSetupAssistantEnrolledDevices(): ?bool {
-        return $this->requireCompanyPortalOnSetupAssistantEnrolledDevices;
+        return $this->getBackingStore()->get('requireCompanyPortalOnSetupAssistantEnrolledDevices');
     }
 
     /**
@@ -126,7 +95,7 @@ class EnrollmentProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getRequiresUserAuthentication(): ?bool {
-        return $this->requiresUserAuthentication;
+        return $this->getBackingStore()->get('requiresUserAuthentication');
     }
 
     /**
@@ -135,60 +104,60 @@ class EnrollmentProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('configurationEndpointUrl', $this->configurationEndpointUrl);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('enableAuthenticationViaCompanyPortal', $this->enableAuthenticationViaCompanyPortal);
-        $writer->writeBooleanValue('requireCompanyPortalOnSetupAssistantEnrolledDevices', $this->requireCompanyPortalOnSetupAssistantEnrolledDevices);
-        $writer->writeBooleanValue('requiresUserAuthentication', $this->requiresUserAuthentication);
+        $writer->writeStringValue('configurationEndpointUrl', $this->getConfigurationEndpointUrl());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('enableAuthenticationViaCompanyPortal', $this->getEnableAuthenticationViaCompanyPortal());
+        $writer->writeBooleanValue('requireCompanyPortalOnSetupAssistantEnrolledDevices', $this->getRequireCompanyPortalOnSetupAssistantEnrolledDevices());
+        $writer->writeBooleanValue('requiresUserAuthentication', $this->getRequiresUserAuthentication());
     }
 
     /**
      * Sets the configurationEndpointUrl property value. Configuration endpoint url to use for Enrollment
      *  @param string|null $value Value to set for the configurationEndpointUrl property.
     */
-    public function setConfigurationEndpointUrl(?string $value ): void {
-        $this->configurationEndpointUrl = $value;
+    public function setConfigurationEndpointUrl(?string $value): void {
+        $this->getBackingStore()->set('configurationEndpointUrl', $value);
     }
 
     /**
      * Sets the description property value. Description of the profile
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the profile
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the enableAuthenticationViaCompanyPortal property value. Indicates to authenticate with Apple Setup Assistant instead of Company Portal.
      *  @param bool|null $value Value to set for the enableAuthenticationViaCompanyPortal property.
     */
-    public function setEnableAuthenticationViaCompanyPortal(?bool $value ): void {
-        $this->enableAuthenticationViaCompanyPortal = $value;
+    public function setEnableAuthenticationViaCompanyPortal(?bool $value): void {
+        $this->getBackingStore()->set('enableAuthenticationViaCompanyPortal', $value);
     }
 
     /**
      * Sets the requireCompanyPortalOnSetupAssistantEnrolledDevices property value. Indicates that Company Portal is required on setup assistant enrolled devices
      *  @param bool|null $value Value to set for the requireCompanyPortalOnSetupAssistantEnrolledDevices property.
     */
-    public function setRequireCompanyPortalOnSetupAssistantEnrolledDevices(?bool $value ): void {
-        $this->requireCompanyPortalOnSetupAssistantEnrolledDevices = $value;
+    public function setRequireCompanyPortalOnSetupAssistantEnrolledDevices(?bool $value): void {
+        $this->getBackingStore()->set('requireCompanyPortalOnSetupAssistantEnrolledDevices', $value);
     }
 
     /**
      * Sets the requiresUserAuthentication property value. Indicates if the profile requires user authentication
      *  @param bool|null $value Value to set for the requiresUserAuthentication property.
     */
-    public function setRequiresUserAuthentication(?bool $value ): void {
-        $this->requiresUserAuthentication = $value;
+    public function setRequiresUserAuthentication(?bool $value): void {
+        $this->getBackingStore()->set('requiresUserAuthentication', $value);
     }
 
 }

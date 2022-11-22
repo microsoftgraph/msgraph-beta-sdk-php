@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AddWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $fontColor Color of the font to use for the watermark.
-    */
-    private ?string $fontColor = null;
-    
-    /**
-     * @var string|null $fontName Name of the font to use for the watermark.
-    */
-    private ?string $fontName = null;
-    
-    /**
-     * @var int|null $fontSize Font size to use for the watermark.
-    */
-    private ?int $fontSize = null;
-    
-    /**
-     * @var WatermarkLayout|null $layout The layout property
-    */
-    private ?WatermarkLayout $layout = null;
-    
-    /**
-     * @var string|null $text The contents of the watermark itself.
-    */
-    private ?string $text = null;
-    
-    /**
-     * @var string|null $uiElementName The name of the UI element where the watermark should be placed.
-    */
-    private ?string $uiElementName = null;
-    
-    /**
      * Instantiates a new AddWatermarkAction and sets the default values.
     */
     public function __construct() {
@@ -76,7 +46,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getFontColor(): ?string {
-        return $this->fontColor;
+        return $this->getBackingStore()->get('fontColor');
     }
 
     /**
@@ -84,7 +54,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getFontName(): ?string {
-        return $this->fontName;
+        return $this->getBackingStore()->get('fontName');
     }
 
     /**
@@ -92,7 +62,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return int|null
     */
     public function getFontSize(): ?int {
-        return $this->fontSize;
+        return $this->getBackingStore()->get('fontSize');
     }
 
     /**
@@ -100,7 +70,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return WatermarkLayout|null
     */
     public function getLayout(): ?WatermarkLayout {
-        return $this->layout;
+        return $this->getBackingStore()->get('layout');
     }
 
     /**
@@ -108,7 +78,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -116,7 +86,7 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
      * @return string|null
     */
     public function getUiElementName(): ?string {
-        return $this->uiElementName;
+        return $this->getBackingStore()->get('uiElementName');
     }
 
     /**
@@ -125,60 +95,60 @@ class AddWatermarkAction extends InformationProtectionAction implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('fontColor', $this->fontColor);
-        $writer->writeStringValue('fontName', $this->fontName);
-        $writer->writeIntegerValue('fontSize', $this->fontSize);
-        $writer->writeEnumValue('layout', $this->layout);
-        $writer->writeStringValue('text', $this->text);
-        $writer->writeStringValue('uiElementName', $this->uiElementName);
+        $writer->writeStringValue('fontColor', $this->getFontColor());
+        $writer->writeStringValue('fontName', $this->getFontName());
+        $writer->writeIntegerValue('fontSize', $this->getFontSize());
+        $writer->writeEnumValue('layout', $this->getLayout());
+        $writer->writeStringValue('text', $this->getText());
+        $writer->writeStringValue('uiElementName', $this->getUiElementName());
     }
 
     /**
      * Sets the fontColor property value. Color of the font to use for the watermark.
      *  @param string|null $value Value to set for the fontColor property.
     */
-    public function setFontColor(?string $value ): void {
-        $this->fontColor = $value;
+    public function setFontColor(?string $value): void {
+        $this->getBackingStore()->set('fontColor', $value);
     }
 
     /**
      * Sets the fontName property value. Name of the font to use for the watermark.
      *  @param string|null $value Value to set for the fontName property.
     */
-    public function setFontName(?string $value ): void {
-        $this->fontName = $value;
+    public function setFontName(?string $value): void {
+        $this->getBackingStore()->set('fontName', $value);
     }
 
     /**
      * Sets the fontSize property value. Font size to use for the watermark.
      *  @param int|null $value Value to set for the fontSize property.
     */
-    public function setFontSize(?int $value ): void {
-        $this->fontSize = $value;
+    public function setFontSize(?int $value): void {
+        $this->getBackingStore()->set('fontSize', $value);
     }
 
     /**
      * Sets the layout property value. The layout property
      *  @param WatermarkLayout|null $value Value to set for the layout property.
     */
-    public function setLayout(?WatermarkLayout $value ): void {
-        $this->layout = $value;
+    public function setLayout(?WatermarkLayout $value): void {
+        $this->getBackingStore()->set('layout', $value);
     }
 
     /**
      * Sets the text property value. The contents of the watermark itself.
      *  @param string|null $value Value to set for the text property.
     */
-    public function setText(?string $value ): void {
-        $this->text = $value;
+    public function setText(?string $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
     /**
      * Sets the uiElementName property value. The name of the UI element where the watermark should be placed.
      *  @param string|null $value Value to set for the uiElementName property.
     */
-    public function setUiElementName(?string $value ): void {
-        $this->uiElementName = $value;
+    public function setUiElementName(?string $value): void {
+        $this->getBackingStore()->set('uiElementName', $value);
     }
 
 }

@@ -7,45 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable 
+class IosAvailableUpdateVersion implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The expiration date of the update.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $postingDateTime The posting date of the update.
-    */
-    private ?DateTime $postingDateTime = null;
-    
-    /**
-     * @var string|null $productVersion The version of the update.
-    */
-    private ?string $productVersion = null;
-    
-    /**
-     * @var array<string>|null $supportedDevices List of supported devices for the update.
-    */
-    private ?array $supportedDevices = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new iosAvailableUpdateVersion and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.iosAvailableUpdateVersion');
     }
 
     /**
@@ -61,8 +39,16 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -70,7 +56,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -93,7 +79,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -101,7 +87,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getPostingDateTime(): ?DateTime {
-        return $this->postingDateTime;
+        return $this->getBackingStore()->get('postingDateTime');
     }
 
     /**
@@ -109,7 +95,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProductVersion(): ?string {
-        return $this->productVersion;
+        return $this->getBackingStore()->get('productVersion');
     }
 
     /**
@@ -117,7 +103,7 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getSupportedDevices(): ?array {
-        return $this->supportedDevices;
+        return $this->getBackingStore()->get('supportedDevices');
     }
 
     /**
@@ -125,60 +111,68 @@ class IosAvailableUpdateVersion implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('postingDateTime', $this->postingDateTime);
-        $writer->writeStringValue('productVersion', $this->productVersion);
-        $writer->writeCollectionOfPrimitiveValues('supportedDevices', $this->supportedDevices);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('postingDateTime', $this->getPostingDateTime());
+        $writer->writeStringValue('productVersion', $this->getProductVersion());
+        $writer->writeCollectionOfPrimitiveValues('supportedDevices', $this->getSupportedDevices());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the expirationDateTime property value. The expiration date of the update.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the postingDateTime property value. The posting date of the update.
      *  @param DateTime|null $value Value to set for the postingDateTime property.
     */
-    public function setPostingDateTime(?DateTime $value ): void {
-        $this->postingDateTime = $value;
+    public function setPostingDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('postingDateTime', $value);
     }
 
     /**
      * Sets the productVersion property value. The version of the update.
      *  @param string|null $value Value to set for the productVersion property.
     */
-    public function setProductVersion(?string $value ): void {
-        $this->productVersion = $value;
+    public function setProductVersion(?string $value): void {
+        $this->getBackingStore()->set('productVersion', $value);
     }
 
     /**
      * Sets the supportedDevices property value. List of supported devices for the update.
      *  @param array<string>|null $value Value to set for the supportedDevices property.
     */
-    public function setSupportedDevices(?array $value ): void {
-        $this->supportedDevices = $value;
+    public function setSupportedDevices(?array $value): void {
+        $this->getBackingStore()->set('supportedDevices', $value);
     }
 
 }

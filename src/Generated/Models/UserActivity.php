@@ -10,81 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserActivity extends Entity implements Parsable 
 {
     /**
-     * @var string|null $activationUrl The activationUrl property
-    */
-    private ?string $activationUrl = null;
-    
-    /**
-     * @var string|null $activitySourceHost The activitySourceHost property
-    */
-    private ?string $activitySourceHost = null;
-    
-    /**
-     * @var string|null $appActivityId The appActivityId property
-    */
-    private ?string $appActivityId = null;
-    
-    /**
-     * @var string|null $appDisplayName The appDisplayName property
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var Json|null $contentInfo The contentInfo property
-    */
-    private ?Json $contentInfo = null;
-    
-    /**
-     * @var string|null $contentUrl The contentUrl property
-    */
-    private ?string $contentUrl = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The expirationDateTime property
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $fallbackUrl The fallbackUrl property
-    */
-    private ?string $fallbackUrl = null;
-    
-    /**
-     * @var array<ActivityHistoryItem>|null $historyItems The historyItems property
-    */
-    private ?array $historyItems = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var Status|null $status The status property
-    */
-    private ?Status $status = null;
-    
-    /**
-     * @var string|null $userTimezone The userTimezone property
-    */
-    private ?string $userTimezone = null;
-    
-    /**
-     * @var VisualInfo|null $visualElements The visualElements property
-    */
-    private ?VisualInfo $visualElements = null;
-    
-    /**
      * Instantiates a new userActivity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userActivity');
     }
 
     /**
@@ -101,7 +30,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getActivationUrl(): ?string {
-        return $this->activationUrl;
+        return $this->getBackingStore()->get('activationUrl');
     }
 
     /**
@@ -109,7 +38,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getActivitySourceHost(): ?string {
-        return $this->activitySourceHost;
+        return $this->getBackingStore()->get('activitySourceHost');
     }
 
     /**
@@ -117,7 +46,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getAppActivityId(): ?string {
-        return $this->appActivityId;
+        return $this->getBackingStore()->get('appActivityId');
     }
 
     /**
@@ -125,7 +54,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -133,7 +62,7 @@ class UserActivity extends Entity implements Parsable
      * @return Json|null
     */
     public function getContentInfo(): ?Json {
-        return $this->contentInfo;
+        return $this->getBackingStore()->get('contentInfo');
     }
 
     /**
@@ -141,7 +70,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getContentUrl(): ?string {
-        return $this->contentUrl;
+        return $this->getBackingStore()->get('contentUrl');
     }
 
     /**
@@ -149,7 +78,7 @@ class UserActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -157,7 +86,7 @@ class UserActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -165,7 +94,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getFallbackUrl(): ?string {
-        return $this->fallbackUrl;
+        return $this->getBackingStore()->get('fallbackUrl');
     }
 
     /**
@@ -197,7 +126,7 @@ class UserActivity extends Entity implements Parsable
      * @return array<ActivityHistoryItem>|null
     */
     public function getHistoryItems(): ?array {
-        return $this->historyItems;
+        return $this->getBackingStore()->get('historyItems');
     }
 
     /**
@@ -205,7 +134,7 @@ class UserActivity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -213,7 +142,7 @@ class UserActivity extends Entity implements Parsable
      * @return Status|null
     */
     public function getStatus(): ?Status {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -221,7 +150,7 @@ class UserActivity extends Entity implements Parsable
      * @return string|null
     */
     public function getUserTimezone(): ?string {
-        return $this->userTimezone;
+        return $this->getBackingStore()->get('userTimezone');
     }
 
     /**
@@ -229,7 +158,7 @@ class UserActivity extends Entity implements Parsable
      * @return VisualInfo|null
     */
     public function getVisualElements(): ?VisualInfo {
-        return $this->visualElements;
+        return $this->getBackingStore()->get('visualElements');
     }
 
     /**
@@ -238,132 +167,132 @@ class UserActivity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('activationUrl', $this->activationUrl);
-        $writer->writeStringValue('activitySourceHost', $this->activitySourceHost);
-        $writer->writeStringValue('appActivityId', $this->appActivityId);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeObjectValue('contentInfo', $this->contentInfo);
-        $writer->writeStringValue('contentUrl', $this->contentUrl);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('fallbackUrl', $this->fallbackUrl);
-        $writer->writeCollectionOfObjectValues('historyItems', $this->historyItems);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('userTimezone', $this->userTimezone);
-        $writer->writeObjectValue('visualElements', $this->visualElements);
+        $writer->writeStringValue('activationUrl', $this->getActivationUrl());
+        $writer->writeStringValue('activitySourceHost', $this->getActivitySourceHost());
+        $writer->writeStringValue('appActivityId', $this->getAppActivityId());
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeObjectValue('contentInfo', $this->getContentInfo());
+        $writer->writeStringValue('contentUrl', $this->getContentUrl());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('fallbackUrl', $this->getFallbackUrl());
+        $writer->writeCollectionOfObjectValues('historyItems', $this->getHistoryItems());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('userTimezone', $this->getUserTimezone());
+        $writer->writeObjectValue('visualElements', $this->getVisualElements());
     }
 
     /**
      * Sets the activationUrl property value. The activationUrl property
      *  @param string|null $value Value to set for the activationUrl property.
     */
-    public function setActivationUrl(?string $value ): void {
-        $this->activationUrl = $value;
+    public function setActivationUrl(?string $value): void {
+        $this->getBackingStore()->set('activationUrl', $value);
     }
 
     /**
      * Sets the activitySourceHost property value. The activitySourceHost property
      *  @param string|null $value Value to set for the activitySourceHost property.
     */
-    public function setActivitySourceHost(?string $value ): void {
-        $this->activitySourceHost = $value;
+    public function setActivitySourceHost(?string $value): void {
+        $this->getBackingStore()->set('activitySourceHost', $value);
     }
 
     /**
      * Sets the appActivityId property value. The appActivityId property
      *  @param string|null $value Value to set for the appActivityId property.
     */
-    public function setAppActivityId(?string $value ): void {
-        $this->appActivityId = $value;
+    public function setAppActivityId(?string $value): void {
+        $this->getBackingStore()->set('appActivityId', $value);
     }
 
     /**
      * Sets the appDisplayName property value. The appDisplayName property
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the contentInfo property value. The contentInfo property
      *  @param Json|null $value Value to set for the contentInfo property.
     */
-    public function setContentInfo(?Json $value ): void {
-        $this->contentInfo = $value;
+    public function setContentInfo(?Json $value): void {
+        $this->getBackingStore()->set('contentInfo', $value);
     }
 
     /**
      * Sets the contentUrl property value. The contentUrl property
      *  @param string|null $value Value to set for the contentUrl property.
     */
-    public function setContentUrl(?string $value ): void {
-        $this->contentUrl = $value;
+    public function setContentUrl(?string $value): void {
+        $this->getBackingStore()->set('contentUrl', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. The expirationDateTime property
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the fallbackUrl property value. The fallbackUrl property
      *  @param string|null $value Value to set for the fallbackUrl property.
     */
-    public function setFallbackUrl(?string $value ): void {
-        $this->fallbackUrl = $value;
+    public function setFallbackUrl(?string $value): void {
+        $this->getBackingStore()->set('fallbackUrl', $value);
     }
 
     /**
      * Sets the historyItems property value. The historyItems property
      *  @param array<ActivityHistoryItem>|null $value Value to set for the historyItems property.
     */
-    public function setHistoryItems(?array $value ): void {
-        $this->historyItems = $value;
+    public function setHistoryItems(?array $value): void {
+        $this->getBackingStore()->set('historyItems', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param Status|null $value Value to set for the status property.
     */
-    public function setStatus(?Status $value ): void {
-        $this->status = $value;
+    public function setStatus(?Status $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the userTimezone property value. The userTimezone property
      *  @param string|null $value Value to set for the userTimezone property.
     */
-    public function setUserTimezone(?string $value ): void {
-        $this->userTimezone = $value;
+    public function setUserTimezone(?string $value): void {
+        $this->getBackingStore()->set('userTimezone', $value);
     }
 
     /**
      * Sets the visualElements property value. The visualElements property
      *  @param VisualInfo|null $value Value to set for the visualElements property.
     */
-    public function setVisualElements(?VisualInfo $value ): void {
-        $this->visualElements = $value;
+    public function setVisualElements(?VisualInfo $value): void {
+        $this->getBackingStore()->set('visualElements', $value);
     }
 
 }

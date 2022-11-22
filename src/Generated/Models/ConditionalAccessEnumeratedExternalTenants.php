@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExternalTenants implements Parsable 
 {
     /**
-     * @var array<string>|null $members Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
-    */
-    private ?array $members = null;
-    
-    /**
      * Instantiates a new ConditionalAccessEnumeratedExternalTenants and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
      * @return array<string>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -55,15 +50,15 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('members', $this->members);
+        $writer->writeCollectionOfPrimitiveValues('members', $this->getMembers());
     }
 
     /**
      * Sets the members property value. Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
      *  @param array<string>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
 }

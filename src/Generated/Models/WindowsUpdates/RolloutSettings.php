@@ -7,45 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RolloutSettings implements AdditionalDataHolder, Parsable 
+class RolloutSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $devicesPerOffer Specifies the number of devices that are offered at the same time. Has no effect when endDateTime is set. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
-    */
-    private ?int $devicesPerOffer = null;
-    
-    /**
-     * @var string|null $durationBetweenOffers Specifies duration between each set of devices being offered the update. Has an effect when endDateTime or devicesPerOffer are defined. Default value is P1D (1 day).
-    */
-    private ?string $durationBetweenOffers = null;
-    
-    /**
-     * @var DateTime|null $endDateTime Specifies the date before which all devices currently in the deployment are offered the update. Devices added after this date are offered immediately. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $startDateTime Date on which devices in the deployment start receiving the update. When not set, the deployment starts as soon as devices are assigned.
-    */
-    private ?DateTime $startDateTime = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new rolloutSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.windowsUpdates.rolloutSettings');
     }
 
     /**
@@ -61,8 +39,16 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -70,7 +56,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getDevicesPerOffer(): ?int {
-        return $this->devicesPerOffer;
+        return $this->getBackingStore()->get('devicesPerOffer');
     }
 
     /**
@@ -78,7 +64,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDurationBetweenOffers(): ?string {
-        return $this->durationBetweenOffers;
+        return $this->getBackingStore()->get('durationBetweenOffers');
     }
 
     /**
@@ -86,7 +72,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -109,7 +95,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -117,7 +103,7 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -125,60 +111,68 @@ class RolloutSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('devicesPerOffer', $this->devicesPerOffer);
-        $writer->writeStringValue('durationBetweenOffers', $this->durationBetweenOffers);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('devicesPerOffer', $this->getDevicesPerOffer());
+        $writer->writeStringValue('durationBetweenOffers', $this->getDurationBetweenOffers());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the devicesPerOffer property value. Specifies the number of devices that are offered at the same time. Has no effect when endDateTime is set. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
      *  @param int|null $value Value to set for the devicesPerOffer property.
     */
-    public function setDevicesPerOffer(?int $value ): void {
-        $this->devicesPerOffer = $value;
+    public function setDevicesPerOffer(?int $value): void {
+        $this->getBackingStore()->set('devicesPerOffer', $value);
     }
 
     /**
      * Sets the durationBetweenOffers property value. Specifies duration between each set of devices being offered the update. Has an effect when endDateTime or devicesPerOffer are defined. Default value is P1D (1 day).
      *  @param string|null $value Value to set for the durationBetweenOffers property.
     */
-    public function setDurationBetweenOffers(?string $value ): void {
-        $this->durationBetweenOffers = $value;
+    public function setDurationBetweenOffers(?string $value): void {
+        $this->getBackingStore()->set('durationBetweenOffers', $value);
     }
 
     /**
      * Sets the endDateTime property value. Specifies the date before which all devices currently in the deployment are offered the update. Devices added after this date are offered immediately. When endDateTime and devicesPerOffer are both not set, all devices in the deployment are offered content at the same time.
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the startDateTime property value. Date on which devices in the deployment start receiving the update. When not set, the deployment starts as soon as devices are assigned.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
 }

@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ConditionalAccessDevices implements AdditionalDataHolder, Parsable 
+class ConditionalAccessDevices implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var ConditionalAccessFilter|null $deviceFilter Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
-    */
-    private ?ConditionalAccessFilter $deviceFilter = null;
-    
-    /**
-     * @var array<string>|null $excludeDevices States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.
-    */
-    private ?array $excludeDevices = null;
-    
-    /**
-     * @var array<string>|null $excludeDeviceStates The excludeDeviceStates property
-    */
-    private ?array $excludeDeviceStates = null;
-    
-    /**
-     * @var array<string>|null $includeDevices States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
-    */
-    private ?array $includeDevices = null;
-    
-    /**
-     * @var array<string>|null $includeDeviceStates The includeDeviceStates property
-    */
-    private ?array $includeDeviceStates = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new conditionalAccessDevices and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.conditionalAccessDevices');
     }
 
     /**
@@ -65,8 +38,16 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +55,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return ConditionalAccessFilter|null
     */
     public function getDeviceFilter(): ?ConditionalAccessFilter {
-        return $this->deviceFilter;
+        return $this->getBackingStore()->get('deviceFilter');
     }
 
     /**
@@ -82,7 +63,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getExcludeDevices(): ?array {
-        return $this->excludeDevices;
+        return $this->getBackingStore()->get('excludeDevices');
     }
 
     /**
@@ -90,7 +71,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getExcludeDeviceStates(): ?array {
-        return $this->excludeDeviceStates;
+        return $this->getBackingStore()->get('excludeDeviceStates');
     }
 
     /**
@@ -114,7 +95,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeDevices(): ?array {
-        return $this->includeDevices;
+        return $this->getBackingStore()->get('includeDevices');
     }
 
     /**
@@ -122,7 +103,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeDeviceStates(): ?array {
-        return $this->includeDeviceStates;
+        return $this->getBackingStore()->get('includeDeviceStates');
     }
 
     /**
@@ -130,7 +111,7 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -138,69 +119,77 @@ class ConditionalAccessDevices implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('deviceFilter', $this->deviceFilter);
-        $writer->writeCollectionOfPrimitiveValues('excludeDevices', $this->excludeDevices);
-        $writer->writeCollectionOfPrimitiveValues('excludeDeviceStates', $this->excludeDeviceStates);
-        $writer->writeCollectionOfPrimitiveValues('includeDevices', $this->includeDevices);
-        $writer->writeCollectionOfPrimitiveValues('includeDeviceStates', $this->includeDeviceStates);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('deviceFilter', $this->getDeviceFilter());
+        $writer->writeCollectionOfPrimitiveValues('excludeDevices', $this->getExcludeDevices());
+        $writer->writeCollectionOfPrimitiveValues('excludeDeviceStates', $this->getExcludeDeviceStates());
+        $writer->writeCollectionOfPrimitiveValues('includeDevices', $this->getIncludeDevices());
+        $writer->writeCollectionOfPrimitiveValues('includeDeviceStates', $this->getIncludeDeviceStates());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
      *  @param ConditionalAccessFilter|null $value Value to set for the deviceFilter property.
     */
-    public function setDeviceFilter(?ConditionalAccessFilter $value ): void {
-        $this->deviceFilter = $value;
+    public function setDeviceFilter(?ConditionalAccessFilter $value): void {
+        $this->getBackingStore()->set('deviceFilter', $value);
     }
 
     /**
      * Sets the excludeDevices property value. States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.
      *  @param array<string>|null $value Value to set for the excludeDevices property.
     */
-    public function setExcludeDevices(?array $value ): void {
-        $this->excludeDevices = $value;
+    public function setExcludeDevices(?array $value): void {
+        $this->getBackingStore()->set('excludeDevices', $value);
     }
 
     /**
      * Sets the excludeDeviceStates property value. The excludeDeviceStates property
      *  @param array<string>|null $value Value to set for the excludeDeviceStates property.
     */
-    public function setExcludeDeviceStates(?array $value ): void {
-        $this->excludeDeviceStates = $value;
+    public function setExcludeDeviceStates(?array $value): void {
+        $this->getBackingStore()->set('excludeDeviceStates', $value);
     }
 
     /**
      * Sets the includeDevices property value. States in the scope of the policy. All is the only allowed value. Cannot be set if deviceFIlter is set.
      *  @param array<string>|null $value Value to set for the includeDevices property.
     */
-    public function setIncludeDevices(?array $value ): void {
-        $this->includeDevices = $value;
+    public function setIncludeDevices(?array $value): void {
+        $this->getBackingStore()->set('includeDevices', $value);
     }
 
     /**
      * Sets the includeDeviceStates property value. The includeDeviceStates property
      *  @param array<string>|null $value Value to set for the includeDeviceStates property.
     */
-    public function setIncludeDeviceStates(?array $value ): void {
-        $this->includeDeviceStates = $value;
+    public function setIncludeDeviceStates(?array $value): void {
+        $this->getBackingStore()->set('includeDeviceStates', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements Parsable 
 {
     /**
-     * @var RiskServicePrincipalActivity|null $activity The activity related to service principal risk level change.
-    */
-    private ?RiskServicePrincipalActivity $activity = null;
-    
-    /**
-     * @var string|null $initiatedBy The identifier of the actor of the operation.
-    */
-    private ?string $initiatedBy = null;
-    
-    /**
-     * @var string|null $servicePrincipalId The identifier of the service principal.
-    */
-    private ?string $servicePrincipalId = null;
-    
-    /**
      * Instantiates a new riskyServicePrincipalHistoryItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.riskyServicePrincipalHistoryItem');
     }
 
     /**
@@ -45,7 +29,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
      * @return RiskServicePrincipalActivity|null
     */
     public function getActivity(): ?RiskServicePrincipalActivity {
-        return $this->activity;
+        return $this->getBackingStore()->get('activity');
     }
 
     /**
@@ -66,7 +50,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
      * @return string|null
     */
     public function getInitiatedBy(): ?string {
-        return $this->initiatedBy;
+        return $this->getBackingStore()->get('initiatedBy');
     }
 
     /**
@@ -74,7 +58,7 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
      * @return string|null
     */
     public function getServicePrincipalId(): ?string {
-        return $this->servicePrincipalId;
+        return $this->getBackingStore()->get('servicePrincipalId');
     }
 
     /**
@@ -83,33 +67,33 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('activity', $this->activity);
-        $writer->writeStringValue('initiatedBy', $this->initiatedBy);
-        $writer->writeStringValue('servicePrincipalId', $this->servicePrincipalId);
+        $writer->writeObjectValue('activity', $this->getActivity());
+        $writer->writeStringValue('initiatedBy', $this->getInitiatedBy());
+        $writer->writeStringValue('servicePrincipalId', $this->getServicePrincipalId());
     }
 
     /**
      * Sets the activity property value. The activity related to service principal risk level change.
      *  @param RiskServicePrincipalActivity|null $value Value to set for the activity property.
     */
-    public function setActivity(?RiskServicePrincipalActivity $value ): void {
-        $this->activity = $value;
+    public function setActivity(?RiskServicePrincipalActivity $value): void {
+        $this->getBackingStore()->set('activity', $value);
     }
 
     /**
      * Sets the initiatedBy property value. The identifier of the actor of the operation.
      *  @param string|null $value Value to set for the initiatedBy property.
     */
-    public function setInitiatedBy(?string $value ): void {
-        $this->initiatedBy = $value;
+    public function setInitiatedBy(?string $value): void {
+        $this->getBackingStore()->set('initiatedBy', $value);
     }
 
     /**
      * Sets the servicePrincipalId property value. The identifier of the service principal.
      *  @param string|null $value Value to set for the servicePrincipalId property.
     */
-    public function setServicePrincipalId(?string $value ): void {
-        $this->servicePrincipalId = $value;
+    public function setServicePrincipalId(?string $value): void {
+        $this->getBackingStore()->set('servicePrincipalId', $value);
     }
 
 }

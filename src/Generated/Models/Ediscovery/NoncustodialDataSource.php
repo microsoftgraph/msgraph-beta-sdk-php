@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NoncustodialDataSource extends DataSourceContainer implements Parsable 
 {
     /**
-     * @var bool|null $applyHoldToSource Indicates if hold is applied to non-custodial data source (such as mailbox or site).
-    */
-    private ?bool $applyHoldToSource = null;
-    
-    /**
-     * @var DataSource|null $dataSource User source or SharePoint site data source as non-custodial data source.
-    */
-    private ?DataSource $dataSource = null;
-    
-    /**
      * Instantiates a new NoncustodialDataSource and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
      * @return bool|null
     */
     public function getApplyHoldToSource(): ?bool {
-        return $this->applyHoldToSource;
+        return $this->getBackingStore()->get('applyHoldToSource');
     }
 
     /**
@@ -48,7 +38,7 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
      * @return DataSource|null
     */
     public function getDataSource(): ?DataSource {
-        return $this->dataSource;
+        return $this->getBackingStore()->get('dataSource');
     }
 
     /**
@@ -69,24 +59,24 @@ class NoncustodialDataSource extends DataSourceContainer implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('applyHoldToSource', $this->applyHoldToSource);
-        $writer->writeObjectValue('dataSource', $this->dataSource);
+        $writer->writeBooleanValue('applyHoldToSource', $this->getApplyHoldToSource());
+        $writer->writeObjectValue('dataSource', $this->getDataSource());
     }
 
     /**
      * Sets the applyHoldToSource property value. Indicates if hold is applied to non-custodial data source (such as mailbox or site).
      *  @param bool|null $value Value to set for the applyHoldToSource property.
     */
-    public function setApplyHoldToSource(?bool $value ): void {
-        $this->applyHoldToSource = $value;
+    public function setApplyHoldToSource(?bool $value): void {
+        $this->getBackingStore()->set('applyHoldToSource', $value);
     }
 
     /**
      * Sets the dataSource property value. User source or SharePoint site data source as non-custodial data source.
      *  @param DataSource|null $value Value to set for the dataSource property.
     */
-    public function setDataSource(?DataSource $value ): void {
-        $this->dataSource = $value;
+    public function setDataSource(?DataSource $value): void {
+        $this->getBackingStore()->set('dataSource', $value);
     }
 
 }

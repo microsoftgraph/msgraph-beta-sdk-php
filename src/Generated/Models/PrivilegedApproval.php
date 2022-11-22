@@ -11,66 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedApproval extends Entity implements Parsable 
 {
     /**
-     * @var DateInterval|null $approvalDuration The approvalDuration property
-    */
-    private ?DateInterval $approvalDuration = null;
-    
-    /**
-     * @var ApprovalState|null $approvalState Possible values are: pending, approved, denied, aborted, canceled.
-    */
-    private ?ApprovalState $approvalState = null;
-    
-    /**
-     * @var string|null $approvalType The approvalType property
-    */
-    private ?string $approvalType = null;
-    
-    /**
-     * @var string|null $approverReason The approverReason property
-    */
-    private ?string $approverReason = null;
-    
-    /**
-     * @var DateTime|null $endDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var PrivilegedRoleAssignmentRequest|null $request Read-only. The role assignment request for this approval object
-    */
-    private ?PrivilegedRoleAssignmentRequest $request = null;
-    
-    /**
-     * @var string|null $requestorReason The requestorReason property
-    */
-    private ?string $requestorReason = null;
-    
-    /**
-     * @var string|null $roleId The roleId property
-    */
-    private ?string $roleId = null;
-    
-    /**
-     * @var PrivilegedRole|null $roleInfo The roleInfo property
-    */
-    private ?PrivilegedRole $roleInfo = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $userId The userId property
-    */
-    private ?string $userId = null;
-    
-    /**
-     * Instantiates a new PrivilegedApproval and sets the default values.
+     * Instantiates a new privilegedApproval and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.privilegedApproval');
     }
 
     /**
@@ -87,7 +31,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getApprovalDuration(): ?DateInterval {
-        return $this->approvalDuration;
+        return $this->getBackingStore()->get('approvalDuration');
     }
 
     /**
@@ -95,7 +39,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return ApprovalState|null
     */
     public function getApprovalState(): ?ApprovalState {
-        return $this->approvalState;
+        return $this->getBackingStore()->get('approvalState');
     }
 
     /**
@@ -103,7 +47,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getApprovalType(): ?string {
-        return $this->approvalType;
+        return $this->getBackingStore()->get('approvalType');
     }
 
     /**
@@ -111,7 +55,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getApproverReason(): ?string {
-        return $this->approverReason;
+        return $this->getBackingStore()->get('approverReason');
     }
 
     /**
@@ -119,7 +63,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -148,7 +92,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return PrivilegedRoleAssignmentRequest|null
     */
     public function getRequest(): ?PrivilegedRoleAssignmentRequest {
-        return $this->request;
+        return $this->getBackingStore()->get('request');
     }
 
     /**
@@ -156,7 +100,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestorReason(): ?string {
-        return $this->requestorReason;
+        return $this->getBackingStore()->get('requestorReason');
     }
 
     /**
@@ -164,7 +108,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->roleId;
+        return $this->getBackingStore()->get('roleId');
     }
 
     /**
@@ -172,7 +116,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return PrivilegedRole|null
     */
     public function getRoleInfo(): ?PrivilegedRole {
-        return $this->roleInfo;
+        return $this->getBackingStore()->get('roleInfo');
     }
 
     /**
@@ -180,7 +124,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -188,7 +132,7 @@ class PrivilegedApproval extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -197,105 +141,105 @@ class PrivilegedApproval extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateIntervalValue('approvalDuration', $this->approvalDuration);
-        $writer->writeEnumValue('approvalState', $this->approvalState);
-        $writer->writeStringValue('approvalType', $this->approvalType);
-        $writer->writeStringValue('approverReason', $this->approverReason);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeObjectValue('request', $this->request);
-        $writer->writeStringValue('requestorReason', $this->requestorReason);
-        $writer->writeStringValue('roleId', $this->roleId);
-        $writer->writeObjectValue('roleInfo', $this->roleInfo);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeDateIntervalValue('approvalDuration', $this->getApprovalDuration());
+        $writer->writeEnumValue('approvalState', $this->getApprovalState());
+        $writer->writeStringValue('approvalType', $this->getApprovalType());
+        $writer->writeStringValue('approverReason', $this->getApproverReason());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeObjectValue('request', $this->getRequest());
+        $writer->writeStringValue('requestorReason', $this->getRequestorReason());
+        $writer->writeStringValue('roleId', $this->getRoleId());
+        $writer->writeObjectValue('roleInfo', $this->getRoleInfo());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the approvalDuration property value. The approvalDuration property
      *  @param DateInterval|null $value Value to set for the approvalDuration property.
     */
-    public function setApprovalDuration(?DateInterval $value ): void {
-        $this->approvalDuration = $value;
+    public function setApprovalDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('approvalDuration', $value);
     }
 
     /**
      * Sets the approvalState property value. Possible values are: pending, approved, denied, aborted, canceled.
      *  @param ApprovalState|null $value Value to set for the approvalState property.
     */
-    public function setApprovalState(?ApprovalState $value ): void {
-        $this->approvalState = $value;
+    public function setApprovalState(?ApprovalState $value): void {
+        $this->getBackingStore()->set('approvalState', $value);
     }
 
     /**
      * Sets the approvalType property value. The approvalType property
      *  @param string|null $value Value to set for the approvalType property.
     */
-    public function setApprovalType(?string $value ): void {
-        $this->approvalType = $value;
+    public function setApprovalType(?string $value): void {
+        $this->getBackingStore()->set('approvalType', $value);
     }
 
     /**
      * Sets the approverReason property value. The approverReason property
      *  @param string|null $value Value to set for the approverReason property.
     */
-    public function setApproverReason(?string $value ): void {
-        $this->approverReason = $value;
+    public function setApproverReason(?string $value): void {
+        $this->getBackingStore()->set('approverReason', $value);
     }
 
     /**
      * Sets the endDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the request property value. Read-only. The role assignment request for this approval object
      *  @param PrivilegedRoleAssignmentRequest|null $value Value to set for the request property.
     */
-    public function setRequest(?PrivilegedRoleAssignmentRequest $value ): void {
-        $this->request = $value;
+    public function setRequest(?PrivilegedRoleAssignmentRequest $value): void {
+        $this->getBackingStore()->set('request', $value);
     }
 
     /**
      * Sets the requestorReason property value. The requestorReason property
      *  @param string|null $value Value to set for the requestorReason property.
     */
-    public function setRequestorReason(?string $value ): void {
-        $this->requestorReason = $value;
+    public function setRequestorReason(?string $value): void {
+        $this->getBackingStore()->set('requestorReason', $value);
     }
 
     /**
      * Sets the roleId property value. The roleId property
      *  @param string|null $value Value to set for the roleId property.
     */
-    public function setRoleId(?string $value ): void {
-        $this->roleId = $value;
+    public function setRoleId(?string $value): void {
+        $this->getBackingStore()->set('roleId', $value);
     }
 
     /**
      * Sets the roleInfo property value. The roleInfo property
      *  @param PrivilegedRole|null $value Value to set for the roleInfo property.
     */
-    public function setRoleInfo(?PrivilegedRole $value ): void {
-        $this->roleInfo = $value;
+    public function setRoleInfo(?PrivilegedRole $value): void {
+        $this->getBackingStore()->set('roleInfo', $value);
     }
 
     /**
      * Sets the startDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

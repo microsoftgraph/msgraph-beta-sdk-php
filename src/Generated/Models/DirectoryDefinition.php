@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DirectoryDefinition extends Entity implements Parsable 
 {
     /**
-     * @var DirectoryDefinitionDiscoverabilities|null $discoverabilities The discoverabilities property
-    */
-    private ?DirectoryDefinitionDiscoverabilities $discoverabilities = null;
-    
-    /**
-     * @var DateTime|null $discoveryDateTime Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $discoveryDateTime = null;
-    
-    /**
-     * @var string|null $name Name of the directory. Must be unique within the synchronization schema. Not nullable.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<ObjectDefinition>|null $objects Collection of objects supported by the directory.
-    */
-    private ?array $objects = null;
-    
-    /**
-     * @var bool|null $readOnly The readOnly property
-    */
-    private ?bool $readOnly = null;
-    
-    /**
-     * @var string|null $version Read only value that indicates version discovered. null if discovery has not yet occurred.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new directoryDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.directoryDefinition');
     }
 
     /**
@@ -61,7 +30,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return DirectoryDefinitionDiscoverabilities|null
     */
     public function getDiscoverabilities(): ?DirectoryDefinitionDiscoverabilities {
-        return $this->discoverabilities;
+        return $this->getBackingStore()->get('discoverabilities');
     }
 
     /**
@@ -69,7 +38,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDiscoveryDateTime(): ?DateTime {
-        return $this->discoveryDateTime;
+        return $this->getBackingStore()->get('discoveryDateTime');
     }
 
     /**
@@ -93,7 +62,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -101,7 +70,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return array<ObjectDefinition>|null
     */
     public function getObjects(): ?array {
-        return $this->objects;
+        return $this->getBackingStore()->get('objects');
     }
 
     /**
@@ -109,7 +78,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getReadOnly(): ?bool {
-        return $this->readOnly;
+        return $this->getBackingStore()->get('readOnly');
     }
 
     /**
@@ -117,7 +86,7 @@ class DirectoryDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -126,60 +95,60 @@ class DirectoryDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('discoverabilities', $this->discoverabilities);
-        $writer->writeDateTimeValue('discoveryDateTime', $this->discoveryDateTime);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfObjectValues('objects', $this->objects);
-        $writer->writeBooleanValue('readOnly', $this->readOnly);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeEnumValue('discoverabilities', $this->getDiscoverabilities());
+        $writer->writeDateTimeValue('discoveryDateTime', $this->getDiscoveryDateTime());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfObjectValues('objects', $this->getObjects());
+        $writer->writeBooleanValue('readOnly', $this->getReadOnly());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the discoverabilities property value. The discoverabilities property
      *  @param DirectoryDefinitionDiscoverabilities|null $value Value to set for the discoverabilities property.
     */
-    public function setDiscoverabilities(?DirectoryDefinitionDiscoverabilities $value ): void {
-        $this->discoverabilities = $value;
+    public function setDiscoverabilities(?DirectoryDefinitionDiscoverabilities $value): void {
+        $this->getBackingStore()->set('discoverabilities', $value);
     }
 
     /**
      * Sets the discoveryDateTime property value. Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the discoveryDateTime property.
     */
-    public function setDiscoveryDateTime(?DateTime $value ): void {
-        $this->discoveryDateTime = $value;
+    public function setDiscoveryDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('discoveryDateTime', $value);
     }
 
     /**
      * Sets the name property value. Name of the directory. Must be unique within the synchronization schema. Not nullable.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the objects property value. Collection of objects supported by the directory.
      *  @param array<ObjectDefinition>|null $value Value to set for the objects property.
     */
-    public function setObjects(?array $value ): void {
-        $this->objects = $value;
+    public function setObjects(?array $value): void {
+        $this->getBackingStore()->set('objects', $value);
     }
 
     /**
      * Sets the readOnly property value. The readOnly property
      *  @param bool|null $value Value to set for the readOnly property.
     */
-    public function setReadOnly(?bool $value ): void {
-        $this->readOnly = $value;
+    public function setReadOnly(?bool $value): void {
+        $this->getBackingStore()->set('readOnly', $value);
     }
 
     /**
      * Sets the version property value. Read only value that indicates version discovered. null if discovery has not yet occurred.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

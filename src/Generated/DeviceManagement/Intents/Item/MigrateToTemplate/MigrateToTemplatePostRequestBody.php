@@ -6,28 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable 
+class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $newTemplateId The newTemplateId property
-    */
-    private ?string $newTemplateId = null;
-    
-    /**
-     * @var bool|null $preserveCustomValues The preserveCustomValues property
-    */
-    private ?bool $preserveCustomValues = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new migrateToTemplatePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -44,8 +38,16 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -65,7 +67,7 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getNewTemplateId(): ?string {
-        return $this->newTemplateId;
+        return $this->getBackingStore()->get('newTemplateId');
     }
 
     /**
@@ -73,7 +75,7 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getPreserveCustomValues(): ?bool {
-        return $this->preserveCustomValues;
+        return $this->getBackingStore()->get('preserveCustomValues');
     }
 
     /**
@@ -81,33 +83,41 @@ class MigrateToTemplatePostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('newTemplateId', $this->newTemplateId);
-        $writer->writeBooleanValue('preserveCustomValues', $this->preserveCustomValues);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('newTemplateId', $this->getNewTemplateId());
+        $writer->writeBooleanValue('preserveCustomValues', $this->getPreserveCustomValues());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the newTemplateId property value. The newTemplateId property
      *  @param string|null $value Value to set for the newTemplateId property.
     */
-    public function setNewTemplateId(?string $value ): void {
-        $this->newTemplateId = $value;
+    public function setNewTemplateId(?string $value): void {
+        $this->getBackingStore()->set('newTemplateId', $value);
     }
 
     /**
      * Sets the preserveCustomValues property value. The preserveCustomValues property
      *  @param bool|null $value Value to set for the preserveCustomValues property.
     */
-    public function setPreserveCustomValues(?bool $value ): void {
-        $this->preserveCustomValues = $value;
+    public function setPreserveCustomValues(?bool $value): void {
+        $this->getBackingStore()->set('preserveCustomValues', $value);
     }
 
 }

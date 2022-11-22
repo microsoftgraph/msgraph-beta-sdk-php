@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectByTemplateAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var string|null $templateId The GUID of the Azure Information Protection template to apply to the information.
-    */
-    private ?string $templateId = null;
-    
-    /**
      * Instantiates a new ProtectByTemplateAction and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
      * @return string|null
     */
     public function getTemplateId(): ?string {
-        return $this->templateId;
+        return $this->getBackingStore()->get('templateId');
     }
 
     /**
@@ -55,15 +50,15 @@ class ProtectByTemplateAction extends InformationProtectionAction implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('templateId', $this->templateId);
+        $writer->writeStringValue('templateId', $this->getTemplateId());
     }
 
     /**
      * Sets the templateId property value. The GUID of the Azure Information Protection template to apply to the information.
      *  @param string|null $value Value to set for the templateId property.
     */
-    public function setTemplateId(?string $value ): void {
-        $this->templateId = $value;
+    public function setTemplateId(?string $value): void {
+        $this->getBackingStore()->set('templateId', $value);
     }
 
 }

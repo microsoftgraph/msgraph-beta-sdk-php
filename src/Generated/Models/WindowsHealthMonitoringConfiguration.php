@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Enablement|null $allowDeviceHealthMonitoring Possible values of a property
-    */
-    private ?Enablement $allowDeviceHealthMonitoring = null;
-    
-    /**
-     * @var string|null $configDeviceHealthMonitoringCustomScope Specifies custom set of events collected from the device where health monitoring is enabled
-    */
-    private ?string $configDeviceHealthMonitoringCustomScope = null;
-    
-    /**
-     * @var WindowsHealthMonitoringScope|null $configDeviceHealthMonitoringScope Device health monitoring scope
-    */
-    private ?WindowsHealthMonitoringScope $configDeviceHealthMonitoringScope = null;
-    
-    /**
      * Instantiates a new WindowsHealthMonitoringConfiguration and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return Enablement|null
     */
     public function getAllowDeviceHealthMonitoring(): ?Enablement {
-        return $this->allowDeviceHealthMonitoring;
+        return $this->getBackingStore()->get('allowDeviceHealthMonitoring');
     }
 
     /**
@@ -53,7 +38,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return string|null
     */
     public function getConfigDeviceHealthMonitoringCustomScope(): ?string {
-        return $this->configDeviceHealthMonitoringCustomScope;
+        return $this->getBackingStore()->get('configDeviceHealthMonitoringCustomScope');
     }
 
     /**
@@ -61,7 +46,7 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
      * @return WindowsHealthMonitoringScope|null
     */
     public function getConfigDeviceHealthMonitoringScope(): ?WindowsHealthMonitoringScope {
-        return $this->configDeviceHealthMonitoringScope;
+        return $this->getBackingStore()->get('configDeviceHealthMonitoringScope');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsHealthMonitoringConfiguration extends DeviceConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowDeviceHealthMonitoring', $this->allowDeviceHealthMonitoring);
-        $writer->writeStringValue('configDeviceHealthMonitoringCustomScope', $this->configDeviceHealthMonitoringCustomScope);
-        $writer->writeEnumValue('configDeviceHealthMonitoringScope', $this->configDeviceHealthMonitoringScope);
+        $writer->writeEnumValue('allowDeviceHealthMonitoring', $this->getAllowDeviceHealthMonitoring());
+        $writer->writeStringValue('configDeviceHealthMonitoringCustomScope', $this->getConfigDeviceHealthMonitoringCustomScope());
+        $writer->writeEnumValue('configDeviceHealthMonitoringScope', $this->getConfigDeviceHealthMonitoringScope());
     }
 
     /**
      * Sets the allowDeviceHealthMonitoring property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the allowDeviceHealthMonitoring property.
     */
-    public function setAllowDeviceHealthMonitoring(?Enablement $value ): void {
-        $this->allowDeviceHealthMonitoring = $value;
+    public function setAllowDeviceHealthMonitoring(?Enablement $value): void {
+        $this->getBackingStore()->set('allowDeviceHealthMonitoring', $value);
     }
 
     /**
      * Sets the configDeviceHealthMonitoringCustomScope property value. Specifies custom set of events collected from the device where health monitoring is enabled
      *  @param string|null $value Value to set for the configDeviceHealthMonitoringCustomScope property.
     */
-    public function setConfigDeviceHealthMonitoringCustomScope(?string $value ): void {
-        $this->configDeviceHealthMonitoringCustomScope = $value;
+    public function setConfigDeviceHealthMonitoringCustomScope(?string $value): void {
+        $this->getBackingStore()->set('configDeviceHealthMonitoringCustomScope', $value);
     }
 
     /**
      * Sets the configDeviceHealthMonitoringScope property value. Device health monitoring scope
      *  @param WindowsHealthMonitoringScope|null $value Value to set for the configDeviceHealthMonitoringScope property.
     */
-    public function setConfigDeviceHealthMonitoringScope(?WindowsHealthMonitoringScope $value ): void {
-        $this->configDeviceHealthMonitoringScope = $value;
+    public function setConfigDeviceHealthMonitoringScope(?WindowsHealthMonitoringScope $value): void {
+        $this->getBackingStore()->set('configDeviceHealthMonitoringScope', $value);
     }
 
 }

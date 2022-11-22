@@ -9,91 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcOnPremisesConnection extends Entity implements Parsable 
 {
     /**
-     * @var string|null $adDomainName The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.
-    */
-    private ?string $adDomainName = null;
-    
-    /**
-     * @var string|null $adDomainPassword The password associated with adDomainUsername.
-    */
-    private ?string $adDomainPassword = null;
-    
-    /**
-     * @var string|null $adDomainUsername The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
-    */
-    private ?string $adDomainUsername = null;
-    
-    /**
-     * @var string|null $alternateResourceUrl The interface URL of the partner service's resource that links to this Azure network connection. Returned only on $select.
-    */
-    private ?string $alternateResourceUrl = null;
-    
-    /**
-     * @var string|null $displayName The display name for the Azure network connection.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var CloudPcOnPremisesConnectionStatus|null $healthCheckStatus The healthCheckStatus property
-    */
-    private ?CloudPcOnPremisesConnectionStatus $healthCheckStatus = null;
-    
-    /**
-     * @var CloudPcOnPremisesConnectionStatusDetails|null $healthCheckStatusDetails The details of the connection's health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-    */
-    private ?CloudPcOnPremisesConnectionStatusDetails $healthCheckStatusDetails = null;
-    
-    /**
-     * @var bool|null $inUse When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
-    */
-    private ?bool $inUse = null;
-    
-    /**
-     * @var CloudPcManagementService|null $managedBy The managedBy property
-    */
-    private ?CloudPcManagementService $managedBy = null;
-    
-    /**
-     * @var string|null $organizationalUnit The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
-    */
-    private ?string $organizationalUnit = null;
-    
-    /**
-     * @var string|null $resourceGroupId The ID of the target resource group. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}.
-    */
-    private ?string $resourceGroupId = null;
-    
-    /**
-     * @var string|null $subnetId The ID of the target subnet. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}.
-    */
-    private ?string $subnetId = null;
-    
-    /**
-     * @var string|null $subscriptionId The ID of the target Azure subscription that’s associated with your tenant.
-    */
-    private ?string $subscriptionId = null;
-    
-    /**
-     * @var string|null $subscriptionName The name of the target Azure subscription. Read-only.
-    */
-    private ?string $subscriptionName = null;
-    
-    /**
-     * @var CloudPcOnPremisesConnectionType|null $type Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
-    */
-    private ?CloudPcOnPremisesConnectionType $type = null;
-    
-    /**
-     * @var string|null $virtualNetworkId The ID of the target virtual network. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}.
-    */
-    private ?string $virtualNetworkId = null;
-    
-    /**
-     * Instantiates a new CloudPcOnPremisesConnection and sets the default values.
+     * Instantiates a new cloudPcOnPremisesConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcOnPremisesConnection');
     }
 
     /**
@@ -110,7 +29,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainName(): ?string {
-        return $this->adDomainName;
+        return $this->getBackingStore()->get('adDomainName');
     }
 
     /**
@@ -118,7 +37,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainPassword(): ?string {
-        return $this->adDomainPassword;
+        return $this->getBackingStore()->get('adDomainPassword');
     }
 
     /**
@@ -126,7 +45,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAdDomainUsername(): ?string {
-        return $this->adDomainUsername;
+        return $this->getBackingStore()->get('adDomainUsername');
     }
 
     /**
@@ -134,7 +53,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getAlternateResourceUrl(): ?string {
-        return $this->alternateResourceUrl;
+        return $this->getBackingStore()->get('alternateResourceUrl');
     }
 
     /**
@@ -142,7 +61,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -176,7 +95,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionStatus|null
     */
     public function getHealthCheckStatus(): ?CloudPcOnPremisesConnectionStatus {
-        return $this->healthCheckStatus;
+        return $this->getBackingStore()->get('healthCheckStatus');
     }
 
     /**
@@ -184,7 +103,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionStatusDetails|null
     */
     public function getHealthCheckStatusDetails(): ?CloudPcOnPremisesConnectionStatusDetails {
-        return $this->healthCheckStatusDetails;
+        return $this->getBackingStore()->get('healthCheckStatusDetails');
     }
 
     /**
@@ -192,7 +111,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return bool|null
     */
     public function getInUse(): ?bool {
-        return $this->inUse;
+        return $this->getBackingStore()->get('inUse');
     }
 
     /**
@@ -200,7 +119,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcManagementService|null
     */
     public function getManagedBy(): ?CloudPcManagementService {
-        return $this->managedBy;
+        return $this->getBackingStore()->get('managedBy');
     }
 
     /**
@@ -208,7 +127,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getOrganizationalUnit(): ?string {
-        return $this->organizationalUnit;
+        return $this->getBackingStore()->get('organizationalUnit');
     }
 
     /**
@@ -216,7 +135,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceGroupId(): ?string {
-        return $this->resourceGroupId;
+        return $this->getBackingStore()->get('resourceGroupId');
     }
 
     /**
@@ -224,7 +143,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubnetId(): ?string {
-        return $this->subnetId;
+        return $this->getBackingStore()->get('subnetId');
     }
 
     /**
@@ -232,7 +151,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionId(): ?string {
-        return $this->subscriptionId;
+        return $this->getBackingStore()->get('subscriptionId');
     }
 
     /**
@@ -240,7 +159,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getSubscriptionName(): ?string {
-        return $this->subscriptionName;
+        return $this->getBackingStore()->get('subscriptionName');
     }
 
     /**
@@ -248,7 +167,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return CloudPcOnPremisesConnectionType|null
     */
     public function getType(): ?CloudPcOnPremisesConnectionType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -256,7 +175,7 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getVirtualNetworkId(): ?string {
-        return $this->virtualNetworkId;
+        return $this->getBackingStore()->get('virtualNetworkId');
     }
 
     /**
@@ -265,150 +184,150 @@ class CloudPcOnPremisesConnection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('adDomainName', $this->adDomainName);
-        $writer->writeStringValue('adDomainPassword', $this->adDomainPassword);
-        $writer->writeStringValue('adDomainUsername', $this->adDomainUsername);
-        $writer->writeStringValue('alternateResourceUrl', $this->alternateResourceUrl);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('healthCheckStatus', $this->healthCheckStatus);
-        $writer->writeObjectValue('healthCheckStatusDetails', $this->healthCheckStatusDetails);
-        $writer->writeBooleanValue('inUse', $this->inUse);
-        $writer->writeEnumValue('managedBy', $this->managedBy);
-        $writer->writeStringValue('organizationalUnit', $this->organizationalUnit);
-        $writer->writeStringValue('resourceGroupId', $this->resourceGroupId);
-        $writer->writeStringValue('subnetId', $this->subnetId);
-        $writer->writeStringValue('subscriptionId', $this->subscriptionId);
-        $writer->writeStringValue('subscriptionName', $this->subscriptionName);
-        $writer->writeEnumValue('type', $this->type);
-        $writer->writeStringValue('virtualNetworkId', $this->virtualNetworkId);
+        $writer->writeStringValue('adDomainName', $this->getAdDomainName());
+        $writer->writeStringValue('adDomainPassword', $this->getAdDomainPassword());
+        $writer->writeStringValue('adDomainUsername', $this->getAdDomainUsername());
+        $writer->writeStringValue('alternateResourceUrl', $this->getAlternateResourceUrl());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('healthCheckStatus', $this->getHealthCheckStatus());
+        $writer->writeObjectValue('healthCheckStatusDetails', $this->getHealthCheckStatusDetails());
+        $writer->writeBooleanValue('inUse', $this->getInUse());
+        $writer->writeEnumValue('managedBy', $this->getManagedBy());
+        $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
+        $writer->writeStringValue('resourceGroupId', $this->getResourceGroupId());
+        $writer->writeStringValue('subnetId', $this->getSubnetId());
+        $writer->writeStringValue('subscriptionId', $this->getSubscriptionId());
+        $writer->writeStringValue('subscriptionName', $this->getSubscriptionName());
+        $writer->writeEnumValue('type', $this->getType());
+        $writer->writeStringValue('virtualNetworkId', $this->getVirtualNetworkId());
     }
 
     /**
      * Sets the adDomainName property value. The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.
      *  @param string|null $value Value to set for the adDomainName property.
     */
-    public function setAdDomainName(?string $value ): void {
-        $this->adDomainName = $value;
+    public function setAdDomainName(?string $value): void {
+        $this->getBackingStore()->set('adDomainName', $value);
     }
 
     /**
      * Sets the adDomainPassword property value. The password associated with adDomainUsername.
      *  @param string|null $value Value to set for the adDomainPassword property.
     */
-    public function setAdDomainPassword(?string $value ): void {
-        $this->adDomainPassword = $value;
+    public function setAdDomainPassword(?string $value): void {
+        $this->getBackingStore()->set('adDomainPassword', $value);
     }
 
     /**
      * Sets the adDomainUsername property value. The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com. Optional.
      *  @param string|null $value Value to set for the adDomainUsername property.
     */
-    public function setAdDomainUsername(?string $value ): void {
-        $this->adDomainUsername = $value;
+    public function setAdDomainUsername(?string $value): void {
+        $this->getBackingStore()->set('adDomainUsername', $value);
     }
 
     /**
      * Sets the alternateResourceUrl property value. The interface URL of the partner service's resource that links to this Azure network connection. Returned only on $select.
      *  @param string|null $value Value to set for the alternateResourceUrl property.
     */
-    public function setAlternateResourceUrl(?string $value ): void {
-        $this->alternateResourceUrl = $value;
+    public function setAlternateResourceUrl(?string $value): void {
+        $this->getBackingStore()->set('alternateResourceUrl', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the Azure network connection.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the healthCheckStatus property value. The healthCheckStatus property
      *  @param CloudPcOnPremisesConnectionStatus|null $value Value to set for the healthCheckStatus property.
     */
-    public function setHealthCheckStatus(?CloudPcOnPremisesConnectionStatus $value ): void {
-        $this->healthCheckStatus = $value;
+    public function setHealthCheckStatus(?CloudPcOnPremisesConnectionStatus $value): void {
+        $this->getBackingStore()->set('healthCheckStatus', $value);
     }
 
     /**
      * Sets the healthCheckStatusDetails property value. The details of the connection's health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      *  @param CloudPcOnPremisesConnectionStatusDetails|null $value Value to set for the healthCheckStatusDetails property.
     */
-    public function setHealthCheckStatusDetails(?CloudPcOnPremisesConnectionStatusDetails $value ): void {
-        $this->healthCheckStatusDetails = $value;
+    public function setHealthCheckStatusDetails(?CloudPcOnPremisesConnectionStatusDetails $value): void {
+        $this->getBackingStore()->set('healthCheckStatusDetails', $value);
     }
 
     /**
      * Sets the inUse property value. When true, the Azure network connection is in use. When false, the connection is not in use. You cannot delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.
      *  @param bool|null $value Value to set for the inUse property.
     */
-    public function setInUse(?bool $value ): void {
-        $this->inUse = $value;
+    public function setInUse(?bool $value): void {
+        $this->getBackingStore()->set('inUse', $value);
     }
 
     /**
      * Sets the managedBy property value. The managedBy property
      *  @param CloudPcManagementService|null $value Value to set for the managedBy property.
     */
-    public function setManagedBy(?CloudPcManagementService $value ): void {
-        $this->managedBy = $value;
+    public function setManagedBy(?CloudPcManagementService $value): void {
+        $this->getBackingStore()->set('managedBy', $value);
     }
 
     /**
      * Sets the organizationalUnit property value. The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.
      *  @param string|null $value Value to set for the organizationalUnit property.
     */
-    public function setOrganizationalUnit(?string $value ): void {
-        $this->organizationalUnit = $value;
+    public function setOrganizationalUnit(?string $value): void {
+        $this->getBackingStore()->set('organizationalUnit', $value);
     }
 
     /**
      * Sets the resourceGroupId property value. The ID of the target resource group. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}.
      *  @param string|null $value Value to set for the resourceGroupId property.
     */
-    public function setResourceGroupId(?string $value ): void {
-        $this->resourceGroupId = $value;
+    public function setResourceGroupId(?string $value): void {
+        $this->getBackingStore()->set('resourceGroupId', $value);
     }
 
     /**
      * Sets the subnetId property value. The ID of the target subnet. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkId}/subnets/{subnetName}.
      *  @param string|null $value Value to set for the subnetId property.
     */
-    public function setSubnetId(?string $value ): void {
-        $this->subnetId = $value;
+    public function setSubnetId(?string $value): void {
+        $this->getBackingStore()->set('subnetId', $value);
     }
 
     /**
      * Sets the subscriptionId property value. The ID of the target Azure subscription that’s associated with your tenant.
      *  @param string|null $value Value to set for the subscriptionId property.
     */
-    public function setSubscriptionId(?string $value ): void {
-        $this->subscriptionId = $value;
+    public function setSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('subscriptionId', $value);
     }
 
     /**
      * Sets the subscriptionName property value. The name of the target Azure subscription. Read-only.
      *  @param string|null $value Value to set for the subscriptionName property.
     */
-    public function setSubscriptionName(?string $value ): void {
-        $this->subscriptionName = $value;
+    public function setSubscriptionName(?string $value): void {
+        $this->getBackingStore()->set('subscriptionName', $value);
     }
 
     /**
      * Sets the type property value. Specifies how the provisioned Cloud PC will be joined to Azure Active Directory. Default value is hybridAzureADJoin. Possible values are: azureADJoin, hybridAzureADJoin, unknownFutureValue.
      *  @param CloudPcOnPremisesConnectionType|null $value Value to set for the type property.
     */
-    public function setType(?CloudPcOnPremisesConnectionType $value ): void {
-        $this->type = $value;
+    public function setType(?CloudPcOnPremisesConnectionType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the virtualNetworkId property value. The ID of the target virtual network. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}.
      *  @param string|null $value Value to set for the virtualNetworkId property.
     */
-    public function setVirtualNetworkId(?string $value ): void {
-        $this->virtualNetworkId = $value;
+    public function setVirtualNetworkId(?string $value): void {
+        $this->getBackingStore()->set('virtualNetworkId', $value);
     }
 
 }

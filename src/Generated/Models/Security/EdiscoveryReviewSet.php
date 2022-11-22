@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdiscoveryReviewSet extends DataSet implements Parsable 
 {
     /**
-     * @var array<EdiscoveryFile>|null $files Represents files within the review set.
-    */
-    private ?array $files = null;
-    
-    /**
-     * @var array<EdiscoveryReviewSetQuery>|null $queries Represents queries within the review set.
-    */
-    private ?array $queries = null;
-    
-    /**
      * Instantiates a new EdiscoveryReviewSet and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
      * @return array<EdiscoveryFile>|null
     */
     public function getFiles(): ?array {
-        return $this->files;
+        return $this->getBackingStore()->get('files');
     }
 
     /**
@@ -60,7 +50,7 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
      * @return array<EdiscoveryReviewSetQuery>|null
     */
     public function getQueries(): ?array {
-        return $this->queries;
+        return $this->getBackingStore()->get('queries');
     }
 
     /**
@@ -69,24 +59,24 @@ class EdiscoveryReviewSet extends DataSet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('files', $this->files);
-        $writer->writeCollectionOfObjectValues('queries', $this->queries);
+        $writer->writeCollectionOfObjectValues('files', $this->getFiles());
+        $writer->writeCollectionOfObjectValues('queries', $this->getQueries());
     }
 
     /**
      * Sets the files property value. Represents files within the review set.
      *  @param array<EdiscoveryFile>|null $value Value to set for the files property.
     */
-    public function setFiles(?array $value ): void {
-        $this->files = $value;
+    public function setFiles(?array $value): void {
+        $this->getBackingStore()->set('files', $value);
     }
 
     /**
      * Sets the queries property value. Represents queries within the review set.
      *  @param array<EdiscoveryReviewSetQuery>|null $value Value to set for the queries property.
     */
-    public function setQueries(?array $value ): void {
-        $this->queries = $value;
+    public function setQueries(?array $value): void {
+        $this->getBackingStore()->set('queries', $value);
     }
 
 }

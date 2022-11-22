@@ -9,7 +9,6 @@ use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyExactMatches\Class
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFile\ClassifyFileRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\ClassifyFileJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyFileJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationClassifyFileJobsItemJobResponseBaseItemRequestBuilder;
-use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyText\ClassifyTextRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\ClassifyTextJobsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\ClassifyTextJobs\Item\JobResponseBaseItemRequestBuilder as MicrosoftGraphBetaGeneratedDataClassificationClassifyTextJobsItemJobResponseBaseItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\DataClassification\EvaluateDlpPoliciesJobs\EvaluateDlpPoliciesJobsRequestBuilder;
@@ -57,13 +56,6 @@ class DataClassificationRequestBuilder
     */
     public function classifyFileJobs(): ClassifyFileJobsRequestBuilder {
         return new ClassifyFileJobsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to call the classifyText method.
-    */
-    public function classifyText(): ClassifyTextRequestBuilder {
-        return new ClassifyTextRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

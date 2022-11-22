@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * @var int|null $defaultValue The default value of Integer param. Valid values -2147483648 to 2147483647
-    */
-    private ?int $defaultValue = null;
-    
-    /**
      * Instantiates a new DeviceHealthScriptIntegerParameter and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter imp
      * @return int|null
     */
     public function getDefaultValue(): ?int {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceHealthScriptIntegerParameter extends DeviceHealthScriptParameter imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('defaultValue', $this->defaultValue);
+        $writer->writeIntegerValue('defaultValue', $this->getDefaultValue());
     }
 
     /**
      * Sets the defaultValue property value. The default value of Integer param. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?int $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?int $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
 }

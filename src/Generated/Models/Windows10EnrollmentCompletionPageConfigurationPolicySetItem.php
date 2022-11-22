@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * @var int|null $priority Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
-    */
-    private ?int $priority = null;
-    
-    /**
      * Instantiates a new Windows10EnrollmentCompletionPageConfigurationPolicySetItem and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends Policy
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -55,15 +50,15 @@ class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends Policy
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('priority', $this->priority);
+        $writer->writeIntegerValue('priority', $this->getPriority());
     }
 
     /**
      * Sets the priority property value. Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
 }

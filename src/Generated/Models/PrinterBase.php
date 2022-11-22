@@ -9,61 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrinterBase extends Entity implements Parsable 
 {
     /**
-     * @var PrinterCapabilities|null $capabilities The capabilities property
-    */
-    private ?PrinterCapabilities $capabilities = null;
-    
-    /**
-     * @var PrinterDefaults|null $defaults The defaults property
-    */
-    private ?PrinterDefaults $defaults = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isAcceptingJobs The isAcceptingJobs property
-    */
-    private ?bool $isAcceptingJobs = null;
-    
-    /**
-     * @var array<PrintJob>|null $jobs The jobs property
-    */
-    private ?array $jobs = null;
-    
-    /**
-     * @var PrinterLocation|null $location The location property
-    */
-    private ?PrinterLocation $location = null;
-    
-    /**
-     * @var string|null $manufacturer The manufacturer property
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The model property
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var PrinterStatus|null $status The status property
-    */
-    private ?PrinterStatus $status = null;
-    
-    /**
      * Instantiates a new printerBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.printerBase');
     }
 
     /**
@@ -88,7 +37,7 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterCapabilities|null
     */
     public function getCapabilities(): ?PrinterCapabilities {
-        return $this->capabilities;
+        return $this->getBackingStore()->get('capabilities');
     }
 
     /**
@@ -96,7 +45,7 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterDefaults|null
     */
     public function getDefaults(): ?PrinterDefaults {
-        return $this->defaults;
+        return $this->getBackingStore()->get('defaults');
     }
 
     /**
@@ -104,7 +53,7 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -132,7 +81,7 @@ class PrinterBase extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAcceptingJobs(): ?bool {
-        return $this->isAcceptingJobs;
+        return $this->getBackingStore()->get('isAcceptingJobs');
     }
 
     /**
@@ -140,7 +89,7 @@ class PrinterBase extends Entity implements Parsable
      * @return array<PrintJob>|null
     */
     public function getJobs(): ?array {
-        return $this->jobs;
+        return $this->getBackingStore()->get('jobs');
     }
 
     /**
@@ -148,7 +97,7 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterLocation|null
     */
     public function getLocation(): ?PrinterLocation {
-        return $this->location;
+        return $this->getBackingStore()->get('location');
     }
 
     /**
@@ -156,7 +105,7 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -164,7 +113,7 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -172,7 +121,7 @@ class PrinterBase extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -180,7 +129,7 @@ class PrinterBase extends Entity implements Parsable
      * @return PrinterStatus|null
     */
     public function getStatus(): ?PrinterStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -189,96 +138,96 @@ class PrinterBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('capabilities', $this->capabilities);
-        $writer->writeObjectValue('defaults', $this->defaults);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isAcceptingJobs', $this->isAcceptingJobs);
-        $writer->writeCollectionOfObjectValues('jobs', $this->jobs);
-        $writer->writeObjectValue('location', $this->location);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('status', $this->status);
+        $writer->writeObjectValue('capabilities', $this->getCapabilities());
+        $writer->writeObjectValue('defaults', $this->getDefaults());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isAcceptingJobs', $this->getIsAcceptingJobs());
+        $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('status', $this->getStatus());
     }
 
     /**
      * Sets the capabilities property value. The capabilities property
      *  @param PrinterCapabilities|null $value Value to set for the capabilities property.
     */
-    public function setCapabilities(?PrinterCapabilities $value ): void {
-        $this->capabilities = $value;
+    public function setCapabilities(?PrinterCapabilities $value): void {
+        $this->getBackingStore()->set('capabilities', $value);
     }
 
     /**
      * Sets the defaults property value. The defaults property
      *  @param PrinterDefaults|null $value Value to set for the defaults property.
     */
-    public function setDefaults(?PrinterDefaults $value ): void {
-        $this->defaults = $value;
+    public function setDefaults(?PrinterDefaults $value): void {
+        $this->getBackingStore()->set('defaults', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isAcceptingJobs property value. The isAcceptingJobs property
      *  @param bool|null $value Value to set for the isAcceptingJobs property.
     */
-    public function setIsAcceptingJobs(?bool $value ): void {
-        $this->isAcceptingJobs = $value;
+    public function setIsAcceptingJobs(?bool $value): void {
+        $this->getBackingStore()->set('isAcceptingJobs', $value);
     }
 
     /**
      * Sets the jobs property value. The jobs property
      *  @param array<PrintJob>|null $value Value to set for the jobs property.
     */
-    public function setJobs(?array $value ): void {
-        $this->jobs = $value;
+    public function setJobs(?array $value): void {
+        $this->getBackingStore()->set('jobs', $value);
     }
 
     /**
      * Sets the location property value. The location property
      *  @param PrinterLocation|null $value Value to set for the location property.
     */
-    public function setLocation(?PrinterLocation $value ): void {
-        $this->location = $value;
+    public function setLocation(?PrinterLocation $value): void {
+        $this->getBackingStore()->set('location', $value);
     }
 
     /**
      * Sets the manufacturer property value. The manufacturer property
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The model property
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param PrinterStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?PrinterStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?PrinterStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

@@ -9,76 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityLabel extends Entity implements Parsable 
 {
     /**
-     * @var SensitivityLabelTarget|null $applicableTo The applicableTo property
-    */
-    private ?SensitivityLabelTarget $applicableTo = null;
-    
-    /**
-     * @var ApplicationMode|null $applicationMode The applicationMode property
-    */
-    private ?ApplicationMode $applicationMode = null;
-    
-    /**
-     * @var array<LabelPolicy>|null $assignedPolicies The assignedPolicies property
-    */
-    private ?array $assignedPolicies = null;
-    
-    /**
-     * @var AutoLabeling|null $autoLabeling The autoLabeling property
-    */
-    private ?AutoLabeling $autoLabeling = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isDefault The isDefault property
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var bool|null $isEndpointProtectionEnabled The isEndpointProtectionEnabled property
-    */
-    private ?bool $isEndpointProtectionEnabled = null;
-    
-    /**
-     * @var array<LabelActionBase>|null $labelActions The labelActions property
-    */
-    private ?array $labelActions = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var int|null $priority The priority property
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var array<SensitivityLabel>|null $sublabels The sublabels property
-    */
-    private ?array $sublabels = null;
-    
-    /**
-     * @var string|null $toolTip The toolTip property
-    */
-    private ?string $toolTip = null;
-    
-    /**
      * Instantiates a new sensitivityLabel and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sensitivityLabel');
     }
 
     /**
@@ -95,7 +29,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return SensitivityLabelTarget|null
     */
     public function getApplicableTo(): ?SensitivityLabelTarget {
-        return $this->applicableTo;
+        return $this->getBackingStore()->get('applicableTo');
     }
 
     /**
@@ -103,7 +37,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return ApplicationMode|null
     */
     public function getApplicationMode(): ?ApplicationMode {
-        return $this->applicationMode;
+        return $this->getBackingStore()->get('applicationMode');
     }
 
     /**
@@ -111,7 +45,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<LabelPolicy>|null
     */
     public function getAssignedPolicies(): ?array {
-        return $this->assignedPolicies;
+        return $this->getBackingStore()->get('assignedPolicies');
     }
 
     /**
@@ -119,7 +53,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return AutoLabeling|null
     */
     public function getAutoLabeling(): ?AutoLabeling {
-        return $this->autoLabeling;
+        return $this->getBackingStore()->get('autoLabeling');
     }
 
     /**
@@ -127,7 +61,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -135,7 +69,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -166,7 +100,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -174,7 +108,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEndpointProtectionEnabled(): ?bool {
-        return $this->isEndpointProtectionEnabled;
+        return $this->getBackingStore()->get('isEndpointProtectionEnabled');
     }
 
     /**
@@ -182,7 +116,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<LabelActionBase>|null
     */
     public function getLabelActions(): ?array {
-        return $this->labelActions;
+        return $this->getBackingStore()->get('labelActions');
     }
 
     /**
@@ -190,7 +124,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -198,7 +132,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -206,7 +140,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return array<SensitivityLabel>|null
     */
     public function getSublabels(): ?array {
-        return $this->sublabels;
+        return $this->getBackingStore()->get('sublabels');
     }
 
     /**
@@ -214,7 +148,7 @@ class SensitivityLabel extends Entity implements Parsable
      * @return string|null
     */
     public function getToolTip(): ?string {
-        return $this->toolTip;
+        return $this->getBackingStore()->get('toolTip');
     }
 
     /**
@@ -223,123 +157,123 @@ class SensitivityLabel extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('applicableTo', $this->applicableTo);
-        $writer->writeEnumValue('applicationMode', $this->applicationMode);
-        $writer->writeCollectionOfObjectValues('assignedPolicies', $this->assignedPolicies);
-        $writer->writeObjectValue('autoLabeling', $this->autoLabeling);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->isEndpointProtectionEnabled);
-        $writer->writeCollectionOfObjectValues('labelActions', $this->labelActions);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeCollectionOfObjectValues('sublabels', $this->sublabels);
-        $writer->writeStringValue('toolTip', $this->toolTip);
+        $writer->writeEnumValue('applicableTo', $this->getApplicableTo());
+        $writer->writeEnumValue('applicationMode', $this->getApplicationMode());
+        $writer->writeCollectionOfObjectValues('assignedPolicies', $this->getAssignedPolicies());
+        $writer->writeObjectValue('autoLabeling', $this->getAutoLabeling());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeBooleanValue('isEndpointProtectionEnabled', $this->getIsEndpointProtectionEnabled());
+        $writer->writeCollectionOfObjectValues('labelActions', $this->getLabelActions());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeCollectionOfObjectValues('sublabels', $this->getSublabels());
+        $writer->writeStringValue('toolTip', $this->getToolTip());
     }
 
     /**
      * Sets the applicableTo property value. The applicableTo property
      *  @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
     */
-    public function setApplicableTo(?SensitivityLabelTarget $value ): void {
-        $this->applicableTo = $value;
+    public function setApplicableTo(?SensitivityLabelTarget $value): void {
+        $this->getBackingStore()->set('applicableTo', $value);
     }
 
     /**
      * Sets the applicationMode property value. The applicationMode property
      *  @param ApplicationMode|null $value Value to set for the applicationMode property.
     */
-    public function setApplicationMode(?ApplicationMode $value ): void {
-        $this->applicationMode = $value;
+    public function setApplicationMode(?ApplicationMode $value): void {
+        $this->getBackingStore()->set('applicationMode', $value);
     }
 
     /**
      * Sets the assignedPolicies property value. The assignedPolicies property
      *  @param array<LabelPolicy>|null $value Value to set for the assignedPolicies property.
     */
-    public function setAssignedPolicies(?array $value ): void {
-        $this->assignedPolicies = $value;
+    public function setAssignedPolicies(?array $value): void {
+        $this->getBackingStore()->set('assignedPolicies', $value);
     }
 
     /**
      * Sets the autoLabeling property value. The autoLabeling property
      *  @param AutoLabeling|null $value Value to set for the autoLabeling property.
     */
-    public function setAutoLabeling(?AutoLabeling $value ): void {
-        $this->autoLabeling = $value;
+    public function setAutoLabeling(?AutoLabeling $value): void {
+        $this->getBackingStore()->set('autoLabeling', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isDefault property value. The isDefault property
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the isEndpointProtectionEnabled property value. The isEndpointProtectionEnabled property
      *  @param bool|null $value Value to set for the isEndpointProtectionEnabled property.
     */
-    public function setIsEndpointProtectionEnabled(?bool $value ): void {
-        $this->isEndpointProtectionEnabled = $value;
+    public function setIsEndpointProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEndpointProtectionEnabled', $value);
     }
 
     /**
      * Sets the labelActions property value. The labelActions property
      *  @param array<LabelActionBase>|null $value Value to set for the labelActions property.
     */
-    public function setLabelActions(?array $value ): void {
-        $this->labelActions = $value;
+    public function setLabelActions(?array $value): void {
+        $this->getBackingStore()->set('labelActions', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the priority property value. The priority property
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the sublabels property value. The sublabels property
      *  @param array<SensitivityLabel>|null $value Value to set for the sublabels property.
     */
-    public function setSublabels(?array $value ): void {
-        $this->sublabels = $value;
+    public function setSublabels(?array $value): void {
+        $this->getBackingStore()->set('sublabels', $value);
     }
 
     /**
      * Sets the toolTip property value. The toolTip property
      *  @param string|null $value Value to set for the toolTip property.
     */
-    public function setToolTip(?string $value ): void {
-        $this->toolTip = $value;
+    public function setToolTip(?string $value): void {
+        $this->getBackingStore()->set('toolTip', $value);
     }
 
 }

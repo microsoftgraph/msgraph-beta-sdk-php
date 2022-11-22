@@ -11,156 +11,10 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PurchaseInvoice extends Entity implements Parsable 
 {
     /**
-     * @var PostalAddressType|null $buyFromAddress The buyFromAddress property
-    */
-    private ?PostalAddressType $buyFromAddress = null;
-    
-    /**
-     * @var Currency|null $currency The currency property
-    */
-    private ?Currency $currency = null;
-    
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
-    private ?string $currencyCode = null;
-    
-    /**
-     * @var string|null $currencyId The currencyId property
-    */
-    private ?string $currencyId = null;
-    
-    /**
-     * @var string|null $discountAmount The discountAmount property
-    */
-    private ?string $discountAmount = null;
-    
-    /**
-     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
-    */
-    private ?bool $discountAppliedBeforeTax = null;
-    
-    /**
-     * @var Date|null $dueDate The dueDate property
-    */
-    private ?Date $dueDate = null;
-    
-    /**
-     * @var Date|null $invoiceDate The invoiceDate property
-    */
-    private ?Date $invoiceDate = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $number The number property
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var PostalAddressType|null $payToAddress The payToAddress property
-    */
-    private ?PostalAddressType $payToAddress = null;
-    
-    /**
-     * @var string|null $payToContact The payToContact property
-    */
-    private ?string $payToContact = null;
-    
-    /**
-     * @var string|null $payToName The payToName property
-    */
-    private ?string $payToName = null;
-    
-    /**
-     * @var string|null $payToVendorId The payToVendorId property
-    */
-    private ?string $payToVendorId = null;
-    
-    /**
-     * @var string|null $payToVendorNumber The payToVendorNumber property
-    */
-    private ?string $payToVendorNumber = null;
-    
-    /**
-     * @var bool|null $pricesIncludeTax The pricesIncludeTax property
-    */
-    private ?bool $pricesIncludeTax = null;
-    
-    /**
-     * @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property
-    */
-    private ?array $purchaseInvoiceLines = null;
-    
-    /**
-     * @var PostalAddressType|null $shipToAddress The shipToAddress property
-    */
-    private ?PostalAddressType $shipToAddress = null;
-    
-    /**
-     * @var string|null $shipToContact The shipToContact property
-    */
-    private ?string $shipToContact = null;
-    
-    /**
-     * @var string|null $shipToName The shipToName property
-    */
-    private ?string $shipToName = null;
-    
-    /**
-     * @var string|null $status The status property
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var string|null $totalAmountExcludingTax The totalAmountExcludingTax property
-    */
-    private ?string $totalAmountExcludingTax = null;
-    
-    /**
-     * @var string|null $totalAmountIncludingTax The totalAmountIncludingTax property
-    */
-    private ?string $totalAmountIncludingTax = null;
-    
-    /**
-     * @var string|null $totalTaxAmount The totalTaxAmount property
-    */
-    private ?string $totalTaxAmount = null;
-    
-    /**
-     * @var Vendor|null $vendor The vendor property
-    */
-    private ?Vendor $vendor = null;
-    
-    /**
-     * @var string|null $vendorId The vendorId property
-    */
-    private ?string $vendorId = null;
-    
-    /**
-     * @var string|null $vendorInvoiceNumber The vendorInvoiceNumber property
-    */
-    private ?string $vendorInvoiceNumber = null;
-    
-    /**
-     * @var string|null $vendorName The vendorName property
-    */
-    private ?string $vendorName = null;
-    
-    /**
-     * @var string|null $vendorNumber The vendorNumber property
-    */
-    private ?string $vendorNumber = null;
-    
-    /**
      * Instantiates a new purchaseInvoice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.purchaseInvoice');
     }
 
     /**
@@ -177,7 +31,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getBuyFromAddress(): ?PostalAddressType {
-        return $this->buyFromAddress;
+        return $this->getBackingStore()->get('buyFromAddress');
     }
 
     /**
@@ -185,7 +39,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return Currency|null
     */
     public function getCurrency(): ?Currency {
-        return $this->currency;
+        return $this->getBackingStore()->get('currency');
     }
 
     /**
@@ -193,7 +47,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->currencyCode;
+        return $this->getBackingStore()->get('currencyCode');
     }
 
     /**
@@ -201,7 +55,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyId(): ?string {
-        return $this->currencyId;
+        return $this->getBackingStore()->get('currencyId');
     }
 
     /**
@@ -209,7 +63,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountAmount(): ?string {
-        return $this->discountAmount;
+        return $this->getBackingStore()->get('discountAmount');
     }
 
     /**
@@ -217,7 +71,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return bool|null
     */
     public function getDiscountAppliedBeforeTax(): ?bool {
-        return $this->discountAppliedBeforeTax;
+        return $this->getBackingStore()->get('discountAppliedBeforeTax');
     }
 
     /**
@@ -225,7 +79,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return Date|null
     */
     public function getDueDate(): ?Date {
-        return $this->dueDate;
+        return $this->getBackingStore()->get('dueDate');
     }
 
     /**
@@ -272,7 +126,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return Date|null
     */
     public function getInvoiceDate(): ?Date {
-        return $this->invoiceDate;
+        return $this->getBackingStore()->get('invoiceDate');
     }
 
     /**
@@ -280,7 +134,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -288,7 +142,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -296,7 +150,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getPayToAddress(): ?PostalAddressType {
-        return $this->payToAddress;
+        return $this->getBackingStore()->get('payToAddress');
     }
 
     /**
@@ -304,7 +158,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getPayToContact(): ?string {
-        return $this->payToContact;
+        return $this->getBackingStore()->get('payToContact');
     }
 
     /**
@@ -312,7 +166,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getPayToName(): ?string {
-        return $this->payToName;
+        return $this->getBackingStore()->get('payToName');
     }
 
     /**
@@ -320,7 +174,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getPayToVendorId(): ?string {
-        return $this->payToVendorId;
+        return $this->getBackingStore()->get('payToVendorId');
     }
 
     /**
@@ -328,7 +182,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getPayToVendorNumber(): ?string {
-        return $this->payToVendorNumber;
+        return $this->getBackingStore()->get('payToVendorNumber');
     }
 
     /**
@@ -336,7 +190,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return bool|null
     */
     public function getPricesIncludeTax(): ?bool {
-        return $this->pricesIncludeTax;
+        return $this->getBackingStore()->get('pricesIncludeTax');
     }
 
     /**
@@ -344,7 +198,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return array<PurchaseInvoiceLine>|null
     */
     public function getPurchaseInvoiceLines(): ?array {
-        return $this->purchaseInvoiceLines;
+        return $this->getBackingStore()->get('purchaseInvoiceLines');
     }
 
     /**
@@ -352,7 +206,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getShipToAddress(): ?PostalAddressType {
-        return $this->shipToAddress;
+        return $this->getBackingStore()->get('shipToAddress');
     }
 
     /**
@@ -360,7 +214,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getShipToContact(): ?string {
-        return $this->shipToContact;
+        return $this->getBackingStore()->get('shipToContact');
     }
 
     /**
@@ -368,7 +222,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getShipToName(): ?string {
-        return $this->shipToName;
+        return $this->getBackingStore()->get('shipToName');
     }
 
     /**
@@ -376,7 +230,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -384,7 +238,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getTotalAmountExcludingTax(): ?string {
-        return $this->totalAmountExcludingTax;
+        return $this->getBackingStore()->get('totalAmountExcludingTax');
     }
 
     /**
@@ -392,7 +246,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getTotalAmountIncludingTax(): ?string {
-        return $this->totalAmountIncludingTax;
+        return $this->getBackingStore()->get('totalAmountIncludingTax');
     }
 
     /**
@@ -400,7 +254,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getTotalTaxAmount(): ?string {
-        return $this->totalTaxAmount;
+        return $this->getBackingStore()->get('totalTaxAmount');
     }
 
     /**
@@ -408,7 +262,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return Vendor|null
     */
     public function getVendor(): ?Vendor {
-        return $this->vendor;
+        return $this->getBackingStore()->get('vendor');
     }
 
     /**
@@ -416,7 +270,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorId(): ?string {
-        return $this->vendorId;
+        return $this->getBackingStore()->get('vendorId');
     }
 
     /**
@@ -424,7 +278,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorInvoiceNumber(): ?string {
-        return $this->vendorInvoiceNumber;
+        return $this->getBackingStore()->get('vendorInvoiceNumber');
     }
 
     /**
@@ -432,7 +286,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorName(): ?string {
-        return $this->vendorName;
+        return $this->getBackingStore()->get('vendorName');
     }
 
     /**
@@ -440,7 +294,7 @@ class PurchaseInvoice extends Entity implements Parsable
      * @return string|null
     */
     public function getVendorNumber(): ?string {
-        return $this->vendorNumber;
+        return $this->getBackingStore()->get('vendorNumber');
     }
 
     /**
@@ -449,267 +303,267 @@ class PurchaseInvoice extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('buyFromAddress', $this->buyFromAddress);
-        $writer->writeObjectValue('currency', $this->currency);
-        $writer->writeStringValue('currencyCode', $this->currencyCode);
-        $writer->writeStringValue('currencyId', $this->currencyId);
-        $writer->writeStringValue('discountAmount', $this->discountAmount);
-        $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
-        $writer->writeDateValue('dueDate', $this->dueDate);
-        $writer->writeDateValue('invoiceDate', $this->invoiceDate);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeObjectValue('payToAddress', $this->payToAddress);
-        $writer->writeStringValue('payToContact', $this->payToContact);
-        $writer->writeStringValue('payToName', $this->payToName);
-        $writer->writeStringValue('payToVendorId', $this->payToVendorId);
-        $writer->writeStringValue('payToVendorNumber', $this->payToVendorNumber);
-        $writer->writeBooleanValue('pricesIncludeTax', $this->pricesIncludeTax);
-        $writer->writeCollectionOfObjectValues('purchaseInvoiceLines', $this->purchaseInvoiceLines);
-        $writer->writeObjectValue('shipToAddress', $this->shipToAddress);
-        $writer->writeStringValue('shipToContact', $this->shipToContact);
-        $writer->writeStringValue('shipToName', $this->shipToName);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('totalAmountExcludingTax', $this->totalAmountExcludingTax);
-        $writer->writeStringValue('totalAmountIncludingTax', $this->totalAmountIncludingTax);
-        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
-        $writer->writeObjectValue('vendor', $this->vendor);
-        $writer->writeStringValue('vendorId', $this->vendorId);
-        $writer->writeStringValue('vendorInvoiceNumber', $this->vendorInvoiceNumber);
-        $writer->writeStringValue('vendorName', $this->vendorName);
-        $writer->writeStringValue('vendorNumber', $this->vendorNumber);
+        $writer->writeObjectValue('buyFromAddress', $this->getBuyFromAddress());
+        $writer->writeObjectValue('currency', $this->getCurrency());
+        $writer->writeStringValue('currencyCode', $this->getCurrencyCode());
+        $writer->writeStringValue('currencyId', $this->getCurrencyId());
+        $writer->writeStringValue('discountAmount', $this->getDiscountAmount());
+        $writer->writeBooleanValue('discountAppliedBeforeTax', $this->getDiscountAppliedBeforeTax());
+        $writer->writeDateValue('dueDate', $this->getDueDate());
+        $writer->writeDateValue('invoiceDate', $this->getInvoiceDate());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeObjectValue('payToAddress', $this->getPayToAddress());
+        $writer->writeStringValue('payToContact', $this->getPayToContact());
+        $writer->writeStringValue('payToName', $this->getPayToName());
+        $writer->writeStringValue('payToVendorId', $this->getPayToVendorId());
+        $writer->writeStringValue('payToVendorNumber', $this->getPayToVendorNumber());
+        $writer->writeBooleanValue('pricesIncludeTax', $this->getPricesIncludeTax());
+        $writer->writeCollectionOfObjectValues('purchaseInvoiceLines', $this->getPurchaseInvoiceLines());
+        $writer->writeObjectValue('shipToAddress', $this->getShipToAddress());
+        $writer->writeStringValue('shipToContact', $this->getShipToContact());
+        $writer->writeStringValue('shipToName', $this->getShipToName());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeStringValue('totalAmountExcludingTax', $this->getTotalAmountExcludingTax());
+        $writer->writeStringValue('totalAmountIncludingTax', $this->getTotalAmountIncludingTax());
+        $writer->writeStringValue('totalTaxAmount', $this->getTotalTaxAmount());
+        $writer->writeObjectValue('vendor', $this->getVendor());
+        $writer->writeStringValue('vendorId', $this->getVendorId());
+        $writer->writeStringValue('vendorInvoiceNumber', $this->getVendorInvoiceNumber());
+        $writer->writeStringValue('vendorName', $this->getVendorName());
+        $writer->writeStringValue('vendorNumber', $this->getVendorNumber());
     }
 
     /**
      * Sets the buyFromAddress property value. The buyFromAddress property
      *  @param PostalAddressType|null $value Value to set for the buyFromAddress property.
     */
-    public function setBuyFromAddress(?PostalAddressType $value ): void {
-        $this->buyFromAddress = $value;
+    public function setBuyFromAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('buyFromAddress', $value);
     }
 
     /**
      * Sets the currency property value. The currency property
      *  @param Currency|null $value Value to set for the currency property.
     */
-    public function setCurrency(?Currency $value ): void {
-        $this->currency = $value;
+    public function setCurrency(?Currency $value): void {
+        $this->getBackingStore()->set('currency', $value);
     }
 
     /**
      * Sets the currencyCode property value. The currencyCode property
      *  @param string|null $value Value to set for the currencyCode property.
     */
-    public function setCurrencyCode(?string $value ): void {
-        $this->currencyCode = $value;
+    public function setCurrencyCode(?string $value): void {
+        $this->getBackingStore()->set('currencyCode', $value);
     }
 
     /**
      * Sets the currencyId property value. The currencyId property
      *  @param string|null $value Value to set for the currencyId property.
     */
-    public function setCurrencyId(?string $value ): void {
-        $this->currencyId = $value;
+    public function setCurrencyId(?string $value): void {
+        $this->getBackingStore()->set('currencyId', $value);
     }
 
     /**
      * Sets the discountAmount property value. The discountAmount property
      *  @param string|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?string $value ): void {
-        $this->discountAmount = $value;
+    public function setDiscountAmount(?string $value): void {
+        $this->getBackingStore()->set('discountAmount', $value);
     }
 
     /**
      * Sets the discountAppliedBeforeTax property value. The discountAppliedBeforeTax property
      *  @param bool|null $value Value to set for the discountAppliedBeforeTax property.
     */
-    public function setDiscountAppliedBeforeTax(?bool $value ): void {
-        $this->discountAppliedBeforeTax = $value;
+    public function setDiscountAppliedBeforeTax(?bool $value): void {
+        $this->getBackingStore()->set('discountAppliedBeforeTax', $value);
     }
 
     /**
      * Sets the dueDate property value. The dueDate property
      *  @param Date|null $value Value to set for the dueDate property.
     */
-    public function setDueDate(?Date $value ): void {
-        $this->dueDate = $value;
+    public function setDueDate(?Date $value): void {
+        $this->getBackingStore()->set('dueDate', $value);
     }
 
     /**
      * Sets the invoiceDate property value. The invoiceDate property
      *  @param Date|null $value Value to set for the invoiceDate property.
     */
-    public function setInvoiceDate(?Date $value ): void {
-        $this->invoiceDate = $value;
+    public function setInvoiceDate(?Date $value): void {
+        $this->getBackingStore()->set('invoiceDate', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the number property value. The number property
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the payToAddress property value. The payToAddress property
      *  @param PostalAddressType|null $value Value to set for the payToAddress property.
     */
-    public function setPayToAddress(?PostalAddressType $value ): void {
-        $this->payToAddress = $value;
+    public function setPayToAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('payToAddress', $value);
     }
 
     /**
      * Sets the payToContact property value. The payToContact property
      *  @param string|null $value Value to set for the payToContact property.
     */
-    public function setPayToContact(?string $value ): void {
-        $this->payToContact = $value;
+    public function setPayToContact(?string $value): void {
+        $this->getBackingStore()->set('payToContact', $value);
     }
 
     /**
      * Sets the payToName property value. The payToName property
      *  @param string|null $value Value to set for the payToName property.
     */
-    public function setPayToName(?string $value ): void {
-        $this->payToName = $value;
+    public function setPayToName(?string $value): void {
+        $this->getBackingStore()->set('payToName', $value);
     }
 
     /**
      * Sets the payToVendorId property value. The payToVendorId property
      *  @param string|null $value Value to set for the payToVendorId property.
     */
-    public function setPayToVendorId(?string $value ): void {
-        $this->payToVendorId = $value;
+    public function setPayToVendorId(?string $value): void {
+        $this->getBackingStore()->set('payToVendorId', $value);
     }
 
     /**
      * Sets the payToVendorNumber property value. The payToVendorNumber property
      *  @param string|null $value Value to set for the payToVendorNumber property.
     */
-    public function setPayToVendorNumber(?string $value ): void {
-        $this->payToVendorNumber = $value;
+    public function setPayToVendorNumber(?string $value): void {
+        $this->getBackingStore()->set('payToVendorNumber', $value);
     }
 
     /**
      * Sets the pricesIncludeTax property value. The pricesIncludeTax property
      *  @param bool|null $value Value to set for the pricesIncludeTax property.
     */
-    public function setPricesIncludeTax(?bool $value ): void {
-        $this->pricesIncludeTax = $value;
+    public function setPricesIncludeTax(?bool $value): void {
+        $this->getBackingStore()->set('pricesIncludeTax', $value);
     }
 
     /**
      * Sets the purchaseInvoiceLines property value. The purchaseInvoiceLines property
      *  @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
     */
-    public function setPurchaseInvoiceLines(?array $value ): void {
-        $this->purchaseInvoiceLines = $value;
+    public function setPurchaseInvoiceLines(?array $value): void {
+        $this->getBackingStore()->set('purchaseInvoiceLines', $value);
     }
 
     /**
      * Sets the shipToAddress property value. The shipToAddress property
      *  @param PostalAddressType|null $value Value to set for the shipToAddress property.
     */
-    public function setShipToAddress(?PostalAddressType $value ): void {
-        $this->shipToAddress = $value;
+    public function setShipToAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('shipToAddress', $value);
     }
 
     /**
      * Sets the shipToContact property value. The shipToContact property
      *  @param string|null $value Value to set for the shipToContact property.
     */
-    public function setShipToContact(?string $value ): void {
-        $this->shipToContact = $value;
+    public function setShipToContact(?string $value): void {
+        $this->getBackingStore()->set('shipToContact', $value);
     }
 
     /**
      * Sets the shipToName property value. The shipToName property
      *  @param string|null $value Value to set for the shipToName property.
     */
-    public function setShipToName(?string $value ): void {
-        $this->shipToName = $value;
+    public function setShipToName(?string $value): void {
+        $this->getBackingStore()->set('shipToName', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the totalAmountExcludingTax property value. The totalAmountExcludingTax property
      *  @param string|null $value Value to set for the totalAmountExcludingTax property.
     */
-    public function setTotalAmountExcludingTax(?string $value ): void {
-        $this->totalAmountExcludingTax = $value;
+    public function setTotalAmountExcludingTax(?string $value): void {
+        $this->getBackingStore()->set('totalAmountExcludingTax', $value);
     }
 
     /**
      * Sets the totalAmountIncludingTax property value. The totalAmountIncludingTax property
      *  @param string|null $value Value to set for the totalAmountIncludingTax property.
     */
-    public function setTotalAmountIncludingTax(?string $value ): void {
-        $this->totalAmountIncludingTax = $value;
+    public function setTotalAmountIncludingTax(?string $value): void {
+        $this->getBackingStore()->set('totalAmountIncludingTax', $value);
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
      *  @param string|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?string $value ): void {
-        $this->totalTaxAmount = $value;
+    public function setTotalTaxAmount(?string $value): void {
+        $this->getBackingStore()->set('totalTaxAmount', $value);
     }
 
     /**
      * Sets the vendor property value. The vendor property
      *  @param Vendor|null $value Value to set for the vendor property.
     */
-    public function setVendor(?Vendor $value ): void {
-        $this->vendor = $value;
+    public function setVendor(?Vendor $value): void {
+        $this->getBackingStore()->set('vendor', $value);
     }
 
     /**
      * Sets the vendorId property value. The vendorId property
      *  @param string|null $value Value to set for the vendorId property.
     */
-    public function setVendorId(?string $value ): void {
-        $this->vendorId = $value;
+    public function setVendorId(?string $value): void {
+        $this->getBackingStore()->set('vendorId', $value);
     }
 
     /**
      * Sets the vendorInvoiceNumber property value. The vendorInvoiceNumber property
      *  @param string|null $value Value to set for the vendorInvoiceNumber property.
     */
-    public function setVendorInvoiceNumber(?string $value ): void {
-        $this->vendorInvoiceNumber = $value;
+    public function setVendorInvoiceNumber(?string $value): void {
+        $this->getBackingStore()->set('vendorInvoiceNumber', $value);
     }
 
     /**
      * Sets the vendorName property value. The vendorName property
      *  @param string|null $value Value to set for the vendorName property.
     */
-    public function setVendorName(?string $value ): void {
-        $this->vendorName = $value;
+    public function setVendorName(?string $value): void {
+        $this->getBackingStore()->set('vendorName', $value);
     }
 
     /**
      * Sets the vendorNumber property value. The vendorNumber property
      *  @param string|null $value Value to set for the vendorNumber property.
     */
-    public function setVendorNumber(?string $value ): void {
-        $this->vendorNumber = $value;
+    public function setVendorNumber(?string $value): void {
+        $this->getBackingStore()->set('vendorNumber', $value);
     }
 
 }

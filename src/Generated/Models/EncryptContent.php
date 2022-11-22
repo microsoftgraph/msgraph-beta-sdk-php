@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptContent extends LabelActionBase implements Parsable 
 {
     /**
-     * @var EncryptWith|null $encryptWith The encryptWith property
-    */
-    private ?EncryptWith $encryptWith = null;
-    
-    /**
      * Instantiates a new EncryptContent and sets the default values.
     */
     public function __construct() {
@@ -43,7 +38,7 @@ class EncryptContent extends LabelActionBase implements Parsable
      * @return EncryptWith|null
     */
     public function getEncryptWith(): ?EncryptWith {
-        return $this->encryptWith;
+        return $this->getBackingStore()->get('encryptWith');
     }
 
     /**
@@ -63,15 +58,15 @@ class EncryptContent extends LabelActionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('encryptWith', $this->encryptWith);
+        $writer->writeEnumValue('encryptWith', $this->getEncryptWith());
     }
 
     /**
      * Sets the encryptWith property value. The encryptWith property
      *  @param EncryptWith|null $value Value to set for the encryptWith property.
     */
-    public function setEncryptWith(?EncryptWith $value ): void {
-        $this->encryptWith = $value;
+    public function setEncryptWith(?EncryptWith $value): void {
+        $this->getBackingStore()->set('encryptWith', $value);
     }
 
 }

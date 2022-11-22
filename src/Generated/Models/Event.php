@@ -10,231 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Event extends OutlookItem implements Parsable 
 {
     /**
-     * @var bool|null $allowNewTimeProposals true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
-    */
-    private ?bool $allowNewTimeProposals = null;
-    
-    /**
-     * @var array<Attachment>|null $attachments The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
-    */
-    private ?array $attachments = null;
-    
-    /**
-     * @var array<Attendee>|null $attendees The collection of attendees for the event.
-    */
-    private ?array $attendees = null;
-    
-    /**
-     * @var ItemBody|null $body The body of the message associated with the event. It can be in HTML or text format.
-    */
-    private ?ItemBody $body = null;
-    
-    /**
-     * @var string|null $bodyPreview The preview of the message associated with the event. It is in text format.
-    */
-    private ?string $bodyPreview = null;
-    
-    /**
-     * @var Calendar|null $calendar The calendar that contains the event. Navigation property. Read-only.
-    */
-    private ?Calendar $calendar = null;
-    
-    /**
-     * @var array<string>|null $cancelledOccurrences Contains occurrenceId property values of cancelled instances in a recurring series, if the event is the series master. Instances in a recurring series that are cancelled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
-    */
-    private ?array $cancelledOccurrences = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $end The date, time, and time zone that the event ends. By default, the end time is in UTC.
-    */
-    private ?DateTimeTimeZone $end = null;
-    
-    /**
-     * @var array<Event>|null $exceptionOccurrences The exceptionOccurrences property
-    */
-    private ?array $exceptionOccurrences = null;
-    
-    /**
-     * @var array<Extension>|null $extensions The collection of open extensions defined for the event. Nullable.
-    */
-    private ?array $extensions = null;
-    
-    /**
-     * @var bool|null $hasAttachments Set to true if the event has attachments.
-    */
-    private ?bool $hasAttachments = null;
-    
-    /**
-     * @var bool|null $hideAttendees When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false.
-    */
-    private ?bool $hideAttendees = null;
-    
-    /**
-     * @var Importance|null $importance The importance property
-    */
-    private ?Importance $importance = null;
-    
-    /**
-     * @var array<Event>|null $instances The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
-    */
-    private ?array $instances = null;
-    
-    /**
-     * @var bool|null $isAllDay The isAllDay property
-    */
-    private ?bool $isAllDay = null;
-    
-    /**
-     * @var bool|null $isCancelled The isCancelled property
-    */
-    private ?bool $isCancelled = null;
-    
-    /**
-     * @var bool|null $isDraft The isDraft property
-    */
-    private ?bool $isDraft = null;
-    
-    /**
-     * @var bool|null $isOnlineMeeting The isOnlineMeeting property
-    */
-    private ?bool $isOnlineMeeting = null;
-    
-    /**
-     * @var bool|null $isOrganizer The isOrganizer property
-    */
-    private ?bool $isOrganizer = null;
-    
-    /**
-     * @var bool|null $isReminderOn The isReminderOn property
-    */
-    private ?bool $isReminderOn = null;
-    
-    /**
-     * @var Location|null $location The location property
-    */
-    private ?Location $location = null;
-    
-    /**
-     * @var array<Location>|null $locations The locations property
-    */
-    private ?array $locations = null;
-    
-    /**
-     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The collection of multi-value extended properties defined for the event. Read-only. Nullable.
-    */
-    private ?array $multiValueExtendedProperties = null;
-    
-    /**
-     * @var string|null $occurrenceId The occurrenceId property
-    */
-    private ?string $occurrenceId = null;
-    
-    /**
-     * @var OnlineMeetingInfo|null $onlineMeeting The onlineMeeting property
-    */
-    private ?OnlineMeetingInfo $onlineMeeting = null;
-    
-    /**
-     * @var OnlineMeetingProviderType|null $onlineMeetingProvider The onlineMeetingProvider property
-    */
-    private ?OnlineMeetingProviderType $onlineMeetingProvider = null;
-    
-    /**
-     * @var string|null $onlineMeetingUrl The onlineMeetingUrl property
-    */
-    private ?string $onlineMeetingUrl = null;
-    
-    /**
-     * @var Recipient|null $organizer The organizer property
-    */
-    private ?Recipient $organizer = null;
-    
-    /**
-     * @var string|null $originalEndTimeZone The originalEndTimeZone property
-    */
-    private ?string $originalEndTimeZone = null;
-    
-    /**
-     * @var DateTime|null $originalStart The originalStart property
-    */
-    private ?DateTime $originalStart = null;
-    
-    /**
-     * @var string|null $originalStartTimeZone The originalStartTimeZone property
-    */
-    private ?string $originalStartTimeZone = null;
-    
-    /**
-     * @var PatternedRecurrence|null $recurrence The recurrence property
-    */
-    private ?PatternedRecurrence $recurrence = null;
-    
-    /**
-     * @var int|null $reminderMinutesBeforeStart The reminderMinutesBeforeStart property
-    */
-    private ?int $reminderMinutesBeforeStart = null;
-    
-    /**
-     * @var bool|null $responseRequested The responseRequested property
-    */
-    private ?bool $responseRequested = null;
-    
-    /**
-     * @var ResponseStatus|null $responseStatus The responseStatus property
-    */
-    private ?ResponseStatus $responseStatus = null;
-    
-    /**
-     * @var Sensitivity|null $sensitivity The sensitivity property
-    */
-    private ?Sensitivity $sensitivity = null;
-    
-    /**
-     * @var string|null $seriesMasterId The seriesMasterId property
-    */
-    private ?string $seriesMasterId = null;
-    
-    /**
-     * @var FreeBusyStatus|null $showAs The showAs property
-    */
-    private ?FreeBusyStatus $showAs = null;
-    
-    /**
-     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The collection of single-value extended properties defined for the event. Read-only. Nullable.
-    */
-    private ?array $singleValueExtendedProperties = null;
-    
-    /**
-     * @var DateTimeTimeZone|null $start The start property
-    */
-    private ?DateTimeTimeZone $start = null;
-    
-    /**
-     * @var string|null $subject The subject property
-    */
-    private ?string $subject = null;
-    
-    /**
-     * @var string|null $transactionId The transactionId property
-    */
-    private ?string $transactionId = null;
-    
-    /**
-     * @var EventType|null $type The type property
-    */
-    private ?EventType $type = null;
-    
-    /**
-     * @var string|null $uid The uid property
-    */
-    private ?string $uid = null;
-    
-    /**
-     * @var string|null $webLink The webLink property
-    */
-    private ?string $webLink = null;
-    
-    /**
      * Instantiates a new Event and sets the default values.
     */
     public function __construct() {
@@ -256,7 +31,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getAllowNewTimeProposals(): ?bool {
-        return $this->allowNewTimeProposals;
+        return $this->getBackingStore()->get('allowNewTimeProposals');
     }
 
     /**
@@ -264,7 +39,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Attachment>|null
     */
     public function getAttachments(): ?array {
-        return $this->attachments;
+        return $this->getBackingStore()->get('attachments');
     }
 
     /**
@@ -272,7 +47,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Attendee>|null
     */
     public function getAttendees(): ?array {
-        return $this->attendees;
+        return $this->getBackingStore()->get('attendees');
     }
 
     /**
@@ -280,7 +55,7 @@ class Event extends OutlookItem implements Parsable
      * @return ItemBody|null
     */
     public function getBody(): ?ItemBody {
-        return $this->body;
+        return $this->getBackingStore()->get('body');
     }
 
     /**
@@ -288,7 +63,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getBodyPreview(): ?string {
-        return $this->bodyPreview;
+        return $this->getBackingStore()->get('bodyPreview');
     }
 
     /**
@@ -296,7 +71,7 @@ class Event extends OutlookItem implements Parsable
      * @return Calendar|null
     */
     public function getCalendar(): ?Calendar {
-        return $this->calendar;
+        return $this->getBackingStore()->get('calendar');
     }
 
     /**
@@ -304,7 +79,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<string>|null
     */
     public function getCancelledOccurrences(): ?array {
-        return $this->cancelledOccurrences;
+        return $this->getBackingStore()->get('cancelledOccurrences');
     }
 
     /**
@@ -312,7 +87,7 @@ class Event extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getEnd(): ?DateTimeTimeZone {
-        return $this->end;
+        return $this->getBackingStore()->get('end');
     }
 
     /**
@@ -320,7 +95,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Event>|null
     */
     public function getExceptionOccurrences(): ?array {
-        return $this->exceptionOccurrences;
+        return $this->getBackingStore()->get('exceptionOccurrences');
     }
 
     /**
@@ -328,7 +103,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
-        return $this->extensions;
+        return $this->getBackingStore()->get('extensions');
     }
 
     /**
@@ -391,7 +166,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
-        return $this->hasAttachments;
+        return $this->getBackingStore()->get('hasAttachments');
     }
 
     /**
@@ -399,7 +174,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getHideAttendees(): ?bool {
-        return $this->hideAttendees;
+        return $this->getBackingStore()->get('hideAttendees');
     }
 
     /**
@@ -407,7 +182,7 @@ class Event extends OutlookItem implements Parsable
      * @return Importance|null
     */
     public function getImportance(): ?Importance {
-        return $this->importance;
+        return $this->getBackingStore()->get('importance');
     }
 
     /**
@@ -415,7 +190,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Event>|null
     */
     public function getInstances(): ?array {
-        return $this->instances;
+        return $this->getBackingStore()->get('instances');
     }
 
     /**
@@ -423,7 +198,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsAllDay(): ?bool {
-        return $this->isAllDay;
+        return $this->getBackingStore()->get('isAllDay');
     }
 
     /**
@@ -431,7 +206,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsCancelled(): ?bool {
-        return $this->isCancelled;
+        return $this->getBackingStore()->get('isCancelled');
     }
 
     /**
@@ -439,7 +214,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsDraft(): ?bool {
-        return $this->isDraft;
+        return $this->getBackingStore()->get('isDraft');
     }
 
     /**
@@ -447,7 +222,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsOnlineMeeting(): ?bool {
-        return $this->isOnlineMeeting;
+        return $this->getBackingStore()->get('isOnlineMeeting');
     }
 
     /**
@@ -455,7 +230,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsOrganizer(): ?bool {
-        return $this->isOrganizer;
+        return $this->getBackingStore()->get('isOrganizer');
     }
 
     /**
@@ -463,7 +238,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsReminderOn(): ?bool {
-        return $this->isReminderOn;
+        return $this->getBackingStore()->get('isReminderOn');
     }
 
     /**
@@ -471,7 +246,7 @@ class Event extends OutlookItem implements Parsable
      * @return Location|null
     */
     public function getLocation(): ?Location {
-        return $this->location;
+        return $this->getBackingStore()->get('location');
     }
 
     /**
@@ -479,7 +254,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<Location>|null
     */
     public function getLocations(): ?array {
-        return $this->locations;
+        return $this->getBackingStore()->get('locations');
     }
 
     /**
@@ -487,7 +262,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->multiValueExtendedProperties;
+        return $this->getBackingStore()->get('multiValueExtendedProperties');
     }
 
     /**
@@ -495,7 +270,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOccurrenceId(): ?string {
-        return $this->occurrenceId;
+        return $this->getBackingStore()->get('occurrenceId');
     }
 
     /**
@@ -503,7 +278,7 @@ class Event extends OutlookItem implements Parsable
      * @return OnlineMeetingInfo|null
     */
     public function getOnlineMeeting(): ?OnlineMeetingInfo {
-        return $this->onlineMeeting;
+        return $this->getBackingStore()->get('onlineMeeting');
     }
 
     /**
@@ -511,7 +286,7 @@ class Event extends OutlookItem implements Parsable
      * @return OnlineMeetingProviderType|null
     */
     public function getOnlineMeetingProvider(): ?OnlineMeetingProviderType {
-        return $this->onlineMeetingProvider;
+        return $this->getBackingStore()->get('onlineMeetingProvider');
     }
 
     /**
@@ -519,7 +294,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOnlineMeetingUrl(): ?string {
-        return $this->onlineMeetingUrl;
+        return $this->getBackingStore()->get('onlineMeetingUrl');
     }
 
     /**
@@ -527,7 +302,7 @@ class Event extends OutlookItem implements Parsable
      * @return Recipient|null
     */
     public function getOrganizer(): ?Recipient {
-        return $this->organizer;
+        return $this->getBackingStore()->get('organizer');
     }
 
     /**
@@ -535,7 +310,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOriginalEndTimeZone(): ?string {
-        return $this->originalEndTimeZone;
+        return $this->getBackingStore()->get('originalEndTimeZone');
     }
 
     /**
@@ -543,7 +318,7 @@ class Event extends OutlookItem implements Parsable
      * @return DateTime|null
     */
     public function getOriginalStart(): ?DateTime {
-        return $this->originalStart;
+        return $this->getBackingStore()->get('originalStart');
     }
 
     /**
@@ -551,7 +326,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getOriginalStartTimeZone(): ?string {
-        return $this->originalStartTimeZone;
+        return $this->getBackingStore()->get('originalStartTimeZone');
     }
 
     /**
@@ -559,7 +334,7 @@ class Event extends OutlookItem implements Parsable
      * @return PatternedRecurrence|null
     */
     public function getRecurrence(): ?PatternedRecurrence {
-        return $this->recurrence;
+        return $this->getBackingStore()->get('recurrence');
     }
 
     /**
@@ -567,7 +342,7 @@ class Event extends OutlookItem implements Parsable
      * @return int|null
     */
     public function getReminderMinutesBeforeStart(): ?int {
-        return $this->reminderMinutesBeforeStart;
+        return $this->getBackingStore()->get('reminderMinutesBeforeStart');
     }
 
     /**
@@ -575,7 +350,7 @@ class Event extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getResponseRequested(): ?bool {
-        return $this->responseRequested;
+        return $this->getBackingStore()->get('responseRequested');
     }
 
     /**
@@ -583,7 +358,7 @@ class Event extends OutlookItem implements Parsable
      * @return ResponseStatus|null
     */
     public function getResponseStatus(): ?ResponseStatus {
-        return $this->responseStatus;
+        return $this->getBackingStore()->get('responseStatus');
     }
 
     /**
@@ -591,7 +366,7 @@ class Event extends OutlookItem implements Parsable
      * @return Sensitivity|null
     */
     public function getSensitivity(): ?Sensitivity {
-        return $this->sensitivity;
+        return $this->getBackingStore()->get('sensitivity');
     }
 
     /**
@@ -599,7 +374,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSeriesMasterId(): ?string {
-        return $this->seriesMasterId;
+        return $this->getBackingStore()->get('seriesMasterId');
     }
 
     /**
@@ -607,7 +382,7 @@ class Event extends OutlookItem implements Parsable
      * @return FreeBusyStatus|null
     */
     public function getShowAs(): ?FreeBusyStatus {
-        return $this->showAs;
+        return $this->getBackingStore()->get('showAs');
     }
 
     /**
@@ -615,7 +390,7 @@ class Event extends OutlookItem implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->singleValueExtendedProperties;
+        return $this->getBackingStore()->get('singleValueExtendedProperties');
     }
 
     /**
@@ -623,7 +398,7 @@ class Event extends OutlookItem implements Parsable
      * @return DateTimeTimeZone|null
     */
     public function getStart(): ?DateTimeTimeZone {
-        return $this->start;
+        return $this->getBackingStore()->get('start');
     }
 
     /**
@@ -631,7 +406,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -639,7 +414,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getTransactionId(): ?string {
-        return $this->transactionId;
+        return $this->getBackingStore()->get('transactionId');
     }
 
     /**
@@ -647,7 +422,7 @@ class Event extends OutlookItem implements Parsable
      * @return EventType|null
     */
     public function getType(): ?EventType {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -655,7 +430,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getUid(): ?string {
-        return $this->uid;
+        return $this->getBackingStore()->get('uid');
     }
 
     /**
@@ -663,7 +438,7 @@ class Event extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getWebLink(): ?string {
-        return $this->webLink;
+        return $this->getBackingStore()->get('webLink');
     }
 
     /**
@@ -672,411 +447,411 @@ class Event extends OutlookItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowNewTimeProposals', $this->allowNewTimeProposals);
-        $writer->writeCollectionOfObjectValues('attachments', $this->attachments);
-        $writer->writeCollectionOfObjectValues('attendees', $this->attendees);
-        $writer->writeObjectValue('body', $this->body);
-        $writer->writeStringValue('bodyPreview', $this->bodyPreview);
-        $writer->writeObjectValue('calendar', $this->calendar);
-        $writer->writeCollectionOfPrimitiveValues('cancelledOccurrences', $this->cancelledOccurrences);
-        $writer->writeObjectValue('end', $this->end);
-        $writer->writeCollectionOfObjectValues('exceptionOccurrences', $this->exceptionOccurrences);
-        $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
-        $writer->writeBooleanValue('hasAttachments', $this->hasAttachments);
-        $writer->writeBooleanValue('hideAttendees', $this->hideAttendees);
-        $writer->writeEnumValue('importance', $this->importance);
-        $writer->writeCollectionOfObjectValues('instances', $this->instances);
-        $writer->writeBooleanValue('isAllDay', $this->isAllDay);
-        $writer->writeBooleanValue('isCancelled', $this->isCancelled);
-        $writer->writeBooleanValue('isDraft', $this->isDraft);
-        $writer->writeBooleanValue('isOnlineMeeting', $this->isOnlineMeeting);
-        $writer->writeBooleanValue('isOrganizer', $this->isOrganizer);
-        $writer->writeBooleanValue('isReminderOn', $this->isReminderOn);
-        $writer->writeObjectValue('location', $this->location);
-        $writer->writeCollectionOfObjectValues('locations', $this->locations);
-        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->multiValueExtendedProperties);
-        $writer->writeStringValue('occurrenceId', $this->occurrenceId);
-        $writer->writeObjectValue('onlineMeeting', $this->onlineMeeting);
-        $writer->writeEnumValue('onlineMeetingProvider', $this->onlineMeetingProvider);
-        $writer->writeStringValue('onlineMeetingUrl', $this->onlineMeetingUrl);
-        $writer->writeObjectValue('organizer', $this->organizer);
-        $writer->writeStringValue('originalEndTimeZone', $this->originalEndTimeZone);
-        $writer->writeDateTimeValue('originalStart', $this->originalStart);
-        $writer->writeStringValue('originalStartTimeZone', $this->originalStartTimeZone);
-        $writer->writeObjectValue('recurrence', $this->recurrence);
-        $writer->writeIntegerValue('reminderMinutesBeforeStart', $this->reminderMinutesBeforeStart);
-        $writer->writeBooleanValue('responseRequested', $this->responseRequested);
-        $writer->writeObjectValue('responseStatus', $this->responseStatus);
-        $writer->writeEnumValue('sensitivity', $this->sensitivity);
-        $writer->writeStringValue('seriesMasterId', $this->seriesMasterId);
-        $writer->writeEnumValue('showAs', $this->showAs);
-        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->singleValueExtendedProperties);
-        $writer->writeObjectValue('start', $this->start);
-        $writer->writeStringValue('subject', $this->subject);
-        $writer->writeStringValue('transactionId', $this->transactionId);
-        $writer->writeEnumValue('type', $this->type);
-        $writer->writeStringValue('uid', $this->uid);
-        $writer->writeStringValue('webLink', $this->webLink);
+        $writer->writeBooleanValue('allowNewTimeProposals', $this->getAllowNewTimeProposals());
+        $writer->writeCollectionOfObjectValues('attachments', $this->getAttachments());
+        $writer->writeCollectionOfObjectValues('attendees', $this->getAttendees());
+        $writer->writeObjectValue('body', $this->getBody());
+        $writer->writeStringValue('bodyPreview', $this->getBodyPreview());
+        $writer->writeObjectValue('calendar', $this->getCalendar());
+        $writer->writeCollectionOfPrimitiveValues('cancelledOccurrences', $this->getCancelledOccurrences());
+        $writer->writeObjectValue('end', $this->getEnd());
+        $writer->writeCollectionOfObjectValues('exceptionOccurrences', $this->getExceptionOccurrences());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
+        $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
+        $writer->writeBooleanValue('hideAttendees', $this->getHideAttendees());
+        $writer->writeEnumValue('importance', $this->getImportance());
+        $writer->writeCollectionOfObjectValues('instances', $this->getInstances());
+        $writer->writeBooleanValue('isAllDay', $this->getIsAllDay());
+        $writer->writeBooleanValue('isCancelled', $this->getIsCancelled());
+        $writer->writeBooleanValue('isDraft', $this->getIsDraft());
+        $writer->writeBooleanValue('isOnlineMeeting', $this->getIsOnlineMeeting());
+        $writer->writeBooleanValue('isOrganizer', $this->getIsOrganizer());
+        $writer->writeBooleanValue('isReminderOn', $this->getIsReminderOn());
+        $writer->writeObjectValue('location', $this->getLocation());
+        $writer->writeCollectionOfObjectValues('locations', $this->getLocations());
+        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeStringValue('occurrenceId', $this->getOccurrenceId());
+        $writer->writeObjectValue('onlineMeeting', $this->getOnlineMeeting());
+        $writer->writeEnumValue('onlineMeetingProvider', $this->getOnlineMeetingProvider());
+        $writer->writeStringValue('onlineMeetingUrl', $this->getOnlineMeetingUrl());
+        $writer->writeObjectValue('organizer', $this->getOrganizer());
+        $writer->writeStringValue('originalEndTimeZone', $this->getOriginalEndTimeZone());
+        $writer->writeDateTimeValue('originalStart', $this->getOriginalStart());
+        $writer->writeStringValue('originalStartTimeZone', $this->getOriginalStartTimeZone());
+        $writer->writeObjectValue('recurrence', $this->getRecurrence());
+        $writer->writeIntegerValue('reminderMinutesBeforeStart', $this->getReminderMinutesBeforeStart());
+        $writer->writeBooleanValue('responseRequested', $this->getResponseRequested());
+        $writer->writeObjectValue('responseStatus', $this->getResponseStatus());
+        $writer->writeEnumValue('sensitivity', $this->getSensitivity());
+        $writer->writeStringValue('seriesMasterId', $this->getSeriesMasterId());
+        $writer->writeEnumValue('showAs', $this->getShowAs());
+        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
+        $writer->writeObjectValue('start', $this->getStart());
+        $writer->writeStringValue('subject', $this->getSubject());
+        $writer->writeStringValue('transactionId', $this->getTransactionId());
+        $writer->writeEnumValue('type', $this->getType());
+        $writer->writeStringValue('uid', $this->getUid());
+        $writer->writeStringValue('webLink', $this->getWebLink());
     }
 
     /**
      * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
      *  @param bool|null $value Value to set for the allowNewTimeProposals property.
     */
-    public function setAllowNewTimeProposals(?bool $value ): void {
-        $this->allowNewTimeProposals = $value;
+    public function setAllowNewTimeProposals(?bool $value): void {
+        $this->getBackingStore()->set('allowNewTimeProposals', $value);
     }
 
     /**
      * Sets the attachments property value. The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.
      *  @param array<Attachment>|null $value Value to set for the attachments property.
     */
-    public function setAttachments(?array $value ): void {
-        $this->attachments = $value;
+    public function setAttachments(?array $value): void {
+        $this->getBackingStore()->set('attachments', $value);
     }
 
     /**
      * Sets the attendees property value. The collection of attendees for the event.
      *  @param array<Attendee>|null $value Value to set for the attendees property.
     */
-    public function setAttendees(?array $value ): void {
-        $this->attendees = $value;
+    public function setAttendees(?array $value): void {
+        $this->getBackingStore()->set('attendees', $value);
     }
 
     /**
      * Sets the body property value. The body of the message associated with the event. It can be in HTML or text format.
      *  @param ItemBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value ): void {
-        $this->body = $value;
+    public function setBody(?ItemBody $value): void {
+        $this->getBackingStore()->set('body', $value);
     }
 
     /**
      * Sets the bodyPreview property value. The preview of the message associated with the event. It is in text format.
      *  @param string|null $value Value to set for the bodyPreview property.
     */
-    public function setBodyPreview(?string $value ): void {
-        $this->bodyPreview = $value;
+    public function setBodyPreview(?string $value): void {
+        $this->getBackingStore()->set('bodyPreview', $value);
     }
 
     /**
      * Sets the calendar property value. The calendar that contains the event. Navigation property. Read-only.
      *  @param Calendar|null $value Value to set for the calendar property.
     */
-    public function setCalendar(?Calendar $value ): void {
-        $this->calendar = $value;
+    public function setCalendar(?Calendar $value): void {
+        $this->getBackingStore()->set('calendar', $value);
     }
 
     /**
      * Sets the cancelledOccurrences property value. Contains occurrenceId property values of cancelled instances in a recurring series, if the event is the series master. Instances in a recurring series that are cancelled are called cancelledOccurences.Returned only on $select in a Get operation which specifies the id of a series master event (that is, the seriesMasterId property value).
      *  @param array<string>|null $value Value to set for the cancelledOccurrences property.
     */
-    public function setCancelledOccurrences(?array $value ): void {
-        $this->cancelledOccurrences = $value;
+    public function setCancelledOccurrences(?array $value): void {
+        $this->getBackingStore()->set('cancelledOccurrences', $value);
     }
 
     /**
      * Sets the end property value. The date, time, and time zone that the event ends. By default, the end time is in UTC.
      *  @param DateTimeTimeZone|null $value Value to set for the end property.
     */
-    public function setEnd(?DateTimeTimeZone $value ): void {
-        $this->end = $value;
+    public function setEnd(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('end', $value);
     }
 
     /**
      * Sets the exceptionOccurrences property value. The exceptionOccurrences property
      *  @param array<Event>|null $value Value to set for the exceptionOccurrences property.
     */
-    public function setExceptionOccurrences(?array $value ): void {
-        $this->exceptionOccurrences = $value;
+    public function setExceptionOccurrences(?array $value): void {
+        $this->getBackingStore()->set('exceptionOccurrences', $value);
     }
 
     /**
      * Sets the extensions property value. The collection of open extensions defined for the event. Nullable.
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
-    public function setExtensions(?array $value ): void {
-        $this->extensions = $value;
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**
      * Sets the hasAttachments property value. Set to true if the event has attachments.
      *  @param bool|null $value Value to set for the hasAttachments property.
     */
-    public function setHasAttachments(?bool $value ): void {
-        $this->hasAttachments = $value;
+    public function setHasAttachments(?bool $value): void {
+        $this->getBackingStore()->set('hasAttachments', $value);
     }
 
     /**
      * Sets the hideAttendees property value. When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false.
      *  @param bool|null $value Value to set for the hideAttendees property.
     */
-    public function setHideAttendees(?bool $value ): void {
-        $this->hideAttendees = $value;
+    public function setHideAttendees(?bool $value): void {
+        $this->getBackingStore()->set('hideAttendees', $value);
     }
 
     /**
      * Sets the importance property value. The importance property
      *  @param Importance|null $value Value to set for the importance property.
     */
-    public function setImportance(?Importance $value ): void {
-        $this->importance = $value;
+    public function setImportance(?Importance $value): void {
+        $this->getBackingStore()->set('importance', $value);
     }
 
     /**
      * Sets the instances property value. The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
      *  @param array<Event>|null $value Value to set for the instances property.
     */
-    public function setInstances(?array $value ): void {
-        $this->instances = $value;
+    public function setInstances(?array $value): void {
+        $this->getBackingStore()->set('instances', $value);
     }
 
     /**
      * Sets the isAllDay property value. The isAllDay property
      *  @param bool|null $value Value to set for the isAllDay property.
     */
-    public function setIsAllDay(?bool $value ): void {
-        $this->isAllDay = $value;
+    public function setIsAllDay(?bool $value): void {
+        $this->getBackingStore()->set('isAllDay', $value);
     }
 
     /**
      * Sets the isCancelled property value. The isCancelled property
      *  @param bool|null $value Value to set for the isCancelled property.
     */
-    public function setIsCancelled(?bool $value ): void {
-        $this->isCancelled = $value;
+    public function setIsCancelled(?bool $value): void {
+        $this->getBackingStore()->set('isCancelled', $value);
     }
 
     /**
      * Sets the isDraft property value. The isDraft property
      *  @param bool|null $value Value to set for the isDraft property.
     */
-    public function setIsDraft(?bool $value ): void {
-        $this->isDraft = $value;
+    public function setIsDraft(?bool $value): void {
+        $this->getBackingStore()->set('isDraft', $value);
     }
 
     /**
      * Sets the isOnlineMeeting property value. The isOnlineMeeting property
      *  @param bool|null $value Value to set for the isOnlineMeeting property.
     */
-    public function setIsOnlineMeeting(?bool $value ): void {
-        $this->isOnlineMeeting = $value;
+    public function setIsOnlineMeeting(?bool $value): void {
+        $this->getBackingStore()->set('isOnlineMeeting', $value);
     }
 
     /**
      * Sets the isOrganizer property value. The isOrganizer property
      *  @param bool|null $value Value to set for the isOrganizer property.
     */
-    public function setIsOrganizer(?bool $value ): void {
-        $this->isOrganizer = $value;
+    public function setIsOrganizer(?bool $value): void {
+        $this->getBackingStore()->set('isOrganizer', $value);
     }
 
     /**
      * Sets the isReminderOn property value. The isReminderOn property
      *  @param bool|null $value Value to set for the isReminderOn property.
     */
-    public function setIsReminderOn(?bool $value ): void {
-        $this->isReminderOn = $value;
+    public function setIsReminderOn(?bool $value): void {
+        $this->getBackingStore()->set('isReminderOn', $value);
     }
 
     /**
      * Sets the location property value. The location property
      *  @param Location|null $value Value to set for the location property.
     */
-    public function setLocation(?Location $value ): void {
-        $this->location = $value;
+    public function setLocation(?Location $value): void {
+        $this->getBackingStore()->set('location', $value);
     }
 
     /**
      * Sets the locations property value. The locations property
      *  @param array<Location>|null $value Value to set for the locations property.
     */
-    public function setLocations(?array $value ): void {
-        $this->locations = $value;
+    public function setLocations(?array $value): void {
+        $this->getBackingStore()->set('locations', $value);
     }
 
     /**
      * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the event. Read-only. Nullable.
      *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
-    public function setMultiValueExtendedProperties(?array $value ): void {
-        $this->multiValueExtendedProperties = $value;
+    public function setMultiValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('multiValueExtendedProperties', $value);
     }
 
     /**
      * Sets the occurrenceId property value. The occurrenceId property
      *  @param string|null $value Value to set for the occurrenceId property.
     */
-    public function setOccurrenceId(?string $value ): void {
-        $this->occurrenceId = $value;
+    public function setOccurrenceId(?string $value): void {
+        $this->getBackingStore()->set('occurrenceId', $value);
     }
 
     /**
      * Sets the onlineMeeting property value. The onlineMeeting property
      *  @param OnlineMeetingInfo|null $value Value to set for the onlineMeeting property.
     */
-    public function setOnlineMeeting(?OnlineMeetingInfo $value ): void {
-        $this->onlineMeeting = $value;
+    public function setOnlineMeeting(?OnlineMeetingInfo $value): void {
+        $this->getBackingStore()->set('onlineMeeting', $value);
     }
 
     /**
      * Sets the onlineMeetingProvider property value. The onlineMeetingProvider property
      *  @param OnlineMeetingProviderType|null $value Value to set for the onlineMeetingProvider property.
     */
-    public function setOnlineMeetingProvider(?OnlineMeetingProviderType $value ): void {
-        $this->onlineMeetingProvider = $value;
+    public function setOnlineMeetingProvider(?OnlineMeetingProviderType $value): void {
+        $this->getBackingStore()->set('onlineMeetingProvider', $value);
     }
 
     /**
      * Sets the onlineMeetingUrl property value. The onlineMeetingUrl property
      *  @param string|null $value Value to set for the onlineMeetingUrl property.
     */
-    public function setOnlineMeetingUrl(?string $value ): void {
-        $this->onlineMeetingUrl = $value;
+    public function setOnlineMeetingUrl(?string $value): void {
+        $this->getBackingStore()->set('onlineMeetingUrl', $value);
     }
 
     /**
      * Sets the organizer property value. The organizer property
      *  @param Recipient|null $value Value to set for the organizer property.
     */
-    public function setOrganizer(?Recipient $value ): void {
-        $this->organizer = $value;
+    public function setOrganizer(?Recipient $value): void {
+        $this->getBackingStore()->set('organizer', $value);
     }
 
     /**
      * Sets the originalEndTimeZone property value. The originalEndTimeZone property
      *  @param string|null $value Value to set for the originalEndTimeZone property.
     */
-    public function setOriginalEndTimeZone(?string $value ): void {
-        $this->originalEndTimeZone = $value;
+    public function setOriginalEndTimeZone(?string $value): void {
+        $this->getBackingStore()->set('originalEndTimeZone', $value);
     }
 
     /**
      * Sets the originalStart property value. The originalStart property
      *  @param DateTime|null $value Value to set for the originalStart property.
     */
-    public function setOriginalStart(?DateTime $value ): void {
-        $this->originalStart = $value;
+    public function setOriginalStart(?DateTime $value): void {
+        $this->getBackingStore()->set('originalStart', $value);
     }
 
     /**
      * Sets the originalStartTimeZone property value. The originalStartTimeZone property
      *  @param string|null $value Value to set for the originalStartTimeZone property.
     */
-    public function setOriginalStartTimeZone(?string $value ): void {
-        $this->originalStartTimeZone = $value;
+    public function setOriginalStartTimeZone(?string $value): void {
+        $this->getBackingStore()->set('originalStartTimeZone', $value);
     }
 
     /**
      * Sets the recurrence property value. The recurrence property
      *  @param PatternedRecurrence|null $value Value to set for the recurrence property.
     */
-    public function setRecurrence(?PatternedRecurrence $value ): void {
-        $this->recurrence = $value;
+    public function setRecurrence(?PatternedRecurrence $value): void {
+        $this->getBackingStore()->set('recurrence', $value);
     }
 
     /**
      * Sets the reminderMinutesBeforeStart property value. The reminderMinutesBeforeStart property
      *  @param int|null $value Value to set for the reminderMinutesBeforeStart property.
     */
-    public function setReminderMinutesBeforeStart(?int $value ): void {
-        $this->reminderMinutesBeforeStart = $value;
+    public function setReminderMinutesBeforeStart(?int $value): void {
+        $this->getBackingStore()->set('reminderMinutesBeforeStart', $value);
     }
 
     /**
      * Sets the responseRequested property value. The responseRequested property
      *  @param bool|null $value Value to set for the responseRequested property.
     */
-    public function setResponseRequested(?bool $value ): void {
-        $this->responseRequested = $value;
+    public function setResponseRequested(?bool $value): void {
+        $this->getBackingStore()->set('responseRequested', $value);
     }
 
     /**
      * Sets the responseStatus property value. The responseStatus property
      *  @param ResponseStatus|null $value Value to set for the responseStatus property.
     */
-    public function setResponseStatus(?ResponseStatus $value ): void {
-        $this->responseStatus = $value;
+    public function setResponseStatus(?ResponseStatus $value): void {
+        $this->getBackingStore()->set('responseStatus', $value);
     }
 
     /**
      * Sets the sensitivity property value. The sensitivity property
      *  @param Sensitivity|null $value Value to set for the sensitivity property.
     */
-    public function setSensitivity(?Sensitivity $value ): void {
-        $this->sensitivity = $value;
+    public function setSensitivity(?Sensitivity $value): void {
+        $this->getBackingStore()->set('sensitivity', $value);
     }
 
     /**
      * Sets the seriesMasterId property value. The seriesMasterId property
      *  @param string|null $value Value to set for the seriesMasterId property.
     */
-    public function setSeriesMasterId(?string $value ): void {
-        $this->seriesMasterId = $value;
+    public function setSeriesMasterId(?string $value): void {
+        $this->getBackingStore()->set('seriesMasterId', $value);
     }
 
     /**
      * Sets the showAs property value. The showAs property
      *  @param FreeBusyStatus|null $value Value to set for the showAs property.
     */
-    public function setShowAs(?FreeBusyStatus $value ): void {
-        $this->showAs = $value;
+    public function setShowAs(?FreeBusyStatus $value): void {
+        $this->getBackingStore()->set('showAs', $value);
     }
 
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the event. Read-only. Nullable.
      *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
-    public function setSingleValueExtendedProperties(?array $value ): void {
-        $this->singleValueExtendedProperties = $value;
+    public function setSingleValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('singleValueExtendedProperties', $value);
     }
 
     /**
      * Sets the start property value. The start property
      *  @param DateTimeTimeZone|null $value Value to set for the start property.
     */
-    public function setStart(?DateTimeTimeZone $value ): void {
-        $this->start = $value;
+    public function setStart(?DateTimeTimeZone $value): void {
+        $this->getBackingStore()->set('start', $value);
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the transactionId property value. The transactionId property
      *  @param string|null $value Value to set for the transactionId property.
     */
-    public function setTransactionId(?string $value ): void {
-        $this->transactionId = $value;
+    public function setTransactionId(?string $value): void {
+        $this->getBackingStore()->set('transactionId', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param EventType|null $value Value to set for the type property.
     */
-    public function setType(?EventType $value ): void {
-        $this->type = $value;
+    public function setType(?EventType $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
     /**
      * Sets the uid property value. The uid property
      *  @param string|null $value Value to set for the uid property.
     */
-    public function setUid(?string $value ): void {
-        $this->uid = $value;
+    public function setUid(?string $value): void {
+        $this->getBackingStore()->set('uid', $value);
     }
 
     /**
      * Sets the webLink property value. The webLink property
      *  @param string|null $value Value to set for the webLink property.
     */
-    public function setWebLink(?string $value ): void {
-        $this->webLink = $value;
+    public function setWebLink(?string $value): void {
+        $this->getBackingStore()->set('webLink', $value);
     }
 
 }

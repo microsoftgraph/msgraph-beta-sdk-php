@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class VirtualAppointmentUser implements AdditionalDataHolder, Parsable 
+class VirtualAppointmentUser implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $displayName The display name of the user who participates in a virtual appointment. Optional.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $emailAddress The email address of the user who participates in a virtual appointment. Optional.
-    */
-    private ?string $emailAddress = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $smsCapablePhoneNumber The phone number for sending SMS texts for the user who participates in a virtual appointment. Optional.
-    */
-    private ?string $smsCapablePhoneNumber = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new virtualAppointmentUser and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.virtualAppointmentUser');
     }
 
     /**
@@ -55,8 +38,16 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -72,7 +63,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getEmailAddress(): ?string {
-        return $this->emailAddress;
+        return $this->getBackingStore()->get('emailAddress');
     }
 
     /**
@@ -94,7 +85,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSmsCapablePhoneNumber(): ?string {
-        return $this->smsCapablePhoneNumber;
+        return $this->getBackingStore()->get('smsCapablePhoneNumber');
     }
 
     /**
@@ -110,51 +101,59 @@ class VirtualAppointmentUser implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('emailAddress', $this->emailAddress);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('smsCapablePhoneNumber', $this->smsCapablePhoneNumber);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('emailAddress', $this->getEmailAddress());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('smsCapablePhoneNumber', $this->getSmsCapablePhoneNumber());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the displayName property value. The display name of the user who participates in a virtual appointment. Optional.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the emailAddress property value. The email address of the user who participates in a virtual appointment. Optional.
      *  @param string|null $value Value to set for the emailAddress property.
     */
-    public function setEmailAddress(?string $value ): void {
-        $this->emailAddress = $value;
+    public function setEmailAddress(?string $value): void {
+        $this->getBackingStore()->set('emailAddress', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the smsCapablePhoneNumber property value. The phone number for sending SMS texts for the user who participates in a virtual appointment. Optional.
      *  @param string|null $value Value to set for the smsCapablePhoneNumber property.
     */
-    public function setSmsCapablePhoneNumber(?string $value ): void {
-        $this->smsCapablePhoneNumber = $value;
+    public function setSmsCapablePhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('smsCapablePhoneNumber', $value);
     }
 
 }

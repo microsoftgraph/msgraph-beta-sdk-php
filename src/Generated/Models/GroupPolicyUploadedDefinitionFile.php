@@ -11,36 +11,6 @@ use Psr\Http\Message\StreamInterface;
 class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content The contents of the uploaded ADMX file.
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var string|null $defaultLanguageCode The default language of the uploaded ADMX file.
-    */
-    private ?string $defaultLanguageCode = null;
-    
-    /**
-     * @var array<GroupPolicyOperation>|null $groupPolicyOperations The list of operations on the uploaded ADMX file.
-    */
-    private ?array $groupPolicyOperations = null;
-    
-    /**
-     * @var array<GroupPolicyUploadedLanguageFile>|null $groupPolicyUploadedLanguageFiles The list of ADML files associated with the uploaded ADMX file.
-    */
-    private ?array $groupPolicyUploadedLanguageFiles = null;
-    
-    /**
-     * @var GroupPolicyUploadedDefinitionFileStatus|null $status Type of Group Policy uploaded definition file status.
-    */
-    private ?GroupPolicyUploadedDefinitionFileStatus $status = null;
-    
-    /**
-     * @var DateTime|null $uploadDateTime The uploaded time of the uploaded ADMX file.
-    */
-    private ?DateTime $uploadDateTime = null;
-    
-    /**
      * Instantiates a new GroupPolicyUploadedDefinitionFile and sets the default values.
     */
     public function __construct() {
@@ -59,10 +29,10 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
 
     /**
      * Gets the content property value. The contents of the uploaded ADMX file.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -70,7 +40,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return string|null
     */
     public function getDefaultLanguageCode(): ?string {
-        return $this->defaultLanguageCode;
+        return $this->getBackingStore()->get('defaultLanguageCode');
     }
 
     /**
@@ -94,7 +64,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return array<GroupPolicyOperation>|null
     */
     public function getGroupPolicyOperations(): ?array {
-        return $this->groupPolicyOperations;
+        return $this->getBackingStore()->get('groupPolicyOperations');
     }
 
     /**
@@ -102,7 +72,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return array<GroupPolicyUploadedLanguageFile>|null
     */
     public function getGroupPolicyUploadedLanguageFiles(): ?array {
-        return $this->groupPolicyUploadedLanguageFiles;
+        return $this->getBackingStore()->get('groupPolicyUploadedLanguageFiles');
     }
 
     /**
@@ -110,7 +80,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return GroupPolicyUploadedDefinitionFileStatus|null
     */
     public function getStatus(): ?GroupPolicyUploadedDefinitionFileStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -118,7 +88,7 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
      * @return DateTime|null
     */
     public function getUploadDateTime(): ?DateTime {
-        return $this->uploadDateTime;
+        return $this->getBackingStore()->get('uploadDateTime');
     }
 
     /**
@@ -127,60 +97,60 @@ class GroupPolicyUploadedDefinitionFile extends GroupPolicyDefinitionFile implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeStringValue('defaultLanguageCode', $this->defaultLanguageCode);
-        $writer->writeCollectionOfObjectValues('groupPolicyOperations', $this->groupPolicyOperations);
-        $writer->writeCollectionOfObjectValues('groupPolicyUploadedLanguageFiles', $this->groupPolicyUploadedLanguageFiles);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeDateTimeValue('uploadDateTime', $this->uploadDateTime);
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeStringValue('defaultLanguageCode', $this->getDefaultLanguageCode());
+        $writer->writeCollectionOfObjectValues('groupPolicyOperations', $this->getGroupPolicyOperations());
+        $writer->writeCollectionOfObjectValues('groupPolicyUploadedLanguageFiles', $this->getGroupPolicyUploadedLanguageFiles());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeDateTimeValue('uploadDateTime', $this->getUploadDateTime());
     }
 
     /**
      * Sets the content property value. The contents of the uploaded ADMX file.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the defaultLanguageCode property value. The default language of the uploaded ADMX file.
      *  @param string|null $value Value to set for the defaultLanguageCode property.
     */
-    public function setDefaultLanguageCode(?string $value ): void {
-        $this->defaultLanguageCode = $value;
+    public function setDefaultLanguageCode(?string $value): void {
+        $this->getBackingStore()->set('defaultLanguageCode', $value);
     }
 
     /**
      * Sets the groupPolicyOperations property value. The list of operations on the uploaded ADMX file.
      *  @param array<GroupPolicyOperation>|null $value Value to set for the groupPolicyOperations property.
     */
-    public function setGroupPolicyOperations(?array $value ): void {
-        $this->groupPolicyOperations = $value;
+    public function setGroupPolicyOperations(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyOperations', $value);
     }
 
     /**
      * Sets the groupPolicyUploadedLanguageFiles property value. The list of ADML files associated with the uploaded ADMX file.
      *  @param array<GroupPolicyUploadedLanguageFile>|null $value Value to set for the groupPolicyUploadedLanguageFiles property.
     */
-    public function setGroupPolicyUploadedLanguageFiles(?array $value ): void {
-        $this->groupPolicyUploadedLanguageFiles = $value;
+    public function setGroupPolicyUploadedLanguageFiles(?array $value): void {
+        $this->getBackingStore()->set('groupPolicyUploadedLanguageFiles', $value);
     }
 
     /**
      * Sets the status property value. Type of Group Policy uploaded definition file status.
      *  @param GroupPolicyUploadedDefinitionFileStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?GroupPolicyUploadedDefinitionFileStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?GroupPolicyUploadedDefinitionFileStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the uploadDateTime property value. The uploaded time of the uploaded ADMX file.
      *  @param DateTime|null $value Value to set for the uploadDateTime property.
     */
-    public function setUploadDateTime(?DateTime $value ): void {
-        $this->uploadDateTime = $value;
+    public function setUploadDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('uploadDateTime', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LanguageProficiency extends ItemFacet implements Parsable 
 {
     /**
-     * @var string|null $displayName Contains the long-form name for the language.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var LanguageProficiencyLevel|null $proficiency The proficiency property
-    */
-    private ?LanguageProficiencyLevel $proficiency = null;
-    
-    /**
-     * @var LanguageProficiencyLevel|null $reading Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    */
-    private ?LanguageProficiencyLevel $reading = null;
-    
-    /**
-     * @var LanguageProficiencyLevel|null $spoken Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    */
-    private ?LanguageProficiencyLevel $spoken = null;
-    
-    /**
-     * @var string|null $tag Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
-    */
-    private ?string $tag = null;
-    
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
-     * @var LanguageProficiencyLevel|null $written Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    */
-    private ?LanguageProficiencyLevel $written = null;
-    
-    /**
      * Instantiates a new LanguageProficiency and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -90,7 +55,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getProficiency(): ?LanguageProficiencyLevel {
-        return $this->proficiency;
+        return $this->getBackingStore()->get('proficiency');
     }
 
     /**
@@ -98,7 +63,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getReading(): ?LanguageProficiencyLevel {
-        return $this->reading;
+        return $this->getBackingStore()->get('reading');
     }
 
     /**
@@ -106,7 +71,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getSpoken(): ?LanguageProficiencyLevel {
-        return $this->spoken;
+        return $this->getBackingStore()->get('spoken');
     }
 
     /**
@@ -114,7 +79,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getTag(): ?string {
-        return $this->tag;
+        return $this->getBackingStore()->get('tag');
     }
 
     /**
@@ -122,7 +87,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -130,7 +95,7 @@ class LanguageProficiency extends ItemFacet implements Parsable
      * @return LanguageProficiencyLevel|null
     */
     public function getWritten(): ?LanguageProficiencyLevel {
-        return $this->written;
+        return $this->getBackingStore()->get('written');
     }
 
     /**
@@ -139,69 +104,69 @@ class LanguageProficiency extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('proficiency', $this->proficiency);
-        $writer->writeEnumValue('reading', $this->reading);
-        $writer->writeEnumValue('spoken', $this->spoken);
-        $writer->writeStringValue('tag', $this->tag);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
-        $writer->writeEnumValue('written', $this->written);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('proficiency', $this->getProficiency());
+        $writer->writeEnumValue('reading', $this->getReading());
+        $writer->writeEnumValue('spoken', $this->getSpoken());
+        $writer->writeStringValue('tag', $this->getTag());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
+        $writer->writeEnumValue('written', $this->getWritten());
     }
 
     /**
      * Sets the displayName property value. Contains the long-form name for the language.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the proficiency property value. The proficiency property
      *  @param LanguageProficiencyLevel|null $value Value to set for the proficiency property.
     */
-    public function setProficiency(?LanguageProficiencyLevel $value ): void {
-        $this->proficiency = $value;
+    public function setProficiency(?LanguageProficiencyLevel $value): void {
+        $this->getBackingStore()->set('proficiency', $value);
     }
 
     /**
      * Sets the reading property value. Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      *  @param LanguageProficiencyLevel|null $value Value to set for the reading property.
     */
-    public function setReading(?LanguageProficiencyLevel $value ): void {
-        $this->reading = $value;
+    public function setReading(?LanguageProficiencyLevel $value): void {
+        $this->getBackingStore()->set('reading', $value);
     }
 
     /**
      * Sets the spoken property value. Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      *  @param LanguageProficiencyLevel|null $value Value to set for the spoken property.
     */
-    public function setSpoken(?LanguageProficiencyLevel $value ): void {
-        $this->spoken = $value;
+    public function setSpoken(?LanguageProficiencyLevel $value): void {
+        $this->getBackingStore()->set('spoken', $value);
     }
 
     /**
      * Sets the tag property value. Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
      *  @param string|null $value Value to set for the tag property.
     */
-    public function setTag(?string $value ): void {
-        $this->tag = $value;
+    public function setTag(?string $value): void {
+        $this->getBackingStore()->set('tag', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
     /**
      * Sets the written property value. Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
      *  @param LanguageProficiencyLevel|null $value Value to set for the written property.
     */
-    public function setWritten(?LanguageProficiencyLevel $value ): void {
-        $this->written = $value;
+    public function setWritten(?LanguageProficiencyLevel $value): void {
+        $this->getBackingStore()->set('written', $value);
     }
 
 }

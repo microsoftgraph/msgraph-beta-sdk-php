@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable 
 {
     /**
-     * @var int|null $gracePeriodInMinutes Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
-    */
-    private ?int $gracePeriodInMinutes = null;
-    
-    /**
      * Instantiates a new AndroidDeviceComplianceLocalActionBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.androidDeviceComplianceLocalActionBase');
     }
 
     /**
@@ -54,7 +48,7 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
      * @return int|null
     */
     public function getGracePeriodInMinutes(): ?int {
-        return $this->gracePeriodInMinutes;
+        return $this->getBackingStore()->get('gracePeriodInMinutes');
     }
 
     /**
@@ -63,15 +57,15 @@ class AndroidDeviceComplianceLocalActionBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('gracePeriodInMinutes', $this->gracePeriodInMinutes);
+        $writer->writeIntegerValue('gracePeriodInMinutes', $this->getGracePeriodInMinutes());
     }
 
     /**
      * Sets the gracePeriodInMinutes property value. Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
      *  @param int|null $value Value to set for the gracePeriodInMinutes property.
     */
-    public function setGracePeriodInMinutes(?int $value ): void {
-        $this->gracePeriodInMinutes = $value;
+    public function setGracePeriodInMinutes(?int $value): void {
+        $this->getBackingStore()->set('gracePeriodInMinutes', $value);
     }
 
 }

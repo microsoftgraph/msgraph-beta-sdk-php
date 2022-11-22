@@ -10,11 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class TaskFileAttachment extends AttachmentBase implements Parsable 
 {
     /**
-     * @var StreamInterface|null $contentBytes The base64-encoded contents of the file.
-    */
-    private ?StreamInterface $contentBytes = null;
-    
-    /**
      * Instantiates a new TaskFileAttachment and sets the default values.
     */
     public function __construct() {
@@ -33,10 +28,10 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
 
     /**
      * Gets the contentBytes property value. The base64-encoded contents of the file.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContentBytes(): StreamInterface {
-        return $this->contentBytes;
+    public function getContentBytes(): ?StreamInterface {
+        return $this->getBackingStore()->get('contentBytes');
     }
 
     /**
@@ -56,15 +51,15 @@ class TaskFileAttachment extends AttachmentBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('contentBytes', $this->contentBytes);
+        $writer->writeBinaryContent('contentBytes', $this->getContentBytes());
     }
 
     /**
      * Sets the contentBytes property value. The base64-encoded contents of the file.
      *  @param StreamInterface|null $value Value to set for the contentBytes property.
     */
-    public function setContentBytes(?StreamInterface $value ): void {
-        $this->contentBytes = $value;
+    public function setContentBytes(?StreamInterface $value): void {
+        $this->getBackingStore()->set('contentBytes', $value);
     }
 
 }

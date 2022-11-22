@@ -12,71 +12,10 @@ use Psr\Http\Message\StreamInterface;
 class CompanyInformation extends Entity implements Parsable 
 {
     /**
-     * @var PostalAddressType|null $address The address property
-    */
-    private ?PostalAddressType $address = null;
-    
-    /**
-     * @var string|null $currencyCode The currencyCode property
-    */
-    private ?string $currencyCode = null;
-    
-    /**
-     * @var Date|null $currentFiscalYearStartDate The currentFiscalYearStartDate property
-    */
-    private ?Date $currentFiscalYearStartDate = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $email The email property
-    */
-    private ?string $email = null;
-    
-    /**
-     * @var string|null $faxNumber The faxNumber property
-    */
-    private ?string $faxNumber = null;
-    
-    /**
-     * @var string|null $industry The industry property
-    */
-    private ?string $industry = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $phoneNumber The phoneNumber property
-    */
-    private ?string $phoneNumber = null;
-    
-    /**
-     * @var StreamInterface|null $picture The picture property
-    */
-    private ?StreamInterface $picture = null;
-    
-    /**
-     * @var string|null $taxRegistrationNumber The taxRegistrationNumber property
-    */
-    private ?string $taxRegistrationNumber = null;
-    
-    /**
-     * @var string|null $website The website property
-    */
-    private ?string $website = null;
-    
-    /**
      * Instantiates a new companyInformation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.companyInformation');
     }
 
     /**
@@ -93,7 +32,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return PostalAddressType|null
     */
     public function getAddress(): ?PostalAddressType {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
     }
 
     /**
@@ -101,7 +40,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getCurrencyCode(): ?string {
-        return $this->currencyCode;
+        return $this->getBackingStore()->get('currencyCode');
     }
 
     /**
@@ -109,7 +48,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return Date|null
     */
     public function getCurrentFiscalYearStartDate(): ?Date {
-        return $this->currentFiscalYearStartDate;
+        return $this->getBackingStore()->get('currentFiscalYearStartDate');
     }
 
     /**
@@ -117,7 +56,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -125,7 +64,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -133,7 +72,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getFaxNumber(): ?string {
-        return $this->faxNumber;
+        return $this->getBackingStore()->get('faxNumber');
     }
 
     /**
@@ -163,7 +102,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getIndustry(): ?string {
-        return $this->industry;
+        return $this->getBackingStore()->get('industry');
     }
 
     /**
@@ -171,7 +110,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -179,15 +118,15 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getPhoneNumber(): ?string {
-        return $this->phoneNumber;
+        return $this->getBackingStore()->get('phoneNumber');
     }
 
     /**
      * Gets the picture property value. The picture property
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getPicture(): StreamInterface {
-        return $this->picture;
+    public function getPicture(): ?StreamInterface {
+        return $this->getBackingStore()->get('picture');
     }
 
     /**
@@ -195,7 +134,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxRegistrationNumber(): ?string {
-        return $this->taxRegistrationNumber;
+        return $this->getBackingStore()->get('taxRegistrationNumber');
     }
 
     /**
@@ -203,7 +142,7 @@ class CompanyInformation extends Entity implements Parsable
      * @return string|null
     */
     public function getWebsite(): ?string {
-        return $this->website;
+        return $this->getBackingStore()->get('website');
     }
 
     /**
@@ -212,114 +151,114 @@ class CompanyInformation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('address', $this->address);
-        $writer->writeStringValue('currencyCode', $this->currencyCode);
-        $writer->writeDateValue('currentFiscalYearStartDate', $this->currentFiscalYearStartDate);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('email', $this->email);
-        $writer->writeStringValue('faxNumber', $this->faxNumber);
-        $writer->writeStringValue('industry', $this->industry);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('phoneNumber', $this->phoneNumber);
-        $writer->writeBinaryContent('picture', $this->picture);
-        $writer->writeStringValue('taxRegistrationNumber', $this->taxRegistrationNumber);
-        $writer->writeStringValue('website', $this->website);
+        $writer->writeObjectValue('address', $this->getAddress());
+        $writer->writeStringValue('currencyCode', $this->getCurrencyCode());
+        $writer->writeDateValue('currentFiscalYearStartDate', $this->getCurrentFiscalYearStartDate());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('faxNumber', $this->getFaxNumber());
+        $writer->writeStringValue('industry', $this->getIndustry());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('phoneNumber', $this->getPhoneNumber());
+        $writer->writeBinaryContent('picture', $this->getPicture());
+        $writer->writeStringValue('taxRegistrationNumber', $this->getTaxRegistrationNumber());
+        $writer->writeStringValue('website', $this->getWebsite());
     }
 
     /**
      * Sets the address property value. The address property
      *  @param PostalAddressType|null $value Value to set for the address property.
     */
-    public function setAddress(?PostalAddressType $value ): void {
-        $this->address = $value;
+    public function setAddress(?PostalAddressType $value): void {
+        $this->getBackingStore()->set('address', $value);
     }
 
     /**
      * Sets the currencyCode property value. The currencyCode property
      *  @param string|null $value Value to set for the currencyCode property.
     */
-    public function setCurrencyCode(?string $value ): void {
-        $this->currencyCode = $value;
+    public function setCurrencyCode(?string $value): void {
+        $this->getBackingStore()->set('currencyCode', $value);
     }
 
     /**
      * Sets the currentFiscalYearStartDate property value. The currentFiscalYearStartDate property
      *  @param Date|null $value Value to set for the currentFiscalYearStartDate property.
     */
-    public function setCurrentFiscalYearStartDate(?Date $value ): void {
-        $this->currentFiscalYearStartDate = $value;
+    public function setCurrentFiscalYearStartDate(?Date $value): void {
+        $this->getBackingStore()->set('currentFiscalYearStartDate', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the email property value. The email property
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
      * Sets the faxNumber property value. The faxNumber property
      *  @param string|null $value Value to set for the faxNumber property.
     */
-    public function setFaxNumber(?string $value ): void {
-        $this->faxNumber = $value;
+    public function setFaxNumber(?string $value): void {
+        $this->getBackingStore()->set('faxNumber', $value);
     }
 
     /**
      * Sets the industry property value. The industry property
      *  @param string|null $value Value to set for the industry property.
     */
-    public function setIndustry(?string $value ): void {
-        $this->industry = $value;
+    public function setIndustry(?string $value): void {
+        $this->getBackingStore()->set('industry', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the phoneNumber property value. The phoneNumber property
      *  @param string|null $value Value to set for the phoneNumber property.
     */
-    public function setPhoneNumber(?string $value ): void {
-        $this->phoneNumber = $value;
+    public function setPhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('phoneNumber', $value);
     }
 
     /**
      * Sets the picture property value. The picture property
      *  @param StreamInterface|null $value Value to set for the picture property.
     */
-    public function setPicture(?StreamInterface $value ): void {
-        $this->picture = $value;
+    public function setPicture(?StreamInterface $value): void {
+        $this->getBackingStore()->set('picture', $value);
     }
 
     /**
      * Sets the taxRegistrationNumber property value. The taxRegistrationNumber property
      *  @param string|null $value Value to set for the taxRegistrationNumber property.
     */
-    public function setTaxRegistrationNumber(?string $value ): void {
-        $this->taxRegistrationNumber = $value;
+    public function setTaxRegistrationNumber(?string $value): void {
+        $this->getBackingStore()->set('taxRegistrationNumber', $value);
     }
 
     /**
      * Sets the website property value. The website property
      *  @param string|null $value Value to set for the website property.
     */
-    public function setWebsite(?string $value ): void {
-        $this->website = $value;
+    public function setWebsite(?string $value): void {
+        $this->getBackingStore()->set('website', $value);
     }
 
 }

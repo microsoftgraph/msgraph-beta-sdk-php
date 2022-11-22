@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkflowTemplate extends Entity implements Parsable 
 {
     /**
-     * @var LifecycleWorkflowCategory|null $category The category property
-    */
-    private ?LifecycleWorkflowCategory $category = null;
-    
-    /**
-     * @var string|null $description The description of the workflowTemplate.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var WorkflowExecutionConditions|null $executionConditions Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
-    */
-    private ?WorkflowExecutionConditions $executionConditions = null;
-    
-    /**
-     * @var array<Task>|null $tasks Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
-    */
-    private ?array $tasks = null;
-    
-    /**
      * Instantiates a new workflowTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.identityGovernance.workflowTemplate');
     }
 
     /**
@@ -56,7 +30,7 @@ class WorkflowTemplate extends Entity implements Parsable
      * @return LifecycleWorkflowCategory|null
     */
     public function getCategory(): ?LifecycleWorkflowCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -64,7 +38,7 @@ class WorkflowTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -72,7 +46,7 @@ class WorkflowTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -80,7 +54,7 @@ class WorkflowTemplate extends Entity implements Parsable
      * @return WorkflowExecutionConditions|null
     */
     public function getExecutionConditions(): ?WorkflowExecutionConditions {
-        return $this->executionConditions;
+        return $this->getBackingStore()->get('executionConditions');
     }
 
     /**
@@ -103,7 +77,7 @@ class WorkflowTemplate extends Entity implements Parsable
      * @return array<Task>|null
     */
     public function getTasks(): ?array {
-        return $this->tasks;
+        return $this->getBackingStore()->get('tasks');
     }
 
     /**
@@ -112,51 +86,51 @@ class WorkflowTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('executionConditions', $this->executionConditions);
-        $writer->writeCollectionOfObjectValues('tasks', $this->tasks);
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('executionConditions', $this->getExecutionConditions());
+        $writer->writeCollectionOfObjectValues('tasks', $this->getTasks());
     }
 
     /**
      * Sets the category property value. The category property
      *  @param LifecycleWorkflowCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?LifecycleWorkflowCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?LifecycleWorkflowCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the description property value. The description of the workflowTemplate.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the executionConditions property value. Conditions describing when to execute the workflow and the criteria to identify in-scope subject set.
      *  @param WorkflowExecutionConditions|null $value Value to set for the executionConditions property.
     */
-    public function setExecutionConditions(?WorkflowExecutionConditions $value ): void {
-        $this->executionConditions = $value;
+    public function setExecutionConditions(?WorkflowExecutionConditions $value): void {
+        $this->getBackingStore()->set('executionConditions', $value);
     }
 
     /**
      * Sets the tasks property value. Represents the configured tasks to execute and their execution sequence within a workflow. This relationship is expanded by default.
      *  @param array<Task>|null $value Value to set for the tasks property.
     */
-    public function setTasks(?array $value ): void {
-        $this->tasks = $value;
+    public function setTasks(?array $value): void {
+        $this->getBackingStore()->set('tasks', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSimpleSettingInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationSimpleSettingValue|null $simpleSettingValue The simpleSettingValue property
-    */
-    private ?DeviceManagementConfigurationSimpleSettingValue $simpleSettingValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSimpleSettingInstance and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationSimpleSettingInstance extends DeviceManagemen
      * @return DeviceManagementConfigurationSimpleSettingValue|null
     */
     public function getSimpleSettingValue(): ?DeviceManagementConfigurationSimpleSettingValue {
-        return $this->simpleSettingValue;
+        return $this->getBackingStore()->get('simpleSettingValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationSimpleSettingInstance extends DeviceManagemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('simpleSettingValue', $this->simpleSettingValue);
+        $writer->writeObjectValue('simpleSettingValue', $this->getSimpleSettingValue());
     }
 
     /**
      * Sets the simpleSettingValue property value. The simpleSettingValue property
      *  @param DeviceManagementConfigurationSimpleSettingValue|null $value Value to set for the simpleSettingValue property.
     */
-    public function setSimpleSettingValue(?DeviceManagementConfigurationSimpleSettingValue $value ): void {
-        $this->simpleSettingValue = $value;
+    public function setSimpleSettingValue(?DeviceManagementConfigurationSimpleSettingValue $value): void {
+        $this->getBackingStore()->set('simpleSettingValue', $value);
     }
 
 }

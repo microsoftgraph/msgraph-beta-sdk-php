@@ -9,101 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable 
 {
     /**
-     * @var string|null $allowedIosDeviceModels Semicolon seperated list of device models allowed, as a string, for the managed app to work.
-    */
-    private ?string $allowedIosDeviceModels = null;
-    
-    /**
-     * @var ManagedAppRemediationAction|null $appActionIfIosDeviceModelNotAllowed An admin initiated action to be applied on a managed app.
-    */
-    private ?ManagedAppRemediationAction $appActionIfIosDeviceModelNotAllowed = null;
-    
-    /**
-     * @var ManagedAppDataEncryptionType|null $appDataEncryptionType Represents the level to which app data is encrypted for managed apps
-    */
-    private ?ManagedAppDataEncryptionType $appDataEncryptionType = null;
-    
-    /**
-     * @var array<ManagedMobileApp>|null $apps List of apps to which the policy is deployed.
-    */
-    private ?array $apps = null;
-    
-    /**
-     * @var string|null $customBrowserProtocol A custom browser protocol to open weblink on iOS.
-    */
-    private ?string $customBrowserProtocol = null;
-    
-    /**
-     * @var string|null $customDialerAppProtocol Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
-    */
-    private ?string $customDialerAppProtocol = null;
-    
-    /**
-     * @var int|null $deployedAppCount Count of apps to which the current policy is deployed.
-    */
-    private ?int $deployedAppCount = null;
-    
-    /**
-     * @var ManagedAppPolicyDeploymentSummary|null $deploymentSummary Navigation property to deployment summary of the configuration.
-    */
-    private ?ManagedAppPolicyDeploymentSummary $deploymentSummary = null;
-    
-    /**
-     * @var bool|null $disableProtectionOfManagedOutboundOpenInData Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
-    */
-    private ?bool $disableProtectionOfManagedOutboundOpenInData = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $exemptedAppProtocols Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
-    */
-    private ?array $exemptedAppProtocols = null;
-    
-    /**
-     * @var array<string>|null $exemptedUniversalLinks A list of custom urls that are allowed to invocate an unmanaged app
-    */
-    private ?array $exemptedUniversalLinks = null;
-    
-    /**
-     * @var bool|null $faceIdBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
-    */
-    private ?bool $faceIdBlocked = null;
-    
-    /**
-     * @var bool|null $filterOpenInToOnlyManagedApps Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
-    */
-    private ?bool $filterOpenInToOnlyManagedApps = null;
-    
-    /**
-     * @var array<string>|null $managedUniversalLinks A list of custom urls that are allowed to invocate a managed app
-    */
-    private ?array $managedUniversalLinks = null;
-    
-    /**
-     * @var string|null $minimumRequiredSdkVersion Versions less than the specified version will block the managed app from accessing company data.
-    */
-    private ?string $minimumRequiredSdkVersion = null;
-    
-    /**
-     * @var string|null $minimumWarningSdkVersion Versions less than the specified version will result in warning message on the managed app from accessing company data.
-    */
-    private ?string $minimumWarningSdkVersion = null;
-    
-    /**
-     * @var string|null $minimumWipeSdkVersion Versions less than the specified version will block the managed app from accessing company data.
-    */
-    private ?string $minimumWipeSdkVersion = null;
-    
-    /**
-     * @var bool|null $protectInboundDataFromUnknownSources Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
-    */
-    private ?bool $protectInboundDataFromUnknownSources = null;
-    
-    /**
-     * @var bool|null $thirdPartyKeyboardsBlocked Defines if third party keyboards are allowed while accessing a managed app
-    */
-    private ?bool $thirdPartyKeyboardsBlocked = null;
-    
-    /**
      * Instantiates a new IosManagedAppProtection and sets the default values.
     */
     public function __construct() {
@@ -125,7 +30,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getAllowedIosDeviceModels(): ?string {
-        return $this->allowedIosDeviceModels;
+        return $this->getBackingStore()->get('allowedIosDeviceModels');
     }
 
     /**
@@ -133,7 +38,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppRemediationAction|null
     */
     public function getAppActionIfIosDeviceModelNotAllowed(): ?ManagedAppRemediationAction {
-        return $this->appActionIfIosDeviceModelNotAllowed;
+        return $this->getBackingStore()->get('appActionIfIosDeviceModelNotAllowed');
     }
 
     /**
@@ -141,7 +46,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppDataEncryptionType|null
     */
     public function getAppDataEncryptionType(): ?ManagedAppDataEncryptionType {
-        return $this->appDataEncryptionType;
+        return $this->getBackingStore()->get('appDataEncryptionType');
     }
 
     /**
@@ -149,7 +54,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<ManagedMobileApp>|null
     */
     public function getApps(): ?array {
-        return $this->apps;
+        return $this->getBackingStore()->get('apps');
     }
 
     /**
@@ -157,7 +62,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getCustomBrowserProtocol(): ?string {
-        return $this->customBrowserProtocol;
+        return $this->getBackingStore()->get('customBrowserProtocol');
     }
 
     /**
@@ -165,7 +70,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getCustomDialerAppProtocol(): ?string {
-        return $this->customDialerAppProtocol;
+        return $this->getBackingStore()->get('customDialerAppProtocol');
     }
 
     /**
@@ -173,7 +78,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return int|null
     */
     public function getDeployedAppCount(): ?int {
-        return $this->deployedAppCount;
+        return $this->getBackingStore()->get('deployedAppCount');
     }
 
     /**
@@ -181,7 +86,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return ManagedAppPolicyDeploymentSummary|null
     */
     public function getDeploymentSummary(): ?ManagedAppPolicyDeploymentSummary {
-        return $this->deploymentSummary;
+        return $this->getBackingStore()->get('deploymentSummary');
     }
 
     /**
@@ -189,7 +94,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getDisableProtectionOfManagedOutboundOpenInData(): ?bool {
-        return $this->disableProtectionOfManagedOutboundOpenInData;
+        return $this->getBackingStore()->get('disableProtectionOfManagedOutboundOpenInData');
     }
 
     /**
@@ -197,7 +102,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<KeyValuePair>|null
     */
     public function getExemptedAppProtocols(): ?array {
-        return $this->exemptedAppProtocols;
+        return $this->getBackingStore()->get('exemptedAppProtocols');
     }
 
     /**
@@ -205,7 +110,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<string>|null
     */
     public function getExemptedUniversalLinks(): ?array {
-        return $this->exemptedUniversalLinks;
+        return $this->getBackingStore()->get('exemptedUniversalLinks');
     }
 
     /**
@@ -213,7 +118,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getFaceIdBlocked(): ?bool {
-        return $this->faceIdBlocked;
+        return $this->getBackingStore()->get('faceIdBlocked');
     }
 
     /**
@@ -250,7 +155,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getFilterOpenInToOnlyManagedApps(): ?bool {
-        return $this->filterOpenInToOnlyManagedApps;
+        return $this->getBackingStore()->get('filterOpenInToOnlyManagedApps');
     }
 
     /**
@@ -258,7 +163,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return array<string>|null
     */
     public function getManagedUniversalLinks(): ?array {
-        return $this->managedUniversalLinks;
+        return $this->getBackingStore()->get('managedUniversalLinks');
     }
 
     /**
@@ -266,7 +171,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumRequiredSdkVersion(): ?string {
-        return $this->minimumRequiredSdkVersion;
+        return $this->getBackingStore()->get('minimumRequiredSdkVersion');
     }
 
     /**
@@ -274,7 +179,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumWarningSdkVersion(): ?string {
-        return $this->minimumWarningSdkVersion;
+        return $this->getBackingStore()->get('minimumWarningSdkVersion');
     }
 
     /**
@@ -282,7 +187,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return string|null
     */
     public function getMinimumWipeSdkVersion(): ?string {
-        return $this->minimumWipeSdkVersion;
+        return $this->getBackingStore()->get('minimumWipeSdkVersion');
     }
 
     /**
@@ -290,7 +195,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getProtectInboundDataFromUnknownSources(): ?bool {
-        return $this->protectInboundDataFromUnknownSources;
+        return $this->getBackingStore()->get('protectInboundDataFromUnknownSources');
     }
 
     /**
@@ -298,7 +203,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
      * @return bool|null
     */
     public function getThirdPartyKeyboardsBlocked(): ?bool {
-        return $this->thirdPartyKeyboardsBlocked;
+        return $this->getBackingStore()->get('thirdPartyKeyboardsBlocked');
     }
 
     /**
@@ -307,177 +212,177 @@ class IosManagedAppProtection extends TargetedManagedAppProtection implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('allowedIosDeviceModels', $this->allowedIosDeviceModels);
-        $writer->writeEnumValue('appActionIfIosDeviceModelNotAllowed', $this->appActionIfIosDeviceModelNotAllowed);
-        $writer->writeEnumValue('appDataEncryptionType', $this->appDataEncryptionType);
-        $writer->writeCollectionOfObjectValues('apps', $this->apps);
-        $writer->writeStringValue('customBrowserProtocol', $this->customBrowserProtocol);
-        $writer->writeStringValue('customDialerAppProtocol', $this->customDialerAppProtocol);
-        $writer->writeIntegerValue('deployedAppCount', $this->deployedAppCount);
-        $writer->writeObjectValue('deploymentSummary', $this->deploymentSummary);
-        $writer->writeBooleanValue('disableProtectionOfManagedOutboundOpenInData', $this->disableProtectionOfManagedOutboundOpenInData);
-        $writer->writeCollectionOfObjectValues('exemptedAppProtocols', $this->exemptedAppProtocols);
-        $writer->writeCollectionOfPrimitiveValues('exemptedUniversalLinks', $this->exemptedUniversalLinks);
-        $writer->writeBooleanValue('faceIdBlocked', $this->faceIdBlocked);
-        $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->filterOpenInToOnlyManagedApps);
-        $writer->writeCollectionOfPrimitiveValues('managedUniversalLinks', $this->managedUniversalLinks);
-        $writer->writeStringValue('minimumRequiredSdkVersion', $this->minimumRequiredSdkVersion);
-        $writer->writeStringValue('minimumWarningSdkVersion', $this->minimumWarningSdkVersion);
-        $writer->writeStringValue('minimumWipeSdkVersion', $this->minimumWipeSdkVersion);
-        $writer->writeBooleanValue('protectInboundDataFromUnknownSources', $this->protectInboundDataFromUnknownSources);
-        $writer->writeBooleanValue('thirdPartyKeyboardsBlocked', $this->thirdPartyKeyboardsBlocked);
+        $writer->writeStringValue('allowedIosDeviceModels', $this->getAllowedIosDeviceModels());
+        $writer->writeEnumValue('appActionIfIosDeviceModelNotAllowed', $this->getAppActionIfIosDeviceModelNotAllowed());
+        $writer->writeEnumValue('appDataEncryptionType', $this->getAppDataEncryptionType());
+        $writer->writeCollectionOfObjectValues('apps', $this->getApps());
+        $writer->writeStringValue('customBrowserProtocol', $this->getCustomBrowserProtocol());
+        $writer->writeStringValue('customDialerAppProtocol', $this->getCustomDialerAppProtocol());
+        $writer->writeIntegerValue('deployedAppCount', $this->getDeployedAppCount());
+        $writer->writeObjectValue('deploymentSummary', $this->getDeploymentSummary());
+        $writer->writeBooleanValue('disableProtectionOfManagedOutboundOpenInData', $this->getDisableProtectionOfManagedOutboundOpenInData());
+        $writer->writeCollectionOfObjectValues('exemptedAppProtocols', $this->getExemptedAppProtocols());
+        $writer->writeCollectionOfPrimitiveValues('exemptedUniversalLinks', $this->getExemptedUniversalLinks());
+        $writer->writeBooleanValue('faceIdBlocked', $this->getFaceIdBlocked());
+        $writer->writeBooleanValue('filterOpenInToOnlyManagedApps', $this->getFilterOpenInToOnlyManagedApps());
+        $writer->writeCollectionOfPrimitiveValues('managedUniversalLinks', $this->getManagedUniversalLinks());
+        $writer->writeStringValue('minimumRequiredSdkVersion', $this->getMinimumRequiredSdkVersion());
+        $writer->writeStringValue('minimumWarningSdkVersion', $this->getMinimumWarningSdkVersion());
+        $writer->writeStringValue('minimumWipeSdkVersion', $this->getMinimumWipeSdkVersion());
+        $writer->writeBooleanValue('protectInboundDataFromUnknownSources', $this->getProtectInboundDataFromUnknownSources());
+        $writer->writeBooleanValue('thirdPartyKeyboardsBlocked', $this->getThirdPartyKeyboardsBlocked());
     }
 
     /**
      * Sets the allowedIosDeviceModels property value. Semicolon seperated list of device models allowed, as a string, for the managed app to work.
      *  @param string|null $value Value to set for the allowedIosDeviceModels property.
     */
-    public function setAllowedIosDeviceModels(?string $value ): void {
-        $this->allowedIosDeviceModels = $value;
+    public function setAllowedIosDeviceModels(?string $value): void {
+        $this->getBackingStore()->set('allowedIosDeviceModels', $value);
     }
 
     /**
      * Sets the appActionIfIosDeviceModelNotAllowed property value. An admin initiated action to be applied on a managed app.
      *  @param ManagedAppRemediationAction|null $value Value to set for the appActionIfIosDeviceModelNotAllowed property.
     */
-    public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value ): void {
-        $this->appActionIfIosDeviceModelNotAllowed = $value;
+    public function setAppActionIfIosDeviceModelNotAllowed(?ManagedAppRemediationAction $value): void {
+        $this->getBackingStore()->set('appActionIfIosDeviceModelNotAllowed', $value);
     }
 
     /**
      * Sets the appDataEncryptionType property value. Represents the level to which app data is encrypted for managed apps
      *  @param ManagedAppDataEncryptionType|null $value Value to set for the appDataEncryptionType property.
     */
-    public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value ): void {
-        $this->appDataEncryptionType = $value;
+    public function setAppDataEncryptionType(?ManagedAppDataEncryptionType $value): void {
+        $this->getBackingStore()->set('appDataEncryptionType', $value);
     }
 
     /**
      * Sets the apps property value. List of apps to which the policy is deployed.
      *  @param array<ManagedMobileApp>|null $value Value to set for the apps property.
     */
-    public function setApps(?array $value ): void {
-        $this->apps = $value;
+    public function setApps(?array $value): void {
+        $this->getBackingStore()->set('apps', $value);
     }
 
     /**
      * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      *  @param string|null $value Value to set for the customBrowserProtocol property.
     */
-    public function setCustomBrowserProtocol(?string $value ): void {
-        $this->customBrowserProtocol = $value;
+    public function setCustomBrowserProtocol(?string $value): void {
+        $this->getBackingStore()->set('customBrowserProtocol', $value);
     }
 
     /**
      * Sets the customDialerAppProtocol property value. Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
      *  @param string|null $value Value to set for the customDialerAppProtocol property.
     */
-    public function setCustomDialerAppProtocol(?string $value ): void {
-        $this->customDialerAppProtocol = $value;
+    public function setCustomDialerAppProtocol(?string $value): void {
+        $this->getBackingStore()->set('customDialerAppProtocol', $value);
     }
 
     /**
      * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
      *  @param int|null $value Value to set for the deployedAppCount property.
     */
-    public function setDeployedAppCount(?int $value ): void {
-        $this->deployedAppCount = $value;
+    public function setDeployedAppCount(?int $value): void {
+        $this->getBackingStore()->set('deployedAppCount', $value);
     }
 
     /**
      * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
      *  @param ManagedAppPolicyDeploymentSummary|null $value Value to set for the deploymentSummary property.
     */
-    public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value ): void {
-        $this->deploymentSummary = $value;
+    public function setDeploymentSummary(?ManagedAppPolicyDeploymentSummary $value): void {
+        $this->getBackingStore()->set('deploymentSummary', $value);
     }
 
     /**
      * Sets the disableProtectionOfManagedOutboundOpenInData property value. Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
      *  @param bool|null $value Value to set for the disableProtectionOfManagedOutboundOpenInData property.
     */
-    public function setDisableProtectionOfManagedOutboundOpenInData(?bool $value ): void {
-        $this->disableProtectionOfManagedOutboundOpenInData = $value;
+    public function setDisableProtectionOfManagedOutboundOpenInData(?bool $value): void {
+        $this->getBackingStore()->set('disableProtectionOfManagedOutboundOpenInData', $value);
     }
 
     /**
      * Sets the exemptedAppProtocols property value. Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
      *  @param array<KeyValuePair>|null $value Value to set for the exemptedAppProtocols property.
     */
-    public function setExemptedAppProtocols(?array $value ): void {
-        $this->exemptedAppProtocols = $value;
+    public function setExemptedAppProtocols(?array $value): void {
+        $this->getBackingStore()->set('exemptedAppProtocols', $value);
     }
 
     /**
      * Sets the exemptedUniversalLinks property value. A list of custom urls that are allowed to invocate an unmanaged app
      *  @param array<string>|null $value Value to set for the exemptedUniversalLinks property.
     */
-    public function setExemptedUniversalLinks(?array $value ): void {
-        $this->exemptedUniversalLinks = $value;
+    public function setExemptedUniversalLinks(?array $value): void {
+        $this->getBackingStore()->set('exemptedUniversalLinks', $value);
     }
 
     /**
      * Sets the faceIdBlocked property value. Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
      *  @param bool|null $value Value to set for the faceIdBlocked property.
     */
-    public function setFaceIdBlocked(?bool $value ): void {
-        $this->faceIdBlocked = $value;
+    public function setFaceIdBlocked(?bool $value): void {
+        $this->getBackingStore()->set('faceIdBlocked', $value);
     }
 
     /**
      * Sets the filterOpenInToOnlyManagedApps property value. Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
      *  @param bool|null $value Value to set for the filterOpenInToOnlyManagedApps property.
     */
-    public function setFilterOpenInToOnlyManagedApps(?bool $value ): void {
-        $this->filterOpenInToOnlyManagedApps = $value;
+    public function setFilterOpenInToOnlyManagedApps(?bool $value): void {
+        $this->getBackingStore()->set('filterOpenInToOnlyManagedApps', $value);
     }
 
     /**
      * Sets the managedUniversalLinks property value. A list of custom urls that are allowed to invocate a managed app
      *  @param array<string>|null $value Value to set for the managedUniversalLinks property.
     */
-    public function setManagedUniversalLinks(?array $value ): void {
-        $this->managedUniversalLinks = $value;
+    public function setManagedUniversalLinks(?array $value): void {
+        $this->getBackingStore()->set('managedUniversalLinks', $value);
     }
 
     /**
      * Sets the minimumRequiredSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data.
      *  @param string|null $value Value to set for the minimumRequiredSdkVersion property.
     */
-    public function setMinimumRequiredSdkVersion(?string $value ): void {
-        $this->minimumRequiredSdkVersion = $value;
+    public function setMinimumRequiredSdkVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumRequiredSdkVersion', $value);
     }
 
     /**
      * Sets the minimumWarningSdkVersion property value. Versions less than the specified version will result in warning message on the managed app from accessing company data.
      *  @param string|null $value Value to set for the minimumWarningSdkVersion property.
     */
-    public function setMinimumWarningSdkVersion(?string $value ): void {
-        $this->minimumWarningSdkVersion = $value;
+    public function setMinimumWarningSdkVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWarningSdkVersion', $value);
     }
 
     /**
      * Sets the minimumWipeSdkVersion property value. Versions less than the specified version will block the managed app from accessing company data.
      *  @param string|null $value Value to set for the minimumWipeSdkVersion property.
     */
-    public function setMinimumWipeSdkVersion(?string $value ): void {
-        $this->minimumWipeSdkVersion = $value;
+    public function setMinimumWipeSdkVersion(?string $value): void {
+        $this->getBackingStore()->set('minimumWipeSdkVersion', $value);
     }
 
     /**
      * Sets the protectInboundDataFromUnknownSources property value. Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
      *  @param bool|null $value Value to set for the protectInboundDataFromUnknownSources property.
     */
-    public function setProtectInboundDataFromUnknownSources(?bool $value ): void {
-        $this->protectInboundDataFromUnknownSources = $value;
+    public function setProtectInboundDataFromUnknownSources(?bool $value): void {
+        $this->getBackingStore()->set('protectInboundDataFromUnknownSources', $value);
     }
 
     /**
      * Sets the thirdPartyKeyboardsBlocked property value. Defines if third party keyboards are allowed while accessing a managed app
      *  @param bool|null $value Value to set for the thirdPartyKeyboardsBlocked property.
     */
-    public function setThirdPartyKeyboardsBlocked(?bool $value ): void {
-        $this->thirdPartyKeyboardsBlocked = $value;
+    public function setThirdPartyKeyboardsBlocked(?bool $value): void {
+        $this->getBackingStore()->set('thirdPartyKeyboardsBlocked', $value);
     }
 
 }

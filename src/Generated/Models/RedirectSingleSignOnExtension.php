@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Parsable 
 {
     /**
-     * @var array<KeyTypedValuePair>|null $configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $configurations = null;
-    
-    /**
-     * @var string|null $extensionIdentifier Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
-    */
-    private ?string $extensionIdentifier = null;
-    
-    /**
-     * @var string|null $teamIdentifier Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
-    */
-    private ?string $teamIdentifier = null;
-    
-    /**
-     * @var array<string>|null $urlPrefixes One or more URL prefixes of identity providers on whose behalf the app extension performs single sign-on. URLs must begin with http:// or https://. All URL prefixes must be unique for all profiles.
-    */
-    private ?array $urlPrefixes = null;
-    
-    /**
      * Instantiates a new RedirectSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->configurations;
+        return $this->getBackingStore()->get('configurations');
     }
 
     /**
@@ -58,7 +38,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getExtensionIdentifier(): ?string {
-        return $this->extensionIdentifier;
+        return $this->getBackingStore()->get('extensionIdentifier');
     }
 
     /**
@@ -80,7 +60,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return string|null
     */
     public function getTeamIdentifier(): ?string {
-        return $this->teamIdentifier;
+        return $this->getBackingStore()->get('teamIdentifier');
     }
 
     /**
@@ -88,7 +68,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
      * @return array<string>|null
     */
     public function getUrlPrefixes(): ?array {
-        return $this->urlPrefixes;
+        return $this->getBackingStore()->get('urlPrefixes');
     }
 
     /**
@@ -97,42 +77,42 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('configurations', $this->configurations);
-        $writer->writeStringValue('extensionIdentifier', $this->extensionIdentifier);
-        $writer->writeStringValue('teamIdentifier', $this->teamIdentifier);
-        $writer->writeCollectionOfPrimitiveValues('urlPrefixes', $this->urlPrefixes);
+        $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
+        $writer->writeStringValue('extensionIdentifier', $this->getExtensionIdentifier());
+        $writer->writeStringValue('teamIdentifier', $this->getTeamIdentifier());
+        $writer->writeCollectionOfPrimitiveValues('urlPrefixes', $this->getUrlPrefixes());
     }
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
      *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
-    public function setConfigurations(?array $value ): void {
-        $this->configurations = $value;
+    public function setConfigurations(?array $value): void {
+        $this->getBackingStore()->set('configurations', $value);
     }
 
     /**
      * Sets the extensionIdentifier property value. Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
      *  @param string|null $value Value to set for the extensionIdentifier property.
     */
-    public function setExtensionIdentifier(?string $value ): void {
-        $this->extensionIdentifier = $value;
+    public function setExtensionIdentifier(?string $value): void {
+        $this->getBackingStore()->set('extensionIdentifier', $value);
     }
 
     /**
      * Sets the teamIdentifier property value. Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
      *  @param string|null $value Value to set for the teamIdentifier property.
     */
-    public function setTeamIdentifier(?string $value ): void {
-        $this->teamIdentifier = $value;
+    public function setTeamIdentifier(?string $value): void {
+        $this->getBackingStore()->set('teamIdentifier', $value);
     }
 
     /**
      * Sets the urlPrefixes property value. One or more URL prefixes of identity providers on whose behalf the app extension performs single sign-on. URLs must begin with http:// or https://. All URL prefixes must be unique for all profiles.
      *  @param array<string>|null $value Value to set for the urlPrefixes property.
     */
-    public function setUrlPrefixes(?array $value ): void {
-        $this->urlPrefixes = $value;
+    public function setUrlPrefixes(?array $value): void {
+        $this->getBackingStore()->set('urlPrefixes', $value);
     }
 
 }

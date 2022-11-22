@@ -10,21 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeploymentAudience extends Entity implements Parsable 
 {
     /**
-     * @var array<UpdatableAsset>|null $exclusions Specifies the assets to exclude from the audience.
-    */
-    private ?array $exclusions = null;
-    
-    /**
-     * @var array<UpdatableAsset>|null $members Specifies the assets to include in the audience.
-    */
-    private ?array $members = null;
-    
-    /**
      * Instantiates a new deploymentAudience and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsUpdates.deploymentAudience');
     }
 
     /**
@@ -41,7 +30,7 @@ class DeploymentAudience extends Entity implements Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getExclusions(): ?array {
-        return $this->exclusions;
+        return $this->getBackingStore()->get('exclusions');
     }
 
     /**
@@ -61,7 +50,7 @@ class DeploymentAudience extends Entity implements Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getMembers(): ?array {
-        return $this->members;
+        return $this->getBackingStore()->get('members');
     }
 
     /**
@@ -70,24 +59,24 @@ class DeploymentAudience extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('exclusions', $this->exclusions);
-        $writer->writeCollectionOfObjectValues('members', $this->members);
+        $writer->writeCollectionOfObjectValues('exclusions', $this->getExclusions());
+        $writer->writeCollectionOfObjectValues('members', $this->getMembers());
     }
 
     /**
      * Sets the exclusions property value. Specifies the assets to exclude from the audience.
      *  @param array<UpdatableAsset>|null $value Value to set for the exclusions property.
     */
-    public function setExclusions(?array $value ): void {
-        $this->exclusions = $value;
+    public function setExclusions(?array $value): void {
+        $this->getBackingStore()->set('exclusions', $value);
     }
 
     /**
      * Sets the members property value. Specifies the assets to include in the audience.
      *  @param array<UpdatableAsset>|null $value Value to set for the members property.
     */
-    public function setMembers(?array $value ): void {
-        $this->members = $value;
+    public function setMembers(?array $value): void {
+        $this->getBackingStore()->set('members', $value);
     }
 
 }

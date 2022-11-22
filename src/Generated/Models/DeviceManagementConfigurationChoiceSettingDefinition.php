@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagementConfigurationSettingDefinition implements Parsable 
 {
     /**
-     * @var string|null $defaultOptionId Default option for choice setting
-    */
-    private ?string $defaultOptionId = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationOptionDefinition>|null $options Options for the setting that can be selected
-    */
-    private ?array $options = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition');
     }
 
     /**
@@ -47,7 +36,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
      * @return string|null
     */
     public function getDefaultOptionId(): ?string {
-        return $this->defaultOptionId;
+        return $this->getBackingStore()->get('defaultOptionId');
     }
 
     /**
@@ -67,7 +56,7 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
      * @return array<DeviceManagementConfigurationOptionDefinition>|null
     */
     public function getOptions(): ?array {
-        return $this->options;
+        return $this->getBackingStore()->get('options');
     }
 
     /**
@@ -76,24 +65,24 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('defaultOptionId', $this->defaultOptionId);
-        $writer->writeCollectionOfObjectValues('options', $this->options);
+        $writer->writeStringValue('defaultOptionId', $this->getDefaultOptionId());
+        $writer->writeCollectionOfObjectValues('options', $this->getOptions());
     }
 
     /**
      * Sets the defaultOptionId property value. Default option for choice setting
      *  @param string|null $value Value to set for the defaultOptionId property.
     */
-    public function setDefaultOptionId(?string $value ): void {
-        $this->defaultOptionId = $value;
+    public function setDefaultOptionId(?string $value): void {
+        $this->getBackingStore()->set('defaultOptionId', $value);
     }
 
     /**
      * Sets the options property value. Options for the setting that can be selected
      *  @param array<DeviceManagementConfigurationOptionDefinition>|null $value Value to set for the options property.
     */
-    public function setOptions(?array $value ): void {
-        $this->options = $value;
+    public function setOptions(?array $value): void {
+        $this->getBackingStore()->set('options', $value);
     }
 
 }

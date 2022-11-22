@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SensitivityPolicySettings extends Entity implements Parsable 
 {
     /**
-     * @var SensitivityLabelTarget|null $applicableTo The applicableTo property
-    */
-    private ?SensitivityLabelTarget $applicableTo = null;
-    
-    /**
-     * @var bool|null $downgradeSensitivityRequiresJustification The downgradeSensitivityRequiresJustification property
-    */
-    private ?bool $downgradeSensitivityRequiresJustification = null;
-    
-    /**
-     * @var string|null $helpWebUrl The helpWebUrl property
-    */
-    private ?string $helpWebUrl = null;
-    
-    /**
-     * @var bool|null $isMandatory The isMandatory property
-    */
-    private ?bool $isMandatory = null;
-    
-    /**
      * Instantiates a new sensitivityPolicySettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.sensitivityPolicySettings');
     }
 
     /**
@@ -50,7 +29,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return SensitivityLabelTarget|null
     */
     public function getApplicableTo(): ?SensitivityLabelTarget {
-        return $this->applicableTo;
+        return $this->getBackingStore()->get('applicableTo');
     }
 
     /**
@@ -58,7 +37,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getDowngradeSensitivityRequiresJustification(): ?bool {
-        return $this->downgradeSensitivityRequiresJustification;
+        return $this->getBackingStore()->get('downgradeSensitivityRequiresJustification');
     }
 
     /**
@@ -80,7 +59,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return string|null
     */
     public function getHelpWebUrl(): ?string {
-        return $this->helpWebUrl;
+        return $this->getBackingStore()->get('helpWebUrl');
     }
 
     /**
@@ -88,7 +67,7 @@ class SensitivityPolicySettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->isMandatory;
+        return $this->getBackingStore()->get('isMandatory');
     }
 
     /**
@@ -97,42 +76,42 @@ class SensitivityPolicySettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('applicableTo', $this->applicableTo);
-        $writer->writeBooleanValue('downgradeSensitivityRequiresJustification', $this->downgradeSensitivityRequiresJustification);
-        $writer->writeStringValue('helpWebUrl', $this->helpWebUrl);
-        $writer->writeBooleanValue('isMandatory', $this->isMandatory);
+        $writer->writeEnumValue('applicableTo', $this->getApplicableTo());
+        $writer->writeBooleanValue('downgradeSensitivityRequiresJustification', $this->getDowngradeSensitivityRequiresJustification());
+        $writer->writeStringValue('helpWebUrl', $this->getHelpWebUrl());
+        $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
     }
 
     /**
      * Sets the applicableTo property value. The applicableTo property
      *  @param SensitivityLabelTarget|null $value Value to set for the applicableTo property.
     */
-    public function setApplicableTo(?SensitivityLabelTarget $value ): void {
-        $this->applicableTo = $value;
+    public function setApplicableTo(?SensitivityLabelTarget $value): void {
+        $this->getBackingStore()->set('applicableTo', $value);
     }
 
     /**
      * Sets the downgradeSensitivityRequiresJustification property value. The downgradeSensitivityRequiresJustification property
      *  @param bool|null $value Value to set for the downgradeSensitivityRequiresJustification property.
     */
-    public function setDowngradeSensitivityRequiresJustification(?bool $value ): void {
-        $this->downgradeSensitivityRequiresJustification = $value;
+    public function setDowngradeSensitivityRequiresJustification(?bool $value): void {
+        $this->getBackingStore()->set('downgradeSensitivityRequiresJustification', $value);
     }
 
     /**
      * Sets the helpWebUrl property value. The helpWebUrl property
      *  @param string|null $value Value to set for the helpWebUrl property.
     */
-    public function setHelpWebUrl(?string $value ): void {
-        $this->helpWebUrl = $value;
+    public function setHelpWebUrl(?string $value): void {
+        $this->getBackingStore()->set('helpWebUrl', $value);
     }
 
     /**
      * Sets the isMandatory property value. The isMandatory property
      *  @param bool|null $value Value to set for the isMandatory property.
     */
-    public function setIsMandatory(?bool $value ): void {
-        $this->isMandatory = $value;
+    public function setIsMandatory(?bool $value): void {
+        $this->getBackingStore()->set('isMandatory', $value);
     }
 
 }

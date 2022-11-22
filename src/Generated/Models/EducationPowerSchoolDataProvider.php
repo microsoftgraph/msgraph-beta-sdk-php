@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * @var bool|null $allowTeachersInMultipleSchools Indicates whether the source has multiple identifiers for a single student or teacher.
-    */
-    private ?bool $allowTeachersInMultipleSchools = null;
-    
-    /**
-     * @var string|null $clientId The client ID used to connect to PowerSchool.
-    */
-    private ?string $clientId = null;
-    
-    /**
-     * @var string|null $clientSecret The client secret to authenticate the connection to the PowerSchool instance.
-    */
-    private ?string $clientSecret = null;
-    
-    /**
-     * @var string|null $connectionUrl The connection URL to the PowerSchool instance.
-    */
-    private ?string $connectionUrl = null;
-    
-    /**
-     * @var EducationSynchronizationCustomizations|null $customizations Optional customization to be applied to the synchronization profile.
-    */
-    private ?EducationSynchronizationCustomizations $customizations = null;
-    
-    /**
-     * @var array<string>|null $schoolsIds The list of schools to sync.
-    */
-    private ?array $schoolsIds = null;
-    
-    /**
-     * @var string|null $schoolYear The school year to sync.
-    */
-    private ?string $schoolYear = null;
-    
-    /**
      * Instantiates a new EducationPowerSchoolDataProvider and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return bool|null
     */
     public function getAllowTeachersInMultipleSchools(): ?bool {
-        return $this->allowTeachersInMultipleSchools;
+        return $this->getBackingStore()->get('allowTeachersInMultipleSchools');
     }
 
     /**
@@ -73,7 +38,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getClientId(): ?string {
-        return $this->clientId;
+        return $this->getBackingStore()->get('clientId');
     }
 
     /**
@@ -81,7 +46,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getClientSecret(): ?string {
-        return $this->clientSecret;
+        return $this->getBackingStore()->get('clientSecret');
     }
 
     /**
@@ -89,7 +54,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
-        return $this->connectionUrl;
+        return $this->getBackingStore()->get('connectionUrl');
     }
 
     /**
@@ -97,7 +62,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->customizations;
+        return $this->getBackingStore()->get('customizations');
     }
 
     /**
@@ -122,7 +87,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
-        return $this->schoolsIds;
+        return $this->getBackingStore()->get('schoolsIds');
     }
 
     /**
@@ -130,7 +95,7 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
      * @return string|null
     */
     public function getSchoolYear(): ?string {
-        return $this->schoolYear;
+        return $this->getBackingStore()->get('schoolYear');
     }
 
     /**
@@ -139,69 +104,69 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowTeachersInMultipleSchools', $this->allowTeachersInMultipleSchools);
-        $writer->writeStringValue('clientId', $this->clientId);
-        $writer->writeStringValue('clientSecret', $this->clientSecret);
-        $writer->writeStringValue('connectionUrl', $this->connectionUrl);
-        $writer->writeObjectValue('customizations', $this->customizations);
-        $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->schoolsIds);
-        $writer->writeStringValue('schoolYear', $this->schoolYear);
+        $writer->writeBooleanValue('allowTeachersInMultipleSchools', $this->getAllowTeachersInMultipleSchools());
+        $writer->writeStringValue('clientId', $this->getClientId());
+        $writer->writeStringValue('clientSecret', $this->getClientSecret());
+        $writer->writeStringValue('connectionUrl', $this->getConnectionUrl());
+        $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->getSchoolsIds());
+        $writer->writeStringValue('schoolYear', $this->getSchoolYear());
     }
 
     /**
      * Sets the allowTeachersInMultipleSchools property value. Indicates whether the source has multiple identifiers for a single student or teacher.
      *  @param bool|null $value Value to set for the allowTeachersInMultipleSchools property.
     */
-    public function setAllowTeachersInMultipleSchools(?bool $value ): void {
-        $this->allowTeachersInMultipleSchools = $value;
+    public function setAllowTeachersInMultipleSchools(?bool $value): void {
+        $this->getBackingStore()->set('allowTeachersInMultipleSchools', $value);
     }
 
     /**
      * Sets the clientId property value. The client ID used to connect to PowerSchool.
      *  @param string|null $value Value to set for the clientId property.
     */
-    public function setClientId(?string $value ): void {
-        $this->clientId = $value;
+    public function setClientId(?string $value): void {
+        $this->getBackingStore()->set('clientId', $value);
     }
 
     /**
      * Sets the clientSecret property value. The client secret to authenticate the connection to the PowerSchool instance.
      *  @param string|null $value Value to set for the clientSecret property.
     */
-    public function setClientSecret(?string $value ): void {
-        $this->clientSecret = $value;
+    public function setClientSecret(?string $value): void {
+        $this->getBackingStore()->set('clientSecret', $value);
     }
 
     /**
      * Sets the connectionUrl property value. The connection URL to the PowerSchool instance.
      *  @param string|null $value Value to set for the connectionUrl property.
     */
-    public function setConnectionUrl(?string $value ): void {
-        $this->connectionUrl = $value;
+    public function setConnectionUrl(?string $value): void {
+        $this->getBackingStore()->set('connectionUrl', $value);
     }
 
     /**
      * Sets the customizations property value. Optional customization to be applied to the synchronization profile.
      *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
-    public function setCustomizations(?EducationSynchronizationCustomizations $value ): void {
-        $this->customizations = $value;
+    public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
+        $this->getBackingStore()->set('customizations', $value);
     }
 
     /**
      * Sets the schoolsIds property value. The list of schools to sync.
      *  @param array<string>|null $value Value to set for the schoolsIds property.
     */
-    public function setSchoolsIds(?array $value ): void {
-        $this->schoolsIds = $value;
+    public function setSchoolsIds(?array $value): void {
+        $this->getBackingStore()->set('schoolsIds', $value);
     }
 
     /**
      * Sets the schoolYear property value. The school year to sync.
      *  @param string|null $value Value to set for the schoolYear property.
     */
-    public function setSchoolYear(?string $value ): void {
-        $this->schoolYear = $value;
+    public function setSchoolYear(?string $value): void {
+        $this->getBackingStore()->set('schoolYear', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureADDeviceRegistrationError extends UpdatableAssetError implements Parsable 
 {
     /**
-     * @var AzureADDeviceRegistrationErrorReason|null $reason The reason property
-    */
-    private ?AzureADDeviceRegistrationErrorReason $reason = null;
-    
-    /**
      * Instantiates a new AzureADDeviceRegistrationError and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
      * @return AzureADDeviceRegistrationErrorReason|null
     */
     public function getReason(): ?AzureADDeviceRegistrationErrorReason {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -55,15 +50,15 @@ class AzureADDeviceRegistrationError extends UpdatableAssetError implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('reason', $this->reason);
+        $writer->writeEnumValue('reason', $this->getReason());
     }
 
     /**
      * Sets the reason property value. The reason property
      *  @param AzureADDeviceRegistrationErrorReason|null $value Value to set for the reason property.
     */
-    public function setReason(?AzureADDeviceRegistrationErrorReason $value ): void {
-        $this->reason = $value;
+    public function setReason(?AzureADDeviceRegistrationErrorReason $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
 }

@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationEventsPolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationListener>|null $onSignupStart A list of applicable actions to be taken on sign-up.
-    */
-    private ?array $onSignupStart = null;
-    
-    /**
      * Instantiates a new AuthenticationEventsPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.authenticationEventsPolicy');
     }
 
     /**
@@ -46,7 +40,7 @@ class AuthenticationEventsPolicy extends Entity implements Parsable
      * @return array<AuthenticationListener>|null
     */
     public function getOnSignupStart(): ?array {
-        return $this->onSignupStart;
+        return $this->getBackingStore()->get('onSignupStart');
     }
 
     /**
@@ -55,15 +49,15 @@ class AuthenticationEventsPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('onSignupStart', $this->onSignupStart);
+        $writer->writeCollectionOfObjectValues('onSignupStart', $this->getOnSignupStart());
     }
 
     /**
      * Sets the onSignupStart property value. A list of applicable actions to be taken on sign-up.
      *  @param array<AuthenticationListener>|null $value Value to set for the onSignupStart property.
     */
-    public function setOnSignupStart(?array $value ): void {
-        $this->onSignupStart = $value;
+    public function setOnSignupStart(?array $value): void {
+        $this->getBackingStore()->set('onSignupStart', $value);
     }
 
 }

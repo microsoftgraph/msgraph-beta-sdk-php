@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoveContentHeaderAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<string>|null $uiElementNames The name of the UI element of the header to be removed.
-    */
-    private ?array $uiElementNames = null;
-    
-    /**
      * Instantiates a new RemoveContentHeaderAction and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class RemoveContentHeaderAction extends InformationProtectionAction implements P
      * @return array<string>|null
     */
     public function getUiElementNames(): ?array {
-        return $this->uiElementNames;
+        return $this->getBackingStore()->get('uiElementNames');
     }
 
     /**
@@ -55,15 +50,15 @@ class RemoveContentHeaderAction extends InformationProtectionAction implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('uiElementNames', $this->uiElementNames);
+        $writer->writeCollectionOfPrimitiveValues('uiElementNames', $this->getUiElementNames());
     }
 
     /**
      * Sets the uiElementNames property value. The name of the UI element of the header to be removed.
      *  @param array<string>|null $value Value to set for the uiElementNames property.
     */
-    public function setUiElementNames(?array $value ): void {
-        $this->uiElementNames = $value;
+    public function setUiElementNames(?array $value): void {
+        $this->getBackingStore()->set('uiElementNames', $value);
     }
 
 }

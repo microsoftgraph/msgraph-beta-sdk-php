@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var WinGetAppInstallTimeSettings|null $installTimeSettings The install time settings to apply for this app assignment.
-    */
-    private ?WinGetAppInstallTimeSettings $installTimeSettings = null;
-    
-    /**
-     * @var WinGetAppNotification|null $notifications Contains value for notification status.
-    */
-    private ?WinGetAppNotification $notifications = null;
-    
-    /**
-     * @var WinGetAppRestartSettings|null $restartSettings The reboot settings to apply for this app assignment.
-    */
-    private ?WinGetAppRestartSettings $restartSettings = null;
-    
-    /**
      * Instantiates a new WinGetAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppInstallTimeSettings|null
     */
     public function getInstallTimeSettings(): ?WinGetAppInstallTimeSettings {
-        return $this->installTimeSettings;
+        return $this->getBackingStore()->get('installTimeSettings');
     }
 
     /**
@@ -66,7 +51,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppNotification|null
     */
     public function getNotifications(): ?WinGetAppNotification {
-        return $this->notifications;
+        return $this->getBackingStore()->get('notifications');
     }
 
     /**
@@ -74,7 +59,7 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
      * @return WinGetAppRestartSettings|null
     */
     public function getRestartSettings(): ?WinGetAppRestartSettings {
-        return $this->restartSettings;
+        return $this->getBackingStore()->get('restartSettings');
     }
 
     /**
@@ -83,33 +68,33 @@ class WinGetAppAssignmentSettings extends MobileAppAssignmentSettings implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('installTimeSettings', $this->installTimeSettings);
-        $writer->writeEnumValue('notifications', $this->notifications);
-        $writer->writeObjectValue('restartSettings', $this->restartSettings);
+        $writer->writeObjectValue('installTimeSettings', $this->getInstallTimeSettings());
+        $writer->writeEnumValue('notifications', $this->getNotifications());
+        $writer->writeObjectValue('restartSettings', $this->getRestartSettings());
     }
 
     /**
      * Sets the installTimeSettings property value. The install time settings to apply for this app assignment.
      *  @param WinGetAppInstallTimeSettings|null $value Value to set for the installTimeSettings property.
     */
-    public function setInstallTimeSettings(?WinGetAppInstallTimeSettings $value ): void {
-        $this->installTimeSettings = $value;
+    public function setInstallTimeSettings(?WinGetAppInstallTimeSettings $value): void {
+        $this->getBackingStore()->set('installTimeSettings', $value);
     }
 
     /**
      * Sets the notifications property value. Contains value for notification status.
      *  @param WinGetAppNotification|null $value Value to set for the notifications property.
     */
-    public function setNotifications(?WinGetAppNotification $value ): void {
-        $this->notifications = $value;
+    public function setNotifications(?WinGetAppNotification $value): void {
+        $this->getBackingStore()->set('notifications', $value);
     }
 
     /**
      * Sets the restartSettings property value. The reboot settings to apply for this app assignment.
      *  @param WinGetAppRestartSettings|null $value Value to set for the restartSettings property.
     */
-    public function setRestartSettings(?WinGetAppRestartSettings $value ): void {
-        $this->restartSettings = $value;
+    public function setRestartSettings(?WinGetAppRestartSettings $value): void {
+        $this->getBackingStore()->set('restartSettings', $value);
     }
 
 }

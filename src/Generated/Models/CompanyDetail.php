@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CompanyDetail implements AdditionalDataHolder, Parsable 
+class CompanyDetail implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var PhysicalAddress|null $address Address of the company.
-    */
-    private ?PhysicalAddress $address = null;
-    
-    /**
-     * @var string|null $department Department Name within a company.
-    */
-    private ?string $department = null;
-    
-    /**
-     * @var string|null $displayName Company name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $officeLocation Office Location of the person referred to.
-    */
-    private ?string $officeLocation = null;
-    
-    /**
-     * @var string|null $pronunciation Pronunciation guide for the company name.
-    */
-    private ?string $pronunciation = null;
-    
-    /**
-     * @var string|null $webUrl Link to the company home page.
-    */
-    private ?string $webUrl = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new companyDetail and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.companyDetail');
     }
 
     /**
@@ -70,8 +38,8 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -79,7 +47,15 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return PhysicalAddress|null
     */
     public function getAddress(): ?PhysicalAddress {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -87,7 +63,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDepartment(): ?string {
-        return $this->department;
+        return $this->getBackingStore()->get('department');
     }
 
     /**
@@ -95,7 +71,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -120,7 +96,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -128,7 +104,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOfficeLocation(): ?string {
-        return $this->officeLocation;
+        return $this->getBackingStore()->get('officeLocation');
     }
 
     /**
@@ -136,7 +112,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPronunciation(): ?string {
-        return $this->pronunciation;
+        return $this->getBackingStore()->get('pronunciation');
     }
 
     /**
@@ -144,7 +120,7 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -152,78 +128,86 @@ class CompanyDetail implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('address', $this->address);
-        $writer->writeStringValue('department', $this->department);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('officeLocation', $this->officeLocation);
-        $writer->writeStringValue('pronunciation', $this->pronunciation);
-        $writer->writeStringValue('webUrl', $this->webUrl);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('address', $this->getAddress());
+        $writer->writeStringValue('department', $this->getDepartment());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('officeLocation', $this->getOfficeLocation());
+        $writer->writeStringValue('pronunciation', $this->getPronunciation());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the address property value. Address of the company.
      *  @param PhysicalAddress|null $value Value to set for the address property.
     */
-    public function setAddress(?PhysicalAddress $value ): void {
-        $this->address = $value;
+    public function setAddress(?PhysicalAddress $value): void {
+        $this->getBackingStore()->set('address', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the department property value. Department Name within a company.
      *  @param string|null $value Value to set for the department property.
     */
-    public function setDepartment(?string $value ): void {
-        $this->department = $value;
+    public function setDepartment(?string $value): void {
+        $this->getBackingStore()->set('department', $value);
     }
 
     /**
      * Sets the displayName property value. Company name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the officeLocation property value. Office Location of the person referred to.
      *  @param string|null $value Value to set for the officeLocation property.
     */
-    public function setOfficeLocation(?string $value ): void {
-        $this->officeLocation = $value;
+    public function setOfficeLocation(?string $value): void {
+        $this->getBackingStore()->set('officeLocation', $value);
     }
 
     /**
      * Sets the pronunciation property value. Pronunciation guide for the company name.
      *  @param string|null $value Value to set for the pronunciation property.
     */
-    public function setPronunciation(?string $value ): void {
-        $this->pronunciation = $value;
+    public function setPronunciation(?string $value): void {
+        $this->getBackingStore()->set('pronunciation', $value);
     }
 
     /**
      * Sets the webUrl property value. Link to the company home page.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

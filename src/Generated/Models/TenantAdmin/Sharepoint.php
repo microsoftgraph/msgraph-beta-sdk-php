@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Sharepoint extends Entity implements Parsable 
 {
     /**
-     * @var Settings|null $settings Represents the tenant-level settings for SharePoint and OneDrive.
-    */
-    private ?Settings $settings = null;
-    
-    /**
-     * Instantiates a new sharepoint and sets the default values.
+     * Instantiates a new Sharepoint and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.tenantAdmin.sharepoint');
     }
 
     /**
@@ -47,7 +41,7 @@ class Sharepoint extends Entity implements Parsable
      * @return Settings|null
     */
     public function getSettings(): ?Settings {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -56,15 +50,15 @@ class Sharepoint extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('settings', $this->settings);
+        $writer->writeObjectValue('settings', $this->getSettings());
     }
 
     /**
      * Sets the settings property value. Represents the tenant-level settings for SharePoint and OneDrive.
      *  @param Settings|null $value Value to set for the settings property.
     */
-    public function setSettings(?Settings $value ): void {
-        $this->settings = $value;
+    public function setSettings(?Settings $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

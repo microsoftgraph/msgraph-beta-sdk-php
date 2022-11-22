@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $applyOnlyToWindows81 Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
-    */
-    private ?bool $applyOnlyToWindows81 = null;
-    
-    /**
-     * @var WindowsVpnConnectionType|null $connectionType Windows VPN connection type.
-    */
-    private ?WindowsVpnConnectionType $connectionType = null;
-    
-    /**
-     * @var bool|null $enableSplitTunneling Enable split tunneling for the VPN.
-    */
-    private ?bool $enableSplitTunneling = null;
-    
-    /**
-     * @var string|null $loginGroupOrDomain Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.
-    */
-    private ?string $loginGroupOrDomain = null;
-    
-    /**
-     * @var Windows81VpnProxyServer|null $proxyServer Proxy Server.
-    */
-    private ?Windows81VpnProxyServer $proxyServer = null;
-    
-    /**
      * Instantiates a new Windows81VpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -62,7 +37,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getApplyOnlyToWindows81(): ?bool {
-        return $this->applyOnlyToWindows81;
+        return $this->getBackingStore()->get('applyOnlyToWindows81');
     }
 
     /**
@@ -70,7 +45,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return WindowsVpnConnectionType|null
     */
     public function getConnectionType(): ?WindowsVpnConnectionType {
-        return $this->connectionType;
+        return $this->getBackingStore()->get('connectionType');
     }
 
     /**
@@ -78,7 +53,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableSplitTunneling(): ?bool {
-        return $this->enableSplitTunneling;
+        return $this->getBackingStore()->get('enableSplitTunneling');
     }
 
     /**
@@ -101,7 +76,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return string|null
     */
     public function getLoginGroupOrDomain(): ?string {
-        return $this->loginGroupOrDomain;
+        return $this->getBackingStore()->get('loginGroupOrDomain');
     }
 
     /**
@@ -109,7 +84,7 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
      * @return Windows81VpnProxyServer|null
     */
     public function getProxyServer(): ?Windows81VpnProxyServer {
-        return $this->proxyServer;
+        return $this->getBackingStore()->get('proxyServer');
     }
 
     /**
@@ -118,50 +93,50 @@ class Windows81VpnConfiguration extends WindowsVpnConfiguration implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('connectionType', $this->connectionType);
-        $writer->writeBooleanValue('enableSplitTunneling', $this->enableSplitTunneling);
-        $writer->writeStringValue('loginGroupOrDomain', $this->loginGroupOrDomain);
-        $writer->writeObjectValue('proxyServer', $this->proxyServer);
+        $writer->writeEnumValue('connectionType', $this->getConnectionType());
+        $writer->writeBooleanValue('enableSplitTunneling', $this->getEnableSplitTunneling());
+        $writer->writeStringValue('loginGroupOrDomain', $this->getLoginGroupOrDomain());
+        $writer->writeObjectValue('proxyServer', $this->getProxyServer());
     }
 
     /**
      * Sets the applyOnlyToWindows81 property value. Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
      *  @param bool|null $value Value to set for the applyOnlyToWindows81 property.
     */
-    public function setApplyOnlyToWindows81(?bool $value ): void {
-        $this->applyOnlyToWindows81 = $value;
+    public function setApplyOnlyToWindows81(?bool $value): void {
+        $this->getBackingStore()->set('applyOnlyToWindows81', $value);
     }
 
     /**
      * Sets the connectionType property value. Windows VPN connection type.
      *  @param WindowsVpnConnectionType|null $value Value to set for the connectionType property.
     */
-    public function setConnectionType(?WindowsVpnConnectionType $value ): void {
-        $this->connectionType = $value;
+    public function setConnectionType(?WindowsVpnConnectionType $value): void {
+        $this->getBackingStore()->set('connectionType', $value);
     }
 
     /**
      * Sets the enableSplitTunneling property value. Enable split tunneling for the VPN.
      *  @param bool|null $value Value to set for the enableSplitTunneling property.
     */
-    public function setEnableSplitTunneling(?bool $value ): void {
-        $this->enableSplitTunneling = $value;
+    public function setEnableSplitTunneling(?bool $value): void {
+        $this->getBackingStore()->set('enableSplitTunneling', $value);
     }
 
     /**
      * Sets the loginGroupOrDomain property value. Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.
      *  @param string|null $value Value to set for the loginGroupOrDomain property.
     */
-    public function setLoginGroupOrDomain(?string $value ): void {
-        $this->loginGroupOrDomain = $value;
+    public function setLoginGroupOrDomain(?string $value): void {
+        $this->getBackingStore()->set('loginGroupOrDomain', $value);
     }
 
     /**
      * Sets the proxyServer property value. Proxy Server.
      *  @param Windows81VpnProxyServer|null $value Value to set for the proxyServer property.
     */
-    public function setProxyServer(?Windows81VpnProxyServer $value ): void {
-        $this->proxyServer = $value;
+    public function setProxyServer(?Windows81VpnProxyServer $value): void {
+        $this->getBackingStore()->set('proxyServer', $value);
     }
 
 }

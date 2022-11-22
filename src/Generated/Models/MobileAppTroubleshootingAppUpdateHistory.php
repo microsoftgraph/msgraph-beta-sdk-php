@@ -13,7 +13,6 @@ class MobileAppTroubleshootingAppUpdateHistory extends MobileAppTroubleshootingH
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.mobileAppTroubleshootingAppUpdateHistory');
     }
 
     /**

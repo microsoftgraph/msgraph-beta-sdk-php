@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentDeviceState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceDisplayName Device name that is being reported
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var string|null $deviceId Device id that is being reported
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var DateTime|null $lastReportedDateTime Last modified date time of an intent report
-    */
-    private ?DateTime $lastReportedDateTime = null;
-    
-    /**
-     * @var ComplianceStatus|null $state The state property
-    */
-    private ?ComplianceStatus $state = null;
-    
-    /**
-     * @var string|null $userName The user name that is being reported on a device
-    */
-    private ?string $userName = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user principal name that is being reported on a device
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new deviceManagementIntentDeviceState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementIntentDeviceState');
     }
 
     /**
@@ -61,7 +30,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -69,7 +38,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -93,7 +62,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastReportedDateTime(): ?DateTime {
-        return $this->lastReportedDateTime;
+        return $this->getBackingStore()->get('lastReportedDateTime');
     }
 
     /**
@@ -101,7 +70,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return ComplianceStatus|null
     */
     public function getState(): ?ComplianceStatus {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -109,7 +78,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -117,7 +86,7 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -126,60 +95,60 @@ class DeviceManagementIntentDeviceState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeDateTimeValue('lastReportedDateTime', $this->lastReportedDateTime);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeStringValue('userName', $this->userName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeDateTimeValue('lastReportedDateTime', $this->getLastReportedDateTime());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeStringValue('userName', $this->getUserName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the deviceDisplayName property value. Device name that is being reported
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the deviceId property value. Device id that is being reported
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the lastReportedDateTime property value. Last modified date time of an intent report
      *  @param DateTime|null $value Value to set for the lastReportedDateTime property.
     */
-    public function setLastReportedDateTime(?DateTime $value ): void {
-        $this->lastReportedDateTime = $value;
+    public function setLastReportedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastReportedDateTime', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param ComplianceStatus|null $value Value to set for the state property.
     */
-    public function setState(?ComplianceStatus $value ): void {
-        $this->state = $value;
+    public function setState(?ComplianceStatus $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the userName property value. The user name that is being reported on a device
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user principal name that is being reported on a device
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

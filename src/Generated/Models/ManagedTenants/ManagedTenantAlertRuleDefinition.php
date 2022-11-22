@@ -11,46 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantAlertRuleDefinition extends Entity implements Parsable 
 {
     /**
-     * @var array<ManagedTenantAlertRule>|null $alertRules The alertRules property
-    */
-    private ?array $alertRules = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var AlertRuleDefinitionTemplate|null $definitionTemplate The definitionTemplate property
-    */
-    private ?AlertRuleDefinitionTemplate $definitionTemplate = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
      * Instantiates a new managedTenantAlertRuleDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managedTenantAlertRuleDefinition');
     }
 
     /**
@@ -67,7 +31,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return array<ManagedTenantAlertRule>|null
     */
     public function getAlertRules(): ?array {
-        return $this->alertRules;
+        return $this->getBackingStore()->get('alertRules');
     }
 
     /**
@@ -75,7 +39,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -83,7 +47,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -91,7 +55,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return AlertRuleDefinitionTemplate|null
     */
     public function getDefinitionTemplate(): ?AlertRuleDefinitionTemplate {
-        return $this->definitionTemplate;
+        return $this->getBackingStore()->get('definitionTemplate');
     }
 
     /**
@@ -99,7 +63,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -124,7 +88,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -132,7 +96,7 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -141,69 +105,69 @@ class ManagedTenantAlertRuleDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('alertRules', $this->alertRules);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('definitionTemplate', $this->definitionTemplate);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
+        $writer->writeCollectionOfObjectValues('alertRules', $this->getAlertRules());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('definitionTemplate', $this->getDefinitionTemplate());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
     }
 
     /**
      * Sets the alertRules property value. The alertRules property
      *  @param array<ManagedTenantAlertRule>|null $value Value to set for the alertRules property.
     */
-    public function setAlertRules(?array $value ): void {
-        $this->alertRules = $value;
+    public function setAlertRules(?array $value): void {
+        $this->getBackingStore()->set('alertRules', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the definitionTemplate property value. The definitionTemplate property
      *  @param AlertRuleDefinitionTemplate|null $value Value to set for the definitionTemplate property.
     */
-    public function setDefinitionTemplate(?AlertRuleDefinitionTemplate $value ): void {
-        $this->definitionTemplate = $value;
+    public function setDefinitionTemplate(?AlertRuleDefinitionTemplate $value): void {
+        $this->getBackingStore()->set('definitionTemplate', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
 }

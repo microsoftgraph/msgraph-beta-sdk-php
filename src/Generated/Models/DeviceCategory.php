@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCategory extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description Optional description for the device category.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name for the device category.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds Optional role scope tags for the device category.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
      * Instantiates a new deviceCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceCategory');
     }
 
     /**
@@ -45,7 +29,7 @@ class DeviceCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -53,7 +37,7 @@ class DeviceCategory extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceCategory extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceCategory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
     }
 
     /**
      * Sets the description property value. Optional description for the device category.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name for the device category.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. Optional role scope tags for the device category.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var array<string>|null $kernelExtensionAllowedTeamIdentifiers All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
-    */
-    private ?array $kernelExtensionAllowedTeamIdentifiers = null;
-    
-    /**
-     * @var bool|null $kernelExtensionOverridesAllowed If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
-    */
-    private ?bool $kernelExtensionOverridesAllowed = null;
-    
-    /**
-     * @var array<MacOSKernelExtension>|null $kernelExtensionsAllowed A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
-    */
-    private ?array $kernelExtensionsAllowed = null;
-    
-    /**
-     * @var array<MacOSSystemExtension>|null $systemExtensionsAllowed Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $systemExtensionsAllowed = null;
-    
-    /**
-     * @var array<string>|null $systemExtensionsAllowedTeamIdentifiers Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
-    */
-    private ?array $systemExtensionsAllowedTeamIdentifiers = null;
-    
-    /**
-     * @var array<MacOSSystemExtensionTypeMapping>|null $systemExtensionsAllowedTypes Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $systemExtensionsAllowedTypes = null;
-    
-    /**
-     * @var bool|null $systemExtensionsBlockOverride Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
-    */
-    private ?bool $systemExtensionsBlockOverride = null;
-    
-    /**
      * Instantiates a new MacOSExtensionsConfiguration and sets the default values.
     */
     public function __construct() {
@@ -82,7 +47,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<string>|null
     */
     public function getKernelExtensionAllowedTeamIdentifiers(): ?array {
-        return $this->kernelExtensionAllowedTeamIdentifiers;
+        return $this->getBackingStore()->get('kernelExtensionAllowedTeamIdentifiers');
     }
 
     /**
@@ -90,7 +55,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return bool|null
     */
     public function getKernelExtensionOverridesAllowed(): ?bool {
-        return $this->kernelExtensionOverridesAllowed;
+        return $this->getBackingStore()->get('kernelExtensionOverridesAllowed');
     }
 
     /**
@@ -98,7 +63,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSKernelExtension>|null
     */
     public function getKernelExtensionsAllowed(): ?array {
-        return $this->kernelExtensionsAllowed;
+        return $this->getBackingStore()->get('kernelExtensionsAllowed');
     }
 
     /**
@@ -106,7 +71,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSSystemExtension>|null
     */
     public function getSystemExtensionsAllowed(): ?array {
-        return $this->systemExtensionsAllowed;
+        return $this->getBackingStore()->get('systemExtensionsAllowed');
     }
 
     /**
@@ -114,7 +79,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<string>|null
     */
     public function getSystemExtensionsAllowedTeamIdentifiers(): ?array {
-        return $this->systemExtensionsAllowedTeamIdentifiers;
+        return $this->getBackingStore()->get('systemExtensionsAllowedTeamIdentifiers');
     }
 
     /**
@@ -122,7 +87,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return array<MacOSSystemExtensionTypeMapping>|null
     */
     public function getSystemExtensionsAllowedTypes(): ?array {
-        return $this->systemExtensionsAllowedTypes;
+        return $this->getBackingStore()->get('systemExtensionsAllowedTypes');
     }
 
     /**
@@ -130,7 +95,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
      * @return bool|null
     */
     public function getSystemExtensionsBlockOverride(): ?bool {
-        return $this->systemExtensionsBlockOverride;
+        return $this->getBackingStore()->get('systemExtensionsBlockOverride');
     }
 
     /**
@@ -139,69 +104,69 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('kernelExtensionAllowedTeamIdentifiers', $this->kernelExtensionAllowedTeamIdentifiers);
-        $writer->writeBooleanValue('kernelExtensionOverridesAllowed', $this->kernelExtensionOverridesAllowed);
-        $writer->writeCollectionOfObjectValues('kernelExtensionsAllowed', $this->kernelExtensionsAllowed);
-        $writer->writeCollectionOfObjectValues('systemExtensionsAllowed', $this->systemExtensionsAllowed);
-        $writer->writeCollectionOfPrimitiveValues('systemExtensionsAllowedTeamIdentifiers', $this->systemExtensionsAllowedTeamIdentifiers);
-        $writer->writeCollectionOfObjectValues('systemExtensionsAllowedTypes', $this->systemExtensionsAllowedTypes);
-        $writer->writeBooleanValue('systemExtensionsBlockOverride', $this->systemExtensionsBlockOverride);
+        $writer->writeCollectionOfPrimitiveValues('kernelExtensionAllowedTeamIdentifiers', $this->getKernelExtensionAllowedTeamIdentifiers());
+        $writer->writeBooleanValue('kernelExtensionOverridesAllowed', $this->getKernelExtensionOverridesAllowed());
+        $writer->writeCollectionOfObjectValues('kernelExtensionsAllowed', $this->getKernelExtensionsAllowed());
+        $writer->writeCollectionOfObjectValues('systemExtensionsAllowed', $this->getSystemExtensionsAllowed());
+        $writer->writeCollectionOfPrimitiveValues('systemExtensionsAllowedTeamIdentifiers', $this->getSystemExtensionsAllowedTeamIdentifiers());
+        $writer->writeCollectionOfObjectValues('systemExtensionsAllowedTypes', $this->getSystemExtensionsAllowedTypes());
+        $writer->writeBooleanValue('systemExtensionsBlockOverride', $this->getSystemExtensionsBlockOverride());
     }
 
     /**
      * Sets the kernelExtensionAllowedTeamIdentifiers property value. All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
      *  @param array<string>|null $value Value to set for the kernelExtensionAllowedTeamIdentifiers property.
     */
-    public function setKernelExtensionAllowedTeamIdentifiers(?array $value ): void {
-        $this->kernelExtensionAllowedTeamIdentifiers = $value;
+    public function setKernelExtensionAllowedTeamIdentifiers(?array $value): void {
+        $this->getBackingStore()->set('kernelExtensionAllowedTeamIdentifiers', $value);
     }
 
     /**
      * Sets the kernelExtensionOverridesAllowed property value. If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
      *  @param bool|null $value Value to set for the kernelExtensionOverridesAllowed property.
     */
-    public function setKernelExtensionOverridesAllowed(?bool $value ): void {
-        $this->kernelExtensionOverridesAllowed = $value;
+    public function setKernelExtensionOverridesAllowed(?bool $value): void {
+        $this->getBackingStore()->set('kernelExtensionOverridesAllowed', $value);
     }
 
     /**
      * Sets the kernelExtensionsAllowed property value. A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
      *  @param array<MacOSKernelExtension>|null $value Value to set for the kernelExtensionsAllowed property.
     */
-    public function setKernelExtensionsAllowed(?array $value ): void {
-        $this->kernelExtensionsAllowed = $value;
+    public function setKernelExtensionsAllowed(?array $value): void {
+        $this->getBackingStore()->set('kernelExtensionsAllowed', $value);
     }
 
     /**
      * Sets the systemExtensionsAllowed property value. Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
      *  @param array<MacOSSystemExtension>|null $value Value to set for the systemExtensionsAllowed property.
     */
-    public function setSystemExtensionsAllowed(?array $value ): void {
-        $this->systemExtensionsAllowed = $value;
+    public function setSystemExtensionsAllowed(?array $value): void {
+        $this->getBackingStore()->set('systemExtensionsAllowed', $value);
     }
 
     /**
      * Sets the systemExtensionsAllowedTeamIdentifiers property value. Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
      *  @param array<string>|null $value Value to set for the systemExtensionsAllowedTeamIdentifiers property.
     */
-    public function setSystemExtensionsAllowedTeamIdentifiers(?array $value ): void {
-        $this->systemExtensionsAllowedTeamIdentifiers = $value;
+    public function setSystemExtensionsAllowedTeamIdentifiers(?array $value): void {
+        $this->getBackingStore()->set('systemExtensionsAllowedTeamIdentifiers', $value);
     }
 
     /**
      * Sets the systemExtensionsAllowedTypes property value. Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
      *  @param array<MacOSSystemExtensionTypeMapping>|null $value Value to set for the systemExtensionsAllowedTypes property.
     */
-    public function setSystemExtensionsAllowedTypes(?array $value ): void {
-        $this->systemExtensionsAllowedTypes = $value;
+    public function setSystemExtensionsAllowedTypes(?array $value): void {
+        $this->getBackingStore()->set('systemExtensionsAllowedTypes', $value);
     }
 
     /**
      * Sets the systemExtensionsBlockOverride property value. Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
      *  @param bool|null $value Value to set for the systemExtensionsBlockOverride property.
     */
-    public function setSystemExtensionsBlockOverride(?bool $value ): void {
-        $this->systemExtensionsBlockOverride = $value;
+    public function setSystemExtensionsBlockOverride(?bool $value): void {
+        $this->getBackingStore()->set('systemExtensionsBlockOverride', $value);
     }
 
 }

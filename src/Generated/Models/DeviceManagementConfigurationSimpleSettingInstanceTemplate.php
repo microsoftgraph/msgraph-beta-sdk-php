@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationSimpleSettingValueTemplate|null $simpleSettingValueTemplate Simple Setting Value Template
-    */
-    private ?DeviceManagementConfigurationSimpleSettingValueTemplate $simpleSettingValueTemplate = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSimpleSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
      * @return DeviceManagementConfigurationSimpleSettingValueTemplate|null
     */
     public function getSimpleSettingValueTemplate(): ?DeviceManagementConfigurationSimpleSettingValueTemplate {
-        return $this->simpleSettingValueTemplate;
+        return $this->getBackingStore()->get('simpleSettingValueTemplate');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationSimpleSettingInstanceTemplate extends DeviceM
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('simpleSettingValueTemplate', $this->simpleSettingValueTemplate);
+        $writer->writeObjectValue('simpleSettingValueTemplate', $this->getSimpleSettingValueTemplate());
     }
 
     /**
      * Sets the simpleSettingValueTemplate property value. Simple Setting Value Template
      *  @param DeviceManagementConfigurationSimpleSettingValueTemplate|null $value Value to set for the simpleSettingValueTemplate property.
     */
-    public function setSimpleSettingValueTemplate(?DeviceManagementConfigurationSimpleSettingValueTemplate $value ): void {
-        $this->simpleSettingValueTemplate = $value;
+    public function setSimpleSettingValueTemplate(?DeviceManagementConfigurationSimpleSettingValueTemplate $value): void {
+        $this->getBackingStore()->set('simpleSettingValueTemplate', $value);
     }
 
 }

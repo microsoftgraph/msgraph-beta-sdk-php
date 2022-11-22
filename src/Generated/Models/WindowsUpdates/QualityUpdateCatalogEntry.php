@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Parsable 
 {
     /**
-     * @var bool|null $isExpeditable Indicates whether the content can be deployed as an expedited quality update. Read-only.
-    */
-    private ?bool $isExpeditable = null;
-    
-    /**
-     * @var QualityUpdateClassification|null $qualityUpdateClassification The qualityUpdateClassification property
-    */
-    private ?QualityUpdateClassification $qualityUpdateClassification = null;
-    
-    /**
      * Instantiates a new QualityUpdateCatalogEntry and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
      * @return bool|null
     */
     public function getIsExpeditable(): ?bool {
-        return $this->isExpeditable;
+        return $this->getBackingStore()->get('isExpeditable');
     }
 
     /**
@@ -60,7 +50,7 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
      * @return QualityUpdateClassification|null
     */
     public function getQualityUpdateClassification(): ?QualityUpdateClassification {
-        return $this->qualityUpdateClassification;
+        return $this->getBackingStore()->get('qualityUpdateClassification');
     }
 
     /**
@@ -69,24 +59,24 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isExpeditable', $this->isExpeditable);
-        $writer->writeEnumValue('qualityUpdateClassification', $this->qualityUpdateClassification);
+        $writer->writeBooleanValue('isExpeditable', $this->getIsExpeditable());
+        $writer->writeEnumValue('qualityUpdateClassification', $this->getQualityUpdateClassification());
     }
 
     /**
      * Sets the isExpeditable property value. Indicates whether the content can be deployed as an expedited quality update. Read-only.
      *  @param bool|null $value Value to set for the isExpeditable property.
     */
-    public function setIsExpeditable(?bool $value ): void {
-        $this->isExpeditable = $value;
+    public function setIsExpeditable(?bool $value): void {
+        $this->getBackingStore()->set('isExpeditable', $value);
     }
 
     /**
      * Sets the qualityUpdateClassification property value. The qualityUpdateClassification property
      *  @param QualityUpdateClassification|null $value Value to set for the qualityUpdateClassification property.
     */
-    public function setQualityUpdateClassification(?QualityUpdateClassification $value ): void {
-        $this->qualityUpdateClassification = $value;
+    public function setQualityUpdateClassification(?QualityUpdateClassification $value): void {
+        $this->getBackingStore()->set('qualityUpdateClassification', $value);
     }
 
 }

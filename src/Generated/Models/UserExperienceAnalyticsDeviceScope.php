@@ -10,66 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Indicates the creation date and time for the custom device scope.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $deviceScopeName The name of the user experience analytics device Scope configuration.
-    */
-    private ?string $deviceScopeName = null;
-    
-    /**
-     * @var bool|null $enabled Indicates whether a device scope is enabled or disabled. When TRUE, the device scope is enabled. When FALSE, the device scope is disabled. Default value is FALSE.
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var bool|null $isBuiltIn Indicates whether the device scope configuration is built-in or custom. When TRUE, the device scope configuration is built-in. When FALSE, the device scope configuration is custom. Default value is FALSE.
-    */
-    private ?bool $isBuiltIn = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Indicates the last updated date and time for the custom device scope.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var DeviceScopeOperator|null $operator Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
-    */
-    private ?DeviceScopeOperator $operator = null;
-    
-    /**
-     * @var string|null $ownerId The unique identifier of the person (admin) who created the device scope configuration.
-    */
-    private ?string $ownerId = null;
-    
-    /**
-     * @var DeviceScopeParameter|null $parameter Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
-    */
-    private ?DeviceScopeParameter $parameter = null;
-    
-    /**
-     * @var DeviceScopeStatus|null $status Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
-    */
-    private ?DeviceScopeStatus $status = null;
-    
-    /**
-     * @var string|null $value The device scope configuration query clause value.
-    */
-    private ?string $value = null;
-    
-    /**
-     * @var string|null $valueObjectId The unique identifier for a user device scope tag Id used for the creation of device scope configuration.
-    */
-    private ?string $valueObjectId = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsDeviceScope and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceScope');
     }
 
     /**
@@ -86,7 +30,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -94,7 +38,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceScopeName(): ?string {
-        return $this->deviceScopeName;
+        return $this->getBackingStore()->get('deviceScopeName');
     }
 
     /**
@@ -102,7 +46,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -131,7 +75,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBuiltIn(): ?bool {
-        return $this->isBuiltIn;
+        return $this->getBackingStore()->get('isBuiltIn');
     }
 
     /**
@@ -139,7 +83,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -147,7 +91,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeOperator|null
     */
     public function getOperator(): ?DeviceScopeOperator {
-        return $this->operator;
+        return $this->getBackingStore()->get('operator');
     }
 
     /**
@@ -155,7 +99,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getOwnerId(): ?string {
-        return $this->ownerId;
+        return $this->getBackingStore()->get('ownerId');
     }
 
     /**
@@ -163,7 +107,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeParameter|null
     */
     public function getParameter(): ?DeviceScopeParameter {
-        return $this->parameter;
+        return $this->getBackingStore()->get('parameter');
     }
 
     /**
@@ -171,7 +115,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return DeviceScopeStatus|null
     */
     public function getStatus(): ?DeviceScopeStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -179,7 +123,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -187,7 +131,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
      * @return string|null
     */
     public function getValueObjectId(): ?string {
-        return $this->valueObjectId;
+        return $this->getBackingStore()->get('valueObjectId');
     }
 
     /**
@@ -196,105 +140,105 @@ class UserExperienceAnalyticsDeviceScope extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('deviceScopeName', $this->deviceScopeName);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeBooleanValue('isBuiltIn', $this->isBuiltIn);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('operator', $this->operator);
-        $writer->writeStringValue('ownerId', $this->ownerId);
-        $writer->writeEnumValue('parameter', $this->parameter);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('value', $this->value);
-        $writer->writeStringValue('valueObjectId', $this->valueObjectId);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('deviceScopeName', $this->getDeviceScopeName());
+        $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeBooleanValue('isBuiltIn', $this->getIsBuiltIn());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('operator', $this->getOperator());
+        $writer->writeStringValue('ownerId', $this->getOwnerId());
+        $writer->writeEnumValue('parameter', $this->getParameter());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('value', $this->getValue());
+        $writer->writeStringValue('valueObjectId', $this->getValueObjectId());
     }
 
     /**
      * Sets the createdDateTime property value. Indicates the creation date and time for the custom device scope.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deviceScopeName property value. The name of the user experience analytics device Scope configuration.
      *  @param string|null $value Value to set for the deviceScopeName property.
     */
-    public function setDeviceScopeName(?string $value ): void {
-        $this->deviceScopeName = $value;
+    public function setDeviceScopeName(?string $value): void {
+        $this->getBackingStore()->set('deviceScopeName', $value);
     }
 
     /**
      * Sets the enabled property value. Indicates whether a device scope is enabled or disabled. When TRUE, the device scope is enabled. When FALSE, the device scope is disabled. Default value is FALSE.
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the isBuiltIn property value. Indicates whether the device scope configuration is built-in or custom. When TRUE, the device scope configuration is built-in. When FALSE, the device scope configuration is custom. Default value is FALSE.
      *  @param bool|null $value Value to set for the isBuiltIn property.
     */
-    public function setIsBuiltIn(?bool $value ): void {
-        $this->isBuiltIn = $value;
+    public function setIsBuiltIn(?bool $value): void {
+        $this->getBackingStore()->set('isBuiltIn', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Indicates the last updated date and time for the custom device scope.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the operator property value. Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
      *  @param DeviceScopeOperator|null $value Value to set for the operator property.
     */
-    public function setOperator(?DeviceScopeOperator $value ): void {
-        $this->operator = $value;
+    public function setOperator(?DeviceScopeOperator $value): void {
+        $this->getBackingStore()->set('operator', $value);
     }
 
     /**
      * Sets the ownerId property value. The unique identifier of the person (admin) who created the device scope configuration.
      *  @param string|null $value Value to set for the ownerId property.
     */
-    public function setOwnerId(?string $value ): void {
-        $this->ownerId = $value;
+    public function setOwnerId(?string $value): void {
+        $this->getBackingStore()->set('ownerId', $value);
     }
 
     /**
      * Sets the parameter property value. Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
      *  @param DeviceScopeParameter|null $value Value to set for the parameter property.
     */
-    public function setParameter(?DeviceScopeParameter $value ): void {
-        $this->parameter = $value;
+    public function setParameter(?DeviceScopeParameter $value): void {
+        $this->getBackingStore()->set('parameter', $value);
     }
 
     /**
      * Sets the status property value. Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
      *  @param DeviceScopeStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DeviceScopeStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DeviceScopeStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the value property value. The device scope configuration query clause value.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
     /**
      * Sets the valueObjectId property value. The unique identifier for a user device scope tag Id used for the creation of device scope configuration.
      *  @param string|null $value Value to set for the valueObjectId property.
     */
-    public function setValueObjectId(?string $value ): void {
-        $this->valueObjectId = $value;
+    public function setValueObjectId(?string $value): void {
+        $this->getBackingStore()->set('valueObjectId', $value);
     }
 
 }

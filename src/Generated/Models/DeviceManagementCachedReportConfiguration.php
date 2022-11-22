@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementCachedReportConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $expirationDateTime Time that the cached report expires
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $filter Filters applied on report creation.
-    */
-    private ?string $filter = null;
-    
-    /**
-     * @var DateTime|null $lastRefreshDateTime Time that the cached report was last refreshed
-    */
-    private ?DateTime $lastRefreshDateTime = null;
-    
-    /**
-     * @var string|null $metadata Caller-managed metadata associated with the report
-    */
-    private ?string $metadata = null;
-    
-    /**
-     * @var array<string>|null $orderBy Ordering of columns in the report
-    */
-    private ?array $orderBy = null;
-    
-    /**
-     * @var string|null $reportName Name of the report
-    */
-    private ?string $reportName = null;
-    
-    /**
-     * @var array<string>|null $select Columns selected from the report
-    */
-    private ?array $select = null;
-    
-    /**
-     * @var DeviceManagementReportStatus|null $status Possible statuses associated with a generated report
-    */
-    private ?DeviceManagementReportStatus $status = null;
-    
-    /**
      * Instantiates a new deviceManagementCachedReportConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementCachedReportConfiguration');
     }
 
     /**
@@ -71,7 +30,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -97,7 +56,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getFilter(): ?string {
-        return $this->filter;
+        return $this->getBackingStore()->get('filter');
     }
 
     /**
@@ -105,7 +64,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DateTime|null
     */
     public function getLastRefreshDateTime(): ?DateTime {
-        return $this->lastRefreshDateTime;
+        return $this->getBackingStore()->get('lastRefreshDateTime');
     }
 
     /**
@@ -113,7 +72,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getMetadata(): ?string {
-        return $this->metadata;
+        return $this->getBackingStore()->get('metadata');
     }
 
     /**
@@ -121,7 +80,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getOrderBy(): ?array {
-        return $this->orderBy;
+        return $this->getBackingStore()->get('orderBy');
     }
 
     /**
@@ -129,7 +88,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return string|null
     */
     public function getReportName(): ?string {
-        return $this->reportName;
+        return $this->getBackingStore()->get('reportName');
     }
 
     /**
@@ -137,7 +96,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return array<string>|null
     */
     public function getSelect(): ?array {
-        return $this->select;
+        return $this->getBackingStore()->get('select');
     }
 
     /**
@@ -145,7 +104,7 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
      * @return DeviceManagementReportStatus|null
     */
     public function getStatus(): ?DeviceManagementReportStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -154,78 +113,78 @@ class DeviceManagementCachedReportConfiguration extends Entity implements Parsab
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('filter', $this->filter);
-        $writer->writeDateTimeValue('lastRefreshDateTime', $this->lastRefreshDateTime);
-        $writer->writeStringValue('metadata', $this->metadata);
-        $writer->writeCollectionOfPrimitiveValues('orderBy', $this->orderBy);
-        $writer->writeStringValue('reportName', $this->reportName);
-        $writer->writeCollectionOfPrimitiveValues('select', $this->select);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('filter', $this->getFilter());
+        $writer->writeDateTimeValue('lastRefreshDateTime', $this->getLastRefreshDateTime());
+        $writer->writeStringValue('metadata', $this->getMetadata());
+        $writer->writeCollectionOfPrimitiveValues('orderBy', $this->getOrderBy());
+        $writer->writeStringValue('reportName', $this->getReportName());
+        $writer->writeCollectionOfPrimitiveValues('select', $this->getSelect());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the expirationDateTime property value. Time that the cached report expires
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the filter property value. Filters applied on report creation.
      *  @param string|null $value Value to set for the filter property.
     */
-    public function setFilter(?string $value ): void {
-        $this->filter = $value;
+    public function setFilter(?string $value): void {
+        $this->getBackingStore()->set('filter', $value);
     }
 
     /**
      * Sets the lastRefreshDateTime property value. Time that the cached report was last refreshed
      *  @param DateTime|null $value Value to set for the lastRefreshDateTime property.
     */
-    public function setLastRefreshDateTime(?DateTime $value ): void {
-        $this->lastRefreshDateTime = $value;
+    public function setLastRefreshDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastRefreshDateTime', $value);
     }
 
     /**
      * Sets the metadata property value. Caller-managed metadata associated with the report
      *  @param string|null $value Value to set for the metadata property.
     */
-    public function setMetadata(?string $value ): void {
-        $this->metadata = $value;
+    public function setMetadata(?string $value): void {
+        $this->getBackingStore()->set('metadata', $value);
     }
 
     /**
      * Sets the orderBy property value. Ordering of columns in the report
      *  @param array<string>|null $value Value to set for the orderBy property.
     */
-    public function setOrderBy(?array $value ): void {
-        $this->orderBy = $value;
+    public function setOrderBy(?array $value): void {
+        $this->getBackingStore()->set('orderBy', $value);
     }
 
     /**
      * Sets the reportName property value. Name of the report
      *  @param string|null $value Value to set for the reportName property.
     */
-    public function setReportName(?string $value ): void {
-        $this->reportName = $value;
+    public function setReportName(?string $value): void {
+        $this->getBackingStore()->set('reportName', $value);
     }
 
     /**
      * Sets the select property value. Columns selected from the report
      *  @param array<string>|null $value Value to set for the select property.
     */
-    public function setSelect(?array $value ): void {
-        $this->select = $value;
+    public function setSelect(?array $value): void {
+        $this->getBackingStore()->set('select', $value);
     }
 
     /**
      * Sets the status property value. Possible statuses associated with a generated report
      *  @param DeviceManagementReportStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?DeviceManagementReportStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?DeviceManagementReportStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PolicySetItem extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Creation time of the PolicySetItem.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $displayName DisplayName of the PolicySetItem.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var ErrorCode|null $errorCode The errorCode property
-    */
-    private ?ErrorCode $errorCode = null;
-    
-    /**
-     * @var array<string>|null $guidedDeploymentTags Tags of the guided deployment
-    */
-    private ?array $guidedDeploymentTags = null;
-    
-    /**
-     * @var string|null $itemType policySetType of the PolicySetItem.
-    */
-    private ?string $itemType = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified time of the PolicySetItem.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $payloadId PayloadId of the PolicySetItem.
-    */
-    private ?string $payloadId = null;
-    
-    /**
-     * @var PolicySetStatus|null $status The enum to specify the status of PolicySet.
-    */
-    private ?PolicySetStatus $status = null;
-    
-    /**
      * Instantiates a new policySetItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.policySetItem');
     }
 
     /**
@@ -90,7 +49,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -98,7 +57,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -106,7 +65,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return ErrorCode|null
     */
     public function getErrorCode(): ?ErrorCode {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -132,7 +91,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getGuidedDeploymentTags(): ?array {
-        return $this->guidedDeploymentTags;
+        return $this->getBackingStore()->get('guidedDeploymentTags');
     }
 
     /**
@@ -140,7 +99,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getItemType(): ?string {
-        return $this->itemType;
+        return $this->getBackingStore()->get('itemType');
     }
 
     /**
@@ -148,7 +107,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -156,7 +115,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->payloadId;
+        return $this->getBackingStore()->get('payloadId');
     }
 
     /**
@@ -164,7 +123,7 @@ class PolicySetItem extends Entity implements Parsable
      * @return PolicySetStatus|null
     */
     public function getStatus(): ?PolicySetStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -173,78 +132,78 @@ class PolicySetItem extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('errorCode', $this->errorCode);
-        $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->guidedDeploymentTags);
-        $writer->writeStringValue('itemType', $this->itemType);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('errorCode', $this->getErrorCode());
+        $writer->writeCollectionOfPrimitiveValues('guidedDeploymentTags', $this->getGuidedDeploymentTags());
+        $writer->writeStringValue('itemType', $this->getItemType());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('payloadId', $this->getPayloadId());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the createdDateTime property value. Creation time of the PolicySetItem.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. DisplayName of the PolicySetItem.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the errorCode property value. The errorCode property
      *  @param ErrorCode|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?ErrorCode $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?ErrorCode $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the guidedDeploymentTags property value. Tags of the guided deployment
      *  @param array<string>|null $value Value to set for the guidedDeploymentTags property.
     */
-    public function setGuidedDeploymentTags(?array $value ): void {
-        $this->guidedDeploymentTags = $value;
+    public function setGuidedDeploymentTags(?array $value): void {
+        $this->getBackingStore()->set('guidedDeploymentTags', $value);
     }
 
     /**
      * Sets the itemType property value. policySetType of the PolicySetItem.
      *  @param string|null $value Value to set for the itemType property.
     */
-    public function setItemType(?string $value ): void {
-        $this->itemType = $value;
+    public function setItemType(?string $value): void {
+        $this->getBackingStore()->set('itemType', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified time of the PolicySetItem.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the payloadId property value. PayloadId of the PolicySetItem.
      *  @param string|null $value Value to set for the payloadId property.
     */
-    public function setPayloadId(?string $value ): void {
-        $this->payloadId = $value;
+    public function setPayloadId(?string $value): void {
+        $this->getBackingStore()->set('payloadId', $value);
     }
 
     /**
      * Sets the status property value. The enum to specify the status of PolicySet.
      *  @param PolicySetStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?PolicySetStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?PolicySetStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

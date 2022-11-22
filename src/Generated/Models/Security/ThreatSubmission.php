@@ -11,61 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ThreatSubmission extends Entity implements Parsable 
 {
     /**
-     * @var SubmissionAdminReview|null $adminReview Specifies the admin review property which constitutes of who reviewed the user submission, when and what was it identified as.
-    */
-    private ?SubmissionAdminReview $adminReview = null;
-    
-    /**
-     * @var SubmissionCategory|null $category The category property
-    */
-    private ?SubmissionCategory $category = null;
-    
-    /**
-     * @var SubmissionClientSource|null $clientSource Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
-    */
-    private ?SubmissionClientSource $clientSource = null;
-    
-    /**
-     * @var SubmissionContentType|null $contentType Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
-    */
-    private ?SubmissionContentType $contentType = null;
-    
-    /**
-     * @var SubmissionUserIdentity|null $createdBy Specifies who submitted the email as a threat. Supports $filter = createdBy/email eq 'value'.
-    */
-    private ?SubmissionUserIdentity $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Specifies when the threat submission was created. Supports $filter = createdDateTime ge 2022-01-01T00:00:00Z and createdDateTime lt 2022-01-02T00:00:00Z.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var SubmissionResult|null $result Specifies the result of the analysis performed by Microsoft.
-    */
-    private ?SubmissionResult $result = null;
-    
-    /**
-     * @var SubmissionSource|null $source Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
-    */
-    private ?SubmissionSource $source = null;
-    
-    /**
-     * @var LongRunningOperationStatus|null $status Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
-    */
-    private ?LongRunningOperationStatus $status = null;
-    
-    /**
-     * @var string|null $tenantId Indicates the tenant id of the submitter. Not required when created using a POST operation. It is extracted from the token of the post API call.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new threatSubmission and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.threatSubmission');
     }
 
     /**
@@ -95,7 +44,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionAdminReview|null
     */
     public function getAdminReview(): ?SubmissionAdminReview {
-        return $this->adminReview;
+        return $this->getBackingStore()->get('adminReview');
     }
 
     /**
@@ -103,7 +52,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionCategory|null
     */
     public function getCategory(): ?SubmissionCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -111,7 +60,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionClientSource|null
     */
     public function getClientSource(): ?SubmissionClientSource {
-        return $this->clientSource;
+        return $this->getBackingStore()->get('clientSource');
     }
 
     /**
@@ -119,7 +68,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionContentType|null
     */
     public function getContentType(): ?SubmissionContentType {
-        return $this->contentType;
+        return $this->getBackingStore()->get('contentType');
     }
 
     /**
@@ -127,7 +76,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionUserIdentity|null
     */
     public function getCreatedBy(): ?SubmissionUserIdentity {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -135,7 +84,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -163,7 +112,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionResult|null
     */
     public function getResult(): ?SubmissionResult {
-        return $this->result;
+        return $this->getBackingStore()->get('result');
     }
 
     /**
@@ -171,7 +120,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return SubmissionSource|null
     */
     public function getSource(): ?SubmissionSource {
-        return $this->source;
+        return $this->getBackingStore()->get('source');
     }
 
     /**
@@ -179,7 +128,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -187,7 +136,7 @@ class ThreatSubmission extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -196,96 +145,96 @@ class ThreatSubmission extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('adminReview', $this->adminReview);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeEnumValue('clientSource', $this->clientSource);
-        $writer->writeEnumValue('contentType', $this->contentType);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('result', $this->result);
-        $writer->writeEnumValue('source', $this->source);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeObjectValue('adminReview', $this->getAdminReview());
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeEnumValue('clientSource', $this->getClientSource());
+        $writer->writeEnumValue('contentType', $this->getContentType());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('result', $this->getResult());
+        $writer->writeEnumValue('source', $this->getSource());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the adminReview property value. Specifies the admin review property which constitutes of who reviewed the user submission, when and what was it identified as.
      *  @param SubmissionAdminReview|null $value Value to set for the adminReview property.
     */
-    public function setAdminReview(?SubmissionAdminReview $value ): void {
-        $this->adminReview = $value;
+    public function setAdminReview(?SubmissionAdminReview $value): void {
+        $this->getBackingStore()->set('adminReview', $value);
     }
 
     /**
      * Sets the category property value. The category property
      *  @param SubmissionCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?SubmissionCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?SubmissionCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the clientSource property value. Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.
      *  @param SubmissionClientSource|null $value Value to set for the clientSource property.
     */
-    public function setClientSource(?SubmissionClientSource $value ): void {
-        $this->clientSource = $value;
+    public function setClientSource(?SubmissionClientSource $value): void {
+        $this->getBackingStore()->set('clientSource', $value);
     }
 
     /**
      * Sets the contentType property value. Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.
      *  @param SubmissionContentType|null $value Value to set for the contentType property.
     */
-    public function setContentType(?SubmissionContentType $value ): void {
-        $this->contentType = $value;
+    public function setContentType(?SubmissionContentType $value): void {
+        $this->getBackingStore()->set('contentType', $value);
     }
 
     /**
      * Sets the createdBy property value. Specifies who submitted the email as a threat. Supports $filter = createdBy/email eq 'value'.
      *  @param SubmissionUserIdentity|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?SubmissionUserIdentity $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?SubmissionUserIdentity $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Specifies when the threat submission was created. Supports $filter = createdDateTime ge 2022-01-01T00:00:00Z and createdDateTime lt 2022-01-02T00:00:00Z.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the result property value. Specifies the result of the analysis performed by Microsoft.
      *  @param SubmissionResult|null $value Value to set for the result property.
     */
-    public function setResult(?SubmissionResult $value ): void {
-        $this->result = $value;
+    public function setResult(?SubmissionResult $value): void {
+        $this->getBackingStore()->set('result', $value);
     }
 
     /**
      * Sets the source property value. Specifies the role of the submitter. Supports $filter = source eq 'value'. The possible values are: administrator,  user and unkownFutureValue.
      *  @param SubmissionSource|null $value Value to set for the source property.
     */
-    public function setSource(?SubmissionSource $value ): void {
-        $this->source = $value;
+    public function setSource(?SubmissionSource $value): void {
+        $this->getBackingStore()->set('source', $value);
     }
 
     /**
      * Sets the status property value. Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq 'value'. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.
      *  @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?LongRunningOperationStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?LongRunningOperationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the tenantId property value. Indicates the tenant id of the submitter. Not required when created using a POST operation. It is extracted from the token of the post API call.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

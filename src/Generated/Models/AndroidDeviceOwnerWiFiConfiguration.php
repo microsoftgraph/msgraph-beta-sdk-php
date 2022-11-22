@@ -9,66 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $connectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
-    */
-    private ?bool $connectAutomatically = null;
-    
-    /**
-     * @var bool|null $connectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
-    */
-    private ?bool $connectWhenNetworkNameIsHidden = null;
-    
-    /**
-     * @var string|null $networkName Network Name
-    */
-    private ?string $networkName = null;
-    
-    /**
-     * @var string|null $preSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
-    */
-    private ?string $preSharedKey = null;
-    
-    /**
-     * @var bool|null $preSharedKeyIsSet This is the pre-shared key for WPA Personal Wi-Fi network.
-    */
-    private ?bool $preSharedKeyIsSet = null;
-    
-    /**
-     * @var string|null $proxyAutomaticConfigurationUrl Specify the proxy server configuration script URL.
-    */
-    private ?string $proxyAutomaticConfigurationUrl = null;
-    
-    /**
-     * @var string|null $proxyExclusionList List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as .example.com.
-    */
-    private ?string $proxyExclusionList = null;
-    
-    /**
-     * @var string|null $proxyManualAddress Specify the proxy server IP address. Android documentation does not specify IPv4 or IPv6. For example: 192.168.1.1.
-    */
-    private ?string $proxyManualAddress = null;
-    
-    /**
-     * @var int|null $proxyManualPort Specify the proxy server port.
-    */
-    private ?int $proxyManualPort = null;
-    
-    /**
-     * @var WiFiProxySetting|null $proxySettings Wi-Fi Proxy Settings.
-    */
-    private ?WiFiProxySetting $proxySettings = null;
-    
-    /**
-     * @var string|null $ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-    */
-    private ?string $ssid = null;
-    
-    /**
-     * @var AndroidDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types for Android Device Owner.
-    */
-    private ?AndroidDeviceOwnerWiFiSecurityType $wiFiSecurityType = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerWiFiConfiguration and sets the default values.
     */
     public function __construct() {
@@ -97,7 +37,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
-        return $this->connectAutomatically;
+        return $this->getBackingStore()->get('connectAutomatically');
     }
 
     /**
@@ -105,7 +45,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
-        return $this->connectWhenNetworkNameIsHidden;
+        return $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
     }
 
     /**
@@ -135,7 +75,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->networkName;
+        return $this->getBackingStore()->get('networkName');
     }
 
     /**
@@ -143,7 +83,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getPreSharedKey(): ?string {
-        return $this->preSharedKey;
+        return $this->getBackingStore()->get('preSharedKey');
     }
 
     /**
@@ -151,7 +91,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return bool|null
     */
     public function getPreSharedKeyIsSet(): ?bool {
-        return $this->preSharedKeyIsSet;
+        return $this->getBackingStore()->get('preSharedKeyIsSet');
     }
 
     /**
@@ -159,7 +99,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getProxyAutomaticConfigurationUrl(): ?string {
-        return $this->proxyAutomaticConfigurationUrl;
+        return $this->getBackingStore()->get('proxyAutomaticConfigurationUrl');
     }
 
     /**
@@ -167,7 +107,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getProxyExclusionList(): ?string {
-        return $this->proxyExclusionList;
+        return $this->getBackingStore()->get('proxyExclusionList');
     }
 
     /**
@@ -175,7 +115,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getProxyManualAddress(): ?string {
-        return $this->proxyManualAddress;
+        return $this->getBackingStore()->get('proxyManualAddress');
     }
 
     /**
@@ -183,7 +123,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return int|null
     */
     public function getProxyManualPort(): ?int {
-        return $this->proxyManualPort;
+        return $this->getBackingStore()->get('proxyManualPort');
     }
 
     /**
@@ -191,7 +131,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return WiFiProxySetting|null
     */
     public function getProxySettings(): ?WiFiProxySetting {
-        return $this->proxySettings;
+        return $this->getBackingStore()->get('proxySettings');
     }
 
     /**
@@ -199,7 +139,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return string|null
     */
     public function getSsid(): ?string {
-        return $this->ssid;
+        return $this->getBackingStore()->get('ssid');
     }
 
     /**
@@ -207,7 +147,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
      * @return AndroidDeviceOwnerWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AndroidDeviceOwnerWiFiSecurityType {
-        return $this->wiFiSecurityType;
+        return $this->getBackingStore()->get('wiFiSecurityType');
     }
 
     /**
@@ -216,114 +156,114 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('connectAutomatically', $this->connectAutomatically);
-        $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->connectWhenNetworkNameIsHidden);
-        $writer->writeStringValue('networkName', $this->networkName);
-        $writer->writeStringValue('preSharedKey', $this->preSharedKey);
-        $writer->writeBooleanValue('preSharedKeyIsSet', $this->preSharedKeyIsSet);
-        $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->proxyAutomaticConfigurationUrl);
-        $writer->writeStringValue('proxyExclusionList', $this->proxyExclusionList);
-        $writer->writeStringValue('proxyManualAddress', $this->proxyManualAddress);
-        $writer->writeIntegerValue('proxyManualPort', $this->proxyManualPort);
-        $writer->writeEnumValue('proxySettings', $this->proxySettings);
-        $writer->writeStringValue('ssid', $this->ssid);
-        $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
+        $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
+        $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
+        $writer->writeStringValue('networkName', $this->getNetworkName());
+        $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
+        $writer->writeBooleanValue('preSharedKeyIsSet', $this->getPreSharedKeyIsSet());
+        $writer->writeStringValue('proxyAutomaticConfigurationUrl', $this->getProxyAutomaticConfigurationUrl());
+        $writer->writeStringValue('proxyExclusionList', $this->getProxyExclusionList());
+        $writer->writeStringValue('proxyManualAddress', $this->getProxyManualAddress());
+        $writer->writeIntegerValue('proxyManualPort', $this->getProxyManualPort());
+        $writer->writeEnumValue('proxySettings', $this->getProxySettings());
+        $writer->writeStringValue('ssid', $this->getSsid());
+        $writer->writeEnumValue('wiFiSecurityType', $this->getWiFiSecurityType());
     }
 
     /**
      * Sets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
      *  @param bool|null $value Value to set for the connectAutomatically property.
     */
-    public function setConnectAutomatically(?bool $value ): void {
-        $this->connectAutomatically = $value;
+    public function setConnectAutomatically(?bool $value): void {
+        $this->getBackingStore()->set('connectAutomatically', $value);
     }
 
     /**
      * Sets the connectWhenNetworkNameIsHidden property value. When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
      *  @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
-    public function setConnectWhenNetworkNameIsHidden(?bool $value ): void {
-        $this->connectWhenNetworkNameIsHidden = $value;
+    public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
+        $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
     }
 
     /**
      * Sets the networkName property value. Network Name
      *  @param string|null $value Value to set for the networkName property.
     */
-    public function setNetworkName(?string $value ): void {
-        $this->networkName = $value;
+    public function setNetworkName(?string $value): void {
+        $this->getBackingStore()->set('networkName', $value);
     }
 
     /**
      * Sets the preSharedKey property value. This is the pre-shared key for WPA Personal Wi-Fi network.
      *  @param string|null $value Value to set for the preSharedKey property.
     */
-    public function setPreSharedKey(?string $value ): void {
-        $this->preSharedKey = $value;
+    public function setPreSharedKey(?string $value): void {
+        $this->getBackingStore()->set('preSharedKey', $value);
     }
 
     /**
      * Sets the preSharedKeyIsSet property value. This is the pre-shared key for WPA Personal Wi-Fi network.
      *  @param bool|null $value Value to set for the preSharedKeyIsSet property.
     */
-    public function setPreSharedKeyIsSet(?bool $value ): void {
-        $this->preSharedKeyIsSet = $value;
+    public function setPreSharedKeyIsSet(?bool $value): void {
+        $this->getBackingStore()->set('preSharedKeyIsSet', $value);
     }
 
     /**
      * Sets the proxyAutomaticConfigurationUrl property value. Specify the proxy server configuration script URL.
      *  @param string|null $value Value to set for the proxyAutomaticConfigurationUrl property.
     */
-    public function setProxyAutomaticConfigurationUrl(?string $value ): void {
-        $this->proxyAutomaticConfigurationUrl = $value;
+    public function setProxyAutomaticConfigurationUrl(?string $value): void {
+        $this->getBackingStore()->set('proxyAutomaticConfigurationUrl', $value);
     }
 
     /**
      * Sets the proxyExclusionList property value. List of hosts to exclude using the proxy on connections for. These hosts can use wildcards such as .example.com.
      *  @param string|null $value Value to set for the proxyExclusionList property.
     */
-    public function setProxyExclusionList(?string $value ): void {
-        $this->proxyExclusionList = $value;
+    public function setProxyExclusionList(?string $value): void {
+        $this->getBackingStore()->set('proxyExclusionList', $value);
     }
 
     /**
      * Sets the proxyManualAddress property value. Specify the proxy server IP address. Android documentation does not specify IPv4 or IPv6. For example: 192.168.1.1.
      *  @param string|null $value Value to set for the proxyManualAddress property.
     */
-    public function setProxyManualAddress(?string $value ): void {
-        $this->proxyManualAddress = $value;
+    public function setProxyManualAddress(?string $value): void {
+        $this->getBackingStore()->set('proxyManualAddress', $value);
     }
 
     /**
      * Sets the proxyManualPort property value. Specify the proxy server port.
      *  @param int|null $value Value to set for the proxyManualPort property.
     */
-    public function setProxyManualPort(?int $value ): void {
-        $this->proxyManualPort = $value;
+    public function setProxyManualPort(?int $value): void {
+        $this->getBackingStore()->set('proxyManualPort', $value);
     }
 
     /**
      * Sets the proxySettings property value. Wi-Fi Proxy Settings.
      *  @param WiFiProxySetting|null $value Value to set for the proxySettings property.
     */
-    public function setProxySettings(?WiFiProxySetting $value ): void {
-        $this->proxySettings = $value;
+    public function setProxySettings(?WiFiProxySetting $value): void {
+        $this->getBackingStore()->set('proxySettings', $value);
     }
 
     /**
      * Sets the ssid property value. This is the name of the Wi-Fi network that is broadcast to all devices.
      *  @param string|null $value Value to set for the ssid property.
     */
-    public function setSsid(?string $value ): void {
-        $this->ssid = $value;
+    public function setSsid(?string $value): void {
+        $this->getBackingStore()->set('ssid', $value);
     }
 
     /**
      * Sets the wiFiSecurityType property value. Wi-Fi Security Types for Android Device Owner.
      *  @param AndroidDeviceOwnerWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
-    public function setWiFiSecurityType(?AndroidDeviceOwnerWiFiSecurityType $value ): void {
-        $this->wiFiSecurityType = $value;
+    public function setWiFiSecurityType(?AndroidDeviceOwnerWiFiSecurityType $value): void {
+        $this->getBackingStore()->set('wiFiSecurityType', $value);
     }
 
 }

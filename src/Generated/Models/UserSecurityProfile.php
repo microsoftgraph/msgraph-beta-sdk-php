@@ -10,61 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSecurityProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<UserAccount>|null $accounts The accounts property
-    */
-    private ?array $accounts = null;
-    
-    /**
-     * @var string|null $azureSubscriptionId The azureSubscriptionId property
-    */
-    private ?string $azureSubscriptionId = null;
-    
-    /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $riskScore The riskScore property
-    */
-    private ?string $riskScore = null;
-    
-    /**
-     * @var array<string>|null $tags The tags property
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var string|null $userPrincipalName The userPrincipalName property
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * @var SecurityVendorInformation|null $vendorInformation The vendorInformation property
-    */
-    private ?SecurityVendorInformation $vendorInformation = null;
-    
-    /**
      * Instantiates a new userSecurityProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userSecurityProfile');
     }
 
     /**
@@ -81,7 +30,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return array<UserAccount>|null
     */
     public function getAccounts(): ?array {
-        return $this->accounts;
+        return $this->getBackingStore()->get('accounts');
     }
 
     /**
@@ -89,7 +38,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureSubscriptionId(): ?string {
-        return $this->azureSubscriptionId;
+        return $this->getBackingStore()->get('azureSubscriptionId');
     }
 
     /**
@@ -97,7 +46,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -105,7 +54,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -113,7 +62,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -141,7 +90,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -149,7 +98,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getRiskScore(): ?string {
-        return $this->riskScore;
+        return $this->getBackingStore()->get('riskScore');
     }
 
     /**
@@ -157,7 +106,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -165,7 +114,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -173,7 +122,7 @@ class UserSecurityProfile extends Entity implements Parsable
      * @return SecurityVendorInformation|null
     */
     public function getVendorInformation(): ?SecurityVendorInformation {
-        return $this->vendorInformation;
+        return $this->getBackingStore()->get('vendorInformation');
     }
 
     /**
@@ -182,96 +131,96 @@ class UserSecurityProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accounts', $this->accounts);
-        $writer->writeStringValue('azureSubscriptionId', $this->azureSubscriptionId);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('riskScore', $this->riskScore);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeObjectValue('vendorInformation', $this->vendorInformation);
+        $writer->writeCollectionOfObjectValues('accounts', $this->getAccounts());
+        $writer->writeStringValue('azureSubscriptionId', $this->getAzureSubscriptionId());
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('riskScore', $this->getRiskScore());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeObjectValue('vendorInformation', $this->getVendorInformation());
     }
 
     /**
      * Sets the accounts property value. The accounts property
      *  @param array<UserAccount>|null $value Value to set for the accounts property.
     */
-    public function setAccounts(?array $value ): void {
-        $this->accounts = $value;
+    public function setAccounts(?array $value): void {
+        $this->getBackingStore()->set('accounts', $value);
     }
 
     /**
      * Sets the azureSubscriptionId property value. The azureSubscriptionId property
      *  @param string|null $value Value to set for the azureSubscriptionId property.
     */
-    public function setAzureSubscriptionId(?string $value ): void {
-        $this->azureSubscriptionId = $value;
+    public function setAzureSubscriptionId(?string $value): void {
+        $this->getBackingStore()->set('azureSubscriptionId', $value);
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the riskScore property value. The riskScore property
      *  @param string|null $value Value to set for the riskScore property.
     */
-    public function setRiskScore(?string $value ): void {
-        $this->riskScore = $value;
+    public function setRiskScore(?string $value): void {
+        $this->getBackingStore()->set('riskScore', $value);
     }
 
     /**
      * Sets the tags property value. The tags property
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The userPrincipalName property
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
     /**
      * Sets the vendorInformation property value. The vendorInformation property
      *  @param SecurityVendorInformation|null $value Value to set for the vendorInformation property.
     */
-    public function setVendorInformation(?SecurityVendorInformation $value ): void {
-        $this->vendorInformation = $value;
+    public function setVendorInformation(?SecurityVendorInformation $value): void {
+        $this->getBackingStore()->set('vendorInformation', $value);
     }
 
 }

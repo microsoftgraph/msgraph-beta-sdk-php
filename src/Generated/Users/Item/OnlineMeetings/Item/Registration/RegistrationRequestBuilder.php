@@ -53,7 +53,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
     */
@@ -134,7 +134,7 @@ class RegistrationRequestBuilder
     }
 
     /**
-     * Disable and delete the meetingRegistration of an onlineMeeting on behalf of the organizer.
+     * Disable and delete the externalMeetingRegistration of an onlineMeeting.
      * @param RegistrationRequestBuilderDeleteRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service
      * @return Promise

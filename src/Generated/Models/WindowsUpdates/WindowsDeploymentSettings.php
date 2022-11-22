@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDeploymentSettings extends DeploymentSettings implements Parsable 
 {
     /**
-     * @var UserExperienceSettings|null $userExperience Settings governing the user's update experience on a device.
-    */
-    private ?UserExperienceSettings $userExperience = null;
-    
-    /**
      * Instantiates a new WindowsDeploymentSettings and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsDeploymentSettings extends DeploymentSettings implements Parsable
      * @return UserExperienceSettings|null
     */
     public function getUserExperience(): ?UserExperienceSettings {
-        return $this->userExperience;
+        return $this->getBackingStore()->get('userExperience');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsDeploymentSettings extends DeploymentSettings implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('userExperience', $this->userExperience);
+        $writer->writeObjectValue('userExperience', $this->getUserExperience());
     }
 
     /**
      * Sets the userExperience property value. Settings governing the user's update experience on a device.
      *  @param UserExperienceSettings|null $value Value to set for the userExperience property.
     */
-    public function setUserExperience(?UserExperienceSettings $value ): void {
-        $this->userExperience = $value;
+    public function setUserExperience(?UserExperienceSettings $value): void {
+        $this->getBackingStore()->set('userExperience', $value);
     }
 
 }

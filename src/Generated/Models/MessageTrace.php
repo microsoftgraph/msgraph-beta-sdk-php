@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageTrace extends Entity implements Parsable 
 {
     /**
-     * @var string|null $destinationIPAddress The destinationIPAddress property
-    */
-    private ?string $destinationIPAddress = null;
-    
-    /**
-     * @var string|null $messageId The messageId property
-    */
-    private ?string $messageId = null;
-    
-    /**
-     * @var DateTime|null $receivedDateTime The receivedDateTime property
-    */
-    private ?DateTime $receivedDateTime = null;
-    
-    /**
-     * @var array<MessageRecipient>|null $recipients The recipients property
-    */
-    private ?array $recipients = null;
-    
-    /**
-     * @var string|null $senderEmail The senderEmail property
-    */
-    private ?string $senderEmail = null;
-    
-    /**
-     * @var int|null $size The size property
-    */
-    private ?int $size = null;
-    
-    /**
-     * @var string|null $sourceIPAddress The sourceIPAddress property
-    */
-    private ?string $sourceIPAddress = null;
-    
-    /**
-     * @var string|null $subject The subject property
-    */
-    private ?string $subject = null;
-    
-    /**
-     * Instantiates a new MessageTrace and sets the default values.
+     * Instantiates a new messageTrace and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.messageTrace');
     }
 
     /**
@@ -71,7 +30,7 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getDestinationIPAddress(): ?string {
-        return $this->destinationIPAddress;
+        return $this->getBackingStore()->get('destinationIPAddress');
     }
 
     /**
@@ -97,7 +56,7 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getMessageId(): ?string {
-        return $this->messageId;
+        return $this->getBackingStore()->get('messageId');
     }
 
     /**
@@ -105,7 +64,7 @@ class MessageTrace extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
-        return $this->receivedDateTime;
+        return $this->getBackingStore()->get('receivedDateTime');
     }
 
     /**
@@ -113,7 +72,7 @@ class MessageTrace extends Entity implements Parsable
      * @return array<MessageRecipient>|null
     */
     public function getRecipients(): ?array {
-        return $this->recipients;
+        return $this->getBackingStore()->get('recipients');
     }
 
     /**
@@ -121,7 +80,7 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSenderEmail(): ?string {
-        return $this->senderEmail;
+        return $this->getBackingStore()->get('senderEmail');
     }
 
     /**
@@ -129,7 +88,7 @@ class MessageTrace extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->size;
+        return $this->getBackingStore()->get('size');
     }
 
     /**
@@ -137,7 +96,7 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSourceIPAddress(): ?string {
-        return $this->sourceIPAddress;
+        return $this->getBackingStore()->get('sourceIPAddress');
     }
 
     /**
@@ -145,7 +104,7 @@ class MessageTrace extends Entity implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -154,78 +113,78 @@ class MessageTrace extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('destinationIPAddress', $this->destinationIPAddress);
-        $writer->writeStringValue('messageId', $this->messageId);
-        $writer->writeDateTimeValue('receivedDateTime', $this->receivedDateTime);
-        $writer->writeCollectionOfObjectValues('recipients', $this->recipients);
-        $writer->writeStringValue('senderEmail', $this->senderEmail);
-        $writer->writeIntegerValue('size', $this->size);
-        $writer->writeStringValue('sourceIPAddress', $this->sourceIPAddress);
-        $writer->writeStringValue('subject', $this->subject);
+        $writer->writeStringValue('destinationIPAddress', $this->getDestinationIPAddress());
+        $writer->writeStringValue('messageId', $this->getMessageId());
+        $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
+        $writer->writeCollectionOfObjectValues('recipients', $this->getRecipients());
+        $writer->writeStringValue('senderEmail', $this->getSenderEmail());
+        $writer->writeIntegerValue('size', $this->getSize());
+        $writer->writeStringValue('sourceIPAddress', $this->getSourceIPAddress());
+        $writer->writeStringValue('subject', $this->getSubject());
     }
 
     /**
      * Sets the destinationIPAddress property value. The destinationIPAddress property
      *  @param string|null $value Value to set for the destinationIPAddress property.
     */
-    public function setDestinationIPAddress(?string $value ): void {
-        $this->destinationIPAddress = $value;
+    public function setDestinationIPAddress(?string $value): void {
+        $this->getBackingStore()->set('destinationIPAddress', $value);
     }
 
     /**
      * Sets the messageId property value. The messageId property
      *  @param string|null $value Value to set for the messageId property.
     */
-    public function setMessageId(?string $value ): void {
-        $this->messageId = $value;
+    public function setMessageId(?string $value): void {
+        $this->getBackingStore()->set('messageId', $value);
     }
 
     /**
      * Sets the receivedDateTime property value. The receivedDateTime property
      *  @param DateTime|null $value Value to set for the receivedDateTime property.
     */
-    public function setReceivedDateTime(?DateTime $value ): void {
-        $this->receivedDateTime = $value;
+    public function setReceivedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('receivedDateTime', $value);
     }
 
     /**
      * Sets the recipients property value. The recipients property
      *  @param array<MessageRecipient>|null $value Value to set for the recipients property.
     */
-    public function setRecipients(?array $value ): void {
-        $this->recipients = $value;
+    public function setRecipients(?array $value): void {
+        $this->getBackingStore()->set('recipients', $value);
     }
 
     /**
      * Sets the senderEmail property value. The senderEmail property
      *  @param string|null $value Value to set for the senderEmail property.
     */
-    public function setSenderEmail(?string $value ): void {
-        $this->senderEmail = $value;
+    public function setSenderEmail(?string $value): void {
+        $this->getBackingStore()->set('senderEmail', $value);
     }
 
     /**
      * Sets the size property value. The size property
      *  @param int|null $value Value to set for the size property.
     */
-    public function setSize(?int $value ): void {
-        $this->size = $value;
+    public function setSize(?int $value): void {
+        $this->getBackingStore()->set('size', $value);
     }
 
     /**
      * Sets the sourceIPAddress property value. The sourceIPAddress property
      *  @param string|null $value Value to set for the sourceIPAddress property.
     */
-    public function setSourceIPAddress(?string $value ): void {
-        $this->sourceIPAddress = $value;
+    public function setSourceIPAddress(?string $value): void {
+        $this->getBackingStore()->set('sourceIPAddress', $value);
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
 }

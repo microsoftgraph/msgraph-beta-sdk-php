@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuthenticationStrengthPolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<AuthenticationMethodModes>|null $allowedCombinations A collection of authentication method modes that are required be used to satify this authentication strength.
-    */
-    private ?array $allowedCombinations = null;
-    
-    /**
-     * @var array<AuthenticationCombinationConfiguration>|null $combinationConfigurations Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
-    */
-    private ?array $combinationConfigurations = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The datetime when this policy was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The human-readable description of this policy.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The datetime when this policy was last modified.
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
-     * @var AuthenticationStrengthPolicyType|null $policyType The policyType property
-    */
-    private ?AuthenticationStrengthPolicyType $policyType = null;
-    
-    /**
-     * @var AuthenticationStrengthRequirements|null $requirementsSatisfied The requirementsSatisfied property
-    */
-    private ?AuthenticationStrengthRequirements $requirementsSatisfied = null;
-    
-    /**
-     * Instantiates a new AuthenticationStrengthPolicy and sets the default values.
+     * Instantiates a new authenticationStrengthPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.authenticationStrengthPolicy');
     }
 
     /**
@@ -71,7 +30,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return array<AuthenticationMethodModes>|null
     */
     public function getAllowedCombinations(): ?array {
-        return $this->allowedCombinations;
+        return $this->getBackingStore()->get('allowedCombinations');
     }
 
     /**
@@ -79,7 +38,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return array<AuthenticationCombinationConfiguration>|null
     */
     public function getCombinationConfigurations(): ?array {
-        return $this->combinationConfigurations;
+        return $this->getBackingStore()->get('combinationConfigurations');
     }
 
     /**
@@ -87,7 +46,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -95,7 +54,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -103,7 +62,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -129,7 +88,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -137,7 +96,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return AuthenticationStrengthPolicyType|null
     */
     public function getPolicyType(): ?AuthenticationStrengthPolicyType {
-        return $this->policyType;
+        return $this->getBackingStore()->get('policyType');
     }
 
     /**
@@ -145,7 +104,7 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
      * @return AuthenticationStrengthRequirements|null
     */
     public function getRequirementsSatisfied(): ?AuthenticationStrengthRequirements {
-        return $this->requirementsSatisfied;
+        return $this->getBackingStore()->get('requirementsSatisfied');
     }
 
     /**
@@ -154,78 +113,78 @@ class AuthenticationStrengthPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('allowedCombinations', $this->allowedCombinations);
-        $writer->writeCollectionOfObjectValues('combinationConfigurations', $this->combinationConfigurations);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
-        $writer->writeEnumValue('policyType', $this->policyType);
-        $writer->writeEnumValue('requirementsSatisfied', $this->requirementsSatisfied);
+        $writer->writeCollectionOfEnumValues('allowedCombinations', $this->getAllowedCombinations());
+        $writer->writeCollectionOfObjectValues('combinationConfigurations', $this->getCombinationConfigurations());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeEnumValue('policyType', $this->getPolicyType());
+        $writer->writeEnumValue('requirementsSatisfied', $this->getRequirementsSatisfied());
     }
 
     /**
      * Sets the allowedCombinations property value. A collection of authentication method modes that are required be used to satify this authentication strength.
      *  @param array<AuthenticationMethodModes>|null $value Value to set for the allowedCombinations property.
     */
-    public function setAllowedCombinations(?array $value ): void {
-        $this->allowedCombinations = $value;
+    public function setAllowedCombinations(?array $value): void {
+        $this->getBackingStore()->set('allowedCombinations', $value);
     }
 
     /**
      * Sets the combinationConfigurations property value. Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
      *  @param array<AuthenticationCombinationConfiguration>|null $value Value to set for the combinationConfigurations property.
     */
-    public function setCombinationConfigurations(?array $value ): void {
-        $this->combinationConfigurations = $value;
+    public function setCombinationConfigurations(?array $value): void {
+        $this->getBackingStore()->set('combinationConfigurations', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The datetime when this policy was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The human-readable description of this policy.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The datetime when this policy was last modified.
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
     /**
      * Sets the policyType property value. The policyType property
      *  @param AuthenticationStrengthPolicyType|null $value Value to set for the policyType property.
     */
-    public function setPolicyType(?AuthenticationStrengthPolicyType $value ): void {
-        $this->policyType = $value;
+    public function setPolicyType(?AuthenticationStrengthPolicyType $value): void {
+        $this->getBackingStore()->set('policyType', $value);
     }
 
     /**
      * Sets the requirementsSatisfied property value. The requirementsSatisfied property
      *  @param AuthenticationStrengthRequirements|null $value Value to set for the requirementsSatisfied property.
     */
-    public function setRequirementsSatisfied(?AuthenticationStrengthRequirements $value ): void {
-        $this->requirementsSatisfied = $value;
+    public function setRequirementsSatisfied(?AuthenticationStrengthRequirements $value): void {
+        $this->getBackingStore()->set('requirementsSatisfied', $value);
     }
 
 }

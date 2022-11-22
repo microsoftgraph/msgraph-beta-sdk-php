@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable 
+class AccessPackageLocalizedText implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $languageCode The ISO code for the intended language. Required.
-    */
-    private ?string $languageCode = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $text The text in the specific language. Required.
-    */
-    private ?string $text = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new accessPackageLocalizedText and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.accessPackageLocalizedText');
     }
 
     /**
@@ -50,8 +38,16 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +68,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLanguageCode(): ?string {
-        return $this->languageCode;
+        return $this->getBackingStore()->get('languageCode');
     }
 
     /**
@@ -80,7 +76,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -88,7 +84,7 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -96,42 +92,50 @@ class AccessPackageLocalizedText implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('languageCode', $this->languageCode);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('text', $this->text);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('languageCode', $this->getLanguageCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('text', $this->getText());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the languageCode property value. The ISO code for the intended language. Required.
      *  @param string|null $value Value to set for the languageCode property.
     */
-    public function setLanguageCode(?string $value ): void {
-        $this->languageCode = $value;
+    public function setLanguageCode(?string $value): void {
+        $this->getBackingStore()->set('languageCode', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the text property value. The text in the specific language. Required.
      *  @param string|null $value Value to set for the text property.
     */
-    public function setText(?string $value ): void {
-        $this->text = $value;
+    public function setText(?string $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
 }

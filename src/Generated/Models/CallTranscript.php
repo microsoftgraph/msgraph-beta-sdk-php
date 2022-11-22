@@ -11,21 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class CallTranscript extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $content A field representing the content of the transcript. Read-only.
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Date and time at which the transcript was created. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
      * Instantiates a new callTranscript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.callTranscript');
     }
 
     /**
@@ -39,10 +28,10 @@ class CallTranscript extends Entity implements Parsable
 
     /**
      * Gets the content property value. A field representing the content of the transcript. Read-only.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -50,7 +39,7 @@ class CallTranscript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -71,24 +60,24 @@ class CallTranscript extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
     }
 
     /**
      * Sets the content property value. A field representing the content of the transcript. Read-only.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Date and time at which the transcript was created. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
 }

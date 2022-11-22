@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VulnerableManagedDevice extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The device name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastSyncDateTime The last sync date.
-    */
-    private ?DateTime $lastSyncDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceId The Intune managed device ID.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
      * Instantiates a new vulnerableManagedDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.vulnerableManagedDevice');
     }
 
     /**
@@ -46,7 +30,7 @@ class VulnerableManagedDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -67,7 +51,7 @@ class VulnerableManagedDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastSyncDateTime(): ?DateTime {
-        return $this->lastSyncDateTime;
+        return $this->getBackingStore()->get('lastSyncDateTime');
     }
 
     /**
@@ -75,7 +59,7 @@ class VulnerableManagedDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -84,33 +68,33 @@ class VulnerableManagedDevice extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastSyncDateTime', $this->lastSyncDateTime);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastSyncDateTime', $this->getLastSyncDateTime());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
     }
 
     /**
      * Sets the displayName property value. The device name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastSyncDateTime property value. The last sync date.
      *  @param DateTime|null $value Value to set for the lastSyncDateTime property.
     */
-    public function setLastSyncDateTime(?DateTime $value ): void {
-        $this->lastSyncDateTime = $value;
+    public function setLastSyncDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastSyncDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. The Intune managed device ID.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
 }

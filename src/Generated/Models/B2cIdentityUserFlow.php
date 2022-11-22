@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable 
 {
     /**
-     * @var UserFlowApiConnectorConfiguration|null $apiConnectorConfiguration Configuration for enabling an API connector for use as part of the user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
-    */
-    private ?UserFlowApiConnectorConfiguration $apiConnectorConfiguration = null;
-    
-    /**
-     * @var string|null $defaultLanguageTag Indicates the default language of the b2cIdentityUserFlow that is used when no ui_locale tag is specified in the request. This field is RFC 5646 compliant.
-    */
-    private ?string $defaultLanguageTag = null;
-    
-    /**
-     * @var array<IdentityProvider>|null $identityProviders The identityProviders property
-    */
-    private ?array $identityProviders = null;
-    
-    /**
-     * @var bool|null $isLanguageCustomizationEnabled The property that determines whether language customization is enabled within the B2C user flow. Language customization is not enabled by default for B2C user flows.
-    */
-    private ?bool $isLanguageCustomizationEnabled = null;
-    
-    /**
-     * @var array<UserFlowLanguageConfiguration>|null $languages The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
-    */
-    private ?array $languages = null;
-    
-    /**
-     * @var array<IdentityUserFlowAttributeAssignment>|null $userAttributeAssignments The user attribute assignments included in the user flow.
-    */
-    private ?array $userAttributeAssignments = null;
-    
-    /**
-     * @var array<IdentityProviderBase>|null $userFlowIdentityProviders The userFlowIdentityProviders property
-    */
-    private ?array $userFlowIdentityProviders = null;
-    
-    /**
      * Instantiates a new B2cIdentityUserFlow and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.b2cIdentityUserFlow');
     }
 
     /**
@@ -65,7 +29,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return UserFlowApiConnectorConfiguration|null
     */
     public function getApiConnectorConfiguration(): ?UserFlowApiConnectorConfiguration {
-        return $this->apiConnectorConfiguration;
+        return $this->getBackingStore()->get('apiConnectorConfiguration');
     }
 
     /**
@@ -73,7 +37,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return string|null
     */
     public function getDefaultLanguageTag(): ?string {
-        return $this->defaultLanguageTag;
+        return $this->getBackingStore()->get('defaultLanguageTag');
     }
 
     /**
@@ -98,7 +62,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityProvider>|null
     */
     public function getIdentityProviders(): ?array {
-        return $this->identityProviders;
+        return $this->getBackingStore()->get('identityProviders');
     }
 
     /**
@@ -106,7 +70,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return bool|null
     */
     public function getIsLanguageCustomizationEnabled(): ?bool {
-        return $this->isLanguageCustomizationEnabled;
+        return $this->getBackingStore()->get('isLanguageCustomizationEnabled');
     }
 
     /**
@@ -114,7 +78,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<UserFlowLanguageConfiguration>|null
     */
     public function getLanguages(): ?array {
-        return $this->languages;
+        return $this->getBackingStore()->get('languages');
     }
 
     /**
@@ -122,7 +86,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityUserFlowAttributeAssignment>|null
     */
     public function getUserAttributeAssignments(): ?array {
-        return $this->userAttributeAssignments;
+        return $this->getBackingStore()->get('userAttributeAssignments');
     }
 
     /**
@@ -130,7 +94,7 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
      * @return array<IdentityProviderBase>|null
     */
     public function getUserFlowIdentityProviders(): ?array {
-        return $this->userFlowIdentityProviders;
+        return $this->getBackingStore()->get('userFlowIdentityProviders');
     }
 
     /**
@@ -139,69 +103,69 @@ class B2cIdentityUserFlow extends IdentityUserFlow implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('apiConnectorConfiguration', $this->apiConnectorConfiguration);
-        $writer->writeStringValue('defaultLanguageTag', $this->defaultLanguageTag);
-        $writer->writeCollectionOfObjectValues('identityProviders', $this->identityProviders);
-        $writer->writeBooleanValue('isLanguageCustomizationEnabled', $this->isLanguageCustomizationEnabled);
-        $writer->writeCollectionOfObjectValues('languages', $this->languages);
-        $writer->writeCollectionOfObjectValues('userAttributeAssignments', $this->userAttributeAssignments);
-        $writer->writeCollectionOfObjectValues('userFlowIdentityProviders', $this->userFlowIdentityProviders);
+        $writer->writeObjectValue('apiConnectorConfiguration', $this->getApiConnectorConfiguration());
+        $writer->writeStringValue('defaultLanguageTag', $this->getDefaultLanguageTag());
+        $writer->writeCollectionOfObjectValues('identityProviders', $this->getIdentityProviders());
+        $writer->writeBooleanValue('isLanguageCustomizationEnabled', $this->getIsLanguageCustomizationEnabled());
+        $writer->writeCollectionOfObjectValues('languages', $this->getLanguages());
+        $writer->writeCollectionOfObjectValues('userAttributeAssignments', $this->getUserAttributeAssignments());
+        $writer->writeCollectionOfObjectValues('userFlowIdentityProviders', $this->getUserFlowIdentityProviders());
     }
 
     /**
      * Sets the apiConnectorConfiguration property value. Configuration for enabling an API connector for use as part of the user flow. You can only obtain the value of this object using Get userFlowApiConnectorConfiguration.
      *  @param UserFlowApiConnectorConfiguration|null $value Value to set for the apiConnectorConfiguration property.
     */
-    public function setApiConnectorConfiguration(?UserFlowApiConnectorConfiguration $value ): void {
-        $this->apiConnectorConfiguration = $value;
+    public function setApiConnectorConfiguration(?UserFlowApiConnectorConfiguration $value): void {
+        $this->getBackingStore()->set('apiConnectorConfiguration', $value);
     }
 
     /**
      * Sets the defaultLanguageTag property value. Indicates the default language of the b2cIdentityUserFlow that is used when no ui_locale tag is specified in the request. This field is RFC 5646 compliant.
      *  @param string|null $value Value to set for the defaultLanguageTag property.
     */
-    public function setDefaultLanguageTag(?string $value ): void {
-        $this->defaultLanguageTag = $value;
+    public function setDefaultLanguageTag(?string $value): void {
+        $this->getBackingStore()->set('defaultLanguageTag', $value);
     }
 
     /**
      * Sets the identityProviders property value. The identityProviders property
      *  @param array<IdentityProvider>|null $value Value to set for the identityProviders property.
     */
-    public function setIdentityProviders(?array $value ): void {
-        $this->identityProviders = $value;
+    public function setIdentityProviders(?array $value): void {
+        $this->getBackingStore()->set('identityProviders', $value);
     }
 
     /**
      * Sets the isLanguageCustomizationEnabled property value. The property that determines whether language customization is enabled within the B2C user flow. Language customization is not enabled by default for B2C user flows.
      *  @param bool|null $value Value to set for the isLanguageCustomizationEnabled property.
     */
-    public function setIsLanguageCustomizationEnabled(?bool $value ): void {
-        $this->isLanguageCustomizationEnabled = $value;
+    public function setIsLanguageCustomizationEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isLanguageCustomizationEnabled', $value);
     }
 
     /**
      * Sets the languages property value. The languages supported for customization within the user flow. Language customization is not enabled by default in B2C user flows.
      *  @param array<UserFlowLanguageConfiguration>|null $value Value to set for the languages property.
     */
-    public function setLanguages(?array $value ): void {
-        $this->languages = $value;
+    public function setLanguages(?array $value): void {
+        $this->getBackingStore()->set('languages', $value);
     }
 
     /**
      * Sets the userAttributeAssignments property value. The user attribute assignments included in the user flow.
      *  @param array<IdentityUserFlowAttributeAssignment>|null $value Value to set for the userAttributeAssignments property.
     */
-    public function setUserAttributeAssignments(?array $value ): void {
-        $this->userAttributeAssignments = $value;
+    public function setUserAttributeAssignments(?array $value): void {
+        $this->getBackingStore()->set('userAttributeAssignments', $value);
     }
 
     /**
      * Sets the userFlowIdentityProviders property value. The userFlowIdentityProviders property
      *  @param array<IdentityProviderBase>|null $value Value to set for the userFlowIdentityProviders property.
     */
-    public function setUserFlowIdentityProviders(?array $value ): void {
-        $this->userFlowIdentityProviders = $value;
+    public function setUserFlowIdentityProviders(?array $value): void {
+        $this->getBackingStore()->set('userFlowIdentityProviders', $value);
     }
 
 }

@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var EasAuthenticationMethod|null $authenticationMethod Exchange Active Sync authentication method.
-    */
-    private ?EasAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var EmailSyncDuration|null $durationOfEmailToSync Possible values for email sync duration.
-    */
-    private ?EmailSyncDuration $durationOfEmailToSync = null;
-    
-    /**
-     * @var UserEmailSource|null $emailAddressSource Possible values for username source or email source.
-    */
-    private ?UserEmailSource $emailAddressSource = null;
-    
-    /**
-     * @var string|null $hostName Exchange location (URL) that the mail app connects to.
-    */
-    private ?string $hostName = null;
-    
-    /**
-     * @var AndroidForWorkCertificateProfileBase|null $identityCertificate Identity certificate.
-    */
-    private ?AndroidForWorkCertificateProfileBase $identityCertificate = null;
-    
-    /**
-     * @var bool|null $requireSsl Indicates whether or not to use SSL.
-    */
-    private ?bool $requireSsl = null;
-    
-    /**
-     * @var AndroidUsernameSource|null $usernameSource Android username source.
-    */
-    private ?AndroidUsernameSource $usernameSource = null;
-    
-    /**
      * Instantiates a new AndroidForWorkEasEmailProfileBase and sets the default values.
     */
     public function __construct() {
@@ -73,7 +38,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return EasAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?EasAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -81,7 +46,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return EmailSyncDuration|null
     */
     public function getDurationOfEmailToSync(): ?EmailSyncDuration {
-        return $this->durationOfEmailToSync;
+        return $this->getBackingStore()->get('durationOfEmailToSync');
     }
 
     /**
@@ -89,7 +54,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return UserEmailSource|null
     */
     public function getEmailAddressSource(): ?UserEmailSource {
-        return $this->emailAddressSource;
+        return $this->getBackingStore()->get('emailAddressSource');
     }
 
     /**
@@ -114,7 +79,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return string|null
     */
     public function getHostName(): ?string {
-        return $this->hostName;
+        return $this->getBackingStore()->get('hostName');
     }
 
     /**
@@ -122,7 +87,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return AndroidForWorkCertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?AndroidForWorkCertificateProfileBase {
-        return $this->identityCertificate;
+        return $this->getBackingStore()->get('identityCertificate');
     }
 
     /**
@@ -130,7 +95,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return bool|null
     */
     public function getRequireSsl(): ?bool {
-        return $this->requireSsl;
+        return $this->getBackingStore()->get('requireSsl');
     }
 
     /**
@@ -138,7 +103,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
      * @return AndroidUsernameSource|null
     */
     public function getUsernameSource(): ?AndroidUsernameSource {
-        return $this->usernameSource;
+        return $this->getBackingStore()->get('usernameSource');
     }
 
     /**
@@ -147,69 +112,69 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeEnumValue('durationOfEmailToSync', $this->durationOfEmailToSync);
-        $writer->writeEnumValue('emailAddressSource', $this->emailAddressSource);
-        $writer->writeStringValue('hostName', $this->hostName);
-        $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
-        $writer->writeBooleanValue('requireSsl', $this->requireSsl);
-        $writer->writeEnumValue('usernameSource', $this->usernameSource);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeEnumValue('durationOfEmailToSync', $this->getDurationOfEmailToSync());
+        $writer->writeEnumValue('emailAddressSource', $this->getEmailAddressSource());
+        $writer->writeStringValue('hostName', $this->getHostName());
+        $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeBooleanValue('requireSsl', $this->getRequireSsl());
+        $writer->writeEnumValue('usernameSource', $this->getUsernameSource());
     }
 
     /**
      * Sets the authenticationMethod property value. Exchange Active Sync authentication method.
      *  @param EasAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?EasAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?EasAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the durationOfEmailToSync property value. Possible values for email sync duration.
      *  @param EmailSyncDuration|null $value Value to set for the durationOfEmailToSync property.
     */
-    public function setDurationOfEmailToSync(?EmailSyncDuration $value ): void {
-        $this->durationOfEmailToSync = $value;
+    public function setDurationOfEmailToSync(?EmailSyncDuration $value): void {
+        $this->getBackingStore()->set('durationOfEmailToSync', $value);
     }
 
     /**
      * Sets the emailAddressSource property value. Possible values for username source or email source.
      *  @param UserEmailSource|null $value Value to set for the emailAddressSource property.
     */
-    public function setEmailAddressSource(?UserEmailSource $value ): void {
-        $this->emailAddressSource = $value;
+    public function setEmailAddressSource(?UserEmailSource $value): void {
+        $this->getBackingStore()->set('emailAddressSource', $value);
     }
 
     /**
      * Sets the hostName property value. Exchange location (URL) that the mail app connects to.
      *  @param string|null $value Value to set for the hostName property.
     */
-    public function setHostName(?string $value ): void {
-        $this->hostName = $value;
+    public function setHostName(?string $value): void {
+        $this->getBackingStore()->set('hostName', $value);
     }
 
     /**
      * Sets the identityCertificate property value. Identity certificate.
      *  @param AndroidForWorkCertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
-    public function setIdentityCertificate(?AndroidForWorkCertificateProfileBase $value ): void {
-        $this->identityCertificate = $value;
+    public function setIdentityCertificate(?AndroidForWorkCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificate', $value);
     }
 
     /**
      * Sets the requireSsl property value. Indicates whether or not to use SSL.
      *  @param bool|null $value Value to set for the requireSsl property.
     */
-    public function setRequireSsl(?bool $value ): void {
-        $this->requireSsl = $value;
+    public function setRequireSsl(?bool $value): void {
+        $this->getBackingStore()->set('requireSsl', $value);
     }
 
     /**
      * Sets the usernameSource property value. Android username source.
      *  @param AndroidUsernameSource|null $value Value to set for the usernameSource property.
     */
-    public function setUsernameSource(?AndroidUsernameSource $value ): void {
-        $this->usernameSource = $value;
+    public function setUsernameSource(?AndroidUsernameSource $value): void {
+        $this->getBackingStore()->set('usernameSource', $value);
     }
 
 }

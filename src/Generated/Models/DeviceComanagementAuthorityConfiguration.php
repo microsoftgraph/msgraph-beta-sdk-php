@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * @var string|null $configurationManagerAgentCommandLineArgument CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
-    */
-    private ?string $configurationManagerAgentCommandLineArgument = null;
-    
-    /**
-     * @var bool|null $installConfigurationManagerAgent CoManagement Authority configuration InstallConfigurationManagerAgent
-    */
-    private ?bool $installConfigurationManagerAgent = null;
-    
-    /**
-     * @var int|null $managedDeviceAuthority CoManagement Authority configuration ManagedDeviceAuthority
-    */
-    private ?int $managedDeviceAuthority = null;
-    
-    /**
      * Instantiates a new DeviceComanagementAuthorityConfiguration and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return string|null
     */
     public function getConfigurationManagerAgentCommandLineArgument(): ?string {
-        return $this->configurationManagerAgentCommandLineArgument;
+        return $this->getBackingStore()->get('configurationManagerAgentCommandLineArgument');
     }
 
     /**
@@ -66,7 +51,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return bool|null
     */
     public function getInstallConfigurationManagerAgent(): ?bool {
-        return $this->installConfigurationManagerAgent;
+        return $this->getBackingStore()->get('installConfigurationManagerAgent');
     }
 
     /**
@@ -74,7 +59,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
      * @return int|null
     */
     public function getManagedDeviceAuthority(): ?int {
-        return $this->managedDeviceAuthority;
+        return $this->getBackingStore()->get('managedDeviceAuthority');
     }
 
     /**
@@ -83,33 +68,33 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('configurationManagerAgentCommandLineArgument', $this->configurationManagerAgentCommandLineArgument);
-        $writer->writeBooleanValue('installConfigurationManagerAgent', $this->installConfigurationManagerAgent);
-        $writer->writeIntegerValue('managedDeviceAuthority', $this->managedDeviceAuthority);
+        $writer->writeStringValue('configurationManagerAgentCommandLineArgument', $this->getConfigurationManagerAgentCommandLineArgument());
+        $writer->writeBooleanValue('installConfigurationManagerAgent', $this->getInstallConfigurationManagerAgent());
+        $writer->writeIntegerValue('managedDeviceAuthority', $this->getManagedDeviceAuthority());
     }
 
     /**
      * Sets the configurationManagerAgentCommandLineArgument property value. CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
      *  @param string|null $value Value to set for the configurationManagerAgentCommandLineArgument property.
     */
-    public function setConfigurationManagerAgentCommandLineArgument(?string $value ): void {
-        $this->configurationManagerAgentCommandLineArgument = $value;
+    public function setConfigurationManagerAgentCommandLineArgument(?string $value): void {
+        $this->getBackingStore()->set('configurationManagerAgentCommandLineArgument', $value);
     }
 
     /**
      * Sets the installConfigurationManagerAgent property value. CoManagement Authority configuration InstallConfigurationManagerAgent
      *  @param bool|null $value Value to set for the installConfigurationManagerAgent property.
     */
-    public function setInstallConfigurationManagerAgent(?bool $value ): void {
-        $this->installConfigurationManagerAgent = $value;
+    public function setInstallConfigurationManagerAgent(?bool $value): void {
+        $this->getBackingStore()->set('installConfigurationManagerAgent', $value);
     }
 
     /**
      * Sets the managedDeviceAuthority property value. CoManagement Authority configuration ManagedDeviceAuthority
      *  @param int|null $value Value to set for the managedDeviceAuthority property.
     */
-    public function setManagedDeviceAuthority(?int $value ): void {
-        $this->managedDeviceAuthority = $value;
+    public function setManagedDeviceAuthority(?int $value): void {
+        $this->getBackingStore()->set('managedDeviceAuthority', $value);
     }
 
 }

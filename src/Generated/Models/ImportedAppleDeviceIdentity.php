@@ -10,66 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedAppleDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Created Date Time of the device
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description of the device
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var DiscoverySource|null $discoverySource The discoverySource property
-    */
-    private ?DiscoverySource $discoverySource = null;
-    
-    /**
-     * @var EnrollmentState|null $enrollmentState The enrollmentState property
-    */
-    private ?EnrollmentState $enrollmentState = null;
-    
-    /**
-     * @var bool|null $isDeleted Indicates if the device is deleted from Apple Business Manager
-    */
-    private ?bool $isDeleted = null;
-    
-    /**
-     * @var bool|null $isSupervised Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
-    */
-    private ?bool $isSupervised = null;
-    
-    /**
-     * @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device
-    */
-    private ?DateTime $lastContactedDateTime = null;
-    
-    /**
-     * @var Platform|null $platform The platform property
-    */
-    private ?Platform $platform = null;
-    
-    /**
-     * @var DateTime|null $requestedEnrollmentProfileAssignmentDateTime The time enrollment profile was assigned to the device
-    */
-    private ?DateTime $requestedEnrollmentProfileAssignmentDateTime = null;
-    
-    /**
-     * @var string|null $requestedEnrollmentProfileId Enrollment profile Id admin intends to apply to the device during next enrollment
-    */
-    private ?string $requestedEnrollmentProfileId = null;
-    
-    /**
-     * @var string|null $serialNumber Device serial number
-    */
-    private ?string $serialNumber = null;
-    
-    /**
      * Instantiates a new importedAppleDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.importedAppleDeviceIdentity');
     }
 
     /**
@@ -93,7 +37,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -101,7 +45,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -109,7 +53,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DiscoverySource|null
     */
     public function getDiscoverySource(): ?DiscoverySource {
-        return $this->discoverySource;
+        return $this->getBackingStore()->get('discoverySource');
     }
 
     /**
@@ -117,7 +61,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->enrollmentState;
+        return $this->getBackingStore()->get('enrollmentState');
     }
 
     /**
@@ -146,7 +90,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
-        return $this->isDeleted;
+        return $this->getBackingStore()->get('isDeleted');
     }
 
     /**
@@ -154,7 +98,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSupervised(): ?bool {
-        return $this->isSupervised;
+        return $this->getBackingStore()->get('isSupervised');
     }
 
     /**
@@ -162,7 +106,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastContactedDateTime(): ?DateTime {
-        return $this->lastContactedDateTime;
+        return $this->getBackingStore()->get('lastContactedDateTime');
     }
 
     /**
@@ -170,7 +114,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -178,7 +122,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRequestedEnrollmentProfileAssignmentDateTime(): ?DateTime {
-        return $this->requestedEnrollmentProfileAssignmentDateTime;
+        return $this->getBackingStore()->get('requestedEnrollmentProfileAssignmentDateTime');
     }
 
     /**
@@ -186,7 +130,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getRequestedEnrollmentProfileId(): ?string {
-        return $this->requestedEnrollmentProfileId;
+        return $this->getBackingStore()->get('requestedEnrollmentProfileId');
     }
 
     /**
@@ -194,7 +138,7 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getSerialNumber(): ?string {
-        return $this->serialNumber;
+        return $this->getBackingStore()->get('serialNumber');
     }
 
     /**
@@ -203,105 +147,105 @@ class ImportedAppleDeviceIdentity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeEnumValue('discoverySource', $this->discoverySource);
-        $writer->writeEnumValue('enrollmentState', $this->enrollmentState);
-        $writer->writeBooleanValue('isDeleted', $this->isDeleted);
-        $writer->writeBooleanValue('isSupervised', $this->isSupervised);
-        $writer->writeDateTimeValue('lastContactedDateTime', $this->lastContactedDateTime);
-        $writer->writeEnumValue('platform', $this->platform);
-        $writer->writeDateTimeValue('requestedEnrollmentProfileAssignmentDateTime', $this->requestedEnrollmentProfileAssignmentDateTime);
-        $writer->writeStringValue('requestedEnrollmentProfileId', $this->requestedEnrollmentProfileId);
-        $writer->writeStringValue('serialNumber', $this->serialNumber);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeEnumValue('discoverySource', $this->getDiscoverySource());
+        $writer->writeEnumValue('enrollmentState', $this->getEnrollmentState());
+        $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
+        $writer->writeBooleanValue('isSupervised', $this->getIsSupervised());
+        $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
+        $writer->writeEnumValue('platform', $this->getPlatform());
+        $writer->writeDateTimeValue('requestedEnrollmentProfileAssignmentDateTime', $this->getRequestedEnrollmentProfileAssignmentDateTime());
+        $writer->writeStringValue('requestedEnrollmentProfileId', $this->getRequestedEnrollmentProfileId());
+        $writer->writeStringValue('serialNumber', $this->getSerialNumber());
     }
 
     /**
      * Sets the createdDateTime property value. Created Date Time of the device
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description of the device
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the discoverySource property value. The discoverySource property
      *  @param DiscoverySource|null $value Value to set for the discoverySource property.
     */
-    public function setDiscoverySource(?DiscoverySource $value ): void {
-        $this->discoverySource = $value;
+    public function setDiscoverySource(?DiscoverySource $value): void {
+        $this->getBackingStore()->set('discoverySource', $value);
     }
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
-    public function setEnrollmentState(?EnrollmentState $value ): void {
-        $this->enrollmentState = $value;
+    public function setEnrollmentState(?EnrollmentState $value): void {
+        $this->getBackingStore()->set('enrollmentState', $value);
     }
 
     /**
      * Sets the isDeleted property value. Indicates if the device is deleted from Apple Business Manager
      *  @param bool|null $value Value to set for the isDeleted property.
     */
-    public function setIsDeleted(?bool $value ): void {
-        $this->isDeleted = $value;
+    public function setIsDeleted(?bool $value): void {
+        $this->getBackingStore()->set('isDeleted', $value);
     }
 
     /**
      * Sets the isSupervised property value. Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
      *  @param bool|null $value Value to set for the isSupervised property.
     */
-    public function setIsSupervised(?bool $value ): void {
-        $this->isSupervised = $value;
+    public function setIsSupervised(?bool $value): void {
+        $this->getBackingStore()->set('isSupervised', $value);
     }
 
     /**
      * Sets the lastContactedDateTime property value. Last Contacted Date Time of the device
      *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
-    public function setLastContactedDateTime(?DateTime $value ): void {
-        $this->lastContactedDateTime = $value;
+    public function setLastContactedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastContactedDateTime', $value);
     }
 
     /**
      * Sets the platform property value. The platform property
      *  @param Platform|null $value Value to set for the platform property.
     */
-    public function setPlatform(?Platform $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?Platform $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
     /**
      * Sets the requestedEnrollmentProfileAssignmentDateTime property value. The time enrollment profile was assigned to the device
      *  @param DateTime|null $value Value to set for the requestedEnrollmentProfileAssignmentDateTime property.
     */
-    public function setRequestedEnrollmentProfileAssignmentDateTime(?DateTime $value ): void {
-        $this->requestedEnrollmentProfileAssignmentDateTime = $value;
+    public function setRequestedEnrollmentProfileAssignmentDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('requestedEnrollmentProfileAssignmentDateTime', $value);
     }
 
     /**
      * Sets the requestedEnrollmentProfileId property value. Enrollment profile Id admin intends to apply to the device during next enrollment
      *  @param string|null $value Value to set for the requestedEnrollmentProfileId property.
     */
-    public function setRequestedEnrollmentProfileId(?string $value ): void {
-        $this->requestedEnrollmentProfileId = $value;
+    public function setRequestedEnrollmentProfileId(?string $value): void {
+        $this->getBackingStore()->set('requestedEnrollmentProfileId', $value);
     }
 
     /**
      * Sets the serialNumber property value. Device serial number
      *  @param string|null $value Value to set for the serialNumber property.
     */
-    public function setSerialNumber(?string $value ): void {
-        $this->serialNumber = $value;
+    public function setSerialNumber(?string $value): void {
+        $this->getBackingStore()->set('serialNumber', $value);
     }
 
 }

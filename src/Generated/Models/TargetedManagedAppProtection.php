@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable 
 {
     /**
-     * @var TargetedManagedAppGroupType|null $appGroupType Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
-    */
-    private ?TargetedManagedAppGroupType $appGroupType = null;
-    
-    /**
-     * @var array<TargetedManagedAppPolicyAssignment>|null $assignments Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var bool|null $isAssigned Indicates if the policy is deployed to any inclusion groups or not.
-    */
-    private ?bool $isAssigned = null;
-    
-    /**
-     * @var AppManagementLevel|null $targetedAppManagementLevels Management levels for apps
-    */
-    private ?AppManagementLevel $targetedAppManagementLevels = null;
-    
-    /**
      * Instantiates a new TargetedManagedAppProtection and sets the default values.
     */
     public function __construct() {
@@ -58,7 +38,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
      * @return TargetedManagedAppGroupType|null
     */
     public function getAppGroupType(): ?TargetedManagedAppGroupType {
-        return $this->appGroupType;
+        return $this->getBackingStore()->get('appGroupType');
     }
 
     /**
@@ -66,7 +46,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
      * @return array<TargetedManagedAppPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -88,7 +68,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
      * @return bool|null
     */
     public function getIsAssigned(): ?bool {
-        return $this->isAssigned;
+        return $this->getBackingStore()->get('isAssigned');
     }
 
     /**
@@ -96,7 +76,7 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
      * @return AppManagementLevel|null
     */
     public function getTargetedAppManagementLevels(): ?AppManagementLevel {
-        return $this->targetedAppManagementLevels;
+        return $this->getBackingStore()->get('targetedAppManagementLevels');
     }
 
     /**
@@ -105,42 +85,42 @@ class TargetedManagedAppProtection extends ManagedAppProtection implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('appGroupType', $this->appGroupType);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeBooleanValue('isAssigned', $this->isAssigned);
-        $writer->writeEnumValue('targetedAppManagementLevels', $this->targetedAppManagementLevels);
+        $writer->writeEnumValue('appGroupType', $this->getAppGroupType());
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeBooleanValue('isAssigned', $this->getIsAssigned());
+        $writer->writeEnumValue('targetedAppManagementLevels', $this->getTargetedAppManagementLevels());
     }
 
     /**
      * Sets the appGroupType property value. Indicates a collection of apps to target which can be one of several pre-defined lists of apps or a manually selected list of apps
      *  @param TargetedManagedAppGroupType|null $value Value to set for the appGroupType property.
     */
-    public function setAppGroupType(?TargetedManagedAppGroupType $value ): void {
-        $this->appGroupType = $value;
+    public function setAppGroupType(?TargetedManagedAppGroupType $value): void {
+        $this->getBackingStore()->set('appGroupType', $value);
     }
 
     /**
      * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      *  @param array<TargetedManagedAppPolicyAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
      *  @param bool|null $value Value to set for the isAssigned property.
     */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
+    public function setIsAssigned(?bool $value): void {
+        $this->getBackingStore()->set('isAssigned', $value);
     }
 
     /**
      * Sets the targetedAppManagementLevels property value. Management levels for apps
      *  @param AppManagementLevel|null $value Value to set for the targetedAppManagementLevels property.
     */
-    public function setTargetedAppManagementLevels(?AppManagementLevel $value ): void {
-        $this->targetedAppManagementLevels = $value;
+    public function setTargetedAppManagementLevels(?AppManagementLevel $value): void {
+        $this->getBackingStore()->set('targetedAppManagementLevels', $value);
     }
 
 }
