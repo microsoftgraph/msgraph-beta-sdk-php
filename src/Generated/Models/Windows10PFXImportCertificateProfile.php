@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10PFXImportCertificateProfile extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
-    */
-    private ?KeyStorageProviderOption $keyStorageProvider = null;
-    
-    /**
      * Instantiates a new Windows10PFXImportCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->keyStorageProvider;
+        return $this->getBackingStore()->get('keyStorageProvider');
     }
 
     /**
@@ -55,15 +50,15 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('keyStorageProvider', $this->keyStorageProvider);
+        $writer->writeEnumValue('keyStorageProvider', $this->getKeyStorageProvider());
     }
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
-    public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
-        $this->keyStorageProvider = $value;
+    public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
+        $this->getBackingStore()->set('keyStorageProvider', $value);
     }
 
 }

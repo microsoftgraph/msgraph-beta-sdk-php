@@ -7,7 +7,9 @@ use Http\Promise\Promise;
 use Http\Promise\RejectedPromise;
 use Microsoft\Graph\Beta\Generated\Branding\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\BannerLogo\BannerLogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Branding\CustomCSS\CustomCSSRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Favicon\FaviconRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Branding\HeaderLogo\HeaderLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\Item\OrganizationalBrandingLocalizationItemRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\Localizations\LocalizationsRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Branding\SquareLogo\SquareLogoRequestBuilder;
@@ -41,8 +43,22 @@ class BrandingRequestBuilder
     /**
      * Provides operations to manage the media for the organizationalBranding entity.
     */
+    public function customCSS(): CustomCSSRequestBuilder {
+        return new CustomCSSRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the organizationalBranding entity.
+    */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the organizationalBranding entity.
+    */
+    public function headerLogo(): HeaderLogoRequestBuilder {
+        return new HeaderLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

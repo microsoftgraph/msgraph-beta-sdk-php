@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RunSummary implements AdditionalDataHolder, Parsable 
+class RunSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $failedRuns The number of failed workflow runs.
-    */
-    private ?int $failedRuns = null;
-    
-    /**
-     * @var int|null $failedTasks The number of failed tasks of a workflow.
-    */
-    private ?int $failedTasks = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $successfulRuns The number of successful workflow runs.
-    */
-    private ?int $successfulRuns = null;
-    
-    /**
-     * @var int|null $totalRuns The total number of runs for a workflow.
-    */
-    private ?int $totalRuns = null;
-    
-    /**
-     * @var int|null $totalTasks The totalTasks property
-    */
-    private ?int $totalTasks = null;
-    
-    /**
-     * @var int|null $totalUsers The totalUsers property
-    */
-    private ?int $totalUsers = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new runSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.identityGovernance.runSummary');
     }
 
     /**
@@ -70,8 +38,16 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +55,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedRuns(): ?int {
-        return $this->failedRuns;
+        return $this->getBackingStore()->get('failedRuns');
     }
 
     /**
@@ -87,7 +63,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedTasks(): ?int {
-        return $this->failedTasks;
+        return $this->getBackingStore()->get('failedTasks');
     }
 
     /**
@@ -112,7 +88,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -120,7 +96,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSuccessfulRuns(): ?int {
-        return $this->successfulRuns;
+        return $this->getBackingStore()->get('successfulRuns');
     }
 
     /**
@@ -128,7 +104,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalRuns(): ?int {
-        return $this->totalRuns;
+        return $this->getBackingStore()->get('totalRuns');
     }
 
     /**
@@ -136,7 +112,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalTasks(): ?int {
-        return $this->totalTasks;
+        return $this->getBackingStore()->get('totalTasks');
     }
 
     /**
@@ -144,7 +120,7 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalUsers(): ?int {
-        return $this->totalUsers;
+        return $this->getBackingStore()->get('totalUsers');
     }
 
     /**
@@ -152,78 +128,86 @@ class RunSummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('failedRuns', $this->failedRuns);
-        $writer->writeIntegerValue('failedTasks', $this->failedTasks);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('successfulRuns', $this->successfulRuns);
-        $writer->writeIntegerValue('totalRuns', $this->totalRuns);
-        $writer->writeIntegerValue('totalTasks', $this->totalTasks);
-        $writer->writeIntegerValue('totalUsers', $this->totalUsers);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('failedRuns', $this->getFailedRuns());
+        $writer->writeIntegerValue('failedTasks', $this->getFailedTasks());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('successfulRuns', $this->getSuccessfulRuns());
+        $writer->writeIntegerValue('totalRuns', $this->getTotalRuns());
+        $writer->writeIntegerValue('totalTasks', $this->getTotalTasks());
+        $writer->writeIntegerValue('totalUsers', $this->getTotalUsers());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the failedRuns property value. The number of failed workflow runs.
      *  @param int|null $value Value to set for the failedRuns property.
     */
-    public function setFailedRuns(?int $value ): void {
-        $this->failedRuns = $value;
+    public function setFailedRuns(?int $value): void {
+        $this->getBackingStore()->set('failedRuns', $value);
     }
 
     /**
      * Sets the failedTasks property value. The number of failed tasks of a workflow.
      *  @param int|null $value Value to set for the failedTasks property.
     */
-    public function setFailedTasks(?int $value ): void {
-        $this->failedTasks = $value;
+    public function setFailedTasks(?int $value): void {
+        $this->getBackingStore()->set('failedTasks', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the successfulRuns property value. The number of successful workflow runs.
      *  @param int|null $value Value to set for the successfulRuns property.
     */
-    public function setSuccessfulRuns(?int $value ): void {
-        $this->successfulRuns = $value;
+    public function setSuccessfulRuns(?int $value): void {
+        $this->getBackingStore()->set('successfulRuns', $value);
     }
 
     /**
      * Sets the totalRuns property value. The total number of runs for a workflow.
      *  @param int|null $value Value to set for the totalRuns property.
     */
-    public function setTotalRuns(?int $value ): void {
-        $this->totalRuns = $value;
+    public function setTotalRuns(?int $value): void {
+        $this->getBackingStore()->set('totalRuns', $value);
     }
 
     /**
      * Sets the totalTasks property value. The totalTasks property
      *  @param int|null $value Value to set for the totalTasks property.
     */
-    public function setTotalTasks(?int $value ): void {
-        $this->totalTasks = $value;
+    public function setTotalTasks(?int $value): void {
+        $this->getBackingStore()->set('totalTasks', $value);
     }
 
     /**
      * Sets the totalUsers property value. The totalUsers property
      *  @param int|null $value Value to set for the totalUsers property.
     */
-    public function setTotalUsers(?int $value ): void {
-        $this->totalUsers = $value;
+    public function setTotalUsers(?int $value): void {
+        $this->getBackingStore()->set('totalUsers', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementStringSettingInstance extends DeviceManagementSettingInstance implements Parsable 
 {
     /**
-     * @var string|null $value The string value
-    */
-    private ?string $value = null;
-    
-    /**
      * Instantiates a new DeviceManagementStringSettingInstance and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementStringSettingInstance extends DeviceManagementSettingInsta
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementStringSettingInstance extends DeviceManagementSettingInsta
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('value', $this->value);
+        $writer->writeStringValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The string value
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

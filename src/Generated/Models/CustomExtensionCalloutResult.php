@@ -10,31 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult implements Parsable 
 {
     /**
-     * @var DateTime|null $calloutDateTime The calloutDateTime property
-    */
-    private ?DateTime $calloutDateTime = null;
-    
-    /**
-     * @var string|null $customExtensionId The customExtensionId property
-    */
-    private ?string $customExtensionId = null;
-    
-    /**
-     * @var int|null $errorCode The errorCode property
-    */
-    private ?int $errorCode = null;
-    
-    /**
-     * @var int|null $httpStatus The httpStatus property
-    */
-    private ?int $httpStatus = null;
-    
-    /**
-     * @var int|null $numberOfAttempts The numberOfAttempts property
-    */
-    private ?int $numberOfAttempts = null;
-    
-    /**
      * Instantiates a new CustomExtensionCalloutResult and sets the default values.
     */
     public function __construct() {
@@ -56,7 +31,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return DateTime|null
     */
     public function getCalloutDateTime(): ?DateTime {
-        return $this->calloutDateTime;
+        return $this->getBackingStore()->get('calloutDateTime');
     }
 
     /**
@@ -64,7 +39,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return string|null
     */
     public function getCustomExtensionId(): ?string {
-        return $this->customExtensionId;
+        return $this->getBackingStore()->get('customExtensionId');
     }
 
     /**
@@ -72,7 +47,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -95,7 +70,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getHttpStatus(): ?int {
-        return $this->httpStatus;
+        return $this->getBackingStore()->get('httpStatus');
     }
 
     /**
@@ -103,7 +78,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
      * @return int|null
     */
     public function getNumberOfAttempts(): ?int {
-        return $this->numberOfAttempts;
+        return $this->getBackingStore()->get('numberOfAttempts');
     }
 
     /**
@@ -112,51 +87,51 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('calloutDateTime', $this->calloutDateTime);
-        $writer->writeStringValue('customExtensionId', $this->customExtensionId);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
-        $writer->writeIntegerValue('httpStatus', $this->httpStatus);
-        $writer->writeIntegerValue('numberOfAttempts', $this->numberOfAttempts);
+        $writer->writeDateTimeValue('calloutDateTime', $this->getCalloutDateTime());
+        $writer->writeStringValue('customExtensionId', $this->getCustomExtensionId());
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
+        $writer->writeIntegerValue('httpStatus', $this->getHttpStatus());
+        $writer->writeIntegerValue('numberOfAttempts', $this->getNumberOfAttempts());
     }
 
     /**
      * Sets the calloutDateTime property value. The calloutDateTime property
      *  @param DateTime|null $value Value to set for the calloutDateTime property.
     */
-    public function setCalloutDateTime(?DateTime $value ): void {
-        $this->calloutDateTime = $value;
+    public function setCalloutDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('calloutDateTime', $value);
     }
 
     /**
      * Sets the customExtensionId property value. The customExtensionId property
      *  @param string|null $value Value to set for the customExtensionId property.
     */
-    public function setCustomExtensionId(?string $value ): void {
-        $this->customExtensionId = $value;
+    public function setCustomExtensionId(?string $value): void {
+        $this->getBackingStore()->set('customExtensionId', $value);
     }
 
     /**
      * Sets the errorCode property value. The errorCode property
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the httpStatus property value. The httpStatus property
      *  @param int|null $value Value to set for the httpStatus property.
     */
-    public function setHttpStatus(?int $value ): void {
-        $this->httpStatus = $value;
+    public function setHttpStatus(?int $value): void {
+        $this->getBackingStore()->set('httpStatus', $value);
     }
 
     /**
      * Sets the numberOfAttempts property value. The numberOfAttempts property
      *  @param int|null $value Value to set for the numberOfAttempts property.
     */
-    public function setNumberOfAttempts(?int $value ): void {
-        $this->numberOfAttempts = $value;
+    public function setNumberOfAttempts(?int $value): void {
+        $this->getBackingStore()->set('numberOfAttempts', $value);
     }
 
 }

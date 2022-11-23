@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable 
 {
     /**
-     * @var array<SmsAuthenticationMethodTarget>|null $includeTargets A collection of users or groups who are enabled to use the authentication method.
-    */
-    private ?array $includeTargets = null;
-    
-    /**
      * Instantiates a new SmsAuthenticationMethodConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
      * @return array<SmsAuthenticationMethodTarget>|null
     */
     public function getIncludeTargets(): ?array {
-        return $this->includeTargets;
+        return $this->getBackingStore()->get('includeTargets');
     }
 
     /**
@@ -55,15 +50,15 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('includeTargets', $this->includeTargets);
+        $writer->writeCollectionOfObjectValues('includeTargets', $this->getIncludeTargets());
     }
 
     /**
      * Sets the includeTargets property value. A collection of users or groups who are enabled to use the authentication method.
      *  @param array<SmsAuthenticationMethodTarget>|null $value Value to set for the includeTargets property.
     */
-    public function setIncludeTargets(?array $value ): void {
-        $this->includeTargets = $value;
+    public function setIncludeTargets(?array $value): void {
+        $this->getBackingStore()->set('includeTargets', $value);
     }
 
 }

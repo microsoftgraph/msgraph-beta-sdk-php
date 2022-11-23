@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Parsable 
 {
     /**
-     * @var string|null $managedDeviceId The user experience analytics device id.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $processName User experience analytics device startup process name.
-    */
-    private ?string $processName = null;
-    
-    /**
-     * @var string|null $productName The user experience analytics device startup process product name.
-    */
-    private ?string $productName = null;
-    
-    /**
-     * @var string|null $publisher The User experience analytics device startup process publisher.
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var int|null $startupImpactInMs User experience analytics device startup process impact in milliseconds.
-    */
-    private ?int $startupImpactInMs = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsDeviceStartupProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceStartupProcess');
     }
 
     /**
@@ -70,7 +44,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -78,7 +52,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
      * @return string|null
     */
     public function getProcessName(): ?string {
-        return $this->processName;
+        return $this->getBackingStore()->get('processName');
     }
 
     /**
@@ -86,7 +60,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
      * @return string|null
     */
     public function getProductName(): ?string {
-        return $this->productName;
+        return $this->getBackingStore()->get('productName');
     }
 
     /**
@@ -94,7 +68,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -102,7 +76,7 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
      * @return int|null
     */
     public function getStartupImpactInMs(): ?int {
-        return $this->startupImpactInMs;
+        return $this->getBackingStore()->get('startupImpactInMs');
     }
 
     /**
@@ -111,51 +85,51 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('processName', $this->processName);
-        $writer->writeStringValue('productName', $this->productName);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeIntegerValue('startupImpactInMs', $this->startupImpactInMs);
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('processName', $this->getProcessName());
+        $writer->writeStringValue('productName', $this->getProductName());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeIntegerValue('startupImpactInMs', $this->getStartupImpactInMs());
     }
 
     /**
      * Sets the managedDeviceId property value. The user experience analytics device id.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the processName property value. User experience analytics device startup process name.
      *  @param string|null $value Value to set for the processName property.
     */
-    public function setProcessName(?string $value ): void {
-        $this->processName = $value;
+    public function setProcessName(?string $value): void {
+        $this->getBackingStore()->set('processName', $value);
     }
 
     /**
      * Sets the productName property value. The user experience analytics device startup process product name.
      *  @param string|null $value Value to set for the productName property.
     */
-    public function setProductName(?string $value ): void {
-        $this->productName = $value;
+    public function setProductName(?string $value): void {
+        $this->getBackingStore()->set('productName', $value);
     }
 
     /**
      * Sets the publisher property value. The User experience analytics device startup process publisher.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the startupImpactInMs property value. User experience analytics device startup process impact in milliseconds.
      *  @param int|null $value Value to set for the startupImpactInMs property.
     */
-    public function setStartupImpactInMs(?int $value ): void {
-        $this->startupImpactInMs = $value;
+    public function setStartupImpactInMs(?int $value): void {
+        $this->getBackingStore()->set('startupImpactInMs', $value);
     }
 
 }

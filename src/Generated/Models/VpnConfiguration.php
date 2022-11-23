@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class VpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var VpnAuthenticationMethod|null $authenticationMethod VPN Authentication Method.
-    */
-    private ?VpnAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var string|null $connectionName Connection name displayed to the user.
-    */
-    private ?string $connectionName = null;
-    
-    /**
-     * @var string|null $realm Realm when connection type is set to Pulse Secure.
-    */
-    private ?string $realm = null;
-    
-    /**
-     * @var string|null $role Role when connection type is set to Pulse Secure.
-    */
-    private ?string $role = null;
-    
-    /**
-     * @var array<VpnServer>|null $servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $servers = null;
-    
-    /**
      * Instantiates a new VpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -62,7 +37,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -70,7 +45,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->connectionName;
+        return $this->getBackingStore()->get('connectionName');
     }
 
     /**
@@ -93,7 +68,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRealm(): ?string {
-        return $this->realm;
+        return $this->getBackingStore()->get('realm');
     }
 
     /**
@@ -101,7 +76,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getRole(): ?string {
-        return $this->role;
+        return $this->getBackingStore()->get('role');
     }
 
     /**
@@ -109,7 +84,7 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->servers;
+        return $this->getBackingStore()->get('servers');
     }
 
     /**
@@ -118,51 +93,51 @@ class VpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeStringValue('connectionName', $this->connectionName);
-        $writer->writeStringValue('realm', $this->realm);
-        $writer->writeStringValue('role', $this->role);
-        $writer->writeCollectionOfObjectValues('servers', $this->servers);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeStringValue('connectionName', $this->getConnectionName());
+        $writer->writeStringValue('realm', $this->getRealm());
+        $writer->writeStringValue('role', $this->getRole());
+        $writer->writeCollectionOfObjectValues('servers', $this->getServers());
     }
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
      *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?VpnAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
      *  @param string|null $value Value to set for the connectionName property.
     */
-    public function setConnectionName(?string $value ): void {
-        $this->connectionName = $value;
+    public function setConnectionName(?string $value): void {
+        $this->getBackingStore()->set('connectionName', $value);
     }
 
     /**
      * Sets the realm property value. Realm when connection type is set to Pulse Secure.
      *  @param string|null $value Value to set for the realm property.
     */
-    public function setRealm(?string $value ): void {
-        $this->realm = $value;
+    public function setRealm(?string $value): void {
+        $this->getBackingStore()->set('realm', $value);
     }
 
     /**
      * Sets the role property value. Role when connection type is set to Pulse Secure.
      *  @param string|null $value Value to set for the role property.
     */
-    public function setRole(?string $value ): void {
-        $this->role = $value;
+    public function setRole(?string $value): void {
+        $this->getBackingStore()->set('role', $value);
     }
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *  @param array<VpnServer>|null $value Value to set for the servers property.
     */
-    public function setServers(?array $value ): void {
-        $this->servers = $value;
+    public function setServers(?array $value): void {
+        $this->getBackingStore()->set('servers', $value);
     }
 
 }

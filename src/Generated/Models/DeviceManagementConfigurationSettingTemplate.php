@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSettingTemplate extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationSettingDefinition>|null $settingDefinitions List of related Setting Definitions
-    */
-    private ?array $settingDefinitions = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSettingInstanceTemplate|null $settingInstanceTemplate Setting Instance Template
-    */
-    private ?DeviceManagementConfigurationSettingInstanceTemplate $settingInstanceTemplate = null;
-    
-    /**
      * Instantiates a new deviceManagementConfigurationSettingTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSettingTemplate');
     }
 
     /**
@@ -52,7 +41,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
      * @return array<DeviceManagementConfigurationSettingDefinition>|null
     */
     public function getSettingDefinitions(): ?array {
-        return $this->settingDefinitions;
+        return $this->getBackingStore()->get('settingDefinitions');
     }
 
     /**
@@ -60,7 +49,7 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
      * @return DeviceManagementConfigurationSettingInstanceTemplate|null
     */
     public function getSettingInstanceTemplate(): ?DeviceManagementConfigurationSettingInstanceTemplate {
-        return $this->settingInstanceTemplate;
+        return $this->getBackingStore()->get('settingInstanceTemplate');
     }
 
     /**
@@ -69,24 +58,24 @@ class DeviceManagementConfigurationSettingTemplate extends Entity implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->settingDefinitions);
-        $writer->writeObjectValue('settingInstanceTemplate', $this->settingInstanceTemplate);
+        $writer->writeCollectionOfObjectValues('settingDefinitions', $this->getSettingDefinitions());
+        $writer->writeObjectValue('settingInstanceTemplate', $this->getSettingInstanceTemplate());
     }
 
     /**
      * Sets the settingDefinitions property value. List of related Setting Definitions
      *  @param array<DeviceManagementConfigurationSettingDefinition>|null $value Value to set for the settingDefinitions property.
     */
-    public function setSettingDefinitions(?array $value ): void {
-        $this->settingDefinitions = $value;
+    public function setSettingDefinitions(?array $value): void {
+        $this->getBackingStore()->set('settingDefinitions', $value);
     }
 
     /**
      * Sets the settingInstanceTemplate property value. Setting Instance Template
      *  @param DeviceManagementConfigurationSettingInstanceTemplate|null $value Value to set for the settingInstanceTemplate property.
     */
-    public function setSettingInstanceTemplate(?DeviceManagementConfigurationSettingInstanceTemplate $value ): void {
-        $this->settingInstanceTemplate = $value;
+    public function setSettingInstanceTemplate(?DeviceManagementConfigurationSettingInstanceTemplate $value): void {
+        $this->getBackingStore()->set('settingInstanceTemplate', $value);
     }
 
 }

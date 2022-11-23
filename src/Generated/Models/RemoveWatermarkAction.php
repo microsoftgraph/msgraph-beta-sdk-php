@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RemoveWatermarkAction extends InformationProtectionAction implements Parsable 
 {
     /**
-     * @var array<string>|null $uiElementNames The name of the UI element of footer to be removed.
-    */
-    private ?array $uiElementNames = null;
-    
-    /**
      * Instantiates a new RemoveWatermarkAction and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
      * @return array<string>|null
     */
     public function getUiElementNames(): ?array {
-        return $this->uiElementNames;
+        return $this->getBackingStore()->get('uiElementNames');
     }
 
     /**
@@ -55,15 +50,15 @@ class RemoveWatermarkAction extends InformationProtectionAction implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('uiElementNames', $this->uiElementNames);
+        $writer->writeCollectionOfPrimitiveValues('uiElementNames', $this->getUiElementNames());
     }
 
     /**
      * Sets the uiElementNames property value. The name of the UI element of footer to be removed.
      *  @param array<string>|null $value Value to set for the uiElementNames property.
     */
-    public function setUiElementNames(?array $value ): void {
-        $this->uiElementNames = $value;
+    public function setUiElementNames(?array $value): void {
+        $this->getBackingStore()->set('uiElementNames', $value);
     }
 
 }

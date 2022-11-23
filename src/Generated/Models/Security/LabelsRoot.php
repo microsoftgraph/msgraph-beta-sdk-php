@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class LabelsRoot extends Entity implements Parsable 
 {
     /**
-     * @var array<RetentionLabel>|null $retentionLabels The retentionLabels property
-    */
-    private ?array $retentionLabels = null;
-    
-    /**
      * Instantiates a new labelsRoot and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.labelsRoot');
     }
 
     /**
@@ -47,7 +41,7 @@ class LabelsRoot extends Entity implements Parsable
      * @return array<RetentionLabel>|null
     */
     public function getRetentionLabels(): ?array {
-        return $this->retentionLabels;
+        return $this->getBackingStore()->get('retentionLabels');
     }
 
     /**
@@ -56,15 +50,15 @@ class LabelsRoot extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('retentionLabels', $this->retentionLabels);
+        $writer->writeCollectionOfObjectValues('retentionLabels', $this->getRetentionLabels());
     }
 
     /**
      * Sets the retentionLabels property value. The retentionLabels property
      *  @param array<RetentionLabel>|null $value Value to set for the retentionLabels property.
     */
-    public function setRetentionLabels(?array $value ): void {
-        $this->retentionLabels = $value;
+    public function setRetentionLabels(?array $value): void {
+        $this->getBackingStore()->set('retentionLabels', $value);
     }
 
 }

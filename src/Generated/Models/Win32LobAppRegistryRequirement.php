@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements Parsable 
 {
     /**
-     * @var bool|null $check32BitOn64System A value indicating whether this registry path is for checking 32-bit app on 64-bit system
-    */
-    private ?bool $check32BitOn64System = null;
-    
-    /**
-     * @var Win32LobAppRegistryDetectionType|null $detectionType Contains all supported registry data detection type.
-    */
-    private ?Win32LobAppRegistryDetectionType $detectionType = null;
-    
-    /**
-     * @var string|null $keyPath The registry key path to detect Win32 Line of Business (LoB) app
-    */
-    private ?string $keyPath = null;
-    
-    /**
-     * @var string|null $valueName The registry value name
-    */
-    private ?string $valueName = null;
-    
-    /**
      * Instantiates a new Win32LobAppRegistryRequirement and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
      * @return bool|null
     */
     public function getCheck32BitOn64System(): ?bool {
-        return $this->check32BitOn64System;
+        return $this->getBackingStore()->get('check32BitOn64System');
     }
 
     /**
@@ -58,7 +38,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
      * @return Win32LobAppRegistryDetectionType|null
     */
     public function getDetectionType(): ?Win32LobAppRegistryDetectionType {
-        return $this->detectionType;
+        return $this->getBackingStore()->get('detectionType');
     }
 
     /**
@@ -80,7 +60,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
      * @return string|null
     */
     public function getKeyPath(): ?string {
-        return $this->keyPath;
+        return $this->getBackingStore()->get('keyPath');
     }
 
     /**
@@ -88,7 +68,7 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
      * @return string|null
     */
     public function getValueName(): ?string {
-        return $this->valueName;
+        return $this->getBackingStore()->get('valueName');
     }
 
     /**
@@ -97,42 +77,42 @@ class Win32LobAppRegistryRequirement extends Win32LobAppRequirement implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('check32BitOn64System', $this->check32BitOn64System);
-        $writer->writeEnumValue('detectionType', $this->detectionType);
-        $writer->writeStringValue('keyPath', $this->keyPath);
-        $writer->writeStringValue('valueName', $this->valueName);
+        $writer->writeBooleanValue('check32BitOn64System', $this->getCheck32BitOn64System());
+        $writer->writeEnumValue('detectionType', $this->getDetectionType());
+        $writer->writeStringValue('keyPath', $this->getKeyPath());
+        $writer->writeStringValue('valueName', $this->getValueName());
     }
 
     /**
      * Sets the check32BitOn64System property value. A value indicating whether this registry path is for checking 32-bit app on 64-bit system
      *  @param bool|null $value Value to set for the check32BitOn64System property.
     */
-    public function setCheck32BitOn64System(?bool $value ): void {
-        $this->check32BitOn64System = $value;
+    public function setCheck32BitOn64System(?bool $value): void {
+        $this->getBackingStore()->set('check32BitOn64System', $value);
     }
 
     /**
      * Sets the detectionType property value. Contains all supported registry data detection type.
      *  @param Win32LobAppRegistryDetectionType|null $value Value to set for the detectionType property.
     */
-    public function setDetectionType(?Win32LobAppRegistryDetectionType $value ): void {
-        $this->detectionType = $value;
+    public function setDetectionType(?Win32LobAppRegistryDetectionType $value): void {
+        $this->getBackingStore()->set('detectionType', $value);
     }
 
     /**
      * Sets the keyPath property value. The registry key path to detect Win32 Line of Business (LoB) app
      *  @param string|null $value Value to set for the keyPath property.
     */
-    public function setKeyPath(?string $value ): void {
-        $this->keyPath = $value;
+    public function setKeyPath(?string $value): void {
+        $this->getBackingStore()->set('keyPath', $value);
     }
 
     /**
      * Sets the valueName property value. The registry value name
      *  @param string|null $value Value to set for the valueName property.
     */
-    public function setValueName(?string $value ): void {
-        $this->valueName = $value;
+    public function setValueName(?string $value): void {
+        $this->getBackingStore()->set('valueName', $value);
     }
 
 }

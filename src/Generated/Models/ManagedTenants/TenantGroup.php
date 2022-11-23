@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantGroup extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $allTenantsIncluded A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
-    */
-    private ?bool $allTenantsIncluded = null;
-    
-    /**
-     * @var string|null $displayName The display name for the tenant group. Optional. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<ManagementActionInfo>|null $managementActions The collection of management action associated with the tenant group. Optional. Read-only.
-    */
-    private ?array $managementActions = null;
-    
-    /**
-     * @var array<ManagementIntentInfo>|null $managementIntents The collection of management intents associated with the tenant group. Optional. Read-only.
-    */
-    private ?array $managementIntents = null;
-    
-    /**
-     * @var array<string>|null $tenantIds The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
-    */
-    private ?array $tenantIds = null;
-    
-    /**
      * Instantiates a new tenantGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.tenantGroup');
     }
 
     /**
@@ -56,7 +30,7 @@ class TenantGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllTenantsIncluded(): ?bool {
-        return $this->allTenantsIncluded;
+        return $this->getBackingStore()->get('allTenantsIncluded');
     }
 
     /**
@@ -64,7 +38,7 @@ class TenantGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -87,7 +61,7 @@ class TenantGroup extends Entity implements Parsable
      * @return array<ManagementActionInfo>|null
     */
     public function getManagementActions(): ?array {
-        return $this->managementActions;
+        return $this->getBackingStore()->get('managementActions');
     }
 
     /**
@@ -95,7 +69,7 @@ class TenantGroup extends Entity implements Parsable
      * @return array<ManagementIntentInfo>|null
     */
     public function getManagementIntents(): ?array {
-        return $this->managementIntents;
+        return $this->getBackingStore()->get('managementIntents');
     }
 
     /**
@@ -103,7 +77,7 @@ class TenantGroup extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTenantIds(): ?array {
-        return $this->tenantIds;
+        return $this->getBackingStore()->get('tenantIds');
     }
 
     /**
@@ -112,51 +86,51 @@ class TenantGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allTenantsIncluded', $this->allTenantsIncluded);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('managementActions', $this->managementActions);
-        $writer->writeCollectionOfObjectValues('managementIntents', $this->managementIntents);
-        $writer->writeCollectionOfPrimitiveValues('tenantIds', $this->tenantIds);
+        $writer->writeBooleanValue('allTenantsIncluded', $this->getAllTenantsIncluded());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('managementActions', $this->getManagementActions());
+        $writer->writeCollectionOfObjectValues('managementIntents', $this->getManagementIntents());
+        $writer->writeCollectionOfPrimitiveValues('tenantIds', $this->getTenantIds());
     }
 
     /**
      * Sets the allTenantsIncluded property value. A flag indicating whether all managed tenant are included in the tenant group. Required. Read-only.
      *  @param bool|null $value Value to set for the allTenantsIncluded property.
     */
-    public function setAllTenantsIncluded(?bool $value ): void {
-        $this->allTenantsIncluded = $value;
+    public function setAllTenantsIncluded(?bool $value): void {
+        $this->getBackingStore()->set('allTenantsIncluded', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the tenant group. Optional. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the managementActions property value. The collection of management action associated with the tenant group. Optional. Read-only.
      *  @param array<ManagementActionInfo>|null $value Value to set for the managementActions property.
     */
-    public function setManagementActions(?array $value ): void {
-        $this->managementActions = $value;
+    public function setManagementActions(?array $value): void {
+        $this->getBackingStore()->set('managementActions', $value);
     }
 
     /**
      * Sets the managementIntents property value. The collection of management intents associated with the tenant group. Optional. Read-only.
      *  @param array<ManagementIntentInfo>|null $value Value to set for the managementIntents property.
     */
-    public function setManagementIntents(?array $value ): void {
-        $this->managementIntents = $value;
+    public function setManagementIntents(?array $value): void {
+        $this->getBackingStore()->set('managementIntents', $value);
     }
 
     /**
      * Sets the tenantIds property value. The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
      *  @param array<string>|null $value Value to set for the tenantIds property.
     */
-    public function setTenantIds(?array $value ): void {
-        $this->tenantIds = $value;
+    public function setTenantIds(?array $value): void {
+        $this->getBackingStore()->set('tenantIds', $value);
     }
 
 }

@@ -9,46 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Note extends OutlookItem implements Parsable 
 {
     /**
-     * @var array<Attachment>|null $attachments The attachments property
-    */
-    private ?array $attachments = null;
-    
-    /**
-     * @var ItemBody|null $body The body property
-    */
-    private ?ItemBody $body = null;
-    
-    /**
-     * @var array<Extension>|null $extensions The extensions property
-    */
-    private ?array $extensions = null;
-    
-    /**
-     * @var bool|null $hasAttachments The hasAttachments property
-    */
-    private ?bool $hasAttachments = null;
-    
-    /**
-     * @var bool|null $isDeleted The isDeleted property
-    */
-    private ?bool $isDeleted = null;
-    
-    /**
-     * @var array<MultiValueLegacyExtendedProperty>|null $multiValueExtendedProperties The multiValueExtendedProperties property
-    */
-    private ?array $multiValueExtendedProperties = null;
-    
-    /**
-     * @var array<SingleValueLegacyExtendedProperty>|null $singleValueExtendedProperties The singleValueExtendedProperties property
-    */
-    private ?array $singleValueExtendedProperties = null;
-    
-    /**
-     * @var string|null $subject The subject property
-    */
-    private ?string $subject = null;
-    
-    /**
      * Instantiates a new Note and sets the default values.
     */
     public function __construct() {
@@ -70,7 +30,7 @@ class Note extends OutlookItem implements Parsable
      * @return array<Attachment>|null
     */
     public function getAttachments(): ?array {
-        return $this->attachments;
+        return $this->getBackingStore()->get('attachments');
     }
 
     /**
@@ -78,7 +38,7 @@ class Note extends OutlookItem implements Parsable
      * @return ItemBody|null
     */
     public function getBody(): ?ItemBody {
-        return $this->body;
+        return $this->getBackingStore()->get('body');
     }
 
     /**
@@ -86,7 +46,7 @@ class Note extends OutlookItem implements Parsable
      * @return array<Extension>|null
     */
     public function getExtensions(): ?array {
-        return $this->extensions;
+        return $this->getBackingStore()->get('extensions');
     }
 
     /**
@@ -112,7 +72,7 @@ class Note extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getHasAttachments(): ?bool {
-        return $this->hasAttachments;
+        return $this->getBackingStore()->get('hasAttachments');
     }
 
     /**
@@ -120,7 +80,7 @@ class Note extends OutlookItem implements Parsable
      * @return bool|null
     */
     public function getIsDeleted(): ?bool {
-        return $this->isDeleted;
+        return $this->getBackingStore()->get('isDeleted');
     }
 
     /**
@@ -128,7 +88,7 @@ class Note extends OutlookItem implements Parsable
      * @return array<MultiValueLegacyExtendedProperty>|null
     */
     public function getMultiValueExtendedProperties(): ?array {
-        return $this->multiValueExtendedProperties;
+        return $this->getBackingStore()->get('multiValueExtendedProperties');
     }
 
     /**
@@ -136,7 +96,7 @@ class Note extends OutlookItem implements Parsable
      * @return array<SingleValueLegacyExtendedProperty>|null
     */
     public function getSingleValueExtendedProperties(): ?array {
-        return $this->singleValueExtendedProperties;
+        return $this->getBackingStore()->get('singleValueExtendedProperties');
     }
 
     /**
@@ -144,7 +104,7 @@ class Note extends OutlookItem implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -153,78 +113,78 @@ class Note extends OutlookItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('attachments', $this->attachments);
-        $writer->writeObjectValue('body', $this->body);
-        $writer->writeCollectionOfObjectValues('extensions', $this->extensions);
-        $writer->writeBooleanValue('hasAttachments', $this->hasAttachments);
-        $writer->writeBooleanValue('isDeleted', $this->isDeleted);
-        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->multiValueExtendedProperties);
-        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->singleValueExtendedProperties);
-        $writer->writeStringValue('subject', $this->subject);
+        $writer->writeCollectionOfObjectValues('attachments', $this->getAttachments());
+        $writer->writeObjectValue('body', $this->getBody());
+        $writer->writeCollectionOfObjectValues('extensions', $this->getExtensions());
+        $writer->writeBooleanValue('hasAttachments', $this->getHasAttachments());
+        $writer->writeBooleanValue('isDeleted', $this->getIsDeleted());
+        $writer->writeCollectionOfObjectValues('multiValueExtendedProperties', $this->getMultiValueExtendedProperties());
+        $writer->writeCollectionOfObjectValues('singleValueExtendedProperties', $this->getSingleValueExtendedProperties());
+        $writer->writeStringValue('subject', $this->getSubject());
     }
 
     /**
      * Sets the attachments property value. The attachments property
      *  @param array<Attachment>|null $value Value to set for the attachments property.
     */
-    public function setAttachments(?array $value ): void {
-        $this->attachments = $value;
+    public function setAttachments(?array $value): void {
+        $this->getBackingStore()->set('attachments', $value);
     }
 
     /**
      * Sets the body property value. The body property
      *  @param ItemBody|null $value Value to set for the body property.
     */
-    public function setBody(?ItemBody $value ): void {
-        $this->body = $value;
+    public function setBody(?ItemBody $value): void {
+        $this->getBackingStore()->set('body', $value);
     }
 
     /**
      * Sets the extensions property value. The extensions property
      *  @param array<Extension>|null $value Value to set for the extensions property.
     */
-    public function setExtensions(?array $value ): void {
-        $this->extensions = $value;
+    public function setExtensions(?array $value): void {
+        $this->getBackingStore()->set('extensions', $value);
     }
 
     /**
      * Sets the hasAttachments property value. The hasAttachments property
      *  @param bool|null $value Value to set for the hasAttachments property.
     */
-    public function setHasAttachments(?bool $value ): void {
-        $this->hasAttachments = $value;
+    public function setHasAttachments(?bool $value): void {
+        $this->getBackingStore()->set('hasAttachments', $value);
     }
 
     /**
      * Sets the isDeleted property value. The isDeleted property
      *  @param bool|null $value Value to set for the isDeleted property.
     */
-    public function setIsDeleted(?bool $value ): void {
-        $this->isDeleted = $value;
+    public function setIsDeleted(?bool $value): void {
+        $this->getBackingStore()->set('isDeleted', $value);
     }
 
     /**
      * Sets the multiValueExtendedProperties property value. The multiValueExtendedProperties property
      *  @param array<MultiValueLegacyExtendedProperty>|null $value Value to set for the multiValueExtendedProperties property.
     */
-    public function setMultiValueExtendedProperties(?array $value ): void {
-        $this->multiValueExtendedProperties = $value;
+    public function setMultiValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('multiValueExtendedProperties', $value);
     }
 
     /**
      * Sets the singleValueExtendedProperties property value. The singleValueExtendedProperties property
      *  @param array<SingleValueLegacyExtendedProperty>|null $value Value to set for the singleValueExtendedProperties property.
     */
-    public function setSingleValueExtendedProperties(?array $value ): void {
-        $this->singleValueExtendedProperties = $value;
+    public function setSingleValueExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('singleValueExtendedProperties', $value);
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
 }

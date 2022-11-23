@@ -10,31 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InformationProtectionPolicySetting extends Entity implements Parsable 
 {
     /**
-     * @var string|null $defaultLabelId The defaultLabelId property
-    */
-    private ?string $defaultLabelId = null;
-    
-    /**
-     * @var bool|null $isDowngradeJustificationRequired Exposes whether justification input is required on label downgrade.
-    */
-    private ?bool $isDowngradeJustificationRequired = null;
-    
-    /**
-     * @var bool|null $isMandatory Exposes whether mandatory labeling is enabled.
-    */
-    private ?bool $isMandatory = null;
-    
-    /**
-     * @var string|null $moreInfoUrl Exposes the more information URL that can be configured by the administrator.
-    */
-    private ?string $moreInfoUrl = null;
-    
-    /**
      * Instantiates a new informationProtectionPolicySetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.informationProtectionPolicySetting');
     }
 
     /**
@@ -51,7 +30,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getDefaultLabelId(): ?string {
-        return $this->defaultLabelId;
+        return $this->getBackingStore()->get('defaultLabelId');
     }
 
     /**
@@ -73,7 +52,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDowngradeJustificationRequired(): ?bool {
-        return $this->isDowngradeJustificationRequired;
+        return $this->getBackingStore()->get('isDowngradeJustificationRequired');
     }
 
     /**
@@ -81,7 +60,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->isMandatory;
+        return $this->getBackingStore()->get('isMandatory');
     }
 
     /**
@@ -89,7 +68,7 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
      * @return string|null
     */
     public function getMoreInfoUrl(): ?string {
-        return $this->moreInfoUrl;
+        return $this->getBackingStore()->get('moreInfoUrl');
     }
 
     /**
@@ -98,42 +77,42 @@ class InformationProtectionPolicySetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('defaultLabelId', $this->defaultLabelId);
-        $writer->writeBooleanValue('isDowngradeJustificationRequired', $this->isDowngradeJustificationRequired);
-        $writer->writeBooleanValue('isMandatory', $this->isMandatory);
-        $writer->writeStringValue('moreInfoUrl', $this->moreInfoUrl);
+        $writer->writeStringValue('defaultLabelId', $this->getDefaultLabelId());
+        $writer->writeBooleanValue('isDowngradeJustificationRequired', $this->getIsDowngradeJustificationRequired());
+        $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
+        $writer->writeStringValue('moreInfoUrl', $this->getMoreInfoUrl());
     }
 
     /**
      * Sets the defaultLabelId property value. The defaultLabelId property
      *  @param string|null $value Value to set for the defaultLabelId property.
     */
-    public function setDefaultLabelId(?string $value ): void {
-        $this->defaultLabelId = $value;
+    public function setDefaultLabelId(?string $value): void {
+        $this->getBackingStore()->set('defaultLabelId', $value);
     }
 
     /**
      * Sets the isDowngradeJustificationRequired property value. Exposes whether justification input is required on label downgrade.
      *  @param bool|null $value Value to set for the isDowngradeJustificationRequired property.
     */
-    public function setIsDowngradeJustificationRequired(?bool $value ): void {
-        $this->isDowngradeJustificationRequired = $value;
+    public function setIsDowngradeJustificationRequired(?bool $value): void {
+        $this->getBackingStore()->set('isDowngradeJustificationRequired', $value);
     }
 
     /**
      * Sets the isMandatory property value. Exposes whether mandatory labeling is enabled.
      *  @param bool|null $value Value to set for the isMandatory property.
     */
-    public function setIsMandatory(?bool $value ): void {
-        $this->isMandatory = $value;
+    public function setIsMandatory(?bool $value): void {
+        $this->getBackingStore()->set('isMandatory', $value);
     }
 
     /**
      * Sets the moreInfoUrl property value. Exposes the more information URL that can be configured by the administrator.
      *  @param string|null $value Value to set for the moreInfoUrl property.
     */
-    public function setMoreInfoUrl(?string $value ): void {
-        $this->moreInfoUrl = $value;
+    public function setMoreInfoUrl(?string $value): void {
+        $this->getBackingStore()->set('moreInfoUrl', $value);
     }
 
 }

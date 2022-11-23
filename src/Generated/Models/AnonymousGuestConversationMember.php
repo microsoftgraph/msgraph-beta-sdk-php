@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AnonymousGuestConversationMember extends ConversationMember implements Parsable 
 {
     /**
-     * @var string|null $anonymousGuestId Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
-    */
-    private ?string $anonymousGuestId = null;
-    
-    /**
      * Instantiates a new AnonymousGuestConversationMember and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class AnonymousGuestConversationMember extends ConversationMember implements Par
      * @return string|null
     */
     public function getAnonymousGuestId(): ?string {
-        return $this->anonymousGuestId;
+        return $this->getBackingStore()->get('anonymousGuestId');
     }
 
     /**
@@ -55,15 +50,15 @@ class AnonymousGuestConversationMember extends ConversationMember implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('anonymousGuestId', $this->anonymousGuestId);
+        $writer->writeStringValue('anonymousGuestId', $this->getAnonymousGuestId());
     }
 
     /**
      * Sets the anonymousGuestId property value. Unique ID that represents the user. Note: This ID can change if the user leaves and rejoins the meeting, or joins from a different device.
      *  @param string|null $value Value to set for the anonymousGuestId property.
     */
-    public function setAnonymousGuestId(?string $value ): void {
-        $this->anonymousGuestId = $value;
+    public function setAnonymousGuestId(?string $value): void {
+        $this->getBackingStore()->set('anonymousGuestId', $value);
     }
 
 }

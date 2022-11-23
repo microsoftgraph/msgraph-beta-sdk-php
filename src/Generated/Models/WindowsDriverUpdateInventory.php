@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDriverUpdateInventory extends Entity implements Parsable 
 {
     /**
-     * @var int|null $applicableDeviceCount The number of devices for which this driver is applicable.
-    */
-    private ?int $applicableDeviceCount = null;
-    
-    /**
-     * @var DriverApprovalStatus|null $approvalStatus An enum type to represent approval status of a driver.
-    */
-    private ?DriverApprovalStatus $approvalStatus = null;
-    
-    /**
-     * @var DriverCategory|null $category An enum type to represent which category a driver belongs to.
-    */
-    private ?DriverCategory $category = null;
-    
-    /**
-     * @var DateTime|null $deployDateTime The date time when a driver should be deployed if approvalStatus is approved.
-    */
-    private ?DateTime $deployDateTime = null;
-    
-    /**
-     * @var string|null $driverClass The class of the driver.
-    */
-    private ?string $driverClass = null;
-    
-    /**
-     * @var string|null $manufacturer The manufacturer of the driver.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $name The name of the driver.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var DateTime|null $releaseDateTime The release date time of the driver.
-    */
-    private ?DateTime $releaseDateTime = null;
-    
-    /**
-     * @var string|null $version The version of the driver.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new windowsDriverUpdateInventory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsDriverUpdateInventory');
     }
 
     /**
@@ -76,7 +30,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return int|null
     */
     public function getApplicableDeviceCount(): ?int {
-        return $this->applicableDeviceCount;
+        return $this->getBackingStore()->get('applicableDeviceCount');
     }
 
     /**
@@ -84,7 +38,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DriverApprovalStatus|null
     */
     public function getApprovalStatus(): ?DriverApprovalStatus {
-        return $this->approvalStatus;
+        return $this->getBackingStore()->get('approvalStatus');
     }
 
     /**
@@ -92,7 +46,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DriverCategory|null
     */
     public function getCategory(): ?DriverCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -100,7 +54,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeployDateTime(): ?DateTime {
-        return $this->deployDateTime;
+        return $this->getBackingStore()->get('deployDateTime');
     }
 
     /**
@@ -108,7 +62,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getDriverClass(): ?string {
-        return $this->driverClass;
+        return $this->getBackingStore()->get('driverClass');
     }
 
     /**
@@ -135,7 +89,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -143,7 +97,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -151,7 +105,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->releaseDateTime;
+        return $this->getBackingStore()->get('releaseDateTime');
     }
 
     /**
@@ -159,7 +113,7 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -168,87 +122,87 @@ class WindowsDriverUpdateInventory extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('applicableDeviceCount', $this->applicableDeviceCount);
-        $writer->writeEnumValue('approvalStatus', $this->approvalStatus);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeDateTimeValue('deployDateTime', $this->deployDateTime);
-        $writer->writeStringValue('driverClass', $this->driverClass);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeDateTimeValue('releaseDateTime', $this->releaseDateTime);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeIntegerValue('applicableDeviceCount', $this->getApplicableDeviceCount());
+        $writer->writeEnumValue('approvalStatus', $this->getApprovalStatus());
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeDateTimeValue('deployDateTime', $this->getDeployDateTime());
+        $writer->writeStringValue('driverClass', $this->getDriverClass());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the applicableDeviceCount property value. The number of devices for which this driver is applicable.
      *  @param int|null $value Value to set for the applicableDeviceCount property.
     */
-    public function setApplicableDeviceCount(?int $value ): void {
-        $this->applicableDeviceCount = $value;
+    public function setApplicableDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('applicableDeviceCount', $value);
     }
 
     /**
      * Sets the approvalStatus property value. An enum type to represent approval status of a driver.
      *  @param DriverApprovalStatus|null $value Value to set for the approvalStatus property.
     */
-    public function setApprovalStatus(?DriverApprovalStatus $value ): void {
-        $this->approvalStatus = $value;
+    public function setApprovalStatus(?DriverApprovalStatus $value): void {
+        $this->getBackingStore()->set('approvalStatus', $value);
     }
 
     /**
      * Sets the category property value. An enum type to represent which category a driver belongs to.
      *  @param DriverCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?DriverCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?DriverCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the deployDateTime property value. The date time when a driver should be deployed if approvalStatus is approved.
      *  @param DateTime|null $value Value to set for the deployDateTime property.
     */
-    public function setDeployDateTime(?DateTime $value ): void {
-        $this->deployDateTime = $value;
+    public function setDeployDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deployDateTime', $value);
     }
 
     /**
      * Sets the driverClass property value. The class of the driver.
      *  @param string|null $value Value to set for the driverClass property.
     */
-    public function setDriverClass(?string $value ): void {
-        $this->driverClass = $value;
+    public function setDriverClass(?string $value): void {
+        $this->getBackingStore()->set('driverClass', $value);
     }
 
     /**
      * Sets the manufacturer property value. The manufacturer of the driver.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the name property value. The name of the driver.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the releaseDateTime property value. The release date time of the driver.
      *  @param DateTime|null $value Value to set for the releaseDateTime property.
     */
-    public function setReleaseDateTime(?DateTime $value ): void {
-        $this->releaseDateTime = $value;
+    public function setReleaseDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('releaseDateTime', $value);
     }
 
     /**
      * Sets the version property value. The version of the driver.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

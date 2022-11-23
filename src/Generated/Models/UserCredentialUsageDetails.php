@@ -10,46 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserCredentialUsageDetails extends Entity implements Parsable 
 {
     /**
-     * @var UsageAuthMethod|null $authMethod The authMethod property
-    */
-    private ?UsageAuthMethod $authMethod = null;
-    
-    /**
-     * @var DateTime|null $eventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $eventDateTime = null;
-    
-    /**
-     * @var string|null $failureReason Provides the failure reason for the corresponding reset or registration workflow.
-    */
-    private ?string $failureReason = null;
-    
-    /**
-     * @var FeatureType|null $feature The feature property
-    */
-    private ?FeatureType $feature = null;
-    
-    /**
-     * @var bool|null $isSuccess Indicates success or failure of the workflow.
-    */
-    private ?bool $isSuccess = null;
-    
-    /**
-     * @var string|null $userDisplayName User name of the user performing the reset or registration workflow.
-    */
-    private ?string $userDisplayName = null;
-    
-    /**
-     * @var string|null $userPrincipalName User principal name of the user performing the reset or registration workflow.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new userCredentialUsageDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userCredentialUsageDetails');
     }
 
     /**
@@ -66,7 +30,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return UsageAuthMethod|null
     */
     public function getAuthMethod(): ?UsageAuthMethod {
-        return $this->authMethod;
+        return $this->getBackingStore()->get('authMethod');
     }
 
     /**
@@ -74,7 +38,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->eventDateTime;
+        return $this->getBackingStore()->get('eventDateTime');
     }
 
     /**
@@ -82,7 +46,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getFailureReason(): ?string {
-        return $this->failureReason;
+        return $this->getBackingStore()->get('failureReason');
     }
 
     /**
@@ -90,7 +54,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return FeatureType|null
     */
     public function getFeature(): ?FeatureType {
-        return $this->feature;
+        return $this->getBackingStore()->get('feature');
     }
 
     /**
@@ -115,7 +79,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsSuccess(): ?bool {
-        return $this->isSuccess;
+        return $this->getBackingStore()->get('isSuccess');
     }
 
     /**
@@ -123,7 +87,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->userDisplayName;
+        return $this->getBackingStore()->get('userDisplayName');
     }
 
     /**
@@ -131,7 +95,7 @@ class UserCredentialUsageDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -140,69 +104,69 @@ class UserCredentialUsageDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authMethod', $this->authMethod);
-        $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
-        $writer->writeStringValue('failureReason', $this->failureReason);
-        $writer->writeEnumValue('feature', $this->feature);
-        $writer->writeBooleanValue('isSuccess', $this->isSuccess);
-        $writer->writeStringValue('userDisplayName', $this->userDisplayName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeEnumValue('authMethod', $this->getAuthMethod());
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeStringValue('failureReason', $this->getFailureReason());
+        $writer->writeEnumValue('feature', $this->getFeature());
+        $writer->writeBooleanValue('isSuccess', $this->getIsSuccess());
+        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the authMethod property value. The authMethod property
      *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
     */
-    public function setAuthMethod(?UsageAuthMethod $value ): void {
-        $this->authMethod = $value;
+    public function setAuthMethod(?UsageAuthMethod $value): void {
+        $this->getBackingStore()->set('authMethod', $value);
     }
 
     /**
      * Sets the eventDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setEventDateTime(?DateTime $value ): void {
-        $this->eventDateTime = $value;
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
      * Sets the failureReason property value. Provides the failure reason for the corresponding reset or registration workflow.
      *  @param string|null $value Value to set for the failureReason property.
     */
-    public function setFailureReason(?string $value ): void {
-        $this->failureReason = $value;
+    public function setFailureReason(?string $value): void {
+        $this->getBackingStore()->set('failureReason', $value);
     }
 
     /**
      * Sets the feature property value. The feature property
      *  @param FeatureType|null $value Value to set for the feature property.
     */
-    public function setFeature(?FeatureType $value ): void {
-        $this->feature = $value;
+    public function setFeature(?FeatureType $value): void {
+        $this->getBackingStore()->set('feature', $value);
     }
 
     /**
      * Sets the isSuccess property value. Indicates success or failure of the workflow.
      *  @param bool|null $value Value to set for the isSuccess property.
     */
-    public function setIsSuccess(?bool $value ): void {
-        $this->isSuccess = $value;
+    public function setIsSuccess(?bool $value): void {
+        $this->getBackingStore()->set('isSuccess', $value);
     }
 
     /**
      * Sets the userDisplayName property value. User name of the user performing the reset or registration workflow.
      *  @param string|null $value Value to set for the userDisplayName property.
     */
-    public function setUserDisplayName(?string $value ): void {
-        $this->userDisplayName = $value;
+    public function setUserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('userDisplayName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User principal name of the user performing the reset or registration workflow.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

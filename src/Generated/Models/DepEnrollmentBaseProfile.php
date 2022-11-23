@@ -9,101 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable 
 {
     /**
-     * @var bool|null $appleIdDisabled Indicates if Apple id setup pane is disabled
-    */
-    private ?bool $appleIdDisabled = null;
-    
-    /**
-     * @var bool|null $applePayDisabled Indicates if Apple pay setup pane is disabled
-    */
-    private ?bool $applePayDisabled = null;
-    
-    /**
-     * @var bool|null $configurationWebUrl URL for setup assistant login
-    */
-    private ?bool $configurationWebUrl = null;
-    
-    /**
-     * @var string|null $deviceNameTemplate Sets a literal or name pattern.
-    */
-    private ?string $deviceNameTemplate = null;
-    
-    /**
-     * @var bool|null $diagnosticsDisabled Indicates if diagnostics setup pane is disabled
-    */
-    private ?bool $diagnosticsDisabled = null;
-    
-    /**
-     * @var bool|null $displayToneSetupDisabled Indicates if displaytone setup screen is disabled
-    */
-    private ?bool $displayToneSetupDisabled = null;
-    
-    /**
-     * @var bool|null $isDefault Indicates if this is the default profile
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var bool|null $isMandatory Indicates if the profile is mandatory
-    */
-    private ?bool $isMandatory = null;
-    
-    /**
-     * @var bool|null $locationDisabled Indicates if Location service setup pane is disabled
-    */
-    private ?bool $locationDisabled = null;
-    
-    /**
-     * @var bool|null $privacyPaneDisabled Indicates if privacy screen is disabled
-    */
-    private ?bool $privacyPaneDisabled = null;
-    
-    /**
-     * @var bool|null $profileRemovalDisabled Indicates if the profile removal option is disabled
-    */
-    private ?bool $profileRemovalDisabled = null;
-    
-    /**
-     * @var bool|null $restoreBlocked Indicates if Restore setup pane is blocked
-    */
-    private ?bool $restoreBlocked = null;
-    
-    /**
-     * @var bool|null $screenTimeScreenDisabled Indicates if screen timeout setup is disabled
-    */
-    private ?bool $screenTimeScreenDisabled = null;
-    
-    /**
-     * @var bool|null $siriDisabled Indicates if siri setup pane is disabled
-    */
-    private ?bool $siriDisabled = null;
-    
-    /**
-     * @var bool|null $supervisedModeEnabled Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
-    */
-    private ?bool $supervisedModeEnabled = null;
-    
-    /**
-     * @var string|null $supportDepartment Support department information
-    */
-    private ?string $supportDepartment = null;
-    
-    /**
-     * @var string|null $supportPhoneNumber Support phone number
-    */
-    private ?string $supportPhoneNumber = null;
-    
-    /**
-     * @var bool|null $termsAndConditionsDisabled Indicates if 'Terms and Conditions' setup pane is disabled
-    */
-    private ?bool $termsAndConditionsDisabled = null;
-    
-    /**
-     * @var bool|null $touchIdDisabled Indicates if touch id setup pane is disabled
-    */
-    private ?bool $touchIdDisabled = null;
-    
-    /**
      * Instantiates a new DepEnrollmentBaseProfile and sets the default values.
     */
     public function __construct() {
@@ -133,7 +38,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getAppleIdDisabled(): ?bool {
-        return $this->appleIdDisabled;
+        return $this->getBackingStore()->get('appleIdDisabled');
     }
 
     /**
@@ -141,7 +46,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getApplePayDisabled(): ?bool {
-        return $this->applePayDisabled;
+        return $this->getBackingStore()->get('applePayDisabled');
     }
 
     /**
@@ -149,7 +54,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getConfigurationWebUrl(): ?bool {
-        return $this->configurationWebUrl;
+        return $this->getBackingStore()->get('configurationWebUrl');
     }
 
     /**
@@ -157,7 +62,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return string|null
     */
     public function getDeviceNameTemplate(): ?string {
-        return $this->deviceNameTemplate;
+        return $this->getBackingStore()->get('deviceNameTemplate');
     }
 
     /**
@@ -165,7 +70,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getDiagnosticsDisabled(): ?bool {
-        return $this->diagnosticsDisabled;
+        return $this->getBackingStore()->get('diagnosticsDisabled');
     }
 
     /**
@@ -173,7 +78,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getDisplayToneSetupDisabled(): ?bool {
-        return $this->displayToneSetupDisabled;
+        return $this->getBackingStore()->get('displayToneSetupDisabled');
     }
 
     /**
@@ -210,7 +115,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -218,7 +123,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getIsMandatory(): ?bool {
-        return $this->isMandatory;
+        return $this->getBackingStore()->get('isMandatory');
     }
 
     /**
@@ -226,7 +131,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getLocationDisabled(): ?bool {
-        return $this->locationDisabled;
+        return $this->getBackingStore()->get('locationDisabled');
     }
 
     /**
@@ -234,7 +139,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getPrivacyPaneDisabled(): ?bool {
-        return $this->privacyPaneDisabled;
+        return $this->getBackingStore()->get('privacyPaneDisabled');
     }
 
     /**
@@ -242,7 +147,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getProfileRemovalDisabled(): ?bool {
-        return $this->profileRemovalDisabled;
+        return $this->getBackingStore()->get('profileRemovalDisabled');
     }
 
     /**
@@ -250,7 +155,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getRestoreBlocked(): ?bool {
-        return $this->restoreBlocked;
+        return $this->getBackingStore()->get('restoreBlocked');
     }
 
     /**
@@ -258,7 +163,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getScreenTimeScreenDisabled(): ?bool {
-        return $this->screenTimeScreenDisabled;
+        return $this->getBackingStore()->get('screenTimeScreenDisabled');
     }
 
     /**
@@ -266,7 +171,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getSiriDisabled(): ?bool {
-        return $this->siriDisabled;
+        return $this->getBackingStore()->get('siriDisabled');
     }
 
     /**
@@ -274,7 +179,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getSupervisedModeEnabled(): ?bool {
-        return $this->supervisedModeEnabled;
+        return $this->getBackingStore()->get('supervisedModeEnabled');
     }
 
     /**
@@ -282,7 +187,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return string|null
     */
     public function getSupportDepartment(): ?string {
-        return $this->supportDepartment;
+        return $this->getBackingStore()->get('supportDepartment');
     }
 
     /**
@@ -290,7 +195,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return string|null
     */
     public function getSupportPhoneNumber(): ?string {
-        return $this->supportPhoneNumber;
+        return $this->getBackingStore()->get('supportPhoneNumber');
     }
 
     /**
@@ -298,7 +203,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getTermsAndConditionsDisabled(): ?bool {
-        return $this->termsAndConditionsDisabled;
+        return $this->getBackingStore()->get('termsAndConditionsDisabled');
     }
 
     /**
@@ -306,7 +211,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
      * @return bool|null
     */
     public function getTouchIdDisabled(): ?bool {
-        return $this->touchIdDisabled;
+        return $this->getBackingStore()->get('touchIdDisabled');
     }
 
     /**
@@ -315,177 +220,177 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('appleIdDisabled', $this->appleIdDisabled);
-        $writer->writeBooleanValue('applePayDisabled', $this->applePayDisabled);
-        $writer->writeBooleanValue('configurationWebUrl', $this->configurationWebUrl);
-        $writer->writeStringValue('deviceNameTemplate', $this->deviceNameTemplate);
-        $writer->writeBooleanValue('diagnosticsDisabled', $this->diagnosticsDisabled);
-        $writer->writeBooleanValue('displayToneSetupDisabled', $this->displayToneSetupDisabled);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeBooleanValue('isMandatory', $this->isMandatory);
-        $writer->writeBooleanValue('locationDisabled', $this->locationDisabled);
-        $writer->writeBooleanValue('privacyPaneDisabled', $this->privacyPaneDisabled);
-        $writer->writeBooleanValue('profileRemovalDisabled', $this->profileRemovalDisabled);
-        $writer->writeBooleanValue('restoreBlocked', $this->restoreBlocked);
-        $writer->writeBooleanValue('screenTimeScreenDisabled', $this->screenTimeScreenDisabled);
-        $writer->writeBooleanValue('siriDisabled', $this->siriDisabled);
-        $writer->writeBooleanValue('supervisedModeEnabled', $this->supervisedModeEnabled);
-        $writer->writeStringValue('supportDepartment', $this->supportDepartment);
-        $writer->writeStringValue('supportPhoneNumber', $this->supportPhoneNumber);
-        $writer->writeBooleanValue('termsAndConditionsDisabled', $this->termsAndConditionsDisabled);
-        $writer->writeBooleanValue('touchIdDisabled', $this->touchIdDisabled);
+        $writer->writeBooleanValue('appleIdDisabled', $this->getAppleIdDisabled());
+        $writer->writeBooleanValue('applePayDisabled', $this->getApplePayDisabled());
+        $writer->writeBooleanValue('configurationWebUrl', $this->getConfigurationWebUrl());
+        $writer->writeStringValue('deviceNameTemplate', $this->getDeviceNameTemplate());
+        $writer->writeBooleanValue('diagnosticsDisabled', $this->getDiagnosticsDisabled());
+        $writer->writeBooleanValue('displayToneSetupDisabled', $this->getDisplayToneSetupDisabled());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeBooleanValue('isMandatory', $this->getIsMandatory());
+        $writer->writeBooleanValue('locationDisabled', $this->getLocationDisabled());
+        $writer->writeBooleanValue('privacyPaneDisabled', $this->getPrivacyPaneDisabled());
+        $writer->writeBooleanValue('profileRemovalDisabled', $this->getProfileRemovalDisabled());
+        $writer->writeBooleanValue('restoreBlocked', $this->getRestoreBlocked());
+        $writer->writeBooleanValue('screenTimeScreenDisabled', $this->getScreenTimeScreenDisabled());
+        $writer->writeBooleanValue('siriDisabled', $this->getSiriDisabled());
+        $writer->writeBooleanValue('supervisedModeEnabled', $this->getSupervisedModeEnabled());
+        $writer->writeStringValue('supportDepartment', $this->getSupportDepartment());
+        $writer->writeStringValue('supportPhoneNumber', $this->getSupportPhoneNumber());
+        $writer->writeBooleanValue('termsAndConditionsDisabled', $this->getTermsAndConditionsDisabled());
+        $writer->writeBooleanValue('touchIdDisabled', $this->getTouchIdDisabled());
     }
 
     /**
      * Sets the appleIdDisabled property value. Indicates if Apple id setup pane is disabled
      *  @param bool|null $value Value to set for the appleIdDisabled property.
     */
-    public function setAppleIdDisabled(?bool $value ): void {
-        $this->appleIdDisabled = $value;
+    public function setAppleIdDisabled(?bool $value): void {
+        $this->getBackingStore()->set('appleIdDisabled', $value);
     }
 
     /**
      * Sets the applePayDisabled property value. Indicates if Apple pay setup pane is disabled
      *  @param bool|null $value Value to set for the applePayDisabled property.
     */
-    public function setApplePayDisabled(?bool $value ): void {
-        $this->applePayDisabled = $value;
+    public function setApplePayDisabled(?bool $value): void {
+        $this->getBackingStore()->set('applePayDisabled', $value);
     }
 
     /**
      * Sets the configurationWebUrl property value. URL for setup assistant login
      *  @param bool|null $value Value to set for the configurationWebUrl property.
     */
-    public function setConfigurationWebUrl(?bool $value ): void {
-        $this->configurationWebUrl = $value;
+    public function setConfigurationWebUrl(?bool $value): void {
+        $this->getBackingStore()->set('configurationWebUrl', $value);
     }
 
     /**
      * Sets the deviceNameTemplate property value. Sets a literal or name pattern.
      *  @param string|null $value Value to set for the deviceNameTemplate property.
     */
-    public function setDeviceNameTemplate(?string $value ): void {
-        $this->deviceNameTemplate = $value;
+    public function setDeviceNameTemplate(?string $value): void {
+        $this->getBackingStore()->set('deviceNameTemplate', $value);
     }
 
     /**
      * Sets the diagnosticsDisabled property value. Indicates if diagnostics setup pane is disabled
      *  @param bool|null $value Value to set for the diagnosticsDisabled property.
     */
-    public function setDiagnosticsDisabled(?bool $value ): void {
-        $this->diagnosticsDisabled = $value;
+    public function setDiagnosticsDisabled(?bool $value): void {
+        $this->getBackingStore()->set('diagnosticsDisabled', $value);
     }
 
     /**
      * Sets the displayToneSetupDisabled property value. Indicates if displaytone setup screen is disabled
      *  @param bool|null $value Value to set for the displayToneSetupDisabled property.
     */
-    public function setDisplayToneSetupDisabled(?bool $value ): void {
-        $this->displayToneSetupDisabled = $value;
+    public function setDisplayToneSetupDisabled(?bool $value): void {
+        $this->getBackingStore()->set('displayToneSetupDisabled', $value);
     }
 
     /**
      * Sets the isDefault property value. Indicates if this is the default profile
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the isMandatory property value. Indicates if the profile is mandatory
      *  @param bool|null $value Value to set for the isMandatory property.
     */
-    public function setIsMandatory(?bool $value ): void {
-        $this->isMandatory = $value;
+    public function setIsMandatory(?bool $value): void {
+        $this->getBackingStore()->set('isMandatory', $value);
     }
 
     /**
      * Sets the locationDisabled property value. Indicates if Location service setup pane is disabled
      *  @param bool|null $value Value to set for the locationDisabled property.
     */
-    public function setLocationDisabled(?bool $value ): void {
-        $this->locationDisabled = $value;
+    public function setLocationDisabled(?bool $value): void {
+        $this->getBackingStore()->set('locationDisabled', $value);
     }
 
     /**
      * Sets the privacyPaneDisabled property value. Indicates if privacy screen is disabled
      *  @param bool|null $value Value to set for the privacyPaneDisabled property.
     */
-    public function setPrivacyPaneDisabled(?bool $value ): void {
-        $this->privacyPaneDisabled = $value;
+    public function setPrivacyPaneDisabled(?bool $value): void {
+        $this->getBackingStore()->set('privacyPaneDisabled', $value);
     }
 
     /**
      * Sets the profileRemovalDisabled property value. Indicates if the profile removal option is disabled
      *  @param bool|null $value Value to set for the profileRemovalDisabled property.
     */
-    public function setProfileRemovalDisabled(?bool $value ): void {
-        $this->profileRemovalDisabled = $value;
+    public function setProfileRemovalDisabled(?bool $value): void {
+        $this->getBackingStore()->set('profileRemovalDisabled', $value);
     }
 
     /**
      * Sets the restoreBlocked property value. Indicates if Restore setup pane is blocked
      *  @param bool|null $value Value to set for the restoreBlocked property.
     */
-    public function setRestoreBlocked(?bool $value ): void {
-        $this->restoreBlocked = $value;
+    public function setRestoreBlocked(?bool $value): void {
+        $this->getBackingStore()->set('restoreBlocked', $value);
     }
 
     /**
      * Sets the screenTimeScreenDisabled property value. Indicates if screen timeout setup is disabled
      *  @param bool|null $value Value to set for the screenTimeScreenDisabled property.
     */
-    public function setScreenTimeScreenDisabled(?bool $value ): void {
-        $this->screenTimeScreenDisabled = $value;
+    public function setScreenTimeScreenDisabled(?bool $value): void {
+        $this->getBackingStore()->set('screenTimeScreenDisabled', $value);
     }
 
     /**
      * Sets the siriDisabled property value. Indicates if siri setup pane is disabled
      *  @param bool|null $value Value to set for the siriDisabled property.
     */
-    public function setSiriDisabled(?bool $value ): void {
-        $this->siriDisabled = $value;
+    public function setSiriDisabled(?bool $value): void {
+        $this->getBackingStore()->set('siriDisabled', $value);
     }
 
     /**
      * Sets the supervisedModeEnabled property value. Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
      *  @param bool|null $value Value to set for the supervisedModeEnabled property.
     */
-    public function setSupervisedModeEnabled(?bool $value ): void {
-        $this->supervisedModeEnabled = $value;
+    public function setSupervisedModeEnabled(?bool $value): void {
+        $this->getBackingStore()->set('supervisedModeEnabled', $value);
     }
 
     /**
      * Sets the supportDepartment property value. Support department information
      *  @param string|null $value Value to set for the supportDepartment property.
     */
-    public function setSupportDepartment(?string $value ): void {
-        $this->supportDepartment = $value;
+    public function setSupportDepartment(?string $value): void {
+        $this->getBackingStore()->set('supportDepartment', $value);
     }
 
     /**
      * Sets the supportPhoneNumber property value. Support phone number
      *  @param string|null $value Value to set for the supportPhoneNumber property.
     */
-    public function setSupportPhoneNumber(?string $value ): void {
-        $this->supportPhoneNumber = $value;
+    public function setSupportPhoneNumber(?string $value): void {
+        $this->getBackingStore()->set('supportPhoneNumber', $value);
     }
 
     /**
      * Sets the termsAndConditionsDisabled property value. Indicates if 'Terms and Conditions' setup pane is disabled
      *  @param bool|null $value Value to set for the termsAndConditionsDisabled property.
     */
-    public function setTermsAndConditionsDisabled(?bool $value ): void {
-        $this->termsAndConditionsDisabled = $value;
+    public function setTermsAndConditionsDisabled(?bool $value): void {
+        $this->getBackingStore()->set('termsAndConditionsDisabled', $value);
     }
 
     /**
      * Sets the touchIdDisabled property value. Indicates if touch id setup pane is disabled
      *  @param bool|null $value Value to set for the touchIdDisabled property.
     */
-    public function setTouchIdDisabled(?bool $value ): void {
-        $this->touchIdDisabled = $value;
+    public function setTouchIdDisabled(?bool $value): void {
+        $this->getBackingStore()->set('touchIdDisabled', $value);
     }
 
 }

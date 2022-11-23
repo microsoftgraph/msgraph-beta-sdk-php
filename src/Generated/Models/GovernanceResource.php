@@ -10,66 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceResource extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName The display name of the resource.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $externalId The external id of the resource, representing its original id in the external system. For example, a subscription resource's external id can be '/subscriptions/c14ae696-5e0c-4e5d-88cc-bef6637737ac'.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var GovernanceResource|null $parent Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.
-    */
-    private ?GovernanceResource $parent = null;
-    
-    /**
-     * @var DateTime|null $registeredDateTime Represents the date time when the resource is registered in PIM.
-    */
-    private ?DateTime $registeredDateTime = null;
-    
-    /**
-     * @var string|null $registeredRoot The externalId of the resource's root scope that is registered in PIM. The root scope can be the parent, grandparent, or higher ancestor resources.
-    */
-    private ?string $registeredRoot = null;
-    
-    /**
-     * @var array<GovernanceRoleAssignmentRequest>|null $roleAssignmentRequests The collection of role assignment requests for the resource.
-    */
-    private ?array $roleAssignmentRequests = null;
-    
-    /**
-     * @var array<GovernanceRoleAssignment>|null $roleAssignments The collection of role assignments for the resource.
-    */
-    private ?array $roleAssignments = null;
-    
-    /**
-     * @var array<GovernanceRoleDefinition>|null $roleDefinitions The collection of role defintions for the resource.
-    */
-    private ?array $roleDefinitions = null;
-    
-    /**
-     * @var array<GovernanceRoleSetting>|null $roleSettings The collection of role settings for the resource.
-    */
-    private ?array $roleSettings = null;
-    
-    /**
-     * @var string|null $status The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios.
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var string|null $type Required. Resource type. For example, for Azure resources, the type could be 'Subscription', 'ResourceGroup', 'Microsoft.Sql/server', etc.
-    */
-    private ?string $type = null;
-    
-    /**
-     * Instantiates a new governanceResource and sets the default values.
+     * Instantiates a new GovernanceResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.governanceResource');
     }
 
     /**
@@ -86,7 +30,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -94,7 +38,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -123,7 +67,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return GovernanceResource|null
     */
     public function getParent(): ?GovernanceResource {
-        return $this->parent;
+        return $this->getBackingStore()->get('parent');
     }
 
     /**
@@ -131,7 +75,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getRegisteredDateTime(): ?DateTime {
-        return $this->registeredDateTime;
+        return $this->getBackingStore()->get('registeredDateTime');
     }
 
     /**
@@ -139,7 +83,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return string|null
     */
     public function getRegisteredRoot(): ?string {
-        return $this->registeredRoot;
+        return $this->getBackingStore()->get('registeredRoot');
     }
 
     /**
@@ -147,7 +91,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return array<GovernanceRoleAssignmentRequest>|null
     */
     public function getRoleAssignmentRequests(): ?array {
-        return $this->roleAssignmentRequests;
+        return $this->getBackingStore()->get('roleAssignmentRequests');
     }
 
     /**
@@ -155,7 +99,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return array<GovernanceRoleAssignment>|null
     */
     public function getRoleAssignments(): ?array {
-        return $this->roleAssignments;
+        return $this->getBackingStore()->get('roleAssignments');
     }
 
     /**
@@ -163,7 +107,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return array<GovernanceRoleDefinition>|null
     */
     public function getRoleDefinitions(): ?array {
-        return $this->roleDefinitions;
+        return $this->getBackingStore()->get('roleDefinitions');
     }
 
     /**
@@ -171,7 +115,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return array<GovernanceRoleSetting>|null
     */
     public function getRoleSettings(): ?array {
-        return $this->roleSettings;
+        return $this->getBackingStore()->get('roleSettings');
     }
 
     /**
@@ -179,7 +123,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -187,7 +131,7 @@ class GovernanceResource extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -196,105 +140,105 @@ class GovernanceResource extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeObjectValue('parent', $this->parent);
-        $writer->writeDateTimeValue('registeredDateTime', $this->registeredDateTime);
-        $writer->writeStringValue('registeredRoot', $this->registeredRoot);
-        $writer->writeCollectionOfObjectValues('roleAssignmentRequests', $this->roleAssignmentRequests);
-        $writer->writeCollectionOfObjectValues('roleAssignments', $this->roleAssignments);
-        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->roleDefinitions);
-        $writer->writeCollectionOfObjectValues('roleSettings', $this->roleSettings);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('type', $this->type);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeObjectValue('parent', $this->getParent());
+        $writer->writeDateTimeValue('registeredDateTime', $this->getRegisteredDateTime());
+        $writer->writeStringValue('registeredRoot', $this->getRegisteredRoot());
+        $writer->writeCollectionOfObjectValues('roleAssignmentRequests', $this->getRoleAssignmentRequests());
+        $writer->writeCollectionOfObjectValues('roleAssignments', $this->getRoleAssignments());
+        $writer->writeCollectionOfObjectValues('roleDefinitions', $this->getRoleDefinitions());
+        $writer->writeCollectionOfObjectValues('roleSettings', $this->getRoleSettings());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
      * Sets the displayName property value. The display name of the resource.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the externalId property value. The external id of the resource, representing its original id in the external system. For example, a subscription resource's external id can be '/subscriptions/c14ae696-5e0c-4e5d-88cc-bef6637737ac'.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the parent property value. Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.
      *  @param GovernanceResource|null $value Value to set for the parent property.
     */
-    public function setParent(?GovernanceResource $value ): void {
-        $this->parent = $value;
+    public function setParent(?GovernanceResource $value): void {
+        $this->getBackingStore()->set('parent', $value);
     }
 
     /**
      * Sets the registeredDateTime property value. Represents the date time when the resource is registered in PIM.
      *  @param DateTime|null $value Value to set for the registeredDateTime property.
     */
-    public function setRegisteredDateTime(?DateTime $value ): void {
-        $this->registeredDateTime = $value;
+    public function setRegisteredDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('registeredDateTime', $value);
     }
 
     /**
      * Sets the registeredRoot property value. The externalId of the resource's root scope that is registered in PIM. The root scope can be the parent, grandparent, or higher ancestor resources.
      *  @param string|null $value Value to set for the registeredRoot property.
     */
-    public function setRegisteredRoot(?string $value ): void {
-        $this->registeredRoot = $value;
+    public function setRegisteredRoot(?string $value): void {
+        $this->getBackingStore()->set('registeredRoot', $value);
     }
 
     /**
      * Sets the roleAssignmentRequests property value. The collection of role assignment requests for the resource.
      *  @param array<GovernanceRoleAssignmentRequest>|null $value Value to set for the roleAssignmentRequests property.
     */
-    public function setRoleAssignmentRequests(?array $value ): void {
-        $this->roleAssignmentRequests = $value;
+    public function setRoleAssignmentRequests(?array $value): void {
+        $this->getBackingStore()->set('roleAssignmentRequests', $value);
     }
 
     /**
      * Sets the roleAssignments property value. The collection of role assignments for the resource.
      *  @param array<GovernanceRoleAssignment>|null $value Value to set for the roleAssignments property.
     */
-    public function setRoleAssignments(?array $value ): void {
-        $this->roleAssignments = $value;
+    public function setRoleAssignments(?array $value): void {
+        $this->getBackingStore()->set('roleAssignments', $value);
     }
 
     /**
      * Sets the roleDefinitions property value. The collection of role defintions for the resource.
      *  @param array<GovernanceRoleDefinition>|null $value Value to set for the roleDefinitions property.
     */
-    public function setRoleDefinitions(?array $value ): void {
-        $this->roleDefinitions = $value;
+    public function setRoleDefinitions(?array $value): void {
+        $this->getBackingStore()->set('roleDefinitions', $value);
     }
 
     /**
      * Sets the roleSettings property value. The collection of role settings for the resource.
      *  @param array<GovernanceRoleSetting>|null $value Value to set for the roleSettings property.
     */
-    public function setRoleSettings(?array $value ): void {
-        $this->roleSettings = $value;
+    public function setRoleSettings(?array $value): void {
+        $this->getBackingStore()->set('roleSettings', $value);
     }
 
     /**
      * Sets the status property value. The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios.
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the type property value. Required. Resource type. For example, for Azure resources, the type could be 'Subscription', 'ResourceGroup', 'Microsoft.Sql/server', etc.
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

@@ -10,61 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidForWorkEnrollmentProfile extends Entity implements Parsable 
 {
     /**
-     * @var string|null $accountId Tenant GUID the enrollment profile belongs to.
-    */
-    private ?string $accountId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Date time the enrollment profile was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Description for the enrollment profile.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name for the enrollment profile.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $enrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
-    */
-    private ?int $enrolledDeviceCount = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Date time the enrollment profile was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $qrCodeContent String used to generate a QR code for the token.
-    */
-    private ?string $qrCodeContent = null;
-    
-    /**
-     * @var MimeContent|null $qrCodeImage String used to generate a QR code for the token.
-    */
-    private ?MimeContent $qrCodeImage = null;
-    
-    /**
-     * @var DateTime|null $tokenExpirationDateTime Date time the most recently created token will expire.
-    */
-    private ?DateTime $tokenExpirationDateTime = null;
-    
-    /**
-     * @var string|null $tokenValue Value of the most recently created token for this enrollment profile.
-    */
-    private ?string $tokenValue = null;
-    
-    /**
      * Instantiates a new androidForWorkEnrollmentProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.androidForWorkEnrollmentProfile');
     }
 
     /**
@@ -81,7 +30,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->accountId;
+        return $this->getBackingStore()->get('accountId');
     }
 
     /**
@@ -89,7 +38,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -97,7 +46,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -105,7 +54,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -113,7 +62,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->enrolledDeviceCount;
+        return $this->getBackingStore()->get('enrolledDeviceCount');
     }
 
     /**
@@ -141,7 +90,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -149,7 +98,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getQrCodeContent(): ?string {
-        return $this->qrCodeContent;
+        return $this->getBackingStore()->get('qrCodeContent');
     }
 
     /**
@@ -157,7 +106,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return MimeContent|null
     */
     public function getQrCodeImage(): ?MimeContent {
-        return $this->qrCodeImage;
+        return $this->getBackingStore()->get('qrCodeImage');
     }
 
     /**
@@ -165,7 +114,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getTokenExpirationDateTime(): ?DateTime {
-        return $this->tokenExpirationDateTime;
+        return $this->getBackingStore()->get('tokenExpirationDateTime');
     }
 
     /**
@@ -173,7 +122,7 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getTokenValue(): ?string {
-        return $this->tokenValue;
+        return $this->getBackingStore()->get('tokenValue');
     }
 
     /**
@@ -182,96 +131,96 @@ class AndroidForWorkEnrollmentProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('accountId', $this->accountId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('enrolledDeviceCount', $this->enrolledDeviceCount);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('qrCodeContent', $this->qrCodeContent);
-        $writer->writeObjectValue('qrCodeImage', $this->qrCodeImage);
-        $writer->writeDateTimeValue('tokenExpirationDateTime', $this->tokenExpirationDateTime);
-        $writer->writeStringValue('tokenValue', $this->tokenValue);
+        $writer->writeStringValue('accountId', $this->getAccountId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('qrCodeContent', $this->getQrCodeContent());
+        $writer->writeObjectValue('qrCodeImage', $this->getQrCodeImage());
+        $writer->writeDateTimeValue('tokenExpirationDateTime', $this->getTokenExpirationDateTime());
+        $writer->writeStringValue('tokenValue', $this->getTokenValue());
     }
 
     /**
      * Sets the accountId property value. Tenant GUID the enrollment profile belongs to.
      *  @param string|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value ): void {
-        $this->accountId = $value;
+    public function setAccountId(?string $value): void {
+        $this->getBackingStore()->set('accountId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Date time the enrollment profile was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Description for the enrollment profile.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name for the enrollment profile.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the enrolledDeviceCount property value. Total number of Android devices that have enrolled using this enrollment profile.
      *  @param int|null $value Value to set for the enrolledDeviceCount property.
     */
-    public function setEnrolledDeviceCount(?int $value ): void {
-        $this->enrolledDeviceCount = $value;
+    public function setEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('enrolledDeviceCount', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Date time the enrollment profile was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the qrCodeContent property value. String used to generate a QR code for the token.
      *  @param string|null $value Value to set for the qrCodeContent property.
     */
-    public function setQrCodeContent(?string $value ): void {
-        $this->qrCodeContent = $value;
+    public function setQrCodeContent(?string $value): void {
+        $this->getBackingStore()->set('qrCodeContent', $value);
     }
 
     /**
      * Sets the qrCodeImage property value. String used to generate a QR code for the token.
      *  @param MimeContent|null $value Value to set for the qrCodeImage property.
     */
-    public function setQrCodeImage(?MimeContent $value ): void {
-        $this->qrCodeImage = $value;
+    public function setQrCodeImage(?MimeContent $value): void {
+        $this->getBackingStore()->set('qrCodeImage', $value);
     }
 
     /**
      * Sets the tokenExpirationDateTime property value. Date time the most recently created token will expire.
      *  @param DateTime|null $value Value to set for the tokenExpirationDateTime property.
     */
-    public function setTokenExpirationDateTime(?DateTime $value ): void {
-        $this->tokenExpirationDateTime = $value;
+    public function setTokenExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('tokenExpirationDateTime', $value);
     }
 
     /**
      * Sets the tokenValue property value. Value of the most recently created token for this enrollment profile.
      *  @param string|null $value Value to set for the tokenValue property.
     */
-    public function setTokenValue(?string $value ): void {
-        $this->tokenValue = $value;
+    public function setTokenValue(?string $value): void {
+        $this->getBackingStore()->set('tokenValue', $value);
     }
 
 }

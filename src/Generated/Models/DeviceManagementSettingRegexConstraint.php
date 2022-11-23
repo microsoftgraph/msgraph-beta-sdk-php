@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var string|null $regex The RegEx pattern to match against
-    */
-    private ?string $regex = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingRegexConstraint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
      * @return string|null
     */
     public function getRegex(): ?string {
-        return $this->regex;
+        return $this->getBackingStore()->get('regex');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('regex', $this->regex);
+        $writer->writeStringValue('regex', $this->getRegex());
     }
 
     /**
      * Sets the regex property value. The RegEx pattern to match against
      *  @param string|null $value Value to set for the regex property.
     */
-    public function setRegex(?string $value ): void {
-        $this->regex = $value;
+    public function setRegex(?string $value): void {
+        $this->getBackingStore()->set('regex', $value);
     }
 
 }

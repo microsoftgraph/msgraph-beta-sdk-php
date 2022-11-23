@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDeviceComplianceLocalActionBase implements Parsable 
 {
     /**
-     * @var string|null $passcode Passcode to reset to Android device. This property is read-only.
-    */
-    private ?string $passcode = null;
-    
-    /**
-     * @var int|null $passcodeSignInFailureCountBeforeWipe Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
-    */
-    private ?int $passcodeSignInFailureCountBeforeWipe = null;
-    
-    /**
      * Instantiates a new AndroidDeviceComplianceLocalActionLockDeviceWithPasscode and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->passcode;
+        return $this->getBackingStore()->get('passcode');
     }
 
     /**
@@ -60,7 +50,7 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
      * @return int|null
     */
     public function getPasscodeSignInFailureCountBeforeWipe(): ?int {
-        return $this->passcodeSignInFailureCountBeforeWipe;
+        return $this->getBackingStore()->get('passcodeSignInFailureCountBeforeWipe');
     }
 
     /**
@@ -69,23 +59,23 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('passcodeSignInFailureCountBeforeWipe', $this->passcodeSignInFailureCountBeforeWipe);
+        $writer->writeIntegerValue('passcodeSignInFailureCountBeforeWipe', $this->getPasscodeSignInFailureCountBeforeWipe());
     }
 
     /**
      * Sets the passcode property value. Passcode to reset to Android device. This property is read-only.
      *  @param string|null $value Value to set for the passcode property.
     */
-    public function setPasscode(?string $value ): void {
-        $this->passcode = $value;
+    public function setPasscode(?string $value): void {
+        $this->getBackingStore()->set('passcode', $value);
     }
 
     /**
      * Sets the passcodeSignInFailureCountBeforeWipe property value. Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
      *  @param int|null $value Value to set for the passcodeSignInFailureCountBeforeWipe property.
     */
-    public function setPasscodeSignInFailureCountBeforeWipe(?int $value ): void {
-        $this->passcodeSignInFailureCountBeforeWipe = $value;
+    public function setPasscodeSignInFailureCountBeforeWipe(?int $value): void {
+        $this->getBackingStore()->set('passcodeSignInFailureCountBeforeWipe', $value);
     }
 
 }

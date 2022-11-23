@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * @var array<DeviceManagementSettingInstance>|null $settings The settings this category contains
-    */
-    private ?array $settings = null;
-    
-    /**
      * Instantiates a new DeviceManagementIntentSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementIntentSettingCategory');
     }
 
     /**
@@ -46,7 +40,7 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getSettings(): ?array {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -55,15 +49,15 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('settings', $this->settings);
+        $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
     }
 
     /**
      * Sets the settings property value. The settings this category contains
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the settings property.
     */
-    public function setSettings(?array $value ): void {
-        $this->settings = $value;
+    public function setSettings(?array $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
 }

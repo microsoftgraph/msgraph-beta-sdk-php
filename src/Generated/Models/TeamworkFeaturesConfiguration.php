@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkFeaturesConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $emailToSendLogsAndFeedback Email address to send logs and feedback.
-    */
-    private ?string $emailToSendLogsAndFeedback = null;
-    
-    /**
-     * @var bool|null $isAutoScreenShareEnabled True if auto screen shared is enabled.
-    */
-    private ?bool $isAutoScreenShareEnabled = null;
-    
-    /**
-     * @var bool|null $isBluetoothBeaconingEnabled True if Bluetooth beaconing is enabled.
-    */
-    private ?bool $isBluetoothBeaconingEnabled = null;
-    
-    /**
-     * @var bool|null $isHideMeetingNamesEnabled True if hiding meeting names is enabled.
-    */
-    private ?bool $isHideMeetingNamesEnabled = null;
-    
-    /**
-     * @var bool|null $isSendLogsAndFeedbackEnabled True if sending logs and feedback is enabled.
-    */
-    private ?bool $isSendLogsAndFeedbackEnabled = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkFeaturesConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.teamworkFeaturesConfiguration');
     }
 
     /**
@@ -65,8 +38,16 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +55,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getEmailToSendLogsAndFeedback(): ?string {
-        return $this->emailToSendLogsAndFeedback;
+        return $this->getBackingStore()->get('emailToSendLogsAndFeedback');
     }
 
     /**
@@ -98,7 +79,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsAutoScreenShareEnabled(): ?bool {
-        return $this->isAutoScreenShareEnabled;
+        return $this->getBackingStore()->get('isAutoScreenShareEnabled');
     }
 
     /**
@@ -106,7 +87,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsBluetoothBeaconingEnabled(): ?bool {
-        return $this->isBluetoothBeaconingEnabled;
+        return $this->getBackingStore()->get('isBluetoothBeaconingEnabled');
     }
 
     /**
@@ -114,7 +95,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsHideMeetingNamesEnabled(): ?bool {
-        return $this->isHideMeetingNamesEnabled;
+        return $this->getBackingStore()->get('isHideMeetingNamesEnabled');
     }
 
     /**
@@ -122,7 +103,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsSendLogsAndFeedbackEnabled(): ?bool {
-        return $this->isSendLogsAndFeedbackEnabled;
+        return $this->getBackingStore()->get('isSendLogsAndFeedbackEnabled');
     }
 
     /**
@@ -130,7 +111,7 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -138,69 +119,77 @@ class TeamworkFeaturesConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('emailToSendLogsAndFeedback', $this->emailToSendLogsAndFeedback);
-        $writer->writeBooleanValue('isAutoScreenShareEnabled', $this->isAutoScreenShareEnabled);
-        $writer->writeBooleanValue('isBluetoothBeaconingEnabled', $this->isBluetoothBeaconingEnabled);
-        $writer->writeBooleanValue('isHideMeetingNamesEnabled', $this->isHideMeetingNamesEnabled);
-        $writer->writeBooleanValue('isSendLogsAndFeedbackEnabled', $this->isSendLogsAndFeedbackEnabled);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('emailToSendLogsAndFeedback', $this->getEmailToSendLogsAndFeedback());
+        $writer->writeBooleanValue('isAutoScreenShareEnabled', $this->getIsAutoScreenShareEnabled());
+        $writer->writeBooleanValue('isBluetoothBeaconingEnabled', $this->getIsBluetoothBeaconingEnabled());
+        $writer->writeBooleanValue('isHideMeetingNamesEnabled', $this->getIsHideMeetingNamesEnabled());
+        $writer->writeBooleanValue('isSendLogsAndFeedbackEnabled', $this->getIsSendLogsAndFeedbackEnabled());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the emailToSendLogsAndFeedback property value. Email address to send logs and feedback.
      *  @param string|null $value Value to set for the emailToSendLogsAndFeedback property.
     */
-    public function setEmailToSendLogsAndFeedback(?string $value ): void {
-        $this->emailToSendLogsAndFeedback = $value;
+    public function setEmailToSendLogsAndFeedback(?string $value): void {
+        $this->getBackingStore()->set('emailToSendLogsAndFeedback', $value);
     }
 
     /**
      * Sets the isAutoScreenShareEnabled property value. True if auto screen shared is enabled.
      *  @param bool|null $value Value to set for the isAutoScreenShareEnabled property.
     */
-    public function setIsAutoScreenShareEnabled(?bool $value ): void {
-        $this->isAutoScreenShareEnabled = $value;
+    public function setIsAutoScreenShareEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isAutoScreenShareEnabled', $value);
     }
 
     /**
      * Sets the isBluetoothBeaconingEnabled property value. True if Bluetooth beaconing is enabled.
      *  @param bool|null $value Value to set for the isBluetoothBeaconingEnabled property.
     */
-    public function setIsBluetoothBeaconingEnabled(?bool $value ): void {
-        $this->isBluetoothBeaconingEnabled = $value;
+    public function setIsBluetoothBeaconingEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isBluetoothBeaconingEnabled', $value);
     }
 
     /**
      * Sets the isHideMeetingNamesEnabled property value. True if hiding meeting names is enabled.
      *  @param bool|null $value Value to set for the isHideMeetingNamesEnabled property.
     */
-    public function setIsHideMeetingNamesEnabled(?bool $value ): void {
-        $this->isHideMeetingNamesEnabled = $value;
+    public function setIsHideMeetingNamesEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isHideMeetingNamesEnabled', $value);
     }
 
     /**
      * Sets the isSendLogsAndFeedbackEnabled property value. True if sending logs and feedback is enabled.
      *  @param bool|null $value Value to set for the isSendLogsAndFeedbackEnabled property.
     */
-    public function setIsSendLogsAndFeedbackEnabled(?bool $value ): void {
-        $this->isSendLogsAndFeedbackEnabled = $value;
+    public function setIsSendLogsAndFeedbackEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isSendLogsAndFeedbackEnabled', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

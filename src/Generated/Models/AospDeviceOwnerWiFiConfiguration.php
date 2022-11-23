@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $connectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
-    */
-    private ?bool $connectAutomatically = null;
-    
-    /**
-     * @var bool|null $connectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
-    */
-    private ?bool $connectWhenNetworkNameIsHidden = null;
-    
-    /**
-     * @var string|null $networkName Network Name
-    */
-    private ?string $networkName = null;
-    
-    /**
-     * @var string|null $preSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
-    */
-    private ?string $preSharedKey = null;
-    
-    /**
-     * @var bool|null $preSharedKeyIsSet This is the pre-shared key for WPA Personal Wi-Fi network.
-    */
-    private ?bool $preSharedKeyIsSet = null;
-    
-    /**
-     * @var string|null $ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-    */
-    private ?string $ssid = null;
-    
-    /**
-     * @var AospDeviceOwnerWiFiSecurityType|null $wiFiSecurityType Wi-Fi Security Types for AOSP Device Owner.
-    */
-    private ?AospDeviceOwnerWiFiSecurityType $wiFiSecurityType = null;
-    
-    /**
      * Instantiates a new AospDeviceOwnerWiFiConfiguration and sets the default values.
     */
     public function __construct() {
@@ -72,7 +37,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getConnectAutomatically(): ?bool {
-        return $this->connectAutomatically;
+        return $this->getBackingStore()->get('connectAutomatically');
     }
 
     /**
@@ -80,7 +45,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getConnectWhenNetworkNameIsHidden(): ?bool {
-        return $this->connectWhenNetworkNameIsHidden;
+        return $this->getBackingStore()->get('connectWhenNetworkNameIsHidden');
     }
 
     /**
@@ -105,7 +70,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->networkName;
+        return $this->getBackingStore()->get('networkName');
     }
 
     /**
@@ -113,7 +78,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getPreSharedKey(): ?string {
-        return $this->preSharedKey;
+        return $this->getBackingStore()->get('preSharedKey');
     }
 
     /**
@@ -121,7 +86,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return bool|null
     */
     public function getPreSharedKeyIsSet(): ?bool {
-        return $this->preSharedKeyIsSet;
+        return $this->getBackingStore()->get('preSharedKeyIsSet');
     }
 
     /**
@@ -129,7 +94,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getSsid(): ?string {
-        return $this->ssid;
+        return $this->getBackingStore()->get('ssid');
     }
 
     /**
@@ -137,7 +102,7 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
      * @return AospDeviceOwnerWiFiSecurityType|null
     */
     public function getWiFiSecurityType(): ?AospDeviceOwnerWiFiSecurityType {
-        return $this->wiFiSecurityType;
+        return $this->getBackingStore()->get('wiFiSecurityType');
     }
 
     /**
@@ -146,69 +111,69 @@ class AospDeviceOwnerWiFiConfiguration extends DeviceConfiguration implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('connectAutomatically', $this->connectAutomatically);
-        $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->connectWhenNetworkNameIsHidden);
-        $writer->writeStringValue('networkName', $this->networkName);
-        $writer->writeStringValue('preSharedKey', $this->preSharedKey);
-        $writer->writeBooleanValue('preSharedKeyIsSet', $this->preSharedKeyIsSet);
-        $writer->writeStringValue('ssid', $this->ssid);
-        $writer->writeEnumValue('wiFiSecurityType', $this->wiFiSecurityType);
+        $writer->writeBooleanValue('connectAutomatically', $this->getConnectAutomatically());
+        $writer->writeBooleanValue('connectWhenNetworkNameIsHidden', $this->getConnectWhenNetworkNameIsHidden());
+        $writer->writeStringValue('networkName', $this->getNetworkName());
+        $writer->writeStringValue('preSharedKey', $this->getPreSharedKey());
+        $writer->writeBooleanValue('preSharedKeyIsSet', $this->getPreSharedKeyIsSet());
+        $writer->writeStringValue('ssid', $this->getSsid());
+        $writer->writeEnumValue('wiFiSecurityType', $this->getWiFiSecurityType());
     }
 
     /**
      * Sets the connectAutomatically property value. Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
      *  @param bool|null $value Value to set for the connectAutomatically property.
     */
-    public function setConnectAutomatically(?bool $value ): void {
-        $this->connectAutomatically = $value;
+    public function setConnectAutomatically(?bool $value): void {
+        $this->getBackingStore()->set('connectAutomatically', $value);
     }
 
     /**
      * Sets the connectWhenNetworkNameIsHidden property value. When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
      *  @param bool|null $value Value to set for the connectWhenNetworkNameIsHidden property.
     */
-    public function setConnectWhenNetworkNameIsHidden(?bool $value ): void {
-        $this->connectWhenNetworkNameIsHidden = $value;
+    public function setConnectWhenNetworkNameIsHidden(?bool $value): void {
+        $this->getBackingStore()->set('connectWhenNetworkNameIsHidden', $value);
     }
 
     /**
      * Sets the networkName property value. Network Name
      *  @param string|null $value Value to set for the networkName property.
     */
-    public function setNetworkName(?string $value ): void {
-        $this->networkName = $value;
+    public function setNetworkName(?string $value): void {
+        $this->getBackingStore()->set('networkName', $value);
     }
 
     /**
      * Sets the preSharedKey property value. This is the pre-shared key for WPA Personal Wi-Fi network.
      *  @param string|null $value Value to set for the preSharedKey property.
     */
-    public function setPreSharedKey(?string $value ): void {
-        $this->preSharedKey = $value;
+    public function setPreSharedKey(?string $value): void {
+        $this->getBackingStore()->set('preSharedKey', $value);
     }
 
     /**
      * Sets the preSharedKeyIsSet property value. This is the pre-shared key for WPA Personal Wi-Fi network.
      *  @param bool|null $value Value to set for the preSharedKeyIsSet property.
     */
-    public function setPreSharedKeyIsSet(?bool $value ): void {
-        $this->preSharedKeyIsSet = $value;
+    public function setPreSharedKeyIsSet(?bool $value): void {
+        $this->getBackingStore()->set('preSharedKeyIsSet', $value);
     }
 
     /**
      * Sets the ssid property value. This is the name of the Wi-Fi network that is broadcast to all devices.
      *  @param string|null $value Value to set for the ssid property.
     */
-    public function setSsid(?string $value ): void {
-        $this->ssid = $value;
+    public function setSsid(?string $value): void {
+        $this->getBackingStore()->set('ssid', $value);
     }
 
     /**
      * Sets the wiFiSecurityType property value. Wi-Fi Security Types for AOSP Device Owner.
      *  @param AospDeviceOwnerWiFiSecurityType|null $value Value to set for the wiFiSecurityType property.
     */
-    public function setWiFiSecurityType(?AospDeviceOwnerWiFiSecurityType $value ): void {
-        $this->wiFiSecurityType = $value;
+    public function setWiFiSecurityType(?AospDeviceOwnerWiFiSecurityType $value): void {
+        $this->getBackingStore()->set('wiFiSecurityType', $value);
     }
 
 }

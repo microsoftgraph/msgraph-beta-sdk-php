@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable 
 {
     /**
-     * @var string|null $anomalyId The unique identifier of the anomaly.
-    */
-    private ?string $anomalyId = null;
-    
-    /**
-     * @var DateTime|null $anomalyOnDeviceFirstOccurrenceDateTime Indicates the first occurance date and time for the anomaly on the device.
-    */
-    private ?DateTime $anomalyOnDeviceFirstOccurrenceDateTime = null;
-    
-    /**
-     * @var DateTime|null $anomalyOnDeviceLatestOccurrenceDateTime Indicates the latest occurance date and time for the anomaly on the device.
-    */
-    private ?DateTime $anomalyOnDeviceLatestOccurrenceDateTime = null;
-    
-    /**
-     * @var string|null $deviceId The unique identifier of the device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceManufacturer The manufacturer name of the device.
-    */
-    private ?string $deviceManufacturer = null;
-    
-    /**
-     * @var string|null $deviceModel The model name of the device.
-    */
-    private ?string $deviceModel = null;
-    
-    /**
-     * @var string|null $deviceName The name of the device.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $osName The name of the OS installed on the device.
-    */
-    private ?string $osName = null;
-    
-    /**
-     * @var string|null $osVersion The OS version installed on the device.
-    */
-    private ?string $osVersion = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAnomalyDevice and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAnomalyDevice');
     }
 
     /**
@@ -76,7 +30,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getAnomalyId(): ?string {
-        return $this->anomalyId;
+        return $this->getBackingStore()->get('anomalyId');
     }
 
     /**
@@ -84,7 +38,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyOnDeviceFirstOccurrenceDateTime(): ?DateTime {
-        return $this->anomalyOnDeviceFirstOccurrenceDateTime;
+        return $this->getBackingStore()->get('anomalyOnDeviceFirstOccurrenceDateTime');
     }
 
     /**
@@ -92,7 +46,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAnomalyOnDeviceLatestOccurrenceDateTime(): ?DateTime {
-        return $this->anomalyOnDeviceLatestOccurrenceDateTime;
+        return $this->getBackingStore()->get('anomalyOnDeviceLatestOccurrenceDateTime');
     }
 
     /**
@@ -100,7 +54,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -108,7 +62,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
-        return $this->deviceManufacturer;
+        return $this->getBackingStore()->get('deviceManufacturer');
     }
 
     /**
@@ -116,7 +70,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->deviceModel;
+        return $this->getBackingStore()->get('deviceModel');
     }
 
     /**
@@ -124,7 +78,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -151,7 +105,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsName(): ?string {
-        return $this->osName;
+        return $this->getBackingStore()->get('osName');
     }
 
     /**
@@ -159,7 +113,7 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -168,87 +122,87 @@ class UserExperienceAnalyticsAnomalyDevice extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('anomalyId', $this->anomalyId);
-        $writer->writeDateTimeValue('anomalyOnDeviceFirstOccurrenceDateTime', $this->anomalyOnDeviceFirstOccurrenceDateTime);
-        $writer->writeDateTimeValue('anomalyOnDeviceLatestOccurrenceDateTime', $this->anomalyOnDeviceLatestOccurrenceDateTime);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceManufacturer', $this->deviceManufacturer);
-        $writer->writeStringValue('deviceModel', $this->deviceModel);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('osName', $this->osName);
-        $writer->writeStringValue('osVersion', $this->osVersion);
+        $writer->writeStringValue('anomalyId', $this->getAnomalyId());
+        $writer->writeDateTimeValue('anomalyOnDeviceFirstOccurrenceDateTime', $this->getAnomalyOnDeviceFirstOccurrenceDateTime());
+        $writer->writeDateTimeValue('anomalyOnDeviceLatestOccurrenceDateTime', $this->getAnomalyOnDeviceLatestOccurrenceDateTime());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceManufacturer', $this->getDeviceManufacturer());
+        $writer->writeStringValue('deviceModel', $this->getDeviceModel());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('osName', $this->getOsName());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
     }
 
     /**
      * Sets the anomalyId property value. The unique identifier of the anomaly.
      *  @param string|null $value Value to set for the anomalyId property.
     */
-    public function setAnomalyId(?string $value ): void {
-        $this->anomalyId = $value;
+    public function setAnomalyId(?string $value): void {
+        $this->getBackingStore()->set('anomalyId', $value);
     }
 
     /**
      * Sets the anomalyOnDeviceFirstOccurrenceDateTime property value. Indicates the first occurance date and time for the anomaly on the device.
      *  @param DateTime|null $value Value to set for the anomalyOnDeviceFirstOccurrenceDateTime property.
     */
-    public function setAnomalyOnDeviceFirstOccurrenceDateTime(?DateTime $value ): void {
-        $this->anomalyOnDeviceFirstOccurrenceDateTime = $value;
+    public function setAnomalyOnDeviceFirstOccurrenceDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('anomalyOnDeviceFirstOccurrenceDateTime', $value);
     }
 
     /**
      * Sets the anomalyOnDeviceLatestOccurrenceDateTime property value. Indicates the latest occurance date and time for the anomaly on the device.
      *  @param DateTime|null $value Value to set for the anomalyOnDeviceLatestOccurrenceDateTime property.
     */
-    public function setAnomalyOnDeviceLatestOccurrenceDateTime(?DateTime $value ): void {
-        $this->anomalyOnDeviceLatestOccurrenceDateTime = $value;
+    public function setAnomalyOnDeviceLatestOccurrenceDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('anomalyOnDeviceLatestOccurrenceDateTime', $value);
     }
 
     /**
      * Sets the deviceId property value. The unique identifier of the device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceManufacturer property value. The manufacturer name of the device.
      *  @param string|null $value Value to set for the deviceManufacturer property.
     */
-    public function setDeviceManufacturer(?string $value ): void {
-        $this->deviceManufacturer = $value;
+    public function setDeviceManufacturer(?string $value): void {
+        $this->getBackingStore()->set('deviceManufacturer', $value);
     }
 
     /**
      * Sets the deviceModel property value. The model name of the device.
      *  @param string|null $value Value to set for the deviceModel property.
     */
-    public function setDeviceModel(?string $value ): void {
-        $this->deviceModel = $value;
+    public function setDeviceModel(?string $value): void {
+        $this->getBackingStore()->set('deviceModel', $value);
     }
 
     /**
      * Sets the deviceName property value. The name of the device.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the osName property value. The name of the OS installed on the device.
      *  @param string|null $value Value to set for the osName property.
     */
-    public function setOsName(?string $value ): void {
-        $this->osName = $value;
+    public function setOsName(?string $value): void {
+        $this->getBackingStore()->set('osName', $value);
     }
 
     /**
      * Sets the osVersion property value. The OS version installed on the device.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
 }

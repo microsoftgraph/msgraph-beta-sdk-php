@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExternalItem extends Entity implements Parsable 
 {
     /**
-     * @var array<Acl>|null $acl The acl property
-    */
-    private ?array $acl = null;
-    
-    /**
-     * @var ExternalItemContent|null $content The content property
-    */
-    private ?ExternalItemContent $content = null;
-    
-    /**
-     * @var Properties|null $properties The properties property
-    */
-    private ?Properties $properties = null;
-    
-    /**
      * Instantiates a new externalItem and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.externalItem');
     }
 
     /**
@@ -45,7 +29,7 @@ class ExternalItem extends Entity implements Parsable
      * @return array<Acl>|null
     */
     public function getAcl(): ?array {
-        return $this->acl;
+        return $this->getBackingStore()->get('acl');
     }
 
     /**
@@ -53,7 +37,7 @@ class ExternalItem extends Entity implements Parsable
      * @return ExternalItemContent|null
     */
     public function getContent(): ?ExternalItemContent {
-        return $this->content;
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -74,7 +58,7 @@ class ExternalItem extends Entity implements Parsable
      * @return Properties|null
     */
     public function getProperties(): ?Properties {
-        return $this->properties;
+        return $this->getBackingStore()->get('properties');
     }
 
     /**
@@ -83,33 +67,33 @@ class ExternalItem extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('acl', $this->acl);
-        $writer->writeObjectValue('content', $this->content);
-        $writer->writeObjectValue('properties', $this->properties);
+        $writer->writeCollectionOfObjectValues('acl', $this->getAcl());
+        $writer->writeObjectValue('content', $this->getContent());
+        $writer->writeObjectValue('properties', $this->getProperties());
     }
 
     /**
      * Sets the acl property value. The acl property
      *  @param array<Acl>|null $value Value to set for the acl property.
     */
-    public function setAcl(?array $value ): void {
-        $this->acl = $value;
+    public function setAcl(?array $value): void {
+        $this->getBackingStore()->set('acl', $value);
     }
 
     /**
      * Sets the content property value. The content property
      *  @param ExternalItemContent|null $value Value to set for the content property.
     */
-    public function setContent(?ExternalItemContent $value ): void {
-        $this->content = $value;
+    public function setContent(?ExternalItemContent $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the properties property value. The properties property
      *  @param Properties|null $value Value to set for the properties property.
     */
-    public function setProperties(?Properties $value ): void {
-        $this->properties = $value;
+    public function setProperties(?Properties $value): void {
+        $this->getBackingStore()->set('properties', $value);
     }
 
 }

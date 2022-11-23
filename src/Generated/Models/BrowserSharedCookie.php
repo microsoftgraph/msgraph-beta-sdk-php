@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BrowserSharedCookie extends Entity implements Parsable 
 {
     /**
-     * @var string|null $comment The comment for the shared cookie.
-    */
-    private ?string $comment = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time when the shared cookie was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $deletedDateTime The date and time when the shared cookie was deleted.
-    */
-    private ?DateTime $deletedDateTime = null;
-    
-    /**
-     * @var string|null $displayName The name of the cookie.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<BrowserSharedCookieHistory>|null $history The history of modifications applied to the cookie.
-    */
-    private ?array $history = null;
-    
-    /**
-     * @var bool|null $hostOnly Controls whether a cookie is a host-only or domain cookie.
-    */
-    private ?bool $hostOnly = null;
-    
-    /**
-     * @var string|null $hostOrDomain The URL of the cookie.
-    */
-    private ?string $hostOrDomain = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy The user who last modified the cookie.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the cookie was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $path The path of the cookie.
-    */
-    private ?string $path = null;
-    
-    /**
-     * @var BrowserSharedCookieSourceEnvironment|null $sourceEnvironment The sourceEnvironment property
-    */
-    private ?BrowserSharedCookieSourceEnvironment $sourceEnvironment = null;
-    
-    /**
-     * @var BrowserSharedCookieStatus|null $status The status property
-    */
-    private ?BrowserSharedCookieStatus $status = null;
-    
-    /**
      * Instantiates a new browserSharedCookie and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.browserSharedCookie');
     }
 
     /**
@@ -91,7 +30,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return string|null
     */
     public function getComment(): ?string {
-        return $this->comment;
+        return $this->getBackingStore()->get('comment');
     }
 
     /**
@@ -99,7 +38,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -107,7 +46,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
-        return $this->deletedDateTime;
+        return $this->getBackingStore()->get('deletedDateTime');
     }
 
     /**
@@ -115,7 +54,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -145,7 +84,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return array<BrowserSharedCookieHistory>|null
     */
     public function getHistory(): ?array {
-        return $this->history;
+        return $this->getBackingStore()->get('history');
     }
 
     /**
@@ -153,7 +92,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return bool|null
     */
     public function getHostOnly(): ?bool {
-        return $this->hostOnly;
+        return $this->getBackingStore()->get('hostOnly');
     }
 
     /**
@@ -161,7 +100,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return string|null
     */
     public function getHostOrDomain(): ?string {
-        return $this->hostOrDomain;
+        return $this->getBackingStore()->get('hostOrDomain');
     }
 
     /**
@@ -169,7 +108,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -177,7 +116,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -185,7 +124,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return string|null
     */
     public function getPath(): ?string {
-        return $this->path;
+        return $this->getBackingStore()->get('path');
     }
 
     /**
@@ -193,7 +132,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return BrowserSharedCookieSourceEnvironment|null
     */
     public function getSourceEnvironment(): ?BrowserSharedCookieSourceEnvironment {
-        return $this->sourceEnvironment;
+        return $this->getBackingStore()->get('sourceEnvironment');
     }
 
     /**
@@ -201,7 +140,7 @@ class BrowserSharedCookie extends Entity implements Parsable
      * @return BrowserSharedCookieStatus|null
     */
     public function getStatus(): ?BrowserSharedCookieStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -210,114 +149,114 @@ class BrowserSharedCookie extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('comment', $this->comment);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('deletedDateTime', $this->deletedDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('history', $this->history);
-        $writer->writeBooleanValue('hostOnly', $this->hostOnly);
-        $writer->writeStringValue('hostOrDomain', $this->hostOrDomain);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('path', $this->path);
-        $writer->writeEnumValue('sourceEnvironment', $this->sourceEnvironment);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('comment', $this->getComment());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('history', $this->getHistory());
+        $writer->writeBooleanValue('hostOnly', $this->getHostOnly());
+        $writer->writeStringValue('hostOrDomain', $this->getHostOrDomain());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('path', $this->getPath());
+        $writer->writeEnumValue('sourceEnvironment', $this->getSourceEnvironment());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the comment property value. The comment for the shared cookie.
      *  @param string|null $value Value to set for the comment property.
     */
-    public function setComment(?string $value ): void {
-        $this->comment = $value;
+    public function setComment(?string $value): void {
+        $this->getBackingStore()->set('comment', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time when the shared cookie was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deletedDateTime property value. The date and time when the shared cookie was deleted.
      *  @param DateTime|null $value Value to set for the deletedDateTime property.
     */
-    public function setDeletedDateTime(?DateTime $value ): void {
-        $this->deletedDateTime = $value;
+    public function setDeletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deletedDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the cookie.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the history property value. The history of modifications applied to the cookie.
      *  @param array<BrowserSharedCookieHistory>|null $value Value to set for the history property.
     */
-    public function setHistory(?array $value ): void {
-        $this->history = $value;
+    public function setHistory(?array $value): void {
+        $this->getBackingStore()->set('history', $value);
     }
 
     /**
      * Sets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
      *  @param bool|null $value Value to set for the hostOnly property.
     */
-    public function setHostOnly(?bool $value ): void {
-        $this->hostOnly = $value;
+    public function setHostOnly(?bool $value): void {
+        $this->getBackingStore()->set('hostOnly', $value);
     }
 
     /**
      * Sets the hostOrDomain property value. The URL of the cookie.
      *  @param string|null $value Value to set for the hostOrDomain property.
     */
-    public function setHostOrDomain(?string $value ): void {
-        $this->hostOrDomain = $value;
+    public function setHostOrDomain(?string $value): void {
+        $this->getBackingStore()->set('hostOrDomain', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the cookie.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the cookie was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the path property value. The path of the cookie.
      *  @param string|null $value Value to set for the path property.
     */
-    public function setPath(?string $value ): void {
-        $this->path = $value;
+    public function setPath(?string $value): void {
+        $this->getBackingStore()->set('path', $value);
     }
 
     /**
      * Sets the sourceEnvironment property value. The sourceEnvironment property
      *  @param BrowserSharedCookieSourceEnvironment|null $value Value to set for the sourceEnvironment property.
     */
-    public function setSourceEnvironment(?BrowserSharedCookieSourceEnvironment $value ): void {
-        $this->sourceEnvironment = $value;
+    public function setSourceEnvironment(?BrowserSharedCookieSourceEnvironment $value): void {
+        $this->getBackingStore()->set('sourceEnvironment', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param BrowserSharedCookieStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?BrowserSharedCookieStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?BrowserSharedCookieStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

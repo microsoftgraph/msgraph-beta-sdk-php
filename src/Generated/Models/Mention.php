@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Mention extends Entity implements Parsable 
 {
     /**
-     * @var string|null $application The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
-    */
-    private ?string $application = null;
-    
-    /**
-     * @var string|null $clientReference A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
-    */
-    private ?string $clientReference = null;
-    
-    /**
-     * @var EmailAddress|null $createdBy The email information of the user who made the mention.
-    */
-    private ?EmailAddress $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time that the mention is created on the client.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $deepLink A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
-    */
-    private ?string $deepLink = null;
-    
-    /**
-     * @var EmailAddress|null $mentioned The mentioned property
-    */
-    private ?EmailAddress $mentioned = null;
-    
-    /**
-     * @var string|null $mentionText Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
-    */
-    private ?string $mentionText = null;
-    
-    /**
-     * @var DateTime|null $serverCreatedDateTime The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
-    */
-    private ?DateTime $serverCreatedDateTime = null;
-    
-    /**
      * Instantiates a new mention and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.mention');
     }
 
     /**
@@ -71,7 +30,7 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getApplication(): ?string {
-        return $this->application;
+        return $this->getBackingStore()->get('application');
     }
 
     /**
@@ -79,7 +38,7 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getClientReference(): ?string {
-        return $this->clientReference;
+        return $this->getBackingStore()->get('clientReference');
     }
 
     /**
@@ -87,7 +46,7 @@ class Mention extends Entity implements Parsable
      * @return EmailAddress|null
     */
     public function getCreatedBy(): ?EmailAddress {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -95,7 +54,7 @@ class Mention extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -103,7 +62,7 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getDeepLink(): ?string {
-        return $this->deepLink;
+        return $this->getBackingStore()->get('deepLink');
     }
 
     /**
@@ -129,7 +88,7 @@ class Mention extends Entity implements Parsable
      * @return EmailAddress|null
     */
     public function getMentioned(): ?EmailAddress {
-        return $this->mentioned;
+        return $this->getBackingStore()->get('mentioned');
     }
 
     /**
@@ -137,7 +96,7 @@ class Mention extends Entity implements Parsable
      * @return string|null
     */
     public function getMentionText(): ?string {
-        return $this->mentionText;
+        return $this->getBackingStore()->get('mentionText');
     }
 
     /**
@@ -145,7 +104,7 @@ class Mention extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getServerCreatedDateTime(): ?DateTime {
-        return $this->serverCreatedDateTime;
+        return $this->getBackingStore()->get('serverCreatedDateTime');
     }
 
     /**
@@ -154,78 +113,78 @@ class Mention extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('application', $this->application);
-        $writer->writeStringValue('clientReference', $this->clientReference);
-        $writer->writeObjectValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('deepLink', $this->deepLink);
-        $writer->writeObjectValue('mentioned', $this->mentioned);
-        $writer->writeStringValue('mentionText', $this->mentionText);
-        $writer->writeDateTimeValue('serverCreatedDateTime', $this->serverCreatedDateTime);
+        $writer->writeStringValue('application', $this->getApplication());
+        $writer->writeStringValue('clientReference', $this->getClientReference());
+        $writer->writeObjectValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('deepLink', $this->getDeepLink());
+        $writer->writeObjectValue('mentioned', $this->getMentioned());
+        $writer->writeStringValue('mentionText', $this->getMentionText());
+        $writer->writeDateTimeValue('serverCreatedDateTime', $this->getServerCreatedDateTime());
     }
 
     /**
      * Sets the application property value. The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
      *  @param string|null $value Value to set for the application property.
     */
-    public function setApplication(?string $value ): void {
-        $this->application = $value;
+    public function setApplication(?string $value): void {
+        $this->getBackingStore()->set('application', $value);
     }
 
     /**
      * Sets the clientReference property value. A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
      *  @param string|null $value Value to set for the clientReference property.
     */
-    public function setClientReference(?string $value ): void {
-        $this->clientReference = $value;
+    public function setClientReference(?string $value): void {
+        $this->getBackingStore()->set('clientReference', $value);
     }
 
     /**
      * Sets the createdBy property value. The email information of the user who made the mention.
      *  @param EmailAddress|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?EmailAddress $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?EmailAddress $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time that the mention is created on the client.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deepLink property value. A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
      *  @param string|null $value Value to set for the deepLink property.
     */
-    public function setDeepLink(?string $value ): void {
-        $this->deepLink = $value;
+    public function setDeepLink(?string $value): void {
+        $this->getBackingStore()->set('deepLink', $value);
     }
 
     /**
      * Sets the mentioned property value. The mentioned property
      *  @param EmailAddress|null $value Value to set for the mentioned property.
     */
-    public function setMentioned(?EmailAddress $value ): void {
-        $this->mentioned = $value;
+    public function setMentioned(?EmailAddress $value): void {
+        $this->getBackingStore()->set('mentioned', $value);
     }
 
     /**
      * Sets the mentionText property value. Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
      *  @param string|null $value Value to set for the mentionText property.
     */
-    public function setMentionText(?string $value ): void {
-        $this->mentionText = $value;
+    public function setMentionText(?string $value): void {
+        $this->getBackingStore()->set('mentionText', $value);
     }
 
     /**
      * Sets the serverCreatedDateTime property value. The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
      *  @param DateTime|null $value Value to set for the serverCreatedDateTime property.
     */
-    public function setServerCreatedDateTime(?DateTime $value ): void {
-        $this->serverCreatedDateTime = $value;
+    public function setServerCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('serverCreatedDateTime', $value);
     }
 
 }

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsApplicationIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $applicationType First party Microsoft application presenting this identity.
-    */
-    private ?string $applicationType = null;
-    
-    /**
-     * @var bool|null $hidden True if the participant would not like to be shown in other participants' rosters.
-    */
-    private ?bool $hidden = null;
-    
-    /**
      * Instantiates a new CommunicationsApplicationIdentity and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
      * @return string|null
     */
     public function getApplicationType(): ?string {
-        return $this->applicationType;
+        return $this->getBackingStore()->get('applicationType');
     }
 
     /**
@@ -60,7 +50,7 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->hidden;
+        return $this->getBackingStore()->get('hidden');
     }
 
     /**
@@ -69,24 +59,24 @@ class CommunicationsApplicationIdentity extends Identity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('applicationType', $this->applicationType);
-        $writer->writeBooleanValue('hidden', $this->hidden);
+        $writer->writeStringValue('applicationType', $this->getApplicationType());
+        $writer->writeBooleanValue('hidden', $this->getHidden());
     }
 
     /**
      * Sets the applicationType property value. First party Microsoft application presenting this identity.
      *  @param string|null $value Value to set for the applicationType property.
     */
-    public function setApplicationType(?string $value ): void {
-        $this->applicationType = $value;
+    public function setApplicationType(?string $value): void {
+        $this->getBackingStore()->set('applicationType', $value);
     }
 
     /**
      * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      *  @param bool|null $value Value to set for the hidden property.
     */
-    public function setHidden(?bool $value ): void {
-        $this->hidden = $value;
+    public function setHidden(?bool $value): void {
+        $this->getBackingStore()->set('hidden', $value);
     }
 
 }

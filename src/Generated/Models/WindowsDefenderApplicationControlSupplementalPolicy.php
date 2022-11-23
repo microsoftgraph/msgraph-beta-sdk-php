@@ -11,66 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class WindowsDefenderApplicationControlSupplementalPolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $assignments The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var StreamInterface|null $content The WindowsDefenderApplicationControl supplemental policy content in byte array format.
-    */
-    private ?StreamInterface $content = null;
-    
-    /**
-     * @var string|null $contentFileName The WindowsDefenderApplicationControl supplemental policy content's file name.
-    */
-    private ?string $contentFileName = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $deploySummary WindowsDefenderApplicationControl supplemental policy deployment summary.
-    */
-    private ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $deploySummary = null;
-    
-    /**
-     * @var string|null $description The description of WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $deviceStatuses The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?array $deviceStatuses = null;
-    
-    /**
-     * @var string|null $displayName The display name of WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var string|null $version The WindowsDefenderApplicationControl supplemental policy's version.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy');
     }
 
     /**
@@ -87,15 +31,15 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
      * Gets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getContent(): StreamInterface {
-        return $this->content;
+    public function getContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -103,7 +47,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getContentFileName(): ?string {
-        return $this->contentFileName;
+        return $this->getBackingStore()->get('contentFileName');
     }
 
     /**
@@ -111,7 +55,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -119,7 +63,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null
     */
     public function getDeploySummary(): ?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary {
-        return $this->deploySummary;
+        return $this->getBackingStore()->get('deploySummary');
     }
 
     /**
@@ -127,7 +71,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -135,7 +79,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->deviceStatuses;
+        return $this->getBackingStore()->get('deviceStatuses');
     }
 
     /**
@@ -143,7 +87,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -172,7 +116,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -180,7 +124,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -188,7 +132,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -197,105 +141,105 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeBinaryContent('content', $this->content);
-        $writer->writeStringValue('contentFileName', $this->contentFileName);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeObjectValue('deploySummary', $this->deploySummary);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->deviceStatuses);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeBinaryContent('content', $this->getContent());
+        $writer->writeStringValue('contentFileName', $this->getContentFileName());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeObjectValue('deploySummary', $this->getDeploySummary());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the assignments property value. The associated group assignments for this WindowsDefenderApplicationControl supplemental policy.
      *  @param array<WindowsDefenderApplicationControlSupplementalPolicyAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the content property value. The WindowsDefenderApplicationControl supplemental policy content in byte array format.
      *  @param StreamInterface|null $value Value to set for the content property.
     */
-    public function setContent(?StreamInterface $value ): void {
-        $this->content = $value;
+    public function setContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the contentFileName property value. The WindowsDefenderApplicationControl supplemental policy content's file name.
      *  @param string|null $value Value to set for the contentFileName property.
     */
-    public function setContentFileName(?string $value ): void {
-        $this->contentFileName = $value;
+    public function setContentFileName(?string $value): void {
+        $this->getBackingStore()->set('contentFileName', $value);
     }
 
     /**
      * Sets the creationDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the deploySummary property value. WindowsDefenderApplicationControl supplemental policy deployment summary.
      *  @param WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary|null $value Value to set for the deploySummary property.
     */
-    public function setDeploySummary(?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $value ): void {
-        $this->deploySummary = $value;
+    public function setDeploySummary(?WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary $value): void {
+        $this->getBackingStore()->set('deploySummary', $value);
     }
 
     /**
      * Sets the description property value. The description of WindowsDefenderApplicationControl supplemental policy.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceStatuses property value. The list of device deployment states for this WindowsDefenderApplicationControl supplemental policy.
      *  @param array<WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus>|null $value Value to set for the deviceStatuses property.
     */
-    public function setDeviceStatuses(?array $value ): void {
-        $this->deviceStatuses = $value;
+    public function setDeviceStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceStatuses', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of WindowsDefenderApplicationControl supplemental policy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the version property value. The WindowsDefenderApplicationControl supplemental policy's version.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

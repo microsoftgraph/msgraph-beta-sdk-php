@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ApplicationSignInDetailedSummary extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $aggregatedEventDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $aggregatedEventDateTime = null;
-    
-    /**
-     * @var string|null $appDisplayName Name of the application that the user signed in to.
-    */
-    private ?string $appDisplayName = null;
-    
-    /**
-     * @var string|null $appId ID of the application that the user signed in to.
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var int|null $signInCount Count of sign-ins made by the application.
-    */
-    private ?int $signInCount = null;
-    
-    /**
-     * @var SignInStatus|null $status Details of the sign-in status.
-    */
-    private ?SignInStatus $status = null;
-    
-    /**
      * Instantiates a new ApplicationSignInDetailedSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.applicationSignInDetailedSummary');
     }
 
     /**
@@ -56,7 +30,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getAggregatedEventDateTime(): ?DateTime {
-        return $this->aggregatedEventDateTime;
+        return $this->getBackingStore()->get('aggregatedEventDateTime');
     }
 
     /**
@@ -64,7 +38,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppDisplayName(): ?string {
-        return $this->appDisplayName;
+        return $this->getBackingStore()->get('appDisplayName');
     }
 
     /**
@@ -72,7 +46,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -95,7 +69,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSignInCount(): ?int {
-        return $this->signInCount;
+        return $this->getBackingStore()->get('signInCount');
     }
 
     /**
@@ -103,7 +77,7 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
      * @return SignInStatus|null
     */
     public function getStatus(): ?SignInStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -112,51 +86,51 @@ class ApplicationSignInDetailedSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('aggregatedEventDateTime', $this->aggregatedEventDateTime);
-        $writer->writeStringValue('appDisplayName', $this->appDisplayName);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeIntegerValue('signInCount', $this->signInCount);
-        $writer->writeObjectValue('status', $this->status);
+        $writer->writeDateTimeValue('aggregatedEventDateTime', $this->getAggregatedEventDateTime());
+        $writer->writeStringValue('appDisplayName', $this->getAppDisplayName());
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeIntegerValue('signInCount', $this->getSignInCount());
+        $writer->writeObjectValue('status', $this->getStatus());
     }
 
     /**
      * Sets the aggregatedEventDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the aggregatedEventDateTime property.
     */
-    public function setAggregatedEventDateTime(?DateTime $value ): void {
-        $this->aggregatedEventDateTime = $value;
+    public function setAggregatedEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('aggregatedEventDateTime', $value);
     }
 
     /**
      * Sets the appDisplayName property value. Name of the application that the user signed in to.
      *  @param string|null $value Value to set for the appDisplayName property.
     */
-    public function setAppDisplayName(?string $value ): void {
-        $this->appDisplayName = $value;
+    public function setAppDisplayName(?string $value): void {
+        $this->getBackingStore()->set('appDisplayName', $value);
     }
 
     /**
      * Sets the appId property value. ID of the application that the user signed in to.
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the signInCount property value. Count of sign-ins made by the application.
      *  @param int|null $value Value to set for the signInCount property.
     */
-    public function setSignInCount(?int $value ): void {
-        $this->signInCount = $value;
+    public function setSignInCount(?int $value): void {
+        $this->getBackingStore()->set('signInCount', $value);
     }
 
     /**
      * Sets the status property value. Details of the sign-in status.
      *  @param SignInStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?SignInStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?SignInStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

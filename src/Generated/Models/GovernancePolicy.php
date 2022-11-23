@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class GovernancePolicy implements AdditionalDataHolder, Parsable 
+class GovernancePolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<GovernanceCriteria>|null $decisionMakerCriteria The decisionMakerCriteria property
-    */
-    private ?array $decisionMakerCriteria = null;
-    
-    /**
-     * @var GovernanceNotificationPolicy|null $notificationPolicy The notificationPolicy property
-    */
-    private ?GovernanceNotificationPolicy $notificationPolicy = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new governancePolicy and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.governancePolicy');
     }
 
     /**
@@ -50,8 +38,16 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +55,7 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @return array<GovernanceCriteria>|null
     */
     public function getDecisionMakerCriteria(): ?array {
-        return $this->decisionMakerCriteria;
+        return $this->getBackingStore()->get('decisionMakerCriteria');
     }
 
     /**
@@ -80,7 +76,7 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @return GovernanceNotificationPolicy|null
     */
     public function getNotificationPolicy(): ?GovernanceNotificationPolicy {
-        return $this->notificationPolicy;
+        return $this->getBackingStore()->get('notificationPolicy');
     }
 
     /**
@@ -88,7 +84,7 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class GovernancePolicy implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('decisionMakerCriteria', $this->decisionMakerCriteria);
-        $writer->writeObjectValue('notificationPolicy', $this->notificationPolicy);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('decisionMakerCriteria', $this->getDecisionMakerCriteria());
+        $writer->writeObjectValue('notificationPolicy', $this->getNotificationPolicy());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the decisionMakerCriteria property value. The decisionMakerCriteria property
      *  @param array<GovernanceCriteria>|null $value Value to set for the decisionMakerCriteria property.
     */
-    public function setDecisionMakerCriteria(?array $value ): void {
-        $this->decisionMakerCriteria = $value;
+    public function setDecisionMakerCriteria(?array $value): void {
+        $this->getBackingStore()->set('decisionMakerCriteria', $value);
     }
 
     /**
      * Sets the notificationPolicy property value. The notificationPolicy property
      *  @param GovernanceNotificationPolicy|null $value Value to set for the notificationPolicy property.
     */
-    public function setNotificationPolicy(?GovernanceNotificationPolicy $value ): void {
-        $this->notificationPolicy = $value;
+    public function setNotificationPolicy(?GovernanceNotificationPolicy $value): void {
+        $this->getBackingStore()->set('notificationPolicy', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

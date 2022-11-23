@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchJobBase extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completionDateTime The completionDateTime property
-    */
-    private ?DateTime $completionDateTime = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime The creationDateTime property
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var ClassificationError|null $error The error property
-    */
-    private ?ClassificationError $error = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime The lastUpdatedDateTime property
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The startDateTime property
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
      * Instantiates a new exactMatchJobBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.exactMatchJobBase');
     }
 
     /**
@@ -65,7 +39,7 @@ class ExactMatchJobBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletionDateTime(): ?DateTime {
-        return $this->completionDateTime;
+        return $this->getBackingStore()->get('completionDateTime');
     }
 
     /**
@@ -73,7 +47,7 @@ class ExactMatchJobBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -81,7 +55,7 @@ class ExactMatchJobBase extends Entity implements Parsable
      * @return ClassificationError|null
     */
     public function getError(): ?ClassificationError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -104,7 +78,7 @@ class ExactMatchJobBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -112,7 +86,7 @@ class ExactMatchJobBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -121,51 +95,51 @@ class ExactMatchJobBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('completionDateTime', $this->completionDateTime);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
+        $writer->writeDateTimeValue('completionDateTime', $this->getCompletionDateTime());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
     }
 
     /**
      * Sets the completionDateTime property value. The completionDateTime property
      *  @param DateTime|null $value Value to set for the completionDateTime property.
     */
-    public function setCompletionDateTime(?DateTime $value ): void {
-        $this->completionDateTime = $value;
+    public function setCompletionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completionDateTime', $value);
     }
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the error property value. The error property
      *  @param ClassificationError|null $value Value to set for the error property.
     */
-    public function setError(?ClassificationError $value ): void {
-        $this->error = $value;
+    public function setError(?ClassificationError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. The lastUpdatedDateTime property
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the startDateTime property value. The startDateTime property
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
 }

@@ -10,26 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime The timestamp when this method was registered to the user.
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var Device|null $device The device property
-    */
-    private ?Device $device = null;
-    
-    /**
-     * @var string|null $displayName The display name of the mobile device as given by the user.
-    */
-    private ?string $displayName = null;
-    
-    /**
      * Instantiates a new PasswordlessMicrosoftAuthenticatorAuthenticationMethod and sets the default values.
     */
     public function __construct() {
@@ -51,7 +31,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -59,7 +39,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -67,7 +47,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
      * @return Device|null
     */
     public function getDevice(): ?Device {
-        return $this->device;
+        return $this->getBackingStore()->get('device');
     }
 
     /**
@@ -75,7 +55,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -98,42 +78,42 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeObjectValue('device', $this->device);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeObjectValue('device', $this->getDevice());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the creationDateTime property value. The timestamp when this method was registered to the user.
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the device property value. The device property
      *  @param Device|null $value Value to set for the device property.
     */
-    public function setDevice(?Device $value ): void {
-        $this->device = $value;
+    public function setDevice(?Device $value): void {
+        $this->getBackingStore()->set('device', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the mobile device as given by the user.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

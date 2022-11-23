@@ -9,56 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $batteryAgeInDays Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
-    */
-    private ?int $batteryAgeInDays = null;
-    
-    /**
-     * @var int|null $deviceBatteryHealthScore A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
-    */
-    private ?int $deviceBatteryHealthScore = null;
-    
-    /**
-     * @var string|null $deviceId The unique identifier of the device, Intune DeviceID.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceName Device friendly name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var int|null $estimatedRuntimeInMinutes The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $estimatedRuntimeInMinutes = null;
-    
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
-    */
-    private ?UserExperienceAnalyticsHealthState $healthStatus = null;
-    
-    /**
-     * @var string|null $manufacturer The manufacturer name of the device.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var int|null $maxCapacityPercentage Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values -2147483648 to 2147483647
-    */
-    private ?int $maxCapacityPercentage = null;
-    
-    /**
-     * @var string|null $model The model name of the device.
-    */
-    private ?string $model = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthDevicePerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthDevicePerformance');
     }
 
     /**
@@ -75,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return int|null
     */
     public function getBatteryAgeInDays(): ?int {
-        return $this->batteryAgeInDays;
+        return $this->getBackingStore()->get('batteryAgeInDays');
     }
 
     /**
@@ -83,7 +37,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return int|null
     */
     public function getDeviceBatteryHealthScore(): ?int {
-        return $this->deviceBatteryHealthScore;
+        return $this->getBackingStore()->get('deviceBatteryHealthScore');
     }
 
     /**
@@ -91,7 +45,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -99,7 +53,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -107,7 +61,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return int|null
     */
     public function getEstimatedRuntimeInMinutes(): ?int {
-        return $this->estimatedRuntimeInMinutes;
+        return $this->getBackingStore()->get('estimatedRuntimeInMinutes');
     }
 
     /**
@@ -134,7 +88,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->healthStatus;
+        return $this->getBackingStore()->get('healthStatus');
     }
 
     /**
@@ -142,7 +96,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -150,7 +104,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return int|null
     */
     public function getMaxCapacityPercentage(): ?int {
-        return $this->maxCapacityPercentage;
+        return $this->getBackingStore()->get('maxCapacityPercentage');
     }
 
     /**
@@ -158,7 +112,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -167,87 +121,87 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('batteryAgeInDays', $this->batteryAgeInDays);
-        $writer->writeIntegerValue('deviceBatteryHealthScore', $this->deviceBatteryHealthScore);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->estimatedRuntimeInMinutes);
-        $writer->writeEnumValue('healthStatus', $this->healthStatus);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeIntegerValue('maxCapacityPercentage', $this->maxCapacityPercentage);
-        $writer->writeStringValue('model', $this->model);
+        $writer->writeIntegerValue('batteryAgeInDays', $this->getBatteryAgeInDays());
+        $writer->writeIntegerValue('deviceBatteryHealthScore', $this->getDeviceBatteryHealthScore());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
+        $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeIntegerValue('maxCapacityPercentage', $this->getMaxCapacityPercentage());
+        $writer->writeStringValue('model', $this->getModel());
     }
 
     /**
      * Sets the batteryAgeInDays property value. Estimated battery age. Unit in days. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the batteryAgeInDays property.
     */
-    public function setBatteryAgeInDays(?int $value ): void {
-        $this->batteryAgeInDays = $value;
+    public function setBatteryAgeInDays(?int $value): void {
+        $this->getBackingStore()->set('batteryAgeInDays', $value);
     }
 
     /**
      * Sets the deviceBatteryHealthScore property value. A weighted average of a device’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the deviceBatteryHealthScore property.
     */
-    public function setDeviceBatteryHealthScore(?int $value ): void {
-        $this->deviceBatteryHealthScore = $value;
+    public function setDeviceBatteryHealthScore(?int $value): void {
+        $this->getBackingStore()->set('deviceBatteryHealthScore', $value);
     }
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. Device friendly name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
-    public function setEstimatedRuntimeInMinutes(?int $value ): void {
-        $this->estimatedRuntimeInMinutes = $value;
+    public function setEstimatedRuntimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
     }
 
     /**
      * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
-    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {
-        $this->healthStatus = $value;
+    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
     }
 
     /**
      * Sets the manufacturer property value. The manufacturer name of the device.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the maxCapacityPercentage property value. Ratio of current capacity and design capacity of the battery with the lowest capacity. Unit in percentage and values range from 0-100. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the maxCapacityPercentage property.
     */
-    public function setMaxCapacityPercentage(?int $value ): void {
-        $this->maxCapacityPercentage = $value;
+    public function setMaxCapacityPercentage(?int $value): void {
+        $this->getBackingStore()->set('maxCapacityPercentage', $value);
     }
 
     /**
      * Sets the model property value. The model name of the device.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
 }

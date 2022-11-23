@@ -8,28 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHolder, Parsable 
+class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<ClassificationResult>|null $classificationResults The classificationResults property
-    */
-    private ?array $classificationResults = null;
-    
-    /**
-     * @var ContentInfo|null $contentInfo The contentInfo property
-    */
-    private ?ContentInfo $contentInfo = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new evaluateClassificationResultsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -46,8 +40,16 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -55,7 +57,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
      * @return array<ClassificationResult>|null
     */
     public function getClassificationResults(): ?array {
-        return $this->classificationResults;
+        return $this->getBackingStore()->get('classificationResults');
     }
 
     /**
@@ -63,7 +65,7 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
      * @return ContentInfo|null
     */
     public function getContentInfo(): ?ContentInfo {
-        return $this->contentInfo;
+        return $this->getBackingStore()->get('contentInfo');
     }
 
     /**
@@ -83,33 +85,41 @@ class EvaluateClassificationResultsPostRequestBody implements AdditionalDataHold
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('classificationResults', $this->classificationResults);
-        $writer->writeObjectValue('contentInfo', $this->contentInfo);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('classificationResults', $this->getClassificationResults());
+        $writer->writeObjectValue('contentInfo', $this->getContentInfo());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the classificationResults property value. The classificationResults property
      *  @param array<ClassificationResult>|null $value Value to set for the classificationResults property.
     */
-    public function setClassificationResults(?array $value ): void {
-        $this->classificationResults = $value;
+    public function setClassificationResults(?array $value): void {
+        $this->getBackingStore()->set('classificationResults', $value);
     }
 
     /**
      * Sets the contentInfo property value. The contentInfo property
      *  @param ContentInfo|null $value Value to set for the contentInfo property.
     */
-    public function setContentInfo(?ContentInfo $value ): void {
-        $this->contentInfo = $value;
+    public function setContentInfo(?ContentInfo $value): void {
+        $this->getBackingStore()->set('contentInfo', $value);
     }
 
 }

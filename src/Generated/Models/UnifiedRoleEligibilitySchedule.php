@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements Parsable 
 {
     /**
-     * @var string|null $memberType Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq).
-    */
-    private ?string $memberType = null;
-    
-    /**
-     * @var RequestSchedule|null $scheduleInfo The schedule object of the eligible role assignment request.
-    */
-    private ?RequestSchedule $scheduleInfo = null;
-    
-    /**
      * Instantiates a new unifiedRoleEligibilitySchedule and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.unifiedRoleEligibilitySchedule');
     }
 
     /**
@@ -52,7 +41,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements 
      * @return string|null
     */
     public function getMemberType(): ?string {
-        return $this->memberType;
+        return $this->getBackingStore()->get('memberType');
     }
 
     /**
@@ -60,7 +49,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements 
      * @return RequestSchedule|null
     */
     public function getScheduleInfo(): ?RequestSchedule {
-        return $this->scheduleInfo;
+        return $this->getBackingStore()->get('scheduleInfo');
     }
 
     /**
@@ -69,24 +58,24 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('memberType', $this->memberType);
-        $writer->writeObjectValue('scheduleInfo', $this->scheduleInfo);
+        $writer->writeStringValue('memberType', $this->getMemberType());
+        $writer->writeObjectValue('scheduleInfo', $this->getScheduleInfo());
     }
 
     /**
      * Sets the memberType property value. Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. Supports $filter (eq).
      *  @param string|null $value Value to set for the memberType property.
     */
-    public function setMemberType(?string $value ): void {
-        $this->memberType = $value;
+    public function setMemberType(?string $value): void {
+        $this->getBackingStore()->set('memberType', $value);
     }
 
     /**
      * Sets the scheduleInfo property value. The schedule object of the eligible role assignment request.
      *  @param RequestSchedule|null $value Value to set for the scheduleInfo property.
     */
-    public function setScheduleInfo(?RequestSchedule $value ): void {
-        $this->scheduleInfo = $value;
+    public function setScheduleInfo(?RequestSchedule $value): void {
+        $this->getBackingStore()->set('scheduleInfo', $value);
     }
 
 }

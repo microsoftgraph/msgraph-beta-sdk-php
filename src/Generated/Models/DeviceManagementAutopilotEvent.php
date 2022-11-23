@@ -11,146 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAutopilotEvent extends Entity implements Parsable 
 {
     /**
-     * @var DateInterval|null $accountSetupDuration Time spent in user ESP.
-    */
-    private ?DateInterval $accountSetupDuration = null;
-    
-    /**
-     * @var WindowsAutopilotDeploymentState|null $accountSetupStatus The accountSetupStatus property
-    */
-    private ?WindowsAutopilotDeploymentState $accountSetupStatus = null;
-    
-    /**
-     * @var DateInterval|null $deploymentDuration Autopilot deployment duration including enrollment.
-    */
-    private ?DateInterval $deploymentDuration = null;
-    
-    /**
-     * @var DateTime|null $deploymentEndDateTime Deployment end time.
-    */
-    private ?DateTime $deploymentEndDateTime = null;
-    
-    /**
-     * @var DateTime|null $deploymentStartDateTime Deployment start time.
-    */
-    private ?DateTime $deploymentStartDateTime = null;
-    
-    /**
-     * @var WindowsAutopilotDeploymentState|null $deploymentState The deploymentState property
-    */
-    private ?WindowsAutopilotDeploymentState $deploymentState = null;
-    
-    /**
-     * @var DateInterval|null $deploymentTotalDuration Total deployment duration from enrollment to Desktop screen.
-    */
-    private ?DateInterval $deploymentTotalDuration = null;
-    
-    /**
-     * @var string|null $deviceId Device id associated with the object
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var DateInterval|null $devicePreparationDuration Time spent in device enrollment.
-    */
-    private ?DateInterval $devicePreparationDuration = null;
-    
-    /**
-     * @var DateTime|null $deviceRegisteredDateTime Device registration date.
-    */
-    private ?DateTime $deviceRegisteredDateTime = null;
-    
-    /**
-     * @var string|null $deviceSerialNumber Device serial number.
-    */
-    private ?string $deviceSerialNumber = null;
-    
-    /**
-     * @var DateInterval|null $deviceSetupDuration Time spent in device ESP.
-    */
-    private ?DateInterval $deviceSetupDuration = null;
-    
-    /**
-     * @var WindowsAutopilotDeploymentState|null $deviceSetupStatus The deviceSetupStatus property
-    */
-    private ?WindowsAutopilotDeploymentState $deviceSetupStatus = null;
-    
-    /**
-     * @var string|null $enrollmentFailureDetails Enrollment failure details.
-    */
-    private ?string $enrollmentFailureDetails = null;
-    
-    /**
-     * @var DateTime|null $enrollmentStartDateTime Device enrollment start date.
-    */
-    private ?DateTime $enrollmentStartDateTime = null;
-    
-    /**
-     * @var EnrollmentState|null $enrollmentState The enrollmentState property
-    */
-    private ?EnrollmentState $enrollmentState = null;
-    
-    /**
-     * @var WindowsAutopilotEnrollmentType|null $enrollmentType The enrollmentType property
-    */
-    private ?WindowsAutopilotEnrollmentType $enrollmentType = null;
-    
-    /**
-     * @var DateTime|null $eventDateTime Time when the event occurred .
-    */
-    private ?DateTime $eventDateTime = null;
-    
-    /**
-     * @var string|null $managedDeviceName Managed device name.
-    */
-    private ?string $managedDeviceName = null;
-    
-    /**
-     * @var string|null $osVersion Device operating system version.
-    */
-    private ?string $osVersion = null;
-    
-    /**
-     * @var array<DeviceManagementAutopilotPolicyStatusDetail>|null $policyStatusDetails Policy and application status details for this device.
-    */
-    private ?array $policyStatusDetails = null;
-    
-    /**
-     * @var int|null $targetedAppCount Count of applications targeted.
-    */
-    private ?int $targetedAppCount = null;
-    
-    /**
-     * @var int|null $targetedPolicyCount Count of policies targeted.
-    */
-    private ?int $targetedPolicyCount = null;
-    
-    /**
-     * @var string|null $userPrincipalName User principal name used to enroll the device.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * @var string|null $windows10EnrollmentCompletionPageConfigurationDisplayName Enrollment Status Page profile name
-    */
-    private ?string $windows10EnrollmentCompletionPageConfigurationDisplayName = null;
-    
-    /**
-     * @var string|null $windows10EnrollmentCompletionPageConfigurationId Enrollment Status Page profile ID
-    */
-    private ?string $windows10EnrollmentCompletionPageConfigurationId = null;
-    
-    /**
-     * @var string|null $windowsAutopilotDeploymentProfileDisplayName Autopilot profile name.
-    */
-    private ?string $windowsAutopilotDeploymentProfileDisplayName = null;
-    
-    /**
      * Instantiates a new deviceManagementAutopilotEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementAutopilotEvent');
     }
 
     /**
@@ -167,7 +31,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getAccountSetupDuration(): ?DateInterval {
-        return $this->accountSetupDuration;
+        return $this->getBackingStore()->get('accountSetupDuration');
     }
 
     /**
@@ -175,7 +39,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getAccountSetupStatus(): ?WindowsAutopilotDeploymentState {
-        return $this->accountSetupStatus;
+        return $this->getBackingStore()->get('accountSetupStatus');
     }
 
     /**
@@ -183,7 +47,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeploymentDuration(): ?DateInterval {
-        return $this->deploymentDuration;
+        return $this->getBackingStore()->get('deploymentDuration');
     }
 
     /**
@@ -191,7 +55,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeploymentEndDateTime(): ?DateTime {
-        return $this->deploymentEndDateTime;
+        return $this->getBackingStore()->get('deploymentEndDateTime');
     }
 
     /**
@@ -199,7 +63,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeploymentStartDateTime(): ?DateTime {
-        return $this->deploymentStartDateTime;
+        return $this->getBackingStore()->get('deploymentStartDateTime');
     }
 
     /**
@@ -207,7 +71,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeploymentState(): ?WindowsAutopilotDeploymentState {
-        return $this->deploymentState;
+        return $this->getBackingStore()->get('deploymentState');
     }
 
     /**
@@ -215,7 +79,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeploymentTotalDuration(): ?DateInterval {
-        return $this->deploymentTotalDuration;
+        return $this->getBackingStore()->get('deploymentTotalDuration');
     }
 
     /**
@@ -223,7 +87,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -231,7 +95,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDevicePreparationDuration(): ?DateInterval {
-        return $this->devicePreparationDuration;
+        return $this->getBackingStore()->get('devicePreparationDuration');
     }
 
     /**
@@ -239,7 +103,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeviceRegisteredDateTime(): ?DateTime {
-        return $this->deviceRegisteredDateTime;
+        return $this->getBackingStore()->get('deviceRegisteredDateTime');
     }
 
     /**
@@ -247,7 +111,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceSerialNumber(): ?string {
-        return $this->deviceSerialNumber;
+        return $this->getBackingStore()->get('deviceSerialNumber');
     }
 
     /**
@@ -255,7 +119,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateInterval|null
     */
     public function getDeviceSetupDuration(): ?DateInterval {
-        return $this->deviceSetupDuration;
+        return $this->getBackingStore()->get('deviceSetupDuration');
     }
 
     /**
@@ -263,7 +127,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotDeploymentState|null
     */
     public function getDeviceSetupStatus(): ?WindowsAutopilotDeploymentState {
-        return $this->deviceSetupStatus;
+        return $this->getBackingStore()->get('deviceSetupStatus');
     }
 
     /**
@@ -271,7 +135,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getEnrollmentFailureDetails(): ?string {
-        return $this->enrollmentFailureDetails;
+        return $this->getBackingStore()->get('enrollmentFailureDetails');
     }
 
     /**
@@ -279,7 +143,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEnrollmentStartDateTime(): ?DateTime {
-        return $this->enrollmentStartDateTime;
+        return $this->getBackingStore()->get('enrollmentStartDateTime');
     }
 
     /**
@@ -287,7 +151,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->enrollmentState;
+        return $this->getBackingStore()->get('enrollmentState');
     }
 
     /**
@@ -295,7 +159,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return WindowsAutopilotEnrollmentType|null
     */
     public function getEnrollmentType(): ?WindowsAutopilotEnrollmentType {
-        return $this->enrollmentType;
+        return $this->getBackingStore()->get('enrollmentType');
     }
 
     /**
@@ -303,7 +167,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEventDateTime(): ?DateTime {
-        return $this->eventDateTime;
+        return $this->getBackingStore()->get('eventDateTime');
     }
 
     /**
@@ -348,7 +212,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedDeviceName(): ?string {
-        return $this->managedDeviceName;
+        return $this->getBackingStore()->get('managedDeviceName');
     }
 
     /**
@@ -356,7 +220,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getOsVersion(): ?string {
-        return $this->osVersion;
+        return $this->getBackingStore()->get('osVersion');
     }
 
     /**
@@ -364,7 +228,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return array<DeviceManagementAutopilotPolicyStatusDetail>|null
     */
     public function getPolicyStatusDetails(): ?array {
-        return $this->policyStatusDetails;
+        return $this->getBackingStore()->get('policyStatusDetails');
     }
 
     /**
@@ -372,7 +236,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return int|null
     */
     public function getTargetedAppCount(): ?int {
-        return $this->targetedAppCount;
+        return $this->getBackingStore()->get('targetedAppCount');
     }
 
     /**
@@ -380,7 +244,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return int|null
     */
     public function getTargetedPolicyCount(): ?int {
-        return $this->targetedPolicyCount;
+        return $this->getBackingStore()->get('targetedPolicyCount');
     }
 
     /**
@@ -388,7 +252,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -396,7 +260,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindows10EnrollmentCompletionPageConfigurationDisplayName(): ?string {
-        return $this->windows10EnrollmentCompletionPageConfigurationDisplayName;
+        return $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationDisplayName');
     }
 
     /**
@@ -404,7 +268,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindows10EnrollmentCompletionPageConfigurationId(): ?string {
-        return $this->windows10EnrollmentCompletionPageConfigurationId;
+        return $this->getBackingStore()->get('windows10EnrollmentCompletionPageConfigurationId');
     }
 
     /**
@@ -412,7 +276,7 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
      * @return string|null
     */
     public function getWindowsAutopilotDeploymentProfileDisplayName(): ?string {
-        return $this->windowsAutopilotDeploymentProfileDisplayName;
+        return $this->getBackingStore()->get('windowsAutopilotDeploymentProfileDisplayName');
     }
 
     /**
@@ -421,249 +285,249 @@ class DeviceManagementAutopilotEvent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateIntervalValue('accountSetupDuration', $this->accountSetupDuration);
-        $writer->writeEnumValue('accountSetupStatus', $this->accountSetupStatus);
-        $writer->writeDateIntervalValue('deploymentDuration', $this->deploymentDuration);
-        $writer->writeDateTimeValue('deploymentEndDateTime', $this->deploymentEndDateTime);
-        $writer->writeDateTimeValue('deploymentStartDateTime', $this->deploymentStartDateTime);
-        $writer->writeEnumValue('deploymentState', $this->deploymentState);
-        $writer->writeDateIntervalValue('deploymentTotalDuration', $this->deploymentTotalDuration);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeDateIntervalValue('devicePreparationDuration', $this->devicePreparationDuration);
-        $writer->writeDateTimeValue('deviceRegisteredDateTime', $this->deviceRegisteredDateTime);
-        $writer->writeStringValue('deviceSerialNumber', $this->deviceSerialNumber);
-        $writer->writeDateIntervalValue('deviceSetupDuration', $this->deviceSetupDuration);
-        $writer->writeEnumValue('deviceSetupStatus', $this->deviceSetupStatus);
-        $writer->writeStringValue('enrollmentFailureDetails', $this->enrollmentFailureDetails);
-        $writer->writeDateTimeValue('enrollmentStartDateTime', $this->enrollmentStartDateTime);
-        $writer->writeEnumValue('enrollmentState', $this->enrollmentState);
-        $writer->writeEnumValue('enrollmentType', $this->enrollmentType);
-        $writer->writeDateTimeValue('eventDateTime', $this->eventDateTime);
-        $writer->writeStringValue('managedDeviceName', $this->managedDeviceName);
-        $writer->writeStringValue('osVersion', $this->osVersion);
-        $writer->writeCollectionOfObjectValues('policyStatusDetails', $this->policyStatusDetails);
-        $writer->writeIntegerValue('targetedAppCount', $this->targetedAppCount);
-        $writer->writeIntegerValue('targetedPolicyCount', $this->targetedPolicyCount);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationDisplayName', $this->windows10EnrollmentCompletionPageConfigurationDisplayName);
-        $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationId', $this->windows10EnrollmentCompletionPageConfigurationId);
-        $writer->writeStringValue('windowsAutopilotDeploymentProfileDisplayName', $this->windowsAutopilotDeploymentProfileDisplayName);
+        $writer->writeDateIntervalValue('accountSetupDuration', $this->getAccountSetupDuration());
+        $writer->writeEnumValue('accountSetupStatus', $this->getAccountSetupStatus());
+        $writer->writeDateIntervalValue('deploymentDuration', $this->getDeploymentDuration());
+        $writer->writeDateTimeValue('deploymentEndDateTime', $this->getDeploymentEndDateTime());
+        $writer->writeDateTimeValue('deploymentStartDateTime', $this->getDeploymentStartDateTime());
+        $writer->writeEnumValue('deploymentState', $this->getDeploymentState());
+        $writer->writeDateIntervalValue('deploymentTotalDuration', $this->getDeploymentTotalDuration());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeDateIntervalValue('devicePreparationDuration', $this->getDevicePreparationDuration());
+        $writer->writeDateTimeValue('deviceRegisteredDateTime', $this->getDeviceRegisteredDateTime());
+        $writer->writeStringValue('deviceSerialNumber', $this->getDeviceSerialNumber());
+        $writer->writeDateIntervalValue('deviceSetupDuration', $this->getDeviceSetupDuration());
+        $writer->writeEnumValue('deviceSetupStatus', $this->getDeviceSetupStatus());
+        $writer->writeStringValue('enrollmentFailureDetails', $this->getEnrollmentFailureDetails());
+        $writer->writeDateTimeValue('enrollmentStartDateTime', $this->getEnrollmentStartDateTime());
+        $writer->writeEnumValue('enrollmentState', $this->getEnrollmentState());
+        $writer->writeEnumValue('enrollmentType', $this->getEnrollmentType());
+        $writer->writeDateTimeValue('eventDateTime', $this->getEventDateTime());
+        $writer->writeStringValue('managedDeviceName', $this->getManagedDeviceName());
+        $writer->writeStringValue('osVersion', $this->getOsVersion());
+        $writer->writeCollectionOfObjectValues('policyStatusDetails', $this->getPolicyStatusDetails());
+        $writer->writeIntegerValue('targetedAppCount', $this->getTargetedAppCount());
+        $writer->writeIntegerValue('targetedPolicyCount', $this->getTargetedPolicyCount());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationDisplayName', $this->getWindows10EnrollmentCompletionPageConfigurationDisplayName());
+        $writer->writeStringValue('windows10EnrollmentCompletionPageConfigurationId', $this->getWindows10EnrollmentCompletionPageConfigurationId());
+        $writer->writeStringValue('windowsAutopilotDeploymentProfileDisplayName', $this->getWindowsAutopilotDeploymentProfileDisplayName());
     }
 
     /**
      * Sets the accountSetupDuration property value. Time spent in user ESP.
      *  @param DateInterval|null $value Value to set for the accountSetupDuration property.
     */
-    public function setAccountSetupDuration(?DateInterval $value ): void {
-        $this->accountSetupDuration = $value;
+    public function setAccountSetupDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('accountSetupDuration', $value);
     }
 
     /**
      * Sets the accountSetupStatus property value. The accountSetupStatus property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the accountSetupStatus property.
     */
-    public function setAccountSetupStatus(?WindowsAutopilotDeploymentState $value ): void {
-        $this->accountSetupStatus = $value;
+    public function setAccountSetupStatus(?WindowsAutopilotDeploymentState $value): void {
+        $this->getBackingStore()->set('accountSetupStatus', $value);
     }
 
     /**
      * Sets the deploymentDuration property value. Autopilot deployment duration including enrollment.
      *  @param DateInterval|null $value Value to set for the deploymentDuration property.
     */
-    public function setDeploymentDuration(?DateInterval $value ): void {
-        $this->deploymentDuration = $value;
+    public function setDeploymentDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('deploymentDuration', $value);
     }
 
     /**
      * Sets the deploymentEndDateTime property value. Deployment end time.
      *  @param DateTime|null $value Value to set for the deploymentEndDateTime property.
     */
-    public function setDeploymentEndDateTime(?DateTime $value ): void {
-        $this->deploymentEndDateTime = $value;
+    public function setDeploymentEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deploymentEndDateTime', $value);
     }
 
     /**
      * Sets the deploymentStartDateTime property value. Deployment start time.
      *  @param DateTime|null $value Value to set for the deploymentStartDateTime property.
     */
-    public function setDeploymentStartDateTime(?DateTime $value ): void {
-        $this->deploymentStartDateTime = $value;
+    public function setDeploymentStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deploymentStartDateTime', $value);
     }
 
     /**
      * Sets the deploymentState property value. The deploymentState property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deploymentState property.
     */
-    public function setDeploymentState(?WindowsAutopilotDeploymentState $value ): void {
-        $this->deploymentState = $value;
+    public function setDeploymentState(?WindowsAutopilotDeploymentState $value): void {
+        $this->getBackingStore()->set('deploymentState', $value);
     }
 
     /**
      * Sets the deploymentTotalDuration property value. Total deployment duration from enrollment to Desktop screen.
      *  @param DateInterval|null $value Value to set for the deploymentTotalDuration property.
     */
-    public function setDeploymentTotalDuration(?DateInterval $value ): void {
-        $this->deploymentTotalDuration = $value;
+    public function setDeploymentTotalDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('deploymentTotalDuration', $value);
     }
 
     /**
      * Sets the deviceId property value. Device id associated with the object
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the devicePreparationDuration property value. Time spent in device enrollment.
      *  @param DateInterval|null $value Value to set for the devicePreparationDuration property.
     */
-    public function setDevicePreparationDuration(?DateInterval $value ): void {
-        $this->devicePreparationDuration = $value;
+    public function setDevicePreparationDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('devicePreparationDuration', $value);
     }
 
     /**
      * Sets the deviceRegisteredDateTime property value. Device registration date.
      *  @param DateTime|null $value Value to set for the deviceRegisteredDateTime property.
     */
-    public function setDeviceRegisteredDateTime(?DateTime $value ): void {
-        $this->deviceRegisteredDateTime = $value;
+    public function setDeviceRegisteredDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deviceRegisteredDateTime', $value);
     }
 
     /**
      * Sets the deviceSerialNumber property value. Device serial number.
      *  @param string|null $value Value to set for the deviceSerialNumber property.
     */
-    public function setDeviceSerialNumber(?string $value ): void {
-        $this->deviceSerialNumber = $value;
+    public function setDeviceSerialNumber(?string $value): void {
+        $this->getBackingStore()->set('deviceSerialNumber', $value);
     }
 
     /**
      * Sets the deviceSetupDuration property value. Time spent in device ESP.
      *  @param DateInterval|null $value Value to set for the deviceSetupDuration property.
     */
-    public function setDeviceSetupDuration(?DateInterval $value ): void {
-        $this->deviceSetupDuration = $value;
+    public function setDeviceSetupDuration(?DateInterval $value): void {
+        $this->getBackingStore()->set('deviceSetupDuration', $value);
     }
 
     /**
      * Sets the deviceSetupStatus property value. The deviceSetupStatus property
      *  @param WindowsAutopilotDeploymentState|null $value Value to set for the deviceSetupStatus property.
     */
-    public function setDeviceSetupStatus(?WindowsAutopilotDeploymentState $value ): void {
-        $this->deviceSetupStatus = $value;
+    public function setDeviceSetupStatus(?WindowsAutopilotDeploymentState $value): void {
+        $this->getBackingStore()->set('deviceSetupStatus', $value);
     }
 
     /**
      * Sets the enrollmentFailureDetails property value. Enrollment failure details.
      *  @param string|null $value Value to set for the enrollmentFailureDetails property.
     */
-    public function setEnrollmentFailureDetails(?string $value ): void {
-        $this->enrollmentFailureDetails = $value;
+    public function setEnrollmentFailureDetails(?string $value): void {
+        $this->getBackingStore()->set('enrollmentFailureDetails', $value);
     }
 
     /**
      * Sets the enrollmentStartDateTime property value. Device enrollment start date.
      *  @param DateTime|null $value Value to set for the enrollmentStartDateTime property.
     */
-    public function setEnrollmentStartDateTime(?DateTime $value ): void {
-        $this->enrollmentStartDateTime = $value;
+    public function setEnrollmentStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('enrollmentStartDateTime', $value);
     }
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
-    public function setEnrollmentState(?EnrollmentState $value ): void {
-        $this->enrollmentState = $value;
+    public function setEnrollmentState(?EnrollmentState $value): void {
+        $this->getBackingStore()->set('enrollmentState', $value);
     }
 
     /**
      * Sets the enrollmentType property value. The enrollmentType property
      *  @param WindowsAutopilotEnrollmentType|null $value Value to set for the enrollmentType property.
     */
-    public function setEnrollmentType(?WindowsAutopilotEnrollmentType $value ): void {
-        $this->enrollmentType = $value;
+    public function setEnrollmentType(?WindowsAutopilotEnrollmentType $value): void {
+        $this->getBackingStore()->set('enrollmentType', $value);
     }
 
     /**
      * Sets the eventDateTime property value. Time when the event occurred .
      *  @param DateTime|null $value Value to set for the eventDateTime property.
     */
-    public function setEventDateTime(?DateTime $value ): void {
-        $this->eventDateTime = $value;
+    public function setEventDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('eventDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceName property value. Managed device name.
      *  @param string|null $value Value to set for the managedDeviceName property.
     */
-    public function setManagedDeviceName(?string $value ): void {
-        $this->managedDeviceName = $value;
+    public function setManagedDeviceName(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceName', $value);
     }
 
     /**
      * Sets the osVersion property value. Device operating system version.
      *  @param string|null $value Value to set for the osVersion property.
     */
-    public function setOsVersion(?string $value ): void {
-        $this->osVersion = $value;
+    public function setOsVersion(?string $value): void {
+        $this->getBackingStore()->set('osVersion', $value);
     }
 
     /**
      * Sets the policyStatusDetails property value. Policy and application status details for this device.
      *  @param array<DeviceManagementAutopilotPolicyStatusDetail>|null $value Value to set for the policyStatusDetails property.
     */
-    public function setPolicyStatusDetails(?array $value ): void {
-        $this->policyStatusDetails = $value;
+    public function setPolicyStatusDetails(?array $value): void {
+        $this->getBackingStore()->set('policyStatusDetails', $value);
     }
 
     /**
      * Sets the targetedAppCount property value. Count of applications targeted.
      *  @param int|null $value Value to set for the targetedAppCount property.
     */
-    public function setTargetedAppCount(?int $value ): void {
-        $this->targetedAppCount = $value;
+    public function setTargetedAppCount(?int $value): void {
+        $this->getBackingStore()->set('targetedAppCount', $value);
     }
 
     /**
      * Sets the targetedPolicyCount property value. Count of policies targeted.
      *  @param int|null $value Value to set for the targetedPolicyCount property.
     */
-    public function setTargetedPolicyCount(?int $value ): void {
-        $this->targetedPolicyCount = $value;
+    public function setTargetedPolicyCount(?int $value): void {
+        $this->getBackingStore()->set('targetedPolicyCount', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. User principal name used to enroll the device.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
     /**
      * Sets the windows10EnrollmentCompletionPageConfigurationDisplayName property value. Enrollment Status Page profile name
      *  @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationDisplayName property.
     */
-    public function setWindows10EnrollmentCompletionPageConfigurationDisplayName(?string $value ): void {
-        $this->windows10EnrollmentCompletionPageConfigurationDisplayName = $value;
+    public function setWindows10EnrollmentCompletionPageConfigurationDisplayName(?string $value): void {
+        $this->getBackingStore()->set('windows10EnrollmentCompletionPageConfigurationDisplayName', $value);
     }
 
     /**
      * Sets the windows10EnrollmentCompletionPageConfigurationId property value. Enrollment Status Page profile ID
      *  @param string|null $value Value to set for the windows10EnrollmentCompletionPageConfigurationId property.
     */
-    public function setWindows10EnrollmentCompletionPageConfigurationId(?string $value ): void {
-        $this->windows10EnrollmentCompletionPageConfigurationId = $value;
+    public function setWindows10EnrollmentCompletionPageConfigurationId(?string $value): void {
+        $this->getBackingStore()->set('windows10EnrollmentCompletionPageConfigurationId', $value);
     }
 
     /**
      * Sets the windowsAutopilotDeploymentProfileDisplayName property value. Autopilot profile name.
      *  @param string|null $value Value to set for the windowsAutopilotDeploymentProfileDisplayName property.
     */
-    public function setWindowsAutopilotDeploymentProfileDisplayName(?string $value ): void {
-        $this->windowsAutopilotDeploymentProfileDisplayName = $value;
+    public function setWindowsAutopilotDeploymentProfileDisplayName(?string $value): void {
+        $this->getBackingStore()->set('windowsAutopilotDeploymentProfileDisplayName', $value);
     }
 
 }

@@ -7,70 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsable 
+class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $acsGroupId ACS Group Id
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $acsGroupId = null;
-    
-    /**
-     * @var string|null $acsHelperUserId Helper ACS User Id
-    */
-    private ?string $acsHelperUserId = null;
-    
-    /**
-     * @var string|null $acsHelperUserToken Helper ACS User Token
-    */
-    private ?string $acsHelperUserToken = null;
-    
-    /**
-     * @var string|null $acsSharerUserId Sharer ACS User Id
-    */
-    private ?string $acsSharerUserId = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deviceName Android Device Name
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $pubSubGroupId Azure Pubsub Group Id
-    */
-    private ?string $pubSubGroupId = null;
-    
-    /**
-     * @var string|null $pubSubHelperAccessUri Azure Pubsub Group Id
-    */
-    private ?string $pubSubHelperAccessUri = null;
-    
-    /**
-     * @var DateTime|null $sessionExpirationDateTime Azure Pubsub Session Expiration Date Time.
-    */
-    private ?DateTime $sessionExpirationDateTime = null;
-    
-    /**
-     * @var string|null $sessionKey The unique identifier for a session
-    */
-    private ?string $sessionKey = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new retrieveRemoteHelpSessionResponse and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.retrieveRemoteHelpSessionResponse');
     }
 
     /**
@@ -87,7 +40,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAcsGroupId(): ?string {
-        return $this->acsGroupId;
+        return $this->getBackingStore()->get('acsGroupId');
     }
 
     /**
@@ -95,7 +48,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAcsHelperUserId(): ?string {
-        return $this->acsHelperUserId;
+        return $this->getBackingStore()->get('acsHelperUserId');
     }
 
     /**
@@ -103,7 +56,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAcsHelperUserToken(): ?string {
-        return $this->acsHelperUserToken;
+        return $this->getBackingStore()->get('acsHelperUserToken');
     }
 
     /**
@@ -111,15 +64,23 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAcsSharerUserId(): ?string {
-        return $this->acsSharerUserId;
+        return $this->getBackingStore()->get('acsSharerUserId');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -127,7 +88,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -155,7 +116,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -163,7 +124,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getPubSubGroupId(): ?string {
-        return $this->pubSubGroupId;
+        return $this->getBackingStore()->get('pubSubGroupId');
     }
 
     /**
@@ -171,7 +132,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getPubSubHelperAccessUri(): ?string {
-        return $this->pubSubHelperAccessUri;
+        return $this->getBackingStore()->get('pubSubHelperAccessUri');
     }
 
     /**
@@ -179,7 +140,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return DateTime|null
     */
     public function getSessionExpirationDateTime(): ?DateTime {
-        return $this->sessionExpirationDateTime;
+        return $this->getBackingStore()->get('sessionExpirationDateTime');
     }
 
     /**
@@ -187,7 +148,7 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getSessionKey(): ?string {
-        return $this->sessionKey;
+        return $this->getBackingStore()->get('sessionKey');
     }
 
     /**
@@ -195,105 +156,113 @@ class RetrieveRemoteHelpSessionResponse implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('acsGroupId', $this->acsGroupId);
-        $writer->writeStringValue('acsHelperUserId', $this->acsHelperUserId);
-        $writer->writeStringValue('acsHelperUserToken', $this->acsHelperUserToken);
-        $writer->writeStringValue('acsSharerUserId', $this->acsSharerUserId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('pubSubGroupId', $this->pubSubGroupId);
-        $writer->writeStringValue('pubSubHelperAccessUri', $this->pubSubHelperAccessUri);
-        $writer->writeDateTimeValue('sessionExpirationDateTime', $this->sessionExpirationDateTime);
-        $writer->writeStringValue('sessionKey', $this->sessionKey);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('acsGroupId', $this->getAcsGroupId());
+        $writer->writeStringValue('acsHelperUserId', $this->getAcsHelperUserId());
+        $writer->writeStringValue('acsHelperUserToken', $this->getAcsHelperUserToken());
+        $writer->writeStringValue('acsSharerUserId', $this->getAcsSharerUserId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('pubSubGroupId', $this->getPubSubGroupId());
+        $writer->writeStringValue('pubSubHelperAccessUri', $this->getPubSubHelperAccessUri());
+        $writer->writeDateTimeValue('sessionExpirationDateTime', $this->getSessionExpirationDateTime());
+        $writer->writeStringValue('sessionKey', $this->getSessionKey());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the acsGroupId property value. ACS Group Id
      *  @param string|null $value Value to set for the acsGroupId property.
     */
-    public function setAcsGroupId(?string $value ): void {
-        $this->acsGroupId = $value;
+    public function setAcsGroupId(?string $value): void {
+        $this->getBackingStore()->set('acsGroupId', $value);
     }
 
     /**
      * Sets the acsHelperUserId property value. Helper ACS User Id
      *  @param string|null $value Value to set for the acsHelperUserId property.
     */
-    public function setAcsHelperUserId(?string $value ): void {
-        $this->acsHelperUserId = $value;
+    public function setAcsHelperUserId(?string $value): void {
+        $this->getBackingStore()->set('acsHelperUserId', $value);
     }
 
     /**
      * Sets the acsHelperUserToken property value. Helper ACS User Token
      *  @param string|null $value Value to set for the acsHelperUserToken property.
     */
-    public function setAcsHelperUserToken(?string $value ): void {
-        $this->acsHelperUserToken = $value;
+    public function setAcsHelperUserToken(?string $value): void {
+        $this->getBackingStore()->set('acsHelperUserToken', $value);
     }
 
     /**
      * Sets the acsSharerUserId property value. Sharer ACS User Id
      *  @param string|null $value Value to set for the acsSharerUserId property.
     */
-    public function setAcsSharerUserId(?string $value ): void {
-        $this->acsSharerUserId = $value;
+    public function setAcsSharerUserId(?string $value): void {
+        $this->getBackingStore()->set('acsSharerUserId', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the deviceName property value. Android Device Name
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the pubSubGroupId property value. Azure Pubsub Group Id
      *  @param string|null $value Value to set for the pubSubGroupId property.
     */
-    public function setPubSubGroupId(?string $value ): void {
-        $this->pubSubGroupId = $value;
+    public function setPubSubGroupId(?string $value): void {
+        $this->getBackingStore()->set('pubSubGroupId', $value);
     }
 
     /**
      * Sets the pubSubHelperAccessUri property value. Azure Pubsub Group Id
      *  @param string|null $value Value to set for the pubSubHelperAccessUri property.
     */
-    public function setPubSubHelperAccessUri(?string $value ): void {
-        $this->pubSubHelperAccessUri = $value;
+    public function setPubSubHelperAccessUri(?string $value): void {
+        $this->getBackingStore()->set('pubSubHelperAccessUri', $value);
     }
 
     /**
      * Sets the sessionExpirationDateTime property value. Azure Pubsub Session Expiration Date Time.
      *  @param DateTime|null $value Value to set for the sessionExpirationDateTime property.
     */
-    public function setSessionExpirationDateTime(?DateTime $value ): void {
-        $this->sessionExpirationDateTime = $value;
+    public function setSessionExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('sessionExpirationDateTime', $value);
     }
 
     /**
      * Sets the sessionKey property value. The unique identifier for a session
      *  @param string|null $value Value to set for the sessionKey property.
     */
-    public function setSessionKey(?string $value ): void {
-        $this->sessionKey = $value;
+    public function setSessionKey(?string $value): void {
+        $this->getBackingStore()->set('sessionKey', $value);
     }
 
 }

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosImportedPFXCertificateProfile extends IosCertificateProfile implements Parsable 
 {
     /**
-     * @var IntendedPurpose|null $intendedPurpose PFX Import Options.
-    */
-    private ?IntendedPurpose $intendedPurpose = null;
-    
-    /**
-     * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    */
-    private ?array $managedDeviceCertificateStates = null;
-    
-    /**
      * Instantiates a new IosImportedPFXCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
      * @return IntendedPurpose|null
     */
     public function getIntendedPurpose(): ?IntendedPurpose {
-        return $this->intendedPurpose;
+        return $this->getBackingStore()->get('intendedPurpose');
     }
 
     /**
@@ -60,7 +50,7 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->managedDeviceCertificateStates;
+        return $this->getBackingStore()->get('managedDeviceCertificateStates');
     }
 
     /**
@@ -69,24 +59,24 @@ class IosImportedPFXCertificateProfile extends IosCertificateProfile implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('intendedPurpose', $this->intendedPurpose);
-        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
+        $writer->writeEnumValue('intendedPurpose', $this->getIntendedPurpose());
+        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
     }
 
     /**
      * Sets the intendedPurpose property value. PFX Import Options.
      *  @param IntendedPurpose|null $value Value to set for the intendedPurpose property.
     */
-    public function setIntendedPurpose(?IntendedPurpose $value ): void {
-        $this->intendedPurpose = $value;
+    public function setIntendedPurpose(?IntendedPurpose $value): void {
+        $this->getBackingStore()->set('intendedPurpose', $value);
     }
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
-    public function setManagedDeviceCertificateStates(?array $value ): void {
-        $this->managedDeviceCertificateStates = $value;
+    public function setManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
     }
 
 }

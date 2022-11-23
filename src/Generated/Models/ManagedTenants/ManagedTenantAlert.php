@@ -11,106 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantAlert extends Entity implements Parsable 
 {
     /**
-     * @var AlertData|null $alertData The alertData property
-    */
-    private ?AlertData $alertData = null;
-    
-    /**
-     * @var array<AlertDataReferenceString>|null $alertDataReferenceStrings The alertDataReferenceStrings property
-    */
-    private ?array $alertDataReferenceStrings = null;
-    
-    /**
-     * @var array<ManagedTenantAlertLog>|null $alertLogs The alertLogs property
-    */
-    private ?array $alertLogs = null;
-    
-    /**
-     * @var ManagedTenantAlertRule|null $alertRule The alertRule property
-    */
-    private ?ManagedTenantAlertRule $alertRule = null;
-    
-    /**
-     * @var string|null $alertRuleDisplayName The alertRuleDisplayName property
-    */
-    private ?string $alertRuleDisplayName = null;
-    
-    /**
-     * @var array<ManagedTenantApiNotification>|null $apiNotifications The apiNotifications property
-    */
-    private ?array $apiNotifications = null;
-    
-    /**
-     * @var string|null $assignedToUserId The assignedToUserId property
-    */
-    private ?string $assignedToUserId = null;
-    
-    /**
-     * @var int|null $correlationCount The correlationCount property
-    */
-    private ?int $correlationCount = null;
-    
-    /**
-     * @var string|null $correlationId The correlationId property
-    */
-    private ?string $correlationId = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var array<ManagedTenantEmailNotification>|null $emailNotifications The emailNotifications property
-    */
-    private ?array $emailNotifications = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
-     * @var string|null $message The message property
-    */
-    private ?string $message = null;
-    
-    /**
-     * @var AlertSeverity|null $severity The severity property
-    */
-    private ?AlertSeverity $severity = null;
-    
-    /**
-     * @var AlertStatus|null $status The status property
-    */
-    private ?AlertStatus $status = null;
-    
-    /**
-     * @var string|null $tenantId The tenantId property
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $title The title property
-    */
-    private ?string $title = null;
-    
-    /**
      * Instantiates a new managedTenantAlert and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managedTenantAlert');
     }
 
     /**
@@ -127,7 +31,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return AlertData|null
     */
     public function getAlertData(): ?AlertData {
-        return $this->alertData;
+        return $this->getBackingStore()->get('alertData');
     }
 
     /**
@@ -135,7 +39,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return array<AlertDataReferenceString>|null
     */
     public function getAlertDataReferenceStrings(): ?array {
-        return $this->alertDataReferenceStrings;
+        return $this->getBackingStore()->get('alertDataReferenceStrings');
     }
 
     /**
@@ -143,7 +47,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return array<ManagedTenantAlertLog>|null
     */
     public function getAlertLogs(): ?array {
-        return $this->alertLogs;
+        return $this->getBackingStore()->get('alertLogs');
     }
 
     /**
@@ -151,7 +55,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return ManagedTenantAlertRule|null
     */
     public function getAlertRule(): ?ManagedTenantAlertRule {
-        return $this->alertRule;
+        return $this->getBackingStore()->get('alertRule');
     }
 
     /**
@@ -159,7 +63,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getAlertRuleDisplayName(): ?string {
-        return $this->alertRuleDisplayName;
+        return $this->getBackingStore()->get('alertRuleDisplayName');
     }
 
     /**
@@ -167,7 +71,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return array<ManagedTenantApiNotification>|null
     */
     public function getApiNotifications(): ?array {
-        return $this->apiNotifications;
+        return $this->getBackingStore()->get('apiNotifications');
     }
 
     /**
@@ -175,7 +79,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignedToUserId(): ?string {
-        return $this->assignedToUserId;
+        return $this->getBackingStore()->get('assignedToUserId');
     }
 
     /**
@@ -183,7 +87,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return int|null
     */
     public function getCorrelationCount(): ?int {
-        return $this->correlationCount;
+        return $this->getBackingStore()->get('correlationCount');
     }
 
     /**
@@ -191,7 +95,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getCorrelationId(): ?string {
-        return $this->correlationId;
+        return $this->getBackingStore()->get('correlationId');
     }
 
     /**
@@ -199,7 +103,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -207,7 +111,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -215,7 +119,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return array<ManagedTenantEmailNotification>|null
     */
     public function getEmailNotifications(): ?array {
-        return $this->emailNotifications;
+        return $this->getBackingStore()->get('emailNotifications');
     }
 
     /**
@@ -252,7 +156,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -260,7 +164,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -268,7 +172,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->message;
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -276,7 +180,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return AlertSeverity|null
     */
     public function getSeverity(): ?AlertSeverity {
-        return $this->severity;
+        return $this->getBackingStore()->get('severity');
     }
 
     /**
@@ -284,7 +188,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return AlertStatus|null
     */
     public function getStatus(): ?AlertStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -292,7 +196,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -300,7 +204,7 @@ class ManagedTenantAlert extends Entity implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->title;
+        return $this->getBackingStore()->get('title');
     }
 
     /**
@@ -309,177 +213,177 @@ class ManagedTenantAlert extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('alertData', $this->alertData);
-        $writer->writeCollectionOfObjectValues('alertDataReferenceStrings', $this->alertDataReferenceStrings);
-        $writer->writeCollectionOfObjectValues('alertLogs', $this->alertLogs);
-        $writer->writeObjectValue('alertRule', $this->alertRule);
-        $writer->writeStringValue('alertRuleDisplayName', $this->alertRuleDisplayName);
-        $writer->writeCollectionOfObjectValues('apiNotifications', $this->apiNotifications);
-        $writer->writeStringValue('assignedToUserId', $this->assignedToUserId);
-        $writer->writeIntegerValue('correlationCount', $this->correlationCount);
-        $writer->writeStringValue('correlationId', $this->correlationId);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeCollectionOfObjectValues('emailNotifications', $this->emailNotifications);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
-        $writer->writeStringValue('message', $this->message);
-        $writer->writeEnumValue('severity', $this->severity);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('title', $this->title);
+        $writer->writeObjectValue('alertData', $this->getAlertData());
+        $writer->writeCollectionOfObjectValues('alertDataReferenceStrings', $this->getAlertDataReferenceStrings());
+        $writer->writeCollectionOfObjectValues('alertLogs', $this->getAlertLogs());
+        $writer->writeObjectValue('alertRule', $this->getAlertRule());
+        $writer->writeStringValue('alertRuleDisplayName', $this->getAlertRuleDisplayName());
+        $writer->writeCollectionOfObjectValues('apiNotifications', $this->getApiNotifications());
+        $writer->writeStringValue('assignedToUserId', $this->getAssignedToUserId());
+        $writer->writeIntegerValue('correlationCount', $this->getCorrelationCount());
+        $writer->writeStringValue('correlationId', $this->getCorrelationId());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('emailNotifications', $this->getEmailNotifications());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('title', $this->getTitle());
     }
 
     /**
      * Sets the alertData property value. The alertData property
      *  @param AlertData|null $value Value to set for the alertData property.
     */
-    public function setAlertData(?AlertData $value ): void {
-        $this->alertData = $value;
+    public function setAlertData(?AlertData $value): void {
+        $this->getBackingStore()->set('alertData', $value);
     }
 
     /**
      * Sets the alertDataReferenceStrings property value. The alertDataReferenceStrings property
      *  @param array<AlertDataReferenceString>|null $value Value to set for the alertDataReferenceStrings property.
     */
-    public function setAlertDataReferenceStrings(?array $value ): void {
-        $this->alertDataReferenceStrings = $value;
+    public function setAlertDataReferenceStrings(?array $value): void {
+        $this->getBackingStore()->set('alertDataReferenceStrings', $value);
     }
 
     /**
      * Sets the alertLogs property value. The alertLogs property
      *  @param array<ManagedTenantAlertLog>|null $value Value to set for the alertLogs property.
     */
-    public function setAlertLogs(?array $value ): void {
-        $this->alertLogs = $value;
+    public function setAlertLogs(?array $value): void {
+        $this->getBackingStore()->set('alertLogs', $value);
     }
 
     /**
      * Sets the alertRule property value. The alertRule property
      *  @param ManagedTenantAlertRule|null $value Value to set for the alertRule property.
     */
-    public function setAlertRule(?ManagedTenantAlertRule $value ): void {
-        $this->alertRule = $value;
+    public function setAlertRule(?ManagedTenantAlertRule $value): void {
+        $this->getBackingStore()->set('alertRule', $value);
     }
 
     /**
      * Sets the alertRuleDisplayName property value. The alertRuleDisplayName property
      *  @param string|null $value Value to set for the alertRuleDisplayName property.
     */
-    public function setAlertRuleDisplayName(?string $value ): void {
-        $this->alertRuleDisplayName = $value;
+    public function setAlertRuleDisplayName(?string $value): void {
+        $this->getBackingStore()->set('alertRuleDisplayName', $value);
     }
 
     /**
      * Sets the apiNotifications property value. The apiNotifications property
      *  @param array<ManagedTenantApiNotification>|null $value Value to set for the apiNotifications property.
     */
-    public function setApiNotifications(?array $value ): void {
-        $this->apiNotifications = $value;
+    public function setApiNotifications(?array $value): void {
+        $this->getBackingStore()->set('apiNotifications', $value);
     }
 
     /**
      * Sets the assignedToUserId property value. The assignedToUserId property
      *  @param string|null $value Value to set for the assignedToUserId property.
     */
-    public function setAssignedToUserId(?string $value ): void {
-        $this->assignedToUserId = $value;
+    public function setAssignedToUserId(?string $value): void {
+        $this->getBackingStore()->set('assignedToUserId', $value);
     }
 
     /**
      * Sets the correlationCount property value. The correlationCount property
      *  @param int|null $value Value to set for the correlationCount property.
     */
-    public function setCorrelationCount(?int $value ): void {
-        $this->correlationCount = $value;
+    public function setCorrelationCount(?int $value): void {
+        $this->getBackingStore()->set('correlationCount', $value);
     }
 
     /**
      * Sets the correlationId property value. The correlationId property
      *  @param string|null $value Value to set for the correlationId property.
     */
-    public function setCorrelationId(?string $value ): void {
-        $this->correlationId = $value;
+    public function setCorrelationId(?string $value): void {
+        $this->getBackingStore()->set('correlationId', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the emailNotifications property value. The emailNotifications property
      *  @param array<ManagedTenantEmailNotification>|null $value Value to set for the emailNotifications property.
     */
-    public function setEmailNotifications(?array $value ): void {
-        $this->emailNotifications = $value;
+    public function setEmailNotifications(?array $value): void {
+        $this->getBackingStore()->set('emailNotifications', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
      * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
-    public function setMessage(?string $value ): void {
-        $this->message = $value;
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
      * Sets the severity property value. The severity property
      *  @param AlertSeverity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?AlertSeverity $value ): void {
-        $this->severity = $value;
+    public function setSeverity(?AlertSeverity $value): void {
+        $this->getBackingStore()->set('severity', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param AlertStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?AlertStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?AlertStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the title property value. The title property
      *  @param string|null $value Value to set for the title property.
     */
-    public function setTitle(?string $value ): void {
-        $this->title = $value;
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
     }
 
 }

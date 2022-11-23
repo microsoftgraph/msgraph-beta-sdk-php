@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable 
 {
     /**
-     * @var TeamworkConversationIdentity|null $conversation If present, represents a conversation (for example, team or channel) @mentioned in a message.
-    */
-    private ?TeamworkConversationIdentity $conversation = null;
-    
-    /**
-     * @var TeamworkTagIdentity|null $tag If present, represents a tag @mentioned in a team message.
-    */
-    private ?TeamworkTagIdentity $tag = null;
-    
-    /**
      * Instantiates a new ChatMessageMentionedIdentitySet and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
      * @return TeamworkConversationIdentity|null
     */
     public function getConversation(): ?TeamworkConversationIdentity {
-        return $this->conversation;
+        return $this->getBackingStore()->get('conversation');
     }
 
     /**
@@ -60,7 +50,7 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
      * @return TeamworkTagIdentity|null
     */
     public function getTag(): ?TeamworkTagIdentity {
-        return $this->tag;
+        return $this->getBackingStore()->get('tag');
     }
 
     /**
@@ -69,24 +59,24 @@ class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('conversation', $this->conversation);
-        $writer->writeObjectValue('tag', $this->tag);
+        $writer->writeObjectValue('conversation', $this->getConversation());
+        $writer->writeObjectValue('tag', $this->getTag());
     }
 
     /**
      * Sets the conversation property value. If present, represents a conversation (for example, team or channel) @mentioned in a message.
      *  @param TeamworkConversationIdentity|null $value Value to set for the conversation property.
     */
-    public function setConversation(?TeamworkConversationIdentity $value ): void {
-        $this->conversation = $value;
+    public function setConversation(?TeamworkConversationIdentity $value): void {
+        $this->getBackingStore()->set('conversation', $value);
     }
 
     /**
      * Sets the tag property value. If present, represents a tag @mentioned in a team message.
      *  @param TeamworkTagIdentity|null $value Value to set for the tag property.
     */
-    public function setTag(?TeamworkTagIdentity $value ): void {
-        $this->tag = $value;
+    public function setTag(?TeamworkTagIdentity $value): void {
+        $this->getBackingStore()->set('tag', $value);
     }
 
 }

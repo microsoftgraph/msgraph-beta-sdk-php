@@ -10,16 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class QualityUpdateReference extends WindowsUpdateReference implements Parsable 
 {
     /**
-     * @var QualityUpdateClassification|null $classification Specifies the classification of the referenced content. Supports a subset of the values for qualityUpdateClassification. Possible values are: security, unknownFutureValue.
-    */
-    private ?QualityUpdateClassification $classification = null;
-    
-    /**
-     * @var DateTime|null $releaseDateTime Specifies a quality update in the given servicingChannel with the given classification by date (i.e. the last update published on the specified date). Default value is security.
-    */
-    private ?DateTime $releaseDateTime = null;
-    
-    /**
      * Instantiates a new QualityUpdateReference and sets the default values.
     */
     public function __construct() {
@@ -48,7 +38,7 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
      * @return QualityUpdateClassification|null
     */
     public function getClassification(): ?QualityUpdateClassification {
-        return $this->classification;
+        return $this->getBackingStore()->get('classification');
     }
 
     /**
@@ -68,7 +58,7 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
      * @return DateTime|null
     */
     public function getReleaseDateTime(): ?DateTime {
-        return $this->releaseDateTime;
+        return $this->getBackingStore()->get('releaseDateTime');
     }
 
     /**
@@ -77,24 +67,24 @@ class QualityUpdateReference extends WindowsUpdateReference implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('classification', $this->classification);
-        $writer->writeDateTimeValue('releaseDateTime', $this->releaseDateTime);
+        $writer->writeEnumValue('classification', $this->getClassification());
+        $writer->writeDateTimeValue('releaseDateTime', $this->getReleaseDateTime());
     }
 
     /**
      * Sets the classification property value. Specifies the classification of the referenced content. Supports a subset of the values for qualityUpdateClassification. Possible values are: security, unknownFutureValue.
      *  @param QualityUpdateClassification|null $value Value to set for the classification property.
     */
-    public function setClassification(?QualityUpdateClassification $value ): void {
-        $this->classification = $value;
+    public function setClassification(?QualityUpdateClassification $value): void {
+        $this->getBackingStore()->set('classification', $value);
     }
 
     /**
      * Sets the releaseDateTime property value. Specifies a quality update in the given servicingChannel with the given classification by date (i.e. the last update published on the specified date). Default value is security.
      *  @param DateTime|null $value Value to set for the releaseDateTime property.
     */
-    public function setReleaseDateTime(?DateTime $value ): void {
-        $this->releaseDateTime = $value;
+    public function setReleaseDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('releaseDateTime', $value);
     }
 
 }

@@ -9,216 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase implements Parsable 
 {
     /**
-     * @var bool|null $adminShowHostInfo Whether to show admin host information on the login window.
-    */
-    private ?bool $adminShowHostInfo = null;
-    
-    /**
-     * @var array<MacOSAssociatedDomainsItem>|null $appAssociatedDomains Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $appAssociatedDomains = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $associatedDomains DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of 'service:domain' where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
-    */
-    private ?array $associatedDomains = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListHidden Whether to show the name and password dialog or a list of users on the login window.
-    */
-    private ?bool $authorizedUsersListHidden = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListHideAdminUsers Whether to hide admin users in the authorized users list on the login window.
-    */
-    private ?bool $authorizedUsersListHideAdminUsers = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListHideLocalUsers Whether to show only network and system users in the authorized users list on the login window.
-    */
-    private ?bool $authorizedUsersListHideLocalUsers = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListHideMobileAccounts Whether to hide mobile users in the authorized users list on the login window.
-    */
-    private ?bool $authorizedUsersListHideMobileAccounts = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListIncludeNetworkUsers Whether to show network users in the authorized users list on the login window.
-    */
-    private ?bool $authorizedUsersListIncludeNetworkUsers = null;
-    
-    /**
-     * @var bool|null $authorizedUsersListShowOtherManagedUsers Whether to show other users in the authorized users list on the login window.
-    */
-    private ?bool $authorizedUsersListShowOtherManagedUsers = null;
-    
-    /**
-     * @var array<MacOSLaunchItem>|null $autoLaunchItems List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $autoLaunchItems = null;
-    
-    /**
-     * @var bool|null $consoleAccessDisabled Whether the Other user will disregard use of the console special user name.
-    */
-    private ?bool $consoleAccessDisabled = null;
-    
-    /**
-     * @var bool|null $contentCachingBlockDeletion Prevents content caches from purging content to free up disk space for other apps.
-    */
-    private ?bool $contentCachingBlockDeletion = null;
-    
-    /**
-     * @var array<IpRange>|null $contentCachingClientListenRanges A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $contentCachingClientListenRanges = null;
-    
-    /**
-     * @var MacOSContentCachingClientPolicy|null $contentCachingClientPolicy Determines which clients a content cache will serve.
-    */
-    private ?MacOSContentCachingClientPolicy $contentCachingClientPolicy = null;
-    
-    /**
-     * @var string|null $contentCachingDataPath The path to the directory used to store cached content. The value must be (or end with) /Library/Application Support/Apple/AssetCache/Data
-    */
-    private ?string $contentCachingDataPath = null;
-    
-    /**
-     * @var bool|null $contentCachingDisableConnectionSharing Disables internet connection sharing.
-    */
-    private ?bool $contentCachingDisableConnectionSharing = null;
-    
-    /**
-     * @var bool|null $contentCachingEnabled Enables content caching and prevents it from being disabled by the user.
-    */
-    private ?bool $contentCachingEnabled = null;
-    
-    /**
-     * @var bool|null $contentCachingForceConnectionSharing Forces internet connection sharing. contentCachingDisableConnectionSharing overrides this setting.
-    */
-    private ?bool $contentCachingForceConnectionSharing = null;
-    
-    /**
-     * @var bool|null $contentCachingKeepAwake Prevent the device from sleeping if content caching is enabled.
-    */
-    private ?bool $contentCachingKeepAwake = null;
-    
-    /**
-     * @var bool|null $contentCachingLogClientIdentities Enables logging of IP addresses and ports of clients that request cached content.
-    */
-    private ?bool $contentCachingLogClientIdentities = null;
-    
-    /**
-     * @var int|null $contentCachingMaxSizeBytes The maximum number of bytes of disk space that will be used for the content cache. A value of 0 (default) indicates unlimited disk space.
-    */
-    private ?int $contentCachingMaxSizeBytes = null;
-    
-    /**
-     * @var array<string>|null $contentCachingParents A list of IP addresses representing parent content caches.
-    */
-    private ?array $contentCachingParents = null;
-    
-    /**
-     * @var MacOSContentCachingParentSelectionPolicy|null $contentCachingParentSelectionPolicy Determines how content caches select a parent cache.
-    */
-    private ?MacOSContentCachingParentSelectionPolicy $contentCachingParentSelectionPolicy = null;
-    
-    /**
-     * @var array<IpRange>|null $contentCachingPeerFilterRanges A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $contentCachingPeerFilterRanges = null;
-    
-    /**
-     * @var array<IpRange>|null $contentCachingPeerListenRanges A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $contentCachingPeerListenRanges = null;
-    
-    /**
-     * @var MacOSContentCachingPeerPolicy|null $contentCachingPeerPolicy Determines which content caches other content caches will peer with.
-    */
-    private ?MacOSContentCachingPeerPolicy $contentCachingPeerPolicy = null;
-    
-    /**
-     * @var int|null $contentCachingPort Sets the port used for content caching. If the value is 0, a random available port will be selected. Valid values 0 to 65535
-    */
-    private ?int $contentCachingPort = null;
-    
-    /**
-     * @var array<IpRange>|null $contentCachingPublicRanges A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $contentCachingPublicRanges = null;
-    
-    /**
-     * @var bool|null $contentCachingShowAlerts Display content caching alerts as system notifications.
-    */
-    private ?bool $contentCachingShowAlerts = null;
-    
-    /**
-     * @var MacOSContentCachingType|null $contentCachingType Indicates the type of content allowed to be cached by Apple's content caching service.
-    */
-    private ?MacOSContentCachingType $contentCachingType = null;
-    
-    /**
-     * @var string|null $loginWindowText Custom text to be displayed on the login window.
-    */
-    private ?string $loginWindowText = null;
-    
-    /**
-     * @var bool|null $logOutDisabledWhileLoggedIn Whether the Log Out menu item on the login window will be disabled while the user is logged in.
-    */
-    private ?bool $logOutDisabledWhileLoggedIn = null;
-    
-    /**
-     * @var MacOSSingleSignOnExtension|null $macOSSingleSignOnExtension Gets or sets a single sign-on extension profile.
-    */
-    private ?MacOSSingleSignOnExtension $macOSSingleSignOnExtension = null;
-    
-    /**
-     * @var bool|null $powerOffDisabledWhileLoggedIn Whether the Power Off menu item on the login window will be disabled while the user is logged in.
-    */
-    private ?bool $powerOffDisabledWhileLoggedIn = null;
-    
-    /**
-     * @var bool|null $restartDisabled Whether to hide the Restart button item on the login window.
-    */
-    private ?bool $restartDisabled = null;
-    
-    /**
-     * @var bool|null $restartDisabledWhileLoggedIn Whether the Restart menu item on the login window will be disabled while the user is logged in.
-    */
-    private ?bool $restartDisabledWhileLoggedIn = null;
-    
-    /**
-     * @var bool|null $screenLockDisableImmediate Whether to disable the immediate screen lock functions.
-    */
-    private ?bool $screenLockDisableImmediate = null;
-    
-    /**
-     * @var bool|null $shutDownDisabled Whether to hide the Shut Down button item on the login window.
-    */
-    private ?bool $shutDownDisabled = null;
-    
-    /**
-     * @var bool|null $shutDownDisabledWhileLoggedIn Whether the Shut Down menu item on the login window will be disabled while the user is logged in.
-    */
-    private ?bool $shutDownDisabledWhileLoggedIn = null;
-    
-    /**
-     * @var SingleSignOnExtension|null $singleSignOnExtension Gets or sets a single sign-on extension profile. Deprecated: use MacOSSingleSignOnExtension instead.
-    */
-    private ?SingleSignOnExtension $singleSignOnExtension = null;
-    
-    /**
-     * @var MacOSCertificateProfileBase|null $singleSignOnExtensionPkinitCertificate PKINIT Certificate for the authentication with single sign-on extensions.
-    */
-    private ?MacOSCertificateProfileBase $singleSignOnExtensionPkinitCertificate = null;
-    
-    /**
-     * @var bool|null $sleepDisabled Whether to hide the Sleep menu item on the login window.
-    */
-    private ?bool $sleepDisabled = null;
-    
-    /**
      * Instantiates a new MacOSDeviceFeaturesConfiguration and sets the default values.
     */
     public function __construct() {
@@ -240,7 +30,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAdminShowHostInfo(): ?bool {
-        return $this->adminShowHostInfo;
+        return $this->getBackingStore()->get('adminShowHostInfo');
     }
 
     /**
@@ -248,7 +38,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<MacOSAssociatedDomainsItem>|null
     */
     public function getAppAssociatedDomains(): ?array {
-        return $this->appAssociatedDomains;
+        return $this->getBackingStore()->get('appAssociatedDomains');
     }
 
     /**
@@ -256,7 +46,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<KeyValuePair>|null
     */
     public function getAssociatedDomains(): ?array {
-        return $this->associatedDomains;
+        return $this->getBackingStore()->get('associatedDomains');
     }
 
     /**
@@ -264,7 +54,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHidden(): ?bool {
-        return $this->authorizedUsersListHidden;
+        return $this->getBackingStore()->get('authorizedUsersListHidden');
     }
 
     /**
@@ -272,7 +62,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideAdminUsers(): ?bool {
-        return $this->authorizedUsersListHideAdminUsers;
+        return $this->getBackingStore()->get('authorizedUsersListHideAdminUsers');
     }
 
     /**
@@ -280,7 +70,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideLocalUsers(): ?bool {
-        return $this->authorizedUsersListHideLocalUsers;
+        return $this->getBackingStore()->get('authorizedUsersListHideLocalUsers');
     }
 
     /**
@@ -288,7 +78,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListHideMobileAccounts(): ?bool {
-        return $this->authorizedUsersListHideMobileAccounts;
+        return $this->getBackingStore()->get('authorizedUsersListHideMobileAccounts');
     }
 
     /**
@@ -296,7 +86,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListIncludeNetworkUsers(): ?bool {
-        return $this->authorizedUsersListIncludeNetworkUsers;
+        return $this->getBackingStore()->get('authorizedUsersListIncludeNetworkUsers');
     }
 
     /**
@@ -304,7 +94,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getAuthorizedUsersListShowOtherManagedUsers(): ?bool {
-        return $this->authorizedUsersListShowOtherManagedUsers;
+        return $this->getBackingStore()->get('authorizedUsersListShowOtherManagedUsers');
     }
 
     /**
@@ -312,7 +102,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<MacOSLaunchItem>|null
     */
     public function getAutoLaunchItems(): ?array {
-        return $this->autoLaunchItems;
+        return $this->getBackingStore()->get('autoLaunchItems');
     }
 
     /**
@@ -320,7 +110,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getConsoleAccessDisabled(): ?bool {
-        return $this->consoleAccessDisabled;
+        return $this->getBackingStore()->get('consoleAccessDisabled');
     }
 
     /**
@@ -328,7 +118,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingBlockDeletion(): ?bool {
-        return $this->contentCachingBlockDeletion;
+        return $this->getBackingStore()->get('contentCachingBlockDeletion');
     }
 
     /**
@@ -336,7 +126,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingClientListenRanges(): ?array {
-        return $this->contentCachingClientListenRanges;
+        return $this->getBackingStore()->get('contentCachingClientListenRanges');
     }
 
     /**
@@ -344,7 +134,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingClientPolicy|null
     */
     public function getContentCachingClientPolicy(): ?MacOSContentCachingClientPolicy {
-        return $this->contentCachingClientPolicy;
+        return $this->getBackingStore()->get('contentCachingClientPolicy');
     }
 
     /**
@@ -352,7 +142,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return string|null
     */
     public function getContentCachingDataPath(): ?string {
-        return $this->contentCachingDataPath;
+        return $this->getBackingStore()->get('contentCachingDataPath');
     }
 
     /**
@@ -360,7 +150,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingDisableConnectionSharing(): ?bool {
-        return $this->contentCachingDisableConnectionSharing;
+        return $this->getBackingStore()->get('contentCachingDisableConnectionSharing');
     }
 
     /**
@@ -368,7 +158,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingEnabled(): ?bool {
-        return $this->contentCachingEnabled;
+        return $this->getBackingStore()->get('contentCachingEnabled');
     }
 
     /**
@@ -376,7 +166,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingForceConnectionSharing(): ?bool {
-        return $this->contentCachingForceConnectionSharing;
+        return $this->getBackingStore()->get('contentCachingForceConnectionSharing');
     }
 
     /**
@@ -384,7 +174,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingKeepAwake(): ?bool {
-        return $this->contentCachingKeepAwake;
+        return $this->getBackingStore()->get('contentCachingKeepAwake');
     }
 
     /**
@@ -392,7 +182,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingLogClientIdentities(): ?bool {
-        return $this->contentCachingLogClientIdentities;
+        return $this->getBackingStore()->get('contentCachingLogClientIdentities');
     }
 
     /**
@@ -400,7 +190,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return int|null
     */
     public function getContentCachingMaxSizeBytes(): ?int {
-        return $this->contentCachingMaxSizeBytes;
+        return $this->getBackingStore()->get('contentCachingMaxSizeBytes');
     }
 
     /**
@@ -408,7 +198,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<string>|null
     */
     public function getContentCachingParents(): ?array {
-        return $this->contentCachingParents;
+        return $this->getBackingStore()->get('contentCachingParents');
     }
 
     /**
@@ -416,7 +206,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingParentSelectionPolicy|null
     */
     public function getContentCachingParentSelectionPolicy(): ?MacOSContentCachingParentSelectionPolicy {
-        return $this->contentCachingParentSelectionPolicy;
+        return $this->getBackingStore()->get('contentCachingParentSelectionPolicy');
     }
 
     /**
@@ -424,7 +214,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPeerFilterRanges(): ?array {
-        return $this->contentCachingPeerFilterRanges;
+        return $this->getBackingStore()->get('contentCachingPeerFilterRanges');
     }
 
     /**
@@ -432,7 +222,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPeerListenRanges(): ?array {
-        return $this->contentCachingPeerListenRanges;
+        return $this->getBackingStore()->get('contentCachingPeerListenRanges');
     }
 
     /**
@@ -440,7 +230,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingPeerPolicy|null
     */
     public function getContentCachingPeerPolicy(): ?MacOSContentCachingPeerPolicy {
-        return $this->contentCachingPeerPolicy;
+        return $this->getBackingStore()->get('contentCachingPeerPolicy');
     }
 
     /**
@@ -448,7 +238,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return int|null
     */
     public function getContentCachingPort(): ?int {
-        return $this->contentCachingPort;
+        return $this->getBackingStore()->get('contentCachingPort');
     }
 
     /**
@@ -456,7 +246,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return array<IpRange>|null
     */
     public function getContentCachingPublicRanges(): ?array {
-        return $this->contentCachingPublicRanges;
+        return $this->getBackingStore()->get('contentCachingPublicRanges');
     }
 
     /**
@@ -464,7 +254,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getContentCachingShowAlerts(): ?bool {
-        return $this->contentCachingShowAlerts;
+        return $this->getBackingStore()->get('contentCachingShowAlerts');
     }
 
     /**
@@ -472,7 +262,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSContentCachingType|null
     */
     public function getContentCachingType(): ?MacOSContentCachingType {
-        return $this->contentCachingType;
+        return $this->getBackingStore()->get('contentCachingType');
     }
 
     /**
@@ -532,7 +322,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return string|null
     */
     public function getLoginWindowText(): ?string {
-        return $this->loginWindowText;
+        return $this->getBackingStore()->get('loginWindowText');
     }
 
     /**
@@ -540,7 +330,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getLogOutDisabledWhileLoggedIn(): ?bool {
-        return $this->logOutDisabledWhileLoggedIn;
+        return $this->getBackingStore()->get('logOutDisabledWhileLoggedIn');
     }
 
     /**
@@ -548,7 +338,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSSingleSignOnExtension|null
     */
     public function getMacOSSingleSignOnExtension(): ?MacOSSingleSignOnExtension {
-        return $this->macOSSingleSignOnExtension;
+        return $this->getBackingStore()->get('macOSSingleSignOnExtension');
     }
 
     /**
@@ -556,7 +346,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getPowerOffDisabledWhileLoggedIn(): ?bool {
-        return $this->powerOffDisabledWhileLoggedIn;
+        return $this->getBackingStore()->get('powerOffDisabledWhileLoggedIn');
     }
 
     /**
@@ -564,7 +354,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getRestartDisabled(): ?bool {
-        return $this->restartDisabled;
+        return $this->getBackingStore()->get('restartDisabled');
     }
 
     /**
@@ -572,7 +362,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getRestartDisabledWhileLoggedIn(): ?bool {
-        return $this->restartDisabledWhileLoggedIn;
+        return $this->getBackingStore()->get('restartDisabledWhileLoggedIn');
     }
 
     /**
@@ -580,7 +370,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getScreenLockDisableImmediate(): ?bool {
-        return $this->screenLockDisableImmediate;
+        return $this->getBackingStore()->get('screenLockDisableImmediate');
     }
 
     /**
@@ -588,7 +378,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getShutDownDisabled(): ?bool {
-        return $this->shutDownDisabled;
+        return $this->getBackingStore()->get('shutDownDisabled');
     }
 
     /**
@@ -596,7 +386,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getShutDownDisabledWhileLoggedIn(): ?bool {
-        return $this->shutDownDisabledWhileLoggedIn;
+        return $this->getBackingStore()->get('shutDownDisabledWhileLoggedIn');
     }
 
     /**
@@ -604,7 +394,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return SingleSignOnExtension|null
     */
     public function getSingleSignOnExtension(): ?SingleSignOnExtension {
-        return $this->singleSignOnExtension;
+        return $this->getBackingStore()->get('singleSignOnExtension');
     }
 
     /**
@@ -612,7 +402,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return MacOSCertificateProfileBase|null
     */
     public function getSingleSignOnExtensionPkinitCertificate(): ?MacOSCertificateProfileBase {
-        return $this->singleSignOnExtensionPkinitCertificate;
+        return $this->getBackingStore()->get('singleSignOnExtensionPkinitCertificate');
     }
 
     /**
@@ -620,7 +410,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
      * @return bool|null
     */
     public function getSleepDisabled(): ?bool {
-        return $this->sleepDisabled;
+        return $this->getBackingStore()->get('sleepDisabled');
     }
 
     /**
@@ -629,384 +419,384 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('adminShowHostInfo', $this->adminShowHostInfo);
-        $writer->writeCollectionOfObjectValues('appAssociatedDomains', $this->appAssociatedDomains);
-        $writer->writeCollectionOfObjectValues('associatedDomains', $this->associatedDomains);
-        $writer->writeBooleanValue('authorizedUsersListHidden', $this->authorizedUsersListHidden);
-        $writer->writeBooleanValue('authorizedUsersListHideAdminUsers', $this->authorizedUsersListHideAdminUsers);
-        $writer->writeBooleanValue('authorizedUsersListHideLocalUsers', $this->authorizedUsersListHideLocalUsers);
-        $writer->writeBooleanValue('authorizedUsersListHideMobileAccounts', $this->authorizedUsersListHideMobileAccounts);
-        $writer->writeBooleanValue('authorizedUsersListIncludeNetworkUsers', $this->authorizedUsersListIncludeNetworkUsers);
-        $writer->writeBooleanValue('authorizedUsersListShowOtherManagedUsers', $this->authorizedUsersListShowOtherManagedUsers);
-        $writer->writeCollectionOfObjectValues('autoLaunchItems', $this->autoLaunchItems);
-        $writer->writeBooleanValue('consoleAccessDisabled', $this->consoleAccessDisabled);
-        $writer->writeBooleanValue('contentCachingBlockDeletion', $this->contentCachingBlockDeletion);
-        $writer->writeCollectionOfObjectValues('contentCachingClientListenRanges', $this->contentCachingClientListenRanges);
-        $writer->writeEnumValue('contentCachingClientPolicy', $this->contentCachingClientPolicy);
-        $writer->writeStringValue('contentCachingDataPath', $this->contentCachingDataPath);
-        $writer->writeBooleanValue('contentCachingDisableConnectionSharing', $this->contentCachingDisableConnectionSharing);
-        $writer->writeBooleanValue('contentCachingEnabled', $this->contentCachingEnabled);
-        $writer->writeBooleanValue('contentCachingForceConnectionSharing', $this->contentCachingForceConnectionSharing);
-        $writer->writeBooleanValue('contentCachingKeepAwake', $this->contentCachingKeepAwake);
-        $writer->writeBooleanValue('contentCachingLogClientIdentities', $this->contentCachingLogClientIdentities);
-        $writer->writeIntegerValue('contentCachingMaxSizeBytes', $this->contentCachingMaxSizeBytes);
-        $writer->writeCollectionOfPrimitiveValues('contentCachingParents', $this->contentCachingParents);
-        $writer->writeEnumValue('contentCachingParentSelectionPolicy', $this->contentCachingParentSelectionPolicy);
-        $writer->writeCollectionOfObjectValues('contentCachingPeerFilterRanges', $this->contentCachingPeerFilterRanges);
-        $writer->writeCollectionOfObjectValues('contentCachingPeerListenRanges', $this->contentCachingPeerListenRanges);
-        $writer->writeEnumValue('contentCachingPeerPolicy', $this->contentCachingPeerPolicy);
-        $writer->writeIntegerValue('contentCachingPort', $this->contentCachingPort);
-        $writer->writeCollectionOfObjectValues('contentCachingPublicRanges', $this->contentCachingPublicRanges);
-        $writer->writeBooleanValue('contentCachingShowAlerts', $this->contentCachingShowAlerts);
-        $writer->writeEnumValue('contentCachingType', $this->contentCachingType);
-        $writer->writeStringValue('loginWindowText', $this->loginWindowText);
-        $writer->writeBooleanValue('logOutDisabledWhileLoggedIn', $this->logOutDisabledWhileLoggedIn);
-        $writer->writeObjectValue('macOSSingleSignOnExtension', $this->macOSSingleSignOnExtension);
-        $writer->writeBooleanValue('powerOffDisabledWhileLoggedIn', $this->powerOffDisabledWhileLoggedIn);
-        $writer->writeBooleanValue('restartDisabled', $this->restartDisabled);
-        $writer->writeBooleanValue('restartDisabledWhileLoggedIn', $this->restartDisabledWhileLoggedIn);
-        $writer->writeBooleanValue('screenLockDisableImmediate', $this->screenLockDisableImmediate);
-        $writer->writeBooleanValue('shutDownDisabled', $this->shutDownDisabled);
-        $writer->writeBooleanValue('shutDownDisabledWhileLoggedIn', $this->shutDownDisabledWhileLoggedIn);
-        $writer->writeObjectValue('singleSignOnExtension', $this->singleSignOnExtension);
-        $writer->writeObjectValue('singleSignOnExtensionPkinitCertificate', $this->singleSignOnExtensionPkinitCertificate);
-        $writer->writeBooleanValue('sleepDisabled', $this->sleepDisabled);
+        $writer->writeBooleanValue('adminShowHostInfo', $this->getAdminShowHostInfo());
+        $writer->writeCollectionOfObjectValues('appAssociatedDomains', $this->getAppAssociatedDomains());
+        $writer->writeCollectionOfObjectValues('associatedDomains', $this->getAssociatedDomains());
+        $writer->writeBooleanValue('authorizedUsersListHidden', $this->getAuthorizedUsersListHidden());
+        $writer->writeBooleanValue('authorizedUsersListHideAdminUsers', $this->getAuthorizedUsersListHideAdminUsers());
+        $writer->writeBooleanValue('authorizedUsersListHideLocalUsers', $this->getAuthorizedUsersListHideLocalUsers());
+        $writer->writeBooleanValue('authorizedUsersListHideMobileAccounts', $this->getAuthorizedUsersListHideMobileAccounts());
+        $writer->writeBooleanValue('authorizedUsersListIncludeNetworkUsers', $this->getAuthorizedUsersListIncludeNetworkUsers());
+        $writer->writeBooleanValue('authorizedUsersListShowOtherManagedUsers', $this->getAuthorizedUsersListShowOtherManagedUsers());
+        $writer->writeCollectionOfObjectValues('autoLaunchItems', $this->getAutoLaunchItems());
+        $writer->writeBooleanValue('consoleAccessDisabled', $this->getConsoleAccessDisabled());
+        $writer->writeBooleanValue('contentCachingBlockDeletion', $this->getContentCachingBlockDeletion());
+        $writer->writeCollectionOfObjectValues('contentCachingClientListenRanges', $this->getContentCachingClientListenRanges());
+        $writer->writeEnumValue('contentCachingClientPolicy', $this->getContentCachingClientPolicy());
+        $writer->writeStringValue('contentCachingDataPath', $this->getContentCachingDataPath());
+        $writer->writeBooleanValue('contentCachingDisableConnectionSharing', $this->getContentCachingDisableConnectionSharing());
+        $writer->writeBooleanValue('contentCachingEnabled', $this->getContentCachingEnabled());
+        $writer->writeBooleanValue('contentCachingForceConnectionSharing', $this->getContentCachingForceConnectionSharing());
+        $writer->writeBooleanValue('contentCachingKeepAwake', $this->getContentCachingKeepAwake());
+        $writer->writeBooleanValue('contentCachingLogClientIdentities', $this->getContentCachingLogClientIdentities());
+        $writer->writeIntegerValue('contentCachingMaxSizeBytes', $this->getContentCachingMaxSizeBytes());
+        $writer->writeCollectionOfPrimitiveValues('contentCachingParents', $this->getContentCachingParents());
+        $writer->writeEnumValue('contentCachingParentSelectionPolicy', $this->getContentCachingParentSelectionPolicy());
+        $writer->writeCollectionOfObjectValues('contentCachingPeerFilterRanges', $this->getContentCachingPeerFilterRanges());
+        $writer->writeCollectionOfObjectValues('contentCachingPeerListenRanges', $this->getContentCachingPeerListenRanges());
+        $writer->writeEnumValue('contentCachingPeerPolicy', $this->getContentCachingPeerPolicy());
+        $writer->writeIntegerValue('contentCachingPort', $this->getContentCachingPort());
+        $writer->writeCollectionOfObjectValues('contentCachingPublicRanges', $this->getContentCachingPublicRanges());
+        $writer->writeBooleanValue('contentCachingShowAlerts', $this->getContentCachingShowAlerts());
+        $writer->writeEnumValue('contentCachingType', $this->getContentCachingType());
+        $writer->writeStringValue('loginWindowText', $this->getLoginWindowText());
+        $writer->writeBooleanValue('logOutDisabledWhileLoggedIn', $this->getLogOutDisabledWhileLoggedIn());
+        $writer->writeObjectValue('macOSSingleSignOnExtension', $this->getMacOSSingleSignOnExtension());
+        $writer->writeBooleanValue('powerOffDisabledWhileLoggedIn', $this->getPowerOffDisabledWhileLoggedIn());
+        $writer->writeBooleanValue('restartDisabled', $this->getRestartDisabled());
+        $writer->writeBooleanValue('restartDisabledWhileLoggedIn', $this->getRestartDisabledWhileLoggedIn());
+        $writer->writeBooleanValue('screenLockDisableImmediate', $this->getScreenLockDisableImmediate());
+        $writer->writeBooleanValue('shutDownDisabled', $this->getShutDownDisabled());
+        $writer->writeBooleanValue('shutDownDisabledWhileLoggedIn', $this->getShutDownDisabledWhileLoggedIn());
+        $writer->writeObjectValue('singleSignOnExtension', $this->getSingleSignOnExtension());
+        $writer->writeObjectValue('singleSignOnExtensionPkinitCertificate', $this->getSingleSignOnExtensionPkinitCertificate());
+        $writer->writeBooleanValue('sleepDisabled', $this->getSleepDisabled());
     }
 
     /**
      * Sets the adminShowHostInfo property value. Whether to show admin host information on the login window.
      *  @param bool|null $value Value to set for the adminShowHostInfo property.
     */
-    public function setAdminShowHostInfo(?bool $value ): void {
-        $this->adminShowHostInfo = $value;
+    public function setAdminShowHostInfo(?bool $value): void {
+        $this->getBackingStore()->set('adminShowHostInfo', $value);
     }
 
     /**
      * Sets the appAssociatedDomains property value. Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
      *  @param array<MacOSAssociatedDomainsItem>|null $value Value to set for the appAssociatedDomains property.
     */
-    public function setAppAssociatedDomains(?array $value ): void {
-        $this->appAssociatedDomains = $value;
+    public function setAppAssociatedDomains(?array $value): void {
+        $this->getBackingStore()->set('appAssociatedDomains', $value);
     }
 
     /**
      * Sets the associatedDomains property value. DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of 'service:domain' where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
      *  @param array<KeyValuePair>|null $value Value to set for the associatedDomains property.
     */
-    public function setAssociatedDomains(?array $value ): void {
-        $this->associatedDomains = $value;
+    public function setAssociatedDomains(?array $value): void {
+        $this->getBackingStore()->set('associatedDomains', $value);
     }
 
     /**
      * Sets the authorizedUsersListHidden property value. Whether to show the name and password dialog or a list of users on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListHidden property.
     */
-    public function setAuthorizedUsersListHidden(?bool $value ): void {
-        $this->authorizedUsersListHidden = $value;
+    public function setAuthorizedUsersListHidden(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListHidden', $value);
     }
 
     /**
      * Sets the authorizedUsersListHideAdminUsers property value. Whether to hide admin users in the authorized users list on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListHideAdminUsers property.
     */
-    public function setAuthorizedUsersListHideAdminUsers(?bool $value ): void {
-        $this->authorizedUsersListHideAdminUsers = $value;
+    public function setAuthorizedUsersListHideAdminUsers(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListHideAdminUsers', $value);
     }
 
     /**
      * Sets the authorizedUsersListHideLocalUsers property value. Whether to show only network and system users in the authorized users list on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListHideLocalUsers property.
     */
-    public function setAuthorizedUsersListHideLocalUsers(?bool $value ): void {
-        $this->authorizedUsersListHideLocalUsers = $value;
+    public function setAuthorizedUsersListHideLocalUsers(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListHideLocalUsers', $value);
     }
 
     /**
      * Sets the authorizedUsersListHideMobileAccounts property value. Whether to hide mobile users in the authorized users list on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListHideMobileAccounts property.
     */
-    public function setAuthorizedUsersListHideMobileAccounts(?bool $value ): void {
-        $this->authorizedUsersListHideMobileAccounts = $value;
+    public function setAuthorizedUsersListHideMobileAccounts(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListHideMobileAccounts', $value);
     }
 
     /**
      * Sets the authorizedUsersListIncludeNetworkUsers property value. Whether to show network users in the authorized users list on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListIncludeNetworkUsers property.
     */
-    public function setAuthorizedUsersListIncludeNetworkUsers(?bool $value ): void {
-        $this->authorizedUsersListIncludeNetworkUsers = $value;
+    public function setAuthorizedUsersListIncludeNetworkUsers(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListIncludeNetworkUsers', $value);
     }
 
     /**
      * Sets the authorizedUsersListShowOtherManagedUsers property value. Whether to show other users in the authorized users list on the login window.
      *  @param bool|null $value Value to set for the authorizedUsersListShowOtherManagedUsers property.
     */
-    public function setAuthorizedUsersListShowOtherManagedUsers(?bool $value ): void {
-        $this->authorizedUsersListShowOtherManagedUsers = $value;
+    public function setAuthorizedUsersListShowOtherManagedUsers(?bool $value): void {
+        $this->getBackingStore()->set('authorizedUsersListShowOtherManagedUsers', $value);
     }
 
     /**
      * Sets the autoLaunchItems property value. List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
      *  @param array<MacOSLaunchItem>|null $value Value to set for the autoLaunchItems property.
     */
-    public function setAutoLaunchItems(?array $value ): void {
-        $this->autoLaunchItems = $value;
+    public function setAutoLaunchItems(?array $value): void {
+        $this->getBackingStore()->set('autoLaunchItems', $value);
     }
 
     /**
      * Sets the consoleAccessDisabled property value. Whether the Other user will disregard use of the console special user name.
      *  @param bool|null $value Value to set for the consoleAccessDisabled property.
     */
-    public function setConsoleAccessDisabled(?bool $value ): void {
-        $this->consoleAccessDisabled = $value;
+    public function setConsoleAccessDisabled(?bool $value): void {
+        $this->getBackingStore()->set('consoleAccessDisabled', $value);
     }
 
     /**
      * Sets the contentCachingBlockDeletion property value. Prevents content caches from purging content to free up disk space for other apps.
      *  @param bool|null $value Value to set for the contentCachingBlockDeletion property.
     */
-    public function setContentCachingBlockDeletion(?bool $value ): void {
-        $this->contentCachingBlockDeletion = $value;
+    public function setContentCachingBlockDeletion(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingBlockDeletion', $value);
     }
 
     /**
      * Sets the contentCachingClientListenRanges property value. A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
      *  @param array<IpRange>|null $value Value to set for the contentCachingClientListenRanges property.
     */
-    public function setContentCachingClientListenRanges(?array $value ): void {
-        $this->contentCachingClientListenRanges = $value;
+    public function setContentCachingClientListenRanges(?array $value): void {
+        $this->getBackingStore()->set('contentCachingClientListenRanges', $value);
     }
 
     /**
      * Sets the contentCachingClientPolicy property value. Determines which clients a content cache will serve.
      *  @param MacOSContentCachingClientPolicy|null $value Value to set for the contentCachingClientPolicy property.
     */
-    public function setContentCachingClientPolicy(?MacOSContentCachingClientPolicy $value ): void {
-        $this->contentCachingClientPolicy = $value;
+    public function setContentCachingClientPolicy(?MacOSContentCachingClientPolicy $value): void {
+        $this->getBackingStore()->set('contentCachingClientPolicy', $value);
     }
 
     /**
      * Sets the contentCachingDataPath property value. The path to the directory used to store cached content. The value must be (or end with) /Library/Application Support/Apple/AssetCache/Data
      *  @param string|null $value Value to set for the contentCachingDataPath property.
     */
-    public function setContentCachingDataPath(?string $value ): void {
-        $this->contentCachingDataPath = $value;
+    public function setContentCachingDataPath(?string $value): void {
+        $this->getBackingStore()->set('contentCachingDataPath', $value);
     }
 
     /**
      * Sets the contentCachingDisableConnectionSharing property value. Disables internet connection sharing.
      *  @param bool|null $value Value to set for the contentCachingDisableConnectionSharing property.
     */
-    public function setContentCachingDisableConnectionSharing(?bool $value ): void {
-        $this->contentCachingDisableConnectionSharing = $value;
+    public function setContentCachingDisableConnectionSharing(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingDisableConnectionSharing', $value);
     }
 
     /**
      * Sets the contentCachingEnabled property value. Enables content caching and prevents it from being disabled by the user.
      *  @param bool|null $value Value to set for the contentCachingEnabled property.
     */
-    public function setContentCachingEnabled(?bool $value ): void {
-        $this->contentCachingEnabled = $value;
+    public function setContentCachingEnabled(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingEnabled', $value);
     }
 
     /**
      * Sets the contentCachingForceConnectionSharing property value. Forces internet connection sharing. contentCachingDisableConnectionSharing overrides this setting.
      *  @param bool|null $value Value to set for the contentCachingForceConnectionSharing property.
     */
-    public function setContentCachingForceConnectionSharing(?bool $value ): void {
-        $this->contentCachingForceConnectionSharing = $value;
+    public function setContentCachingForceConnectionSharing(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingForceConnectionSharing', $value);
     }
 
     /**
      * Sets the contentCachingKeepAwake property value. Prevent the device from sleeping if content caching is enabled.
      *  @param bool|null $value Value to set for the contentCachingKeepAwake property.
     */
-    public function setContentCachingKeepAwake(?bool $value ): void {
-        $this->contentCachingKeepAwake = $value;
+    public function setContentCachingKeepAwake(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingKeepAwake', $value);
     }
 
     /**
      * Sets the contentCachingLogClientIdentities property value. Enables logging of IP addresses and ports of clients that request cached content.
      *  @param bool|null $value Value to set for the contentCachingLogClientIdentities property.
     */
-    public function setContentCachingLogClientIdentities(?bool $value ): void {
-        $this->contentCachingLogClientIdentities = $value;
+    public function setContentCachingLogClientIdentities(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingLogClientIdentities', $value);
     }
 
     /**
      * Sets the contentCachingMaxSizeBytes property value. The maximum number of bytes of disk space that will be used for the content cache. A value of 0 (default) indicates unlimited disk space.
      *  @param int|null $value Value to set for the contentCachingMaxSizeBytes property.
     */
-    public function setContentCachingMaxSizeBytes(?int $value ): void {
-        $this->contentCachingMaxSizeBytes = $value;
+    public function setContentCachingMaxSizeBytes(?int $value): void {
+        $this->getBackingStore()->set('contentCachingMaxSizeBytes', $value);
     }
 
     /**
      * Sets the contentCachingParents property value. A list of IP addresses representing parent content caches.
      *  @param array<string>|null $value Value to set for the contentCachingParents property.
     */
-    public function setContentCachingParents(?array $value ): void {
-        $this->contentCachingParents = $value;
+    public function setContentCachingParents(?array $value): void {
+        $this->getBackingStore()->set('contentCachingParents', $value);
     }
 
     /**
      * Sets the contentCachingParentSelectionPolicy property value. Determines how content caches select a parent cache.
      *  @param MacOSContentCachingParentSelectionPolicy|null $value Value to set for the contentCachingParentSelectionPolicy property.
     */
-    public function setContentCachingParentSelectionPolicy(?MacOSContentCachingParentSelectionPolicy $value ): void {
-        $this->contentCachingParentSelectionPolicy = $value;
+    public function setContentCachingParentSelectionPolicy(?MacOSContentCachingParentSelectionPolicy $value): void {
+        $this->getBackingStore()->set('contentCachingParentSelectionPolicy', $value);
     }
 
     /**
      * Sets the contentCachingPeerFilterRanges property value. A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
      *  @param array<IpRange>|null $value Value to set for the contentCachingPeerFilterRanges property.
     */
-    public function setContentCachingPeerFilterRanges(?array $value ): void {
-        $this->contentCachingPeerFilterRanges = $value;
+    public function setContentCachingPeerFilterRanges(?array $value): void {
+        $this->getBackingStore()->set('contentCachingPeerFilterRanges', $value);
     }
 
     /**
      * Sets the contentCachingPeerListenRanges property value. A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
      *  @param array<IpRange>|null $value Value to set for the contentCachingPeerListenRanges property.
     */
-    public function setContentCachingPeerListenRanges(?array $value ): void {
-        $this->contentCachingPeerListenRanges = $value;
+    public function setContentCachingPeerListenRanges(?array $value): void {
+        $this->getBackingStore()->set('contentCachingPeerListenRanges', $value);
     }
 
     /**
      * Sets the contentCachingPeerPolicy property value. Determines which content caches other content caches will peer with.
      *  @param MacOSContentCachingPeerPolicy|null $value Value to set for the contentCachingPeerPolicy property.
     */
-    public function setContentCachingPeerPolicy(?MacOSContentCachingPeerPolicy $value ): void {
-        $this->contentCachingPeerPolicy = $value;
+    public function setContentCachingPeerPolicy(?MacOSContentCachingPeerPolicy $value): void {
+        $this->getBackingStore()->set('contentCachingPeerPolicy', $value);
     }
 
     /**
      * Sets the contentCachingPort property value. Sets the port used for content caching. If the value is 0, a random available port will be selected. Valid values 0 to 65535
      *  @param int|null $value Value to set for the contentCachingPort property.
     */
-    public function setContentCachingPort(?int $value ): void {
-        $this->contentCachingPort = $value;
+    public function setContentCachingPort(?int $value): void {
+        $this->getBackingStore()->set('contentCachingPort', $value);
     }
 
     /**
      * Sets the contentCachingPublicRanges property value. A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
      *  @param array<IpRange>|null $value Value to set for the contentCachingPublicRanges property.
     */
-    public function setContentCachingPublicRanges(?array $value ): void {
-        $this->contentCachingPublicRanges = $value;
+    public function setContentCachingPublicRanges(?array $value): void {
+        $this->getBackingStore()->set('contentCachingPublicRanges', $value);
     }
 
     /**
      * Sets the contentCachingShowAlerts property value. Display content caching alerts as system notifications.
      *  @param bool|null $value Value to set for the contentCachingShowAlerts property.
     */
-    public function setContentCachingShowAlerts(?bool $value ): void {
-        $this->contentCachingShowAlerts = $value;
+    public function setContentCachingShowAlerts(?bool $value): void {
+        $this->getBackingStore()->set('contentCachingShowAlerts', $value);
     }
 
     /**
      * Sets the contentCachingType property value. Indicates the type of content allowed to be cached by Apple's content caching service.
      *  @param MacOSContentCachingType|null $value Value to set for the contentCachingType property.
     */
-    public function setContentCachingType(?MacOSContentCachingType $value ): void {
-        $this->contentCachingType = $value;
+    public function setContentCachingType(?MacOSContentCachingType $value): void {
+        $this->getBackingStore()->set('contentCachingType', $value);
     }
 
     /**
      * Sets the loginWindowText property value. Custom text to be displayed on the login window.
      *  @param string|null $value Value to set for the loginWindowText property.
     */
-    public function setLoginWindowText(?string $value ): void {
-        $this->loginWindowText = $value;
+    public function setLoginWindowText(?string $value): void {
+        $this->getBackingStore()->set('loginWindowText', $value);
     }
 
     /**
      * Sets the logOutDisabledWhileLoggedIn property value. Whether the Log Out menu item on the login window will be disabled while the user is logged in.
      *  @param bool|null $value Value to set for the logOutDisabledWhileLoggedIn property.
     */
-    public function setLogOutDisabledWhileLoggedIn(?bool $value ): void {
-        $this->logOutDisabledWhileLoggedIn = $value;
+    public function setLogOutDisabledWhileLoggedIn(?bool $value): void {
+        $this->getBackingStore()->set('logOutDisabledWhileLoggedIn', $value);
     }
 
     /**
      * Sets the macOSSingleSignOnExtension property value. Gets or sets a single sign-on extension profile.
      *  @param MacOSSingleSignOnExtension|null $value Value to set for the macOSSingleSignOnExtension property.
     */
-    public function setMacOSSingleSignOnExtension(?MacOSSingleSignOnExtension $value ): void {
-        $this->macOSSingleSignOnExtension = $value;
+    public function setMacOSSingleSignOnExtension(?MacOSSingleSignOnExtension $value): void {
+        $this->getBackingStore()->set('macOSSingleSignOnExtension', $value);
     }
 
     /**
      * Sets the powerOffDisabledWhileLoggedIn property value. Whether the Power Off menu item on the login window will be disabled while the user is logged in.
      *  @param bool|null $value Value to set for the powerOffDisabledWhileLoggedIn property.
     */
-    public function setPowerOffDisabledWhileLoggedIn(?bool $value ): void {
-        $this->powerOffDisabledWhileLoggedIn = $value;
+    public function setPowerOffDisabledWhileLoggedIn(?bool $value): void {
+        $this->getBackingStore()->set('powerOffDisabledWhileLoggedIn', $value);
     }
 
     /**
      * Sets the restartDisabled property value. Whether to hide the Restart button item on the login window.
      *  @param bool|null $value Value to set for the restartDisabled property.
     */
-    public function setRestartDisabled(?bool $value ): void {
-        $this->restartDisabled = $value;
+    public function setRestartDisabled(?bool $value): void {
+        $this->getBackingStore()->set('restartDisabled', $value);
     }
 
     /**
      * Sets the restartDisabledWhileLoggedIn property value. Whether the Restart menu item on the login window will be disabled while the user is logged in.
      *  @param bool|null $value Value to set for the restartDisabledWhileLoggedIn property.
     */
-    public function setRestartDisabledWhileLoggedIn(?bool $value ): void {
-        $this->restartDisabledWhileLoggedIn = $value;
+    public function setRestartDisabledWhileLoggedIn(?bool $value): void {
+        $this->getBackingStore()->set('restartDisabledWhileLoggedIn', $value);
     }
 
     /**
      * Sets the screenLockDisableImmediate property value. Whether to disable the immediate screen lock functions.
      *  @param bool|null $value Value to set for the screenLockDisableImmediate property.
     */
-    public function setScreenLockDisableImmediate(?bool $value ): void {
-        $this->screenLockDisableImmediate = $value;
+    public function setScreenLockDisableImmediate(?bool $value): void {
+        $this->getBackingStore()->set('screenLockDisableImmediate', $value);
     }
 
     /**
      * Sets the shutDownDisabled property value. Whether to hide the Shut Down button item on the login window.
      *  @param bool|null $value Value to set for the shutDownDisabled property.
     */
-    public function setShutDownDisabled(?bool $value ): void {
-        $this->shutDownDisabled = $value;
+    public function setShutDownDisabled(?bool $value): void {
+        $this->getBackingStore()->set('shutDownDisabled', $value);
     }
 
     /**
      * Sets the shutDownDisabledWhileLoggedIn property value. Whether the Shut Down menu item on the login window will be disabled while the user is logged in.
      *  @param bool|null $value Value to set for the shutDownDisabledWhileLoggedIn property.
     */
-    public function setShutDownDisabledWhileLoggedIn(?bool $value ): void {
-        $this->shutDownDisabledWhileLoggedIn = $value;
+    public function setShutDownDisabledWhileLoggedIn(?bool $value): void {
+        $this->getBackingStore()->set('shutDownDisabledWhileLoggedIn', $value);
     }
 
     /**
      * Sets the singleSignOnExtension property value. Gets or sets a single sign-on extension profile. Deprecated: use MacOSSingleSignOnExtension instead.
      *  @param SingleSignOnExtension|null $value Value to set for the singleSignOnExtension property.
     */
-    public function setSingleSignOnExtension(?SingleSignOnExtension $value ): void {
-        $this->singleSignOnExtension = $value;
+    public function setSingleSignOnExtension(?SingleSignOnExtension $value): void {
+        $this->getBackingStore()->set('singleSignOnExtension', $value);
     }
 
     /**
      * Sets the singleSignOnExtensionPkinitCertificate property value. PKINIT Certificate for the authentication with single sign-on extensions.
      *  @param MacOSCertificateProfileBase|null $value Value to set for the singleSignOnExtensionPkinitCertificate property.
     */
-    public function setSingleSignOnExtensionPkinitCertificate(?MacOSCertificateProfileBase $value ): void {
-        $this->singleSignOnExtensionPkinitCertificate = $value;
+    public function setSingleSignOnExtensionPkinitCertificate(?MacOSCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('singleSignOnExtensionPkinitCertificate', $value);
     }
 
     /**
      * Sets the sleepDisabled property value. Whether to hide the Sleep menu item on the login window.
      *  @param bool|null $value Value to set for the sleepDisabled property.
     */
-    public function setSleepDisabled(?bool $value ): void {
-        $this->sleepDisabled = $value;
+    public function setSleepDisabled(?bool $value): void {
+        $this->getBackingStore()->set('sleepDisabled', $value);
     }
 
 }

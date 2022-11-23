@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var string|null $defaultValue Localized default string displayed in the text box. The default value is empty.
-    */
-    private ?string $defaultValue = null;
-    
-    /**
-     * @var int|null $maxLength An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
-    */
-    private ?int $maxLength = null;
-    
-    /**
-     * @var bool|null $required Requirement to enter a value in the text box. Default value is false.
-    */
-    private ?bool $required = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationTextBox and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -66,7 +51,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return int|null
     */
     public function getMaxLength(): ?int {
-        return $this->maxLength;
+        return $this->getBackingStore()->get('maxLength');
     }
 
     /**
@@ -74,7 +59,7 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->required;
+        return $this->getBackingStore()->get('required');
     }
 
     /**
@@ -83,33 +68,33 @@ class GroupPolicyPresentationTextBox extends GroupPolicyUploadedPresentation imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('defaultValue', $this->defaultValue);
-        $writer->writeIntegerValue('maxLength', $this->maxLength);
-        $writer->writeBooleanValue('required', $this->required);
+        $writer->writeStringValue('defaultValue', $this->getDefaultValue());
+        $writer->writeIntegerValue('maxLength', $this->getMaxLength());
+        $writer->writeBooleanValue('required', $this->getRequired());
     }
 
     /**
      * Sets the defaultValue property value. Localized default string displayed in the text box. The default value is empty.
      *  @param string|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?string $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?string $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
     /**
      * Sets the maxLength property value. An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
      *  @param int|null $value Value to set for the maxLength property.
     */
-    public function setMaxLength(?int $value ): void {
-        $this->maxLength = $value;
+    public function setMaxLength(?int $value): void {
+        $this->getBackingStore()->set('maxLength', $value);
     }
 
     /**
      * Sets the required property value. Requirement to enter a value in the text box. Default value is false.
      *  @param bool|null $value Value to set for the required property.
     */
-    public function setRequired(?bool $value ): void {
-        $this->required = $value;
+    public function setRequired(?bool $value): void {
+        $this->getBackingStore()->set('required', $value);
     }
 
 }

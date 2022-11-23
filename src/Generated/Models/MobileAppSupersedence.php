@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppSupersedence extends MobileAppRelationship implements Parsable 
 {
     /**
-     * @var int|null $supersededAppCount The total number of apps directly or indirectly superseded by the child app.
-    */
-    private ?int $supersededAppCount = null;
-    
-    /**
-     * @var MobileAppSupersedenceType|null $supersedenceType Indicates the supersedence type associated with a relationship between two mobile apps.
-    */
-    private ?MobileAppSupersedenceType $supersedenceType = null;
-    
-    /**
-     * @var int|null $supersedingAppCount The total number of apps directly or indirectly superseding the parent app.
-    */
-    private ?int $supersedingAppCount = null;
-    
-    /**
      * Instantiates a new MobileAppSupersedence and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getSupersededAppCount(): ?int {
-        return $this->supersededAppCount;
+        return $this->getBackingStore()->get('supersededAppCount');
     }
 
     /**
@@ -66,7 +51,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return MobileAppSupersedenceType|null
     */
     public function getSupersedenceType(): ?MobileAppSupersedenceType {
-        return $this->supersedenceType;
+        return $this->getBackingStore()->get('supersedenceType');
     }
 
     /**
@@ -74,7 +59,7 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
      * @return int|null
     */
     public function getSupersedingAppCount(): ?int {
-        return $this->supersedingAppCount;
+        return $this->getBackingStore()->get('supersedingAppCount');
     }
 
     /**
@@ -83,33 +68,33 @@ class MobileAppSupersedence extends MobileAppRelationship implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('supersededAppCount', $this->supersededAppCount);
-        $writer->writeEnumValue('supersedenceType', $this->supersedenceType);
-        $writer->writeIntegerValue('supersedingAppCount', $this->supersedingAppCount);
+        $writer->writeIntegerValue('supersededAppCount', $this->getSupersededAppCount());
+        $writer->writeEnumValue('supersedenceType', $this->getSupersedenceType());
+        $writer->writeIntegerValue('supersedingAppCount', $this->getSupersedingAppCount());
     }
 
     /**
      * Sets the supersededAppCount property value. The total number of apps directly or indirectly superseded by the child app.
      *  @param int|null $value Value to set for the supersededAppCount property.
     */
-    public function setSupersededAppCount(?int $value ): void {
-        $this->supersededAppCount = $value;
+    public function setSupersededAppCount(?int $value): void {
+        $this->getBackingStore()->set('supersededAppCount', $value);
     }
 
     /**
      * Sets the supersedenceType property value. Indicates the supersedence type associated with a relationship between two mobile apps.
      *  @param MobileAppSupersedenceType|null $value Value to set for the supersedenceType property.
     */
-    public function setSupersedenceType(?MobileAppSupersedenceType $value ): void {
-        $this->supersedenceType = $value;
+    public function setSupersedenceType(?MobileAppSupersedenceType $value): void {
+        $this->getBackingStore()->set('supersedenceType', $value);
     }
 
     /**
      * Sets the supersedingAppCount property value. The total number of apps directly or indirectly superseding the parent app.
      *  @param int|null $value Value to set for the supersedingAppCount property.
     */
-    public function setSupersedingAppCount(?int $value ): void {
-        $this->supersedingAppCount = $value;
+    public function setSupersedingAppCount(?int $value): void {
+        $this->getBackingStore()->set('supersedingAppCount', $value);
     }
 
 }

@@ -11,26 +11,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomTaskExtensionCalloutData extends CustomExtensionData implements Parsable 
 {
     /**
-     * @var User|null $subject The subject property
-    */
-    private ?User $subject = null;
-    
-    /**
-     * @var Task|null $task The task property
-    */
-    private ?Task $task = null;
-    
-    /**
-     * @var TaskProcessingResult|null $taskProcessingresult The taskProcessingresult property
-    */
-    private ?TaskProcessingResult $taskProcessingresult = null;
-    
-    /**
-     * @var Workflow|null $workflow The workflow property
-    */
-    private ?Workflow $workflow = null;
-    
-    /**
      * Instantiates a new CustomTaskExtensionCalloutData and sets the default values.
     */
     public function __construct() {
@@ -66,7 +46,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return User|null
     */
     public function getSubject(): ?User {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -74,7 +54,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return Task|null
     */
     public function getTask(): ?Task {
-        return $this->task;
+        return $this->getBackingStore()->get('task');
     }
 
     /**
@@ -82,7 +62,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return TaskProcessingResult|null
     */
     public function getTaskProcessingresult(): ?TaskProcessingResult {
-        return $this->taskProcessingresult;
+        return $this->getBackingStore()->get('taskProcessingresult');
     }
 
     /**
@@ -90,7 +70,7 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
      * @return Workflow|null
     */
     public function getWorkflow(): ?Workflow {
-        return $this->workflow;
+        return $this->getBackingStore()->get('workflow');
     }
 
     /**
@@ -99,42 +79,42 @@ class CustomTaskExtensionCalloutData extends CustomExtensionData implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('subject', $this->subject);
-        $writer->writeObjectValue('task', $this->task);
-        $writer->writeObjectValue('taskProcessingresult', $this->taskProcessingresult);
-        $writer->writeObjectValue('workflow', $this->workflow);
+        $writer->writeObjectValue('subject', $this->getSubject());
+        $writer->writeObjectValue('task', $this->getTask());
+        $writer->writeObjectValue('taskProcessingresult', $this->getTaskProcessingresult());
+        $writer->writeObjectValue('workflow', $this->getWorkflow());
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param User|null $value Value to set for the subject property.
     */
-    public function setSubject(?User $value ): void {
-        $this->subject = $value;
+    public function setSubject(?User $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the task property value. The task property
      *  @param Task|null $value Value to set for the task property.
     */
-    public function setTask(?Task $value ): void {
-        $this->task = $value;
+    public function setTask(?Task $value): void {
+        $this->getBackingStore()->set('task', $value);
     }
 
     /**
      * Sets the taskProcessingresult property value. The taskProcessingresult property
      *  @param TaskProcessingResult|null $value Value to set for the taskProcessingresult property.
     */
-    public function setTaskProcessingresult(?TaskProcessingResult $value ): void {
-        $this->taskProcessingresult = $value;
+    public function setTaskProcessingresult(?TaskProcessingResult $value): void {
+        $this->getBackingStore()->set('taskProcessingresult', $value);
     }
 
     /**
      * Sets the workflow property value. The workflow property
      *  @param Workflow|null $value Value to set for the workflow property.
     */
-    public function setWorkflow(?Workflow $value ): void {
-        $this->workflow = $value;
+    public function setWorkflow(?Workflow $value): void {
+        $this->getBackingStore()->set('workflow', $value);
     }
 
 }

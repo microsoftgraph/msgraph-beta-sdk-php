@@ -9,71 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile implements Parsable 
 {
     /**
-     * @var CertificateStore|null $certificateStore CertificateStore types
-    */
-    private ?CertificateStore $certificateStore = null;
-    
-    /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodScale Certificate Validity Period Options.
-    */
-    private ?CertificateValidityPeriodScale $certificateValidityPeriodScale = null;
-    
-    /**
-     * @var int|null $certificateValidityPeriodValue Value for the Certificate Validity Period
-    */
-    private ?int $certificateValidityPeriodValue = null;
-    
-    /**
-     * @var array<ExtendedKeyUsage>|null $extendedKeyUsages Extended Key Usage (EKU) settings.
-    */
-    private ?array $extendedKeyUsages = null;
-    
-    /**
-     * @var array<HashAlgorithms>|null $hashAlgorithm SCEP Hash Algorithm.
-    */
-    private ?array $hashAlgorithm = null;
-    
-    /**
-     * @var KeySize|null $keySize Key Size Options.
-    */
-    private ?KeySize $keySize = null;
-    
-    /**
-     * @var KeyStorageProviderOption|null $keyStorageProvider Key Storage Provider (KSP) Import Options.
-    */
-    private ?KeyStorageProviderOption $keyStorageProvider = null;
-    
-    /**
-     * @var KeyUsages|null $keyUsage Key Usage Options.
-    */
-    private ?KeyUsages $keyUsage = null;
-    
-    /**
-     * @var int|null $renewalThresholdPercentage Certificate renewal threshold percentage
-    */
-    private ?int $renewalThresholdPercentage = null;
-    
-    /**
-     * @var string|null $rootCertificateId Trusted Root Certificate ID
-    */
-    private ?string $rootCertificateId = null;
-    
-    /**
-     * @var array<string>|null $scepServerUrls SCEP Server Url(s).
-    */
-    private ?array $scepServerUrls = null;
-    
-    /**
-     * @var array<Windows10XCustomSubjectAlternativeName>|null $subjectAlternativeNameFormats Custom AAD Attributes.
-    */
-    private ?array $subjectAlternativeNameFormats = null;
-    
-    /**
-     * @var string|null $subjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-    */
-    private ?string $subjectNameFormatString = null;
-    
-    /**
      * Instantiates a new Windows10XSCEPCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -95,7 +30,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return CertificateStore|null
     */
     public function getCertificateStore(): ?CertificateStore {
-        return $this->certificateStore;
+        return $this->getBackingStore()->get('certificateStore');
     }
 
     /**
@@ -103,7 +38,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodScale(): ?CertificateValidityPeriodScale {
-        return $this->certificateValidityPeriodScale;
+        return $this->getBackingStore()->get('certificateValidityPeriodScale');
     }
 
     /**
@@ -111,7 +46,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return int|null
     */
     public function getCertificateValidityPeriodValue(): ?int {
-        return $this->certificateValidityPeriodValue;
+        return $this->getBackingStore()->get('certificateValidityPeriodValue');
     }
 
     /**
@@ -119,7 +54,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->extendedKeyUsages;
+        return $this->getBackingStore()->get('extendedKeyUsages');
     }
 
     /**
@@ -150,7 +85,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<HashAlgorithms>|null
     */
     public function getHashAlgorithm(): ?array {
-        return $this->hashAlgorithm;
+        return $this->getBackingStore()->get('hashAlgorithm');
     }
 
     /**
@@ -158,7 +93,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
-        return $this->keySize;
+        return $this->getBackingStore()->get('keySize');
     }
 
     /**
@@ -166,7 +101,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeyStorageProviderOption|null
     */
     public function getKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->keyStorageProvider;
+        return $this->getBackingStore()->get('keyStorageProvider');
     }
 
     /**
@@ -174,7 +109,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
-        return $this->keyUsage;
+        return $this->getBackingStore()->get('keyUsage');
     }
 
     /**
@@ -182,7 +117,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return int|null
     */
     public function getRenewalThresholdPercentage(): ?int {
-        return $this->renewalThresholdPercentage;
+        return $this->getBackingStore()->get('renewalThresholdPercentage');
     }
 
     /**
@@ -190,7 +125,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return string|null
     */
     public function getRootCertificateId(): ?string {
-        return $this->rootCertificateId;
+        return $this->getBackingStore()->get('rootCertificateId');
     }
 
     /**
@@ -198,7 +133,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<string>|null
     */
     public function getScepServerUrls(): ?array {
-        return $this->scepServerUrls;
+        return $this->getBackingStore()->get('scepServerUrls');
     }
 
     /**
@@ -206,7 +141,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return array<Windows10XCustomSubjectAlternativeName>|null
     */
     public function getSubjectAlternativeNameFormats(): ?array {
-        return $this->subjectAlternativeNameFormats;
+        return $this->getBackingStore()->get('subjectAlternativeNameFormats');
     }
 
     /**
@@ -214,7 +149,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->subjectNameFormatString;
+        return $this->getBackingStore()->get('subjectNameFormatString');
     }
 
     /**
@@ -223,123 +158,123 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('certificateStore', $this->certificateStore);
-        $writer->writeEnumValue('certificateValidityPeriodScale', $this->certificateValidityPeriodScale);
-        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->certificateValidityPeriodValue);
-        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->extendedKeyUsages);
-        $writer->writeCollectionOfEnumValues('hashAlgorithm', $this->hashAlgorithm);
-        $writer->writeEnumValue('keySize', $this->keySize);
-        $writer->writeEnumValue('keyStorageProvider', $this->keyStorageProvider);
-        $writer->writeEnumValue('keyUsage', $this->keyUsage);
-        $writer->writeIntegerValue('renewalThresholdPercentage', $this->renewalThresholdPercentage);
-        $writer->writeStringValue('rootCertificateId', $this->rootCertificateId);
-        $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->scepServerUrls);
-        $writer->writeCollectionOfObjectValues('subjectAlternativeNameFormats', $this->subjectAlternativeNameFormats);
-        $writer->writeStringValue('subjectNameFormatString', $this->subjectNameFormatString);
+        $writer->writeEnumValue('certificateStore', $this->getCertificateStore());
+        $writer->writeEnumValue('certificateValidityPeriodScale', $this->getCertificateValidityPeriodScale());
+        $writer->writeIntegerValue('certificateValidityPeriodValue', $this->getCertificateValidityPeriodValue());
+        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
+        $writer->writeCollectionOfEnumValues('hashAlgorithm', $this->getHashAlgorithm());
+        $writer->writeEnumValue('keySize', $this->getKeySize());
+        $writer->writeEnumValue('keyStorageProvider', $this->getKeyStorageProvider());
+        $writer->writeEnumValue('keyUsage', $this->getKeyUsage());
+        $writer->writeIntegerValue('renewalThresholdPercentage', $this->getRenewalThresholdPercentage());
+        $writer->writeStringValue('rootCertificateId', $this->getRootCertificateId());
+        $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->getScepServerUrls());
+        $writer->writeCollectionOfObjectValues('subjectAlternativeNameFormats', $this->getSubjectAlternativeNameFormats());
+        $writer->writeStringValue('subjectNameFormatString', $this->getSubjectNameFormatString());
     }
 
     /**
      * Sets the certificateStore property value. CertificateStore types
      *  @param CertificateStore|null $value Value to set for the certificateStore property.
     */
-    public function setCertificateStore(?CertificateStore $value ): void {
-        $this->certificateStore = $value;
+    public function setCertificateStore(?CertificateStore $value): void {
+        $this->getBackingStore()->set('certificateStore', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodScale property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodScale property.
     */
-    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value ): void {
-        $this->certificateValidityPeriodScale = $value;
+    public function setCertificateValidityPeriodScale(?CertificateValidityPeriodScale $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodScale', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodValue property value. Value for the Certificate Validity Period
      *  @param int|null $value Value to set for the certificateValidityPeriodValue property.
     */
-    public function setCertificateValidityPeriodValue(?int $value ): void {
-        $this->certificateValidityPeriodValue = $value;
+    public function setCertificateValidityPeriodValue(?int $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodValue', $value);
     }
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings.
      *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
-    public function setExtendedKeyUsages(?array $value ): void {
-        $this->extendedKeyUsages = $value;
+    public function setExtendedKeyUsages(?array $value): void {
+        $this->getBackingStore()->set('extendedKeyUsages', $value);
     }
 
     /**
      * Sets the hashAlgorithm property value. SCEP Hash Algorithm.
      *  @param array<HashAlgorithms>|null $value Value to set for the hashAlgorithm property.
     */
-    public function setHashAlgorithm(?array $value ): void {
-        $this->hashAlgorithm = $value;
+    public function setHashAlgorithm(?array $value): void {
+        $this->getBackingStore()->set('hashAlgorithm', $value);
     }
 
     /**
      * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
-    public function setKeySize(?KeySize $value ): void {
-        $this->keySize = $value;
+    public function setKeySize(?KeySize $value): void {
+        $this->getBackingStore()->set('keySize', $value);
     }
 
     /**
      * Sets the keyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the keyStorageProvider property.
     */
-    public function setKeyStorageProvider(?KeyStorageProviderOption $value ): void {
-        $this->keyStorageProvider = $value;
+    public function setKeyStorageProvider(?KeyStorageProviderOption $value): void {
+        $this->getBackingStore()->set('keyStorageProvider', $value);
     }
 
     /**
      * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
-    public function setKeyUsage(?KeyUsages $value ): void {
-        $this->keyUsage = $value;
+    public function setKeyUsage(?KeyUsages $value): void {
+        $this->getBackingStore()->set('keyUsage', $value);
     }
 
     /**
      * Sets the renewalThresholdPercentage property value. Certificate renewal threshold percentage
      *  @param int|null $value Value to set for the renewalThresholdPercentage property.
     */
-    public function setRenewalThresholdPercentage(?int $value ): void {
-        $this->renewalThresholdPercentage = $value;
+    public function setRenewalThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('renewalThresholdPercentage', $value);
     }
 
     /**
      * Sets the rootCertificateId property value. Trusted Root Certificate ID
      *  @param string|null $value Value to set for the rootCertificateId property.
     */
-    public function setRootCertificateId(?string $value ): void {
-        $this->rootCertificateId = $value;
+    public function setRootCertificateId(?string $value): void {
+        $this->getBackingStore()->set('rootCertificateId', $value);
     }
 
     /**
      * Sets the scepServerUrls property value. SCEP Server Url(s).
      *  @param array<string>|null $value Value to set for the scepServerUrls property.
     */
-    public function setScepServerUrls(?array $value ): void {
-        $this->scepServerUrls = $value;
+    public function setScepServerUrls(?array $value): void {
+        $this->getBackingStore()->set('scepServerUrls', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameFormats property value. Custom AAD Attributes.
      *  @param array<Windows10XCustomSubjectAlternativeName>|null $value Value to set for the subjectAlternativeNameFormats property.
     */
-    public function setSubjectAlternativeNameFormats(?array $value ): void {
-        $this->subjectAlternativeNameFormats = $value;
+    public function setSubjectAlternativeNameFormats(?array $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameFormats', $value);
     }
 
     /**
      * Sets the subjectNameFormatString property value. Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
      *  @param string|null $value Value to set for the subjectNameFormatString property.
     */
-    public function setSubjectNameFormatString(?string $value ): void {
-        $this->subjectNameFormatString = $value;
+    public function setSubjectNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectNameFormatString', $value);
     }
 
 }

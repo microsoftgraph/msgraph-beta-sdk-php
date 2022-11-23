@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent implements Parsable 
 {
     /**
-     * @var MlClassificationMatchTolerance|null $matchTolerance The matchTolerance property
-    */
-    private ?MlClassificationMatchTolerance $matchTolerance = null;
-    
-    /**
-     * @var string|null $modelVersion The modelVersion property
-    */
-    private ?string $modelVersion = null;
-    
-    /**
      * Instantiates a new MachineLearningDetectedSensitiveContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.machineLearningDetectedSensitiveContent');
     }
 
     /**
@@ -52,7 +41,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
      * @return MlClassificationMatchTolerance|null
     */
     public function getMatchTolerance(): ?MlClassificationMatchTolerance {
-        return $this->matchTolerance;
+        return $this->getBackingStore()->get('matchTolerance');
     }
 
     /**
@@ -60,7 +49,7 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
      * @return string|null
     */
     public function getModelVersion(): ?string {
-        return $this->modelVersion;
+        return $this->getBackingStore()->get('modelVersion');
     }
 
     /**
@@ -69,24 +58,24 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent i
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('matchTolerance', $this->matchTolerance);
-        $writer->writeStringValue('modelVersion', $this->modelVersion);
+        $writer->writeEnumValue('matchTolerance', $this->getMatchTolerance());
+        $writer->writeStringValue('modelVersion', $this->getModelVersion());
     }
 
     /**
      * Sets the matchTolerance property value. The matchTolerance property
      *  @param MlClassificationMatchTolerance|null $value Value to set for the matchTolerance property.
     */
-    public function setMatchTolerance(?MlClassificationMatchTolerance $value ): void {
-        $this->matchTolerance = $value;
+    public function setMatchTolerance(?MlClassificationMatchTolerance $value): void {
+        $this->getBackingStore()->set('matchTolerance', $value);
     }
 
     /**
      * Sets the modelVersion property value. The modelVersion property
      *  @param string|null $value Value to set for the modelVersion property.
     */
-    public function setModelVersion(?string $value ): void {
-        $this->modelVersion = $value;
+    public function setModelVersion(?string $value): void {
+        $this->getBackingStore()->set('modelVersion', $value);
     }
 
 }

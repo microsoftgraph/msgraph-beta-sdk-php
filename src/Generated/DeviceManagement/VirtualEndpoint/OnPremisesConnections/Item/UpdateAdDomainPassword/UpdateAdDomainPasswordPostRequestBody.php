@@ -6,23 +6,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Parsable 
+class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $adDomainPassword The adDomainPassword property
-    */
-    private ?string $adDomainPassword = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new updateAdDomainPasswordPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -39,8 +38,8 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -48,7 +47,15 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getAdDomainPassword(): ?string {
-        return $this->adDomainPassword;
+        return $this->getBackingStore()->get('adDomainPassword');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -67,24 +74,32 @@ class UpdateAdDomainPasswordPostRequestBody implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('adDomainPassword', $this->adDomainPassword);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('adDomainPassword', $this->getAdDomainPassword());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the adDomainPassword property value. The adDomainPassword property
      *  @param string|null $value Value to set for the adDomainPassword property.
     */
-    public function setAdDomainPassword(?string $value ): void {
-        $this->adDomainPassword = $value;
+    public function setAdDomainPassword(?string $value): void {
+        $this->getBackingStore()->set('adDomainPassword', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
 }

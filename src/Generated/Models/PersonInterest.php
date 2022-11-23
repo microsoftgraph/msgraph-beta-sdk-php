@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PersonInterest extends ItemFacet implements Parsable 
 {
     /**
-     * @var array<string>|null $categories Contains categories a user has associated with the interest (for example, personal, recipies).
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var array<string>|null $collaborationTags Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    */
-    private ?array $collaborationTags = null;
-    
-    /**
-     * @var string|null $description Contains a description of the interest.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Contains a friendly name for the interest.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $thumbnailUrl The thumbnailUrl property
-    */
-    private ?string $thumbnailUrl = null;
-    
-    /**
-     * @var string|null $webUrl Contains a link to a web page or resource about the interest.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new PersonInterest and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -68,7 +38,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return array<string>|null
     */
     public function getCollaborationTags(): ?array {
-        return $this->collaborationTags;
+        return $this->getBackingStore()->get('collaborationTags');
     }
 
     /**
@@ -76,7 +46,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -84,7 +54,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -108,7 +78,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getThumbnailUrl(): ?string {
-        return $this->thumbnailUrl;
+        return $this->getBackingStore()->get('thumbnailUrl');
     }
 
     /**
@@ -116,7 +86,7 @@ class PersonInterest extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -125,60 +95,60 @@ class PersonInterest extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
-        $writer->writeCollectionOfPrimitiveValues('collaborationTags', $this->collaborationTags);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('thumbnailUrl', $this->thumbnailUrl);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeCollectionOfPrimitiveValues('collaborationTags', $this->getCollaborationTags());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('thumbnailUrl', $this->getThumbnailUrl());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the categories property value. Contains categories a user has associated with the interest (for example, personal, recipies).
      *  @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the collaborationTags property value. Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
      *  @param array<string>|null $value Value to set for the collaborationTags property.
     */
-    public function setCollaborationTags(?array $value ): void {
-        $this->collaborationTags = $value;
+    public function setCollaborationTags(?array $value): void {
+        $this->getBackingStore()->set('collaborationTags', $value);
     }
 
     /**
      * Sets the description property value. Contains a description of the interest.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Contains a friendly name for the interest.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the thumbnailUrl property value. The thumbnailUrl property
      *  @param string|null $value Value to set for the thumbnailUrl property.
     */
-    public function setThumbnailUrl(?string $value ): void {
-        $this->thumbnailUrl = $value;
+    public function setThumbnailUrl(?string $value): void {
+        $this->getBackingStore()->set('thumbnailUrl', $value);
     }
 
     /**
      * Sets the webUrl property value. Contains a link to a web page or resource about the interest.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

@@ -6,70 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class VpnOnDemandRule implements AdditionalDataHolder, Parsable 
+class VpnOnDemandRule implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var VpnOnDemandRuleConnectionAction|null $action VPN On-Demand Rule Connection Action.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?VpnOnDemandRuleConnectionAction $action = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $dnsSearchDomains DNS Search Domains.
-    */
-    private ?array $dnsSearchDomains = null;
-    
-    /**
-     * @var array<string>|null $dnsServerAddressMatch DNS Search Server Address.
-    */
-    private ?array $dnsServerAddressMatch = null;
-    
-    /**
-     * @var VpnOnDemandRuleConnectionDomainAction|null $domainAction VPN On-Demand Rule Connection Domain Action.
-    */
-    private ?VpnOnDemandRuleConnectionDomainAction $domainAction = null;
-    
-    /**
-     * @var array<string>|null $domains Domains (Only applicable when Action is evaluate connection).
-    */
-    private ?array $domains = null;
-    
-    /**
-     * @var VpnOnDemandRuleInterfaceTypeMatch|null $interfaceTypeMatch VPN On-Demand Rule Connection network interface type.
-    */
-    private ?VpnOnDemandRuleInterfaceTypeMatch $interfaceTypeMatch = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $probeRequiredUrl Probe Required Url (Only applicable when Action is evaluate connection and DomainAction is connect if needed).
-    */
-    private ?string $probeRequiredUrl = null;
-    
-    /**
-     * @var string|null $probeUrl A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.
-    */
-    private ?string $probeUrl = null;
-    
-    /**
-     * @var array<string>|null $ssids Network Service Set Identifiers (SSIDs).
-    */
-    private ?array $ssids = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new vpnOnDemandRule and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.vpnOnDemandRule');
     }
 
     /**
@@ -86,15 +39,23 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return VpnOnDemandRuleConnectionAction|null
     */
     public function getAction(): ?VpnOnDemandRuleConnectionAction {
-        return $this->action;
+        return $this->getBackingStore()->get('action');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -102,7 +63,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDnsSearchDomains(): ?array {
-        return $this->dnsSearchDomains;
+        return $this->getBackingStore()->get('dnsSearchDomains');
     }
 
     /**
@@ -110,7 +71,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDnsServerAddressMatch(): ?array {
-        return $this->dnsServerAddressMatch;
+        return $this->getBackingStore()->get('dnsServerAddressMatch');
     }
 
     /**
@@ -118,7 +79,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return VpnOnDemandRuleConnectionDomainAction|null
     */
     public function getDomainAction(): ?VpnOnDemandRuleConnectionDomainAction {
-        return $this->domainAction;
+        return $this->getBackingStore()->get('domainAction');
     }
 
     /**
@@ -126,7 +87,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getDomains(): ?array {
-        return $this->domains;
+        return $this->getBackingStore()->get('domains');
     }
 
     /**
@@ -154,7 +115,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return VpnOnDemandRuleInterfaceTypeMatch|null
     */
     public function getInterfaceTypeMatch(): ?VpnOnDemandRuleInterfaceTypeMatch {
-        return $this->interfaceTypeMatch;
+        return $this->getBackingStore()->get('interfaceTypeMatch');
     }
 
     /**
@@ -162,7 +123,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -170,7 +131,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProbeRequiredUrl(): ?string {
-        return $this->probeRequiredUrl;
+        return $this->getBackingStore()->get('probeRequiredUrl');
     }
 
     /**
@@ -178,7 +139,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProbeUrl(): ?string {
-        return $this->probeUrl;
+        return $this->getBackingStore()->get('probeUrl');
     }
 
     /**
@@ -186,7 +147,7 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getSsids(): ?array {
-        return $this->ssids;
+        return $this->getBackingStore()->get('ssids');
     }
 
     /**
@@ -194,105 +155,113 @@ class VpnOnDemandRule implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('action', $this->action);
-        $writer->writeCollectionOfPrimitiveValues('dnsSearchDomains', $this->dnsSearchDomains);
-        $writer->writeCollectionOfPrimitiveValues('dnsServerAddressMatch', $this->dnsServerAddressMatch);
-        $writer->writeEnumValue('domainAction', $this->domainAction);
-        $writer->writeCollectionOfPrimitiveValues('domains', $this->domains);
-        $writer->writeEnumValue('interfaceTypeMatch', $this->interfaceTypeMatch);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('probeRequiredUrl', $this->probeRequiredUrl);
-        $writer->writeStringValue('probeUrl', $this->probeUrl);
-        $writer->writeCollectionOfPrimitiveValues('ssids', $this->ssids);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeCollectionOfPrimitiveValues('dnsSearchDomains', $this->getDnsSearchDomains());
+        $writer->writeCollectionOfPrimitiveValues('dnsServerAddressMatch', $this->getDnsServerAddressMatch());
+        $writer->writeEnumValue('domainAction', $this->getDomainAction());
+        $writer->writeCollectionOfPrimitiveValues('domains', $this->getDomains());
+        $writer->writeEnumValue('interfaceTypeMatch', $this->getInterfaceTypeMatch());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('probeRequiredUrl', $this->getProbeRequiredUrl());
+        $writer->writeStringValue('probeUrl', $this->getProbeUrl());
+        $writer->writeCollectionOfPrimitiveValues('ssids', $this->getSsids());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the action property value. VPN On-Demand Rule Connection Action.
      *  @param VpnOnDemandRuleConnectionAction|null $value Value to set for the action property.
     */
-    public function setAction(?VpnOnDemandRuleConnectionAction $value ): void {
-        $this->action = $value;
+    public function setAction(?VpnOnDemandRuleConnectionAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the dnsSearchDomains property value. DNS Search Domains.
      *  @param array<string>|null $value Value to set for the dnsSearchDomains property.
     */
-    public function setDnsSearchDomains(?array $value ): void {
-        $this->dnsSearchDomains = $value;
+    public function setDnsSearchDomains(?array $value): void {
+        $this->getBackingStore()->set('dnsSearchDomains', $value);
     }
 
     /**
      * Sets the dnsServerAddressMatch property value. DNS Search Server Address.
      *  @param array<string>|null $value Value to set for the dnsServerAddressMatch property.
     */
-    public function setDnsServerAddressMatch(?array $value ): void {
-        $this->dnsServerAddressMatch = $value;
+    public function setDnsServerAddressMatch(?array $value): void {
+        $this->getBackingStore()->set('dnsServerAddressMatch', $value);
     }
 
     /**
      * Sets the domainAction property value. VPN On-Demand Rule Connection Domain Action.
      *  @param VpnOnDemandRuleConnectionDomainAction|null $value Value to set for the domainAction property.
     */
-    public function setDomainAction(?VpnOnDemandRuleConnectionDomainAction $value ): void {
-        $this->domainAction = $value;
+    public function setDomainAction(?VpnOnDemandRuleConnectionDomainAction $value): void {
+        $this->getBackingStore()->set('domainAction', $value);
     }
 
     /**
      * Sets the domains property value. Domains (Only applicable when Action is evaluate connection).
      *  @param array<string>|null $value Value to set for the domains property.
     */
-    public function setDomains(?array $value ): void {
-        $this->domains = $value;
+    public function setDomains(?array $value): void {
+        $this->getBackingStore()->set('domains', $value);
     }
 
     /**
      * Sets the interfaceTypeMatch property value. VPN On-Demand Rule Connection network interface type.
      *  @param VpnOnDemandRuleInterfaceTypeMatch|null $value Value to set for the interfaceTypeMatch property.
     */
-    public function setInterfaceTypeMatch(?VpnOnDemandRuleInterfaceTypeMatch $value ): void {
-        $this->interfaceTypeMatch = $value;
+    public function setInterfaceTypeMatch(?VpnOnDemandRuleInterfaceTypeMatch $value): void {
+        $this->getBackingStore()->set('interfaceTypeMatch', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the probeRequiredUrl property value. Probe Required Url (Only applicable when Action is evaluate connection and DomainAction is connect if needed).
      *  @param string|null $value Value to set for the probeRequiredUrl property.
     */
-    public function setProbeRequiredUrl(?string $value ): void {
-        $this->probeRequiredUrl = $value;
+    public function setProbeRequiredUrl(?string $value): void {
+        $this->getBackingStore()->set('probeRequiredUrl', $value);
     }
 
     /**
      * Sets the probeUrl property value. A URL to probe. If this URL is successfully fetched (returning a 200 HTTP status code) without redirection, this rule matches.
      *  @param string|null $value Value to set for the probeUrl property.
     */
-    public function setProbeUrl(?string $value ): void {
-        $this->probeUrl = $value;
+    public function setProbeUrl(?string $value): void {
+        $this->getBackingStore()->set('probeUrl', $value);
     }
 
     /**
      * Sets the ssids property value. Network Service Set Identifiers (SSIDs).
      *  @param array<string>|null $value Value to set for the ssids property.
     */
-    public function setSsids(?array $value ): void {
-        $this->ssids = $value;
+    public function setSsids(?array $value): void {
+        $this->getBackingStore()->set('ssids', $value);
     }
 
 }

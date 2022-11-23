@@ -133,7 +133,6 @@ use Microsoft\Graph\Beta\Generated\Me\ScopedRoleMemberOf\ScopedRoleMemberOfReque
 use Microsoft\Graph\Beta\Generated\Me\Security\SecurityRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\SendMail\SendMailRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Settings\SettingsRequestBuilder;
-use Microsoft\Graph\Beta\Generated\Me\Tasks\TasksRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Teamwork\TeamworkRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\Todo\TodoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Me\TransitiveMemberOf\Item\DirectoryObjectItemRequestBuilder as MicrosoftGraphBetaGeneratedMeTransitiveMemberOfItemDirectoryObjectItemRequestBuilder;
@@ -688,13 +687,6 @@ class MeRequestBuilder
     */
     public function settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder($this->pathParameters, $this->requestAdapter);
-    }
-    
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.user entity.
-    */
-    public function tasks(): TasksRequestBuilder {
-        return new TasksRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

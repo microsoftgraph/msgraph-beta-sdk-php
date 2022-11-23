@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable 
+class ConfigManagerPolicySummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $compliantDeviceCount The number of devices evaluated to be compliant by the policy.
-    */
-    private ?int $compliantDeviceCount = null;
-    
-    /**
-     * @var int|null $enforcedDeviceCount The number of devices that have have been remediated by the policy.
-    */
-    private ?int $enforcedDeviceCount = null;
-    
-    /**
-     * @var int|null $failedDeviceCount The number of devices that failed to be evaluated by the policy.
-    */
-    private ?int $failedDeviceCount = null;
-    
-    /**
-     * @var int|null $nonCompliantDeviceCount The number of devices evaluated to be noncompliant by the policy.
-    */
-    private ?int $nonCompliantDeviceCount = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $pendingDeviceCount The number of devices that have acknowledged the policy but are pending evaluation.
-    */
-    private ?int $pendingDeviceCount = null;
-    
-    /**
-     * @var int|null $targetedDeviceCount The number of devices targeted by the policy.
-    */
-    private ?int $targetedDeviceCount = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new configManagerPolicySummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.configManagerPolicySummary');
     }
 
     /**
@@ -70,8 +38,16 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +55,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCompliantDeviceCount(): ?int {
-        return $this->compliantDeviceCount;
+        return $this->getBackingStore()->get('compliantDeviceCount');
     }
 
     /**
@@ -87,7 +63,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getEnforcedDeviceCount(): ?int {
-        return $this->enforcedDeviceCount;
+        return $this->getBackingStore()->get('enforcedDeviceCount');
     }
 
     /**
@@ -95,7 +71,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->failedDeviceCount;
+        return $this->getBackingStore()->get('failedDeviceCount');
     }
 
     /**
@@ -120,7 +96,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getNonCompliantDeviceCount(): ?int {
-        return $this->nonCompliantDeviceCount;
+        return $this->getBackingStore()->get('nonCompliantDeviceCount');
     }
 
     /**
@@ -128,7 +104,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -136,7 +112,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getPendingDeviceCount(): ?int {
-        return $this->pendingDeviceCount;
+        return $this->getBackingStore()->get('pendingDeviceCount');
     }
 
     /**
@@ -144,7 +120,7 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTargetedDeviceCount(): ?int {
-        return $this->targetedDeviceCount;
+        return $this->getBackingStore()->get('targetedDeviceCount');
     }
 
     /**
@@ -152,78 +128,86 @@ class ConfigManagerPolicySummary implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('compliantDeviceCount', $this->compliantDeviceCount);
-        $writer->writeIntegerValue('enforcedDeviceCount', $this->enforcedDeviceCount);
-        $writer->writeIntegerValue('failedDeviceCount', $this->failedDeviceCount);
-        $writer->writeIntegerValue('nonCompliantDeviceCount', $this->nonCompliantDeviceCount);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('pendingDeviceCount', $this->pendingDeviceCount);
-        $writer->writeIntegerValue('targetedDeviceCount', $this->targetedDeviceCount);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('compliantDeviceCount', $this->getCompliantDeviceCount());
+        $writer->writeIntegerValue('enforcedDeviceCount', $this->getEnforcedDeviceCount());
+        $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
+        $writer->writeIntegerValue('nonCompliantDeviceCount', $this->getNonCompliantDeviceCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('pendingDeviceCount', $this->getPendingDeviceCount());
+        $writer->writeIntegerValue('targetedDeviceCount', $this->getTargetedDeviceCount());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the compliantDeviceCount property value. The number of devices evaluated to be compliant by the policy.
      *  @param int|null $value Value to set for the compliantDeviceCount property.
     */
-    public function setCompliantDeviceCount(?int $value ): void {
-        $this->compliantDeviceCount = $value;
+    public function setCompliantDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('compliantDeviceCount', $value);
     }
 
     /**
      * Sets the enforcedDeviceCount property value. The number of devices that have have been remediated by the policy.
      *  @param int|null $value Value to set for the enforcedDeviceCount property.
     */
-    public function setEnforcedDeviceCount(?int $value ): void {
-        $this->enforcedDeviceCount = $value;
+    public function setEnforcedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('enforcedDeviceCount', $value);
     }
 
     /**
      * Sets the failedDeviceCount property value. The number of devices that failed to be evaluated by the policy.
      *  @param int|null $value Value to set for the failedDeviceCount property.
     */
-    public function setFailedDeviceCount(?int $value ): void {
-        $this->failedDeviceCount = $value;
+    public function setFailedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('failedDeviceCount', $value);
     }
 
     /**
      * Sets the nonCompliantDeviceCount property value. The number of devices evaluated to be noncompliant by the policy.
      *  @param int|null $value Value to set for the nonCompliantDeviceCount property.
     */
-    public function setNonCompliantDeviceCount(?int $value ): void {
-        $this->nonCompliantDeviceCount = $value;
+    public function setNonCompliantDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('nonCompliantDeviceCount', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the pendingDeviceCount property value. The number of devices that have acknowledged the policy but are pending evaluation.
      *  @param int|null $value Value to set for the pendingDeviceCount property.
     */
-    public function setPendingDeviceCount(?int $value ): void {
-        $this->pendingDeviceCount = $value;
+    public function setPendingDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('pendingDeviceCount', $value);
     }
 
     /**
      * Sets the targetedDeviceCount property value. The number of devices targeted by the policy.
      *  @param int|null $value Value to set for the targetedDeviceCount property.
     */
-    public function setTargetedDeviceCount(?int $value ): void {
-        $this->targetedDeviceCount = $value;
+    public function setTargetedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('targetedDeviceCount', $value);
     }
 
 }

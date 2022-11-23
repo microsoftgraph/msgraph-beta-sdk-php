@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationCsvDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * @var EducationSynchronizationCustomizations|null $customizations Optional customizations to be applied to the synchronization profile.
-    */
-    private ?EducationSynchronizationCustomizations $customizations = null;
-    
-    /**
      * Instantiates a new EducationCsvDataProvider and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->customizations;
+        return $this->getBackingStore()->get('customizations');
     }
 
     /**
@@ -55,15 +50,15 @@ class EducationCsvDataProvider extends EducationSynchronizationDataProvider impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('customizations', $this->customizations);
+        $writer->writeObjectValue('customizations', $this->getCustomizations());
     }
 
     /**
      * Sets the customizations property value. Optional customizations to be applied to the synchronization profile.
      *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
-    public function setCustomizations(?EducationSynchronizationCustomizations $value ): void {
-        $this->customizations = $value;
+    public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
+        $this->getBackingStore()->set('customizations', $value);
     }
 
 }

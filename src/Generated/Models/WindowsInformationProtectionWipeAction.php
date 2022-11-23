@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionWipeAction extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $lastCheckInDateTime Last checkin time of the device that was targeted by this wipe action.
-    */
-    private ?DateTime $lastCheckInDateTime = null;
-    
-    /**
-     * @var ActionState|null $status The status property
-    */
-    private ?ActionState $status = null;
-    
-    /**
-     * @var string|null $targetedDeviceMacAddress Targeted device Mac address.
-    */
-    private ?string $targetedDeviceMacAddress = null;
-    
-    /**
-     * @var string|null $targetedDeviceName Targeted device name.
-    */
-    private ?string $targetedDeviceName = null;
-    
-    /**
-     * @var string|null $targetedDeviceRegistrationId The DeviceRegistrationId being targeted by this wipe action.
-    */
-    private ?string $targetedDeviceRegistrationId = null;
-    
-    /**
-     * @var string|null $targetedUserId The UserId being targeted by this wipe action.
-    */
-    private ?string $targetedUserId = null;
-    
-    /**
      * Instantiates a new windowsInformationProtectionWipeAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsInformationProtectionWipeAction');
     }
 
     /**
@@ -77,7 +46,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->lastCheckInDateTime;
+        return $this->getBackingStore()->get('lastCheckInDateTime');
     }
 
     /**
@@ -85,7 +54,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return ActionState|null
     */
     public function getStatus(): ?ActionState {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -93,7 +62,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceMacAddress(): ?string {
-        return $this->targetedDeviceMacAddress;
+        return $this->getBackingStore()->get('targetedDeviceMacAddress');
     }
 
     /**
@@ -101,7 +70,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceName(): ?string {
-        return $this->targetedDeviceName;
+        return $this->getBackingStore()->get('targetedDeviceName');
     }
 
     /**
@@ -109,7 +78,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedDeviceRegistrationId(): ?string {
-        return $this->targetedDeviceRegistrationId;
+        return $this->getBackingStore()->get('targetedDeviceRegistrationId');
     }
 
     /**
@@ -117,7 +86,7 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetedUserId(): ?string {
-        return $this->targetedUserId;
+        return $this->getBackingStore()->get('targetedUserId');
     }
 
     /**
@@ -126,60 +95,60 @@ class WindowsInformationProtectionWipeAction extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastCheckInDateTime', $this->lastCheckInDateTime);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeStringValue('targetedDeviceMacAddress', $this->targetedDeviceMacAddress);
-        $writer->writeStringValue('targetedDeviceName', $this->targetedDeviceName);
-        $writer->writeStringValue('targetedDeviceRegistrationId', $this->targetedDeviceRegistrationId);
-        $writer->writeStringValue('targetedUserId', $this->targetedUserId);
+        $writer->writeDateTimeValue('lastCheckInDateTime', $this->getLastCheckInDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeStringValue('targetedDeviceMacAddress', $this->getTargetedDeviceMacAddress());
+        $writer->writeStringValue('targetedDeviceName', $this->getTargetedDeviceName());
+        $writer->writeStringValue('targetedDeviceRegistrationId', $this->getTargetedDeviceRegistrationId());
+        $writer->writeStringValue('targetedUserId', $this->getTargetedUserId());
     }
 
     /**
      * Sets the lastCheckInDateTime property value. Last checkin time of the device that was targeted by this wipe action.
      *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
-    public function setLastCheckInDateTime(?DateTime $value ): void {
-        $this->lastCheckInDateTime = $value;
+    public function setLastCheckInDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckInDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param ActionState|null $value Value to set for the status property.
     */
-    public function setStatus(?ActionState $value ): void {
-        $this->status = $value;
+    public function setStatus(?ActionState $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the targetedDeviceMacAddress property value. Targeted device Mac address.
      *  @param string|null $value Value to set for the targetedDeviceMacAddress property.
     */
-    public function setTargetedDeviceMacAddress(?string $value ): void {
-        $this->targetedDeviceMacAddress = $value;
+    public function setTargetedDeviceMacAddress(?string $value): void {
+        $this->getBackingStore()->set('targetedDeviceMacAddress', $value);
     }
 
     /**
      * Sets the targetedDeviceName property value. Targeted device name.
      *  @param string|null $value Value to set for the targetedDeviceName property.
     */
-    public function setTargetedDeviceName(?string $value ): void {
-        $this->targetedDeviceName = $value;
+    public function setTargetedDeviceName(?string $value): void {
+        $this->getBackingStore()->set('targetedDeviceName', $value);
     }
 
     /**
      * Sets the targetedDeviceRegistrationId property value. The DeviceRegistrationId being targeted by this wipe action.
      *  @param string|null $value Value to set for the targetedDeviceRegistrationId property.
     */
-    public function setTargetedDeviceRegistrationId(?string $value ): void {
-        $this->targetedDeviceRegistrationId = $value;
+    public function setTargetedDeviceRegistrationId(?string $value): void {
+        $this->getBackingStore()->set('targetedDeviceRegistrationId', $value);
     }
 
     /**
      * Sets the targetedUserId property value. The UserId being targeted by this wipe action.
      *  @param string|null $value Value to set for the targetedUserId property.
     */
-    public function setTargetedUserId(?string $value ): void {
-        $this->targetedUserId = $value;
+    public function setTargetedUserId(?string $value): void {
+        $this->getBackingStore()->set('targetedUserId', $value);
     }
 
 }

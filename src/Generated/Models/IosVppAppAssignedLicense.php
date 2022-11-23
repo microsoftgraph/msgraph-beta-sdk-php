@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosVppAppAssignedLicense extends Entity implements Parsable 
 {
     /**
-     * @var string|null $userEmailAddress The user email address.
-    */
-    private ?string $userEmailAddress = null;
-    
-    /**
-     * @var string|null $userId The user ID.
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userName The user name.
-    */
-    private ?string $userName = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user principal name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new iosVppAppAssignedLicense and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.iosVppAppAssignedLicense');
     }
 
     /**
@@ -72,7 +51,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
      * @return string|null
     */
     public function getUserEmailAddress(): ?string {
-        return $this->userEmailAddress;
+        return $this->getBackingStore()->get('userEmailAddress');
     }
 
     /**
@@ -80,7 +59,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -88,7 +67,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
      * @return string|null
     */
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->getBackingStore()->get('userName');
     }
 
     /**
@@ -96,7 +75,7 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -105,42 +84,42 @@ class IosVppAppAssignedLicense extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('userEmailAddress', $this->userEmailAddress);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userName', $this->userName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('userEmailAddress', $this->getUserEmailAddress());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userName', $this->getUserName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the userEmailAddress property value. The user email address.
      *  @param string|null $value Value to set for the userEmailAddress property.
     */
-    public function setUserEmailAddress(?string $value ): void {
-        $this->userEmailAddress = $value;
+    public function setUserEmailAddress(?string $value): void {
+        $this->getBackingStore()->set('userEmailAddress', $value);
     }
 
     /**
      * Sets the userId property value. The user ID.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userName property value. The user name.
      *  @param string|null $value Value to set for the userName property.
     */
-    public function setUserName(?string $value ): void {
-        $this->userName = $value;
+    public function setUserName(?string $value): void {
+        $this->getBackingStore()->set('userName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user principal name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

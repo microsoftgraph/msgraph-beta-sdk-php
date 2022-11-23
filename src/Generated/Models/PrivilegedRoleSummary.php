@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrivilegedRoleSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $elevatedCount The number of users that have the role assigned and the role is activated.
-    */
-    private ?int $elevatedCount = null;
-    
-    /**
-     * @var int|null $managedCount The number of users that have the role assigned but the role is deactivated.
-    */
-    private ?int $managedCount = null;
-    
-    /**
-     * @var bool|null $mfaEnabled true if the role activation requires MFA. false if the role activation doesn't require MFA.
-    */
-    private ?bool $mfaEnabled = null;
-    
-    /**
-     * @var RoleSummaryStatus|null $status Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
-    */
-    private ?RoleSummaryStatus $status = null;
-    
-    /**
-     * @var int|null $usersCount The number of users that are assigned with the role.
-    */
-    private ?int $usersCount = null;
-    
-    /**
      * Instantiates a new privilegedRoleSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.privilegedRoleSummary');
     }
 
     /**
@@ -55,7 +29,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getElevatedCount(): ?int {
-        return $this->elevatedCount;
+        return $this->getBackingStore()->get('elevatedCount');
     }
 
     /**
@@ -78,7 +52,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getManagedCount(): ?int {
-        return $this->managedCount;
+        return $this->getBackingStore()->get('managedCount');
     }
 
     /**
@@ -86,7 +60,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return bool|null
     */
     public function getMfaEnabled(): ?bool {
-        return $this->mfaEnabled;
+        return $this->getBackingStore()->get('mfaEnabled');
     }
 
     /**
@@ -94,7 +68,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return RoleSummaryStatus|null
     */
     public function getStatus(): ?RoleSummaryStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -102,7 +76,7 @@ class PrivilegedRoleSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUsersCount(): ?int {
-        return $this->usersCount;
+        return $this->getBackingStore()->get('usersCount');
     }
 
     /**
@@ -111,51 +85,51 @@ class PrivilegedRoleSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('elevatedCount', $this->elevatedCount);
-        $writer->writeIntegerValue('managedCount', $this->managedCount);
-        $writer->writeBooleanValue('mfaEnabled', $this->mfaEnabled);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeIntegerValue('usersCount', $this->usersCount);
+        $writer->writeIntegerValue('elevatedCount', $this->getElevatedCount());
+        $writer->writeIntegerValue('managedCount', $this->getManagedCount());
+        $writer->writeBooleanValue('mfaEnabled', $this->getMfaEnabled());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeIntegerValue('usersCount', $this->getUsersCount());
     }
 
     /**
      * Sets the elevatedCount property value. The number of users that have the role assigned and the role is activated.
      *  @param int|null $value Value to set for the elevatedCount property.
     */
-    public function setElevatedCount(?int $value ): void {
-        $this->elevatedCount = $value;
+    public function setElevatedCount(?int $value): void {
+        $this->getBackingStore()->set('elevatedCount', $value);
     }
 
     /**
      * Sets the managedCount property value. The number of users that have the role assigned but the role is deactivated.
      *  @param int|null $value Value to set for the managedCount property.
     */
-    public function setManagedCount(?int $value ): void {
-        $this->managedCount = $value;
+    public function setManagedCount(?int $value): void {
+        $this->getBackingStore()->set('managedCount', $value);
     }
 
     /**
      * Sets the mfaEnabled property value. true if the role activation requires MFA. false if the role activation doesn't require MFA.
      *  @param bool|null $value Value to set for the mfaEnabled property.
     */
-    public function setMfaEnabled(?bool $value ): void {
-        $this->mfaEnabled = $value;
+    public function setMfaEnabled(?bool $value): void {
+        $this->getBackingStore()->set('mfaEnabled', $value);
     }
 
     /**
      * Sets the status property value. Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
      *  @param RoleSummaryStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?RoleSummaryStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?RoleSummaryStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the usersCount property value. The number of users that are assigned with the role.
      *  @param int|null $value Value to set for the usersCount property.
     */
-    public function setUsersCount(?int $value ): void {
-        $this->usersCount = $value;
+    public function setUsersCount(?int $value): void {
+        $this->getBackingStore()->set('usersCount', $value);
     }
 
 }

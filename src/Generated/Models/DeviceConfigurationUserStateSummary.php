@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceConfigurationUserStateSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $compliantUserCount Number of compliant users
-    */
-    private ?int $compliantUserCount = null;
-    
-    /**
-     * @var int|null $conflictUserCount Number of conflict users
-    */
-    private ?int $conflictUserCount = null;
-    
-    /**
-     * @var int|null $errorUserCount Number of error users
-    */
-    private ?int $errorUserCount = null;
-    
-    /**
-     * @var int|null $nonCompliantUserCount Number of NonCompliant users
-    */
-    private ?int $nonCompliantUserCount = null;
-    
-    /**
-     * @var int|null $notApplicableUserCount Number of not applicable users
-    */
-    private ?int $notApplicableUserCount = null;
-    
-    /**
-     * @var int|null $remediatedUserCount Number of remediated users
-    */
-    private ?int $remediatedUserCount = null;
-    
-    /**
-     * @var int|null $unknownUserCount Number of unknown users
-    */
-    private ?int $unknownUserCount = null;
-    
-    /**
      * Instantiates a new deviceConfigurationUserStateSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceConfigurationUserStateSummary');
     }
 
     /**
@@ -65,7 +29,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getCompliantUserCount(): ?int {
-        return $this->compliantUserCount;
+        return $this->getBackingStore()->get('compliantUserCount');
     }
 
     /**
@@ -73,7 +37,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getConflictUserCount(): ?int {
-        return $this->conflictUserCount;
+        return $this->getBackingStore()->get('conflictUserCount');
     }
 
     /**
@@ -81,7 +45,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getErrorUserCount(): ?int {
-        return $this->errorUserCount;
+        return $this->getBackingStore()->get('errorUserCount');
     }
 
     /**
@@ -106,7 +70,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNonCompliantUserCount(): ?int {
-        return $this->nonCompliantUserCount;
+        return $this->getBackingStore()->get('nonCompliantUserCount');
     }
 
     /**
@@ -114,7 +78,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getNotApplicableUserCount(): ?int {
-        return $this->notApplicableUserCount;
+        return $this->getBackingStore()->get('notApplicableUserCount');
     }
 
     /**
@@ -122,7 +86,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getRemediatedUserCount(): ?int {
-        return $this->remediatedUserCount;
+        return $this->getBackingStore()->get('remediatedUserCount');
     }
 
     /**
@@ -130,7 +94,7 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getUnknownUserCount(): ?int {
-        return $this->unknownUserCount;
+        return $this->getBackingStore()->get('unknownUserCount');
     }
 
     /**
@@ -139,69 +103,69 @@ class DeviceConfigurationUserStateSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('compliantUserCount', $this->compliantUserCount);
-        $writer->writeIntegerValue('conflictUserCount', $this->conflictUserCount);
-        $writer->writeIntegerValue('errorUserCount', $this->errorUserCount);
-        $writer->writeIntegerValue('nonCompliantUserCount', $this->nonCompliantUserCount);
-        $writer->writeIntegerValue('notApplicableUserCount', $this->notApplicableUserCount);
-        $writer->writeIntegerValue('remediatedUserCount', $this->remediatedUserCount);
-        $writer->writeIntegerValue('unknownUserCount', $this->unknownUserCount);
+        $writer->writeIntegerValue('compliantUserCount', $this->getCompliantUserCount());
+        $writer->writeIntegerValue('conflictUserCount', $this->getConflictUserCount());
+        $writer->writeIntegerValue('errorUserCount', $this->getErrorUserCount());
+        $writer->writeIntegerValue('nonCompliantUserCount', $this->getNonCompliantUserCount());
+        $writer->writeIntegerValue('notApplicableUserCount', $this->getNotApplicableUserCount());
+        $writer->writeIntegerValue('remediatedUserCount', $this->getRemediatedUserCount());
+        $writer->writeIntegerValue('unknownUserCount', $this->getUnknownUserCount());
     }
 
     /**
      * Sets the compliantUserCount property value. Number of compliant users
      *  @param int|null $value Value to set for the compliantUserCount property.
     */
-    public function setCompliantUserCount(?int $value ): void {
-        $this->compliantUserCount = $value;
+    public function setCompliantUserCount(?int $value): void {
+        $this->getBackingStore()->set('compliantUserCount', $value);
     }
 
     /**
      * Sets the conflictUserCount property value. Number of conflict users
      *  @param int|null $value Value to set for the conflictUserCount property.
     */
-    public function setConflictUserCount(?int $value ): void {
-        $this->conflictUserCount = $value;
+    public function setConflictUserCount(?int $value): void {
+        $this->getBackingStore()->set('conflictUserCount', $value);
     }
 
     /**
      * Sets the errorUserCount property value. Number of error users
      *  @param int|null $value Value to set for the errorUserCount property.
     */
-    public function setErrorUserCount(?int $value ): void {
-        $this->errorUserCount = $value;
+    public function setErrorUserCount(?int $value): void {
+        $this->getBackingStore()->set('errorUserCount', $value);
     }
 
     /**
      * Sets the nonCompliantUserCount property value. Number of NonCompliant users
      *  @param int|null $value Value to set for the nonCompliantUserCount property.
     */
-    public function setNonCompliantUserCount(?int $value ): void {
-        $this->nonCompliantUserCount = $value;
+    public function setNonCompliantUserCount(?int $value): void {
+        $this->getBackingStore()->set('nonCompliantUserCount', $value);
     }
 
     /**
      * Sets the notApplicableUserCount property value. Number of not applicable users
      *  @param int|null $value Value to set for the notApplicableUserCount property.
     */
-    public function setNotApplicableUserCount(?int $value ): void {
-        $this->notApplicableUserCount = $value;
+    public function setNotApplicableUserCount(?int $value): void {
+        $this->getBackingStore()->set('notApplicableUserCount', $value);
     }
 
     /**
      * Sets the remediatedUserCount property value. Number of remediated users
      *  @param int|null $value Value to set for the remediatedUserCount property.
     */
-    public function setRemediatedUserCount(?int $value ): void {
-        $this->remediatedUserCount = $value;
+    public function setRemediatedUserCount(?int $value): void {
+        $this->getBackingStore()->set('remediatedUserCount', $value);
     }
 
     /**
      * Sets the unknownUserCount property value. Number of unknown users
      *  @param int|null $value Value to set for the unknownUserCount property.
     */
-    public function setUnknownUserCount(?int $value ): void {
-        $this->unknownUserCount = $value;
+    public function setUnknownUserCount(?int $value): void {
+        $this->getBackingStore()->set('unknownUserCount', $value);
     }
 
 }

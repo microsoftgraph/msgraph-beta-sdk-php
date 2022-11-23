@@ -11,41 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantAlertLog extends Entity implements Parsable 
 {
     /**
-     * @var ManagedTenantAlert|null $alert The alert property
-    */
-    private ?ManagedTenantAlert $alert = null;
-    
-    /**
-     * @var AlertLogContent|null $content The content property
-    */
-    private ?AlertLogContent $content = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
      * Instantiates a new managedTenantAlertLog and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managedTenantAlertLog');
     }
 
     /**
@@ -62,7 +31,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return ManagedTenantAlert|null
     */
     public function getAlert(): ?ManagedTenantAlert {
-        return $this->alert;
+        return $this->getBackingStore()->get('alert');
     }
 
     /**
@@ -70,7 +39,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return AlertLogContent|null
     */
     public function getContent(): ?AlertLogContent {
-        return $this->content;
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -78,7 +47,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -86,7 +55,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -110,7 +79,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -118,7 +87,7 @@ class ManagedTenantAlertLog extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -127,60 +96,60 @@ class ManagedTenantAlertLog extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('alert', $this->alert);
-        $writer->writeObjectValue('content', $this->content);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
+        $writer->writeObjectValue('alert', $this->getAlert());
+        $writer->writeObjectValue('content', $this->getContent());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
     }
 
     /**
      * Sets the alert property value. The alert property
      *  @param ManagedTenantAlert|null $value Value to set for the alert property.
     */
-    public function setAlert(?ManagedTenantAlert $value ): void {
-        $this->alert = $value;
+    public function setAlert(?ManagedTenantAlert $value): void {
+        $this->getBackingStore()->set('alert', $value);
     }
 
     /**
      * Sets the content property value. The content property
      *  @param AlertLogContent|null $value Value to set for the content property.
     */
-    public function setContent(?AlertLogContent $value ): void {
-        $this->content = $value;
+    public function setContent(?AlertLogContent $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
 }

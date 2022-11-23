@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class NotifyUserAction extends DlpActionInfo implements Parsable 
 {
     /**
-     * @var DateTime|null $actionLastModifiedDateTime The actionLastModifiedDateTime property
-    */
-    private ?DateTime $actionLastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $emailText The emailText property
-    */
-    private ?string $emailText = null;
-    
-    /**
-     * @var OverrideOption|null $overrideOption The overrideOption property
-    */
-    private ?OverrideOption $overrideOption = null;
-    
-    /**
-     * @var string|null $policyTip The policyTip property
-    */
-    private ?string $policyTip = null;
-    
-    /**
-     * @var array<string>|null $recipients The recipients property
-    */
-    private ?array $recipients = null;
-    
-    /**
      * Instantiates a new NotifyUserAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.notifyUserAction');
     }
 
     /**
@@ -56,7 +30,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return DateTime|null
     */
     public function getActionLastModifiedDateTime(): ?DateTime {
-        return $this->actionLastModifiedDateTime;
+        return $this->getBackingStore()->get('actionLastModifiedDateTime');
     }
 
     /**
@@ -64,7 +38,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return string|null
     */
     public function getEmailText(): ?string {
-        return $this->emailText;
+        return $this->getBackingStore()->get('emailText');
     }
 
     /**
@@ -87,7 +61,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return OverrideOption|null
     */
     public function getOverrideOption(): ?OverrideOption {
-        return $this->overrideOption;
+        return $this->getBackingStore()->get('overrideOption');
     }
 
     /**
@@ -95,7 +69,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return string|null
     */
     public function getPolicyTip(): ?string {
-        return $this->policyTip;
+        return $this->getBackingStore()->get('policyTip');
     }
 
     /**
@@ -103,7 +77,7 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
      * @return array<string>|null
     */
     public function getRecipients(): ?array {
-        return $this->recipients;
+        return $this->getBackingStore()->get('recipients');
     }
 
     /**
@@ -112,51 +86,51 @@ class NotifyUserAction extends DlpActionInfo implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->actionLastModifiedDateTime);
-        $writer->writeStringValue('emailText', $this->emailText);
-        $writer->writeEnumValue('overrideOption', $this->overrideOption);
-        $writer->writeStringValue('policyTip', $this->policyTip);
-        $writer->writeCollectionOfPrimitiveValues('recipients', $this->recipients);
+        $writer->writeDateTimeValue('actionLastModifiedDateTime', $this->getActionLastModifiedDateTime());
+        $writer->writeStringValue('emailText', $this->getEmailText());
+        $writer->writeEnumValue('overrideOption', $this->getOverrideOption());
+        $writer->writeStringValue('policyTip', $this->getPolicyTip());
+        $writer->writeCollectionOfPrimitiveValues('recipients', $this->getRecipients());
     }
 
     /**
      * Sets the actionLastModifiedDateTime property value. The actionLastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the actionLastModifiedDateTime property.
     */
-    public function setActionLastModifiedDateTime(?DateTime $value ): void {
-        $this->actionLastModifiedDateTime = $value;
+    public function setActionLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('actionLastModifiedDateTime', $value);
     }
 
     /**
      * Sets the emailText property value. The emailText property
      *  @param string|null $value Value to set for the emailText property.
     */
-    public function setEmailText(?string $value ): void {
-        $this->emailText = $value;
+    public function setEmailText(?string $value): void {
+        $this->getBackingStore()->set('emailText', $value);
     }
 
     /**
      * Sets the overrideOption property value. The overrideOption property
      *  @param OverrideOption|null $value Value to set for the overrideOption property.
     */
-    public function setOverrideOption(?OverrideOption $value ): void {
-        $this->overrideOption = $value;
+    public function setOverrideOption(?OverrideOption $value): void {
+        $this->getBackingStore()->set('overrideOption', $value);
     }
 
     /**
      * Sets the policyTip property value. The policyTip property
      *  @param string|null $value Value to set for the policyTip property.
     */
-    public function setPolicyTip(?string $value ): void {
-        $this->policyTip = $value;
+    public function setPolicyTip(?string $value): void {
+        $this->getBackingStore()->set('policyTip', $value);
     }
 
     /**
      * Sets the recipients property value. The recipients property
      *  @param array<string>|null $value Value to set for the recipients property.
     */
-    public function setRecipients(?array $value ): void {
-        $this->recipients = $value;
+    public function setRecipients(?array $value): void {
+        $this->getBackingStore()->set('recipients', $value);
     }
 
 }

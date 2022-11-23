@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationValueLongDecimal extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * @var int|null $value An unsigned long value for the associated presentation.
-    */
-    private ?int $value = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationValueLongDecimal and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyPresentationValueLongDecimal');
     }
 
     /**
@@ -46,7 +40,7 @@ class GroupPolicyPresentationValueLongDecimal extends GroupPolicyPresentationVal
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +49,15 @@ class GroupPolicyPresentationValueLongDecimal extends GroupPolicyPresentationVal
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('value', $this->value);
+        $writer->writeIntegerValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. An unsigned long value for the associated presentation.
      *  @param int|null $value Value to set for the value property.
     */
-    public function setValue(?int $value ): void {
-        $this->value = $value;
+    public function setValue(?int $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

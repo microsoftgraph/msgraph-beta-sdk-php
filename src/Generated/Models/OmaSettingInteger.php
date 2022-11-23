@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OmaSettingInteger extends OmaSetting implements Parsable 
 {
     /**
-     * @var bool|null $isReadOnly By setting to true, the CSP (configuration service provider) specified in the OMA-URI will perform a get, instead of set
-    */
-    private ?bool $isReadOnly = null;
-    
-    /**
-     * @var int|null $value Value.
-    */
-    private ?int $value = null;
-    
-    /**
      * Instantiates a new OmaSettingInteger and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class OmaSettingInteger extends OmaSetting implements Parsable
      * @return bool|null
     */
     public function getIsReadOnly(): ?bool {
-        return $this->isReadOnly;
+        return $this->getBackingStore()->get('isReadOnly');
     }
 
     /**
@@ -60,7 +50,7 @@ class OmaSettingInteger extends OmaSetting implements Parsable
      * @return int|null
     */
     public function getValue(): ?int {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -69,24 +59,24 @@ class OmaSettingInteger extends OmaSetting implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isReadOnly', $this->isReadOnly);
-        $writer->writeIntegerValue('value', $this->value);
+        $writer->writeBooleanValue('isReadOnly', $this->getIsReadOnly());
+        $writer->writeIntegerValue('value', $this->getValue());
     }
 
     /**
      * Sets the isReadOnly property value. By setting to true, the CSP (configuration service provider) specified in the OMA-URI will perform a get, instead of set
      *  @param bool|null $value Value to set for the isReadOnly property.
     */
-    public function setIsReadOnly(?bool $value ): void {
-        $this->isReadOnly = $value;
+    public function setIsReadOnly(?bool $value): void {
+        $this->getBackingStore()->set('isReadOnly', $value);
     }
 
     /**
      * Sets the value property value. Value.
      *  @param int|null $value Value to set for the value property.
     */
-    public function setValue(?int $value ): void {
-        $this->value = $value;
+    public function setValue(?int $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

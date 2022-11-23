@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderItem implements Parsable 
 {
     /**
-     * @var string|null $className Class name of application
-    */
-    private ?string $className = null;
-    
-    /**
-     * @var string|null $package Package name of application
-    */
-    private ?string $package = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerKioskModeApp and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
      * @return string|null
     */
     public function getClassName(): ?string {
-        return $this->className;
+        return $this->getBackingStore()->get('className');
     }
 
     /**
@@ -60,7 +50,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
      * @return string|null
     */
     public function getPackage(): ?string {
-        return $this->package;
+        return $this->getBackingStore()->get('package');
     }
 
     /**
@@ -69,24 +59,24 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('className', $this->className);
-        $writer->writeStringValue('package', $this->package);
+        $writer->writeStringValue('className', $this->getClassName());
+        $writer->writeStringValue('package', $this->getPackage());
     }
 
     /**
      * Sets the className property value. Class name of application
      *  @param string|null $value Value to set for the className property.
     */
-    public function setClassName(?string $value ): void {
-        $this->className = $value;
+    public function setClassName(?string $value): void {
+        $this->getBackingStore()->set('className', $value);
     }
 
     /**
      * Sets the package property value. Package name of application
      *  @param string|null $value Value to set for the package property.
     */
-    public function setPackage(?string $value ): void {
-        $this->package = $value;
+    public function setPackage(?string $value): void {
+        $this->getBackingStore()->set('package', $value);
     }
 
 }

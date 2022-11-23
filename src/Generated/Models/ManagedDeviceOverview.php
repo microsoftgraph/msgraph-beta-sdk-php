@@ -10,46 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceOverview extends Entity implements Parsable 
 {
     /**
-     * @var DeviceExchangeAccessStateSummary|null $deviceExchangeAccessStateSummary Distribution of Exchange Access State in Intune
-    */
-    private ?DeviceExchangeAccessStateSummary $deviceExchangeAccessStateSummary = null;
-    
-    /**
-     * @var DeviceOperatingSystemSummary|null $deviceOperatingSystemSummary Device operating system summary.
-    */
-    private ?DeviceOperatingSystemSummary $deviceOperatingSystemSummary = null;
-    
-    /**
-     * @var int|null $dualEnrolledDeviceCount The number of devices enrolled in both MDM and EAS
-    */
-    private ?int $dualEnrolledDeviceCount = null;
-    
-    /**
-     * @var int|null $enrolledDeviceCount Total enrolled device count. Does not include PC devices managed via Intune PC Agent
-    */
-    private ?int $enrolledDeviceCount = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last modified date time of device overview
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var ManagedDeviceModelsAndManufacturers|null $managedDeviceModelsAndManufacturers Models and Manufactures meatadata for managed devices in the account
-    */
-    private ?ManagedDeviceModelsAndManufacturers $managedDeviceModelsAndManufacturers = null;
-    
-    /**
-     * @var int|null $mdmEnrolledCount The number of devices enrolled in MDM
-    */
-    private ?int $mdmEnrolledCount = null;
-    
-    /**
      * Instantiates a new managedDeviceOverview and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedDeviceOverview');
     }
 
     /**
@@ -66,7 +30,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DeviceExchangeAccessStateSummary|null
     */
     public function getDeviceExchangeAccessStateSummary(): ?DeviceExchangeAccessStateSummary {
-        return $this->deviceExchangeAccessStateSummary;
+        return $this->getBackingStore()->get('deviceExchangeAccessStateSummary');
     }
 
     /**
@@ -74,7 +38,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DeviceOperatingSystemSummary|null
     */
     public function getDeviceOperatingSystemSummary(): ?DeviceOperatingSystemSummary {
-        return $this->deviceOperatingSystemSummary;
+        return $this->getBackingStore()->get('deviceOperatingSystemSummary');
     }
 
     /**
@@ -82,7 +46,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getDualEnrolledDeviceCount(): ?int {
-        return $this->dualEnrolledDeviceCount;
+        return $this->getBackingStore()->get('dualEnrolledDeviceCount');
     }
 
     /**
@@ -90,7 +54,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getEnrolledDeviceCount(): ?int {
-        return $this->enrolledDeviceCount;
+        return $this->getBackingStore()->get('enrolledDeviceCount');
     }
 
     /**
@@ -115,7 +79,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -123,7 +87,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return ManagedDeviceModelsAndManufacturers|null
     */
     public function getManagedDeviceModelsAndManufacturers(): ?ManagedDeviceModelsAndManufacturers {
-        return $this->managedDeviceModelsAndManufacturers;
+        return $this->getBackingStore()->get('managedDeviceModelsAndManufacturers');
     }
 
     /**
@@ -131,7 +95,7 @@ class ManagedDeviceOverview extends Entity implements Parsable
      * @return int|null
     */
     public function getMdmEnrolledCount(): ?int {
-        return $this->mdmEnrolledCount;
+        return $this->getBackingStore()->get('mdmEnrolledCount');
     }
 
     /**
@@ -140,69 +104,69 @@ class ManagedDeviceOverview extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('deviceExchangeAccessStateSummary', $this->deviceExchangeAccessStateSummary);
-        $writer->writeObjectValue('deviceOperatingSystemSummary', $this->deviceOperatingSystemSummary);
-        $writer->writeIntegerValue('dualEnrolledDeviceCount', $this->dualEnrolledDeviceCount);
-        $writer->writeIntegerValue('enrolledDeviceCount', $this->enrolledDeviceCount);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeObjectValue('managedDeviceModelsAndManufacturers', $this->managedDeviceModelsAndManufacturers);
-        $writer->writeIntegerValue('mdmEnrolledCount', $this->mdmEnrolledCount);
+        $writer->writeObjectValue('deviceExchangeAccessStateSummary', $this->getDeviceExchangeAccessStateSummary());
+        $writer->writeObjectValue('deviceOperatingSystemSummary', $this->getDeviceOperatingSystemSummary());
+        $writer->writeIntegerValue('dualEnrolledDeviceCount', $this->getDualEnrolledDeviceCount());
+        $writer->writeIntegerValue('enrolledDeviceCount', $this->getEnrolledDeviceCount());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeObjectValue('managedDeviceModelsAndManufacturers', $this->getManagedDeviceModelsAndManufacturers());
+        $writer->writeIntegerValue('mdmEnrolledCount', $this->getMdmEnrolledCount());
     }
 
     /**
      * Sets the deviceExchangeAccessStateSummary property value. Distribution of Exchange Access State in Intune
      *  @param DeviceExchangeAccessStateSummary|null $value Value to set for the deviceExchangeAccessStateSummary property.
     */
-    public function setDeviceExchangeAccessStateSummary(?DeviceExchangeAccessStateSummary $value ): void {
-        $this->deviceExchangeAccessStateSummary = $value;
+    public function setDeviceExchangeAccessStateSummary(?DeviceExchangeAccessStateSummary $value): void {
+        $this->getBackingStore()->set('deviceExchangeAccessStateSummary', $value);
     }
 
     /**
      * Sets the deviceOperatingSystemSummary property value. Device operating system summary.
      *  @param DeviceOperatingSystemSummary|null $value Value to set for the deviceOperatingSystemSummary property.
     */
-    public function setDeviceOperatingSystemSummary(?DeviceOperatingSystemSummary $value ): void {
-        $this->deviceOperatingSystemSummary = $value;
+    public function setDeviceOperatingSystemSummary(?DeviceOperatingSystemSummary $value): void {
+        $this->getBackingStore()->set('deviceOperatingSystemSummary', $value);
     }
 
     /**
      * Sets the dualEnrolledDeviceCount property value. The number of devices enrolled in both MDM and EAS
      *  @param int|null $value Value to set for the dualEnrolledDeviceCount property.
     */
-    public function setDualEnrolledDeviceCount(?int $value ): void {
-        $this->dualEnrolledDeviceCount = $value;
+    public function setDualEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('dualEnrolledDeviceCount', $value);
     }
 
     /**
      * Sets the enrolledDeviceCount property value. Total enrolled device count. Does not include PC devices managed via Intune PC Agent
      *  @param int|null $value Value to set for the enrolledDeviceCount property.
     */
-    public function setEnrolledDeviceCount(?int $value ): void {
-        $this->enrolledDeviceCount = $value;
+    public function setEnrolledDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('enrolledDeviceCount', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last modified date time of device overview
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the managedDeviceModelsAndManufacturers property value. Models and Manufactures meatadata for managed devices in the account
      *  @param ManagedDeviceModelsAndManufacturers|null $value Value to set for the managedDeviceModelsAndManufacturers property.
     */
-    public function setManagedDeviceModelsAndManufacturers(?ManagedDeviceModelsAndManufacturers $value ): void {
-        $this->managedDeviceModelsAndManufacturers = $value;
+    public function setManagedDeviceModelsAndManufacturers(?ManagedDeviceModelsAndManufacturers $value): void {
+        $this->getBackingStore()->set('managedDeviceModelsAndManufacturers', $value);
     }
 
     /**
      * Sets the mdmEnrolledCount property value. The number of devices enrolled in MDM
      *  @param int|null $value Value to set for the mdmEnrolledCount property.
     */
-    public function setMdmEnrolledCount(?int $value ): void {
-        $this->mdmEnrolledCount = $value;
+    public function setMdmEnrolledCount(?int $value): void {
+        $this->getBackingStore()->set('mdmEnrolledCount', $value);
     }
 
 }

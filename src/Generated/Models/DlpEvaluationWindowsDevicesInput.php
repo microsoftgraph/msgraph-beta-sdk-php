@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Parsable 
 {
     /**
-     * @var ContentProperties|null $contentProperties The contentProperties property
-    */
-    private ?ContentProperties $contentProperties = null;
-    
-    /**
-     * @var string|null $sharedBy The sharedBy property
-    */
-    private ?string $sharedBy = null;
-    
-    /**
      * Instantiates a new DlpEvaluationWindowsDevicesInput and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
      * @return ContentProperties|null
     */
     public function getContentProperties(): ?ContentProperties {
-        return $this->contentProperties;
+        return $this->getBackingStore()->get('contentProperties');
     }
 
     /**
@@ -60,7 +50,7 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
      * @return string|null
     */
     public function getSharedBy(): ?string {
-        return $this->sharedBy;
+        return $this->getBackingStore()->get('sharedBy');
     }
 
     /**
@@ -69,24 +59,24 @@ class DlpEvaluationWindowsDevicesInput extends DlpEvaluationInput implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('contentProperties', $this->contentProperties);
-        $writer->writeStringValue('sharedBy', $this->sharedBy);
+        $writer->writeObjectValue('contentProperties', $this->getContentProperties());
+        $writer->writeStringValue('sharedBy', $this->getSharedBy());
     }
 
     /**
      * Sets the contentProperties property value. The contentProperties property
      *  @param ContentProperties|null $value Value to set for the contentProperties property.
     */
-    public function setContentProperties(?ContentProperties $value ): void {
-        $this->contentProperties = $value;
+    public function setContentProperties(?ContentProperties $value): void {
+        $this->getBackingStore()->set('contentProperties', $value);
     }
 
     /**
      * Sets the sharedBy property value. The sharedBy property
      *  @param string|null $value Value to set for the sharedBy property.
     */
-    public function setSharedBy(?string $value ): void {
-        $this->sharedBy = $value;
+    public function setSharedBy(?string $value): void {
+        $this->getBackingStore()->set('sharedBy', $value);
     }
 
 }

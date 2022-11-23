@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomExtensionHandler extends Entity implements Parsable 
 {
     /**
-     * @var CustomAccessPackageWorkflowExtension|null $customExtension Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
-    */
-    private ?CustomAccessPackageWorkflowExtension $customExtension = null;
-    
-    /**
-     * @var AccessPackageCustomExtensionStage|null $stage Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
-    */
-    private ?AccessPackageCustomExtensionStage $stage = null;
-    
-    /**
      * Instantiates a new customExtensionHandler and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.customExtensionHandler');
     }
 
     /**
@@ -40,7 +29,7 @@ class CustomExtensionHandler extends Entity implements Parsable
      * @return CustomAccessPackageWorkflowExtension|null
     */
     public function getCustomExtension(): ?CustomAccessPackageWorkflowExtension {
-        return $this->customExtension;
+        return $this->getBackingStore()->get('customExtension');
     }
 
     /**
@@ -60,7 +49,7 @@ class CustomExtensionHandler extends Entity implements Parsable
      * @return AccessPackageCustomExtensionStage|null
     */
     public function getStage(): ?AccessPackageCustomExtensionStage {
-        return $this->stage;
+        return $this->getBackingStore()->get('stage');
     }
 
     /**
@@ -69,24 +58,24 @@ class CustomExtensionHandler extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('customExtension', $this->customExtension);
-        $writer->writeEnumValue('stage', $this->stage);
+        $writer->writeObjectValue('customExtension', $this->getCustomExtension());
+        $writer->writeEnumValue('stage', $this->getStage());
     }
 
     /**
      * Sets the customExtension property value. Indicates which custom workflow extension will be executed at this stage. Nullable. Supports $expand.
      *  @param CustomAccessPackageWorkflowExtension|null $value Value to set for the customExtension property.
     */
-    public function setCustomExtension(?CustomAccessPackageWorkflowExtension $value ): void {
-        $this->customExtension = $value;
+    public function setCustomExtension(?CustomAccessPackageWorkflowExtension $value): void {
+        $this->getBackingStore()->set('customExtension', $value);
     }
 
     /**
      * Sets the stage property value. Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.
      *  @param AccessPackageCustomExtensionStage|null $value Value to set for the stage property.
     */
-    public function setStage(?AccessPackageCustomExtensionStage $value ): void {
-        $this->stage = $value;
+    public function setStage(?AccessPackageCustomExtensionStage $value): void {
+        $this->getBackingStore()->set('stage', $value);
     }
 
 }

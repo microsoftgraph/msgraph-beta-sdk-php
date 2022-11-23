@@ -9,56 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var WiFiAuthenticationMethod|null $authenticationMethod Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
-    */
-    private ?WiFiAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var EapFastConfiguration|null $eapFastConfiguration EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
-    */
-    private ?EapFastConfiguration $eapFastConfiguration = null;
-    
-    /**
-     * @var EapType|null $eapType Extensible Authentication Protocol (EAP) configuration types.
-    */
-    private ?EapType $eapType = null;
-    
-    /**
-     * @var string|null $enableOuterIdentityPrivacy Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS, EAP-FAST or PEAP. This property masks usernames with the text you enter. For example, if you use 'anonymous', each user that authenticates with this wired network using their real username is displayed as 'anonymous'.
-    */
-    private ?string $enableOuterIdentityPrivacy = null;
-    
-    /**
-     * @var MacOSCertificateProfileBase|null $identityCertificateForClientAuthentication Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication).
-    */
-    private ?MacOSCertificateProfileBase $identityCertificateForClientAuthentication = null;
-    
-    /**
-     * @var WiredNetworkInterface|null $networkInterface Apple network interface type.
-    */
-    private ?WiredNetworkInterface $networkInterface = null;
-    
-    /**
-     * @var string|null $networkName Network Name
-    */
-    private ?string $networkName = null;
-    
-    /**
-     * @var NonEapAuthenticationMethodForEapTtlsType|null $nonEapAuthenticationMethodForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
-    */
-    private ?NonEapAuthenticationMethodForEapTtlsType $nonEapAuthenticationMethodForEapTtls = null;
-    
-    /**
-     * @var MacOSTrustedRootCertificate|null $rootCertificateForServerValidation Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP.
-    */
-    private ?MacOSTrustedRootCertificate $rootCertificateForServerValidation = null;
-    
-    /**
-     * @var array<string>|null $trustedServerCertificateNames Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
-    */
-    private ?array $trustedServerCertificateNames = null;
-    
-    /**
      * Instantiates a new MacOSWiredNetworkConfiguration and sets the default values.
     */
     public function __construct() {
@@ -80,7 +30,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return WiFiAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?WiFiAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -88,7 +38,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return EapFastConfiguration|null
     */
     public function getEapFastConfiguration(): ?EapFastConfiguration {
-        return $this->eapFastConfiguration;
+        return $this->getBackingStore()->get('eapFastConfiguration');
     }
 
     /**
@@ -96,7 +46,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return EapType|null
     */
     public function getEapType(): ?EapType {
-        return $this->eapType;
+        return $this->getBackingStore()->get('eapType');
     }
 
     /**
@@ -104,7 +54,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getEnableOuterIdentityPrivacy(): ?string {
-        return $this->enableOuterIdentityPrivacy;
+        return $this->getBackingStore()->get('enableOuterIdentityPrivacy');
     }
 
     /**
@@ -132,7 +82,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return MacOSCertificateProfileBase|null
     */
     public function getIdentityCertificateForClientAuthentication(): ?MacOSCertificateProfileBase {
-        return $this->identityCertificateForClientAuthentication;
+        return $this->getBackingStore()->get('identityCertificateForClientAuthentication');
     }
 
     /**
@@ -140,7 +90,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return WiredNetworkInterface|null
     */
     public function getNetworkInterface(): ?WiredNetworkInterface {
-        return $this->networkInterface;
+        return $this->getBackingStore()->get('networkInterface');
     }
 
     /**
@@ -148,7 +98,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getNetworkName(): ?string {
-        return $this->networkName;
+        return $this->getBackingStore()->get('networkName');
     }
 
     /**
@@ -156,7 +106,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return NonEapAuthenticationMethodForEapTtlsType|null
     */
     public function getNonEapAuthenticationMethodForEapTtls(): ?NonEapAuthenticationMethodForEapTtlsType {
-        return $this->nonEapAuthenticationMethodForEapTtls;
+        return $this->getBackingStore()->get('nonEapAuthenticationMethodForEapTtls');
     }
 
     /**
@@ -164,7 +114,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return MacOSTrustedRootCertificate|null
     */
     public function getRootCertificateForServerValidation(): ?MacOSTrustedRootCertificate {
-        return $this->rootCertificateForServerValidation;
+        return $this->getBackingStore()->get('rootCertificateForServerValidation');
     }
 
     /**
@@ -172,7 +122,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
      * @return array<string>|null
     */
     public function getTrustedServerCertificateNames(): ?array {
-        return $this->trustedServerCertificateNames;
+        return $this->getBackingStore()->get('trustedServerCertificateNames');
     }
 
     /**
@@ -181,96 +131,96 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeEnumValue('eapFastConfiguration', $this->eapFastConfiguration);
-        $writer->writeEnumValue('eapType', $this->eapType);
-        $writer->writeStringValue('enableOuterIdentityPrivacy', $this->enableOuterIdentityPrivacy);
-        $writer->writeObjectValue('identityCertificateForClientAuthentication', $this->identityCertificateForClientAuthentication);
-        $writer->writeEnumValue('networkInterface', $this->networkInterface);
-        $writer->writeStringValue('networkName', $this->networkName);
-        $writer->writeEnumValue('nonEapAuthenticationMethodForEapTtls', $this->nonEapAuthenticationMethodForEapTtls);
-        $writer->writeObjectValue('rootCertificateForServerValidation', $this->rootCertificateForServerValidation);
-        $writer->writeCollectionOfPrimitiveValues('trustedServerCertificateNames', $this->trustedServerCertificateNames);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeEnumValue('eapFastConfiguration', $this->getEapFastConfiguration());
+        $writer->writeEnumValue('eapType', $this->getEapType());
+        $writer->writeStringValue('enableOuterIdentityPrivacy', $this->getEnableOuterIdentityPrivacy());
+        $writer->writeObjectValue('identityCertificateForClientAuthentication', $this->getIdentityCertificateForClientAuthentication());
+        $writer->writeEnumValue('networkInterface', $this->getNetworkInterface());
+        $writer->writeStringValue('networkName', $this->getNetworkName());
+        $writer->writeEnumValue('nonEapAuthenticationMethodForEapTtls', $this->getNonEapAuthenticationMethodForEapTtls());
+        $writer->writeObjectValue('rootCertificateForServerValidation', $this->getRootCertificateForServerValidation());
+        $writer->writeCollectionOfPrimitiveValues('trustedServerCertificateNames', $this->getTrustedServerCertificateNames());
     }
 
     /**
      * Sets the authenticationMethod property value. Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
      *  @param WiFiAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?WiFiAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the eapFastConfiguration property value. EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.
      *  @param EapFastConfiguration|null $value Value to set for the eapFastConfiguration property.
     */
-    public function setEapFastConfiguration(?EapFastConfiguration $value ): void {
-        $this->eapFastConfiguration = $value;
+    public function setEapFastConfiguration(?EapFastConfiguration $value): void {
+        $this->getBackingStore()->set('eapFastConfiguration', $value);
     }
 
     /**
      * Sets the eapType property value. Extensible Authentication Protocol (EAP) configuration types.
      *  @param EapType|null $value Value to set for the eapType property.
     */
-    public function setEapType(?EapType $value ): void {
-        $this->eapType = $value;
+    public function setEapType(?EapType $value): void {
+        $this->getBackingStore()->set('eapType', $value);
     }
 
     /**
      * Sets the enableOuterIdentityPrivacy property value. Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS, EAP-FAST or PEAP. This property masks usernames with the text you enter. For example, if you use 'anonymous', each user that authenticates with this wired network using their real username is displayed as 'anonymous'.
      *  @param string|null $value Value to set for the enableOuterIdentityPrivacy property.
     */
-    public function setEnableOuterIdentityPrivacy(?string $value ): void {
-        $this->enableOuterIdentityPrivacy = $value;
+    public function setEnableOuterIdentityPrivacy(?string $value): void {
+        $this->getBackingStore()->set('enableOuterIdentityPrivacy', $value);
     }
 
     /**
      * Sets the identityCertificateForClientAuthentication property value. Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication).
      *  @param MacOSCertificateProfileBase|null $value Value to set for the identityCertificateForClientAuthentication property.
     */
-    public function setIdentityCertificateForClientAuthentication(?MacOSCertificateProfileBase $value ): void {
-        $this->identityCertificateForClientAuthentication = $value;
+    public function setIdentityCertificateForClientAuthentication(?MacOSCertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificateForClientAuthentication', $value);
     }
 
     /**
      * Sets the networkInterface property value. Apple network interface type.
      *  @param WiredNetworkInterface|null $value Value to set for the networkInterface property.
     */
-    public function setNetworkInterface(?WiredNetworkInterface $value ): void {
-        $this->networkInterface = $value;
+    public function setNetworkInterface(?WiredNetworkInterface $value): void {
+        $this->getBackingStore()->set('networkInterface', $value);
     }
 
     /**
      * Sets the networkName property value. Network Name
      *  @param string|null $value Value to set for the networkName property.
     */
-    public function setNetworkName(?string $value ): void {
-        $this->networkName = $value;
+    public function setNetworkName(?string $value): void {
+        $this->getBackingStore()->set('networkName', $value);
     }
 
     /**
      * Sets the nonEapAuthenticationMethodForEapTtls property value. Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
      *  @param NonEapAuthenticationMethodForEapTtlsType|null $value Value to set for the nonEapAuthenticationMethodForEapTtls property.
     */
-    public function setNonEapAuthenticationMethodForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value ): void {
-        $this->nonEapAuthenticationMethodForEapTtls = $value;
+    public function setNonEapAuthenticationMethodForEapTtls(?NonEapAuthenticationMethodForEapTtlsType $value): void {
+        $this->getBackingStore()->set('nonEapAuthenticationMethodForEapTtls', $value);
     }
 
     /**
      * Sets the rootCertificateForServerValidation property value. Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP.
      *  @param MacOSTrustedRootCertificate|null $value Value to set for the rootCertificateForServerValidation property.
     */
-    public function setRootCertificateForServerValidation(?MacOSTrustedRootCertificate $value ): void {
-        $this->rootCertificateForServerValidation = $value;
+    public function setRootCertificateForServerValidation(?MacOSTrustedRootCertificate $value): void {
+        $this->getBackingStore()->set('rootCertificateForServerValidation', $value);
     }
 
     /**
      * Sets the trustedServerCertificateNames property value. Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
      *  @param array<string>|null $value Value to set for the trustedServerCertificateNames property.
     */
-    public function setTrustedServerCertificateNames(?array $value ): void {
-        $this->trustedServerCertificateNames = $value;
+    public function setTrustedServerCertificateNames(?array $value): void {
+        $this->getBackingStore()->set('trustedServerCertificateNames', $value);
     }
 
 }

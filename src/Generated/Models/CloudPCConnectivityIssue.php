@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPCConnectivityIssue extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceId The Intune DeviceId of the device the connection is associated with.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $errorCode The error code of the connectivity issue.
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var DateTime|null $errorDateTime The time that the connection initiated. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time.
-    */
-    private ?DateTime $errorDateTime = null;
-    
-    /**
-     * @var string|null $errorDescription The detailed description of what went wrong.
-    */
-    private ?string $errorDescription = null;
-    
-    /**
-     * @var string|null $recommendedAction The recommended action to fix the corresponding error.
-    */
-    private ?string $recommendedAction = null;
-    
-    /**
-     * @var string|null $userId The unique id of user who initialize the connection.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new cloudPCConnectivityIssue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPCConnectivityIssue');
     }
 
     /**
@@ -61,7 +30,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -69,7 +38,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -77,7 +46,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getErrorDateTime(): ?DateTime {
-        return $this->errorDateTime;
+        return $this->getBackingStore()->get('errorDateTime');
     }
 
     /**
@@ -85,7 +54,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getErrorDescription(): ?string {
-        return $this->errorDescription;
+        return $this->getBackingStore()->get('errorDescription');
     }
 
     /**
@@ -109,7 +78,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getRecommendedAction(): ?string {
-        return $this->recommendedAction;
+        return $this->getBackingStore()->get('recommendedAction');
     }
 
     /**
@@ -117,7 +86,7 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -126,60 +95,60 @@ class CloudPCConnectivityIssue extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeDateTimeValue('errorDateTime', $this->errorDateTime);
-        $writer->writeStringValue('errorDescription', $this->errorDescription);
-        $writer->writeStringValue('recommendedAction', $this->recommendedAction);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeDateTimeValue('errorDateTime', $this->getErrorDateTime());
+        $writer->writeStringValue('errorDescription', $this->getErrorDescription());
+        $writer->writeStringValue('recommendedAction', $this->getRecommendedAction());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the deviceId property value. The Intune DeviceId of the device the connection is associated with.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the errorCode property value. The error code of the connectivity issue.
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the errorDateTime property value. The time that the connection initiated. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time.
      *  @param DateTime|null $value Value to set for the errorDateTime property.
     */
-    public function setErrorDateTime(?DateTime $value ): void {
-        $this->errorDateTime = $value;
+    public function setErrorDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('errorDateTime', $value);
     }
 
     /**
      * Sets the errorDescription property value. The detailed description of what went wrong.
      *  @param string|null $value Value to set for the errorDescription property.
     */
-    public function setErrorDescription(?string $value ): void {
-        $this->errorDescription = $value;
+    public function setErrorDescription(?string $value): void {
+        $this->getBackingStore()->set('errorDescription', $value);
     }
 
     /**
      * Sets the recommendedAction property value. The recommended action to fix the corresponding error.
      *  @param string|null $value Value to set for the recommendedAction property.
     */
-    public function setRecommendedAction(?string $value ): void {
-        $this->recommendedAction = $value;
+    public function setRecommendedAction(?string $value): void {
+        $this->getBackingStore()->set('recommendedAction', $value);
     }
 
     /**
      * Sets the userId property value. The unique id of user who initialize the connection.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

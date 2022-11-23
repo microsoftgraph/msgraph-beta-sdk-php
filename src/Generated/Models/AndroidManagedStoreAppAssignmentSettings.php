@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable 
 {
     /**
-     * @var array<string>|null $androidManagedStoreAppTrackIds The track IDs to enable for this app assignment.
-    */
-    private ?array $androidManagedStoreAppTrackIds = null;
-    
-    /**
-     * @var AndroidManagedStoreAutoUpdateMode|null $autoUpdateMode Prioritization for automatic updates of Android Managed Store apps set on assignment.
-    */
-    private ?AndroidManagedStoreAutoUpdateMode $autoUpdateMode = null;
-    
-    /**
      * Instantiates a new AndroidManagedStoreAppAssignmentSettings and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
      * @return array<string>|null
     */
     public function getAndroidManagedStoreAppTrackIds(): ?array {
-        return $this->androidManagedStoreAppTrackIds;
+        return $this->getBackingStore()->get('androidManagedStoreAppTrackIds');
     }
 
     /**
@@ -48,7 +38,7 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
      * @return AndroidManagedStoreAutoUpdateMode|null
     */
     public function getAutoUpdateMode(): ?AndroidManagedStoreAutoUpdateMode {
-        return $this->autoUpdateMode;
+        return $this->getBackingStore()->get('autoUpdateMode');
     }
 
     /**
@@ -69,24 +59,24 @@ class AndroidManagedStoreAppAssignmentSettings extends MobileAppAssignmentSettin
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('androidManagedStoreAppTrackIds', $this->androidManagedStoreAppTrackIds);
-        $writer->writeEnumValue('autoUpdateMode', $this->autoUpdateMode);
+        $writer->writeCollectionOfPrimitiveValues('androidManagedStoreAppTrackIds', $this->getAndroidManagedStoreAppTrackIds());
+        $writer->writeEnumValue('autoUpdateMode', $this->getAutoUpdateMode());
     }
 
     /**
      * Sets the androidManagedStoreAppTrackIds property value. The track IDs to enable for this app assignment.
      *  @param array<string>|null $value Value to set for the androidManagedStoreAppTrackIds property.
     */
-    public function setAndroidManagedStoreAppTrackIds(?array $value ): void {
-        $this->androidManagedStoreAppTrackIds = $value;
+    public function setAndroidManagedStoreAppTrackIds(?array $value): void {
+        $this->getBackingStore()->set('androidManagedStoreAppTrackIds', $value);
     }
 
     /**
      * Sets the autoUpdateMode property value. Prioritization for automatic updates of Android Managed Store apps set on assignment.
      *  @param AndroidManagedStoreAutoUpdateMode|null $value Value to set for the autoUpdateMode property.
     */
-    public function setAutoUpdateMode(?AndroidManagedStoreAutoUpdateMode $value ): void {
-        $this->autoUpdateMode = $value;
+    public function setAutoUpdateMode(?AndroidManagedStoreAutoUpdateMode $value): void {
+        $this->getBackingStore()->set('autoUpdateMode', $value);
     }
 
 }

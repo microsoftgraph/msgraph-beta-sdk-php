@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Connector extends Entity implements Parsable 
 {
     /**
-     * @var string|null $externalIp The external IP address as detected by the the connector server. Read-only.
-    */
-    private ?string $externalIp = null;
-    
-    /**
-     * @var string|null $machineName The machine name the connector is installed and running on.
-    */
-    private ?string $machineName = null;
-    
-    /**
-     * @var array<ConnectorGroup>|null $memberOf The connectorGroup that the connector is a member of. Read-only.
-    */
-    private ?array $memberOf = null;
-    
-    /**
-     * @var ConnectorStatus|null $status The status property
-    */
-    private ?ConnectorStatus $status = null;
-    
-    /**
      * Instantiates a new connector and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.connector');
     }
 
     /**
@@ -50,7 +29,7 @@ class Connector extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalIp(): ?string {
-        return $this->externalIp;
+        return $this->getBackingStore()->get('externalIp');
     }
 
     /**
@@ -72,7 +51,7 @@ class Connector extends Entity implements Parsable
      * @return string|null
     */
     public function getMachineName(): ?string {
-        return $this->machineName;
+        return $this->getBackingStore()->get('machineName');
     }
 
     /**
@@ -80,7 +59,7 @@ class Connector extends Entity implements Parsable
      * @return array<ConnectorGroup>|null
     */
     public function getMemberOf(): ?array {
-        return $this->memberOf;
+        return $this->getBackingStore()->get('memberOf');
     }
 
     /**
@@ -88,7 +67,7 @@ class Connector extends Entity implements Parsable
      * @return ConnectorStatus|null
     */
     public function getStatus(): ?ConnectorStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -97,42 +76,42 @@ class Connector extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('externalIp', $this->externalIp);
-        $writer->writeStringValue('machineName', $this->machineName);
-        $writer->writeCollectionOfObjectValues('memberOf', $this->memberOf);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeStringValue('externalIp', $this->getExternalIp());
+        $writer->writeStringValue('machineName', $this->getMachineName());
+        $writer->writeCollectionOfObjectValues('memberOf', $this->getMemberOf());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the externalIp property value. The external IP address as detected by the the connector server. Read-only.
      *  @param string|null $value Value to set for the externalIp property.
     */
-    public function setExternalIp(?string $value ): void {
-        $this->externalIp = $value;
+    public function setExternalIp(?string $value): void {
+        $this->getBackingStore()->set('externalIp', $value);
     }
 
     /**
      * Sets the machineName property value. The machine name the connector is installed and running on.
      *  @param string|null $value Value to set for the machineName property.
     */
-    public function setMachineName(?string $value ): void {
-        $this->machineName = $value;
+    public function setMachineName(?string $value): void {
+        $this->getBackingStore()->set('machineName', $value);
     }
 
     /**
      * Sets the memberOf property value. The connectorGroup that the connector is a member of. Read-only.
      *  @param array<ConnectorGroup>|null $value Value to set for the memberOf property.
     */
-    public function setMemberOf(?array $value ): void {
-        $this->memberOf = $value;
+    public function setMemberOf(?array $value): void {
+        $this->getBackingStore()->set('memberOf', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param ConnectorStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?ConnectorStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?ConnectorStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

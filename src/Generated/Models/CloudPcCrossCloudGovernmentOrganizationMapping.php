@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcCrossCloudGovernmentOrganizationMapping extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $organizationIdsInUSGovCloud The tenant ID in the Azure Government cloud corresponding to the GCC tenant in the public cloud. Currently, 1:1 mappings are supported, so this collection can only contain one tenant ID.
-    */
-    private ?array $organizationIdsInUSGovCloud = null;
-    
-    /**
      * Instantiates a new CloudPcCrossCloudGovernmentOrganizationMapping and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcCrossCloudGovernmentOrganizationMapping');
     }
 
     /**
@@ -46,7 +40,7 @@ class CloudPcCrossCloudGovernmentOrganizationMapping extends Entity implements P
      * @return array<string>|null
     */
     public function getOrganizationIdsInUSGovCloud(): ?array {
-        return $this->organizationIdsInUSGovCloud;
+        return $this->getBackingStore()->get('organizationIdsInUSGovCloud');
     }
 
     /**
@@ -55,15 +49,15 @@ class CloudPcCrossCloudGovernmentOrganizationMapping extends Entity implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('organizationIdsInUSGovCloud', $this->organizationIdsInUSGovCloud);
+        $writer->writeCollectionOfPrimitiveValues('organizationIdsInUSGovCloud', $this->getOrganizationIdsInUSGovCloud());
     }
 
     /**
      * Sets the organizationIdsInUSGovCloud property value. The tenant ID in the Azure Government cloud corresponding to the GCC tenant in the public cloud. Currently, 1:1 mappings are supported, so this collection can only contain one tenant ID.
      *  @param array<string>|null $value Value to set for the organizationIdsInUSGovCloud property.
     */
-    public function setOrganizationIdsInUSGovCloud(?array $value ): void {
-        $this->organizationIdsInUSGovCloud = $value;
+    public function setOrganizationIdsInUSGovCloud(?array $value): void {
+        $this->getBackingStore()->set('organizationIdsInUSGovCloud', $value);
     }
 
 }

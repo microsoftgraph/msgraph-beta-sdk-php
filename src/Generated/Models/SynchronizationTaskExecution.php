@@ -7,95 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable 
+class SynchronizationTaskExecution implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $activityIdentifier Identifier of the job run.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $activityIdentifier = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $countEntitled Count of processed entries that were assigned for this application.
-    */
-    private ?int $countEntitled = null;
-    
-    /**
-     * @var int|null $countEntitledForProvisioning Count of processed entries that were assigned for provisioning.
-    */
-    private ?int $countEntitledForProvisioning = null;
-    
-    /**
-     * @var int|null $countEscrowed Count of entries that were escrowed (errors).
-    */
-    private ?int $countEscrowed = null;
-    
-    /**
-     * @var int|null $countEscrowedRaw Count of entries that were escrowed, including system-generated escrows.
-    */
-    private ?int $countEscrowedRaw = null;
-    
-    /**
-     * @var int|null $countExported Count of exported entries.
-    */
-    private ?int $countExported = null;
-    
-    /**
-     * @var int|null $countExports Count of entries that were expected to be exported.
-    */
-    private ?int $countExports = null;
-    
-    /**
-     * @var int|null $countImported Count of imported entries.
-    */
-    private ?int $countImported = null;
-    
-    /**
-     * @var int|null $countImportedDeltas Count of imported delta-changes.
-    */
-    private ?int $countImportedDeltas = null;
-    
-    /**
-     * @var int|null $countImportedReferenceDeltas Count of imported delta-changes pertaining to reference changes.
-    */
-    private ?int $countImportedReferenceDeltas = null;
-    
-    /**
-     * @var SynchronizationError|null $error If an error was encountered, contains a synchronizationError object with details.
-    */
-    private ?SynchronizationError $error = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var SynchronizationTaskExecutionResult|null $state The state property
-    */
-    private ?SynchronizationTaskExecutionResult $state = null;
-    
-    /**
-     * @var DateTime|null $timeBegan Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $timeBegan = null;
-    
-    /**
-     * @var DateTime|null $timeEnded Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $timeEnded = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new synchronizationTaskExecution and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.synchronizationTaskExecution');
     }
 
     /**
@@ -112,15 +40,23 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getActivityIdentifier(): ?string {
-        return $this->activityIdentifier;
+        return $this->getBackingStore()->get('activityIdentifier');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -128,7 +64,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountEntitled(): ?int {
-        return $this->countEntitled;
+        return $this->getBackingStore()->get('countEntitled');
     }
 
     /**
@@ -136,7 +72,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountEntitledForProvisioning(): ?int {
-        return $this->countEntitledForProvisioning;
+        return $this->getBackingStore()->get('countEntitledForProvisioning');
     }
 
     /**
@@ -144,7 +80,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountEscrowed(): ?int {
-        return $this->countEscrowed;
+        return $this->getBackingStore()->get('countEscrowed');
     }
 
     /**
@@ -152,7 +88,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountEscrowedRaw(): ?int {
-        return $this->countEscrowedRaw;
+        return $this->getBackingStore()->get('countEscrowedRaw');
     }
 
     /**
@@ -160,7 +96,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountExported(): ?int {
-        return $this->countExported;
+        return $this->getBackingStore()->get('countExported');
     }
 
     /**
@@ -168,7 +104,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountExports(): ?int {
-        return $this->countExports;
+        return $this->getBackingStore()->get('countExports');
     }
 
     /**
@@ -176,7 +112,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountImported(): ?int {
-        return $this->countImported;
+        return $this->getBackingStore()->get('countImported');
     }
 
     /**
@@ -184,7 +120,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountImportedDeltas(): ?int {
-        return $this->countImportedDeltas;
+        return $this->getBackingStore()->get('countImportedDeltas');
     }
 
     /**
@@ -192,7 +128,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCountImportedReferenceDeltas(): ?int {
-        return $this->countImportedReferenceDeltas;
+        return $this->getBackingStore()->get('countImportedReferenceDeltas');
     }
 
     /**
@@ -200,7 +136,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return SynchronizationError|null
     */
     public function getError(): ?SynchronizationError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -233,7 +169,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -241,7 +177,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return SynchronizationTaskExecutionResult|null
     */
     public function getState(): ?SynchronizationTaskExecutionResult {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -249,7 +185,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getTimeBegan(): ?DateTime {
-        return $this->timeBegan;
+        return $this->getBackingStore()->get('timeBegan');
     }
 
     /**
@@ -257,7 +193,7 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getTimeEnded(): ?DateTime {
-        return $this->timeEnded;
+        return $this->getBackingStore()->get('timeEnded');
     }
 
     /**
@@ -265,150 +201,158 @@ class SynchronizationTaskExecution implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('activityIdentifier', $this->activityIdentifier);
-        $writer->writeIntegerValue('countEntitled', $this->countEntitled);
-        $writer->writeIntegerValue('countEntitledForProvisioning', $this->countEntitledForProvisioning);
-        $writer->writeIntegerValue('countEscrowed', $this->countEscrowed);
-        $writer->writeIntegerValue('countEscrowedRaw', $this->countEscrowedRaw);
-        $writer->writeIntegerValue('countExported', $this->countExported);
-        $writer->writeIntegerValue('countExports', $this->countExports);
-        $writer->writeIntegerValue('countImported', $this->countImported);
-        $writer->writeIntegerValue('countImportedDeltas', $this->countImportedDeltas);
-        $writer->writeIntegerValue('countImportedReferenceDeltas', $this->countImportedReferenceDeltas);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeDateTimeValue('timeBegan', $this->timeBegan);
-        $writer->writeDateTimeValue('timeEnded', $this->timeEnded);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('activityIdentifier', $this->getActivityIdentifier());
+        $writer->writeIntegerValue('countEntitled', $this->getCountEntitled());
+        $writer->writeIntegerValue('countEntitledForProvisioning', $this->getCountEntitledForProvisioning());
+        $writer->writeIntegerValue('countEscrowed', $this->getCountEscrowed());
+        $writer->writeIntegerValue('countEscrowedRaw', $this->getCountEscrowedRaw());
+        $writer->writeIntegerValue('countExported', $this->getCountExported());
+        $writer->writeIntegerValue('countExports', $this->getCountExports());
+        $writer->writeIntegerValue('countImported', $this->getCountImported());
+        $writer->writeIntegerValue('countImportedDeltas', $this->getCountImportedDeltas());
+        $writer->writeIntegerValue('countImportedReferenceDeltas', $this->getCountImportedReferenceDeltas());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeDateTimeValue('timeBegan', $this->getTimeBegan());
+        $writer->writeDateTimeValue('timeEnded', $this->getTimeEnded());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the activityIdentifier property value. Identifier of the job run.
      *  @param string|null $value Value to set for the activityIdentifier property.
     */
-    public function setActivityIdentifier(?string $value ): void {
-        $this->activityIdentifier = $value;
+    public function setActivityIdentifier(?string $value): void {
+        $this->getBackingStore()->set('activityIdentifier', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the countEntitled property value. Count of processed entries that were assigned for this application.
      *  @param int|null $value Value to set for the countEntitled property.
     */
-    public function setCountEntitled(?int $value ): void {
-        $this->countEntitled = $value;
+    public function setCountEntitled(?int $value): void {
+        $this->getBackingStore()->set('countEntitled', $value);
     }
 
     /**
      * Sets the countEntitledForProvisioning property value. Count of processed entries that were assigned for provisioning.
      *  @param int|null $value Value to set for the countEntitledForProvisioning property.
     */
-    public function setCountEntitledForProvisioning(?int $value ): void {
-        $this->countEntitledForProvisioning = $value;
+    public function setCountEntitledForProvisioning(?int $value): void {
+        $this->getBackingStore()->set('countEntitledForProvisioning', $value);
     }
 
     /**
      * Sets the countEscrowed property value. Count of entries that were escrowed (errors).
      *  @param int|null $value Value to set for the countEscrowed property.
     */
-    public function setCountEscrowed(?int $value ): void {
-        $this->countEscrowed = $value;
+    public function setCountEscrowed(?int $value): void {
+        $this->getBackingStore()->set('countEscrowed', $value);
     }
 
     /**
      * Sets the countEscrowedRaw property value. Count of entries that were escrowed, including system-generated escrows.
      *  @param int|null $value Value to set for the countEscrowedRaw property.
     */
-    public function setCountEscrowedRaw(?int $value ): void {
-        $this->countEscrowedRaw = $value;
+    public function setCountEscrowedRaw(?int $value): void {
+        $this->getBackingStore()->set('countEscrowedRaw', $value);
     }
 
     /**
      * Sets the countExported property value. Count of exported entries.
      *  @param int|null $value Value to set for the countExported property.
     */
-    public function setCountExported(?int $value ): void {
-        $this->countExported = $value;
+    public function setCountExported(?int $value): void {
+        $this->getBackingStore()->set('countExported', $value);
     }
 
     /**
      * Sets the countExports property value. Count of entries that were expected to be exported.
      *  @param int|null $value Value to set for the countExports property.
     */
-    public function setCountExports(?int $value ): void {
-        $this->countExports = $value;
+    public function setCountExports(?int $value): void {
+        $this->getBackingStore()->set('countExports', $value);
     }
 
     /**
      * Sets the countImported property value. Count of imported entries.
      *  @param int|null $value Value to set for the countImported property.
     */
-    public function setCountImported(?int $value ): void {
-        $this->countImported = $value;
+    public function setCountImported(?int $value): void {
+        $this->getBackingStore()->set('countImported', $value);
     }
 
     /**
      * Sets the countImportedDeltas property value. Count of imported delta-changes.
      *  @param int|null $value Value to set for the countImportedDeltas property.
     */
-    public function setCountImportedDeltas(?int $value ): void {
-        $this->countImportedDeltas = $value;
+    public function setCountImportedDeltas(?int $value): void {
+        $this->getBackingStore()->set('countImportedDeltas', $value);
     }
 
     /**
      * Sets the countImportedReferenceDeltas property value. Count of imported delta-changes pertaining to reference changes.
      *  @param int|null $value Value to set for the countImportedReferenceDeltas property.
     */
-    public function setCountImportedReferenceDeltas(?int $value ): void {
-        $this->countImportedReferenceDeltas = $value;
+    public function setCountImportedReferenceDeltas(?int $value): void {
+        $this->getBackingStore()->set('countImportedReferenceDeltas', $value);
     }
 
     /**
      * Sets the error property value. If an error was encountered, contains a synchronizationError object with details.
      *  @param SynchronizationError|null $value Value to set for the error property.
     */
-    public function setError(?SynchronizationError $value ): void {
-        $this->error = $value;
+    public function setError(?SynchronizationError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param SynchronizationTaskExecutionResult|null $value Value to set for the state property.
     */
-    public function setState(?SynchronizationTaskExecutionResult $value ): void {
-        $this->state = $value;
+    public function setState(?SynchronizationTaskExecutionResult $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the timeBegan property value. Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the timeBegan property.
     */
-    public function setTimeBegan(?DateTime $value ): void {
-        $this->timeBegan = $value;
+    public function setTimeBegan(?DateTime $value): void {
+        $this->getBackingStore()->set('timeBegan', $value);
     }
 
     /**
      * Sets the timeEnded property value. Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the timeEnded property.
     */
-    public function setTimeEnded(?DateTime $value ): void {
-        $this->timeEnded = $value;
+    public function setTimeEnded(?DateTime $value): void {
+        $this->getBackingStore()->set('timeEnded', $value);
     }
 
 }

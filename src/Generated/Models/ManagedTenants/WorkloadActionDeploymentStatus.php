@@ -8,65 +8,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable 
+class WorkloadActionDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $actionId The unique identifier for the workload action. Required. Read-only.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $actionId = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $deployedPolicyId The identifier of any policy that was created by applying the workload action. Optional. Read-only.
-    */
-    private ?string $deployedPolicyId = null;
-    
-    /**
-     * @var GenericError|null $error The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
-    */
-    private ?GenericError $error = null;
-    
-    /**
-     * @var array<string>|null $excludeGroups The excludeGroups property
-    */
-    private ?array $excludeGroups = null;
-    
-    /**
-     * @var bool|null $includeAllUsers The includeAllUsers property
-    */
-    private ?bool $includeAllUsers = null;
-    
-    /**
-     * @var array<string>|null $includeGroups The includeGroups property
-    */
-    private ?array $includeGroups = null;
-    
-    /**
-     * @var DateTime|null $lastDeploymentDateTime The date and time the workload action was last deployed. Optional.
-    */
-    private ?DateTime $lastDeploymentDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var WorkloadActionStatus|null $status The status property
-    */
-    private ?WorkloadActionStatus $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new workloadActionDeploymentStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.managedTenants.workloadActionDeploymentStatus');
     }
 
     /**
@@ -83,15 +41,23 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getActionId(): ?string {
-        return $this->actionId;
+        return $this->getBackingStore()->get('actionId');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -99,7 +65,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDeployedPolicyId(): ?string {
-        return $this->deployedPolicyId;
+        return $this->getBackingStore()->get('deployedPolicyId');
     }
 
     /**
@@ -107,7 +73,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return GenericError|null
     */
     public function getError(): ?GenericError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -115,7 +81,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getExcludeGroups(): ?array {
-        return $this->excludeGroups;
+        return $this->getBackingStore()->get('excludeGroups');
     }
 
     /**
@@ -142,7 +108,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIncludeAllUsers(): ?bool {
-        return $this->includeAllUsers;
+        return $this->getBackingStore()->get('includeAllUsers');
     }
 
     /**
@@ -150,7 +116,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getIncludeGroups(): ?array {
-        return $this->includeGroups;
+        return $this->getBackingStore()->get('includeGroups');
     }
 
     /**
@@ -158,7 +124,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastDeploymentDateTime(): ?DateTime {
-        return $this->lastDeploymentDateTime;
+        return $this->getBackingStore()->get('lastDeploymentDateTime');
     }
 
     /**
@@ -166,7 +132,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -174,7 +140,7 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return WorkloadActionStatus|null
     */
     public function getStatus(): ?WorkloadActionStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -182,96 +148,104 @@ class WorkloadActionDeploymentStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('actionId', $this->actionId);
-        $writer->writeStringValue('deployedPolicyId', $this->deployedPolicyId);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeCollectionOfPrimitiveValues('excludeGroups', $this->excludeGroups);
-        $writer->writeBooleanValue('includeAllUsers', $this->includeAllUsers);
-        $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->includeGroups);
-        $writer->writeDateTimeValue('lastDeploymentDateTime', $this->lastDeploymentDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('actionId', $this->getActionId());
+        $writer->writeStringValue('deployedPolicyId', $this->getDeployedPolicyId());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeCollectionOfPrimitiveValues('excludeGroups', $this->getExcludeGroups());
+        $writer->writeBooleanValue('includeAllUsers', $this->getIncludeAllUsers());
+        $writer->writeCollectionOfPrimitiveValues('includeGroups', $this->getIncludeGroups());
+        $writer->writeDateTimeValue('lastDeploymentDateTime', $this->getLastDeploymentDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the actionId property value. The unique identifier for the workload action. Required. Read-only.
      *  @param string|null $value Value to set for the actionId property.
     */
-    public function setActionId(?string $value ): void {
-        $this->actionId = $value;
+    public function setActionId(?string $value): void {
+        $this->getBackingStore()->set('actionId', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the deployedPolicyId property value. The identifier of any policy that was created by applying the workload action. Optional. Read-only.
      *  @param string|null $value Value to set for the deployedPolicyId property.
     */
-    public function setDeployedPolicyId(?string $value ): void {
-        $this->deployedPolicyId = $value;
+    public function setDeployedPolicyId(?string $value): void {
+        $this->getBackingStore()->set('deployedPolicyId', $value);
     }
 
     /**
      * Sets the error property value. The detailed information for exceptions that occur when deploying the workload action. Optional. Required.
      *  @param GenericError|null $value Value to set for the error property.
     */
-    public function setError(?GenericError $value ): void {
-        $this->error = $value;
+    public function setError(?GenericError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the excludeGroups property value. The excludeGroups property
      *  @param array<string>|null $value Value to set for the excludeGroups property.
     */
-    public function setExcludeGroups(?array $value ): void {
-        $this->excludeGroups = $value;
+    public function setExcludeGroups(?array $value): void {
+        $this->getBackingStore()->set('excludeGroups', $value);
     }
 
     /**
      * Sets the includeAllUsers property value. The includeAllUsers property
      *  @param bool|null $value Value to set for the includeAllUsers property.
     */
-    public function setIncludeAllUsers(?bool $value ): void {
-        $this->includeAllUsers = $value;
+    public function setIncludeAllUsers(?bool $value): void {
+        $this->getBackingStore()->set('includeAllUsers', $value);
     }
 
     /**
      * Sets the includeGroups property value. The includeGroups property
      *  @param array<string>|null $value Value to set for the includeGroups property.
     */
-    public function setIncludeGroups(?array $value ): void {
-        $this->includeGroups = $value;
+    public function setIncludeGroups(?array $value): void {
+        $this->getBackingStore()->set('includeGroups', $value);
     }
 
     /**
      * Sets the lastDeploymentDateTime property value. The date and time the workload action was last deployed. Optional.
      *  @param DateTime|null $value Value to set for the lastDeploymentDateTime property.
     */
-    public function setLastDeploymentDateTime(?DateTime $value ): void {
-        $this->lastDeploymentDateTime = $value;
+    public function setLastDeploymentDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastDeploymentDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param WorkloadActionStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?WorkloadActionStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?WorkloadActionStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

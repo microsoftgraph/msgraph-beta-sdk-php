@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $targetGroupId The ID of the AAD group in which the app provisioning configuration is being targeted.
-    */
-    private ?string $targetGroupId = null;
-    
-    /**
      * Instantiates a new mobileAppProvisioningConfigGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.mobileAppProvisioningConfigGroupAssignment');
     }
 
     /**
@@ -46,7 +40,7 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->targetGroupId;
+        return $this->getBackingStore()->get('targetGroupId');
     }
 
     /**
@@ -55,15 +49,15 @@ class MobileAppProvisioningConfigGroupAssignment extends Entity implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetGroupId', $this->targetGroupId);
+        $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 
     /**
      * Sets the targetGroupId property value. The ID of the AAD group in which the app provisioning configuration is being targeted.
      *  @param string|null $value Value to set for the targetGroupId property.
     */
-    public function setTargetGroupId(?string $value ): void {
-        $this->targetGroupId = $value;
+    public function setTargetGroupId(?string $value): void {
+        $this->getBackingStore()->set('targetGroupId', $value);
     }
 
 }

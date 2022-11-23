@@ -10,21 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class Windows81WifiImportConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var StreamInterface|null $payload Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-    */
-    private ?StreamInterface $payload = null;
-    
-    /**
-     * @var string|null $payloadFileName Payload file name (.xml).
-    */
-    private ?string $payloadFileName = null;
-    
-    /**
-     * @var string|null $profileName Profile name displayed in the UI.
-    */
-    private ?string $profileName = null;
-    
-    /**
      * Instantiates a new Windows81WifiImportConfiguration and sets the default values.
     */
     public function __construct() {
@@ -56,10 +41,10 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getPayload(): StreamInterface {
-        return $this->payload;
+    public function getPayload(): ?StreamInterface {
+        return $this->getBackingStore()->get('payload');
     }
 
     /**
@@ -67,7 +52,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getPayloadFileName(): ?string {
-        return $this->payloadFileName;
+        return $this->getBackingStore()->get('payloadFileName');
     }
 
     /**
@@ -75,7 +60,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
      * @return string|null
     */
     public function getProfileName(): ?string {
-        return $this->profileName;
+        return $this->getBackingStore()->get('profileName');
     }
 
     /**
@@ -84,33 +69,33 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('payload', $this->payload);
-        $writer->writeStringValue('payloadFileName', $this->payloadFileName);
-        $writer->writeStringValue('profileName', $this->profileName);
+        $writer->writeBinaryContent('payload', $this->getPayload());
+        $writer->writeStringValue('payloadFileName', $this->getPayloadFileName());
+        $writer->writeStringValue('profileName', $this->getProfileName());
     }
 
     /**
      * Sets the payload property value. Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
      *  @param StreamInterface|null $value Value to set for the payload property.
     */
-    public function setPayload(?StreamInterface $value ): void {
-        $this->payload = $value;
+    public function setPayload(?StreamInterface $value): void {
+        $this->getBackingStore()->set('payload', $value);
     }
 
     /**
      * Sets the payloadFileName property value. Payload file name (.xml).
      *  @param string|null $value Value to set for the payloadFileName property.
     */
-    public function setPayloadFileName(?string $value ): void {
-        $this->payloadFileName = $value;
+    public function setPayloadFileName(?string $value): void {
+        $this->getBackingStore()->set('payloadFileName', $value);
     }
 
     /**
      * Sets the profileName property value. Profile name displayed in the UI.
      *  @param string|null $value Value to set for the profileName property.
     */
-    public function setProfileName(?string $value ): void {
-        $this->profileName = $value;
+    public function setProfileName(?string $value): void {
+        $this->getBackingStore()->set('profileName', $value);
     }
 
 }

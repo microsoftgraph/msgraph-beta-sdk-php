@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppManagementPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var array<DirectoryObject>|null $appliesTo The appliesTo property
-    */
-    private ?array $appliesTo = null;
-    
-    /**
-     * @var bool|null $isEnabled The isEnabled property
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var AppManagementConfiguration|null $restrictions The restrictions property
-    */
-    private ?AppManagementConfiguration $restrictions = null;
-    
-    /**
      * Instantiates a new AppManagementPolicy and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
      * @return array<DirectoryObject>|null
     */
     public function getAppliesTo(): ?array {
-        return $this->appliesTo;
+        return $this->getBackingStore()->get('appliesTo');
     }
 
     /**
@@ -66,7 +51,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -74,7 +59,7 @@ class AppManagementPolicy extends PolicyBase implements Parsable
      * @return AppManagementConfiguration|null
     */
     public function getRestrictions(): ?AppManagementConfiguration {
-        return $this->restrictions;
+        return $this->getBackingStore()->get('restrictions');
     }
 
     /**
@@ -83,33 +68,33 @@ class AppManagementPolicy extends PolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('appliesTo', $this->appliesTo);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeObjectValue('restrictions', $this->restrictions);
+        $writer->writeCollectionOfObjectValues('appliesTo', $this->getAppliesTo());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeObjectValue('restrictions', $this->getRestrictions());
     }
 
     /**
      * Sets the appliesTo property value. The appliesTo property
      *  @param array<DirectoryObject>|null $value Value to set for the appliesTo property.
     */
-    public function setAppliesTo(?array $value ): void {
-        $this->appliesTo = $value;
+    public function setAppliesTo(?array $value): void {
+        $this->getBackingStore()->set('appliesTo', $value);
     }
 
     /**
      * Sets the isEnabled property value. The isEnabled property
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the restrictions property value. The restrictions property
      *  @param AppManagementConfiguration|null $value Value to set for the restrictions property.
     */
-    public function setRestrictions(?AppManagementConfiguration $value ): void {
-        $this->restrictions = $value;
+    public function setRestrictions(?AppManagementConfiguration $value): void {
+        $this->getBackingStore()->set('restrictions', $value);
     }
 
 }

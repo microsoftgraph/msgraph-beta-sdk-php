@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GovernanceInsight extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $insightCreatedDateTime Indicates when the insight was created.
-    */
-    private ?DateTime $insightCreatedDateTime = null;
-    
-    /**
      * Instantiates a new governanceInsight and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.governanceInsight');
     }
 
     /**
@@ -55,7 +49,7 @@ class GovernanceInsight extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getInsightCreatedDateTime(): ?DateTime {
-        return $this->insightCreatedDateTime;
+        return $this->getBackingStore()->get('insightCreatedDateTime');
     }
 
     /**
@@ -64,15 +58,15 @@ class GovernanceInsight extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('insightCreatedDateTime', $this->insightCreatedDateTime);
+        $writer->writeDateTimeValue('insightCreatedDateTime', $this->getInsightCreatedDateTime());
     }
 
     /**
      * Sets the insightCreatedDateTime property value. Indicates when the insight was created.
      *  @param DateTime|null $value Value to set for the insightCreatedDateTime property.
     */
-    public function setInsightCreatedDateTime(?DateTime $value ): void {
-        $this->insightCreatedDateTime = $value;
+    public function setInsightCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('insightCreatedDateTime', $value);
     }
 
 }

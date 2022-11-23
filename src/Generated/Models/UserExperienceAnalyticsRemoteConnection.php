@@ -9,76 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable 
 {
     /**
-     * @var float|null $cloudPcFailurePercentage The sign in failure percentage of Cloud PC Device. Valid values 0 to 100
-    */
-    private ?float $cloudPcFailurePercentage = null;
-    
-    /**
-     * @var float|null $cloudPcRoundTripTime The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $cloudPcRoundTripTime = null;
-    
-    /**
-     * @var float|null $cloudPcSignInTime The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $cloudPcSignInTime = null;
-    
-    /**
-     * @var float|null $coreBootTime The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $coreBootTime = null;
-    
-    /**
-     * @var float|null $coreSignInTime The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $coreSignInTime = null;
-    
-    /**
-     * @var int|null $deviceCount The count of remote connection. Valid values 0 to 2147483647
-    */
-    private ?int $deviceCount = null;
-    
-    /**
-     * @var string|null $deviceId The id of the device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $deviceName The name of the device.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $manufacturer The user experience analytics manufacturer.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The user experience analytics device model.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var float|null $remoteSignInTime The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $remoteSignInTime = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user experience analytics userPrincipalName.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
-     * @var string|null $virtualNetwork The user experience analytics virtual network.
-    */
-    private ?string $virtualNetwork = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsRemoteConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsRemoteConnection');
     }
 
     /**
@@ -95,7 +29,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcFailurePercentage(): ?float {
-        return $this->cloudPcFailurePercentage;
+        return $this->getBackingStore()->get('cloudPcFailurePercentage');
     }
 
     /**
@@ -103,7 +37,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcRoundTripTime(): ?float {
-        return $this->cloudPcRoundTripTime;
+        return $this->getBackingStore()->get('cloudPcRoundTripTime');
     }
 
     /**
@@ -111,7 +45,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCloudPcSignInTime(): ?float {
-        return $this->cloudPcSignInTime;
+        return $this->getBackingStore()->get('cloudPcSignInTime');
     }
 
     /**
@@ -119,7 +53,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCoreBootTime(): ?float {
-        return $this->coreBootTime;
+        return $this->getBackingStore()->get('coreBootTime');
     }
 
     /**
@@ -127,7 +61,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getCoreSignInTime(): ?float {
-        return $this->coreSignInTime;
+        return $this->getBackingStore()->get('coreSignInTime');
     }
 
     /**
@@ -135,7 +69,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return int|null
     */
     public function getDeviceCount(): ?int {
-        return $this->deviceCount;
+        return $this->getBackingStore()->get('deviceCount');
     }
 
     /**
@@ -143,7 +77,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -151,7 +85,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -182,7 +116,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -190,7 +124,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -198,7 +132,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return float|null
     */
     public function getRemoteSignInTime(): ?float {
-        return $this->remoteSignInTime;
+        return $this->getBackingStore()->get('remoteSignInTime');
     }
 
     /**
@@ -206,7 +140,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -214,7 +148,7 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
      * @return string|null
     */
     public function getVirtualNetwork(): ?string {
-        return $this->virtualNetwork;
+        return $this->getBackingStore()->get('virtualNetwork');
     }
 
     /**
@@ -223,123 +157,123 @@ class UserExperienceAnalyticsRemoteConnection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('cloudPcFailurePercentage', $this->cloudPcFailurePercentage);
-        $writer->writeFloatValue('cloudPcRoundTripTime', $this->cloudPcRoundTripTime);
-        $writer->writeFloatValue('cloudPcSignInTime', $this->cloudPcSignInTime);
-        $writer->writeFloatValue('coreBootTime', $this->coreBootTime);
-        $writer->writeFloatValue('coreSignInTime', $this->coreSignInTime);
-        $writer->writeIntegerValue('deviceCount', $this->deviceCount);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeFloatValue('remoteSignInTime', $this->remoteSignInTime);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
-        $writer->writeStringValue('virtualNetwork', $this->virtualNetwork);
+        $writer->writeFloatValue('cloudPcFailurePercentage', $this->getCloudPcFailurePercentage());
+        $writer->writeFloatValue('cloudPcRoundTripTime', $this->getCloudPcRoundTripTime());
+        $writer->writeFloatValue('cloudPcSignInTime', $this->getCloudPcSignInTime());
+        $writer->writeFloatValue('coreBootTime', $this->getCoreBootTime());
+        $writer->writeFloatValue('coreSignInTime', $this->getCoreSignInTime());
+        $writer->writeIntegerValue('deviceCount', $this->getDeviceCount());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeFloatValue('remoteSignInTime', $this->getRemoteSignInTime());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
+        $writer->writeStringValue('virtualNetwork', $this->getVirtualNetwork());
     }
 
     /**
      * Sets the cloudPcFailurePercentage property value. The sign in failure percentage of Cloud PC Device. Valid values 0 to 100
      *  @param float|null $value Value to set for the cloudPcFailurePercentage property.
     */
-    public function setCloudPcFailurePercentage(?float $value ): void {
-        $this->cloudPcFailurePercentage = $value;
+    public function setCloudPcFailurePercentage(?float $value): void {
+        $this->getBackingStore()->set('cloudPcFailurePercentage', $value);
     }
 
     /**
      * Sets the cloudPcRoundTripTime property value. The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the cloudPcRoundTripTime property.
     */
-    public function setCloudPcRoundTripTime(?float $value ): void {
-        $this->cloudPcRoundTripTime = $value;
+    public function setCloudPcRoundTripTime(?float $value): void {
+        $this->getBackingStore()->set('cloudPcRoundTripTime', $value);
     }
 
     /**
      * Sets the cloudPcSignInTime property value. The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the cloudPcSignInTime property.
     */
-    public function setCloudPcSignInTime(?float $value ): void {
-        $this->cloudPcSignInTime = $value;
+    public function setCloudPcSignInTime(?float $value): void {
+        $this->getBackingStore()->set('cloudPcSignInTime', $value);
     }
 
     /**
      * Sets the coreBootTime property value. The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the coreBootTime property.
     */
-    public function setCoreBootTime(?float $value ): void {
-        $this->coreBootTime = $value;
+    public function setCoreBootTime(?float $value): void {
+        $this->getBackingStore()->set('coreBootTime', $value);
     }
 
     /**
      * Sets the coreSignInTime property value. The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the coreSignInTime property.
     */
-    public function setCoreSignInTime(?float $value ): void {
-        $this->coreSignInTime = $value;
+    public function setCoreSignInTime(?float $value): void {
+        $this->getBackingStore()->set('coreSignInTime', $value);
     }
 
     /**
      * Sets the deviceCount property value. The count of remote connection. Valid values 0 to 2147483647
      *  @param int|null $value Value to set for the deviceCount property.
     */
-    public function setDeviceCount(?int $value ): void {
-        $this->deviceCount = $value;
+    public function setDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('deviceCount', $value);
     }
 
     /**
      * Sets the deviceId property value. The id of the device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the deviceName property value. The name of the device.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the manufacturer property value. The user experience analytics manufacturer.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The user experience analytics device model.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the remoteSignInTime property value. The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the remoteSignInTime property.
     */
-    public function setRemoteSignInTime(?float $value ): void {
-        $this->remoteSignInTime = $value;
+    public function setRemoteSignInTime(?float $value): void {
+        $this->getBackingStore()->set('remoteSignInTime', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user experience analytics userPrincipalName.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
     /**
      * Sets the virtualNetwork property value. The user experience analytics virtual network.
      *  @param string|null $value Value to set for the virtualNetwork property.
     */
-    public function setVirtualNetwork(?string $value ): void {
-        $this->virtualNetwork = $value;
+    public function setVirtualNetwork(?string $value): void {
+        $this->getBackingStore()->set('virtualNetwork', $value);
     }
 
 }

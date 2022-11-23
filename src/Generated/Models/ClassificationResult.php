@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ClassificationResult implements AdditionalDataHolder, Parsable 
+class ClassificationResult implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $confidenceLevel The confidence level, 0 to 100, of the result.
-    */
-    private ?int $confidenceLevel = null;
-    
-    /**
-     * @var int|null $count The number of instances of the specific information type in the input.
-    */
-    private ?int $count = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $sensitiveTypeId The GUID of the discovered sensitive information type.
-    */
-    private ?string $sensitiveTypeId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new classificationResult and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.classificationResult');
     }
 
     /**
@@ -55,8 +38,16 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getConfidenceLevel(): ?int {
-        return $this->confidenceLevel;
+        return $this->getBackingStore()->get('confidenceLevel');
     }
 
     /**
@@ -72,7 +63,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCount(): ?int {
-        return $this->count;
+        return $this->getBackingStore()->get('count');
     }
 
     /**
@@ -94,7 +85,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSensitiveTypeId(): ?string {
-        return $this->sensitiveTypeId;
+        return $this->getBackingStore()->get('sensitiveTypeId');
     }
 
     /**
@@ -110,51 +101,59 @@ class ClassificationResult implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('confidenceLevel', $this->confidenceLevel);
-        $writer->writeIntegerValue('count', $this->count);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('sensitiveTypeId', $this->sensitiveTypeId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('confidenceLevel', $this->getConfidenceLevel());
+        $writer->writeIntegerValue('count', $this->getCount());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('sensitiveTypeId', $this->getSensitiveTypeId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the confidenceLevel property value. The confidence level, 0 to 100, of the result.
      *  @param int|null $value Value to set for the confidenceLevel property.
     */
-    public function setConfidenceLevel(?int $value ): void {
-        $this->confidenceLevel = $value;
+    public function setConfidenceLevel(?int $value): void {
+        $this->getBackingStore()->set('confidenceLevel', $value);
     }
 
     /**
      * Sets the count property value. The number of instances of the specific information type in the input.
      *  @param int|null $value Value to set for the count property.
     */
-    public function setCount(?int $value ): void {
-        $this->count = $value;
+    public function setCount(?int $value): void {
+        $this->getBackingStore()->set('count', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the sensitiveTypeId property value. The GUID of the discovered sensitive information type.
      *  @param string|null $value Value to set for the sensitiveTypeId property.
     */
-    public function setSensitiveTypeId(?string $value ): void {
-        $this->sensitiveTypeId = $value;
+    public function setSensitiveTypeId(?string $value): void {
+        $this->getBackingStore()->set('sensitiveTypeId', $value);
     }
 
 }

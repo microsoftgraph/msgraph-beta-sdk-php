@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingEvent implements Parsable 
 {
     /**
-     * @var string|null $tokenId Apple Volume Purchase Program Token Identifier.
-    */
-    private ?string $tokenId = null;
-    
-    /**
      * Instantiates a new AppleVppTokenTroubleshootingEvent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.appleVppTokenTroubleshootingEvent');
     }
 
     /**
@@ -46,7 +40,7 @@ class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingE
      * @return string|null
     */
     public function getTokenId(): ?string {
-        return $this->tokenId;
+        return $this->getBackingStore()->get('tokenId');
     }
 
     /**
@@ -55,15 +49,15 @@ class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingE
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('tokenId', $this->tokenId);
+        $writer->writeStringValue('tokenId', $this->getTokenId());
     }
 
     /**
      * Sets the tokenId property value. Apple Volume Purchase Program Token Identifier.
      *  @param string|null $value Value to set for the tokenId property.
     */
-    public function setTokenId(?string $value ): void {
-        $this->tokenId = $value;
+    public function setTokenId(?string $value): void {
+        $this->getBackingStore()->set('tokenId', $value);
     }
 
 }

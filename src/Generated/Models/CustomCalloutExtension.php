@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CustomCalloutExtension extends Entity implements Parsable 
 {
     /**
-     * @var CustomExtensionAuthenticationConfiguration|null $authenticationConfiguration Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow.
-    */
-    private ?CustomExtensionAuthenticationConfiguration $authenticationConfiguration = null;
-    
-    /**
-     * @var CustomExtensionClientConfiguration|null $clientConfiguration HTTP connection settings that define how long Azure AD can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed.
-    */
-    private ?CustomExtensionClientConfiguration $clientConfiguration = null;
-    
-    /**
-     * @var string|null $description Description for the customCalloutExtension object.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name for the customCalloutExtension object.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var CustomExtensionEndpointConfiguration|null $endpointConfiguration The type and details for configuring the endpoint to call the logic app's workflow.
-    */
-    private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
-    
-    /**
      * Instantiates a new customCalloutExtension and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.customCalloutExtension');
     }
 
     /**
@@ -65,7 +39,7 @@ class CustomCalloutExtension extends Entity implements Parsable
      * @return CustomExtensionAuthenticationConfiguration|null
     */
     public function getAuthenticationConfiguration(): ?CustomExtensionAuthenticationConfiguration {
-        return $this->authenticationConfiguration;
+        return $this->getBackingStore()->get('authenticationConfiguration');
     }
 
     /**
@@ -73,7 +47,7 @@ class CustomCalloutExtension extends Entity implements Parsable
      * @return CustomExtensionClientConfiguration|null
     */
     public function getClientConfiguration(): ?CustomExtensionClientConfiguration {
-        return $this->clientConfiguration;
+        return $this->getBackingStore()->get('clientConfiguration');
     }
 
     /**
@@ -81,7 +55,7 @@ class CustomCalloutExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -89,7 +63,7 @@ class CustomCalloutExtension extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -97,7 +71,7 @@ class CustomCalloutExtension extends Entity implements Parsable
      * @return CustomExtensionEndpointConfiguration|null
     */
     public function getEndpointConfiguration(): ?CustomExtensionEndpointConfiguration {
-        return $this->endpointConfiguration;
+        return $this->getBackingStore()->get('endpointConfiguration');
     }
 
     /**
@@ -121,51 +95,51 @@ class CustomCalloutExtension extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('authenticationConfiguration', $this->authenticationConfiguration);
-        $writer->writeObjectValue('clientConfiguration', $this->clientConfiguration);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('endpointConfiguration', $this->endpointConfiguration);
+        $writer->writeObjectValue('authenticationConfiguration', $this->getAuthenticationConfiguration());
+        $writer->writeObjectValue('clientConfiguration', $this->getClientConfiguration());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('endpointConfiguration', $this->getEndpointConfiguration());
     }
 
     /**
      * Sets the authenticationConfiguration property value. Configuration for securing the API call to the logic app. For example, using OAuth client credentials flow.
      *  @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
     */
-    public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value ): void {
-        $this->authenticationConfiguration = $value;
+    public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value): void {
+        $this->getBackingStore()->set('authenticationConfiguration', $value);
     }
 
     /**
      * Sets the clientConfiguration property value. HTTP connection settings that define how long Azure AD can wait for a connection to a logic app, how many times you can retry a timed-out connection and the exception scenarios when retries are allowed.
      *  @param CustomExtensionClientConfiguration|null $value Value to set for the clientConfiguration property.
     */
-    public function setClientConfiguration(?CustomExtensionClientConfiguration $value ): void {
-        $this->clientConfiguration = $value;
+    public function setClientConfiguration(?CustomExtensionClientConfiguration $value): void {
+        $this->getBackingStore()->set('clientConfiguration', $value);
     }
 
     /**
      * Sets the description property value. Description for the customCalloutExtension object.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name for the customCalloutExtension object.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the endpointConfiguration property value. The type and details for configuring the endpoint to call the logic app's workflow.
      *  @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
     */
-    public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value ): void {
-        $this->endpointConfiguration = $value;
+    public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value): void {
+        $this->getBackingStore()->set('endpointConfiguration', $value);
     }
 
 }

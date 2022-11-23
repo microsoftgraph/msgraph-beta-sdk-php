@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable 
+class CompanyPortalBlockedAction implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var CompanyPortalAction|null $action Action on a device that can be executed in the Company Portal
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?CompanyPortalAction $action = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var OwnerType|null $ownerType Owner type of device.
-    */
-    private ?OwnerType $ownerType = null;
-    
-    /**
-     * @var DevicePlatformType|null $platform Supported platform types.
-    */
-    private ?DevicePlatformType $platform = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new companyPortalBlockedAction and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.companyPortalBlockedAction');
     }
 
     /**
@@ -56,15 +39,23 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @return CompanyPortalAction|null
     */
     public function getAction(): ?CompanyPortalAction {
-        return $this->action;
+        return $this->getBackingStore()->get('action');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -86,7 +77,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -94,7 +85,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @return OwnerType|null
     */
     public function getOwnerType(): ?OwnerType {
-        return $this->ownerType;
+        return $this->getBackingStore()->get('ownerType');
     }
 
     /**
@@ -102,7 +93,7 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @return DevicePlatformType|null
     */
     public function getPlatform(): ?DevicePlatformType {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -110,51 +101,59 @@ class CompanyPortalBlockedAction implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('action', $this->action);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('ownerType', $this->ownerType);
-        $writer->writeEnumValue('platform', $this->platform);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('action', $this->getAction());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('ownerType', $this->getOwnerType());
+        $writer->writeEnumValue('platform', $this->getPlatform());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the action property value. Action on a device that can be executed in the Company Portal
      *  @param CompanyPortalAction|null $value Value to set for the action property.
     */
-    public function setAction(?CompanyPortalAction $value ): void {
-        $this->action = $value;
+    public function setAction(?CompanyPortalAction $value): void {
+        $this->getBackingStore()->set('action', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the ownerType property value. Owner type of device.
      *  @param OwnerType|null $value Value to set for the ownerType property.
     */
-    public function setOwnerType(?OwnerType $value ): void {
-        $this->ownerType = $value;
+    public function setOwnerType(?OwnerType $value): void {
+        $this->getBackingStore()->set('ownerType', $value);
     }
 
     /**
      * Sets the platform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the platform property.
     */
-    public function setPlatform(?DevicePlatformType $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
 }

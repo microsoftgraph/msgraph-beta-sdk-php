@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Parsable 
 {
     /**
-     * @var string|null $groupId The groupId property
-    */
-    private ?string $groupId = null;
-    
-    /**
      * Instantiates a new GroupMembershipGovernanceCriteria and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Pa
      * @return string|null
     */
     public function getGroupId(): ?string {
-        return $this->groupId;
+        return $this->getBackingStore()->get('groupId');
     }
 
     /**
@@ -55,15 +50,15 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('groupId', $this->groupId);
+        $writer->writeStringValue('groupId', $this->getGroupId());
     }
 
     /**
      * Sets the groupId property value. The groupId property
      *  @param string|null $value Value to set for the groupId property.
     */
-    public function setGroupId(?string $value ): void {
-        $this->groupId = $value;
+    public function setGroupId(?string $value): void {
+        $this->getBackingStore()->set('groupId', $value);
     }
 
 }

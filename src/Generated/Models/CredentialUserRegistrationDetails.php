@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUserRegistrationDetails extends Entity implements Parsable 
 {
     /**
-     * @var array<RegistrationAuthMethod>|null $authMethods Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
-    */
-    private ?array $authMethods = null;
-    
-    /**
-     * @var bool|null $isCapable Indicates whether the user is ready to perform self-service password reset or MFA.
-    */
-    private ?bool $isCapable = null;
-    
-    /**
-     * @var bool|null $isEnabled Indicates whether the user enabled to perform self-service password reset.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var bool|null $isMfaRegistered Indicates whether the user is registered for MFA.
-    */
-    private ?bool $isMfaRegistered = null;
-    
-    /**
-     * @var bool|null $isRegistered Indicates whether the user has registered any authentication methods for self-service password reset.
-    */
-    private ?bool $isRegistered = null;
-    
-    /**
-     * @var string|null $userDisplayName Provides the user name of the corresponding user.
-    */
-    private ?string $userDisplayName = null;
-    
-    /**
-     * @var string|null $userPrincipalName Provides the user principal name of the corresponding user.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new CredentialUserRegistrationDetails and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.credentialUserRegistrationDetails');
     }
 
     /**
@@ -65,7 +29,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return array<RegistrationAuthMethod>|null
     */
     public function getAuthMethods(): ?array {
-        return $this->authMethods;
+        return $this->getBackingStore()->get('authMethods');
     }
 
     /**
@@ -90,7 +54,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsCapable(): ?bool {
-        return $this->isCapable;
+        return $this->getBackingStore()->get('isCapable');
     }
 
     /**
@@ -98,7 +62,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -106,7 +70,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsMfaRegistered(): ?bool {
-        return $this->isMfaRegistered;
+        return $this->getBackingStore()->get('isMfaRegistered');
     }
 
     /**
@@ -114,7 +78,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRegistered(): ?bool {
-        return $this->isRegistered;
+        return $this->getBackingStore()->get('isRegistered');
     }
 
     /**
@@ -122,7 +86,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->userDisplayName;
+        return $this->getBackingStore()->get('userDisplayName');
     }
 
     /**
@@ -130,7 +94,7 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -139,69 +103,69 @@ class CredentialUserRegistrationDetails extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfEnumValues('authMethods', $this->authMethods);
-        $writer->writeBooleanValue('isCapable', $this->isCapable);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeBooleanValue('isMfaRegistered', $this->isMfaRegistered);
-        $writer->writeBooleanValue('isRegistered', $this->isRegistered);
-        $writer->writeStringValue('userDisplayName', $this->userDisplayName);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeCollectionOfEnumValues('authMethods', $this->getAuthMethods());
+        $writer->writeBooleanValue('isCapable', $this->getIsCapable());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeBooleanValue('isMfaRegistered', $this->getIsMfaRegistered());
+        $writer->writeBooleanValue('isRegistered', $this->getIsRegistered());
+        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the authMethods property value. Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.
      *  @param array<RegistrationAuthMethod>|null $value Value to set for the authMethods property.
     */
-    public function setAuthMethods(?array $value ): void {
-        $this->authMethods = $value;
+    public function setAuthMethods(?array $value): void {
+        $this->getBackingStore()->set('authMethods', $value);
     }
 
     /**
      * Sets the isCapable property value. Indicates whether the user is ready to perform self-service password reset or MFA.
      *  @param bool|null $value Value to set for the isCapable property.
     */
-    public function setIsCapable(?bool $value ): void {
-        $this->isCapable = $value;
+    public function setIsCapable(?bool $value): void {
+        $this->getBackingStore()->set('isCapable', $value);
     }
 
     /**
      * Sets the isEnabled property value. Indicates whether the user enabled to perform self-service password reset.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the isMfaRegistered property value. Indicates whether the user is registered for MFA.
      *  @param bool|null $value Value to set for the isMfaRegistered property.
     */
-    public function setIsMfaRegistered(?bool $value ): void {
-        $this->isMfaRegistered = $value;
+    public function setIsMfaRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isMfaRegistered', $value);
     }
 
     /**
      * Sets the isRegistered property value. Indicates whether the user has registered any authentication methods for self-service password reset.
      *  @param bool|null $value Value to set for the isRegistered property.
     */
-    public function setIsRegistered(?bool $value ): void {
-        $this->isRegistered = $value;
+    public function setIsRegistered(?bool $value): void {
+        $this->getBackingStore()->set('isRegistered', $value);
     }
 
     /**
      * Sets the userDisplayName property value. Provides the user name of the corresponding user.
      *  @param string|null $value Value to set for the userDisplayName property.
     */
-    public function setUserDisplayName(?string $value ): void {
-        $this->userDisplayName = $value;
+    public function setUserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('userDisplayName', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. Provides the user principal name of the corresponding user.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

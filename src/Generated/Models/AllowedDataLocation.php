@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllowedDataLocation extends Entity implements Parsable 
 {
     /**
-     * @var string|null $appId The appId property
-    */
-    private ?string $appId = null;
-    
-    /**
-     * @var string|null $domain The domain property
-    */
-    private ?string $domain = null;
-    
-    /**
-     * @var bool|null $isDefault The isDefault property
-    */
-    private ?bool $isDefault = null;
-    
-    /**
-     * @var string|null $location The location property
-    */
-    private ?string $location = null;
-    
-    /**
      * Instantiates a new allowedDataLocation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.allowedDataLocation');
     }
 
     /**
@@ -50,7 +29,7 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getAppId(): ?string {
-        return $this->appId;
+        return $this->getBackingStore()->get('appId');
     }
 
     /**
@@ -58,7 +37,7 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getDomain(): ?string {
-        return $this->domain;
+        return $this->getBackingStore()->get('domain');
     }
 
     /**
@@ -80,7 +59,7 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefault(): ?bool {
-        return $this->isDefault;
+        return $this->getBackingStore()->get('isDefault');
     }
 
     /**
@@ -88,7 +67,7 @@ class AllowedDataLocation extends Entity implements Parsable
      * @return string|null
     */
     public function getLocation(): ?string {
-        return $this->location;
+        return $this->getBackingStore()->get('location');
     }
 
     /**
@@ -97,42 +76,42 @@ class AllowedDataLocation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appId', $this->appId);
-        $writer->writeStringValue('domain', $this->domain);
-        $writer->writeBooleanValue('isDefault', $this->isDefault);
-        $writer->writeStringValue('location', $this->location);
+        $writer->writeStringValue('appId', $this->getAppId());
+        $writer->writeStringValue('domain', $this->getDomain());
+        $writer->writeBooleanValue('isDefault', $this->getIsDefault());
+        $writer->writeStringValue('location', $this->getLocation());
     }
 
     /**
      * Sets the appId property value. The appId property
      *  @param string|null $value Value to set for the appId property.
     */
-    public function setAppId(?string $value ): void {
-        $this->appId = $value;
+    public function setAppId(?string $value): void {
+        $this->getBackingStore()->set('appId', $value);
     }
 
     /**
      * Sets the domain property value. The domain property
      *  @param string|null $value Value to set for the domain property.
     */
-    public function setDomain(?string $value ): void {
-        $this->domain = $value;
+    public function setDomain(?string $value): void {
+        $this->getBackingStore()->set('domain', $value);
     }
 
     /**
      * Sets the isDefault property value. The isDefault property
      *  @param bool|null $value Value to set for the isDefault property.
     */
-    public function setIsDefault(?bool $value ): void {
-        $this->isDefault = $value;
+    public function setIsDefault(?bool $value): void {
+        $this->getBackingStore()->set('isDefault', $value);
     }
 
     /**
      * Sets the location property value. The location property
      *  @param string|null $value Value to set for the location property.
     */
-    public function setLocation(?string $value ): void {
-        $this->location = $value;
+    public function setLocation(?string $value): void {
+        $this->getBackingStore()->set('location', $value);
     }
 
 }

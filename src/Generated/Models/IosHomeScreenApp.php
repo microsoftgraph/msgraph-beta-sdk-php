@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosHomeScreenApp extends IosHomeScreenItem implements Parsable 
 {
     /**
-     * @var string|null $bundleID BundleID of the app if isWebClip is false or the URL of a web clip if isWebClip is true.
-    */
-    private ?string $bundleID = null;
-    
-    /**
-     * @var bool|null $isWebClip When true, the bundle ID will be handled as a URL for a web clip.
-    */
-    private ?bool $isWebClip = null;
-    
-    /**
      * Instantiates a new IosHomeScreenApp and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
      * @return string|null
     */
     public function getBundleID(): ?string {
-        return $this->bundleID;
+        return $this->getBackingStore()->get('bundleID');
     }
 
     /**
@@ -60,7 +50,7 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
      * @return bool|null
     */
     public function getIsWebClip(): ?bool {
-        return $this->isWebClip;
+        return $this->getBackingStore()->get('isWebClip');
     }
 
     /**
@@ -69,24 +59,24 @@ class IosHomeScreenApp extends IosHomeScreenItem implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('bundleID', $this->bundleID);
-        $writer->writeBooleanValue('isWebClip', $this->isWebClip);
+        $writer->writeStringValue('bundleID', $this->getBundleID());
+        $writer->writeBooleanValue('isWebClip', $this->getIsWebClip());
     }
 
     /**
      * Sets the bundleID property value. BundleID of the app if isWebClip is false or the URL of a web clip if isWebClip is true.
      *  @param string|null $value Value to set for the bundleID property.
     */
-    public function setBundleID(?string $value ): void {
-        $this->bundleID = $value;
+    public function setBundleID(?string $value): void {
+        $this->getBackingStore()->set('bundleID', $value);
     }
 
     /**
      * Sets the isWebClip property value. When true, the bundle ID will be handled as a URL for a web clip.
      *  @param bool|null $value Value to set for the isWebClip property.
     */
-    public function setIsWebClip(?bool $value ): void {
-        $this->isWebClip = $value;
+    public function setIsWebClip(?bool $value): void {
+        $this->getBackingStore()->set('isWebClip', $value);
     }
 
 }

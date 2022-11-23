@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TermsAndConditionsGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $targetGroupId Unique identifier of a group that the T&C policy is assigned to.
-    */
-    private ?string $targetGroupId = null;
-    
-    /**
-     * @var TermsAndConditions|null $termsAndConditions Navigation link to the terms and conditions that are assigned.
-    */
-    private ?TermsAndConditions $termsAndConditions = null;
-    
-    /**
      * Instantiates a new termsAndConditionsGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.termsAndConditionsGroupAssignment');
     }
 
     /**
@@ -52,7 +41,7 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->targetGroupId;
+        return $this->getBackingStore()->get('targetGroupId');
     }
 
     /**
@@ -60,7 +49,7 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
      * @return TermsAndConditions|null
     */
     public function getTermsAndConditions(): ?TermsAndConditions {
-        return $this->termsAndConditions;
+        return $this->getBackingStore()->get('termsAndConditions');
     }
 
     /**
@@ -69,24 +58,24 @@ class TermsAndConditionsGroupAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetGroupId', $this->targetGroupId);
-        $writer->writeObjectValue('termsAndConditions', $this->termsAndConditions);
+        $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
+        $writer->writeObjectValue('termsAndConditions', $this->getTermsAndConditions());
     }
 
     /**
      * Sets the targetGroupId property value. Unique identifier of a group that the T&C policy is assigned to.
      *  @param string|null $value Value to set for the targetGroupId property.
     */
-    public function setTargetGroupId(?string $value ): void {
-        $this->targetGroupId = $value;
+    public function setTargetGroupId(?string $value): void {
+        $this->getBackingStore()->set('targetGroupId', $value);
     }
 
     /**
      * Sets the termsAndConditions property value. Navigation link to the terms and conditions that are assigned.
      *  @param TermsAndConditions|null $value Value to set for the termsAndConditions property.
     */
-    public function setTermsAndConditions(?TermsAndConditions $value ): void {
-        $this->termsAndConditions = $value;
+    public function setTermsAndConditions(?TermsAndConditions $value): void {
+        $this->getBackingStore()->set('termsAndConditions', $value);
     }
 
 }

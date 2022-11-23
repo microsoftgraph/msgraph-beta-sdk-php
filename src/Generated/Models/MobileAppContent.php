@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MobileAppContent extends Entity implements Parsable 
 {
     /**
-     * @var array<MobileContainedApp>|null $containedApps The collection of contained apps in a MobileLobApp acting as a package.
-    */
-    private ?array $containedApps = null;
-    
-    /**
-     * @var array<MobileAppContentFile>|null $files The list of files for this app content version.
-    */
-    private ?array $files = null;
-    
-    /**
      * Instantiates a new mobileAppContent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.mobileAppContent');
     }
 
     /**
@@ -40,7 +29,7 @@ class MobileAppContent extends Entity implements Parsable
      * @return array<MobileContainedApp>|null
     */
     public function getContainedApps(): ?array {
-        return $this->containedApps;
+        return $this->getBackingStore()->get('containedApps');
     }
 
     /**
@@ -60,7 +49,7 @@ class MobileAppContent extends Entity implements Parsable
      * @return array<MobileAppContentFile>|null
     */
     public function getFiles(): ?array {
-        return $this->files;
+        return $this->getBackingStore()->get('files');
     }
 
     /**
@@ -69,24 +58,24 @@ class MobileAppContent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('containedApps', $this->containedApps);
-        $writer->writeCollectionOfObjectValues('files', $this->files);
+        $writer->writeCollectionOfObjectValues('containedApps', $this->getContainedApps());
+        $writer->writeCollectionOfObjectValues('files', $this->getFiles());
     }
 
     /**
      * Sets the containedApps property value. The collection of contained apps in a MobileLobApp acting as a package.
      *  @param array<MobileContainedApp>|null $value Value to set for the containedApps property.
     */
-    public function setContainedApps(?array $value ): void {
-        $this->containedApps = $value;
+    public function setContainedApps(?array $value): void {
+        $this->getBackingStore()->set('containedApps', $value);
     }
 
     /**
      * Sets the files property value. The list of files for this app content version.
      *  @param array<MobileAppContentFile>|null $value Value to set for the files property.
     */
-    public function setFiles(?array $value ): void {
-        $this->files = $value;
+    public function setFiles(?array $value): void {
+        $this->getBackingStore()->set('files', $value);
     }
 
 }

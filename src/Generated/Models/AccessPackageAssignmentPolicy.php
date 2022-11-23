@@ -10,96 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageAssignmentPolicy extends Entity implements Parsable 
 {
     /**
-     * @var AccessPackage|null $accessPackage The access package with this policy. Read-only. Nullable. Supports $expand.
-    */
-    private ?AccessPackage $accessPackage = null;
-    
-    /**
-     * @var AccessPackageCatalog|null $accessPackageCatalog The accessPackageCatalog property
-    */
-    private ?AccessPackageCatalog $accessPackageCatalog = null;
-    
-    /**
-     * @var string|null $accessPackageId Identifier of the access package.
-    */
-    private ?string $accessPackageId = null;
-    
-    /**
-     * @var AssignmentReviewSettings|null $accessReviewSettings Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews are not required.
-    */
-    private ?AssignmentReviewSettings $accessReviewSettings = null;
-    
-    /**
-     * @var bool|null $canExtend Indicates whether a user can extend the access package assignment duration after approval.
-    */
-    private ?bool $canExtend = null;
-    
-    /**
-     * @var string|null $createdBy The createdBy property
-    */
-    private ?string $createdBy = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var array<CustomExtensionHandler>|null $customExtensionHandlers The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
-    */
-    private ?array $customExtensionHandlers = null;
-    
-    /**
-     * @var string|null $description The description of the policy.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the policy. Supports $filter (eq).
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $durationInDays The number of days in which assignments from this policy last until they are expired.
-    */
-    private ?int $durationInDays = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime The expiration date for assignments created in this policy. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var string|null $modifiedBy The modifiedBy property
-    */
-    private ?string $modifiedBy = null;
-    
-    /**
-     * @var DateTime|null $modifiedDateTime The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    */
-    private ?DateTime $modifiedDateTime = null;
-    
-    /**
-     * @var array<AccessPackageQuestion>|null $questions Questions that are posed to the  requestor.
-    */
-    private ?array $questions = null;
-    
-    /**
-     * @var ApprovalSettings|null $requestApprovalSettings Who must approve requests for access package in this policy.
-    */
-    private ?ApprovalSettings $requestApprovalSettings = null;
-    
-    /**
-     * @var RequestorSettings|null $requestorSettings Who can request this access package from this policy.
-    */
-    private ?RequestorSettings $requestorSettings = null;
-    
-    /**
      * Instantiates a new accessPackageAssignmentPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessPackageAssignmentPolicy');
     }
 
     /**
@@ -116,7 +30,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return AccessPackage|null
     */
     public function getAccessPackage(): ?AccessPackage {
-        return $this->accessPackage;
+        return $this->getBackingStore()->get('accessPackage');
     }
 
     /**
@@ -124,7 +38,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return AccessPackageCatalog|null
     */
     public function getAccessPackageCatalog(): ?AccessPackageCatalog {
-        return $this->accessPackageCatalog;
+        return $this->getBackingStore()->get('accessPackageCatalog');
     }
 
     /**
@@ -132,7 +46,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getAccessPackageId(): ?string {
-        return $this->accessPackageId;
+        return $this->getBackingStore()->get('accessPackageId');
     }
 
     /**
@@ -140,7 +54,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return AssignmentReviewSettings|null
     */
     public function getAccessReviewSettings(): ?AssignmentReviewSettings {
-        return $this->accessReviewSettings;
+        return $this->getBackingStore()->get('accessReviewSettings');
     }
 
     /**
@@ -148,7 +62,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getCanExtend(): ?bool {
-        return $this->canExtend;
+        return $this->getBackingStore()->get('canExtend');
     }
 
     /**
@@ -156,7 +70,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedBy(): ?string {
-        return $this->createdBy;
+        return $this->getBackingStore()->get('createdBy');
     }
 
     /**
@@ -164,7 +78,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -172,7 +86,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return array<CustomExtensionHandler>|null
     */
     public function getCustomExtensionHandlers(): ?array {
-        return $this->customExtensionHandlers;
+        return $this->getBackingStore()->get('customExtensionHandlers');
     }
 
     /**
@@ -180,7 +94,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -188,7 +102,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -196,7 +110,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return int|null
     */
     public function getDurationInDays(): ?int {
-        return $this->durationInDays;
+        return $this->getBackingStore()->get('durationInDays');
     }
 
     /**
@@ -204,7 +118,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -239,7 +153,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getModifiedBy(): ?string {
-        return $this->modifiedBy;
+        return $this->getBackingStore()->get('modifiedBy');
     }
 
     /**
@@ -247,7 +161,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getModifiedDateTime(): ?DateTime {
-        return $this->modifiedDateTime;
+        return $this->getBackingStore()->get('modifiedDateTime');
     }
 
     /**
@@ -255,7 +169,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return array<AccessPackageQuestion>|null
     */
     public function getQuestions(): ?array {
-        return $this->questions;
+        return $this->getBackingStore()->get('questions');
     }
 
     /**
@@ -263,7 +177,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return ApprovalSettings|null
     */
     public function getRequestApprovalSettings(): ?ApprovalSettings {
-        return $this->requestApprovalSettings;
+        return $this->getBackingStore()->get('requestApprovalSettings');
     }
 
     /**
@@ -271,7 +185,7 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
      * @return RequestorSettings|null
     */
     public function getRequestorSettings(): ?RequestorSettings {
-        return $this->requestorSettings;
+        return $this->getBackingStore()->get('requestorSettings');
     }
 
     /**
@@ -280,159 +194,159 @@ class AccessPackageAssignmentPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('accessPackage', $this->accessPackage);
-        $writer->writeObjectValue('accessPackageCatalog', $this->accessPackageCatalog);
-        $writer->writeStringValue('accessPackageId', $this->accessPackageId);
-        $writer->writeObjectValue('accessReviewSettings', $this->accessReviewSettings);
-        $writer->writeBooleanValue('canExtend', $this->canExtend);
-        $writer->writeStringValue('createdBy', $this->createdBy);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeCollectionOfObjectValues('customExtensionHandlers', $this->customExtensionHandlers);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('durationInDays', $this->durationInDays);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeStringValue('modifiedBy', $this->modifiedBy);
-        $writer->writeDateTimeValue('modifiedDateTime', $this->modifiedDateTime);
-        $writer->writeCollectionOfObjectValues('questions', $this->questions);
-        $writer->writeObjectValue('requestApprovalSettings', $this->requestApprovalSettings);
-        $writer->writeObjectValue('requestorSettings', $this->requestorSettings);
+        $writer->writeObjectValue('accessPackage', $this->getAccessPackage());
+        $writer->writeObjectValue('accessPackageCatalog', $this->getAccessPackageCatalog());
+        $writer->writeStringValue('accessPackageId', $this->getAccessPackageId());
+        $writer->writeObjectValue('accessReviewSettings', $this->getAccessReviewSettings());
+        $writer->writeBooleanValue('canExtend', $this->getCanExtend());
+        $writer->writeStringValue('createdBy', $this->getCreatedBy());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeCollectionOfObjectValues('customExtensionHandlers', $this->getCustomExtensionHandlers());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('durationInDays', $this->getDurationInDays());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeStringValue('modifiedBy', $this->getModifiedBy());
+        $writer->writeDateTimeValue('modifiedDateTime', $this->getModifiedDateTime());
+        $writer->writeCollectionOfObjectValues('questions', $this->getQuestions());
+        $writer->writeObjectValue('requestApprovalSettings', $this->getRequestApprovalSettings());
+        $writer->writeObjectValue('requestorSettings', $this->getRequestorSettings());
     }
 
     /**
      * Sets the accessPackage property value. The access package with this policy. Read-only. Nullable. Supports $expand.
      *  @param AccessPackage|null $value Value to set for the accessPackage property.
     */
-    public function setAccessPackage(?AccessPackage $value ): void {
-        $this->accessPackage = $value;
+    public function setAccessPackage(?AccessPackage $value): void {
+        $this->getBackingStore()->set('accessPackage', $value);
     }
 
     /**
      * Sets the accessPackageCatalog property value. The accessPackageCatalog property
      *  @param AccessPackageCatalog|null $value Value to set for the accessPackageCatalog property.
     */
-    public function setAccessPackageCatalog(?AccessPackageCatalog $value ): void {
-        $this->accessPackageCatalog = $value;
+    public function setAccessPackageCatalog(?AccessPackageCatalog $value): void {
+        $this->getBackingStore()->set('accessPackageCatalog', $value);
     }
 
     /**
      * Sets the accessPackageId property value. Identifier of the access package.
      *  @param string|null $value Value to set for the accessPackageId property.
     */
-    public function setAccessPackageId(?string $value ): void {
-        $this->accessPackageId = $value;
+    public function setAccessPackageId(?string $value): void {
+        $this->getBackingStore()->set('accessPackageId', $value);
     }
 
     /**
      * Sets the accessReviewSettings property value. Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews are not required.
      *  @param AssignmentReviewSettings|null $value Value to set for the accessReviewSettings property.
     */
-    public function setAccessReviewSettings(?AssignmentReviewSettings $value ): void {
-        $this->accessReviewSettings = $value;
+    public function setAccessReviewSettings(?AssignmentReviewSettings $value): void {
+        $this->getBackingStore()->set('accessReviewSettings', $value);
     }
 
     /**
      * Sets the canExtend property value. Indicates whether a user can extend the access package assignment duration after approval.
      *  @param bool|null $value Value to set for the canExtend property.
     */
-    public function setCanExtend(?bool $value ): void {
-        $this->canExtend = $value;
+    public function setCanExtend(?bool $value): void {
+        $this->getBackingStore()->set('canExtend', $value);
     }
 
     /**
      * Sets the createdBy property value. The createdBy property
      *  @param string|null $value Value to set for the createdBy property.
     */
-    public function setCreatedBy(?string $value ): void {
-        $this->createdBy = $value;
+    public function setCreatedBy(?string $value): void {
+        $this->getBackingStore()->set('createdBy', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the customExtensionHandlers property value. The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      *  @param array<CustomExtensionHandler>|null $value Value to set for the customExtensionHandlers property.
     */
-    public function setCustomExtensionHandlers(?array $value ): void {
-        $this->customExtensionHandlers = $value;
+    public function setCustomExtensionHandlers(?array $value): void {
+        $this->getBackingStore()->set('customExtensionHandlers', $value);
     }
 
     /**
      * Sets the description property value. The description of the policy.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the policy. Supports $filter (eq).
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the durationInDays property value. The number of days in which assignments from this policy last until they are expired.
      *  @param int|null $value Value to set for the durationInDays property.
     */
-    public function setDurationInDays(?int $value ): void {
-        $this->durationInDays = $value;
+    public function setDurationInDays(?int $value): void {
+        $this->getBackingStore()->set('durationInDays', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. The expiration date for assignments created in this policy. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the modifiedBy property value. The modifiedBy property
      *  @param string|null $value Value to set for the modifiedBy property.
     */
-    public function setModifiedBy(?string $value ): void {
-        $this->modifiedBy = $value;
+    public function setModifiedBy(?string $value): void {
+        $this->getBackingStore()->set('modifiedBy', $value);
     }
 
     /**
      * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      *  @param DateTime|null $value Value to set for the modifiedDateTime property.
     */
-    public function setModifiedDateTime(?DateTime $value ): void {
-        $this->modifiedDateTime = $value;
+    public function setModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('modifiedDateTime', $value);
     }
 
     /**
      * Sets the questions property value. Questions that are posed to the  requestor.
      *  @param array<AccessPackageQuestion>|null $value Value to set for the questions property.
     */
-    public function setQuestions(?array $value ): void {
-        $this->questions = $value;
+    public function setQuestions(?array $value): void {
+        $this->getBackingStore()->set('questions', $value);
     }
 
     /**
      * Sets the requestApprovalSettings property value. Who must approve requests for access package in this policy.
      *  @param ApprovalSettings|null $value Value to set for the requestApprovalSettings property.
     */
-    public function setRequestApprovalSettings(?ApprovalSettings $value ): void {
-        $this->requestApprovalSettings = $value;
+    public function setRequestApprovalSettings(?ApprovalSettings $value): void {
+        $this->getBackingStore()->set('requestApprovalSettings', $value);
     }
 
     /**
      * Sets the requestorSettings property value. Who can request this access package from this policy.
      *  @param RequestorSettings|null $value Value to set for the requestorSettings property.
     */
-    public function setRequestorSettings(?RequestorSettings $value ): void {
-        $this->requestorSettings = $value;
+    public function setRequestorSettings(?RequestorSettings $value): void {
+        $this->getBackingStore()->set('requestorSettings', $value);
     }
 
 }

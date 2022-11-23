@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WorkPosition extends ItemFacet implements Parsable 
 {
     /**
-     * @var array<string>|null $categories Categories that the user has associated with this position.
-    */
-    private ?array $categories = null;
-    
-    /**
-     * @var array<RelatedPerson>|null $colleagues Colleagues that are associated with this position.
-    */
-    private ?array $colleagues = null;
-    
-    /**
-     * @var PositionDetail|null $detail The detail property
-    */
-    private ?PositionDetail $detail = null;
-    
-    /**
-     * @var bool|null $isCurrent Denotes whether or not the position is current.
-    */
-    private ?bool $isCurrent = null;
-    
-    /**
-     * @var RelatedPerson|null $manager Contains detail of the user's manager in this position.
-    */
-    private ?RelatedPerson $manager = null;
-    
-    /**
      * Instantiates a new WorkPosition and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return array<string>|null
     */
     public function getCategories(): ?array {
-        return $this->categories;
+        return $this->getBackingStore()->get('categories');
     }
 
     /**
@@ -63,7 +38,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return array<RelatedPerson>|null
     */
     public function getColleagues(): ?array {
-        return $this->colleagues;
+        return $this->getBackingStore()->get('colleagues');
     }
 
     /**
@@ -71,7 +46,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return PositionDetail|null
     */
     public function getDetail(): ?PositionDetail {
-        return $this->detail;
+        return $this->getBackingStore()->get('detail');
     }
 
     /**
@@ -94,7 +69,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return bool|null
     */
     public function getIsCurrent(): ?bool {
-        return $this->isCurrent;
+        return $this->getBackingStore()->get('isCurrent');
     }
 
     /**
@@ -102,7 +77,7 @@ class WorkPosition extends ItemFacet implements Parsable
      * @return RelatedPerson|null
     */
     public function getManager(): ?RelatedPerson {
-        return $this->manager;
+        return $this->getBackingStore()->get('manager');
     }
 
     /**
@@ -111,51 +86,51 @@ class WorkPosition extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('categories', $this->categories);
-        $writer->writeCollectionOfObjectValues('colleagues', $this->colleagues);
-        $writer->writeObjectValue('detail', $this->detail);
-        $writer->writeBooleanValue('isCurrent', $this->isCurrent);
-        $writer->writeObjectValue('manager', $this->manager);
+        $writer->writeCollectionOfPrimitiveValues('categories', $this->getCategories());
+        $writer->writeCollectionOfObjectValues('colleagues', $this->getColleagues());
+        $writer->writeObjectValue('detail', $this->getDetail());
+        $writer->writeBooleanValue('isCurrent', $this->getIsCurrent());
+        $writer->writeObjectValue('manager', $this->getManager());
     }
 
     /**
      * Sets the categories property value. Categories that the user has associated with this position.
      *  @param array<string>|null $value Value to set for the categories property.
     */
-    public function setCategories(?array $value ): void {
-        $this->categories = $value;
+    public function setCategories(?array $value): void {
+        $this->getBackingStore()->set('categories', $value);
     }
 
     /**
      * Sets the colleagues property value. Colleagues that are associated with this position.
      *  @param array<RelatedPerson>|null $value Value to set for the colleagues property.
     */
-    public function setColleagues(?array $value ): void {
-        $this->colleagues = $value;
+    public function setColleagues(?array $value): void {
+        $this->getBackingStore()->set('colleagues', $value);
     }
 
     /**
      * Sets the detail property value. The detail property
      *  @param PositionDetail|null $value Value to set for the detail property.
     */
-    public function setDetail(?PositionDetail $value ): void {
-        $this->detail = $value;
+    public function setDetail(?PositionDetail $value): void {
+        $this->getBackingStore()->set('detail', $value);
     }
 
     /**
      * Sets the isCurrent property value. Denotes whether or not the position is current.
      *  @param bool|null $value Value to set for the isCurrent property.
     */
-    public function setIsCurrent(?bool $value ): void {
-        $this->isCurrent = $value;
+    public function setIsCurrent(?bool $value): void {
+        $this->getBackingStore()->set('isCurrent', $value);
     }
 
     /**
      * Sets the manager property value. Contains detail of the user's manager in this position.
      *  @param RelatedPerson|null $value Value to set for the manager property.
     */
-    public function setManager(?RelatedPerson $value ): void {
-        $this->manager = $value;
+    public function setManager(?RelatedPerson $value): void {
+        $this->getBackingStore()->set('manager', $value);
     }
 
 }

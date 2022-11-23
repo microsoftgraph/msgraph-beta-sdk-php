@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AuditUserIdentity extends UserIdentity implements Parsable 
 {
     /**
-     * @var string|null $homeTenantId For user sign ins, the identifier of the tenant that the user is a member of.
-    */
-    private ?string $homeTenantId = null;
-    
-    /**
-     * @var string|null $homeTenantName For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
-    */
-    private ?string $homeTenantName = null;
-    
-    /**
      * Instantiates a new AuditUserIdentity and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
      * @return string|null
     */
     public function getHomeTenantId(): ?string {
-        return $this->homeTenantId;
+        return $this->getBackingStore()->get('homeTenantId');
     }
 
     /**
@@ -60,7 +50,7 @@ class AuditUserIdentity extends UserIdentity implements Parsable
      * @return string|null
     */
     public function getHomeTenantName(): ?string {
-        return $this->homeTenantName;
+        return $this->getBackingStore()->get('homeTenantName');
     }
 
     /**
@@ -69,24 +59,24 @@ class AuditUserIdentity extends UserIdentity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('homeTenantId', $this->homeTenantId);
-        $writer->writeStringValue('homeTenantName', $this->homeTenantName);
+        $writer->writeStringValue('homeTenantId', $this->getHomeTenantId());
+        $writer->writeStringValue('homeTenantName', $this->getHomeTenantName());
     }
 
     /**
      * Sets the homeTenantId property value. For user sign ins, the identifier of the tenant that the user is a member of.
      *  @param string|null $value Value to set for the homeTenantId property.
     */
-    public function setHomeTenantId(?string $value ): void {
-        $this->homeTenantId = $value;
+    public function setHomeTenantId(?string $value): void {
+        $this->getBackingStore()->set('homeTenantId', $value);
     }
 
     /**
      * Sets the homeTenantName property value. For user sign ins, the name of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Azure AD to show the tenant content.
      *  @param string|null $value Value to set for the homeTenantName property.
     */
-    public function setHomeTenantName(?string $value ): void {
-        $this->homeTenantName = $value;
+    public function setHomeTenantName(?string $value): void {
+        $this->getBackingStore()->set('homeTenantName', $value);
     }
 
 }

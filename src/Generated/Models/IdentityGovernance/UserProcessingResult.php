@@ -12,66 +12,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserProcessingResult extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $completedDateTime The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $completedDateTime = null;
-    
-    /**
-     * @var int|null $failedTasksCount The number of tasks that failed in the workflow execution.
-    */
-    private ?int $failedTasksCount = null;
-    
-    /**
-     * @var LifecycleWorkflowProcessingStatus|null $processingStatus The processingStatus property
-    */
-    private ?LifecycleWorkflowProcessingStatus $processingStatus = null;
-    
-    /**
-     * @var DateTime|null $scheduledDateTime The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $scheduledDateTime = null;
-    
-    /**
-     * @var DateTime|null $startedDateTime The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
-    */
-    private ?DateTime $startedDateTime = null;
-    
-    /**
-     * @var User|null $subject The subject property
-    */
-    private ?User $subject = null;
-    
-    /**
-     * @var array<TaskProcessingResult>|null $taskProcessingResults The associated individual task execution.
-    */
-    private ?array $taskProcessingResults = null;
-    
-    /**
-     * @var int|null $totalTasksCount The total number of tasks that in the workflow execution.
-    */
-    private ?int $totalTasksCount = null;
-    
-    /**
-     * @var int|null $totalUnprocessedTasksCount The total number of unprocessed tasks for the workflow.
-    */
-    private ?int $totalUnprocessedTasksCount = null;
-    
-    /**
-     * @var WorkflowExecutionType|null $workflowExecutionType The workflowExecutionType property
-    */
-    private ?WorkflowExecutionType $workflowExecutionType = null;
-    
-    /**
-     * @var int|null $workflowVersion The version of the workflow that was executed.
-    */
-    private ?int $workflowVersion = null;
-    
-    /**
      * Instantiates a new userProcessingResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.identityGovernance.userProcessingResult');
     }
 
     /**
@@ -88,7 +32,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCompletedDateTime(): ?DateTime {
-        return $this->completedDateTime;
+        return $this->getBackingStore()->get('completedDateTime');
     }
 
     /**
@@ -96,7 +40,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedTasksCount(): ?int {
-        return $this->failedTasksCount;
+        return $this->getBackingStore()->get('failedTasksCount');
     }
 
     /**
@@ -125,7 +69,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return LifecycleWorkflowProcessingStatus|null
     */
     public function getProcessingStatus(): ?LifecycleWorkflowProcessingStatus {
-        return $this->processingStatus;
+        return $this->getBackingStore()->get('processingStatus');
     }
 
     /**
@@ -133,7 +77,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getScheduledDateTime(): ?DateTime {
-        return $this->scheduledDateTime;
+        return $this->getBackingStore()->get('scheduledDateTime');
     }
 
     /**
@@ -141,7 +85,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartedDateTime(): ?DateTime {
-        return $this->startedDateTime;
+        return $this->getBackingStore()->get('startedDateTime');
     }
 
     /**
@@ -149,7 +93,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return User|null
     */
     public function getSubject(): ?User {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -157,7 +101,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return array<TaskProcessingResult>|null
     */
     public function getTaskProcessingResults(): ?array {
-        return $this->taskProcessingResults;
+        return $this->getBackingStore()->get('taskProcessingResults');
     }
 
     /**
@@ -165,7 +109,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalTasksCount(): ?int {
-        return $this->totalTasksCount;
+        return $this->getBackingStore()->get('totalTasksCount');
     }
 
     /**
@@ -173,7 +117,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUnprocessedTasksCount(): ?int {
-        return $this->totalUnprocessedTasksCount;
+        return $this->getBackingStore()->get('totalUnprocessedTasksCount');
     }
 
     /**
@@ -181,7 +125,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return WorkflowExecutionType|null
     */
     public function getWorkflowExecutionType(): ?WorkflowExecutionType {
-        return $this->workflowExecutionType;
+        return $this->getBackingStore()->get('workflowExecutionType');
     }
 
     /**
@@ -189,7 +133,7 @@ class UserProcessingResult extends Entity implements Parsable
      * @return int|null
     */
     public function getWorkflowVersion(): ?int {
-        return $this->workflowVersion;
+        return $this->getBackingStore()->get('workflowVersion');
     }
 
     /**
@@ -198,105 +142,105 @@ class UserProcessingResult extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('completedDateTime', $this->completedDateTime);
-        $writer->writeIntegerValue('failedTasksCount', $this->failedTasksCount);
-        $writer->writeEnumValue('processingStatus', $this->processingStatus);
-        $writer->writeDateTimeValue('scheduledDateTime', $this->scheduledDateTime);
-        $writer->writeDateTimeValue('startedDateTime', $this->startedDateTime);
-        $writer->writeObjectValue('subject', $this->subject);
-        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->taskProcessingResults);
-        $writer->writeIntegerValue('totalTasksCount', $this->totalTasksCount);
-        $writer->writeIntegerValue('totalUnprocessedTasksCount', $this->totalUnprocessedTasksCount);
-        $writer->writeEnumValue('workflowExecutionType', $this->workflowExecutionType);
-        $writer->writeIntegerValue('workflowVersion', $this->workflowVersion);
+        $writer->writeDateTimeValue('completedDateTime', $this->getCompletedDateTime());
+        $writer->writeIntegerValue('failedTasksCount', $this->getFailedTasksCount());
+        $writer->writeEnumValue('processingStatus', $this->getProcessingStatus());
+        $writer->writeDateTimeValue('scheduledDateTime', $this->getScheduledDateTime());
+        $writer->writeDateTimeValue('startedDateTime', $this->getStartedDateTime());
+        $writer->writeObjectValue('subject', $this->getSubject());
+        $writer->writeCollectionOfObjectValues('taskProcessingResults', $this->getTaskProcessingResults());
+        $writer->writeIntegerValue('totalTasksCount', $this->getTotalTasksCount());
+        $writer->writeIntegerValue('totalUnprocessedTasksCount', $this->getTotalUnprocessedTasksCount());
+        $writer->writeEnumValue('workflowExecutionType', $this->getWorkflowExecutionType());
+        $writer->writeIntegerValue('workflowVersion', $this->getWorkflowVersion());
     }
 
     /**
      * Sets the completedDateTime property value. The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the completedDateTime property.
     */
-    public function setCompletedDateTime(?DateTime $value ): void {
-        $this->completedDateTime = $value;
+    public function setCompletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completedDateTime', $value);
     }
 
     /**
      * Sets the failedTasksCount property value. The number of tasks that failed in the workflow execution.
      *  @param int|null $value Value to set for the failedTasksCount property.
     */
-    public function setFailedTasksCount(?int $value ): void {
-        $this->failedTasksCount = $value;
+    public function setFailedTasksCount(?int $value): void {
+        $this->getBackingStore()->set('failedTasksCount', $value);
     }
 
     /**
      * Sets the processingStatus property value. The processingStatus property
      *  @param LifecycleWorkflowProcessingStatus|null $value Value to set for the processingStatus property.
     */
-    public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value ): void {
-        $this->processingStatus = $value;
+    public function setProcessingStatus(?LifecycleWorkflowProcessingStatus $value): void {
+        $this->getBackingStore()->set('processingStatus', $value);
     }
 
     /**
      * Sets the scheduledDateTime property value. The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the scheduledDateTime property.
     */
-    public function setScheduledDateTime(?DateTime $value ): void {
-        $this->scheduledDateTime = $value;
+    public function setScheduledDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('scheduledDateTime', $value);
     }
 
     /**
      * Sets the startedDateTime property value. The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
      *  @param DateTime|null $value Value to set for the startedDateTime property.
     */
-    public function setStartedDateTime(?DateTime $value ): void {
-        $this->startedDateTime = $value;
+    public function setStartedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startedDateTime', $value);
     }
 
     /**
      * Sets the subject property value. The subject property
      *  @param User|null $value Value to set for the subject property.
     */
-    public function setSubject(?User $value ): void {
-        $this->subject = $value;
+    public function setSubject(?User $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the taskProcessingResults property value. The associated individual task execution.
      *  @param array<TaskProcessingResult>|null $value Value to set for the taskProcessingResults property.
     */
-    public function setTaskProcessingResults(?array $value ): void {
-        $this->taskProcessingResults = $value;
+    public function setTaskProcessingResults(?array $value): void {
+        $this->getBackingStore()->set('taskProcessingResults', $value);
     }
 
     /**
      * Sets the totalTasksCount property value. The total number of tasks that in the workflow execution.
      *  @param int|null $value Value to set for the totalTasksCount property.
     */
-    public function setTotalTasksCount(?int $value ): void {
-        $this->totalTasksCount = $value;
+    public function setTotalTasksCount(?int $value): void {
+        $this->getBackingStore()->set('totalTasksCount', $value);
     }
 
     /**
      * Sets the totalUnprocessedTasksCount property value. The total number of unprocessed tasks for the workflow.
      *  @param int|null $value Value to set for the totalUnprocessedTasksCount property.
     */
-    public function setTotalUnprocessedTasksCount(?int $value ): void {
-        $this->totalUnprocessedTasksCount = $value;
+    public function setTotalUnprocessedTasksCount(?int $value): void {
+        $this->getBackingStore()->set('totalUnprocessedTasksCount', $value);
     }
 
     /**
      * Sets the workflowExecutionType property value. The workflowExecutionType property
      *  @param WorkflowExecutionType|null $value Value to set for the workflowExecutionType property.
     */
-    public function setWorkflowExecutionType(?WorkflowExecutionType $value ): void {
-        $this->workflowExecutionType = $value;
+    public function setWorkflowExecutionType(?WorkflowExecutionType $value): void {
+        $this->getBackingStore()->set('workflowExecutionType', $value);
     }
 
     /**
      * Sets the workflowVersion property value. The version of the workflow that was executed.
      *  @param int|null $value Value to set for the workflowVersion property.
     */
-    public function setWorkflowVersion(?int $value ): void {
-        $this->workflowVersion = $value;
+    public function setWorkflowVersion(?int $value): void {
+        $this->getBackingStore()->set('workflowVersion', $value);
     }
 
 }

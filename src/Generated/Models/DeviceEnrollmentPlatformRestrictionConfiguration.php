@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentConfiguration implements Parsable 
 {
     /**
-     * @var DeviceEnrollmentPlatformRestriction|null $platformRestriction Restrictions based on platform, platform operating system version, and device ownership
-    */
-    private ?DeviceEnrollmentPlatformRestriction $platformRestriction = null;
-    
-    /**
-     * @var EnrollmentRestrictionPlatformType|null $platformType This enum indicates the platform type for which the enrollment restriction applies.
-    */
-    private ?EnrollmentRestrictionPlatformType $platformType = null;
-    
-    /**
      * Instantiates a new DeviceEnrollmentPlatformRestrictionConfiguration and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
      * @return DeviceEnrollmentPlatformRestriction|null
     */
     public function getPlatformRestriction(): ?DeviceEnrollmentPlatformRestriction {
-        return $this->platformRestriction;
+        return $this->getBackingStore()->get('platformRestriction');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
      * @return EnrollmentRestrictionPlatformType|null
     */
     public function getPlatformType(): ?EnrollmentRestrictionPlatformType {
-        return $this->platformType;
+        return $this->getBackingStore()->get('platformType');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceEnrollmentPlatformRestrictionConfiguration extends DeviceEnrollmentC
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('platformRestriction', $this->platformRestriction);
-        $writer->writeEnumValue('platformType', $this->platformType);
+        $writer->writeObjectValue('platformRestriction', $this->getPlatformRestriction());
+        $writer->writeEnumValue('platformType', $this->getPlatformType());
     }
 
     /**
      * Sets the platformRestriction property value. Restrictions based on platform, platform operating system version, and device ownership
      *  @param DeviceEnrollmentPlatformRestriction|null $value Value to set for the platformRestriction property.
     */
-    public function setPlatformRestriction(?DeviceEnrollmentPlatformRestriction $value ): void {
-        $this->platformRestriction = $value;
+    public function setPlatformRestriction(?DeviceEnrollmentPlatformRestriction $value): void {
+        $this->getBackingStore()->set('platformRestriction', $value);
     }
 
     /**
      * Sets the platformType property value. This enum indicates the platform type for which the enrollment restriction applies.
      *  @param EnrollmentRestrictionPlatformType|null $value Value to set for the platformType property.
     */
-    public function setPlatformType(?EnrollmentRestrictionPlatformType $value ): void {
-        $this->platformType = $value;
+    public function setPlatformType(?EnrollmentRestrictionPlatformType $value): void {
+        $this->getBackingStore()->set('platformType', $value);
     }
 
 }

@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedAppleDeviceIdentityResult extends ImportedAppleDeviceIdentity implements Parsable 
 {
     /**
-     * @var bool|null $status Status of imported device identity
-    */
-    private ?bool $status = null;
-    
-    /**
      * Instantiates a new ImportedAppleDeviceIdentityResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.importedAppleDeviceIdentityResult');
     }
 
     /**
@@ -46,7 +40,7 @@ class ImportedAppleDeviceIdentityResult extends ImportedAppleDeviceIdentity impl
      * @return bool|null
     */
     public function getStatus(): ?bool {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -55,15 +49,15 @@ class ImportedAppleDeviceIdentityResult extends ImportedAppleDeviceIdentity impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('status', $this->status);
+        $writer->writeBooleanValue('status', $this->getStatus());
     }
 
     /**
      * Sets the status property value. Status of imported device identity
      *  @param bool|null $value Value to set for the status property.
     */
-    public function setStatus(?bool $value ): void {
-        $this->status = $value;
+    public function setStatus(?bool $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

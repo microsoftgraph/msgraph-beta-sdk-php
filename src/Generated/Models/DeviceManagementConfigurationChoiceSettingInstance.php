@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagementConfigurationSettingInstance implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationChoiceSettingValue|null $choiceSettingValue The choiceSettingValue property
-    */
-    private ?DeviceManagementConfigurationChoiceSettingValue $choiceSettingValue = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingInstance and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
      * @return DeviceManagementConfigurationChoiceSettingValue|null
     */
     public function getChoiceSettingValue(): ?DeviceManagementConfigurationChoiceSettingValue {
-        return $this->choiceSettingValue;
+        return $this->getBackingStore()->get('choiceSettingValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('choiceSettingValue', $this->choiceSettingValue);
+        $writer->writeObjectValue('choiceSettingValue', $this->getChoiceSettingValue());
     }
 
     /**
      * Sets the choiceSettingValue property value. The choiceSettingValue property
      *  @param DeviceManagementConfigurationChoiceSettingValue|null $value Value to set for the choiceSettingValue property.
     */
-    public function setChoiceSettingValue(?DeviceManagementConfigurationChoiceSettingValue $value ): void {
-        $this->choiceSettingValue = $value;
+    public function setChoiceSettingValue(?DeviceManagementConfigurationChoiceSettingValue $value): void {
+        $this->getBackingStore()->set('choiceSettingValue', $value);
     }
 
 }

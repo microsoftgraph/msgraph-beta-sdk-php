@@ -8,33 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PublishPostRequestBody implements AdditionalDataHolder, Parsable 
+class PublishPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $revision The revision property
-    */
-    private ?string $revision = null;
-    
-    /**
-     * @var array<BrowserSharedCookie>|null $sharedCookies The sharedCookies property
-    */
-    private ?array $sharedCookies = null;
-    
-    /**
-     * @var array<BrowserSite>|null $sites The sites property
-    */
-    private ?array $sites = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new publishPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -51,8 +40,16 @@ class PublishPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -73,7 +70,7 @@ class PublishPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRevision(): ?string {
-        return $this->revision;
+        return $this->getBackingStore()->get('revision');
     }
 
     /**
@@ -81,7 +78,7 @@ class PublishPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<BrowserSharedCookie>|null
     */
     public function getSharedCookies(): ?array {
-        return $this->sharedCookies;
+        return $this->getBackingStore()->get('sharedCookies');
     }
 
     /**
@@ -89,7 +86,7 @@ class PublishPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<BrowserSite>|null
     */
     public function getSites(): ?array {
-        return $this->sites;
+        return $this->getBackingStore()->get('sites');
     }
 
     /**
@@ -97,42 +94,50 @@ class PublishPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('revision', $this->revision);
-        $writer->writeCollectionOfObjectValues('sharedCookies', $this->sharedCookies);
-        $writer->writeCollectionOfObjectValues('sites', $this->sites);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('revision', $this->getRevision());
+        $writer->writeCollectionOfObjectValues('sharedCookies', $this->getSharedCookies());
+        $writer->writeCollectionOfObjectValues('sites', $this->getSites());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the revision property value. The revision property
      *  @param string|null $value Value to set for the revision property.
     */
-    public function setRevision(?string $value ): void {
-        $this->revision = $value;
+    public function setRevision(?string $value): void {
+        $this->getBackingStore()->set('revision', $value);
     }
 
     /**
      * Sets the sharedCookies property value. The sharedCookies property
      *  @param array<BrowserSharedCookie>|null $value Value to set for the sharedCookies property.
     */
-    public function setSharedCookies(?array $value ): void {
-        $this->sharedCookies = $value;
+    public function setSharedCookies(?array $value): void {
+        $this->getBackingStore()->set('sharedCookies', $value);
     }
 
     /**
      * Sets the sites property value. The sites property
      *  @param array<BrowserSite>|null $value Value to set for the sites property.
     */
-    public function setSites(?array $value ): void {
-        $this->sites = $value;
+    public function setSites(?array $value): void {
+        $this->getBackingStore()->set('sites', $value);
     }
 
 }

@@ -10,66 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementPartner extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName Partner display name
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<DeviceManagementPartnerAssignment>|null $groupsRequiringPartnerEnrollment User groups that specifies whether enrollment is through partner.
-    */
-    private ?array $groupsRequiringPartnerEnrollment = null;
-    
-    /**
-     * @var bool|null $isConfigured Whether device management partner is configured or not
-    */
-    private ?bool $isConfigured = null;
-    
-    /**
-     * @var DateTime|null $lastHeartbeatDateTime Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
-    */
-    private ?DateTime $lastHeartbeatDateTime = null;
-    
-    /**
-     * @var DeviceManagementPartnerAppType|null $partnerAppType Partner App Type.
-    */
-    private ?DeviceManagementPartnerAppType $partnerAppType = null;
-    
-    /**
-     * @var DeviceManagementPartnerTenantState|null $partnerState Partner state of this tenant.
-    */
-    private ?DeviceManagementPartnerTenantState $partnerState = null;
-    
-    /**
-     * @var string|null $singleTenantAppId Partner Single tenant App id
-    */
-    private ?string $singleTenantAppId = null;
-    
-    /**
-     * @var DateTime|null $whenPartnerDevicesWillBeMarkedAsNonCompliant DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
-    */
-    private ?DateTime $whenPartnerDevicesWillBeMarkedAsNonCompliant = null;
-    
-    /**
-     * @var DateTime|null $whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime DateTime in UTC when PartnerDevices will be marked as NonCompliant
-    */
-    private ?DateTime $whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = null;
-    
-    /**
-     * @var DateTime|null $whenPartnerDevicesWillBeRemoved DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
-    */
-    private ?DateTime $whenPartnerDevicesWillBeRemoved = null;
-    
-    /**
-     * @var DateTime|null $whenPartnerDevicesWillBeRemovedDateTime DateTime in UTC when PartnerDevices will be removed
-    */
-    private ?DateTime $whenPartnerDevicesWillBeRemovedDateTime = null;
-    
-    /**
      * Instantiates a new deviceManagementPartner and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementPartner');
     }
 
     /**
@@ -86,7 +30,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -115,7 +59,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return array<DeviceManagementPartnerAssignment>|null
     */
     public function getGroupsRequiringPartnerEnrollment(): ?array {
-        return $this->groupsRequiringPartnerEnrollment;
+        return $this->getBackingStore()->get('groupsRequiringPartnerEnrollment');
     }
 
     /**
@@ -123,7 +67,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsConfigured(): ?bool {
-        return $this->isConfigured;
+        return $this->getBackingStore()->get('isConfigured');
     }
 
     /**
@@ -131,7 +75,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastHeartbeatDateTime(): ?DateTime {
-        return $this->lastHeartbeatDateTime;
+        return $this->getBackingStore()->get('lastHeartbeatDateTime');
     }
 
     /**
@@ -139,7 +83,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DeviceManagementPartnerAppType|null
     */
     public function getPartnerAppType(): ?DeviceManagementPartnerAppType {
-        return $this->partnerAppType;
+        return $this->getBackingStore()->get('partnerAppType');
     }
 
     /**
@@ -147,7 +91,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DeviceManagementPartnerTenantState|null
     */
     public function getPartnerState(): ?DeviceManagementPartnerTenantState {
-        return $this->partnerState;
+        return $this->getBackingStore()->get('partnerState');
     }
 
     /**
@@ -155,7 +99,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return string|null
     */
     public function getSingleTenantAppId(): ?string {
-        return $this->singleTenantAppId;
+        return $this->getBackingStore()->get('singleTenantAppId');
     }
 
     /**
@@ -163,7 +107,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getWhenPartnerDevicesWillBeMarkedAsNonCompliant(): ?DateTime {
-        return $this->whenPartnerDevicesWillBeMarkedAsNonCompliant;
+        return $this->getBackingStore()->get('whenPartnerDevicesWillBeMarkedAsNonCompliant');
     }
 
     /**
@@ -171,7 +115,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime(): ?DateTime {
-        return $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime;
+        return $this->getBackingStore()->get('whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime');
     }
 
     /**
@@ -179,7 +123,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getWhenPartnerDevicesWillBeRemoved(): ?DateTime {
-        return $this->whenPartnerDevicesWillBeRemoved;
+        return $this->getBackingStore()->get('whenPartnerDevicesWillBeRemoved');
     }
 
     /**
@@ -187,7 +131,7 @@ class DeviceManagementPartner extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getWhenPartnerDevicesWillBeRemovedDateTime(): ?DateTime {
-        return $this->whenPartnerDevicesWillBeRemovedDateTime;
+        return $this->getBackingStore()->get('whenPartnerDevicesWillBeRemovedDateTime');
     }
 
     /**
@@ -196,105 +140,105 @@ class DeviceManagementPartner extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('groupsRequiringPartnerEnrollment', $this->groupsRequiringPartnerEnrollment);
-        $writer->writeBooleanValue('isConfigured', $this->isConfigured);
-        $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->lastHeartbeatDateTime);
-        $writer->writeEnumValue('partnerAppType', $this->partnerAppType);
-        $writer->writeEnumValue('partnerState', $this->partnerState);
-        $writer->writeStringValue('singleTenantAppId', $this->singleTenantAppId);
-        $writer->writeDateTimeValue('whenPartnerDevicesWillBeMarkedAsNonCompliant', $this->whenPartnerDevicesWillBeMarkedAsNonCompliant);
-        $writer->writeDateTimeValue('whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime', $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
-        $writer->writeDateTimeValue('whenPartnerDevicesWillBeRemoved', $this->whenPartnerDevicesWillBeRemoved);
-        $writer->writeDateTimeValue('whenPartnerDevicesWillBeRemovedDateTime', $this->whenPartnerDevicesWillBeRemovedDateTime);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('groupsRequiringPartnerEnrollment', $this->getGroupsRequiringPartnerEnrollment());
+        $writer->writeBooleanValue('isConfigured', $this->getIsConfigured());
+        $writer->writeDateTimeValue('lastHeartbeatDateTime', $this->getLastHeartbeatDateTime());
+        $writer->writeEnumValue('partnerAppType', $this->getPartnerAppType());
+        $writer->writeEnumValue('partnerState', $this->getPartnerState());
+        $writer->writeStringValue('singleTenantAppId', $this->getSingleTenantAppId());
+        $writer->writeDateTimeValue('whenPartnerDevicesWillBeMarkedAsNonCompliant', $this->getWhenPartnerDevicesWillBeMarkedAsNonCompliant());
+        $writer->writeDateTimeValue('whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime', $this->getWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime());
+        $writer->writeDateTimeValue('whenPartnerDevicesWillBeRemoved', $this->getWhenPartnerDevicesWillBeRemoved());
+        $writer->writeDateTimeValue('whenPartnerDevicesWillBeRemovedDateTime', $this->getWhenPartnerDevicesWillBeRemovedDateTime());
     }
 
     /**
      * Sets the displayName property value. Partner display name
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the groupsRequiringPartnerEnrollment property value. User groups that specifies whether enrollment is through partner.
      *  @param array<DeviceManagementPartnerAssignment>|null $value Value to set for the groupsRequiringPartnerEnrollment property.
     */
-    public function setGroupsRequiringPartnerEnrollment(?array $value ): void {
-        $this->groupsRequiringPartnerEnrollment = $value;
+    public function setGroupsRequiringPartnerEnrollment(?array $value): void {
+        $this->getBackingStore()->set('groupsRequiringPartnerEnrollment', $value);
     }
 
     /**
      * Sets the isConfigured property value. Whether device management partner is configured or not
      *  @param bool|null $value Value to set for the isConfigured property.
     */
-    public function setIsConfigured(?bool $value ): void {
-        $this->isConfigured = $value;
+    public function setIsConfigured(?bool $value): void {
+        $this->getBackingStore()->set('isConfigured', $value);
     }
 
     /**
      * Sets the lastHeartbeatDateTime property value. Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
      *  @param DateTime|null $value Value to set for the lastHeartbeatDateTime property.
     */
-    public function setLastHeartbeatDateTime(?DateTime $value ): void {
-        $this->lastHeartbeatDateTime = $value;
+    public function setLastHeartbeatDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastHeartbeatDateTime', $value);
     }
 
     /**
      * Sets the partnerAppType property value. Partner App Type.
      *  @param DeviceManagementPartnerAppType|null $value Value to set for the partnerAppType property.
     */
-    public function setPartnerAppType(?DeviceManagementPartnerAppType $value ): void {
-        $this->partnerAppType = $value;
+    public function setPartnerAppType(?DeviceManagementPartnerAppType $value): void {
+        $this->getBackingStore()->set('partnerAppType', $value);
     }
 
     /**
      * Sets the partnerState property value. Partner state of this tenant.
      *  @param DeviceManagementPartnerTenantState|null $value Value to set for the partnerState property.
     */
-    public function setPartnerState(?DeviceManagementPartnerTenantState $value ): void {
-        $this->partnerState = $value;
+    public function setPartnerState(?DeviceManagementPartnerTenantState $value): void {
+        $this->getBackingStore()->set('partnerState', $value);
     }
 
     /**
      * Sets the singleTenantAppId property value. Partner Single tenant App id
      *  @param string|null $value Value to set for the singleTenantAppId property.
     */
-    public function setSingleTenantAppId(?string $value ): void {
-        $this->singleTenantAppId = $value;
+    public function setSingleTenantAppId(?string $value): void {
+        $this->getBackingStore()->set('singleTenantAppId', $value);
     }
 
     /**
      * Sets the whenPartnerDevicesWillBeMarkedAsNonCompliant property value. DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
      *  @param DateTime|null $value Value to set for the whenPartnerDevicesWillBeMarkedAsNonCompliant property.
     */
-    public function setWhenPartnerDevicesWillBeMarkedAsNonCompliant(?DateTime $value ): void {
-        $this->whenPartnerDevicesWillBeMarkedAsNonCompliant = $value;
+    public function setWhenPartnerDevicesWillBeMarkedAsNonCompliant(?DateTime $value): void {
+        $this->getBackingStore()->set('whenPartnerDevicesWillBeMarkedAsNonCompliant', $value);
     }
 
     /**
      * Sets the whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime property value. DateTime in UTC when PartnerDevices will be marked as NonCompliant
      *  @param DateTime|null $value Value to set for the whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime property.
     */
-    public function setWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime(?DateTime $value ): void {
-        $this->whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = $value;
+    public function setWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime', $value);
     }
 
     /**
      * Sets the whenPartnerDevicesWillBeRemoved property value. DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
      *  @param DateTime|null $value Value to set for the whenPartnerDevicesWillBeRemoved property.
     */
-    public function setWhenPartnerDevicesWillBeRemoved(?DateTime $value ): void {
-        $this->whenPartnerDevicesWillBeRemoved = $value;
+    public function setWhenPartnerDevicesWillBeRemoved(?DateTime $value): void {
+        $this->getBackingStore()->set('whenPartnerDevicesWillBeRemoved', $value);
     }
 
     /**
      * Sets the whenPartnerDevicesWillBeRemovedDateTime property value. DateTime in UTC when PartnerDevices will be removed
      *  @param DateTime|null $value Value to set for the whenPartnerDevicesWillBeRemovedDateTime property.
     */
-    public function setWhenPartnerDevicesWillBeRemovedDateTime(?DateTime $value ): void {
-        $this->whenPartnerDevicesWillBeRemovedDateTime = $value;
+    public function setWhenPartnerDevicesWillBeRemovedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('whenPartnerDevicesWillBeRemovedDateTime', $value);
     }
 
 }

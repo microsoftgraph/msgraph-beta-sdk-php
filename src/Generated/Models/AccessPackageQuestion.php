@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AccessPackageQuestion implements AdditionalDataHolder, Parsable 
+class AccessPackageQuestion implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $id ID of the question.
-    */
-    private ?string $id = null;
-    
-    /**
-     * @var bool|null $isAnswerEditable Specifies whether the requestor is allowed to edit answers to questions.
-    */
-    private ?bool $isAnswerEditable = null;
-    
-    /**
-     * @var bool|null $isRequired Whether the requestor is required to supply an answer or not.
-    */
-    private ?bool $isRequired = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $sequence Relative position of this question when displaying a list of questions to the requestor.
-    */
-    private ?int $sequence = null;
-    
-    /**
-     * @var AccessPackageLocalizedContent|null $text The text of the question to show to the requestor.
-    */
-    private ?AccessPackageLocalizedContent $text = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new accessPackageQuestion and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.accessPackageQuestion');
     }
 
     /**
@@ -73,8 +46,16 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -98,7 +79,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getId(): ?string {
-        return $this->id;
+        return $this->getBackingStore()->get('id');
     }
 
     /**
@@ -106,7 +87,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsAnswerEditable(): ?bool {
-        return $this->isAnswerEditable;
+        return $this->getBackingStore()->get('isAnswerEditable');
     }
 
     /**
@@ -114,7 +95,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
-        return $this->isRequired;
+        return $this->getBackingStore()->get('isRequired');
     }
 
     /**
@@ -122,7 +103,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -130,7 +111,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getSequence(): ?int {
-        return $this->sequence;
+        return $this->getBackingStore()->get('sequence');
     }
 
     /**
@@ -138,7 +119,7 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @return AccessPackageLocalizedContent|null
     */
     public function getText(): ?AccessPackageLocalizedContent {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -146,69 +127,77 @@ class AccessPackageQuestion implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('id', $this->id);
-        $writer->writeBooleanValue('isAnswerEditable', $this->isAnswerEditable);
-        $writer->writeBooleanValue('isRequired', $this->isRequired);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('sequence', $this->sequence);
-        $writer->writeObjectValue('text', $this->text);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('id', $this->getId());
+        $writer->writeBooleanValue('isAnswerEditable', $this->getIsAnswerEditable());
+        $writer->writeBooleanValue('isRequired', $this->getIsRequired());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('sequence', $this->getSequence());
+        $writer->writeObjectValue('text', $this->getText());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the id property value. ID of the question.
      *  @param string|null $value Value to set for the id property.
     */
-    public function setId(?string $value ): void {
-        $this->id = $value;
+    public function setId(?string $value): void {
+        $this->getBackingStore()->set('id', $value);
     }
 
     /**
      * Sets the isAnswerEditable property value. Specifies whether the requestor is allowed to edit answers to questions.
      *  @param bool|null $value Value to set for the isAnswerEditable property.
     */
-    public function setIsAnswerEditable(?bool $value ): void {
-        $this->isAnswerEditable = $value;
+    public function setIsAnswerEditable(?bool $value): void {
+        $this->getBackingStore()->set('isAnswerEditable', $value);
     }
 
     /**
      * Sets the isRequired property value. Whether the requestor is required to supply an answer or not.
      *  @param bool|null $value Value to set for the isRequired property.
     */
-    public function setIsRequired(?bool $value ): void {
-        $this->isRequired = $value;
+    public function setIsRequired(?bool $value): void {
+        $this->getBackingStore()->set('isRequired', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the sequence property value. Relative position of this question when displaying a list of questions to the requestor.
      *  @param int|null $value Value to set for the sequence property.
     */
-    public function setSequence(?int $value ): void {
-        $this->sequence = $value;
+    public function setSequence(?int $value): void {
+        $this->getBackingStore()->set('sequence', $value);
     }
 
     /**
      * Sets the text property value. The text of the question to show to the requestor.
      *  @param AccessPackageLocalizedContent|null $value Value to set for the text property.
     */
-    public function setText(?AccessPackageLocalizedContent $value ): void {
-        $this->text = $value;
+    public function setText(?AccessPackageLocalizedContent $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
 }

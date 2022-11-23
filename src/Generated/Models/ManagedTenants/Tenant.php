@@ -11,41 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Tenant extends Entity implements Parsable 
 {
     /**
-     * @var TenantContract|null $contract The relationship details for the tenant with the managing entity.
-    */
-    private ?TenantContract $contract = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $displayName The display name for the tenant. Required. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var TenantStatusInformation|null $tenantStatusInformation The onboarding status information for the tenant. Optional. Read-only.
-    */
-    private ?TenantStatusInformation $tenantStatusInformation = null;
-    
-    /**
      * Instantiates a new tenant and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.tenant');
     }
 
     /**
@@ -62,7 +31,7 @@ class Tenant extends Entity implements Parsable
      * @return TenantContract|null
     */
     public function getContract(): ?TenantContract {
-        return $this->contract;
+        return $this->getBackingStore()->get('contract');
     }
 
     /**
@@ -70,7 +39,7 @@ class Tenant extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -78,7 +47,7 @@ class Tenant extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -102,7 +71,7 @@ class Tenant extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -110,7 +79,7 @@ class Tenant extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -118,7 +87,7 @@ class Tenant extends Entity implements Parsable
      * @return TenantStatusInformation|null
     */
     public function getTenantStatusInformation(): ?TenantStatusInformation {
-        return $this->tenantStatusInformation;
+        return $this->getBackingStore()->get('tenantStatusInformation');
     }
 
     /**
@@ -127,60 +96,60 @@ class Tenant extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('contract', $this->contract);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeObjectValue('tenantStatusInformation', $this->tenantStatusInformation);
+        $writer->writeObjectValue('contract', $this->getContract());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeObjectValue('tenantStatusInformation', $this->getTenantStatusInformation());
     }
 
     /**
      * Sets the contract property value. The relationship details for the tenant with the managing entity.
      *  @param TenantContract|null $value Value to set for the contract property.
     */
-    public function setContract(?TenantContract $value ): void {
-        $this->contract = $value;
+    public function setContract(?TenantContract $value): void {
+        $this->getBackingStore()->set('contract', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time the tenant was created in the multi-tenant management platform. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the tenant. Required. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. The date and time the tenant was last updated within the multi-tenant management platform. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the tenantStatusInformation property value. The onboarding status information for the tenant. Optional. Read-only.
      *  @param TenantStatusInformation|null $value Value to set for the tenantStatusInformation property.
     */
-    public function setTenantStatusInformation(?TenantStatusInformation $value ): void {
-        $this->tenantStatusInformation = $value;
+    public function setTenantStatusInformation(?TenantStatusInformation $value): void {
+        $this->getBackingStore()->set('tenantStatusInformation', $value);
     }
 
 }

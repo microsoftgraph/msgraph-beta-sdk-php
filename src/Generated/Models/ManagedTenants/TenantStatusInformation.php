@@ -7,70 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TenantStatusInformation implements AdditionalDataHolder, Parsable 
+class TenantStatusInformation implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var DelegatedPrivilegeStatus|null $delegatedPrivilegeStatus The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
-    */
-    private ?DelegatedPrivilegeStatus $delegatedPrivilegeStatus = null;
-    
-    /**
-     * @var DateTime|null $lastDelegatedPrivilegeRefreshDateTime The date and time the delegated admin privileges status was updated. Optional. Read-only.
-    */
-    private ?DateTime $lastDelegatedPrivilegeRefreshDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $offboardedByUserId The identifier for the account that offboarded the managed tenant. Optional. Read-only.
-    */
-    private ?string $offboardedByUserId = null;
-    
-    /**
-     * @var DateTime|null $offboardedDateTime The date and time when the managed tenant was offboarded. Optional. Read-only.
-    */
-    private ?DateTime $offboardedDateTime = null;
-    
-    /**
-     * @var string|null $onboardedByUserId The identifier for the account that onboarded the managed tenant. Optional. Read-only.
-    */
-    private ?string $onboardedByUserId = null;
-    
-    /**
-     * @var DateTime|null $onboardedDateTime The date and time when the managed tenant was onboarded. Optional. Read-only.
-    */
-    private ?DateTime $onboardedDateTime = null;
-    
-    /**
-     * @var TenantOnboardingStatus|null $onboardingStatus The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
-    */
-    private ?TenantOnboardingStatus $onboardingStatus = null;
-    
-    /**
-     * @var TenantOnboardingEligibilityReason|null $tenantOnboardingEligibilityReason Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
-    */
-    private ?TenantOnboardingEligibilityReason $tenantOnboardingEligibilityReason = null;
-    
-    /**
-     * @var array<WorkloadStatus>|null $workloadStatuses The collection of workload statues for the managed tenant. Optional. Read-only.
-    */
-    private ?array $workloadStatuses = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new tenantStatusInformation and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.managedTenants.tenantStatusInformation');
     }
 
     /**
@@ -86,8 +39,16 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -95,7 +56,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return DelegatedPrivilegeStatus|null
     */
     public function getDelegatedPrivilegeStatus(): ?DelegatedPrivilegeStatus {
-        return $this->delegatedPrivilegeStatus;
+        return $this->getBackingStore()->get('delegatedPrivilegeStatus');
     }
 
     /**
@@ -123,7 +84,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastDelegatedPrivilegeRefreshDateTime(): ?DateTime {
-        return $this->lastDelegatedPrivilegeRefreshDateTime;
+        return $this->getBackingStore()->get('lastDelegatedPrivilegeRefreshDateTime');
     }
 
     /**
@@ -131,7 +92,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -139,7 +100,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOffboardedByUserId(): ?string {
-        return $this->offboardedByUserId;
+        return $this->getBackingStore()->get('offboardedByUserId');
     }
 
     /**
@@ -147,7 +108,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getOffboardedDateTime(): ?DateTime {
-        return $this->offboardedDateTime;
+        return $this->getBackingStore()->get('offboardedDateTime');
     }
 
     /**
@@ -155,7 +116,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOnboardedByUserId(): ?string {
-        return $this->onboardedByUserId;
+        return $this->getBackingStore()->get('onboardedByUserId');
     }
 
     /**
@@ -163,7 +124,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getOnboardedDateTime(): ?DateTime {
-        return $this->onboardedDateTime;
+        return $this->getBackingStore()->get('onboardedDateTime');
     }
 
     /**
@@ -171,7 +132,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return TenantOnboardingStatus|null
     */
     public function getOnboardingStatus(): ?TenantOnboardingStatus {
-        return $this->onboardingStatus;
+        return $this->getBackingStore()->get('onboardingStatus');
     }
 
     /**
@@ -179,7 +140,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return TenantOnboardingEligibilityReason|null
     */
     public function getTenantOnboardingEligibilityReason(): ?TenantOnboardingEligibilityReason {
-        return $this->tenantOnboardingEligibilityReason;
+        return $this->getBackingStore()->get('tenantOnboardingEligibilityReason');
     }
 
     /**
@@ -187,7 +148,7 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @return array<WorkloadStatus>|null
     */
     public function getWorkloadStatuses(): ?array {
-        return $this->workloadStatuses;
+        return $this->getBackingStore()->get('workloadStatuses');
     }
 
     /**
@@ -195,105 +156,113 @@ class TenantStatusInformation implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('delegatedPrivilegeStatus', $this->delegatedPrivilegeStatus);
-        $writer->writeDateTimeValue('lastDelegatedPrivilegeRefreshDateTime', $this->lastDelegatedPrivilegeRefreshDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('offboardedByUserId', $this->offboardedByUserId);
-        $writer->writeDateTimeValue('offboardedDateTime', $this->offboardedDateTime);
-        $writer->writeStringValue('onboardedByUserId', $this->onboardedByUserId);
-        $writer->writeDateTimeValue('onboardedDateTime', $this->onboardedDateTime);
-        $writer->writeEnumValue('onboardingStatus', $this->onboardingStatus);
-        $writer->writeEnumValue('tenantOnboardingEligibilityReason', $this->tenantOnboardingEligibilityReason);
-        $writer->writeCollectionOfObjectValues('workloadStatuses', $this->workloadStatuses);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('delegatedPrivilegeStatus', $this->getDelegatedPrivilegeStatus());
+        $writer->writeDateTimeValue('lastDelegatedPrivilegeRefreshDateTime', $this->getLastDelegatedPrivilegeRefreshDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('offboardedByUserId', $this->getOffboardedByUserId());
+        $writer->writeDateTimeValue('offboardedDateTime', $this->getOffboardedDateTime());
+        $writer->writeStringValue('onboardedByUserId', $this->getOnboardedByUserId());
+        $writer->writeDateTimeValue('onboardedDateTime', $this->getOnboardedDateTime());
+        $writer->writeEnumValue('onboardingStatus', $this->getOnboardingStatus());
+        $writer->writeEnumValue('tenantOnboardingEligibilityReason', $this->getTenantOnboardingEligibilityReason());
+        $writer->writeCollectionOfObjectValues('workloadStatuses', $this->getWorkloadStatuses());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the delegatedPrivilegeStatus property value. The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
      *  @param DelegatedPrivilegeStatus|null $value Value to set for the delegatedPrivilegeStatus property.
     */
-    public function setDelegatedPrivilegeStatus(?DelegatedPrivilegeStatus $value ): void {
-        $this->delegatedPrivilegeStatus = $value;
+    public function setDelegatedPrivilegeStatus(?DelegatedPrivilegeStatus $value): void {
+        $this->getBackingStore()->set('delegatedPrivilegeStatus', $value);
     }
 
     /**
      * Sets the lastDelegatedPrivilegeRefreshDateTime property value. The date and time the delegated admin privileges status was updated. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastDelegatedPrivilegeRefreshDateTime property.
     */
-    public function setLastDelegatedPrivilegeRefreshDateTime(?DateTime $value ): void {
-        $this->lastDelegatedPrivilegeRefreshDateTime = $value;
+    public function setLastDelegatedPrivilegeRefreshDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastDelegatedPrivilegeRefreshDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the offboardedByUserId property value. The identifier for the account that offboarded the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the offboardedByUserId property.
     */
-    public function setOffboardedByUserId(?string $value ): void {
-        $this->offboardedByUserId = $value;
+    public function setOffboardedByUserId(?string $value): void {
+        $this->getBackingStore()->set('offboardedByUserId', $value);
     }
 
     /**
      * Sets the offboardedDateTime property value. The date and time when the managed tenant was offboarded. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the offboardedDateTime property.
     */
-    public function setOffboardedDateTime(?DateTime $value ): void {
-        $this->offboardedDateTime = $value;
+    public function setOffboardedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('offboardedDateTime', $value);
     }
 
     /**
      * Sets the onboardedByUserId property value. The identifier for the account that onboarded the managed tenant. Optional. Read-only.
      *  @param string|null $value Value to set for the onboardedByUserId property.
     */
-    public function setOnboardedByUserId(?string $value ): void {
-        $this->onboardedByUserId = $value;
+    public function setOnboardedByUserId(?string $value): void {
+        $this->getBackingStore()->set('onboardedByUserId', $value);
     }
 
     /**
      * Sets the onboardedDateTime property value. The date and time when the managed tenant was onboarded. Optional. Read-only.
      *  @param DateTime|null $value Value to set for the onboardedDateTime property.
     */
-    public function setOnboardedDateTime(?DateTime $value ): void {
-        $this->onboardedDateTime = $value;
+    public function setOnboardedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('onboardedDateTime', $value);
     }
 
     /**
      * Sets the onboardingStatus property value. The onboarding status for the managed tenant.. Possible values are: ineligible, inProcess, active, inactive, unknownFutureValue. Optional. Read-only.
      *  @param TenantOnboardingStatus|null $value Value to set for the onboardingStatus property.
     */
-    public function setOnboardingStatus(?TenantOnboardingStatus $value ): void {
-        $this->onboardingStatus = $value;
+    public function setOnboardingStatus(?TenantOnboardingStatus $value): void {
+        $this->getBackingStore()->set('onboardingStatus', $value);
     }
 
     /**
      * Sets the tenantOnboardingEligibilityReason property value. Organization's onboarding eligibility reason in Microsoft 365 Lighthouse.. Possible values are: none, contractType, delegatedAdminPrivileges,usersCount,license and unknownFutureValue. Optional. Read-only.
      *  @param TenantOnboardingEligibilityReason|null $value Value to set for the tenantOnboardingEligibilityReason property.
     */
-    public function setTenantOnboardingEligibilityReason(?TenantOnboardingEligibilityReason $value ): void {
-        $this->tenantOnboardingEligibilityReason = $value;
+    public function setTenantOnboardingEligibilityReason(?TenantOnboardingEligibilityReason $value): void {
+        $this->getBackingStore()->set('tenantOnboardingEligibilityReason', $value);
     }
 
     /**
      * Sets the workloadStatuses property value. The collection of workload statues for the managed tenant. Optional. Read-only.
      *  @param array<WorkloadStatus>|null $value Value to set for the workloadStatuses property.
     */
-    public function setWorkloadStatuses(?array $value ): void {
-        $this->workloadStatuses = $value;
+    public function setWorkloadStatuses(?array $value): void {
+        $this->getBackingStore()->set('workloadStatuses', $value);
     }
 
 }

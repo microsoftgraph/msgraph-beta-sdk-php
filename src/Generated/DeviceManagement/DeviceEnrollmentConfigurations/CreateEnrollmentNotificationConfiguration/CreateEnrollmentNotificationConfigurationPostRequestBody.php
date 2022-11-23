@@ -7,23 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CreateEnrollmentNotificationConfigurationPostRequestBody implements AdditionalDataHolder, Parsable 
+class CreateEnrollmentNotificationConfigurationPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<DeviceEnrollmentConfiguration>|null $deviceEnrollmentNotificationConfigurations The deviceEnrollmentNotificationConfigurations property
-    */
-    private ?array $deviceEnrollmentNotificationConfigurations = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new createEnrollmentNotificationConfigurationPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -40,8 +39,16 @@ class CreateEnrollmentNotificationConfigurationPostRequestBody implements Additi
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -49,7 +56,7 @@ class CreateEnrollmentNotificationConfigurationPostRequestBody implements Additi
      * @return array<DeviceEnrollmentConfiguration>|null
     */
     public function getDeviceEnrollmentNotificationConfigurations(): ?array {
-        return $this->deviceEnrollmentNotificationConfigurations;
+        return $this->getBackingStore()->get('deviceEnrollmentNotificationConfigurations');
     }
 
     /**
@@ -68,24 +75,32 @@ class CreateEnrollmentNotificationConfigurationPostRequestBody implements Additi
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('deviceEnrollmentNotificationConfigurations', $this->deviceEnrollmentNotificationConfigurations);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('deviceEnrollmentNotificationConfigurations', $this->getDeviceEnrollmentNotificationConfigurations());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the deviceEnrollmentNotificationConfigurations property value. The deviceEnrollmentNotificationConfigurations property
      *  @param array<DeviceEnrollmentConfiguration>|null $value Value to set for the deviceEnrollmentNotificationConfigurations property.
     */
-    public function setDeviceEnrollmentNotificationConfigurations(?array $value ): void {
-        $this->deviceEnrollmentNotificationConfigurations = $value;
+    public function setDeviceEnrollmentNotificationConfigurations(?array $value): void {
+        $this->getBackingStore()->set('deviceEnrollmentNotificationConfigurations', $value);
     }
 
 }

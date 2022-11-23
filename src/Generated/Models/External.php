@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class External extends Entity implements Parsable 
 {
     /**
-     * @var array<ExternalConnection>|null $connections The connections property
-    */
-    private ?array $connections = null;
-    
-    /**
      * Instantiates a new External and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.external');
     }
 
     /**
@@ -35,7 +29,7 @@ class External extends Entity implements Parsable
      * @return array<ExternalConnection>|null
     */
     public function getConnections(): ?array {
-        return $this->connections;
+        return $this->getBackingStore()->get('connections');
     }
 
     /**
@@ -55,15 +49,15 @@ class External extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('connections', $this->connections);
+        $writer->writeCollectionOfObjectValues('connections', $this->getConnections());
     }
 
     /**
      * Sets the connections property value. The connections property
      *  @param array<ExternalConnection>|null $value Value to set for the connections property.
     */
-    public function setConnections(?array $value ): void {
-        $this->connections = $value;
+    public function setConnections(?array $value): void {
+        $this->getBackingStore()->set('connections', $value);
     }
 
 }

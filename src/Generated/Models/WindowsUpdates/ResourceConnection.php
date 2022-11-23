@@ -10,16 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ResourceConnection extends Entity implements Parsable 
 {
     /**
-     * @var ResourceConnectionState|null $state The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
-    */
-    private ?ResourceConnectionState $state = null;
-    
-    /**
      * Instantiates a new resourceConnection and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsUpdates.resourceConnection');
     }
 
     /**
@@ -54,7 +48,7 @@ class ResourceConnection extends Entity implements Parsable
      * @return ResourceConnectionState|null
     */
     public function getState(): ?ResourceConnectionState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -63,15 +57,15 @@ class ResourceConnection extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('state', $this->state);
+        $writer->writeEnumValue('state', $this->getState());
     }
 
     /**
      * Sets the state property value. The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
      *  @param ResourceConnectionState|null $value Value to set for the state property.
     */
-    public function setState(?ResourceConnectionState $value ): void {
-        $this->state = $value;
+    public function setState(?ResourceConnectionState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

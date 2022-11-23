@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PlayPromptOperation extends CommsOperation implements Parsable 
 {
     /**
-     * @var PlayPromptCompletionReason|null $completionReason Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
-    */
-    private ?PlayPromptCompletionReason $completionReason = null;
-    
-    /**
      * Instantiates a new PlayPromptOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.playPromptOperation');
     }
 
     /**
@@ -35,7 +29,7 @@ class PlayPromptOperation extends CommsOperation implements Parsable
      * @return PlayPromptCompletionReason|null
     */
     public function getCompletionReason(): ?PlayPromptCompletionReason {
-        return $this->completionReason;
+        return $this->getBackingStore()->get('completionReason');
     }
 
     /**
@@ -55,15 +49,15 @@ class PlayPromptOperation extends CommsOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('completionReason', $this->completionReason);
+        $writer->writeEnumValue('completionReason', $this->getCompletionReason());
     }
 
     /**
      * Sets the completionReason property value. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
      *  @param PlayPromptCompletionReason|null $value Value to set for the completionReason property.
     */
-    public function setCompletionReason(?PlayPromptCompletionReason $value ): void {
-        $this->completionReason = $value;
+    public function setCompletionReason(?PlayPromptCompletionReason $value): void {
+        $this->getBackingStore()->set('completionReason', $value);
     }
 
 }

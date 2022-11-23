@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class LabelingOptions implements AdditionalDataHolder, Parsable 
+class LabelingOptions implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AssignmentMethod|null $assignmentMethod The assignmentMethod property
-    */
-    private ?AssignmentMethod $assignmentMethod = null;
-    
-    /**
-     * @var DowngradeJustification|null $downgradeJustification The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
-    */
-    private ?DowngradeJustification $downgradeJustification = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $extendedProperties Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
-    */
-    private ?array $extendedProperties = null;
-    
-    /**
-     * @var string|null $labelId The GUID of the label that should be applied to the information.
-    */
-    private ?string $labelId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new labelingOptions and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.labelingOptions');
     }
 
     /**
@@ -60,8 +38,8 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +47,15 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return AssignmentMethod|null
     */
     public function getAssignmentMethod(): ?AssignmentMethod {
-        return $this->assignmentMethod;
+        return $this->getBackingStore()->get('assignmentMethod');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -77,7 +63,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return DowngradeJustification|null
     */
     public function getDowngradeJustification(): ?DowngradeJustification {
-        return $this->downgradeJustification;
+        return $this->getBackingStore()->get('downgradeJustification');
     }
 
     /**
@@ -85,7 +71,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return array<KeyValuePair>|null
     */
     public function getExtendedProperties(): ?array {
-        return $this->extendedProperties;
+        return $this->getBackingStore()->get('extendedProperties');
     }
 
     /**
@@ -108,7 +94,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getLabelId(): ?string {
-        return $this->labelId;
+        return $this->getBackingStore()->get('labelId');
     }
 
     /**
@@ -116,7 +102,7 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -124,60 +110,68 @@ class LabelingOptions implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('assignmentMethod', $this->assignmentMethod);
-        $writer->writeObjectValue('downgradeJustification', $this->downgradeJustification);
-        $writer->writeCollectionOfObjectValues('extendedProperties', $this->extendedProperties);
-        $writer->writeStringValue('labelId', $this->labelId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('assignmentMethod', $this->getAssignmentMethod());
+        $writer->writeObjectValue('downgradeJustification', $this->getDowngradeJustification());
+        $writer->writeCollectionOfObjectValues('extendedProperties', $this->getExtendedProperties());
+        $writer->writeStringValue('labelId', $this->getLabelId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignmentMethod property value. The assignmentMethod property
      *  @param AssignmentMethod|null $value Value to set for the assignmentMethod property.
     */
-    public function setAssignmentMethod(?AssignmentMethod $value ): void {
-        $this->assignmentMethod = $value;
+    public function setAssignmentMethod(?AssignmentMethod $value): void {
+        $this->getBackingStore()->set('assignmentMethod', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the downgradeJustification property value. The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
      *  @param DowngradeJustification|null $value Value to set for the downgradeJustification property.
     */
-    public function setDowngradeJustification(?DowngradeJustification $value ): void {
-        $this->downgradeJustification = $value;
+    public function setDowngradeJustification(?DowngradeJustification $value): void {
+        $this->getBackingStore()->set('downgradeJustification', $value);
     }
 
     /**
      * Sets the extendedProperties property value. Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
      *  @param array<KeyValuePair>|null $value Value to set for the extendedProperties property.
     */
-    public function setExtendedProperties(?array $value ): void {
-        $this->extendedProperties = $value;
+    public function setExtendedProperties(?array $value): void {
+        $this->getBackingStore()->set('extendedProperties', $value);
     }
 
     /**
      * Sets the labelId property value. The GUID of the label that should be applied to the information.
      *  @param string|null $value Value to set for the labelId property.
     */
-    public function setLabelId(?string $value ): void {
-        $this->labelId = $value;
+    public function setLabelId(?string $value): void {
+        $this->getBackingStore()->set('labelId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

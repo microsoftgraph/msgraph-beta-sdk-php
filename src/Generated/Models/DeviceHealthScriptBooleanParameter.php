@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * @var bool|null $defaultValue The default value of boolean param
-    */
-    private ?bool $defaultValue = null;
-    
-    /**
      * Instantiates a new DeviceHealthScriptBooleanParameter and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter imp
      * @return bool|null
     */
     public function getDefaultValue(): ?bool {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceHealthScriptBooleanParameter extends DeviceHealthScriptParameter imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('defaultValue', $this->defaultValue);
+        $writer->writeBooleanValue('defaultValue', $this->getDefaultValue());
     }
 
     /**
      * Sets the defaultValue property value. The default value of boolean param
      *  @param bool|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?bool $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?bool $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
 }

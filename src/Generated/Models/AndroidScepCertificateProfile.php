@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implements Parsable 
 {
     /**
-     * @var HashAlgorithms|null $hashAlgorithm Hash Algorithm Options.
-    */
-    private ?HashAlgorithms $hashAlgorithm = null;
-    
-    /**
-     * @var KeySize|null $keySize Key Size Options.
-    */
-    private ?KeySize $keySize = null;
-    
-    /**
-     * @var KeyUsages|null $keyUsage Key Usage Options.
-    */
-    private ?KeyUsages $keyUsage = null;
-    
-    /**
-     * @var array<ManagedDeviceCertificateState>|null $managedDeviceCertificateStates Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    */
-    private ?array $managedDeviceCertificateStates = null;
-    
-    /**
-     * @var array<string>|null $scepServerUrls SCEP Server Url(s)
-    */
-    private ?array $scepServerUrls = null;
-    
-    /**
-     * @var string|null $subjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-    */
-    private ?string $subjectAlternativeNameFormatString = null;
-    
-    /**
-     * @var string|null $subjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-    */
-    private ?string $subjectNameFormatString = null;
-    
-    /**
      * Instantiates a new AndroidScepCertificateProfile and sets the default values.
     */
     public function __construct() {
@@ -82,7 +47,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return HashAlgorithms|null
     */
     public function getHashAlgorithm(): ?HashAlgorithms {
-        return $this->hashAlgorithm;
+        return $this->getBackingStore()->get('hashAlgorithm');
     }
 
     /**
@@ -90,7 +55,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return KeySize|null
     */
     public function getKeySize(): ?KeySize {
-        return $this->keySize;
+        return $this->getBackingStore()->get('keySize');
     }
 
     /**
@@ -98,7 +63,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return KeyUsages|null
     */
     public function getKeyUsage(): ?KeyUsages {
-        return $this->keyUsage;
+        return $this->getBackingStore()->get('keyUsage');
     }
 
     /**
@@ -106,7 +71,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return array<ManagedDeviceCertificateState>|null
     */
     public function getManagedDeviceCertificateStates(): ?array {
-        return $this->managedDeviceCertificateStates;
+        return $this->getBackingStore()->get('managedDeviceCertificateStates');
     }
 
     /**
@@ -114,7 +79,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return array<string>|null
     */
     public function getScepServerUrls(): ?array {
-        return $this->scepServerUrls;
+        return $this->getBackingStore()->get('scepServerUrls');
     }
 
     /**
@@ -122,7 +87,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return string|null
     */
     public function getSubjectAlternativeNameFormatString(): ?string {
-        return $this->subjectAlternativeNameFormatString;
+        return $this->getBackingStore()->get('subjectAlternativeNameFormatString');
     }
 
     /**
@@ -130,7 +95,7 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
      * @return string|null
     */
     public function getSubjectNameFormatString(): ?string {
-        return $this->subjectNameFormatString;
+        return $this->getBackingStore()->get('subjectNameFormatString');
     }
 
     /**
@@ -139,69 +104,69 @@ class AndroidScepCertificateProfile extends AndroidCertificateProfileBase implem
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('hashAlgorithm', $this->hashAlgorithm);
-        $writer->writeEnumValue('keySize', $this->keySize);
-        $writer->writeEnumValue('keyUsage', $this->keyUsage);
-        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->managedDeviceCertificateStates);
-        $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->scepServerUrls);
-        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->subjectAlternativeNameFormatString);
-        $writer->writeStringValue('subjectNameFormatString', $this->subjectNameFormatString);
+        $writer->writeEnumValue('hashAlgorithm', $this->getHashAlgorithm());
+        $writer->writeEnumValue('keySize', $this->getKeySize());
+        $writer->writeEnumValue('keyUsage', $this->getKeyUsage());
+        $writer->writeCollectionOfObjectValues('managedDeviceCertificateStates', $this->getManagedDeviceCertificateStates());
+        $writer->writeCollectionOfPrimitiveValues('scepServerUrls', $this->getScepServerUrls());
+        $writer->writeStringValue('subjectAlternativeNameFormatString', $this->getSubjectAlternativeNameFormatString());
+        $writer->writeStringValue('subjectNameFormatString', $this->getSubjectNameFormatString());
     }
 
     /**
      * Sets the hashAlgorithm property value. Hash Algorithm Options.
      *  @param HashAlgorithms|null $value Value to set for the hashAlgorithm property.
     */
-    public function setHashAlgorithm(?HashAlgorithms $value ): void {
-        $this->hashAlgorithm = $value;
+    public function setHashAlgorithm(?HashAlgorithms $value): void {
+        $this->getBackingStore()->set('hashAlgorithm', $value);
     }
 
     /**
      * Sets the keySize property value. Key Size Options.
      *  @param KeySize|null $value Value to set for the keySize property.
     */
-    public function setKeySize(?KeySize $value ): void {
-        $this->keySize = $value;
+    public function setKeySize(?KeySize $value): void {
+        $this->getBackingStore()->set('keySize', $value);
     }
 
     /**
      * Sets the keyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the keyUsage property.
     */
-    public function setKeyUsage(?KeyUsages $value ): void {
-        $this->keyUsage = $value;
+    public function setKeyUsage(?KeyUsages $value): void {
+        $this->getBackingStore()->set('keyUsage', $value);
     }
 
     /**
      * Sets the managedDeviceCertificateStates property value. Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *  @param array<ManagedDeviceCertificateState>|null $value Value to set for the managedDeviceCertificateStates property.
     */
-    public function setManagedDeviceCertificateStates(?array $value ): void {
-        $this->managedDeviceCertificateStates = $value;
+    public function setManagedDeviceCertificateStates(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceCertificateStates', $value);
     }
 
     /**
      * Sets the scepServerUrls property value. SCEP Server Url(s)
      *  @param array<string>|null $value Value to set for the scepServerUrls property.
     */
-    public function setScepServerUrls(?array $value ): void {
-        $this->scepServerUrls = $value;
+    public function setScepServerUrls(?array $value): void {
+        $this->getBackingStore()->set('scepServerUrls', $value);
     }
 
     /**
      * Sets the subjectAlternativeNameFormatString property value. Custom String that defines the AAD Attribute.
      *  @param string|null $value Value to set for the subjectAlternativeNameFormatString property.
     */
-    public function setSubjectAlternativeNameFormatString(?string $value ): void {
-        $this->subjectAlternativeNameFormatString = $value;
+    public function setSubjectAlternativeNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectAlternativeNameFormatString', $value);
     }
 
     /**
      * Sets the subjectNameFormatString property value. Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
      *  @param string|null $value Value to set for the subjectNameFormatString property.
     */
-    public function setSubjectNameFormatString(?string $value ): void {
-        $this->subjectNameFormatString = $value;
+    public function setSubjectNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('subjectNameFormatString', $value);
     }
 
 }

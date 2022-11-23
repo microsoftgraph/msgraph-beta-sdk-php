@@ -8,28 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDataHolder, Parsable 
+class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var CustomExtensionAuthenticationConfiguration|null $authenticationConfiguration The authenticationConfiguration property
-    */
-    private ?CustomExtensionAuthenticationConfiguration $authenticationConfiguration = null;
-    
-    /**
-     * @var CustomExtensionEndpointConfiguration|null $endpointConfiguration The endpointConfiguration property
-    */
-    private ?CustomExtensionEndpointConfiguration $endpointConfiguration = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new validateAuthenticationConfigurationPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -46,8 +40,8 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -55,7 +49,15 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @return CustomExtensionAuthenticationConfiguration|null
     */
     public function getAuthenticationConfiguration(): ?CustomExtensionAuthenticationConfiguration {
-        return $this->authenticationConfiguration;
+        return $this->getBackingStore()->get('authenticationConfiguration');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -63,7 +65,7 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @return CustomExtensionEndpointConfiguration|null
     */
     public function getEndpointConfiguration(): ?CustomExtensionEndpointConfiguration {
-        return $this->endpointConfiguration;
+        return $this->getBackingStore()->get('endpointConfiguration');
     }
 
     /**
@@ -83,33 +85,41 @@ class ValidateAuthenticationConfigurationPostRequestBody implements AdditionalDa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('authenticationConfiguration', $this->authenticationConfiguration);
-        $writer->writeObjectValue('endpointConfiguration', $this->endpointConfiguration);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('authenticationConfiguration', $this->getAuthenticationConfiguration());
+        $writer->writeObjectValue('endpointConfiguration', $this->getEndpointConfiguration());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the authenticationConfiguration property value. The authenticationConfiguration property
      *  @param CustomExtensionAuthenticationConfiguration|null $value Value to set for the authenticationConfiguration property.
     */
-    public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value ): void {
-        $this->authenticationConfiguration = $value;
+    public function setAuthenticationConfiguration(?CustomExtensionAuthenticationConfiguration $value): void {
+        $this->getBackingStore()->set('authenticationConfiguration', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the endpointConfiguration property value. The endpointConfiguration property
      *  @param CustomExtensionEndpointConfiguration|null $value Value to set for the endpointConfiguration property.
     */
-    public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value ): void {
-        $this->endpointConfiguration = $value;
+    public function setEndpointConfiguration(?CustomExtensionEndpointConfiguration $value): void {
+        $this->getBackingStore()->set('endpointConfiguration', $value);
     }
 
 }

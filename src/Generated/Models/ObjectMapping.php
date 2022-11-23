@@ -6,65 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ObjectMapping implements AdditionalDataHolder, Parsable 
+class ObjectMapping implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<AttributeMapping>|null $attributeMappings Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
-    */
-    private ?array $attributeMappings = null;
-    
-    /**
-     * @var bool|null $enabled When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var ObjectFlowTypes|null $flowTypes The flowTypes property
-    */
-    private ?ObjectFlowTypes $flowTypes = null;
-    
-    /**
-     * @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-    */
-    private ?array $metadata = null;
-    
-    /**
-     * @var string|null $name Human-friendly name of the object mapping.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var Filter|null $scope Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
-    */
-    private ?Filter $scope = null;
-    
-    /**
-     * @var string|null $sourceObjectName Name of the object in the source directory. Must match the object name from the source directory definition.
-    */
-    private ?string $sourceObjectName = null;
-    
-    /**
-     * @var string|null $targetObjectName Name of the object in target directory. Must match the object name from the target directory definition.
-    */
-    private ?string $targetObjectName = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new objectMapping and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.objectMapping');
     }
 
     /**
@@ -80,8 +38,8 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -89,7 +47,15 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return array<AttributeMapping>|null
     */
     public function getAttributeMappings(): ?array {
-        return $this->attributeMappings;
+        return $this->getBackingStore()->get('attributeMappings');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -97,7 +63,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -124,7 +90,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return ObjectFlowTypes|null
     */
     public function getFlowTypes(): ?ObjectFlowTypes {
-        return $this->flowTypes;
+        return $this->getBackingStore()->get('flowTypes');
     }
 
     /**
@@ -132,7 +98,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return array<MetadataEntry>|null
     */
     public function getMetadata(): ?array {
-        return $this->metadata;
+        return $this->getBackingStore()->get('metadata');
     }
 
     /**
@@ -140,7 +106,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -148,7 +114,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -156,7 +122,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return Filter|null
     */
     public function getScope(): ?Filter {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -164,7 +130,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getSourceObjectName(): ?string {
-        return $this->sourceObjectName;
+        return $this->getBackingStore()->get('sourceObjectName');
     }
 
     /**
@@ -172,7 +138,7 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getTargetObjectName(): ?string {
-        return $this->targetObjectName;
+        return $this->getBackingStore()->get('targetObjectName');
     }
 
     /**
@@ -180,96 +146,104 @@ class ObjectMapping implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('attributeMappings', $this->attributeMappings);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeEnumValue('flowTypes', $this->flowTypes);
-        $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeObjectValue('scope', $this->scope);
-        $writer->writeStringValue('sourceObjectName', $this->sourceObjectName);
-        $writer->writeStringValue('targetObjectName', $this->targetObjectName);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('attributeMappings', $this->getAttributeMappings());
+        $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeEnumValue('flowTypes', $this->getFlowTypes());
+        $writer->writeCollectionOfObjectValues('metadata', $this->getMetadata());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeObjectValue('scope', $this->getScope());
+        $writer->writeStringValue('sourceObjectName', $this->getSourceObjectName());
+        $writer->writeStringValue('targetObjectName', $this->getTargetObjectName());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the attributeMappings property value. Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
      *  @param array<AttributeMapping>|null $value Value to set for the attributeMappings property.
     */
-    public function setAttributeMappings(?array $value ): void {
-        $this->attributeMappings = $value;
+    public function setAttributeMappings(?array $value): void {
+        $this->getBackingStore()->set('attributeMappings', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the enabled property value. When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the flowTypes property value. The flowTypes property
      *  @param ObjectFlowTypes|null $value Value to set for the flowTypes property.
     */
-    public function setFlowTypes(?ObjectFlowTypes $value ): void {
-        $this->flowTypes = $value;
+    public function setFlowTypes(?ObjectFlowTypes $value): void {
+        $this->getBackingStore()->set('flowTypes', $value);
     }
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
      *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
-    public function setMetadata(?array $value ): void {
-        $this->metadata = $value;
+    public function setMetadata(?array $value): void {
+        $this->getBackingStore()->set('metadata', $value);
     }
 
     /**
      * Sets the name property value. Human-friendly name of the object mapping.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the scope property value. Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
      *  @param Filter|null $value Value to set for the scope property.
     */
-    public function setScope(?Filter $value ): void {
-        $this->scope = $value;
+    public function setScope(?Filter $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the sourceObjectName property value. Name of the object in the source directory. Must match the object name from the source directory definition.
      *  @param string|null $value Value to set for the sourceObjectName property.
     */
-    public function setSourceObjectName(?string $value ): void {
-        $this->sourceObjectName = $value;
+    public function setSourceObjectName(?string $value): void {
+        $this->getBackingStore()->set('sourceObjectName', $value);
     }
 
     /**
      * Sets the targetObjectName property value. Name of the object in target directory. Must match the object name from the target directory definition.
      *  @param string|null $value Value to set for the targetObjectName property.
     */
-    public function setTargetObjectName(?string $value ): void {
-        $this->targetObjectName = $value;
+    public function setTargetObjectName(?string $value): void {
+        $this->getBackingStore()->set('targetObjectName', $value);
     }
 
 }

@@ -10,76 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementCompliancePolicy extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationPolicyAssignment>|null $assignments Policy assignments
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Policy creation date and time. This property is read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $creationSource Policy creation source
-    */
-    private ?string $creationSource = null;
-    
-    /**
-     * @var string|null $description Policy description
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var bool|null $isAssigned Policy assignment status. This property is read-only.
-    */
-    private ?bool $isAssigned = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Policy last modification date and time. This property is read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $name Policy name
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var DeviceManagementConfigurationPlatforms|null $platforms Supported platform types.
-    */
-    private ?DeviceManagementConfigurationPlatforms $platforms = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this Entity instance.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var array<DeviceManagementComplianceScheduledActionForRule>|null $scheduledActionsForRule The list of scheduled action for this rule
-    */
-    private ?array $scheduledActionsForRule = null;
-    
-    /**
-     * @var int|null $settingCount Number of settings. This property is read-only.
-    */
-    private ?int $settingCount = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationSetting>|null $settings Policy settings
-    */
-    private ?array $settings = null;
-    
-    /**
-     * @var DeviceManagementConfigurationTechnologies|null $technologies Describes which technology this setting can be deployed with
-    */
-    private ?DeviceManagementConfigurationTechnologies $technologies = null;
-    
-    /**
      * Instantiates a new deviceManagementCompliancePolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementCompliancePolicy');
     }
 
     /**
@@ -96,7 +30,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationPolicyAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -104,7 +38,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -112,7 +46,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getCreationSource(): ?string {
-        return $this->creationSource;
+        return $this->getBackingStore()->get('creationSource');
     }
 
     /**
@@ -120,7 +54,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -151,7 +85,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAssigned(): ?bool {
-        return $this->isAssigned;
+        return $this->getBackingStore()->get('isAssigned');
     }
 
     /**
@@ -159,7 +93,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -167,7 +101,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -175,7 +109,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return DeviceManagementConfigurationPlatforms|null
     */
     public function getPlatforms(): ?DeviceManagementConfigurationPlatforms {
-        return $this->platforms;
+        return $this->getBackingStore()->get('platforms');
     }
 
     /**
@@ -183,7 +117,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -191,7 +125,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return array<DeviceManagementComplianceScheduledActionForRule>|null
     */
     public function getScheduledActionsForRule(): ?array {
-        return $this->scheduledActionsForRule;
+        return $this->getBackingStore()->get('scheduledActionsForRule');
     }
 
     /**
@@ -199,7 +133,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return int|null
     */
     public function getSettingCount(): ?int {
-        return $this->settingCount;
+        return $this->getBackingStore()->get('settingCount');
     }
 
     /**
@@ -207,7 +141,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return array<DeviceManagementConfigurationSetting>|null
     */
     public function getSettings(): ?array {
-        return $this->settings;
+        return $this->getBackingStore()->get('settings');
     }
 
     /**
@@ -215,7 +149,7 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
      * @return DeviceManagementConfigurationTechnologies|null
     */
     public function getTechnologies(): ?DeviceManagementConfigurationTechnologies {
-        return $this->technologies;
+        return $this->getBackingStore()->get('technologies');
     }
 
     /**
@@ -224,119 +158,119 @@ class DeviceManagementCompliancePolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeStringValue('creationSource', $this->creationSource);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeEnumValue('platforms', $this->platforms);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeCollectionOfObjectValues('scheduledActionsForRule', $this->scheduledActionsForRule);
-        $writer->writeCollectionOfObjectValues('settings', $this->settings);
-        $writer->writeEnumValue('technologies', $this->technologies);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeStringValue('creationSource', $this->getCreationSource());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeEnumValue('platforms', $this->getPlatforms());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeCollectionOfObjectValues('scheduledActionsForRule', $this->getScheduledActionsForRule());
+        $writer->writeCollectionOfObjectValues('settings', $this->getSettings());
+        $writer->writeEnumValue('technologies', $this->getTechnologies());
     }
 
     /**
      * Sets the assignments property value. Policy assignments
      *  @param array<DeviceManagementConfigurationPolicyAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Policy creation date and time. This property is read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the creationSource property value. Policy creation source
      *  @param string|null $value Value to set for the creationSource property.
     */
-    public function setCreationSource(?string $value ): void {
-        $this->creationSource = $value;
+    public function setCreationSource(?string $value): void {
+        $this->getBackingStore()->set('creationSource', $value);
     }
 
     /**
      * Sets the description property value. Policy description
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the isAssigned property value. Policy assignment status. This property is read-only.
      *  @param bool|null $value Value to set for the isAssigned property.
     */
-    public function setIsAssigned(?bool $value ): void {
-        $this->isAssigned = $value;
+    public function setIsAssigned(?bool $value): void {
+        $this->getBackingStore()->set('isAssigned', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Policy last modification date and time. This property is read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the name property value. Policy name
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the platforms property value. Supported platform types.
      *  @param DeviceManagementConfigurationPlatforms|null $value Value to set for the platforms property.
     */
-    public function setPlatforms(?DeviceManagementConfigurationPlatforms $value ): void {
-        $this->platforms = $value;
+    public function setPlatforms(?DeviceManagementConfigurationPlatforms $value): void {
+        $this->getBackingStore()->set('platforms', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this Entity instance.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
      *  @param array<DeviceManagementComplianceScheduledActionForRule>|null $value Value to set for the scheduledActionsForRule property.
     */
-    public function setScheduledActionsForRule(?array $value ): void {
-        $this->scheduledActionsForRule = $value;
+    public function setScheduledActionsForRule(?array $value): void {
+        $this->getBackingStore()->set('scheduledActionsForRule', $value);
     }
 
     /**
      * Sets the settingCount property value. Number of settings. This property is read-only.
      *  @param int|null $value Value to set for the settingCount property.
     */
-    public function setSettingCount(?int $value ): void {
-        $this->settingCount = $value;
+    public function setSettingCount(?int $value): void {
+        $this->getBackingStore()->set('settingCount', $value);
     }
 
     /**
      * Sets the settings property value. Policy settings
      *  @param array<DeviceManagementConfigurationSetting>|null $value Value to set for the settings property.
     */
-    public function setSettings(?array $value ): void {
-        $this->settings = $value;
+    public function setSettings(?array $value): void {
+        $this->getBackingStore()->set('settings', $value);
     }
 
     /**
      * Sets the technologies property value. Describes which technology this setting can be deployed with
      *  @param DeviceManagementConfigurationTechnologies|null $value Value to set for the technologies property.
     */
-    public function setTechnologies(?DeviceManagementConfigurationTechnologies $value ): void {
-        $this->technologies = $value;
+    public function setTechnologies(?DeviceManagementConfigurationTechnologies $value): void {
+        $this->getBackingStore()->set('technologies', $value);
     }
 
 }

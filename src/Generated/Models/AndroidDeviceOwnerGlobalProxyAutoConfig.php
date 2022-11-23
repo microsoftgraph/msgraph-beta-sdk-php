@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalProxy implements Parsable 
 {
     /**
-     * @var string|null $proxyAutoConfigURL The proxy auto-config URL
-    */
-    private ?string $proxyAutoConfigURL = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerGlobalProxyAutoConfig and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
      * @return string|null
     */
     public function getProxyAutoConfigURL(): ?string {
-        return $this->proxyAutoConfigURL;
+        return $this->getBackingStore()->get('proxyAutoConfigURL');
     }
 
     /**
@@ -55,15 +50,15 @@ class AndroidDeviceOwnerGlobalProxyAutoConfig extends AndroidDeviceOwnerGlobalPr
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('proxyAutoConfigURL', $this->proxyAutoConfigURL);
+        $writer->writeStringValue('proxyAutoConfigURL', $this->getProxyAutoConfigURL());
     }
 
     /**
      * Sets the proxyAutoConfigURL property value. The proxy auto-config URL
      *  @param string|null $value Value to set for the proxyAutoConfigURL property.
     */
-    public function setProxyAutoConfigURL(?string $value ): void {
-        $this->proxyAutoConfigURL = $value;
+    public function setProxyAutoConfigURL(?string $value): void {
+        $this->getBackingStore()->set('proxyAutoConfigURL', $value);
     }
 
 }

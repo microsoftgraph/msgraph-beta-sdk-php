@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdiscoveryFile extends File implements Parsable 
 {
     /**
-     * @var EdiscoveryCustodian|null $custodian Custodians associated with the file.
-    */
-    private ?EdiscoveryCustodian $custodian = null;
-    
-    /**
-     * @var array<EdiscoveryReviewTag>|null $tags Tags associated with the file.
-    */
-    private ?array $tags = null;
-    
-    /**
      * Instantiates a new EdiscoveryFile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.ediscoveryFile');
     }
 
     /**
@@ -40,7 +29,7 @@ class EdiscoveryFile extends File implements Parsable
      * @return EdiscoveryCustodian|null
     */
     public function getCustodian(): ?EdiscoveryCustodian {
-        return $this->custodian;
+        return $this->getBackingStore()->get('custodian');
     }
 
     /**
@@ -60,7 +49,7 @@ class EdiscoveryFile extends File implements Parsable
      * @return array<EdiscoveryReviewTag>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -69,24 +58,24 @@ class EdiscoveryFile extends File implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('custodian', $this->custodian);
-        $writer->writeCollectionOfObjectValues('tags', $this->tags);
+        $writer->writeObjectValue('custodian', $this->getCustodian());
+        $writer->writeCollectionOfObjectValues('tags', $this->getTags());
     }
 
     /**
      * Sets the custodian property value. Custodians associated with the file.
      *  @param EdiscoveryCustodian|null $value Value to set for the custodian property.
     */
-    public function setCustodian(?EdiscoveryCustodian $value ): void {
-        $this->custodian = $value;
+    public function setCustodian(?EdiscoveryCustodian $value): void {
+        $this->getBackingStore()->set('custodian', $value);
     }
 
     /**
      * Sets the tags property value. Tags associated with the file.
      *  @param array<EdiscoveryReviewTag>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
 }

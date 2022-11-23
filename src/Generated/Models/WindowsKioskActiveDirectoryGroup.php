@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsable 
 {
     /**
-     * @var string|null $groupName The name of the AD group that will be locked to this kiosk configuration
-    */
-    private ?string $groupName = null;
-    
-    /**
      * Instantiates a new WindowsKioskActiveDirectoryGroup and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsa
      * @return string|null
     */
     public function getGroupName(): ?string {
-        return $this->groupName;
+        return $this->getBackingStore()->get('groupName');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsKioskActiveDirectoryGroup extends WindowsKioskUser implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('groupName', $this->groupName);
+        $writer->writeStringValue('groupName', $this->getGroupName());
     }
 
     /**
      * Sets the groupName property value. The name of the AD group that will be locked to this kiosk configuration
      *  @param string|null $value Value to set for the groupName property.
     */
-    public function setGroupName(?string $value ): void {
-        $this->groupName = $value;
+    public function setGroupName(?string $value): void {
+        $this->getBackingStore()->set('groupName', $value);
     }
 
 }

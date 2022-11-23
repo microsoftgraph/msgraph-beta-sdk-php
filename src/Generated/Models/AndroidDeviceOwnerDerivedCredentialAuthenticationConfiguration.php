@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var AndroidDeviceOwnerCertificateAccessType|null $certificateAccessType Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
-    */
-    private ?AndroidDeviceOwnerCertificateAccessType $certificateAccessType = null;
-    
-    /**
-     * @var DeviceManagementDerivedCredentialSettings|null $derivedCredentialSettings Tenant level settings for the Derived Credentials to be used for authentication.
-    */
-    private ?DeviceManagementDerivedCredentialSettings $derivedCredentialSettings = null;
-    
-    /**
-     * @var array<AndroidDeviceOwnerSilentCertificateAccess>|null $silentCertificateAccessDetails Certificate access information. This collection can contain a maximum of 50 elements.
-    */
-    private ?array $silentCertificateAccessDetails = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
      * @return AndroidDeviceOwnerCertificateAccessType|null
     */
     public function getCertificateAccessType(): ?AndroidDeviceOwnerCertificateAccessType {
-        return $this->certificateAccessType;
+        return $this->getBackingStore()->get('certificateAccessType');
     }
 
     /**
@@ -53,7 +38,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
      * @return DeviceManagementDerivedCredentialSettings|null
     */
     public function getDerivedCredentialSettings(): ?DeviceManagementDerivedCredentialSettings {
-        return $this->derivedCredentialSettings;
+        return $this->getBackingStore()->get('derivedCredentialSettings');
     }
 
     /**
@@ -74,7 +59,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
      * @return array<AndroidDeviceOwnerSilentCertificateAccess>|null
     */
     public function getSilentCertificateAccessDetails(): ?array {
-        return $this->silentCertificateAccessDetails;
+        return $this->getBackingStore()->get('silentCertificateAccessDetails');
     }
 
     /**
@@ -83,33 +68,33 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('certificateAccessType', $this->certificateAccessType);
-        $writer->writeObjectValue('derivedCredentialSettings', $this->derivedCredentialSettings);
-        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->silentCertificateAccessDetails);
+        $writer->writeEnumValue('certificateAccessType', $this->getCertificateAccessType());
+        $writer->writeObjectValue('derivedCredentialSettings', $this->getDerivedCredentialSettings());
+        $writer->writeCollectionOfObjectValues('silentCertificateAccessDetails', $this->getSilentCertificateAccessDetails());
     }
 
     /**
      * Sets the certificateAccessType property value. Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
      *  @param AndroidDeviceOwnerCertificateAccessType|null $value Value to set for the certificateAccessType property.
     */
-    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value ): void {
-        $this->certificateAccessType = $value;
+    public function setCertificateAccessType(?AndroidDeviceOwnerCertificateAccessType $value): void {
+        $this->getBackingStore()->set('certificateAccessType', $value);
     }
 
     /**
      * Sets the derivedCredentialSettings property value. Tenant level settings for the Derived Credentials to be used for authentication.
      *  @param DeviceManagementDerivedCredentialSettings|null $value Value to set for the derivedCredentialSettings property.
     */
-    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value ): void {
-        $this->derivedCredentialSettings = $value;
+    public function setDerivedCredentialSettings(?DeviceManagementDerivedCredentialSettings $value): void {
+        $this->getBackingStore()->set('derivedCredentialSettings', $value);
     }
 
     /**
      * Sets the silentCertificateAccessDetails property value. Certificate access information. This collection can contain a maximum of 50 elements.
      *  @param array<AndroidDeviceOwnerSilentCertificateAccess>|null $value Value to set for the silentCertificateAccessDetails property.
     */
-    public function setSilentCertificateAccessDetails(?array $value ): void {
-        $this->silentCertificateAccessDetails = $value;
+    public function setSilentCertificateAccessDetails(?array $value): void {
+        $this->getBackingStore()->set('silentCertificateAccessDetails', $value);
     }
 
 }

@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProviderTenantSetting extends Entity implements Parsable 
 {
     /**
-     * @var string|null $azureTenantId The azureTenantId property
-    */
-    private ?string $azureTenantId = null;
-    
-    /**
-     * @var bool|null $enabled The enabled property
-    */
-    private ?bool $enabled = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $provider The provider property
-    */
-    private ?string $provider = null;
-    
-    /**
-     * @var string|null $vendor The vendor property
-    */
-    private ?string $vendor = null;
-    
-    /**
      * Instantiates a new providerTenantSetting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.providerTenantSetting');
     }
 
     /**
@@ -56,7 +30,7 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getAzureTenantId(): ?string {
-        return $this->azureTenantId;
+        return $this->getBackingStore()->get('azureTenantId');
     }
 
     /**
@@ -64,7 +38,7 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnabled(): ?bool {
-        return $this->enabled;
+        return $this->getBackingStore()->get('enabled');
     }
 
     /**
@@ -87,7 +61,7 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -95,7 +69,7 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getProvider(): ?string {
-        return $this->provider;
+        return $this->getBackingStore()->get('provider');
     }
 
     /**
@@ -103,7 +77,7 @@ class ProviderTenantSetting extends Entity implements Parsable
      * @return string|null
     */
     public function getVendor(): ?string {
-        return $this->vendor;
+        return $this->getBackingStore()->get('vendor');
     }
 
     /**
@@ -112,51 +86,51 @@ class ProviderTenantSetting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureTenantId', $this->azureTenantId);
-        $writer->writeBooleanValue('enabled', $this->enabled);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('provider', $this->provider);
-        $writer->writeStringValue('vendor', $this->vendor);
+        $writer->writeStringValue('azureTenantId', $this->getAzureTenantId());
+        $writer->writeBooleanValue('enabled', $this->getEnabled());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('provider', $this->getProvider());
+        $writer->writeStringValue('vendor', $this->getVendor());
     }
 
     /**
      * Sets the azureTenantId property value. The azureTenantId property
      *  @param string|null $value Value to set for the azureTenantId property.
     */
-    public function setAzureTenantId(?string $value ): void {
-        $this->azureTenantId = $value;
+    public function setAzureTenantId(?string $value): void {
+        $this->getBackingStore()->set('azureTenantId', $value);
     }
 
     /**
      * Sets the enabled property value. The enabled property
      *  @param bool|null $value Value to set for the enabled property.
     */
-    public function setEnabled(?bool $value ): void {
-        $this->enabled = $value;
+    public function setEnabled(?bool $value): void {
+        $this->getBackingStore()->set('enabled', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the provider property value. The provider property
      *  @param string|null $value Value to set for the provider property.
     */
-    public function setProvider(?string $value ): void {
-        $this->provider = $value;
+    public function setProvider(?string $value): void {
+        $this->getBackingStore()->set('provider', $value);
     }
 
     /**
      * Sets the vendor property value. The vendor property
      *  @param string|null $value Value to set for the vendor property.
     */
-    public function setVendor(?string $value ): void {
-        $this->vendor = $value;
+    public function setVendor(?string $value): void {
+        $this->getBackingStore()->set('vendor', $value);
     }
 
 }

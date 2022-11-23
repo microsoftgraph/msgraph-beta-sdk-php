@@ -9,46 +9,15 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SynchronizationTemplate extends Entity implements Parsable 
 {
     /**
-     * @var string|null $applicationId Identifier of the application this template belongs to.
-    */
-    private ?string $applicationId = null;
-    
-    /**
-     * @var string|null $description Description of the template.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var bool|null $discoverable true if this template should appear in the collection of templates available for the application instance (service principal).
-    */
-    private ?bool $discoverable = null;
-    
-    /**
      * @var bool|null $escapedDefault true if this template is recommended to be the default for the application.
     */
-    private ?bool $escapedDefault = null;
-    
-    /**
-     * @var string|null $factoryTag One of the well-known factory tags supported by the synchronization engine. The factoryTag tells the synchronization engine which implementation to use when processing jobs based on this template.
-    */
-    private ?string $factoryTag = null;
-    
-    /**
-     * @var array<MetadataEntry>|null $metadata Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-    */
-    private ?array $metadata = null;
-    
-    /**
-     * @var SynchronizationSchema|null $schema Default synchronization schema for the jobs based on this template.
-    */
-    private ?SynchronizationSchema $schema = null;
+    public ?bool $escapedDefault = null;
     
     /**
      * Instantiates a new synchronizationTemplate and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.synchronizationTemplate');
     }
 
     /**
@@ -65,7 +34,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getApplicationId(): ?string {
-        return $this->applicationId;
+        return $this->getBackingStore()->get('applicationId');
     }
 
     /**
@@ -73,7 +42,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return bool|null
     */
     public function getDefault(): ?bool {
-        return $this->escapedDefault;
+        return $this->getBackingStore()->get('escapedDefault');
     }
 
     /**
@@ -81,7 +50,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -89,7 +58,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return bool|null
     */
     public function getDiscoverable(): ?bool {
-        return $this->discoverable;
+        return $this->getBackingStore()->get('discoverable');
     }
 
     /**
@@ -97,7 +66,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return string|null
     */
     public function getFactoryTag(): ?string {
-        return $this->factoryTag;
+        return $this->getBackingStore()->get('factoryTag');
     }
 
     /**
@@ -122,7 +91,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return array<MetadataEntry>|null
     */
     public function getMetadata(): ?array {
-        return $this->metadata;
+        return $this->getBackingStore()->get('metadata');
     }
 
     /**
@@ -130,7 +99,7 @@ class SynchronizationTemplate extends Entity implements Parsable
      * @return SynchronizationSchema|null
     */
     public function getSchema(): ?SynchronizationSchema {
-        return $this->schema;
+        return $this->getBackingStore()->get('schema');
     }
 
     /**
@@ -139,69 +108,69 @@ class SynchronizationTemplate extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('applicationId', $this->applicationId);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('discoverable', $this->discoverable);
-        $writer->writeBooleanValue('default', $this->escapedDefault);
-        $writer->writeStringValue('factoryTag', $this->factoryTag);
-        $writer->writeCollectionOfObjectValues('metadata', $this->metadata);
-        $writer->writeObjectValue('schema', $this->schema);
+        $writer->writeStringValue('applicationId', $this->getApplicationId());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('discoverable', $this->getDiscoverable());
+        $writer->writeBooleanValue('default', $this->getDefault());
+        $writer->writeStringValue('factoryTag', $this->getFactoryTag());
+        $writer->writeCollectionOfObjectValues('metadata', $this->getMetadata());
+        $writer->writeObjectValue('schema', $this->getSchema());
     }
 
     /**
      * Sets the applicationId property value. Identifier of the application this template belongs to.
      *  @param string|null $value Value to set for the applicationId property.
     */
-    public function setApplicationId(?string $value ): void {
-        $this->applicationId = $value;
+    public function setApplicationId(?string $value): void {
+        $this->getBackingStore()->set('applicationId', $value);
     }
 
     /**
      * Sets the default property value. true if this template is recommended to be the default for the application.
      *  @param bool|null $value Value to set for the EscapedDefault property.
     */
-    public function setDefault(?bool $value ): void {
-        $this->escapedDefault = $value;
+    public function setDefault(?bool $value): void {
+        $this->getBackingStore()->set('escapedDefault', $value);
     }
 
     /**
      * Sets the description property value. Description of the template.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the discoverable property value. true if this template should appear in the collection of templates available for the application instance (service principal).
      *  @param bool|null $value Value to set for the discoverable property.
     */
-    public function setDiscoverable(?bool $value ): void {
-        $this->discoverable = $value;
+    public function setDiscoverable(?bool $value): void {
+        $this->getBackingStore()->set('discoverable', $value);
     }
 
     /**
      * Sets the factoryTag property value. One of the well-known factory tags supported by the synchronization engine. The factoryTag tells the synchronization engine which implementation to use when processing jobs based on this template.
      *  @param string|null $value Value to set for the factoryTag property.
     */
-    public function setFactoryTag(?string $value ): void {
-        $this->factoryTag = $value;
+    public function setFactoryTag(?string $value): void {
+        $this->getBackingStore()->set('factoryTag', $value);
     }
 
     /**
      * Sets the metadata property value. Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
      *  @param array<MetadataEntry>|null $value Value to set for the metadata property.
     */
-    public function setMetadata(?array $value ): void {
-        $this->metadata = $value;
+    public function setMetadata(?array $value): void {
+        $this->getBackingStore()->set('metadata', $value);
     }
 
     /**
      * Sets the schema property value. Default synchronization schema for the jobs based on this template.
      *  @param SynchronizationSchema|null $value Value to set for the schema property.
     */
-    public function setSchema(?SynchronizationSchema $value ): void {
-        $this->schema = $value;
+    public function setSchema(?SynchronizationSchema $value): void {
+        $this->getBackingStore()->set('schema', $value);
     }
 
 }

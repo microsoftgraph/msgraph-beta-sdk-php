@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity implements Parsable 
 {
     /**
-     * @var int|null $activeDeviceCount The number of active devices for the model. Valid values -2147483648 to 2147483647
-    */
-    private ?int $activeDeviceCount = null;
-    
-    /**
-     * @var string|null $deviceManufacturer The manufacturer name of the device.
-    */
-    private ?string $deviceManufacturer = null;
-    
-    /**
-     * @var string|null $deviceModel The model name of the device.
-    */
-    private ?string $deviceModel = null;
-    
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
-    */
-    private ?UserExperienceAnalyticsHealthState $healthStatus = null;
-    
-    /**
-     * @var int|null $meanTimeToFailureInMinutes The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $meanTimeToFailureInMinutes = null;
-    
-    /**
-     * @var float|null $modelAppHealthScore The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $modelAppHealthScore = null;
-    
-    /**
-     * @var string|null $modelAppHealthStatus The overall app health status of the device model.
-    */
-    private ?string $modelAppHealthStatus = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsAppHealthDeviceModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAppHealthDeviceModelPerformance');
     }
 
     /**
@@ -65,7 +29,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return int|null
     */
     public function getActiveDeviceCount(): ?int {
-        return $this->activeDeviceCount;
+        return $this->getBackingStore()->get('activeDeviceCount');
     }
 
     /**
@@ -73,7 +37,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return string|null
     */
     public function getDeviceManufacturer(): ?string {
-        return $this->deviceManufacturer;
+        return $this->getBackingStore()->get('deviceManufacturer');
     }
 
     /**
@@ -81,7 +45,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return string|null
     */
     public function getDeviceModel(): ?string {
-        return $this->deviceModel;
+        return $this->getBackingStore()->get('deviceModel');
     }
 
     /**
@@ -106,7 +70,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->healthStatus;
+        return $this->getBackingStore()->get('healthStatus');
     }
 
     /**
@@ -114,7 +78,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return int|null
     */
     public function getMeanTimeToFailureInMinutes(): ?int {
-        return $this->meanTimeToFailureInMinutes;
+        return $this->getBackingStore()->get('meanTimeToFailureInMinutes');
     }
 
     /**
@@ -122,7 +86,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return float|null
     */
     public function getModelAppHealthScore(): ?float {
-        return $this->modelAppHealthScore;
+        return $this->getBackingStore()->get('modelAppHealthScore');
     }
 
     /**
@@ -130,7 +94,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
      * @return string|null
     */
     public function getModelAppHealthStatus(): ?string {
-        return $this->modelAppHealthStatus;
+        return $this->getBackingStore()->get('modelAppHealthStatus');
     }
 
     /**
@@ -139,69 +103,69 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('activeDeviceCount', $this->activeDeviceCount);
-        $writer->writeStringValue('deviceManufacturer', $this->deviceManufacturer);
-        $writer->writeStringValue('deviceModel', $this->deviceModel);
-        $writer->writeEnumValue('healthStatus', $this->healthStatus);
-        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->meanTimeToFailureInMinutes);
-        $writer->writeFloatValue('modelAppHealthScore', $this->modelAppHealthScore);
-        $writer->writeStringValue('modelAppHealthStatus', $this->modelAppHealthStatus);
+        $writer->writeIntegerValue('activeDeviceCount', $this->getActiveDeviceCount());
+        $writer->writeStringValue('deviceManufacturer', $this->getDeviceManufacturer());
+        $writer->writeStringValue('deviceModel', $this->getDeviceModel());
+        $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeIntegerValue('meanTimeToFailureInMinutes', $this->getMeanTimeToFailureInMinutes());
+        $writer->writeFloatValue('modelAppHealthScore', $this->getModelAppHealthScore());
+        $writer->writeStringValue('modelAppHealthStatus', $this->getModelAppHealthStatus());
     }
 
     /**
      * Sets the activeDeviceCount property value. The number of active devices for the model. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the activeDeviceCount property.
     */
-    public function setActiveDeviceCount(?int $value ): void {
-        $this->activeDeviceCount = $value;
+    public function setActiveDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('activeDeviceCount', $value);
     }
 
     /**
      * Sets the deviceManufacturer property value. The manufacturer name of the device.
      *  @param string|null $value Value to set for the deviceManufacturer property.
     */
-    public function setDeviceManufacturer(?string $value ): void {
-        $this->deviceManufacturer = $value;
+    public function setDeviceManufacturer(?string $value): void {
+        $this->getBackingStore()->set('deviceManufacturer', $value);
     }
 
     /**
      * Sets the deviceModel property value. The model name of the device.
      *  @param string|null $value Value to set for the deviceModel property.
     */
-    public function setDeviceModel(?string $value ): void {
-        $this->deviceModel = $value;
+    public function setDeviceModel(?string $value): void {
+        $this->getBackingStore()->set('deviceModel', $value);
     }
 
     /**
      * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
-    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {
-        $this->healthStatus = $value;
+    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
     }
 
     /**
      * Sets the meanTimeToFailureInMinutes property value. The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the meanTimeToFailureInMinutes property.
     */
-    public function setMeanTimeToFailureInMinutes(?int $value ): void {
-        $this->meanTimeToFailureInMinutes = $value;
+    public function setMeanTimeToFailureInMinutes(?int $value): void {
+        $this->getBackingStore()->set('meanTimeToFailureInMinutes', $value);
     }
 
     /**
      * Sets the modelAppHealthScore property value. The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the modelAppHealthScore property.
     */
-    public function setModelAppHealthScore(?float $value ): void {
-        $this->modelAppHealthScore = $value;
+    public function setModelAppHealthScore(?float $value): void {
+        $this->getBackingStore()->set('modelAppHealthScore', $value);
     }
 
     /**
      * Sets the modelAppHealthStatus property value. The overall app health status of the device model.
      *  @param string|null $value Value to set for the modelAppHealthStatus property.
     */
-    public function setModelAppHealthStatus(?string $value ): void {
-        $this->modelAppHealthStatus = $value;
+    public function setModelAppHealthStatus(?string $value): void {
+        $this->getBackingStore()->set('modelAppHealthStatus', $value);
     }
 
 }

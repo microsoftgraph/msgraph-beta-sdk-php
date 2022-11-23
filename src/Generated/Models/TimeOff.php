@@ -9,26 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TimeOff extends ChangeTrackedEntity implements Parsable 
 {
     /**
-     * @var TimeOffItem|null $draftTimeOff The draft version of this timeOff that is viewable by managers. Required.
-    */
-    private ?TimeOffItem $draftTimeOff = null;
-    
-    /**
-     * @var bool|null $isStagedForDeletion The isStagedForDeletion property
-    */
-    private ?bool $isStagedForDeletion = null;
-    
-    /**
-     * @var TimeOffItem|null $sharedTimeOff The shared version of this timeOff that is viewable by both employees and managers. Required.
-    */
-    private ?TimeOffItem $sharedTimeOff = null;
-    
-    /**
-     * @var string|null $userId ID of the user assigned to the timeOff. Required.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new TimeOff and sets the default values.
     */
     public function __construct() {
@@ -50,7 +30,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
      * @return TimeOffItem|null
     */
     public function getDraftTimeOff(): ?TimeOffItem {
-        return $this->draftTimeOff;
+        return $this->getBackingStore()->get('draftTimeOff');
     }
 
     /**
@@ -72,7 +52,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
      * @return bool|null
     */
     public function getIsStagedForDeletion(): ?bool {
-        return $this->isStagedForDeletion;
+        return $this->getBackingStore()->get('isStagedForDeletion');
     }
 
     /**
@@ -80,7 +60,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
      * @return TimeOffItem|null
     */
     public function getSharedTimeOff(): ?TimeOffItem {
-        return $this->sharedTimeOff;
+        return $this->getBackingStore()->get('sharedTimeOff');
     }
 
     /**
@@ -88,7 +68,7 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -97,42 +77,42 @@ class TimeOff extends ChangeTrackedEntity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('draftTimeOff', $this->draftTimeOff);
-        $writer->writeBooleanValue('isStagedForDeletion', $this->isStagedForDeletion);
-        $writer->writeObjectValue('sharedTimeOff', $this->sharedTimeOff);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeObjectValue('draftTimeOff', $this->getDraftTimeOff());
+        $writer->writeBooleanValue('isStagedForDeletion', $this->getIsStagedForDeletion());
+        $writer->writeObjectValue('sharedTimeOff', $this->getSharedTimeOff());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the draftTimeOff property value. The draft version of this timeOff that is viewable by managers. Required.
      *  @param TimeOffItem|null $value Value to set for the draftTimeOff property.
     */
-    public function setDraftTimeOff(?TimeOffItem $value ): void {
-        $this->draftTimeOff = $value;
+    public function setDraftTimeOff(?TimeOffItem $value): void {
+        $this->getBackingStore()->set('draftTimeOff', $value);
     }
 
     /**
      * Sets the isStagedForDeletion property value. The isStagedForDeletion property
      *  @param bool|null $value Value to set for the isStagedForDeletion property.
     */
-    public function setIsStagedForDeletion(?bool $value ): void {
-        $this->isStagedForDeletion = $value;
+    public function setIsStagedForDeletion(?bool $value): void {
+        $this->getBackingStore()->set('isStagedForDeletion', $value);
     }
 
     /**
      * Sets the sharedTimeOff property value. The shared version of this timeOff that is viewable by both employees and managers. Required.
      *  @param TimeOffItem|null $value Value to set for the sharedTimeOff property.
     */
-    public function setSharedTimeOff(?TimeOffItem $value ): void {
-        $this->sharedTimeOff = $value;
+    public function setSharedTimeOff(?TimeOffItem $value): void {
+        $this->getBackingStore()->set('sharedTimeOff', $value);
     }
 
     /**
      * Sets the userId property value. ID of the user assigned to the timeOff. Required.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

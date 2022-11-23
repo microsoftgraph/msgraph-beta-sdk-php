@@ -2,6 +2,7 @@
 
 namespace Microsoft\Graph\Beta\Generated\Models;
 
+use DateTime;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
@@ -9,31 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PrintDocument extends Entity implements Parsable 
 {
     /**
-     * @var PrinterDocumentConfiguration|null $configuration The configuration property
-    */
-    private ?PrinterDocumentConfiguration $configuration = null;
-    
-    /**
-     * @var string|null $contentType The document's content (MIME) type. Read-only.
-    */
-    private ?string $contentType = null;
-    
-    /**
-     * @var string|null $displayName The document's name. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $size The document's size in bytes. Read-only.
-    */
-    private ?int $size = null;
-    
-    /**
      * Instantiates a new printDocument and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.printDocument');
     }
 
     /**
@@ -50,7 +30,7 @@ class PrintDocument extends Entity implements Parsable
      * @return PrinterDocumentConfiguration|null
     */
     public function getConfiguration(): ?PrinterDocumentConfiguration {
-        return $this->configuration;
+        return $this->getBackingStore()->get('configuration');
     }
 
     /**
@@ -58,7 +38,7 @@ class PrintDocument extends Entity implements Parsable
      * @return string|null
     */
     public function getContentType(): ?string {
-        return $this->contentType;
+        return $this->getBackingStore()->get('contentType');
     }
 
     /**
@@ -66,7 +46,15 @@ class PrintDocument extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
+    }
+
+    /**
+     * Gets the downloadedDateTime property value. The downloadedDateTime property
+     * @return DateTime|null
+    */
+    public function getDownloadedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('downloadedDateTime');
     }
 
     /**
@@ -79,7 +67,9 @@ class PrintDocument extends Entity implements Parsable
             'configuration' => fn(ParseNode $n) => $o->setConfiguration($n->getObjectValue([PrinterDocumentConfiguration::class, 'createFromDiscriminatorValue'])),
             'contentType' => fn(ParseNode $n) => $o->setContentType($n->getStringValue()),
             'displayName' => fn(ParseNode $n) => $o->setDisplayName($n->getStringValue()),
+            'downloadedDateTime' => fn(ParseNode $n) => $o->setDownloadedDateTime($n->getDateTimeValue()),
             'size' => fn(ParseNode $n) => $o->setSize($n->getIntegerValue()),
+            'uploadedDateTime' => fn(ParseNode $n) => $o->setUploadedDateTime($n->getDateTimeValue()),
         ]);
     }
 
@@ -88,7 +78,15 @@ class PrintDocument extends Entity implements Parsable
      * @return int|null
     */
     public function getSize(): ?int {
-        return $this->size;
+        return $this->getBackingStore()->get('size');
+    }
+
+    /**
+     * Gets the uploadedDateTime property value. The uploadedDateTime property
+     * @return DateTime|null
+    */
+    public function getUploadedDateTime(): ?DateTime {
+        return $this->getBackingStore()->get('uploadedDateTime');
     }
 
     /**
@@ -97,42 +95,60 @@ class PrintDocument extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('configuration', $this->configuration);
-        $writer->writeStringValue('contentType', $this->contentType);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('size', $this->size);
+        $writer->writeObjectValue('configuration', $this->getConfiguration());
+        $writer->writeStringValue('contentType', $this->getContentType());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('downloadedDateTime', $this->getDownloadedDateTime());
+        $writer->writeIntegerValue('size', $this->getSize());
+        $writer->writeDateTimeValue('uploadedDateTime', $this->getUploadedDateTime());
     }
 
     /**
      * Sets the configuration property value. The configuration property
      *  @param PrinterDocumentConfiguration|null $value Value to set for the configuration property.
     */
-    public function setConfiguration(?PrinterDocumentConfiguration $value ): void {
-        $this->configuration = $value;
+    public function setConfiguration(?PrinterDocumentConfiguration $value): void {
+        $this->getBackingStore()->set('configuration', $value);
     }
 
     /**
      * Sets the contentType property value. The document's content (MIME) type. Read-only.
      *  @param string|null $value Value to set for the contentType property.
     */
-    public function setContentType(?string $value ): void {
-        $this->contentType = $value;
+    public function setContentType(?string $value): void {
+        $this->getBackingStore()->set('contentType', $value);
     }
 
     /**
      * Sets the displayName property value. The document's name. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
+    }
+
+    /**
+     * Sets the downloadedDateTime property value. The downloadedDateTime property
+     *  @param DateTime|null $value Value to set for the downloadedDateTime property.
+    */
+    public function setDownloadedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('downloadedDateTime', $value);
     }
 
     /**
      * Sets the size property value. The document's size in bytes. Read-only.
      *  @param int|null $value Value to set for the size property.
     */
-    public function setSize(?int $value ): void {
-        $this->size = $value;
+    public function setSize(?int $value): void {
+        $this->getBackingStore()->set('size', $value);
+    }
+
+    /**
+     * Sets the uploadedDateTime property value. The uploadedDateTime property
+     *  @param DateTime|null $value Value to set for the uploadedDateTime property.
+    */
+    public function setUploadedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('uploadedDateTime', $value);
     }
 
 }

@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements Parsable 
 {
     /**
-     * @var WindowsKioskUWPApp|null $uwpApp The uwpApp property
-    */
-    private ?WindowsKioskUWPApp $uwpApp = null;
-    
-    /**
      * Instantiates a new WindowsKioskSingleUWPApp and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
      * @return WindowsKioskUWPApp|null
     */
     public function getUwpApp(): ?WindowsKioskUWPApp {
-        return $this->uwpApp;
+        return $this->getBackingStore()->get('uwpApp');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsKioskSingleUWPApp extends WindowsKioskAppConfiguration implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('uwpApp', $this->uwpApp);
+        $writer->writeObjectValue('uwpApp', $this->getUwpApp());
     }
 
     /**
      * Sets the uwpApp property value. The uwpApp property
      *  @param WindowsKioskUWPApp|null $value Value to set for the uwpApp property.
     */
-    public function setUwpApp(?WindowsKioskUWPApp $value ): void {
-        $this->uwpApp = $value;
+    public function setUwpApp(?WindowsKioskUWPApp $value): void {
+        $this->getBackingStore()->set('uwpApp', $value);
     }
 
 }

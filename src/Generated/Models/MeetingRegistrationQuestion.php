@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistrationQuestion extends Entity implements Parsable 
 {
     /**
-     * @var AnswerInputType|null $answerInputType Answer input type of the custom registration question.
-    */
-    private ?AnswerInputType $answerInputType = null;
-    
-    /**
-     * @var array<string>|null $answerOptions Answer options when answerInputType is radioButton.
-    */
-    private ?array $answerOptions = null;
-    
-    /**
-     * @var string|null $displayName Display name of the custom registration question.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isRequired Indicates whether the question is required. Default value is false.
-    */
-    private ?bool $isRequired = null;
-    
-    /**
      * Instantiates a new meetingRegistrationQuestion and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.meetingRegistrationQuestion');
     }
 
     /**
@@ -50,7 +29,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return AnswerInputType|null
     */
     public function getAnswerInputType(): ?AnswerInputType {
-        return $this->answerInputType;
+        return $this->getBackingStore()->get('answerInputType');
     }
 
     /**
@@ -58,7 +37,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAnswerOptions(): ?array {
-        return $this->answerOptions;
+        return $this->getBackingStore()->get('answerOptions');
     }
 
     /**
@@ -66,7 +45,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -88,7 +67,7 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsRequired(): ?bool {
-        return $this->isRequired;
+        return $this->getBackingStore()->get('isRequired');
     }
 
     /**
@@ -97,42 +76,42 @@ class MeetingRegistrationQuestion extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('answerInputType', $this->answerInputType);
-        $writer->writeCollectionOfPrimitiveValues('answerOptions', $this->answerOptions);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isRequired', $this->isRequired);
+        $writer->writeEnumValue('answerInputType', $this->getAnswerInputType());
+        $writer->writeCollectionOfPrimitiveValues('answerOptions', $this->getAnswerOptions());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isRequired', $this->getIsRequired());
     }
 
     /**
      * Sets the answerInputType property value. Answer input type of the custom registration question.
      *  @param AnswerInputType|null $value Value to set for the answerInputType property.
     */
-    public function setAnswerInputType(?AnswerInputType $value ): void {
-        $this->answerInputType = $value;
+    public function setAnswerInputType(?AnswerInputType $value): void {
+        $this->getBackingStore()->set('answerInputType', $value);
     }
 
     /**
      * Sets the answerOptions property value. Answer options when answerInputType is radioButton.
      *  @param array<string>|null $value Value to set for the answerOptions property.
     */
-    public function setAnswerOptions(?array $value ): void {
-        $this->answerOptions = $value;
+    public function setAnswerOptions(?array $value): void {
+        $this->getBackingStore()->set('answerOptions', $value);
     }
 
     /**
      * Sets the displayName property value. Display name of the custom registration question.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isRequired property value. Indicates whether the question is required. Default value is false.
      *  @param bool|null $value Value to set for the isRequired property.
     */
-    public function setIsRequired(?bool $value ): void {
-        $this->isRequired = $value;
+    public function setIsRequired(?bool $value): void {
+        $this->getBackingStore()->set('isRequired', $value);
     }
 
 }

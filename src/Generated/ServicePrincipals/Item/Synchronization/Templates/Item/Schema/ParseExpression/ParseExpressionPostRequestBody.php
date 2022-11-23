@@ -8,33 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable 
+class ParseExpressionPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $expression The expression property
-    */
-    private ?string $expression = null;
-    
-    /**
-     * @var AttributeDefinition|null $targetAttributeDefinition The targetAttributeDefinition property
-    */
-    private ?AttributeDefinition $targetAttributeDefinition = null;
-    
-    /**
-     * @var ExpressionInputObject|null $testInputObject The testInputObject property
-    */
-    private ?ExpressionInputObject $testInputObject = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new parseExpressionPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -51,8 +40,16 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -60,7 +57,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getExpression(): ?string {
-        return $this->expression;
+        return $this->getBackingStore()->get('expression');
     }
 
     /**
@@ -81,7 +78,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return AttributeDefinition|null
     */
     public function getTargetAttributeDefinition(): ?AttributeDefinition {
-        return $this->targetAttributeDefinition;
+        return $this->getBackingStore()->get('targetAttributeDefinition');
     }
 
     /**
@@ -89,7 +86,7 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
      * @return ExpressionInputObject|null
     */
     public function getTestInputObject(): ?ExpressionInputObject {
-        return $this->testInputObject;
+        return $this->getBackingStore()->get('testInputObject');
     }
 
     /**
@@ -97,42 +94,50 @@ class ParseExpressionPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('expression', $this->expression);
-        $writer->writeObjectValue('targetAttributeDefinition', $this->targetAttributeDefinition);
-        $writer->writeObjectValue('testInputObject', $this->testInputObject);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('expression', $this->getExpression());
+        $writer->writeObjectValue('targetAttributeDefinition', $this->getTargetAttributeDefinition());
+        $writer->writeObjectValue('testInputObject', $this->getTestInputObject());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the expression property value. The expression property
      *  @param string|null $value Value to set for the expression property.
     */
-    public function setExpression(?string $value ): void {
-        $this->expression = $value;
+    public function setExpression(?string $value): void {
+        $this->getBackingStore()->set('expression', $value);
     }
 
     /**
      * Sets the targetAttributeDefinition property value. The targetAttributeDefinition property
      *  @param AttributeDefinition|null $value Value to set for the targetAttributeDefinition property.
     */
-    public function setTargetAttributeDefinition(?AttributeDefinition $value ): void {
-        $this->targetAttributeDefinition = $value;
+    public function setTargetAttributeDefinition(?AttributeDefinition $value): void {
+        $this->getBackingStore()->set('targetAttributeDefinition', $value);
     }
 
     /**
      * Sets the testInputObject property value. The testInputObject property
      *  @param ExpressionInputObject|null $value Value to set for the testInputObject property.
     */
-    public function setTestInputObject(?ExpressionInputObject $value ): void {
-        $this->testInputObject = $value;
+    public function setTestInputObject(?ExpressionInputObject $value): void {
+        $this->getBackingStore()->set('testInputObject', $value);
     }
 
 }

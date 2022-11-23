@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDecisionItemTarget implements Parsable 
 {
     /**
-     * @var string|null $userDisplayName The name of user.
-    */
-    private ?string $userDisplayName = null;
-    
-    /**
-     * @var string|null $userId The identifier of user.
-    */
-    private ?string $userId = null;
-    
-    /**
-     * @var string|null $userPrincipalName The user principal name.
-    */
-    private ?string $userPrincipalName = null;
-    
-    /**
      * Instantiates a new AccessReviewInstanceDecisionItemUserTarget and sets the default values.
     */
     public function __construct() {
@@ -58,7 +43,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->userDisplayName;
+        return $this->getBackingStore()->get('userDisplayName');
     }
 
     /**
@@ -66,7 +51,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -74,7 +59,7 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
      * @return string|null
     */
     public function getUserPrincipalName(): ?string {
-        return $this->userPrincipalName;
+        return $this->getBackingStore()->get('userPrincipalName');
     }
 
     /**
@@ -83,33 +68,33 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('userDisplayName', $this->userDisplayName);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeStringValue('userPrincipalName', $this->userPrincipalName);
+        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeStringValue('userPrincipalName', $this->getUserPrincipalName());
     }
 
     /**
      * Sets the userDisplayName property value. The name of user.
      *  @param string|null $value Value to set for the userDisplayName property.
     */
-    public function setUserDisplayName(?string $value ): void {
-        $this->userDisplayName = $value;
+    public function setUserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('userDisplayName', $value);
     }
 
     /**
      * Sets the userId property value. The identifier of user.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
     /**
      * Sets the userPrincipalName property value. The user principal name.
      *  @param string|null $value Value to set for the userPrincipalName property.
     */
-    public function setUserPrincipalName(?string $value ): void {
-        $this->userPrincipalName = $value;
+    public function setUserPrincipalName(?string $value): void {
+        $this->getBackingStore()->set('userPrincipalName', $value);
     }
 
 }

@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsManagementApp extends Entity implements Parsable 
 {
     /**
-     * @var string|null $availableVersion Windows management app available version.
-    */
-    private ?string $availableVersion = null;
-    
-    /**
-     * @var array<WindowsManagementAppHealthState>|null $healthStates The list of health states for installed Windows management app.
-    */
-    private ?array $healthStates = null;
-    
-    /**
-     * @var ManagedInstallerStatus|null $managedInstaller ManagedInstallerStatus
-    */
-    private ?ManagedInstallerStatus $managedInstaller = null;
-    
-    /**
-     * @var string|null $managedInstallerConfiguredDateTime Managed Installer Configured Date Time
-    */
-    private ?string $managedInstallerConfiguredDateTime = null;
-    
-    /**
      * Instantiates a new windowsManagementApp and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsManagementApp');
     }
 
     /**
@@ -50,7 +29,7 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return string|null
     */
     public function getAvailableVersion(): ?string {
-        return $this->availableVersion;
+        return $this->getBackingStore()->get('availableVersion');
     }
 
     /**
@@ -72,7 +51,7 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return array<WindowsManagementAppHealthState>|null
     */
     public function getHealthStates(): ?array {
-        return $this->healthStates;
+        return $this->getBackingStore()->get('healthStates');
     }
 
     /**
@@ -80,7 +59,7 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return ManagedInstallerStatus|null
     */
     public function getManagedInstaller(): ?ManagedInstallerStatus {
-        return $this->managedInstaller;
+        return $this->getBackingStore()->get('managedInstaller');
     }
 
     /**
@@ -88,7 +67,7 @@ class WindowsManagementApp extends Entity implements Parsable
      * @return string|null
     */
     public function getManagedInstallerConfiguredDateTime(): ?string {
-        return $this->managedInstallerConfiguredDateTime;
+        return $this->getBackingStore()->get('managedInstallerConfiguredDateTime');
     }
 
     /**
@@ -97,42 +76,42 @@ class WindowsManagementApp extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('availableVersion', $this->availableVersion);
-        $writer->writeCollectionOfObjectValues('healthStates', $this->healthStates);
-        $writer->writeEnumValue('managedInstaller', $this->managedInstaller);
-        $writer->writeStringValue('managedInstallerConfiguredDateTime', $this->managedInstallerConfiguredDateTime);
+        $writer->writeStringValue('availableVersion', $this->getAvailableVersion());
+        $writer->writeCollectionOfObjectValues('healthStates', $this->getHealthStates());
+        $writer->writeEnumValue('managedInstaller', $this->getManagedInstaller());
+        $writer->writeStringValue('managedInstallerConfiguredDateTime', $this->getManagedInstallerConfiguredDateTime());
     }
 
     /**
      * Sets the availableVersion property value. Windows management app available version.
      *  @param string|null $value Value to set for the availableVersion property.
     */
-    public function setAvailableVersion(?string $value ): void {
-        $this->availableVersion = $value;
+    public function setAvailableVersion(?string $value): void {
+        $this->getBackingStore()->set('availableVersion', $value);
     }
 
     /**
      * Sets the healthStates property value. The list of health states for installed Windows management app.
      *  @param array<WindowsManagementAppHealthState>|null $value Value to set for the healthStates property.
     */
-    public function setHealthStates(?array $value ): void {
-        $this->healthStates = $value;
+    public function setHealthStates(?array $value): void {
+        $this->getBackingStore()->set('healthStates', $value);
     }
 
     /**
      * Sets the managedInstaller property value. ManagedInstallerStatus
      *  @param ManagedInstallerStatus|null $value Value to set for the managedInstaller property.
     */
-    public function setManagedInstaller(?ManagedInstallerStatus $value ): void {
-        $this->managedInstaller = $value;
+    public function setManagedInstaller(?ManagedInstallerStatus $value): void {
+        $this->getBackingStore()->set('managedInstaller', $value);
     }
 
     /**
      * Sets the managedInstallerConfiguredDateTime property value. Managed Installer Configured Date Time
      *  @param string|null $value Value to set for the managedInstallerConfiguredDateTime property.
     */
-    public function setManagedInstallerConfiguredDateTime(?string $value ): void {
-        $this->managedInstallerConfiguredDateTime = $value;
+    public function setManagedInstallerConfiguredDateTime(?string $value): void {
+        $this->getBackingStore()->set('managedInstallerConfiguredDateTime', $value);
     }
 
 }

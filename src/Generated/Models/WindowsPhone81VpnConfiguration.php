@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implements Parsable 
 {
     /**
-     * @var VpnAuthenticationMethod|null $authenticationMethod VPN Authentication Method.
-    */
-    private ?VpnAuthenticationMethod $authenticationMethod = null;
-    
-    /**
-     * @var bool|null $bypassVpnOnCompanyWifi Bypass VPN on company Wi-Fi.
-    */
-    private ?bool $bypassVpnOnCompanyWifi = null;
-    
-    /**
-     * @var bool|null $bypassVpnOnHomeWifi Bypass VPN on home Wi-Fi.
-    */
-    private ?bool $bypassVpnOnHomeWifi = null;
-    
-    /**
-     * @var array<string>|null $dnsSuffixSearchList DNS suffix search list.
-    */
-    private ?array $dnsSuffixSearchList = null;
-    
-    /**
-     * @var WindowsPhone81CertificateProfileBase|null $identityCertificate Identity certificate for client authentication when authentication method is certificate.
-    */
-    private ?WindowsPhone81CertificateProfileBase $identityCertificate = null;
-    
-    /**
-     * @var bool|null $rememberUserCredentials Remember user credentials.
-    */
-    private ?bool $rememberUserCredentials = null;
-    
-    /**
      * Instantiates a new WindowsPhone81VpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return VpnAuthenticationMethod|null
     */
     public function getAuthenticationMethod(): ?VpnAuthenticationMethod {
-        return $this->authenticationMethod;
+        return $this->getBackingStore()->get('authenticationMethod');
     }
 
     /**
@@ -68,7 +38,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getBypassVpnOnCompanyWifi(): ?bool {
-        return $this->bypassVpnOnCompanyWifi;
+        return $this->getBackingStore()->get('bypassVpnOnCompanyWifi');
     }
 
     /**
@@ -76,7 +46,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getBypassVpnOnHomeWifi(): ?bool {
-        return $this->bypassVpnOnHomeWifi;
+        return $this->getBackingStore()->get('bypassVpnOnHomeWifi');
     }
 
     /**
@@ -84,7 +54,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return array<string>|null
     */
     public function getDnsSuffixSearchList(): ?array {
-        return $this->dnsSuffixSearchList;
+        return $this->getBackingStore()->get('dnsSuffixSearchList');
     }
 
     /**
@@ -108,7 +78,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return WindowsPhone81CertificateProfileBase|null
     */
     public function getIdentityCertificate(): ?WindowsPhone81CertificateProfileBase {
-        return $this->identityCertificate;
+        return $this->getBackingStore()->get('identityCertificate');
     }
 
     /**
@@ -116,7 +86,7 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
      * @return bool|null
     */
     public function getRememberUserCredentials(): ?bool {
-        return $this->rememberUserCredentials;
+        return $this->getBackingStore()->get('rememberUserCredentials');
     }
 
     /**
@@ -125,60 +95,60 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authenticationMethod', $this->authenticationMethod);
-        $writer->writeBooleanValue('bypassVpnOnCompanyWifi', $this->bypassVpnOnCompanyWifi);
-        $writer->writeBooleanValue('bypassVpnOnHomeWifi', $this->bypassVpnOnHomeWifi);
-        $writer->writeCollectionOfPrimitiveValues('dnsSuffixSearchList', $this->dnsSuffixSearchList);
-        $writer->writeObjectValue('identityCertificate', $this->identityCertificate);
-        $writer->writeBooleanValue('rememberUserCredentials', $this->rememberUserCredentials);
+        $writer->writeEnumValue('authenticationMethod', $this->getAuthenticationMethod());
+        $writer->writeBooleanValue('bypassVpnOnCompanyWifi', $this->getBypassVpnOnCompanyWifi());
+        $writer->writeBooleanValue('bypassVpnOnHomeWifi', $this->getBypassVpnOnHomeWifi());
+        $writer->writeCollectionOfPrimitiveValues('dnsSuffixSearchList', $this->getDnsSuffixSearchList());
+        $writer->writeObjectValue('identityCertificate', $this->getIdentityCertificate());
+        $writer->writeBooleanValue('rememberUserCredentials', $this->getRememberUserCredentials());
     }
 
     /**
      * Sets the authenticationMethod property value. VPN Authentication Method.
      *  @param VpnAuthenticationMethod|null $value Value to set for the authenticationMethod property.
     */
-    public function setAuthenticationMethod(?VpnAuthenticationMethod $value ): void {
-        $this->authenticationMethod = $value;
+    public function setAuthenticationMethod(?VpnAuthenticationMethod $value): void {
+        $this->getBackingStore()->set('authenticationMethod', $value);
     }
 
     /**
      * Sets the bypassVpnOnCompanyWifi property value. Bypass VPN on company Wi-Fi.
      *  @param bool|null $value Value to set for the bypassVpnOnCompanyWifi property.
     */
-    public function setBypassVpnOnCompanyWifi(?bool $value ): void {
-        $this->bypassVpnOnCompanyWifi = $value;
+    public function setBypassVpnOnCompanyWifi(?bool $value): void {
+        $this->getBackingStore()->set('bypassVpnOnCompanyWifi', $value);
     }
 
     /**
      * Sets the bypassVpnOnHomeWifi property value. Bypass VPN on home Wi-Fi.
      *  @param bool|null $value Value to set for the bypassVpnOnHomeWifi property.
     */
-    public function setBypassVpnOnHomeWifi(?bool $value ): void {
-        $this->bypassVpnOnHomeWifi = $value;
+    public function setBypassVpnOnHomeWifi(?bool $value): void {
+        $this->getBackingStore()->set('bypassVpnOnHomeWifi', $value);
     }
 
     /**
      * Sets the dnsSuffixSearchList property value. DNS suffix search list.
      *  @param array<string>|null $value Value to set for the dnsSuffixSearchList property.
     */
-    public function setDnsSuffixSearchList(?array $value ): void {
-        $this->dnsSuffixSearchList = $value;
+    public function setDnsSuffixSearchList(?array $value): void {
+        $this->getBackingStore()->set('dnsSuffixSearchList', $value);
     }
 
     /**
      * Sets the identityCertificate property value. Identity certificate for client authentication when authentication method is certificate.
      *  @param WindowsPhone81CertificateProfileBase|null $value Value to set for the identityCertificate property.
     */
-    public function setIdentityCertificate(?WindowsPhone81CertificateProfileBase $value ): void {
-        $this->identityCertificate = $value;
+    public function setIdentityCertificate(?WindowsPhone81CertificateProfileBase $value): void {
+        $this->getBackingStore()->set('identityCertificate', $value);
     }
 
     /**
      * Sets the rememberUserCredentials property value. Remember user credentials.
      *  @param bool|null $value Value to set for the rememberUserCredentials property.
     */
-    public function setRememberUserCredentials(?bool $value ): void {
-        $this->rememberUserCredentials = $value;
+    public function setRememberUserCredentials(?bool $value): void {
+        $this->getBackingStore()->set('rememberUserCredentials', $value);
     }
 
 }

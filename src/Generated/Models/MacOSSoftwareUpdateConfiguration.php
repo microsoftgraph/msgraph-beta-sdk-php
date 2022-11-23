@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var MacOSSoftwareUpdateBehavior|null $allOtherUpdateBehavior Update behavior options for macOS software updates.
-    */
-    private ?MacOSSoftwareUpdateBehavior $allOtherUpdateBehavior = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateBehavior|null $configDataUpdateBehavior Update behavior options for macOS software updates.
-    */
-    private ?MacOSSoftwareUpdateBehavior $configDataUpdateBehavior = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateBehavior|null $criticalUpdateBehavior Update behavior options for macOS software updates.
-    */
-    private ?MacOSSoftwareUpdateBehavior $criticalUpdateBehavior = null;
-    
-    /**
-     * @var array<CustomUpdateTimeWindow>|null $customUpdateTimeWindows Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
-    */
-    private ?array $customUpdateTimeWindows = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateBehavior|null $firmwareUpdateBehavior Update behavior options for macOS software updates.
-    */
-    private ?MacOSSoftwareUpdateBehavior $firmwareUpdateBehavior = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type for macOS software updates.
-    */
-    private ?MacOSSoftwareUpdateScheduleType $updateScheduleType = null;
-    
-    /**
-     * @var int|null $updateTimeWindowUtcOffsetInMinutes Minutes indicating UTC offset for each update time window
-    */
-    private ?int $updateTimeWindowUtcOffsetInMinutes = null;
-    
-    /**
      * Instantiates a new MacOSSoftwareUpdateConfiguration and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getAllOtherUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->allOtherUpdateBehavior;
+        return $this->getBackingStore()->get('allOtherUpdateBehavior');
     }
 
     /**
@@ -73,7 +38,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getConfigDataUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->configDataUpdateBehavior;
+        return $this->getBackingStore()->get('configDataUpdateBehavior');
     }
 
     /**
@@ -81,7 +46,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getCriticalUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->criticalUpdateBehavior;
+        return $this->getBackingStore()->get('criticalUpdateBehavior');
     }
 
     /**
@@ -89,7 +54,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return array<CustomUpdateTimeWindow>|null
     */
     public function getCustomUpdateTimeWindows(): ?array {
-        return $this->customUpdateTimeWindows;
+        return $this->getBackingStore()->get('customUpdateTimeWindows');
     }
 
     /**
@@ -114,7 +79,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateBehavior|null
     */
     public function getFirmwareUpdateBehavior(): ?MacOSSoftwareUpdateBehavior {
-        return $this->firmwareUpdateBehavior;
+        return $this->getBackingStore()->get('firmwareUpdateBehavior');
     }
 
     /**
@@ -122,7 +87,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return MacOSSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?MacOSSoftwareUpdateScheduleType {
-        return $this->updateScheduleType;
+        return $this->getBackingStore()->get('updateScheduleType');
     }
 
     /**
@@ -130,7 +95,7 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
      * @return int|null
     */
     public function getUpdateTimeWindowUtcOffsetInMinutes(): ?int {
-        return $this->updateTimeWindowUtcOffsetInMinutes;
+        return $this->getBackingStore()->get('updateTimeWindowUtcOffsetInMinutes');
     }
 
     /**
@@ -139,69 +104,69 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allOtherUpdateBehavior', $this->allOtherUpdateBehavior);
-        $writer->writeEnumValue('configDataUpdateBehavior', $this->configDataUpdateBehavior);
-        $writer->writeEnumValue('criticalUpdateBehavior', $this->criticalUpdateBehavior);
-        $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->customUpdateTimeWindows);
-        $writer->writeEnumValue('firmwareUpdateBehavior', $this->firmwareUpdateBehavior);
-        $writer->writeEnumValue('updateScheduleType', $this->updateScheduleType);
-        $writer->writeIntegerValue('updateTimeWindowUtcOffsetInMinutes', $this->updateTimeWindowUtcOffsetInMinutes);
+        $writer->writeEnumValue('allOtherUpdateBehavior', $this->getAllOtherUpdateBehavior());
+        $writer->writeEnumValue('configDataUpdateBehavior', $this->getConfigDataUpdateBehavior());
+        $writer->writeEnumValue('criticalUpdateBehavior', $this->getCriticalUpdateBehavior());
+        $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->getCustomUpdateTimeWindows());
+        $writer->writeEnumValue('firmwareUpdateBehavior', $this->getFirmwareUpdateBehavior());
+        $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
+        $writer->writeIntegerValue('updateTimeWindowUtcOffsetInMinutes', $this->getUpdateTimeWindowUtcOffsetInMinutes());
     }
 
     /**
      * Sets the allOtherUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the allOtherUpdateBehavior property.
     */
-    public function setAllOtherUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
-        $this->allOtherUpdateBehavior = $value;
+    public function setAllOtherUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
+        $this->getBackingStore()->set('allOtherUpdateBehavior', $value);
     }
 
     /**
      * Sets the configDataUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the configDataUpdateBehavior property.
     */
-    public function setConfigDataUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
-        $this->configDataUpdateBehavior = $value;
+    public function setConfigDataUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
+        $this->getBackingStore()->set('configDataUpdateBehavior', $value);
     }
 
     /**
      * Sets the criticalUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the criticalUpdateBehavior property.
     */
-    public function setCriticalUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
-        $this->criticalUpdateBehavior = $value;
+    public function setCriticalUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
+        $this->getBackingStore()->set('criticalUpdateBehavior', $value);
     }
 
     /**
      * Sets the customUpdateTimeWindows property value. Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
      *  @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
     */
-    public function setCustomUpdateTimeWindows(?array $value ): void {
-        $this->customUpdateTimeWindows = $value;
+    public function setCustomUpdateTimeWindows(?array $value): void {
+        $this->getBackingStore()->set('customUpdateTimeWindows', $value);
     }
 
     /**
      * Sets the firmwareUpdateBehavior property value. Update behavior options for macOS software updates.
      *  @param MacOSSoftwareUpdateBehavior|null $value Value to set for the firmwareUpdateBehavior property.
     */
-    public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value ): void {
-        $this->firmwareUpdateBehavior = $value;
+    public function setFirmwareUpdateBehavior(?MacOSSoftwareUpdateBehavior $value): void {
+        $this->getBackingStore()->set('firmwareUpdateBehavior', $value);
     }
 
     /**
      * Sets the updateScheduleType property value. Update schedule type for macOS software updates.
      *  @param MacOSSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
-    public function setUpdateScheduleType(?MacOSSoftwareUpdateScheduleType $value ): void {
-        $this->updateScheduleType = $value;
+    public function setUpdateScheduleType(?MacOSSoftwareUpdateScheduleType $value): void {
+        $this->getBackingStore()->set('updateScheduleType', $value);
     }
 
     /**
      * Sets the updateTimeWindowUtcOffsetInMinutes property value. Minutes indicating UTC offset for each update time window
      *  @param int|null $value Value to set for the updateTimeWindowUtcOffsetInMinutes property.
     */
-    public function setUpdateTimeWindowUtcOffsetInMinutes(?int $value ): void {
-        $this->updateTimeWindowUtcOffsetInMinutes = $value;
+    public function setUpdateTimeWindowUtcOffsetInMinutes(?int $value): void {
+        $this->getBackingStore()->set('updateTimeWindowUtcOffsetInMinutes', $value);
     }
 
 }

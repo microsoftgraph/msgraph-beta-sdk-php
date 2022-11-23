@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OnTokenIssuanceStartListener extends AuthenticationEventListener implements Parsable 
 {
     /**
-     * @var OnTokenIssuanceStartHandler|null $handler The handler property
-    */
-    private ?OnTokenIssuanceStartHandler $handler = null;
-    
-    /**
      * Instantiates a new OnTokenIssuanceStartListener and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
      * @return OnTokenIssuanceStartHandler|null
     */
     public function getHandler(): ?OnTokenIssuanceStartHandler {
-        return $this->handler;
+        return $this->getBackingStore()->get('handler');
     }
 
     /**
@@ -55,15 +50,15 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('handler', $this->handler);
+        $writer->writeObjectValue('handler', $this->getHandler());
     }
 
     /**
      * Sets the handler property value. The handler property
      *  @param OnTokenIssuanceStartHandler|null $value Value to set for the handler property.
     */
-    public function setHandler(?OnTokenIssuanceStartHandler $value ): void {
-        $this->handler = $value;
+    public function setHandler(?OnTokenIssuanceStartHandler $value): void {
+        $this->getBackingStore()->set('handler', $value);
     }
 
 }

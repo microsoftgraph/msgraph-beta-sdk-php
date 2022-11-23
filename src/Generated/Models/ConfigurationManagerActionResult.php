@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ConfigurationManagerActionResult extends DeviceActionResult implements Parsable 
 {
     /**
-     * @var ConfigurationManagerActionDeliveryStatus|null $actionDeliveryStatus Delivery state of Configuration Manager device action
-    */
-    private ?ConfigurationManagerActionDeliveryStatus $actionDeliveryStatus = null;
-    
-    /**
-     * @var int|null $errorCode Error code of Configuration Manager action from client
-    */
-    private ?int $errorCode = null;
-    
-    /**
      * Instantiates a new ConfigurationManagerActionResult and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.configurationManagerActionResult');
     }
 
     /**
@@ -40,7 +29,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
      * @return ConfigurationManagerActionDeliveryStatus|null
     */
     public function getActionDeliveryStatus(): ?ConfigurationManagerActionDeliveryStatus {
-        return $this->actionDeliveryStatus;
+        return $this->getBackingStore()->get('actionDeliveryStatus');
     }
 
     /**
@@ -48,7 +37,7 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
      * @return int|null
     */
     public function getErrorCode(): ?int {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -69,24 +58,24 @@ class ConfigurationManagerActionResult extends DeviceActionResult implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('actionDeliveryStatus', $this->actionDeliveryStatus);
-        $writer->writeIntegerValue('errorCode', $this->errorCode);
+        $writer->writeEnumValue('actionDeliveryStatus', $this->getActionDeliveryStatus());
+        $writer->writeIntegerValue('errorCode', $this->getErrorCode());
     }
 
     /**
      * Sets the actionDeliveryStatus property value. Delivery state of Configuration Manager device action
      *  @param ConfigurationManagerActionDeliveryStatus|null $value Value to set for the actionDeliveryStatus property.
     */
-    public function setActionDeliveryStatus(?ConfigurationManagerActionDeliveryStatus $value ): void {
-        $this->actionDeliveryStatus = $value;
+    public function setActionDeliveryStatus(?ConfigurationManagerActionDeliveryStatus $value): void {
+        $this->getBackingStore()->set('actionDeliveryStatus', $value);
     }
 
     /**
      * Sets the errorCode property value. Error code of Configuration Manager action from client
      *  @param int|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?int $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?int $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
 }

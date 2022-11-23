@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * @var string|null $groupIdCustom Specifies an arbitrary group ID that the device belongs to
-    */
-    private ?string $groupIdCustom = null;
-    
-    /**
      * Instantiates a new DeliveryOptimizationGroupIdCustom and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
      * @return string|null
     */
     public function getGroupIdCustom(): ?string {
-        return $this->groupIdCustom;
+        return $this->getBackingStore()->get('groupIdCustom');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('groupIdCustom', $this->groupIdCustom);
+        $writer->writeStringValue('groupIdCustom', $this->getGroupIdCustom());
     }
 
     /**
      * Sets the groupIdCustom property value. Specifies an arbitrary group ID that the device belongs to
      *  @param string|null $value Value to set for the groupIdCustom property.
     */
-    public function setGroupIdCustom(?string $value ): void {
-        $this->groupIdCustom = $value;
+    public function setGroupIdCustom(?string $value): void {
+        $this->getBackingStore()->set('groupIdCustom', $value);
     }
 
 }

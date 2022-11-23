@@ -10,21 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileBase implements Parsable 
 {
     /**
-     * @var string|null $authenticationCertificateId ID to the Authentication Certificate
-    */
-    private ?string $authenticationCertificateId = null;
-    
-    /**
-     * @var StreamInterface|null $customXml Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
-    */
-    private ?StreamInterface $customXml = null;
-    
-    /**
-     * @var string|null $customXmlFileName Custom Xml file name.
-    */
-    private ?string $customXmlFileName = null;
-    
-    /**
      * Instantiates a new Windows10XWifiConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,15 +31,15 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
      * @return string|null
     */
     public function getAuthenticationCertificateId(): ?string {
-        return $this->authenticationCertificateId;
+        return $this->getBackingStore()->get('authenticationCertificateId');
     }
 
     /**
      * Gets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getCustomXml(): StreamInterface {
-        return $this->customXml;
+    public function getCustomXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('customXml');
     }
 
     /**
@@ -62,7 +47,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
      * @return string|null
     */
     public function getCustomXmlFileName(): ?string {
-        return $this->customXmlFileName;
+        return $this->getBackingStore()->get('customXmlFileName');
     }
 
     /**
@@ -84,33 +69,33 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('authenticationCertificateId', $this->authenticationCertificateId);
-        $writer->writeBinaryContent('customXml', $this->customXml);
-        $writer->writeStringValue('customXmlFileName', $this->customXmlFileName);
+        $writer->writeStringValue('authenticationCertificateId', $this->getAuthenticationCertificateId());
+        $writer->writeBinaryContent('customXml', $this->getCustomXml());
+        $writer->writeStringValue('customXmlFileName', $this->getCustomXmlFileName());
     }
 
     /**
      * Sets the authenticationCertificateId property value. ID to the Authentication Certificate
      *  @param string|null $value Value to set for the authenticationCertificateId property.
     */
-    public function setAuthenticationCertificateId(?string $value ): void {
-        $this->authenticationCertificateId = $value;
+    public function setAuthenticationCertificateId(?string $value): void {
+        $this->getBackingStore()->set('authenticationCertificateId', $value);
     }
 
     /**
      * Sets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
      *  @param StreamInterface|null $value Value to set for the customXml property.
     */
-    public function setCustomXml(?StreamInterface $value ): void {
-        $this->customXml = $value;
+    public function setCustomXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('customXml', $value);
     }
 
     /**
      * Sets the customXmlFileName property value. Custom Xml file name.
      *  @param string|null $value Value to set for the customXmlFileName property.
     */
-    public function setCustomXmlFileName(?string $value ): void {
-        $this->customXmlFileName = $value;
+    public function setCustomXmlFileName(?string $value): void {
+        $this->getBackingStore()->set('customXmlFileName', $value);
     }
 
 }

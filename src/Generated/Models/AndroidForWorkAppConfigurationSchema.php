@@ -10,21 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable 
 {
     /**
-     * @var StreamInterface|null $exampleJson UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-    */
-    private ?StreamInterface $exampleJson = null;
-    
-    /**
-     * @var array<AndroidForWorkAppConfigurationSchemaItem>|null $schemaItems Collection of items each representing a named configuration option in the schema
-    */
-    private ?array $schemaItems = null;
-    
-    /**
      * Instantiates a new androidForWorkAppConfigurationSchema and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.androidForWorkAppConfigurationSchema');
     }
 
     /**
@@ -38,10 +27,10 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
 
     /**
      * Gets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getExampleJson(): StreamInterface {
-        return $this->exampleJson;
+    public function getExampleJson(): ?StreamInterface {
+        return $this->getBackingStore()->get('exampleJson');
     }
 
     /**
@@ -61,7 +50,7 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
      * @return array<AndroidForWorkAppConfigurationSchemaItem>|null
     */
     public function getSchemaItems(): ?array {
-        return $this->schemaItems;
+        return $this->getBackingStore()->get('schemaItems');
     }
 
     /**
@@ -70,24 +59,24 @@ class AndroidForWorkAppConfigurationSchema extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBinaryContent('exampleJson', $this->exampleJson);
-        $writer->writeCollectionOfObjectValues('schemaItems', $this->schemaItems);
+        $writer->writeBinaryContent('exampleJson', $this->getExampleJson());
+        $writer->writeCollectionOfObjectValues('schemaItems', $this->getSchemaItems());
     }
 
     /**
      * Sets the exampleJson property value. UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
      *  @param StreamInterface|null $value Value to set for the exampleJson property.
     */
-    public function setExampleJson(?StreamInterface $value ): void {
-        $this->exampleJson = $value;
+    public function setExampleJson(?StreamInterface $value): void {
+        $this->getBackingStore()->set('exampleJson', $value);
     }
 
     /**
      * Sets the schemaItems property value. Collection of items each representing a named configuration option in the schema
      *  @param array<AndroidForWorkAppConfigurationSchemaItem>|null $value Value to set for the schemaItems property.
     */
-    public function setSchemaItems(?array $value ): void {
-        $this->schemaItems = $value;
+    public function setSchemaItems(?array $value): void {
+        $this->getBackingStore()->set('schemaItems', $value);
     }
 
 }

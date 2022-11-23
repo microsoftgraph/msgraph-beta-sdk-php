@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource implements Parsable 
 {
     /**
-     * @var DeliveryOptimizationGroupIdOptionsType|null $groupIdSourceOption Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
-    */
-    private ?DeliveryOptimizationGroupIdOptionsType $groupIdSourceOption = null;
-    
-    /**
      * Instantiates a new DeliveryOptimizationGroupIdSourceOptions and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
      * @return DeliveryOptimizationGroupIdOptionsType|null
     */
     public function getGroupIdSourceOption(): ?DeliveryOptimizationGroupIdOptionsType {
-        return $this->groupIdSourceOption;
+        return $this->getBackingStore()->get('groupIdSourceOption');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('groupIdSourceOption', $this->groupIdSourceOption);
+        $writer->writeEnumValue('groupIdSourceOption', $this->getGroupIdSourceOption());
     }
 
     /**
      * Sets the groupIdSourceOption property value. Possible values for the DeliveryOptimizationGroupIdOptionsType setting.
      *  @param DeliveryOptimizationGroupIdOptionsType|null $value Value to set for the groupIdSourceOption property.
     */
-    public function setGroupIdSourceOption(?DeliveryOptimizationGroupIdOptionsType $value ): void {
-        $this->groupIdSourceOption = $value;
+    public function setGroupIdSourceOption(?DeliveryOptimizationGroupIdOptionsType $value): void {
+        $this->getBackingStore()->set('groupIdSourceOption', $value);
     }
 
 }

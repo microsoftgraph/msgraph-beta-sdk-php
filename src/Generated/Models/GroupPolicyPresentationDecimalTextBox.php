@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentation implements Parsable 
 {
     /**
-     * @var int|null $defaultValue An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
-    */
-    private ?int $defaultValue = null;
-    
-    /**
-     * @var int|null $maxValue An unsigned integer that specifies the maximum allowed value. The default value is 9999.
-    */
-    private ?int $maxValue = null;
-    
-    /**
-     * @var int|null $minValue An unsigned integer that specifies the minimum allowed value. The default value is 0.
-    */
-    private ?int $minValue = null;
-    
-    /**
-     * @var bool|null $required Requirement to enter a value in the parameter box. The default value is false.
-    */
-    private ?bool $required = null;
-    
-    /**
-     * @var bool|null $spin If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.
-    */
-    private ?bool $spin = null;
-    
-    /**
-     * @var int|null $spinStep An unsigned integer that specifies the increment of change for the spin control. The default value is 1.
-    */
-    private ?int $spinStep = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationDecimalTextBox and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getDefaultValue(): ?int {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -84,7 +54,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getMaxValue(): ?int {
-        return $this->maxValue;
+        return $this->getBackingStore()->get('maxValue');
     }
 
     /**
@@ -92,7 +62,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getMinValue(): ?int {
-        return $this->minValue;
+        return $this->getBackingStore()->get('minValue');
     }
 
     /**
@@ -100,7 +70,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return bool|null
     */
     public function getRequired(): ?bool {
-        return $this->required;
+        return $this->getBackingStore()->get('required');
     }
 
     /**
@@ -108,7 +78,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return bool|null
     */
     public function getSpin(): ?bool {
-        return $this->spin;
+        return $this->getBackingStore()->get('spin');
     }
 
     /**
@@ -116,7 +86,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
      * @return int|null
     */
     public function getSpinStep(): ?int {
-        return $this->spinStep;
+        return $this->getBackingStore()->get('spinStep');
     }
 
     /**
@@ -125,60 +95,60 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyUploadedPresentat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('defaultValue', $this->defaultValue);
-        $writer->writeIntegerValue('maxValue', $this->maxValue);
-        $writer->writeIntegerValue('minValue', $this->minValue);
-        $writer->writeBooleanValue('required', $this->required);
-        $writer->writeBooleanValue('spin', $this->spin);
-        $writer->writeIntegerValue('spinStep', $this->spinStep);
+        $writer->writeIntegerValue('defaultValue', $this->getDefaultValue());
+        $writer->writeIntegerValue('maxValue', $this->getMaxValue());
+        $writer->writeIntegerValue('minValue', $this->getMinValue());
+        $writer->writeBooleanValue('required', $this->getRequired());
+        $writer->writeBooleanValue('spin', $this->getSpin());
+        $writer->writeIntegerValue('spinStep', $this->getSpinStep());
     }
 
     /**
      * Sets the defaultValue property value. An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
      *  @param int|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?int $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?int $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
     /**
      * Sets the maxValue property value. An unsigned integer that specifies the maximum allowed value. The default value is 9999.
      *  @param int|null $value Value to set for the maxValue property.
     */
-    public function setMaxValue(?int $value ): void {
-        $this->maxValue = $value;
+    public function setMaxValue(?int $value): void {
+        $this->getBackingStore()->set('maxValue', $value);
     }
 
     /**
      * Sets the minValue property value. An unsigned integer that specifies the minimum allowed value. The default value is 0.
      *  @param int|null $value Value to set for the minValue property.
     */
-    public function setMinValue(?int $value ): void {
-        $this->minValue = $value;
+    public function setMinValue(?int $value): void {
+        $this->getBackingStore()->set('minValue', $value);
     }
 
     /**
      * Sets the required property value. Requirement to enter a value in the parameter box. The default value is false.
      *  @param bool|null $value Value to set for the required property.
     */
-    public function setRequired(?bool $value ): void {
-        $this->required = $value;
+    public function setRequired(?bool $value): void {
+        $this->getBackingStore()->set('required', $value);
     }
 
     /**
      * Sets the spin property value. If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.
      *  @param bool|null $value Value to set for the spin property.
     */
-    public function setSpin(?bool $value ): void {
-        $this->spin = $value;
+    public function setSpin(?bool $value): void {
+        $this->getBackingStore()->set('spin', $value);
     }
 
     /**
      * Sets the spinStep property value. An unsigned integer that specifies the increment of change for the spin control. The default value is 1.
      *  @param int|null $value Value to set for the spinStep property.
     */
-    public function setSpinStep(?int $value ): void {
-        $this->spinStep = $value;
+    public function setSpinStep(?int $value): void {
+        $this->getBackingStore()->set('spinStep', $value);
     }
 
 }

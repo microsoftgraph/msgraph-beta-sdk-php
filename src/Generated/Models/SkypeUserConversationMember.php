@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SkypeUserConversationMember extends ConversationMember implements Parsable 
 {
     /**
-     * @var string|null $skypeId Skype ID of the user.
-    */
-    private ?string $skypeId = null;
-    
-    /**
      * Instantiates a new SkypeUserConversationMember and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class SkypeUserConversationMember extends ConversationMember implements Parsable
      * @return string|null
     */
     public function getSkypeId(): ?string {
-        return $this->skypeId;
+        return $this->getBackingStore()->get('skypeId');
     }
 
     /**
@@ -55,15 +50,15 @@ class SkypeUserConversationMember extends ConversationMember implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('skypeId', $this->skypeId);
+        $writer->writeStringValue('skypeId', $this->getSkypeId());
     }
 
     /**
      * Sets the skypeId property value. Skype ID of the user.
      *  @param string|null $value Value to set for the skypeId property.
     */
-    public function setSkypeId(?string $value ): void {
-        $this->skypeId = $value;
+    public function setSkypeId(?string $value): void {
+        $this->getBackingStore()->set('skypeId', $value);
     }
 
 }

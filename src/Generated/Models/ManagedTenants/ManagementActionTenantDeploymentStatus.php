@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagementActionTenantDeploymentStatus extends Entity implements Parsable 
 {
     /**
-     * @var array<ManagementActionDeploymentStatus>|null $statuses The collection of deployment status for each instance of a management action. Optional.
-    */
-    private ?array $statuses = null;
-    
-    /**
-     * @var string|null $tenantGroupId The identifier for the tenant group that is associated with the management action. Required. Read-only.
-    */
-    private ?string $tenantGroupId = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new managementActionTenantDeploymentStatus and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managementActionTenantDeploymentStatus');
     }
 
     /**
@@ -59,7 +43,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return array<ManagementActionDeploymentStatus>|null
     */
     public function getStatuses(): ?array {
-        return $this->statuses;
+        return $this->getBackingStore()->get('statuses');
     }
 
     /**
@@ -67,7 +51,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantGroupId(): ?string {
-        return $this->tenantGroupId;
+        return $this->getBackingStore()->get('tenantGroupId');
     }
 
     /**
@@ -75,7 +59,7 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -84,33 +68,33 @@ class ManagementActionTenantDeploymentStatus extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('statuses', $this->statuses);
-        $writer->writeStringValue('tenantGroupId', $this->tenantGroupId);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeCollectionOfObjectValues('statuses', $this->getStatuses());
+        $writer->writeStringValue('tenantGroupId', $this->getTenantGroupId());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the statuses property value. The collection of deployment status for each instance of a management action. Optional.
      *  @param array<ManagementActionDeploymentStatus>|null $value Value to set for the statuses property.
     */
-    public function setStatuses(?array $value ): void {
-        $this->statuses = $value;
+    public function setStatuses(?array $value): void {
+        $this->getBackingStore()->set('statuses', $value);
     }
 
     /**
      * Sets the tenantGroupId property value. The identifier for the tenant group that is associated with the management action. Required. Read-only.
      *  @param string|null $value Value to set for the tenantGroupId property.
     */
-    public function setTenantGroupId(?string $value ): void {
-        $this->tenantGroupId = $value;
+    public function setTenantGroupId(?string $value): void {
+        $this->getBackingStore()->set('tenantGroupId', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

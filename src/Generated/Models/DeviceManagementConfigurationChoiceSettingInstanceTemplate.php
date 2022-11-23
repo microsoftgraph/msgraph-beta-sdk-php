@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * @var DeviceManagementConfigurationChoiceSettingValueTemplate|null $choiceSettingValueTemplate Choice Setting Value Template
-    */
-    private ?DeviceManagementConfigurationChoiceSettingValueTemplate $choiceSettingValueTemplate = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceM
      * @return DeviceManagementConfigurationChoiceSettingValueTemplate|null
     */
     public function getChoiceSettingValueTemplate(): ?DeviceManagementConfigurationChoiceSettingValueTemplate {
-        return $this->choiceSettingValueTemplate;
+        return $this->getBackingStore()->get('choiceSettingValueTemplate');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementConfigurationChoiceSettingInstanceTemplate extends DeviceM
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('choiceSettingValueTemplate', $this->choiceSettingValueTemplate);
+        $writer->writeObjectValue('choiceSettingValueTemplate', $this->getChoiceSettingValueTemplate());
     }
 
     /**
      * Sets the choiceSettingValueTemplate property value. Choice Setting Value Template
      *  @param DeviceManagementConfigurationChoiceSettingValueTemplate|null $value Value to set for the choiceSettingValueTemplate property.
     */
-    public function setChoiceSettingValueTemplate(?DeviceManagementConfigurationChoiceSettingValueTemplate $value ): void {
-        $this->choiceSettingValueTemplate = $value;
+    public function setChoiceSettingValueTemplate(?DeviceManagementConfigurationChoiceSettingValueTemplate $value): void {
+        $this->getBackingStore()->set('choiceSettingValueTemplate', $value);
     }
 
 }

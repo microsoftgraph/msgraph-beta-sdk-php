@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable 
+class MacOSAppleEventReceiver implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $allowed Allow or block this app from receiving Apple events.
-    */
-    private ?bool $allowed = null;
-    
-    /**
-     * @var string|null $codeRequirement Code requirement for the app or binary that receives the Apple Event.
-    */
-    private ?string $codeRequirement = null;
-    
-    /**
-     * @var string|null $identifier Bundle ID of the app or file path of the process or executable that receives the Apple Event.
-    */
-    private ?string $identifier = null;
-    
-    /**
-     * @var MacOSProcessIdentifierType|null $identifierType Process identifier types for MacOS Privacy Preferences
-    */
-    private ?MacOSProcessIdentifierType $identifierType = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new macOSAppleEventReceiver and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.macOSAppleEventReceiver');
     }
 
     /**
@@ -60,8 +38,8 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +47,15 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getAllowed(): ?bool {
-        return $this->allowed;
+        return $this->getBackingStore()->get('allowed');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -77,7 +63,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCodeRequirement(): ?string {
-        return $this->codeRequirement;
+        return $this->getBackingStore()->get('codeRequirement');
     }
 
     /**
@@ -100,7 +86,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getIdentifier(): ?string {
-        return $this->identifier;
+        return $this->getBackingStore()->get('identifier');
     }
 
     /**
@@ -108,7 +94,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @return MacOSProcessIdentifierType|null
     */
     public function getIdentifierType(): ?MacOSProcessIdentifierType {
-        return $this->identifierType;
+        return $this->getBackingStore()->get('identifierType');
     }
 
     /**
@@ -116,7 +102,7 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -124,60 +110,68 @@ class MacOSAppleEventReceiver implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('allowed', $this->allowed);
-        $writer->writeStringValue('codeRequirement', $this->codeRequirement);
-        $writer->writeStringValue('identifier', $this->identifier);
-        $writer->writeEnumValue('identifierType', $this->identifierType);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('allowed', $this->getAllowed());
+        $writer->writeStringValue('codeRequirement', $this->getCodeRequirement());
+        $writer->writeStringValue('identifier', $this->getIdentifier());
+        $writer->writeEnumValue('identifierType', $this->getIdentifierType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowed property value. Allow or block this app from receiving Apple events.
      *  @param bool|null $value Value to set for the allowed property.
     */
-    public function setAllowed(?bool $value ): void {
-        $this->allowed = $value;
+    public function setAllowed(?bool $value): void {
+        $this->getBackingStore()->set('allowed', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the codeRequirement property value. Code requirement for the app or binary that receives the Apple Event.
      *  @param string|null $value Value to set for the codeRequirement property.
     */
-    public function setCodeRequirement(?string $value ): void {
-        $this->codeRequirement = $value;
+    public function setCodeRequirement(?string $value): void {
+        $this->getBackingStore()->set('codeRequirement', $value);
     }
 
     /**
      * Sets the identifier property value. Bundle ID of the app or file path of the process or executable that receives the Apple Event.
      *  @param string|null $value Value to set for the identifier property.
     */
-    public function setIdentifier(?string $value ): void {
-        $this->identifier = $value;
+    public function setIdentifier(?string $value): void {
+        $this->getBackingStore()->set('identifier', $value);
     }
 
     /**
      * Sets the identifierType property value. Process identifier types for MacOS Privacy Preferences
      *  @param MacOSProcessIdentifierType|null $value Value to set for the identifierType property.
     */
-    public function setIdentifierType(?MacOSProcessIdentifierType $value ): void {
-        $this->identifierType = $value;
+    public function setIdentifierType(?MacOSProcessIdentifierType $value): void {
+        $this->getBackingStore()->set('identifierType', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

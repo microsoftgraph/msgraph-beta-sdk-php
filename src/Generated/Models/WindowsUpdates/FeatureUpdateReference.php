@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class FeatureUpdateReference extends WindowsUpdateReference implements Parsable 
 {
     /**
-     * @var string|null $version Specifies a feature update by version.
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new FeatureUpdateReference and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class FeatureUpdateReference extends WindowsUpdateReference implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -55,15 +50,15 @@ class FeatureUpdateReference extends WindowsUpdateReference implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the version property value. Specifies a feature update by version.
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

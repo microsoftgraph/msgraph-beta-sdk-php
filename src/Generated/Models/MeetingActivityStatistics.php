@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * @var DateInterval|null $afterHours Time spent on meetings outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $afterHours = null;
-    
-    /**
-     * @var DateInterval|null $conflicting Time spent in conflicting meetings (meetings that overlap with other meetings that the person accepted and where the person’s status is set to Busy). The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $conflicting = null;
-    
-    /**
-     * @var DateInterval|null $long Time spent in long meetings (more than an hour in duration). The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $long = null;
-    
-    /**
-     * @var DateInterval|null $multitasking Time spent in meetings where the person was multitasking (read/sent more than a minimum number of emails and/or sent more than a minimum number of messages in Teams or in Skype for Business). The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $multitasking = null;
-    
-    /**
-     * @var DateInterval|null $organized Time spent in meetings organized by the user. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $organized = null;
-    
-    /**
-     * @var DateInterval|null $recurring Time spent on recurring meetings. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $recurring = null;
-    
-    /**
      * Instantiates a new MeetingActivityStatistics and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->afterHours;
+        return $this->getBackingStore()->get('afterHours');
     }
 
     /**
@@ -69,7 +39,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getConflicting(): ?DateInterval {
-        return $this->conflicting;
+        return $this->getBackingStore()->get('conflicting');
     }
 
     /**
@@ -93,7 +63,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getLong(): ?DateInterval {
-        return $this->long;
+        return $this->getBackingStore()->get('long');
     }
 
     /**
@@ -101,7 +71,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getMultitasking(): ?DateInterval {
-        return $this->multitasking;
+        return $this->getBackingStore()->get('multitasking');
     }
 
     /**
@@ -109,7 +79,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getOrganized(): ?DateInterval {
-        return $this->organized;
+        return $this->getBackingStore()->get('organized');
     }
 
     /**
@@ -117,7 +87,7 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getRecurring(): ?DateInterval {
-        return $this->recurring;
+        return $this->getBackingStore()->get('recurring');
     }
 
     /**
@@ -126,60 +96,60 @@ class MeetingActivityStatistics extends ActivityStatistics implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateIntervalValue('afterHours', $this->afterHours);
-        $writer->writeDateIntervalValue('conflicting', $this->conflicting);
-        $writer->writeDateIntervalValue('long', $this->long);
-        $writer->writeDateIntervalValue('multitasking', $this->multitasking);
-        $writer->writeDateIntervalValue('organized', $this->organized);
-        $writer->writeDateIntervalValue('recurring', $this->recurring);
+        $writer->writeDateIntervalValue('afterHours', $this->getAfterHours());
+        $writer->writeDateIntervalValue('conflicting', $this->getConflicting());
+        $writer->writeDateIntervalValue('long', $this->getLong());
+        $writer->writeDateIntervalValue('multitasking', $this->getMultitasking());
+        $writer->writeDateIntervalValue('organized', $this->getOrganized());
+        $writer->writeDateIntervalValue('recurring', $this->getRecurring());
     }
 
     /**
      * Sets the afterHours property value. Time spent on meetings outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the afterHours property.
     */
-    public function setAfterHours(?DateInterval $value ): void {
-        $this->afterHours = $value;
+    public function setAfterHours(?DateInterval $value): void {
+        $this->getBackingStore()->set('afterHours', $value);
     }
 
     /**
      * Sets the conflicting property value. Time spent in conflicting meetings (meetings that overlap with other meetings that the person accepted and where the person’s status is set to Busy). The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the conflicting property.
     */
-    public function setConflicting(?DateInterval $value ): void {
-        $this->conflicting = $value;
+    public function setConflicting(?DateInterval $value): void {
+        $this->getBackingStore()->set('conflicting', $value);
     }
 
     /**
      * Sets the long property value. Time spent in long meetings (more than an hour in duration). The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the long property.
     */
-    public function setLong(?DateInterval $value ): void {
-        $this->long = $value;
+    public function setLong(?DateInterval $value): void {
+        $this->getBackingStore()->set('long', $value);
     }
 
     /**
      * Sets the multitasking property value. Time spent in meetings where the person was multitasking (read/sent more than a minimum number of emails and/or sent more than a minimum number of messages in Teams or in Skype for Business). The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the multitasking property.
     */
-    public function setMultitasking(?DateInterval $value ): void {
-        $this->multitasking = $value;
+    public function setMultitasking(?DateInterval $value): void {
+        $this->getBackingStore()->set('multitasking', $value);
     }
 
     /**
      * Sets the organized property value. Time spent in meetings organized by the user. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the organized property.
     */
-    public function setOrganized(?DateInterval $value ): void {
-        $this->organized = $value;
+    public function setOrganized(?DateInterval $value): void {
+        $this->getBackingStore()->set('organized', $value);
     }
 
     /**
      * Sets the recurring property value. Time spent on recurring meetings. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the recurring property.
     */
-    public function setRecurring(?DateInterval $value ): void {
-        $this->recurring = $value;
+    public function setRecurring(?DateInterval $value): void {
+        $this->getBackingStore()->set('recurring', $value);
     }
 
 }

@@ -9,41 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable 
 {
     /**
-     * @var string|null $category The category of impacting process.
-    */
-    private ?string $category = null;
-    
-    /**
-     * @var string|null $description The description of process.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $deviceId The unique identifier of the impacted device.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var float|null $impactValue The impact value of the process. Valid values 0 to 1.79769313486232E+308
-    */
-    private ?float $impactValue = null;
-    
-    /**
-     * @var string|null $processName The process name.
-    */
-    private ?string $processName = null;
-    
-    /**
-     * @var string|null $publisher The publisher of the process.
-    */
-    private ?string $publisher = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsImpactingProcess and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsImpactingProcess');
     }
 
     /**
@@ -60,7 +29,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -68,7 +37,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -76,7 +45,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -100,7 +69,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return float|null
     */
     public function getImpactValue(): ?float {
-        return $this->impactValue;
+        return $this->getBackingStore()->get('impactValue');
     }
 
     /**
@@ -108,7 +77,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getProcessName(): ?string {
-        return $this->processName;
+        return $this->getBackingStore()->get('processName');
     }
 
     /**
@@ -116,7 +85,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
@@ -125,60 +94,60 @@ class UserExperienceAnalyticsImpactingProcess extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('category', $this->category);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeFloatValue('impactValue', $this->impactValue);
-        $writer->writeStringValue('processName', $this->processName);
-        $writer->writeStringValue('publisher', $this->publisher);
+        $writer->writeStringValue('category', $this->getCategory());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeFloatValue('impactValue', $this->getImpactValue());
+        $writer->writeStringValue('processName', $this->getProcessName());
+        $writer->writeStringValue('publisher', $this->getPublisher());
     }
 
     /**
      * Sets the category property value. The category of impacting process.
      *  @param string|null $value Value to set for the category property.
     */
-    public function setCategory(?string $value ): void {
-        $this->category = $value;
+    public function setCategory(?string $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the description property value. The description of process.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceId property value. The unique identifier of the impacted device.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the impactValue property value. The impact value of the process. Valid values 0 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the impactValue property.
     */
-    public function setImpactValue(?float $value ): void {
-        $this->impactValue = $value;
+    public function setImpactValue(?float $value): void {
+        $this->getBackingStore()->set('impactValue', $value);
     }
 
     /**
      * Sets the processName property value. The process name.
      *  @param string|null $value Value to set for the processName property.
     */
-    public function setProcessName(?string $value ): void {
-        $this->processName = $value;
+    public function setProcessName(?string $value): void {
+        $this->getBackingStore()->set('processName', $value);
     }
 
     /**
      * Sets the publisher property value. The publisher of the process.
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
 }

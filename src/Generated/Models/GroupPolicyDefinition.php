@@ -10,96 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyDefinition extends Entity implements Parsable 
 {
     /**
-     * @var GroupPolicyCategory|null $category The group policy category associated with the definition.
-    */
-    private ?GroupPolicyCategory $category = null;
-    
-    /**
-     * @var string|null $categoryPath The localized full category path for the policy.
-    */
-    private ?string $categoryPath = null;
-    
-    /**
-     * @var GroupPolicyDefinitionClassType|null $classType Group Policy Definition Class Type.
-    */
-    private ?GroupPolicyDefinitionClassType $classType = null;
-    
-    /**
-     * @var GroupPolicyDefinitionFile|null $definitionFile The group policy file associated with the definition.
-    */
-    private ?GroupPolicyDefinitionFile $definitionFile = null;
-    
-    /**
-     * @var string|null $displayName The localized policy name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $explainText The localized explanation or help text associated with the policy. The default value is empty.
-    */
-    private ?string $explainText = null;
-    
-    /**
-     * @var string|null $groupPolicyCategoryId The category id of the parent category
-    */
-    private ?string $groupPolicyCategoryId = null;
-    
-    /**
-     * @var bool|null $hasRelatedDefinitions Signifies whether or not there are related definitions to this definition
-    */
-    private ?bool $hasRelatedDefinitions = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $minDeviceCspVersion Minimum required CSP version for device configuration in this definition
-    */
-    private ?string $minDeviceCspVersion = null;
-    
-    /**
-     * @var string|null $minUserCspVersion Minimum required CSP version for user configuration in this definition
-    */
-    private ?string $minUserCspVersion = null;
-    
-    /**
-     * @var GroupPolicyDefinition|null $nextVersionDefinition Definition of the next version of this definition
-    */
-    private ?GroupPolicyDefinition $nextVersionDefinition = null;
-    
-    /**
-     * @var GroupPolicyType|null $policyType Type of Group Policy File or Definition.
-    */
-    private ?GroupPolicyType $policyType = null;
-    
-    /**
-     * @var array<GroupPolicyPresentation>|null $presentations The group policy presentations associated with the definition.
-    */
-    private ?array $presentations = null;
-    
-    /**
-     * @var GroupPolicyDefinition|null $previousVersionDefinition Definition of the previous version of this definition
-    */
-    private ?GroupPolicyDefinition $previousVersionDefinition = null;
-    
-    /**
-     * @var string|null $supportedOn Localized string used to specify what operating system or application version is affected by the policy.
-    */
-    private ?string $supportedOn = null;
-    
-    /**
-     * @var string|null $version Setting definition version
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new groupPolicyDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyDefinition');
     }
 
     /**
@@ -116,7 +30,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyCategory|null
     */
     public function getCategory(): ?GroupPolicyCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -124,7 +38,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getCategoryPath(): ?string {
-        return $this->categoryPath;
+        return $this->getBackingStore()->get('categoryPath');
     }
 
     /**
@@ -132,7 +46,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinitionClassType|null
     */
     public function getClassType(): ?GroupPolicyDefinitionClassType {
-        return $this->classType;
+        return $this->getBackingStore()->get('classType');
     }
 
     /**
@@ -140,7 +54,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinitionFile|null
     */
     public function getDefinitionFile(): ?GroupPolicyDefinitionFile {
-        return $this->definitionFile;
+        return $this->getBackingStore()->get('definitionFile');
     }
 
     /**
@@ -148,7 +62,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -156,7 +70,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getExplainText(): ?string {
-        return $this->explainText;
+        return $this->getBackingStore()->get('explainText');
     }
 
     /**
@@ -191,7 +105,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupPolicyCategoryId(): ?string {
-        return $this->groupPolicyCategoryId;
+        return $this->getBackingStore()->get('groupPolicyCategoryId');
     }
 
     /**
@@ -199,7 +113,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getHasRelatedDefinitions(): ?bool {
-        return $this->hasRelatedDefinitions;
+        return $this->getBackingStore()->get('hasRelatedDefinitions');
     }
 
     /**
@@ -207,7 +121,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -215,7 +129,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getMinDeviceCspVersion(): ?string {
-        return $this->minDeviceCspVersion;
+        return $this->getBackingStore()->get('minDeviceCspVersion');
     }
 
     /**
@@ -223,7 +137,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getMinUserCspVersion(): ?string {
-        return $this->minUserCspVersion;
+        return $this->getBackingStore()->get('minUserCspVersion');
     }
 
     /**
@@ -231,7 +145,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getNextVersionDefinition(): ?GroupPolicyDefinition {
-        return $this->nextVersionDefinition;
+        return $this->getBackingStore()->get('nextVersionDefinition');
     }
 
     /**
@@ -239,7 +153,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyType|null
     */
     public function getPolicyType(): ?GroupPolicyType {
-        return $this->policyType;
+        return $this->getBackingStore()->get('policyType');
     }
 
     /**
@@ -247,7 +161,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return array<GroupPolicyPresentation>|null
     */
     public function getPresentations(): ?array {
-        return $this->presentations;
+        return $this->getBackingStore()->get('presentations');
     }
 
     /**
@@ -255,7 +169,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getPreviousVersionDefinition(): ?GroupPolicyDefinition {
-        return $this->previousVersionDefinition;
+        return $this->getBackingStore()->get('previousVersionDefinition');
     }
 
     /**
@@ -263,7 +177,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getSupportedOn(): ?string {
-        return $this->supportedOn;
+        return $this->getBackingStore()->get('supportedOn');
     }
 
     /**
@@ -271,7 +185,7 @@ class GroupPolicyDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -280,159 +194,159 @@ class GroupPolicyDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('category', $this->category);
-        $writer->writeStringValue('categoryPath', $this->categoryPath);
-        $writer->writeEnumValue('classType', $this->classType);
-        $writer->writeObjectValue('definitionFile', $this->definitionFile);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('explainText', $this->explainText);
-        $writer->writeStringValue('groupPolicyCategoryId', $this->groupPolicyCategoryId);
-        $writer->writeBooleanValue('hasRelatedDefinitions', $this->hasRelatedDefinitions);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('minDeviceCspVersion', $this->minDeviceCspVersion);
-        $writer->writeStringValue('minUserCspVersion', $this->minUserCspVersion);
-        $writer->writeObjectValue('nextVersionDefinition', $this->nextVersionDefinition);
-        $writer->writeEnumValue('policyType', $this->policyType);
-        $writer->writeCollectionOfObjectValues('presentations', $this->presentations);
-        $writer->writeObjectValue('previousVersionDefinition', $this->previousVersionDefinition);
-        $writer->writeStringValue('supportedOn', $this->supportedOn);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeObjectValue('category', $this->getCategory());
+        $writer->writeStringValue('categoryPath', $this->getCategoryPath());
+        $writer->writeEnumValue('classType', $this->getClassType());
+        $writer->writeObjectValue('definitionFile', $this->getDefinitionFile());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('explainText', $this->getExplainText());
+        $writer->writeStringValue('groupPolicyCategoryId', $this->getGroupPolicyCategoryId());
+        $writer->writeBooleanValue('hasRelatedDefinitions', $this->getHasRelatedDefinitions());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('minDeviceCspVersion', $this->getMinDeviceCspVersion());
+        $writer->writeStringValue('minUserCspVersion', $this->getMinUserCspVersion());
+        $writer->writeObjectValue('nextVersionDefinition', $this->getNextVersionDefinition());
+        $writer->writeEnumValue('policyType', $this->getPolicyType());
+        $writer->writeCollectionOfObjectValues('presentations', $this->getPresentations());
+        $writer->writeObjectValue('previousVersionDefinition', $this->getPreviousVersionDefinition());
+        $writer->writeStringValue('supportedOn', $this->getSupportedOn());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the category property value. The group policy category associated with the definition.
      *  @param GroupPolicyCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?GroupPolicyCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?GroupPolicyCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the categoryPath property value. The localized full category path for the policy.
      *  @param string|null $value Value to set for the categoryPath property.
     */
-    public function setCategoryPath(?string $value ): void {
-        $this->categoryPath = $value;
+    public function setCategoryPath(?string $value): void {
+        $this->getBackingStore()->set('categoryPath', $value);
     }
 
     /**
      * Sets the classType property value. Group Policy Definition Class Type.
      *  @param GroupPolicyDefinitionClassType|null $value Value to set for the classType property.
     */
-    public function setClassType(?GroupPolicyDefinitionClassType $value ): void {
-        $this->classType = $value;
+    public function setClassType(?GroupPolicyDefinitionClassType $value): void {
+        $this->getBackingStore()->set('classType', $value);
     }
 
     /**
      * Sets the definitionFile property value. The group policy file associated with the definition.
      *  @param GroupPolicyDefinitionFile|null $value Value to set for the definitionFile property.
     */
-    public function setDefinitionFile(?GroupPolicyDefinitionFile $value ): void {
-        $this->definitionFile = $value;
+    public function setDefinitionFile(?GroupPolicyDefinitionFile $value): void {
+        $this->getBackingStore()->set('definitionFile', $value);
     }
 
     /**
      * Sets the displayName property value. The localized policy name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the explainText property value. The localized explanation or help text associated with the policy. The default value is empty.
      *  @param string|null $value Value to set for the explainText property.
     */
-    public function setExplainText(?string $value ): void {
-        $this->explainText = $value;
+    public function setExplainText(?string $value): void {
+        $this->getBackingStore()->set('explainText', $value);
     }
 
     /**
      * Sets the groupPolicyCategoryId property value. The category id of the parent category
      *  @param string|null $value Value to set for the groupPolicyCategoryId property.
     */
-    public function setGroupPolicyCategoryId(?string $value ): void {
-        $this->groupPolicyCategoryId = $value;
+    public function setGroupPolicyCategoryId(?string $value): void {
+        $this->getBackingStore()->set('groupPolicyCategoryId', $value);
     }
 
     /**
      * Sets the hasRelatedDefinitions property value. Signifies whether or not there are related definitions to this definition
      *  @param bool|null $value Value to set for the hasRelatedDefinitions property.
     */
-    public function setHasRelatedDefinitions(?bool $value ): void {
-        $this->hasRelatedDefinitions = $value;
+    public function setHasRelatedDefinitions(?bool $value): void {
+        $this->getBackingStore()->set('hasRelatedDefinitions', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the minDeviceCspVersion property value. Minimum required CSP version for device configuration in this definition
      *  @param string|null $value Value to set for the minDeviceCspVersion property.
     */
-    public function setMinDeviceCspVersion(?string $value ): void {
-        $this->minDeviceCspVersion = $value;
+    public function setMinDeviceCspVersion(?string $value): void {
+        $this->getBackingStore()->set('minDeviceCspVersion', $value);
     }
 
     /**
      * Sets the minUserCspVersion property value. Minimum required CSP version for user configuration in this definition
      *  @param string|null $value Value to set for the minUserCspVersion property.
     */
-    public function setMinUserCspVersion(?string $value ): void {
-        $this->minUserCspVersion = $value;
+    public function setMinUserCspVersion(?string $value): void {
+        $this->getBackingStore()->set('minUserCspVersion', $value);
     }
 
     /**
      * Sets the nextVersionDefinition property value. Definition of the next version of this definition
      *  @param GroupPolicyDefinition|null $value Value to set for the nextVersionDefinition property.
     */
-    public function setNextVersionDefinition(?GroupPolicyDefinition $value ): void {
-        $this->nextVersionDefinition = $value;
+    public function setNextVersionDefinition(?GroupPolicyDefinition $value): void {
+        $this->getBackingStore()->set('nextVersionDefinition', $value);
     }
 
     /**
      * Sets the policyType property value. Type of Group Policy File or Definition.
      *  @param GroupPolicyType|null $value Value to set for the policyType property.
     */
-    public function setPolicyType(?GroupPolicyType $value ): void {
-        $this->policyType = $value;
+    public function setPolicyType(?GroupPolicyType $value): void {
+        $this->getBackingStore()->set('policyType', $value);
     }
 
     /**
      * Sets the presentations property value. The group policy presentations associated with the definition.
      *  @param array<GroupPolicyPresentation>|null $value Value to set for the presentations property.
     */
-    public function setPresentations(?array $value ): void {
-        $this->presentations = $value;
+    public function setPresentations(?array $value): void {
+        $this->getBackingStore()->set('presentations', $value);
     }
 
     /**
      * Sets the previousVersionDefinition property value. Definition of the previous version of this definition
      *  @param GroupPolicyDefinition|null $value Value to set for the previousVersionDefinition property.
     */
-    public function setPreviousVersionDefinition(?GroupPolicyDefinition $value ): void {
-        $this->previousVersionDefinition = $value;
+    public function setPreviousVersionDefinition(?GroupPolicyDefinition $value): void {
+        $this->getBackingStore()->set('previousVersionDefinition', $value);
     }
 
     /**
      * Sets the supportedOn property value. Localized string used to specify what operating system or application version is affected by the policy.
      *  @param string|null $value Value to set for the supportedOn property.
     */
-    public function setSupportedOn(?string $value ): void {
-        $this->supportedOn = $value;
+    public function setSupportedOn(?string $value): void {
+        $this->getBackingStore()->set('supportedOn', $value);
     }
 
     /**
      * Sets the version property value. Setting definition version
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

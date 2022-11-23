@@ -7,40 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SubmissionAdminReview implements AdditionalDataHolder, Parsable 
+class SubmissionAdminReview implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $reviewBy Specifies who reviewed the email. The identification is an email ID or other identity strings.
-    */
-    private ?string $reviewBy = null;
-    
-    /**
-     * @var DateTime|null $reviewDateTime Specifies the date time when the review occurred.
-    */
-    private ?DateTime $reviewDateTime = null;
-    
-    /**
-     * @var SubmissionResultCategory|null $reviewResult Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.
-    */
-    private ?SubmissionResultCategory $reviewResult = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new submissionAdminReview and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.security.submissionAdminReview');
     }
 
     /**
@@ -56,8 +39,16 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -79,7 +70,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -87,7 +78,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getReviewBy(): ?string {
-        return $this->reviewBy;
+        return $this->getBackingStore()->get('reviewBy');
     }
 
     /**
@@ -95,7 +86,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getReviewDateTime(): ?DateTime {
-        return $this->reviewDateTime;
+        return $this->getBackingStore()->get('reviewDateTime');
     }
 
     /**
@@ -103,7 +94,7 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * @return SubmissionResultCategory|null
     */
     public function getReviewResult(): ?SubmissionResultCategory {
-        return $this->reviewResult;
+        return $this->getBackingStore()->get('reviewResult');
     }
 
     /**
@@ -111,51 +102,59 @@ class SubmissionAdminReview implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('reviewBy', $this->reviewBy);
-        $writer->writeDateTimeValue('reviewDateTime', $this->reviewDateTime);
-        $writer->writeEnumValue('reviewResult', $this->reviewResult);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('reviewBy', $this->getReviewBy());
+        $writer->writeDateTimeValue('reviewDateTime', $this->getReviewDateTime());
+        $writer->writeEnumValue('reviewResult', $this->getReviewResult());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the reviewBy property value. Specifies who reviewed the email. The identification is an email ID or other identity strings.
      *  @param string|null $value Value to set for the reviewBy property.
     */
-    public function setReviewBy(?string $value ): void {
-        $this->reviewBy = $value;
+    public function setReviewBy(?string $value): void {
+        $this->getBackingStore()->set('reviewBy', $value);
     }
 
     /**
      * Sets the reviewDateTime property value. Specifies the date time when the review occurred.
      *  @param DateTime|null $value Value to set for the reviewDateTime property.
     */
-    public function setReviewDateTime(?DateTime $value ): void {
-        $this->reviewDateTime = $value;
+    public function setReviewDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('reviewDateTime', $value);
     }
 
     /**
      * Sets the reviewResult property value. Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.
      *  @param SubmissionResultCategory|null $value Value to set for the reviewResult property.
     */
-    public function setReviewResult(?SubmissionResultCategory $value ): void {
-        $this->reviewResult = $value;
+    public function setReviewResult(?SubmissionResultCategory $value): void {
+        $this->getBackingStore()->set('reviewResult', $value);
     }
 
 }

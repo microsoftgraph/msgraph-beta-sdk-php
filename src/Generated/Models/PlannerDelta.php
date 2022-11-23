@@ -13,7 +13,6 @@ class PlannerDelta extends Entity implements Parsable
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.plannerDelta');
     }
 
     /**
@@ -26,6 +25,7 @@ class PlannerDelta extends Entity implements Parsable
         if ($mappingValueNode !== null) {
             $mappingValue = $mappingValueNode->getStringValue();
             switch ($mappingValue) {
+                case '#microsoft.graph.businessScenarioTask': return new BusinessScenarioTask();
                 case '#microsoft.graph.plannerAssignedToTaskBoardTaskFormat': return new PlannerAssignedToTaskBoardTaskFormat();
                 case '#microsoft.graph.plannerBucket': return new PlannerBucket();
                 case '#microsoft.graph.plannerBucketTaskBoardTaskFormat': return new PlannerBucketTaskBoardTaskFormat();

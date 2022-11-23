@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class StatusDetails extends StatusBase implements Parsable 
 {
     /**
-     * @var string|null $additionalDetails Additional details in case of error.
-    */
-    private ?string $additionalDetails = null;
-    
-    /**
-     * @var ProvisioningStatusErrorCategory|null $errorCategory Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
-    */
-    private ?ProvisioningStatusErrorCategory $errorCategory = null;
-    
-    /**
-     * @var string|null $errorCode Unique error code if any occurred. Learn more
-    */
-    private ?string $errorCode = null;
-    
-    /**
-     * @var string|null $reason Summarizes the status and describes why the status happened.
-    */
-    private ?string $reason = null;
-    
-    /**
-     * @var string|null $recommendedAction Provides the resolution for the corresponding error.
-    */
-    private ?string $recommendedAction = null;
-    
-    /**
      * Instantiates a new StatusDetails and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class StatusDetails extends StatusBase implements Parsable
      * @return string|null
     */
     public function getAdditionalDetails(): ?string {
-        return $this->additionalDetails;
+        return $this->getBackingStore()->get('additionalDetails');
     }
 
     /**
@@ -63,7 +38,7 @@ class StatusDetails extends StatusBase implements Parsable
      * @return ProvisioningStatusErrorCategory|null
     */
     public function getErrorCategory(): ?ProvisioningStatusErrorCategory {
-        return $this->errorCategory;
+        return $this->getBackingStore()->get('errorCategory');
     }
 
     /**
@@ -71,7 +46,7 @@ class StatusDetails extends StatusBase implements Parsable
      * @return string|null
     */
     public function getErrorCode(): ?string {
-        return $this->errorCode;
+        return $this->getBackingStore()->get('errorCode');
     }
 
     /**
@@ -94,7 +69,7 @@ class StatusDetails extends StatusBase implements Parsable
      * @return string|null
     */
     public function getReason(): ?string {
-        return $this->reason;
+        return $this->getBackingStore()->get('reason');
     }
 
     /**
@@ -102,7 +77,7 @@ class StatusDetails extends StatusBase implements Parsable
      * @return string|null
     */
     public function getRecommendedAction(): ?string {
-        return $this->recommendedAction;
+        return $this->getBackingStore()->get('recommendedAction');
     }
 
     /**
@@ -111,51 +86,51 @@ class StatusDetails extends StatusBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('additionalDetails', $this->additionalDetails);
-        $writer->writeEnumValue('errorCategory', $this->errorCategory);
-        $writer->writeStringValue('errorCode', $this->errorCode);
-        $writer->writeStringValue('reason', $this->reason);
-        $writer->writeStringValue('recommendedAction', $this->recommendedAction);
+        $writer->writeStringValue('additionalDetails', $this->getAdditionalDetails());
+        $writer->writeEnumValue('errorCategory', $this->getErrorCategory());
+        $writer->writeStringValue('errorCode', $this->getErrorCode());
+        $writer->writeStringValue('reason', $this->getReason());
+        $writer->writeStringValue('recommendedAction', $this->getRecommendedAction());
     }
 
     /**
      * Sets the additionalDetails property value. Additional details in case of error.
      *  @param string|null $value Value to set for the additionalDetails property.
     */
-    public function setAdditionalDetails(?string $value ): void {
-        $this->additionalDetails = $value;
+    public function setAdditionalDetails(?string $value): void {
+        $this->getBackingStore()->set('additionalDetails', $value);
     }
 
     /**
      * Sets the errorCategory property value. Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
      *  @param ProvisioningStatusErrorCategory|null $value Value to set for the errorCategory property.
     */
-    public function setErrorCategory(?ProvisioningStatusErrorCategory $value ): void {
-        $this->errorCategory = $value;
+    public function setErrorCategory(?ProvisioningStatusErrorCategory $value): void {
+        $this->getBackingStore()->set('errorCategory', $value);
     }
 
     /**
      * Sets the errorCode property value. Unique error code if any occurred. Learn more
      *  @param string|null $value Value to set for the errorCode property.
     */
-    public function setErrorCode(?string $value ): void {
-        $this->errorCode = $value;
+    public function setErrorCode(?string $value): void {
+        $this->getBackingStore()->set('errorCode', $value);
     }
 
     /**
      * Sets the reason property value. Summarizes the status and describes why the status happened.
      *  @param string|null $value Value to set for the reason property.
     */
-    public function setReason(?string $value ): void {
-        $this->reason = $value;
+    public function setReason(?string $value): void {
+        $this->getBackingStore()->set('reason', $value);
     }
 
     /**
      * Sets the recommendedAction property value. Provides the resolution for the corresponding error.
      *  @param string|null $value Value to set for the recommendedAction property.
     */
-    public function setRecommendedAction(?string $value ): void {
-        $this->recommendedAction = $value;
+    public function setRecommendedAction(?string $value): void {
+        $this->getBackingStore()->set('recommendedAction', $value);
     }
 
 }

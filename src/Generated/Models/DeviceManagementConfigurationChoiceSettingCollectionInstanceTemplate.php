@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate extends DeviceManagementConfigurationSettingInstanceTemplate implements Parsable 
 {
     /**
-     * @var bool|null $allowUnmanagedValues Linked policy may append values which are not present in the template.
-    */
-    private ?bool $allowUnmanagedValues = null;
-    
-    /**
-     * @var array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null $choiceSettingCollectionValueTemplate Choice Setting Collection Value Template
-    */
-    private ?array $choiceSettingCollectionValueTemplate = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
      * @return bool|null
     */
     public function getAllowUnmanagedValues(): ?bool {
-        return $this->allowUnmanagedValues;
+        return $this->getBackingStore()->get('allowUnmanagedValues');
     }
 
     /**
@@ -48,7 +38,7 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
      * @return array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null
     */
     public function getChoiceSettingCollectionValueTemplate(): ?array {
-        return $this->choiceSettingCollectionValueTemplate;
+        return $this->getBackingStore()->get('choiceSettingCollectionValueTemplate');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate exten
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowUnmanagedValues', $this->allowUnmanagedValues);
-        $writer->writeCollectionOfObjectValues('choiceSettingCollectionValueTemplate', $this->choiceSettingCollectionValueTemplate);
+        $writer->writeBooleanValue('allowUnmanagedValues', $this->getAllowUnmanagedValues());
+        $writer->writeCollectionOfObjectValues('choiceSettingCollectionValueTemplate', $this->getChoiceSettingCollectionValueTemplate());
     }
 
     /**
      * Sets the allowUnmanagedValues property value. Linked policy may append values which are not present in the template.
      *  @param bool|null $value Value to set for the allowUnmanagedValues property.
     */
-    public function setAllowUnmanagedValues(?bool $value ): void {
-        $this->allowUnmanagedValues = $value;
+    public function setAllowUnmanagedValues(?bool $value): void {
+        $this->getBackingStore()->set('allowUnmanagedValues', $value);
     }
 
     /**
      * Sets the choiceSettingCollectionValueTemplate property value. Choice Setting Collection Value Template
      *  @param array<DeviceManagementConfigurationChoiceSettingValueTemplate>|null $value Value to set for the choiceSettingCollectionValueTemplate property.
     */
-    public function setChoiceSettingCollectionValueTemplate(?array $value ): void {
-        $this->choiceSettingCollectionValueTemplate = $value;
+    public function setChoiceSettingCollectionValueTemplate(?array $value): void {
+        $this->getBackingStore()->set('choiceSettingCollectionValueTemplate', $value);
     }
 
 }

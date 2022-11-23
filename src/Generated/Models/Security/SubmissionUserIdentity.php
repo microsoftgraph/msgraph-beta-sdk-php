@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SubmissionUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $email The email of user who is making the submission when logged in (delegated token case).
-    */
-    private ?string $email = null;
-    
-    /**
      * Instantiates a new SubmissionUserIdentity and sets the default values.
     */
     public function __construct() {
@@ -36,7 +31,7 @@ class SubmissionUserIdentity extends Identity implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -56,15 +51,15 @@ class SubmissionUserIdentity extends Identity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('email', $this->email);
+        $writer->writeStringValue('email', $this->getEmail());
     }
 
     /**
      * Sets the email property value. The email of user who is making the submission when logged in (delegated token case).
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
 }
