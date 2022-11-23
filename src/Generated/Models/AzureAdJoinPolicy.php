@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable 
+class AzureAdJoinPolicy implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $allowedGroups The identifiers of the groups that are in the scope of the policy. Required when the appliesTo property is set to selected.
-    */
-    private ?array $allowedGroups = null;
-    
-    /**
-     * @var array<string>|null $allowedUsers The identifiers of users that are in the scope of the policy. Required when the appliesTo property is set to selected.
-    */
-    private ?array $allowedUsers = null;
-    
-    /**
-     * @var PolicyScope|null $appliesTo Specifies whether to block or allow fine-grained control of the policy scope. The possible values are: 0 (meaning none), 1 (meaning all), 2 (meaning selected), 3 (meaning unknownFutureValue). The default value is 1. When set to 2, at least one user or group identifier must be specified in either allowedUsers or allowedGroups.  Setting this property to 0 or 1 removes all identifiers in both allowedUsers and allowedGroups.
-    */
-    private ?PolicyScope $appliesTo = null;
-    
-    /**
-     * @var bool|null $isAdminConfigurable Specifies whether this policy scope is configurable by the admin. The default value is false. When an admin has enabled Intune (MEM) to manage devices, this property is set to false and appliesTo defaults to 1 (meaning all).
-    */
-    private ?bool $isAdminConfigurable = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new azureAdJoinPolicy and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.azureAdJoinPolicy');
     }
 
     /**
@@ -60,8 +38,8 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -69,7 +47,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAllowedGroups(): ?array {
-        return $this->allowedGroups;
+        return $this->getBackingStore()->get('allowedGroups');
     }
 
     /**
@@ -77,7 +55,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @return array<string>|null
     */
     public function getAllowedUsers(): ?array {
-        return $this->allowedUsers;
+        return $this->getBackingStore()->get('allowedUsers');
     }
 
     /**
@@ -85,7 +63,15 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @return PolicyScope|null
     */
     public function getAppliesTo(): ?PolicyScope {
-        return $this->appliesTo;
+        return $this->getBackingStore()->get('appliesTo');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -108,7 +94,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsAdminConfigurable(): ?bool {
-        return $this->isAdminConfigurable;
+        return $this->getBackingStore()->get('isAdminConfigurable');
     }
 
     /**
@@ -116,7 +102,7 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -124,60 +110,68 @@ class AzureAdJoinPolicy implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('allowedGroups', $this->allowedGroups);
-        $writer->writeCollectionOfPrimitiveValues('allowedUsers', $this->allowedUsers);
-        $writer->writeEnumValue('appliesTo', $this->appliesTo);
-        $writer->writeBooleanValue('isAdminConfigurable', $this->isAdminConfigurable);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('allowedGroups', $this->getAllowedGroups());
+        $writer->writeCollectionOfPrimitiveValues('allowedUsers', $this->getAllowedUsers());
+        $writer->writeEnumValue('appliesTo', $this->getAppliesTo());
+        $writer->writeBooleanValue('isAdminConfigurable', $this->getIsAdminConfigurable());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowedGroups property value. The identifiers of the groups that are in the scope of the policy. Required when the appliesTo property is set to selected.
      *  @param array<string>|null $value Value to set for the allowedGroups property.
     */
-    public function setAllowedGroups(?array $value ): void {
-        $this->allowedGroups = $value;
+    public function setAllowedGroups(?array $value): void {
+        $this->getBackingStore()->set('allowedGroups', $value);
     }
 
     /**
      * Sets the allowedUsers property value. The identifiers of users that are in the scope of the policy. Required when the appliesTo property is set to selected.
      *  @param array<string>|null $value Value to set for the allowedUsers property.
     */
-    public function setAllowedUsers(?array $value ): void {
-        $this->allowedUsers = $value;
+    public function setAllowedUsers(?array $value): void {
+        $this->getBackingStore()->set('allowedUsers', $value);
     }
 
     /**
      * Sets the appliesTo property value. Specifies whether to block or allow fine-grained control of the policy scope. The possible values are: 0 (meaning none), 1 (meaning all), 2 (meaning selected), 3 (meaning unknownFutureValue). The default value is 1. When set to 2, at least one user or group identifier must be specified in either allowedUsers or allowedGroups.  Setting this property to 0 or 1 removes all identifiers in both allowedUsers and allowedGroups.
      *  @param PolicyScope|null $value Value to set for the appliesTo property.
     */
-    public function setAppliesTo(?PolicyScope $value ): void {
-        $this->appliesTo = $value;
+    public function setAppliesTo(?PolicyScope $value): void {
+        $this->getBackingStore()->set('appliesTo', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the isAdminConfigurable property value. Specifies whether this policy scope is configurable by the admin. The default value is false. When an admin has enabled Intune (MEM) to manage devices, this property is set to false and appliesTo defaults to 1 (meaning all).
      *  @param bool|null $value Value to set for the isAdminConfigurable property.
     */
-    public function setIsAdminConfigurable(?bool $value ): void {
-        $this->isAdminConfigurable = $value;
+    public function setIsAdminConfigurable(?bool $value): void {
+        $this->getBackingStore()->set('isAdminConfigurable', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

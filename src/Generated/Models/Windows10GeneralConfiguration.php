@@ -11,1421 +11,6 @@ use Psr\Http\Message\StreamInterface;
 class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var bool|null $accountsBlockAddingNonMicrosoftAccountEmail Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
-    */
-    private ?bool $accountsBlockAddingNonMicrosoftAccountEmail = null;
-    
-    /**
-     * @var Enablement|null $activateAppsWithVoice Possible values of a property
-    */
-    private ?Enablement $activateAppsWithVoice = null;
-    
-    /**
-     * @var bool|null $antiTheftModeBlocked Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
-    */
-    private ?bool $antiTheftModeBlocked = null;
-    
-    /**
-     * @var bool|null $appManagementMSIAllowUserControlOverInstall This policy setting permits users to change installation options that typically are available only to system administrators.
-    */
-    private ?bool $appManagementMSIAllowUserControlOverInstall = null;
-    
-    /**
-     * @var bool|null $appManagementMSIAlwaysInstallWithElevatedPrivileges This policy setting directs Windows Installer to use elevated permissions when it installs any program on the system.
-    */
-    private ?bool $appManagementMSIAlwaysInstallWithElevatedPrivileges = null;
-    
-    /**
-     * @var array<string>|null $appManagementPackageFamilyNamesToLaunchAfterLogOn List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​
-    */
-    private ?array $appManagementPackageFamilyNamesToLaunchAfterLogOn = null;
-    
-    /**
-     * @var StateManagementSetting|null $appsAllowTrustedAppsSideloading State Management Setting.
-    */
-    private ?StateManagementSetting $appsAllowTrustedAppsSideloading = null;
-    
-    /**
-     * @var bool|null $appsBlockWindowsStoreOriginatedApps Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.
-    */
-    private ?bool $appsBlockWindowsStoreOriginatedApps = null;
-    
-    /**
-     * @var bool|null $authenticationAllowSecondaryDevice Allows secondary authentication devices to work with Windows.
-    */
-    private ?bool $authenticationAllowSecondaryDevice = null;
-    
-    /**
-     * @var string|null $authenticationPreferredAzureADTenantDomainName Specifies the preferred domain among available domains in the Azure AD tenant.
-    */
-    private ?string $authenticationPreferredAzureADTenantDomainName = null;
-    
-    /**
-     * @var Enablement|null $authenticationWebSignIn Possible values of a property
-    */
-    private ?Enablement $authenticationWebSignIn = null;
-    
-    /**
-     * @var array<string>|null $bluetoothAllowedServices Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
-    */
-    private ?array $bluetoothAllowedServices = null;
-    
-    /**
-     * @var bool|null $bluetoothBlockAdvertising Whether or not to Block the user from using bluetooth advertising.
-    */
-    private ?bool $bluetoothBlockAdvertising = null;
-    
-    /**
-     * @var bool|null $bluetoothBlockDiscoverableMode Whether or not to Block the user from using bluetooth discoverable mode.
-    */
-    private ?bool $bluetoothBlockDiscoverableMode = null;
-    
-    /**
-     * @var bool|null $bluetoothBlocked Whether or not to Block the user from using bluetooth.
-    */
-    private ?bool $bluetoothBlocked = null;
-    
-    /**
-     * @var bool|null $bluetoothBlockPrePairing Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.
-    */
-    private ?bool $bluetoothBlockPrePairing = null;
-    
-    /**
-     * @var bool|null $bluetoothBlockPromptedProximalConnections Whether or not to block the users from using Swift Pair and other proximity based scenarios.
-    */
-    private ?bool $bluetoothBlockPromptedProximalConnections = null;
-    
-    /**
-     * @var bool|null $cameraBlocked Whether or not to Block the user from accessing the camera of the device.
-    */
-    private ?bool $cameraBlocked = null;
-    
-    /**
-     * @var bool|null $cellularBlockDataWhenRoaming Whether or not to Block the user from using data over cellular while roaming.
-    */
-    private ?bool $cellularBlockDataWhenRoaming = null;
-    
-    /**
-     * @var bool|null $cellularBlockVpn Whether or not to Block the user from using VPN over cellular.
-    */
-    private ?bool $cellularBlockVpn = null;
-    
-    /**
-     * @var bool|null $cellularBlockVpnWhenRoaming Whether or not to Block the user from using VPN when roaming over cellular.
-    */
-    private ?bool $cellularBlockVpnWhenRoaming = null;
-    
-    /**
-     * @var ConfigurationUsage|null $cellularData Possible values of the ConfigurationUsage list.
-    */
-    private ?ConfigurationUsage $cellularData = null;
-    
-    /**
-     * @var bool|null $certificatesBlockManualRootCertificateInstallation Whether or not to Block the user from doing manual root certificate installation.
-    */
-    private ?bool $certificatesBlockManualRootCertificateInstallation = null;
-    
-    /**
-     * @var string|null $configureTimeZone Specifies the time zone to be applied to the device. This is the standard Windows name for the target time zone.
-    */
-    private ?string $configureTimeZone = null;
-    
-    /**
-     * @var bool|null $connectedDevicesServiceBlocked Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.
-    */
-    private ?bool $connectedDevicesServiceBlocked = null;
-    
-    /**
-     * @var bool|null $copyPasteBlocked Whether or not to Block the user from using copy paste.
-    */
-    private ?bool $copyPasteBlocked = null;
-    
-    /**
-     * @var bool|null $cortanaBlocked Whether or not to Block the user from using Cortana.
-    */
-    private ?bool $cortanaBlocked = null;
-    
-    /**
-     * @var bool|null $cryptographyAllowFipsAlgorithmPolicy Specify whether to allow or disallow the Federal Information Processing Standard (FIPS) policy.
-    */
-    private ?bool $cryptographyAllowFipsAlgorithmPolicy = null;
-    
-    /**
-     * @var bool|null $dataProtectionBlockDirectMemoryAccess This policy setting allows you to block direct memory access (DMA) for all hot pluggable PCI downstream ports until a user logs into Windows.
-    */
-    private ?bool $dataProtectionBlockDirectMemoryAccess = null;
-    
-    /**
-     * @var bool|null $defenderBlockEndUserAccess Whether or not to block end user access to Defender.
-    */
-    private ?bool $defenderBlockEndUserAccess = null;
-    
-    /**
-     * @var bool|null $defenderBlockOnAccessProtection Allows or disallows Windows Defender On Access Protection functionality.
-    */
-    private ?bool $defenderBlockOnAccessProtection = null;
-    
-    /**
-     * @var DefenderCloudBlockLevelType|null $defenderCloudBlockLevel Possible values of Cloud Block Level
-    */
-    private ?DefenderCloudBlockLevelType $defenderCloudBlockLevel = null;
-    
-    /**
-     * @var int|null $defenderCloudExtendedTimeout Timeout extension for file scanning by the cloud. Valid values 0 to 50
-    */
-    private ?int $defenderCloudExtendedTimeout = null;
-    
-    /**
-     * @var int|null $defenderCloudExtendedTimeoutInSeconds Timeout extension for file scanning by the cloud. Valid values 0 to 50
-    */
-    private ?int $defenderCloudExtendedTimeoutInSeconds = null;
-    
-    /**
-     * @var int|null $defenderDaysBeforeDeletingQuarantinedMalware Number of days before deleting quarantined malware. Valid values 0 to 90
-    */
-    private ?int $defenderDaysBeforeDeletingQuarantinedMalware = null;
-    
-    /**
-     * @var DefenderDetectedMalwareActions|null $defenderDetectedMalwareActions Gets or sets Defender’s actions to take on detected Malware per threat level.
-    */
-    private ?DefenderDetectedMalwareActions $defenderDetectedMalwareActions = null;
-    
-    /**
-     * @var bool|null $defenderDisableCatchupFullScan When blocked, catch-up scans for scheduled full scans will be turned off.
-    */
-    private ?bool $defenderDisableCatchupFullScan = null;
-    
-    /**
-     * @var bool|null $defenderDisableCatchupQuickScan When blocked, catch-up scans for scheduled quick scans will be turned off.
-    */
-    private ?bool $defenderDisableCatchupQuickScan = null;
-    
-    /**
-     * @var array<string>|null $defenderFileExtensionsToExclude File extensions to exclude from scans and real time protection.
-    */
-    private ?array $defenderFileExtensionsToExclude = null;
-    
-    /**
-     * @var array<string>|null $defenderFilesAndFoldersToExclude Files and folder to exclude from scans and real time protection.
-    */
-    private ?array $defenderFilesAndFoldersToExclude = null;
-    
-    /**
-     * @var DefenderMonitorFileActivity|null $defenderMonitorFileActivity Possible values for monitoring file activity.
-    */
-    private ?DefenderMonitorFileActivity $defenderMonitorFileActivity = null;
-    
-    /**
-     * @var DefenderPotentiallyUnwantedAppAction|null $defenderPotentiallyUnwantedAppAction Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
-    */
-    private ?DefenderPotentiallyUnwantedAppAction $defenderPotentiallyUnwantedAppAction = null;
-    
-    /**
-     * @var DefenderProtectionType|null $defenderPotentiallyUnwantedAppActionSetting Possible values of Defender PUA Protection
-    */
-    private ?DefenderProtectionType $defenderPotentiallyUnwantedAppActionSetting = null;
-    
-    /**
-     * @var array<string>|null $defenderProcessesToExclude Processes to exclude from scans and real time protection.
-    */
-    private ?array $defenderProcessesToExclude = null;
-    
-    /**
-     * @var DefenderPromptForSampleSubmission|null $defenderPromptForSampleSubmission Possible values for prompting user for samples submission.
-    */
-    private ?DefenderPromptForSampleSubmission $defenderPromptForSampleSubmission = null;
-    
-    /**
-     * @var bool|null $defenderRequireBehaviorMonitoring Indicates whether or not to require behavior monitoring.
-    */
-    private ?bool $defenderRequireBehaviorMonitoring = null;
-    
-    /**
-     * @var bool|null $defenderRequireCloudProtection Indicates whether or not to require cloud protection.
-    */
-    private ?bool $defenderRequireCloudProtection = null;
-    
-    /**
-     * @var bool|null $defenderRequireNetworkInspectionSystem Indicates whether or not to require network inspection system.
-    */
-    private ?bool $defenderRequireNetworkInspectionSystem = null;
-    
-    /**
-     * @var bool|null $defenderRequireRealTimeMonitoring Indicates whether or not to require real time monitoring.
-    */
-    private ?bool $defenderRequireRealTimeMonitoring = null;
-    
-    /**
-     * @var bool|null $defenderScanArchiveFiles Indicates whether or not to scan archive files.
-    */
-    private ?bool $defenderScanArchiveFiles = null;
-    
-    /**
-     * @var bool|null $defenderScanDownloads Indicates whether or not to scan downloads.
-    */
-    private ?bool $defenderScanDownloads = null;
-    
-    /**
-     * @var bool|null $defenderScanIncomingMail Indicates whether or not to scan incoming mail messages.
-    */
-    private ?bool $defenderScanIncomingMail = null;
-    
-    /**
-     * @var bool|null $defenderScanMappedNetworkDrivesDuringFullScan Indicates whether or not to scan mapped network drives during full scan.
-    */
-    private ?bool $defenderScanMappedNetworkDrivesDuringFullScan = null;
-    
-    /**
-     * @var int|null $defenderScanMaxCpu Max CPU usage percentage during scan. Valid values 0 to 100
-    */
-    private ?int $defenderScanMaxCpu = null;
-    
-    /**
-     * @var bool|null $defenderScanNetworkFiles Indicates whether or not to scan files opened from a network folder.
-    */
-    private ?bool $defenderScanNetworkFiles = null;
-    
-    /**
-     * @var bool|null $defenderScanRemovableDrivesDuringFullScan Indicates whether or not to scan removable drives during full scan.
-    */
-    private ?bool $defenderScanRemovableDrivesDuringFullScan = null;
-    
-    /**
-     * @var bool|null $defenderScanScriptsLoadedInInternetExplorer Indicates whether or not to scan scripts loaded in Internet Explorer browser.
-    */
-    private ?bool $defenderScanScriptsLoadedInInternetExplorer = null;
-    
-    /**
-     * @var DefenderScanType|null $defenderScanType Possible values for system scan type.
-    */
-    private ?DefenderScanType $defenderScanType = null;
-    
-    /**
-     * @var Time|null $defenderScheduledQuickScanTime The time to perform a daily quick scan.
-    */
-    private ?Time $defenderScheduledQuickScanTime = null;
-    
-    /**
-     * @var Time|null $defenderScheduledScanTime The defender time for the system scan.
-    */
-    private ?Time $defenderScheduledScanTime = null;
-    
-    /**
-     * @var bool|null $defenderScheduleScanEnableLowCpuPriority When enabled, low CPU priority will be used during scheduled scans.
-    */
-    private ?bool $defenderScheduleScanEnableLowCpuPriority = null;
-    
-    /**
-     * @var int|null $defenderSignatureUpdateIntervalInHours The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24
-    */
-    private ?int $defenderSignatureUpdateIntervalInHours = null;
-    
-    /**
-     * @var DefenderSubmitSamplesConsentType|null $defenderSubmitSamplesConsentType Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
-    */
-    private ?DefenderSubmitSamplesConsentType $defenderSubmitSamplesConsentType = null;
-    
-    /**
-     * @var WeeklySchedule|null $defenderSystemScanSchedule Possible values for a weekly schedule.
-    */
-    private ?WeeklySchedule $defenderSystemScanSchedule = null;
-    
-    /**
-     * @var StateManagementSetting|null $developerUnlockSetting State Management Setting.
-    */
-    private ?StateManagementSetting $developerUnlockSetting = null;
-    
-    /**
-     * @var bool|null $deviceManagementBlockFactoryResetOnMobile Indicates whether or not to Block the user from resetting their phone.
-    */
-    private ?bool $deviceManagementBlockFactoryResetOnMobile = null;
-    
-    /**
-     * @var bool|null $deviceManagementBlockManualUnenroll Indicates whether or not to Block the user from doing manual un-enrollment from device management.
-    */
-    private ?bool $deviceManagementBlockManualUnenroll = null;
-    
-    /**
-     * @var DiagnosticDataSubmissionMode|null $diagnosticsDataSubmissionMode Allow the device to send diagnostic and usage telemetry data, such as Watson.
-    */
-    private ?DiagnosticDataSubmissionMode $diagnosticsDataSubmissionMode = null;
-    
-    /**
-     * @var array<string>|null $displayAppListWithGdiDPIScalingTurnedOff List of legacy applications that have GDI DPI Scaling turned off.
-    */
-    private ?array $displayAppListWithGdiDPIScalingTurnedOff = null;
-    
-    /**
-     * @var array<string>|null $displayAppListWithGdiDPIScalingTurnedOn List of legacy applications that have GDI DPI Scaling turned on.
-    */
-    private ?array $displayAppListWithGdiDPIScalingTurnedOn = null;
-    
-    /**
-     * @var bool|null $edgeAllowStartPagesModification Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.
-    */
-    private ?bool $edgeAllowStartPagesModification = null;
-    
-    /**
-     * @var bool|null $edgeBlockAccessToAboutFlags Indicates whether or not to prevent access to about flags on Edge browser.
-    */
-    private ?bool $edgeBlockAccessToAboutFlags = null;
-    
-    /**
-     * @var bool|null $edgeBlockAddressBarDropdown Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.
-    */
-    private ?bool $edgeBlockAddressBarDropdown = null;
-    
-    /**
-     * @var bool|null $edgeBlockAutofill Indicates whether or not to block auto fill.
-    */
-    private ?bool $edgeBlockAutofill = null;
-    
-    /**
-     * @var bool|null $edgeBlockCompatibilityList Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.
-    */
-    private ?bool $edgeBlockCompatibilityList = null;
-    
-    /**
-     * @var bool|null $edgeBlockDeveloperTools Indicates whether or not to block developer tools in the Edge browser.
-    */
-    private ?bool $edgeBlockDeveloperTools = null;
-    
-    /**
-     * @var bool|null $edgeBlocked Indicates whether or not to Block the user from using the Edge browser.
-    */
-    private ?bool $edgeBlocked = null;
-    
-    /**
-     * @var bool|null $edgeBlockEditFavorites Indicates whether or not to Block the user from making changes to Favorites.
-    */
-    private ?bool $edgeBlockEditFavorites = null;
-    
-    /**
-     * @var bool|null $edgeBlockExtensions Indicates whether or not to block extensions in the Edge browser.
-    */
-    private ?bool $edgeBlockExtensions = null;
-    
-    /**
-     * @var bool|null $edgeBlockFullScreenMode Allow or prevent Edge from entering the full screen mode.
-    */
-    private ?bool $edgeBlockFullScreenMode = null;
-    
-    /**
-     * @var bool|null $edgeBlockInPrivateBrowsing Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.
-    */
-    private ?bool $edgeBlockInPrivateBrowsing = null;
-    
-    /**
-     * @var bool|null $edgeBlockJavaScript Indicates whether or not to Block the user from using JavaScript.
-    */
-    private ?bool $edgeBlockJavaScript = null;
-    
-    /**
-     * @var bool|null $edgeBlockLiveTileDataCollection Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.
-    */
-    private ?bool $edgeBlockLiveTileDataCollection = null;
-    
-    /**
-     * @var bool|null $edgeBlockPasswordManager Indicates whether or not to Block password manager.
-    */
-    private ?bool $edgeBlockPasswordManager = null;
-    
-    /**
-     * @var bool|null $edgeBlockPopups Indicates whether or not to block popups.
-    */
-    private ?bool $edgeBlockPopups = null;
-    
-    /**
-     * @var bool|null $edgeBlockPrelaunch Decide whether Microsoft Edge is prelaunched at Windows startup.
-    */
-    private ?bool $edgeBlockPrelaunch = null;
-    
-    /**
-     * @var bool|null $edgeBlockPrinting Configure Edge to allow or block printing.
-    */
-    private ?bool $edgeBlockPrinting = null;
-    
-    /**
-     * @var bool|null $edgeBlockSavingHistory Configure Edge to allow browsing history to be saved or to never save browsing history.
-    */
-    private ?bool $edgeBlockSavingHistory = null;
-    
-    /**
-     * @var bool|null $edgeBlockSearchEngineCustomization Indicates whether or not to block the user from adding new search engine or changing the default search engine.
-    */
-    private ?bool $edgeBlockSearchEngineCustomization = null;
-    
-    /**
-     * @var bool|null $edgeBlockSearchSuggestions Indicates whether or not to block the user from using the search suggestions in the address bar.
-    */
-    private ?bool $edgeBlockSearchSuggestions = null;
-    
-    /**
-     * @var bool|null $edgeBlockSendingDoNotTrackHeader Indicates whether or not to Block the user from sending the do not track header.
-    */
-    private ?bool $edgeBlockSendingDoNotTrackHeader = null;
-    
-    /**
-     * @var bool|null $edgeBlockSendingIntranetTrafficToInternetExplorer Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.
-    */
-    private ?bool $edgeBlockSendingIntranetTrafficToInternetExplorer = null;
-    
-    /**
-     * @var bool|null $edgeBlockSideloadingExtensions Indicates whether the user can sideload extensions.
-    */
-    private ?bool $edgeBlockSideloadingExtensions = null;
-    
-    /**
-     * @var bool|null $edgeBlockTabPreloading Configure whether Edge preloads the new tab page at Windows startup.
-    */
-    private ?bool $edgeBlockTabPreloading = null;
-    
-    /**
-     * @var bool|null $edgeBlockWebContentOnNewTabPage Configure to load a blank page in Edge instead of the default New tab page and prevent users from changing it.
-    */
-    private ?bool $edgeBlockWebContentOnNewTabPage = null;
-    
-    /**
-     * @var bool|null $edgeClearBrowsingDataOnExit Clear browsing data on exiting Microsoft Edge.
-    */
-    private ?bool $edgeClearBrowsingDataOnExit = null;
-    
-    /**
-     * @var EdgeCookiePolicy|null $edgeCookiePolicy Possible values to specify which cookies are allowed in Microsoft Edge.
-    */
-    private ?EdgeCookiePolicy $edgeCookiePolicy = null;
-    
-    /**
-     * @var bool|null $edgeDisableFirstRunPage Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.
-    */
-    private ?bool $edgeDisableFirstRunPage = null;
-    
-    /**
-     * @var string|null $edgeEnterpriseModeSiteListLocation Indicates the enterprise mode site list location. Could be a local file, local network or http location.
-    */
-    private ?string $edgeEnterpriseModeSiteListLocation = null;
-    
-    /**
-     * @var VisibilitySetting|null $edgeFavoritesBarVisibility Generic visibility state.
-    */
-    private ?VisibilitySetting $edgeFavoritesBarVisibility = null;
-    
-    /**
-     * @var string|null $edgeFavoritesListLocation The location of the favorites list to provision. Could be a local file, local network or http location.
-    */
-    private ?string $edgeFavoritesListLocation = null;
-    
-    /**
-     * @var string|null $edgeFirstRunUrl The first run URL for when Edge browser is opened for the first time.
-    */
-    private ?string $edgeFirstRunUrl = null;
-    
-    /**
-     * @var EdgeHomeButtonConfiguration|null $edgeHomeButtonConfiguration Causes the Home button to either hide, load the default Start page, load a New tab page, or a custom URL
-    */
-    private ?EdgeHomeButtonConfiguration $edgeHomeButtonConfiguration = null;
-    
-    /**
-     * @var bool|null $edgeHomeButtonConfigurationEnabled Enable the Home button configuration.
-    */
-    private ?bool $edgeHomeButtonConfigurationEnabled = null;
-    
-    /**
-     * @var array<string>|null $edgeHomepageUrls The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
-    */
-    private ?array $edgeHomepageUrls = null;
-    
-    /**
-     * @var EdgeKioskModeRestrictionType|null $edgeKioskModeRestriction Specify how the Microsoft Edge settings are restricted based on kiosk mode.
-    */
-    private ?EdgeKioskModeRestrictionType $edgeKioskModeRestriction = null;
-    
-    /**
-     * @var int|null $edgeKioskResetAfterIdleTimeInMinutes Specifies the time in minutes from the last user activity before Microsoft Edge kiosk resets.  Valid values are 0-1440. The default is 5. 0 indicates no reset. Valid values 0 to 1440
-    */
-    private ?int $edgeKioskResetAfterIdleTimeInMinutes = null;
-    
-    /**
-     * @var string|null $edgeNewTabPageURL Specify the page opened when new tabs are created.
-    */
-    private ?string $edgeNewTabPageURL = null;
-    
-    /**
-     * @var EdgeOpenOptions|null $edgeOpensWith Possible values for the EdgeOpensWith setting.
-    */
-    private ?EdgeOpenOptions $edgeOpensWith = null;
-    
-    /**
-     * @var bool|null $edgePreventCertificateErrorOverride Allow or prevent users from overriding certificate errors.
-    */
-    private ?bool $edgePreventCertificateErrorOverride = null;
-    
-    /**
-     * @var array<string>|null $edgeRequiredExtensionPackageFamilyNames Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.
-    */
-    private ?array $edgeRequiredExtensionPackageFamilyNames = null;
-    
-    /**
-     * @var bool|null $edgeRequireSmartScreen Indicates whether or not to Require the user to use the smart screen filter.
-    */
-    private ?bool $edgeRequireSmartScreen = null;
-    
-    /**
-     * @var EdgeSearchEngineBase|null $edgeSearchEngine Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
-    */
-    private ?EdgeSearchEngineBase $edgeSearchEngine = null;
-    
-    /**
-     * @var bool|null $edgeSendIntranetTrafficToInternetExplorer Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.
-    */
-    private ?bool $edgeSendIntranetTrafficToInternetExplorer = null;
-    
-    /**
-     * @var InternetExplorerMessageSetting|null $edgeShowMessageWhenOpeningInternetExplorerSites What message will be displayed by Edge before switching to Internet Explorer.
-    */
-    private ?InternetExplorerMessageSetting $edgeShowMessageWhenOpeningInternetExplorerSites = null;
-    
-    /**
-     * @var bool|null $edgeSyncFavoritesWithInternetExplorer Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.
-    */
-    private ?bool $edgeSyncFavoritesWithInternetExplorer = null;
-    
-    /**
-     * @var EdgeTelemetryMode|null $edgeTelemetryForMicrosoft365Analytics Type of browsing data sent to Microsoft 365 analytics
-    */
-    private ?EdgeTelemetryMode $edgeTelemetryForMicrosoft365Analytics = null;
-    
-    /**
-     * @var bool|null $enableAutomaticRedeployment Allow users with administrative rights to delete all user data and settings using CTRL + Win + R at the device lock screen so that the device can be automatically re-configured and re-enrolled into management.
-    */
-    private ?bool $enableAutomaticRedeployment = null;
-    
-    /**
-     * @var int|null $energySaverOnBatteryThresholdPercentage This setting allows you to specify battery charge level at which Energy Saver is turned on. While on battery, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
-    */
-    private ?int $energySaverOnBatteryThresholdPercentage = null;
-    
-    /**
-     * @var int|null $energySaverPluggedInThresholdPercentage This setting allows you to specify battery charge level at which Energy Saver is turned on. While plugged in, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
-    */
-    private ?int $energySaverPluggedInThresholdPercentage = null;
-    
-    /**
-     * @var string|null $enterpriseCloudPrintDiscoveryEndPoint Endpoint for discovering cloud printers.
-    */
-    private ?string $enterpriseCloudPrintDiscoveryEndPoint = null;
-    
-    /**
-     * @var int|null $enterpriseCloudPrintDiscoveryMaxLimit Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535
-    */
-    private ?int $enterpriseCloudPrintDiscoveryMaxLimit = null;
-    
-    /**
-     * @var string|null $enterpriseCloudPrintMopriaDiscoveryResourceIdentifier OAuth resource URI for printer discovery service as configured in Azure portal.
-    */
-    private ?string $enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = null;
-    
-    /**
-     * @var string|null $enterpriseCloudPrintOAuthAuthority Authentication endpoint for acquiring OAuth tokens.
-    */
-    private ?string $enterpriseCloudPrintOAuthAuthority = null;
-    
-    /**
-     * @var string|null $enterpriseCloudPrintOAuthClientIdentifier GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.
-    */
-    private ?string $enterpriseCloudPrintOAuthClientIdentifier = null;
-    
-    /**
-     * @var string|null $enterpriseCloudPrintResourceIdentifier OAuth resource URI for print service as configured in the Azure portal.
-    */
-    private ?string $enterpriseCloudPrintResourceIdentifier = null;
-    
-    /**
-     * @var bool|null $experienceBlockDeviceDiscovery Indicates whether or not to enable device discovery UX.
-    */
-    private ?bool $experienceBlockDeviceDiscovery = null;
-    
-    /**
-     * @var bool|null $experienceBlockErrorDialogWhenNoSIM Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.
-    */
-    private ?bool $experienceBlockErrorDialogWhenNoSIM = null;
-    
-    /**
-     * @var bool|null $experienceBlockTaskSwitcher Indicates whether or not to enable task switching on the device.
-    */
-    private ?bool $experienceBlockTaskSwitcher = null;
-    
-    /**
-     * @var BrowserSyncSetting|null $experienceDoNotSyncBrowserSettings Allow(Not Configured) or prevent(Block) the syncing of Microsoft Edge Browser settings. Option to prevent syncing across devices, but allow user override.
-    */
-    private ?BrowserSyncSetting $experienceDoNotSyncBrowserSettings = null;
-    
-    /**
-     * @var Enablement|null $findMyFiles Possible values of a property
-    */
-    private ?Enablement $findMyFiles = null;
-    
-    /**
-     * @var bool|null $gameDvrBlocked Indicates whether or not to block DVR and broadcasting.
-    */
-    private ?bool $gameDvrBlocked = null;
-    
-    /**
-     * @var InkAccessSetting|null $inkWorkspaceAccess Values for the InkWorkspaceAccess setting.
-    */
-    private ?InkAccessSetting $inkWorkspaceAccess = null;
-    
-    /**
-     * @var StateManagementSetting|null $inkWorkspaceAccessState State Management Setting.
-    */
-    private ?StateManagementSetting $inkWorkspaceAccessState = null;
-    
-    /**
-     * @var bool|null $inkWorkspaceBlockSuggestedApps Specify whether to show recommended app suggestions in the ink workspace.
-    */
-    private ?bool $inkWorkspaceBlockSuggestedApps = null;
-    
-    /**
-     * @var bool|null $internetSharingBlocked Indicates whether or not to Block the user from using internet sharing.
-    */
-    private ?bool $internetSharingBlocked = null;
-    
-    /**
-     * @var bool|null $locationServicesBlocked Indicates whether or not to Block the user from location services.
-    */
-    private ?bool $locationServicesBlocked = null;
-    
-    /**
-     * @var Enablement|null $lockScreenActivateAppsWithVoice Possible values of a property
-    */
-    private ?Enablement $lockScreenActivateAppsWithVoice = null;
-    
-    /**
-     * @var bool|null $lockScreenAllowTimeoutConfiguration Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.
-    */
-    private ?bool $lockScreenAllowTimeoutConfiguration = null;
-    
-    /**
-     * @var bool|null $lockScreenBlockActionCenterNotifications Indicates whether or not to block action center notifications over lock screen.
-    */
-    private ?bool $lockScreenBlockActionCenterNotifications = null;
-    
-    /**
-     * @var bool|null $lockScreenBlockCortana Indicates whether or not the user can interact with Cortana using speech while the system is locked.
-    */
-    private ?bool $lockScreenBlockCortana = null;
-    
-    /**
-     * @var bool|null $lockScreenBlockToastNotifications Indicates whether to allow toast notifications above the device lock screen.
-    */
-    private ?bool $lockScreenBlockToastNotifications = null;
-    
-    /**
-     * @var int|null $lockScreenTimeoutInSeconds Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800
-    */
-    private ?int $lockScreenTimeoutInSeconds = null;
-    
-    /**
-     * @var bool|null $logonBlockFastUserSwitching Disables the ability to quickly switch between users that are logged on simultaneously without logging off.
-    */
-    private ?bool $logonBlockFastUserSwitching = null;
-    
-    /**
-     * @var bool|null $messagingBlockMMS Indicates whether or not to block the MMS send/receive functionality on the device.
-    */
-    private ?bool $messagingBlockMMS = null;
-    
-    /**
-     * @var bool|null $messagingBlockRichCommunicationServices Indicates whether or not to block the RCS send/receive functionality on the device.
-    */
-    private ?bool $messagingBlockRichCommunicationServices = null;
-    
-    /**
-     * @var bool|null $messagingBlockSync Indicates whether or not to block text message back up and restore and Messaging Everywhere.
-    */
-    private ?bool $messagingBlockSync = null;
-    
-    /**
-     * @var bool|null $microsoftAccountBlocked Indicates whether or not to Block a Microsoft account.
-    */
-    private ?bool $microsoftAccountBlocked = null;
-    
-    /**
-     * @var bool|null $microsoftAccountBlockSettingsSync Indicates whether or not to Block Microsoft account settings sync.
-    */
-    private ?bool $microsoftAccountBlockSettingsSync = null;
-    
-    /**
-     * @var SignInAssistantOptions|null $microsoftAccountSignInAssistantSettings Values for the SignInAssistantSettings.
-    */
-    private ?SignInAssistantOptions $microsoftAccountSignInAssistantSettings = null;
-    
-    /**
-     * @var bool|null $networkProxyApplySettingsDeviceWide If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.
-    */
-    private ?bool $networkProxyApplySettingsDeviceWide = null;
-    
-    /**
-     * @var string|null $networkProxyAutomaticConfigurationUrl Address to the proxy auto-config (PAC) script you want to use.
-    */
-    private ?string $networkProxyAutomaticConfigurationUrl = null;
-    
-    /**
-     * @var bool|null $networkProxyDisableAutoDetect Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
-    */
-    private ?bool $networkProxyDisableAutoDetect = null;
-    
-    /**
-     * @var Windows10NetworkProxyServer|null $networkProxyServer Specifies manual proxy server settings.
-    */
-    private ?Windows10NetworkProxyServer $networkProxyServer = null;
-    
-    /**
-     * @var bool|null $nfcBlocked Indicates whether or not to Block the user from using near field communication.
-    */
-    private ?bool $nfcBlocked = null;
-    
-    /**
-     * @var bool|null $oneDriveDisableFileSync Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.
-    */
-    private ?bool $oneDriveDisableFileSync = null;
-    
-    /**
-     * @var bool|null $passwordBlockSimple Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.
-    */
-    private ?bool $passwordBlockSimple = null;
-    
-    /**
-     * @var int|null $passwordExpirationDays The password expiration in days. Valid values 0 to 730
-    */
-    private ?int $passwordExpirationDays = null;
-    
-    /**
-     * @var int|null $passwordMinimumAgeInDays This security setting determines the period of time (in days) that a password must be used before the user can change it. Valid values 0 to 998
-    */
-    private ?int $passwordMinimumAgeInDays = null;
-    
-    /**
-     * @var int|null $passwordMinimumCharacterSetCount The number of character sets required in the password.
-    */
-    private ?int $passwordMinimumCharacterSetCount = null;
-    
-    /**
-     * @var int|null $passwordMinimumLength The minimum password length. Valid values 4 to 16
-    */
-    private ?int $passwordMinimumLength = null;
-    
-    /**
-     * @var int|null $passwordMinutesOfInactivityBeforeScreenTimeout The minutes of inactivity before the screen times out.
-    */
-    private ?int $passwordMinutesOfInactivityBeforeScreenTimeout = null;
-    
-    /**
-     * @var int|null $passwordPreviousPasswordBlockCount The number of previous passwords to prevent reuse of. Valid values 0 to 50
-    */
-    private ?int $passwordPreviousPasswordBlockCount = null;
-    
-    /**
-     * @var bool|null $passwordRequired Indicates whether or not to require the user to have a password.
-    */
-    private ?bool $passwordRequired = null;
-    
-    /**
-     * @var RequiredPasswordType|null $passwordRequiredType Possible values of required passwords.
-    */
-    private ?RequiredPasswordType $passwordRequiredType = null;
-    
-    /**
-     * @var bool|null $passwordRequireWhenResumeFromIdleState Indicates whether or not to require a password upon resuming from an idle state.
-    */
-    private ?bool $passwordRequireWhenResumeFromIdleState = null;
-    
-    /**
-     * @var int|null $passwordSignInFailureCountBeforeFactoryReset The number of sign in failures before factory reset. Valid values 0 to 999
-    */
-    private ?int $passwordSignInFailureCountBeforeFactoryReset = null;
-    
-    /**
-     * @var string|null $personalizationDesktopImageUrl A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
-    */
-    private ?string $personalizationDesktopImageUrl = null;
-    
-    /**
-     * @var string|null $personalizationLockScreenImageUrl A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
-    */
-    private ?string $personalizationLockScreenImageUrl = null;
-    
-    /**
-     * @var PowerActionType|null $powerButtonActionOnBattery Power action types
-    */
-    private ?PowerActionType $powerButtonActionOnBattery = null;
-    
-    /**
-     * @var PowerActionType|null $powerButtonActionPluggedIn Power action types
-    */
-    private ?PowerActionType $powerButtonActionPluggedIn = null;
-    
-    /**
-     * @var Enablement|null $powerHybridSleepOnBattery Possible values of a property
-    */
-    private ?Enablement $powerHybridSleepOnBattery = null;
-    
-    /**
-     * @var Enablement|null $powerHybridSleepPluggedIn Possible values of a property
-    */
-    private ?Enablement $powerHybridSleepPluggedIn = null;
-    
-    /**
-     * @var PowerActionType|null $powerLidCloseActionOnBattery Power action types
-    */
-    private ?PowerActionType $powerLidCloseActionOnBattery = null;
-    
-    /**
-     * @var PowerActionType|null $powerLidCloseActionPluggedIn Power action types
-    */
-    private ?PowerActionType $powerLidCloseActionPluggedIn = null;
-    
-    /**
-     * @var PowerActionType|null $powerSleepButtonActionOnBattery Power action types
-    */
-    private ?PowerActionType $powerSleepButtonActionOnBattery = null;
-    
-    /**
-     * @var PowerActionType|null $powerSleepButtonActionPluggedIn Power action types
-    */
-    private ?PowerActionType $powerSleepButtonActionPluggedIn = null;
-    
-    /**
-     * @var bool|null $printerBlockAddition Prevent user installation of additional printers from printers settings.
-    */
-    private ?bool $printerBlockAddition = null;
-    
-    /**
-     * @var string|null $printerDefaultName Name (network host name) of an installed printer.
-    */
-    private ?string $printerDefaultName = null;
-    
-    /**
-     * @var array<string>|null $printerNames Automatically provision printers based on their names (network host names).
-    */
-    private ?array $printerNames = null;
-    
-    /**
-     * @var array<WindowsPrivacyDataAccessControlItem>|null $privacyAccessControls Indicates a list of applications with their access control levels over privacy data categories, and/or the default access levels per category. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $privacyAccessControls = null;
-    
-    /**
-     * @var StateManagementSetting|null $privacyAdvertisingId State Management Setting.
-    */
-    private ?StateManagementSetting $privacyAdvertisingId = null;
-    
-    /**
-     * @var bool|null $privacyAutoAcceptPairingAndConsentPrompts Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
-    */
-    private ?bool $privacyAutoAcceptPairingAndConsentPrompts = null;
-    
-    /**
-     * @var bool|null $privacyBlockActivityFeed Blocks the usage of cloud based speech services for Cortana, Dictation, or Store applications.
-    */
-    private ?bool $privacyBlockActivityFeed = null;
-    
-    /**
-     * @var bool|null $privacyBlockInputPersonalization Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
-    */
-    private ?bool $privacyBlockInputPersonalization = null;
-    
-    /**
-     * @var bool|null $privacyBlockPublishUserActivities Blocks the shared experiences/discovery of recently used resources in task switcher etc.
-    */
-    private ?bool $privacyBlockPublishUserActivities = null;
-    
-    /**
-     * @var bool|null $privacyDisableLaunchExperience This policy prevents the privacy experience from launching during user logon for new and upgraded users.​
-    */
-    private ?bool $privacyDisableLaunchExperience = null;
-    
-    /**
-     * @var bool|null $resetProtectionModeBlocked Indicates whether or not to Block the user from reset protection mode.
-    */
-    private ?bool $resetProtectionModeBlocked = null;
-    
-    /**
-     * @var SafeSearchFilterType|null $safeSearchFilter Specifies what level of safe search (filtering adult content) is required
-    */
-    private ?SafeSearchFilterType $safeSearchFilter = null;
-    
-    /**
-     * @var bool|null $screenCaptureBlocked Indicates whether or not to Block the user from taking Screenshots.
-    */
-    private ?bool $screenCaptureBlocked = null;
-    
-    /**
-     * @var bool|null $searchBlockDiacritics Specifies if search can use diacritics.
-    */
-    private ?bool $searchBlockDiacritics = null;
-    
-    /**
-     * @var bool|null $searchBlockWebResults Indicates whether or not to block the web search.
-    */
-    private ?bool $searchBlockWebResults = null;
-    
-    /**
-     * @var bool|null $searchDisableAutoLanguageDetection Specifies whether to use automatic language detection when indexing content and properties.
-    */
-    private ?bool $searchDisableAutoLanguageDetection = null;
-    
-    /**
-     * @var bool|null $searchDisableIndexerBackoff Indicates whether or not to disable the search indexer backoff feature.
-    */
-    private ?bool $searchDisableIndexerBackoff = null;
-    
-    /**
-     * @var bool|null $searchDisableIndexingEncryptedItems Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.
-    */
-    private ?bool $searchDisableIndexingEncryptedItems = null;
-    
-    /**
-     * @var bool|null $searchDisableIndexingRemovableDrive Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.
-    */
-    private ?bool $searchDisableIndexingRemovableDrive = null;
-    
-    /**
-     * @var bool|null $searchDisableLocation Specifies if search can use location information.
-    */
-    private ?bool $searchDisableLocation = null;
-    
-    /**
-     * @var bool|null $searchDisableUseLocation Specifies if search can use location information.
-    */
-    private ?bool $searchDisableUseLocation = null;
-    
-    /**
-     * @var bool|null $searchEnableAutomaticIndexSizeManangement Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.
-    */
-    private ?bool $searchEnableAutomaticIndexSizeManangement = null;
-    
-    /**
-     * @var bool|null $searchEnableRemoteQueries Indicates whether or not to block remote queries of this computer’s index.
-    */
-    private ?bool $searchEnableRemoteQueries = null;
-    
-    /**
-     * @var bool|null $securityBlockAzureADJoinedDevicesAutoEncryption Specify whether to allow automatic device encryption during OOBE when the device is Azure AD joined (desktop only).
-    */
-    private ?bool $securityBlockAzureADJoinedDevicesAutoEncryption = null;
-    
-    /**
-     * @var bool|null $settingsBlockAccountsPage Indicates whether or not to block access to Accounts in Settings app.
-    */
-    private ?bool $settingsBlockAccountsPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockAddProvisioningPackage Indicates whether or not to block the user from installing provisioning packages.
-    */
-    private ?bool $settingsBlockAddProvisioningPackage = null;
-    
-    /**
-     * @var bool|null $settingsBlockAppsPage Indicates whether or not to block access to Apps in Settings app.
-    */
-    private ?bool $settingsBlockAppsPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockChangeLanguage Indicates whether or not to block the user from changing the language settings.
-    */
-    private ?bool $settingsBlockChangeLanguage = null;
-    
-    /**
-     * @var bool|null $settingsBlockChangePowerSleep Indicates whether or not to block the user from changing power and sleep settings.
-    */
-    private ?bool $settingsBlockChangePowerSleep = null;
-    
-    /**
-     * @var bool|null $settingsBlockChangeRegion Indicates whether or not to block the user from changing the region settings.
-    */
-    private ?bool $settingsBlockChangeRegion = null;
-    
-    /**
-     * @var bool|null $settingsBlockChangeSystemTime Indicates whether or not to block the user from changing date and time settings.
-    */
-    private ?bool $settingsBlockChangeSystemTime = null;
-    
-    /**
-     * @var bool|null $settingsBlockDevicesPage Indicates whether or not to block access to Devices in Settings app.
-    */
-    private ?bool $settingsBlockDevicesPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockEaseOfAccessPage Indicates whether or not to block access to Ease of Access in Settings app.
-    */
-    private ?bool $settingsBlockEaseOfAccessPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockEditDeviceName Indicates whether or not to block the user from editing the device name.
-    */
-    private ?bool $settingsBlockEditDeviceName = null;
-    
-    /**
-     * @var bool|null $settingsBlockGamingPage Indicates whether or not to block access to Gaming in Settings app.
-    */
-    private ?bool $settingsBlockGamingPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockNetworkInternetPage Indicates whether or not to block access to Network & Internet in Settings app.
-    */
-    private ?bool $settingsBlockNetworkInternetPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockPersonalizationPage Indicates whether or not to block access to Personalization in Settings app.
-    */
-    private ?bool $settingsBlockPersonalizationPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockPrivacyPage Indicates whether or not to block access to Privacy in Settings app.
-    */
-    private ?bool $settingsBlockPrivacyPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockRemoveProvisioningPackage Indicates whether or not to block the runtime configuration agent from removing provisioning packages.
-    */
-    private ?bool $settingsBlockRemoveProvisioningPackage = null;
-    
-    /**
-     * @var bool|null $settingsBlockSettingsApp Indicates whether or not to block access to Settings app.
-    */
-    private ?bool $settingsBlockSettingsApp = null;
-    
-    /**
-     * @var bool|null $settingsBlockSystemPage Indicates whether or not to block access to System in Settings app.
-    */
-    private ?bool $settingsBlockSystemPage = null;
-    
-    /**
-     * @var bool|null $settingsBlockTimeLanguagePage Indicates whether or not to block access to Time & Language in Settings app.
-    */
-    private ?bool $settingsBlockTimeLanguagePage = null;
-    
-    /**
-     * @var bool|null $settingsBlockUpdateSecurityPage Indicates whether or not to block access to Update & Security in Settings app.
-    */
-    private ?bool $settingsBlockUpdateSecurityPage = null;
-    
-    /**
-     * @var bool|null $sharedUserAppDataAllowed Indicates whether or not to block multiple users of the same app to share data.
-    */
-    private ?bool $sharedUserAppDataAllowed = null;
-    
-    /**
-     * @var AppInstallControlType|null $smartScreenAppInstallControl App Install control Setting
-    */
-    private ?AppInstallControlType $smartScreenAppInstallControl = null;
-    
-    /**
-     * @var bool|null $smartScreenBlockPromptOverride Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.
-    */
-    private ?bool $smartScreenBlockPromptOverride = null;
-    
-    /**
-     * @var bool|null $smartScreenBlockPromptOverrideForFiles Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
-    */
-    private ?bool $smartScreenBlockPromptOverrideForFiles = null;
-    
-    /**
-     * @var bool|null $smartScreenEnableAppInstallControl This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
-    */
-    private ?bool $smartScreenEnableAppInstallControl = null;
-    
-    /**
-     * @var bool|null $startBlockUnpinningAppsFromTaskbar Indicates whether or not to block the user from unpinning apps from taskbar.
-    */
-    private ?bool $startBlockUnpinningAppsFromTaskbar = null;
-    
-    /**
-     * @var WindowsStartMenuAppListVisibilityType|null $startMenuAppListVisibility Type of start menu app list visibility.
-    */
-    private ?WindowsStartMenuAppListVisibilityType $startMenuAppListVisibility = null;
-    
-    /**
-     * @var bool|null $startMenuHideChangeAccountSettings Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
-    */
-    private ?bool $startMenuHideChangeAccountSettings = null;
-    
-    /**
-     * @var bool|null $startMenuHideFrequentlyUsedApps Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
-    */
-    private ?bool $startMenuHideFrequentlyUsedApps = null;
-    
-    /**
-     * @var bool|null $startMenuHideHibernate Enabling this policy hides hibernate from appearing in the power button in the start menu.
-    */
-    private ?bool $startMenuHideHibernate = null;
-    
-    /**
-     * @var bool|null $startMenuHideLock Enabling this policy hides lock from appearing in the user tile in the start menu.
-    */
-    private ?bool $startMenuHideLock = null;
-    
-    /**
-     * @var bool|null $startMenuHidePowerButton Enabling this policy hides the power button from appearing in the start menu.
-    */
-    private ?bool $startMenuHidePowerButton = null;
-    
-    /**
-     * @var bool|null $startMenuHideRecentJumpLists Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.
-    */
-    private ?bool $startMenuHideRecentJumpLists = null;
-    
-    /**
-     * @var bool|null $startMenuHideRecentlyAddedApps Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
-    */
-    private ?bool $startMenuHideRecentlyAddedApps = null;
-    
-    /**
-     * @var bool|null $startMenuHideRestartOptions Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.
-    */
-    private ?bool $startMenuHideRestartOptions = null;
-    
-    /**
-     * @var bool|null $startMenuHideShutDown Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.
-    */
-    private ?bool $startMenuHideShutDown = null;
-    
-    /**
-     * @var bool|null $startMenuHideSignOut Enabling this policy hides sign out from appearing in the user tile in the start menu.
-    */
-    private ?bool $startMenuHideSignOut = null;
-    
-    /**
-     * @var bool|null $startMenuHideSleep Enabling this policy hides sleep from appearing in the power button in the start menu.
-    */
-    private ?bool $startMenuHideSleep = null;
-    
-    /**
-     * @var bool|null $startMenuHideSwitchAccount Enabling this policy hides switch account from appearing in the user tile in the start menu.
-    */
-    private ?bool $startMenuHideSwitchAccount = null;
-    
-    /**
-     * @var bool|null $startMenuHideUserTile Enabling this policy hides the user tile from appearing in the start menu.
-    */
-    private ?bool $startMenuHideUserTile = null;
-    
-    /**
-     * @var StreamInterface|null $startMenuLayoutEdgeAssetsXml This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
-    */
-    private ?StreamInterface $startMenuLayoutEdgeAssetsXml = null;
-    
-    /**
-     * @var StreamInterface|null $startMenuLayoutXml Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
-    */
-    private ?StreamInterface $startMenuLayoutXml = null;
-    
-    /**
-     * @var WindowsStartMenuModeType|null $startMenuMode Type of display modes for the start menu.
-    */
-    private ?WindowsStartMenuModeType $startMenuMode = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderDocuments Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderDocuments = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderDownloads Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderDownloads = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderFileExplorer Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderFileExplorer = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderHomeGroup Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderHomeGroup = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderMusic Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderMusic = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderNetwork Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderNetwork = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderPersonalFolder Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderPersonalFolder = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderPictures Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderPictures = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderSettings Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderSettings = null;
-    
-    /**
-     * @var VisibilitySetting|null $startMenuPinnedFolderVideos Generic visibility state.
-    */
-    private ?VisibilitySetting $startMenuPinnedFolderVideos = null;
-    
-    /**
-     * @var bool|null $storageBlockRemovableStorage Indicates whether or not to Block the user from using removable storage.
-    */
-    private ?bool $storageBlockRemovableStorage = null;
-    
-    /**
-     * @var bool|null $storageRequireMobileDeviceEncryption Indicating whether or not to require encryption on a mobile device.
-    */
-    private ?bool $storageRequireMobileDeviceEncryption = null;
-    
-    /**
-     * @var bool|null $storageRestrictAppDataToSystemVolume Indicates whether application data is restricted to the system drive.
-    */
-    private ?bool $storageRestrictAppDataToSystemVolume = null;
-    
-    /**
-     * @var bool|null $storageRestrictAppInstallToSystemVolume Indicates whether the installation of applications is restricted to the system drive.
-    */
-    private ?bool $storageRestrictAppInstallToSystemVolume = null;
-    
-    /**
-     * @var string|null $systemTelemetryProxyServer Gets or sets the fully qualified domain name (FQDN) or IP address of a proxy server to forward Connected User Experiences and Telemetry requests.
-    */
-    private ?string $systemTelemetryProxyServer = null;
-    
-    /**
-     * @var bool|null $taskManagerBlockEndTask Specify whether non-administrators can use Task Manager to end tasks.
-    */
-    private ?bool $taskManagerBlockEndTask = null;
-    
-    /**
-     * @var bool|null $tenantLockdownRequireNetworkDuringOutOfBoxExperience Whether the device is required to connect to the network.
-    */
-    private ?bool $tenantLockdownRequireNetworkDuringOutOfBoxExperience = null;
-    
-    /**
-     * @var bool|null $uninstallBuiltInApps Indicates whether or not to uninstall a fixed list of built-in Windows apps.
-    */
-    private ?bool $uninstallBuiltInApps = null;
-    
-    /**
-     * @var bool|null $usbBlocked Indicates whether or not to Block the user from USB connection.
-    */
-    private ?bool $usbBlocked = null;
-    
-    /**
-     * @var bool|null $voiceRecordingBlocked Indicates whether or not to Block the user from voice recording.
-    */
-    private ?bool $voiceRecordingBlocked = null;
-    
-    /**
-     * @var bool|null $webRtcBlockLocalhostIpAddress Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
-    */
-    private ?bool $webRtcBlockLocalhostIpAddress = null;
-    
-    /**
-     * @var bool|null $wiFiBlockAutomaticConnectHotspots Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
-    */
-    private ?bool $wiFiBlockAutomaticConnectHotspots = null;
-    
-    /**
-     * @var bool|null $wiFiBlocked Indicates whether or not to Block the user from using Wi-Fi.
-    */
-    private ?bool $wiFiBlocked = null;
-    
-    /**
-     * @var bool|null $wiFiBlockManualConfiguration Indicates whether or not to Block the user from using Wi-Fi manual configuration.
-    */
-    private ?bool $wiFiBlockManualConfiguration = null;
-    
-    /**
-     * @var int|null $wiFiScanInterval Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500
-    */
-    private ?int $wiFiScanInterval = null;
-    
-    /**
-     * @var Windows10AppsForceUpdateSchedule|null $windows10AppsForceUpdateSchedule Windows 10 force update schedule for Apps.
-    */
-    private ?Windows10AppsForceUpdateSchedule $windows10AppsForceUpdateSchedule = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockConsumerSpecificFeatures Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.
-    */
-    private ?bool $windowsSpotlightBlockConsumerSpecificFeatures = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlocked Allows IT admins to turn off all Windows Spotlight features
-    */
-    private ?bool $windowsSpotlightBlocked = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockOnActionCenter Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed
-    */
-    private ?bool $windowsSpotlightBlockOnActionCenter = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockTailoredExperiences Block personalized content in Windows spotlight based on user’s device usage.
-    */
-    private ?bool $windowsSpotlightBlockTailoredExperiences = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockThirdPartyNotifications Block third party content delivered via Windows Spotlight
-    */
-    private ?bool $windowsSpotlightBlockThirdPartyNotifications = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockWelcomeExperience Block Windows Spotlight Windows welcome experience
-    */
-    private ?bool $windowsSpotlightBlockWelcomeExperience = null;
-    
-    /**
-     * @var bool|null $windowsSpotlightBlockWindowsTips Allows IT admins to turn off the popup of Windows Tips.
-    */
-    private ?bool $windowsSpotlightBlockWindowsTips = null;
-    
-    /**
-     * @var WindowsSpotlightEnablementSettings|null $windowsSpotlightConfigureOnLockScreen Allows IT admind to set a predefined default search engine for MDM-Controlled devices
-    */
-    private ?WindowsSpotlightEnablementSettings $windowsSpotlightConfigureOnLockScreen = null;
-    
-    /**
-     * @var bool|null $windowsStoreBlockAutoUpdate Indicates whether or not to block automatic update of apps from Windows Store.
-    */
-    private ?bool $windowsStoreBlockAutoUpdate = null;
-    
-    /**
-     * @var bool|null $windowsStoreBlocked Indicates whether or not to Block the user from using the Windows store.
-    */
-    private ?bool $windowsStoreBlocked = null;
-    
-    /**
-     * @var bool|null $windowsStoreEnablePrivateStoreOnly Indicates whether or not to enable Private Store Only.
-    */
-    private ?bool $windowsStoreEnablePrivateStoreOnly = null;
-    
-    /**
-     * @var bool|null $wirelessDisplayBlockProjectionToThisDevice Indicates whether or not to allow other devices from discovering this PC for projection.
-    */
-    private ?bool $wirelessDisplayBlockProjectionToThisDevice = null;
-    
-    /**
-     * @var bool|null $wirelessDisplayBlockUserInputFromReceiver Indicates whether or not to allow user input from wireless display receiver.
-    */
-    private ?bool $wirelessDisplayBlockUserInputFromReceiver = null;
-    
-    /**
-     * @var bool|null $wirelessDisplayRequirePinForPairing Indicates whether or not to require a PIN for new devices to initiate pairing.
-    */
-    private ?bool $wirelessDisplayRequirePinForPairing = null;
-    
-    /**
      * Instantiates a new Windows10GeneralConfiguration and sets the default values.
     */
     public function __construct() {
@@ -1447,7 +32,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAccountsBlockAddingNonMicrosoftAccountEmail(): ?bool {
-        return $this->accountsBlockAddingNonMicrosoftAccountEmail;
+        return $this->getBackingStore()->get('accountsBlockAddingNonMicrosoftAccountEmail');
     }
 
     /**
@@ -1455,7 +40,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getActivateAppsWithVoice(): ?Enablement {
-        return $this->activateAppsWithVoice;
+        return $this->getBackingStore()->get('activateAppsWithVoice');
     }
 
     /**
@@ -1463,7 +48,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAntiTheftModeBlocked(): ?bool {
-        return $this->antiTheftModeBlocked;
+        return $this->getBackingStore()->get('antiTheftModeBlocked');
     }
 
     /**
@@ -1471,7 +56,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppManagementMSIAllowUserControlOverInstall(): ?bool {
-        return $this->appManagementMSIAllowUserControlOverInstall;
+        return $this->getBackingStore()->get('appManagementMSIAllowUserControlOverInstall');
     }
 
     /**
@@ -1479,7 +64,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppManagementMSIAlwaysInstallWithElevatedPrivileges(): ?bool {
-        return $this->appManagementMSIAlwaysInstallWithElevatedPrivileges;
+        return $this->getBackingStore()->get('appManagementMSIAlwaysInstallWithElevatedPrivileges');
     }
 
     /**
@@ -1487,7 +72,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getAppManagementPackageFamilyNamesToLaunchAfterLogOn(): ?array {
-        return $this->appManagementPackageFamilyNamesToLaunchAfterLogOn;
+        return $this->getBackingStore()->get('appManagementPackageFamilyNamesToLaunchAfterLogOn');
     }
 
     /**
@@ -1495,7 +80,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getAppsAllowTrustedAppsSideloading(): ?StateManagementSetting {
-        return $this->appsAllowTrustedAppsSideloading;
+        return $this->getBackingStore()->get('appsAllowTrustedAppsSideloading');
     }
 
     /**
@@ -1503,7 +88,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAppsBlockWindowsStoreOriginatedApps(): ?bool {
-        return $this->appsBlockWindowsStoreOriginatedApps;
+        return $this->getBackingStore()->get('appsBlockWindowsStoreOriginatedApps');
     }
 
     /**
@@ -1511,7 +96,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getAuthenticationAllowSecondaryDevice(): ?bool {
-        return $this->authenticationAllowSecondaryDevice;
+        return $this->getBackingStore()->get('authenticationAllowSecondaryDevice');
     }
 
     /**
@@ -1519,7 +104,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getAuthenticationPreferredAzureADTenantDomainName(): ?string {
-        return $this->authenticationPreferredAzureADTenantDomainName;
+        return $this->getBackingStore()->get('authenticationPreferredAzureADTenantDomainName');
     }
 
     /**
@@ -1527,7 +112,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getAuthenticationWebSignIn(): ?Enablement {
-        return $this->authenticationWebSignIn;
+        return $this->getBackingStore()->get('authenticationWebSignIn');
     }
 
     /**
@@ -1535,7 +120,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getBluetoothAllowedServices(): ?array {
-        return $this->bluetoothAllowedServices;
+        return $this->getBackingStore()->get('bluetoothAllowedServices');
     }
 
     /**
@@ -1543,7 +128,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockAdvertising(): ?bool {
-        return $this->bluetoothBlockAdvertising;
+        return $this->getBackingStore()->get('bluetoothBlockAdvertising');
     }
 
     /**
@@ -1551,7 +136,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockDiscoverableMode(): ?bool {
-        return $this->bluetoothBlockDiscoverableMode;
+        return $this->getBackingStore()->get('bluetoothBlockDiscoverableMode');
     }
 
     /**
@@ -1559,7 +144,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlocked(): ?bool {
-        return $this->bluetoothBlocked;
+        return $this->getBackingStore()->get('bluetoothBlocked');
     }
 
     /**
@@ -1567,7 +152,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockPrePairing(): ?bool {
-        return $this->bluetoothBlockPrePairing;
+        return $this->getBackingStore()->get('bluetoothBlockPrePairing');
     }
 
     /**
@@ -1575,7 +160,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getBluetoothBlockPromptedProximalConnections(): ?bool {
-        return $this->bluetoothBlockPromptedProximalConnections;
+        return $this->getBackingStore()->get('bluetoothBlockPromptedProximalConnections');
     }
 
     /**
@@ -1583,7 +168,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCameraBlocked(): ?bool {
-        return $this->cameraBlocked;
+        return $this->getBackingStore()->get('cameraBlocked');
     }
 
     /**
@@ -1591,7 +176,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockDataWhenRoaming(): ?bool {
-        return $this->cellularBlockDataWhenRoaming;
+        return $this->getBackingStore()->get('cellularBlockDataWhenRoaming');
     }
 
     /**
@@ -1599,7 +184,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockVpn(): ?bool {
-        return $this->cellularBlockVpn;
+        return $this->getBackingStore()->get('cellularBlockVpn');
     }
 
     /**
@@ -1607,7 +192,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCellularBlockVpnWhenRoaming(): ?bool {
-        return $this->cellularBlockVpnWhenRoaming;
+        return $this->getBackingStore()->get('cellularBlockVpnWhenRoaming');
     }
 
     /**
@@ -1615,7 +200,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return ConfigurationUsage|null
     */
     public function getCellularData(): ?ConfigurationUsage {
-        return $this->cellularData;
+        return $this->getBackingStore()->get('cellularData');
     }
 
     /**
@@ -1623,7 +208,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCertificatesBlockManualRootCertificateInstallation(): ?bool {
-        return $this->certificatesBlockManualRootCertificateInstallation;
+        return $this->getBackingStore()->get('certificatesBlockManualRootCertificateInstallation');
     }
 
     /**
@@ -1631,7 +216,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getConfigureTimeZone(): ?string {
-        return $this->configureTimeZone;
+        return $this->getBackingStore()->get('configureTimeZone');
     }
 
     /**
@@ -1639,7 +224,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getConnectedDevicesServiceBlocked(): ?bool {
-        return $this->connectedDevicesServiceBlocked;
+        return $this->getBackingStore()->get('connectedDevicesServiceBlocked');
     }
 
     /**
@@ -1647,7 +232,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCopyPasteBlocked(): ?bool {
-        return $this->copyPasteBlocked;
+        return $this->getBackingStore()->get('copyPasteBlocked');
     }
 
     /**
@@ -1655,7 +240,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCortanaBlocked(): ?bool {
-        return $this->cortanaBlocked;
+        return $this->getBackingStore()->get('cortanaBlocked');
     }
 
     /**
@@ -1663,7 +248,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getCryptographyAllowFipsAlgorithmPolicy(): ?bool {
-        return $this->cryptographyAllowFipsAlgorithmPolicy;
+        return $this->getBackingStore()->get('cryptographyAllowFipsAlgorithmPolicy');
     }
 
     /**
@@ -1671,7 +256,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDataProtectionBlockDirectMemoryAccess(): ?bool {
-        return $this->dataProtectionBlockDirectMemoryAccess;
+        return $this->getBackingStore()->get('dataProtectionBlockDirectMemoryAccess');
     }
 
     /**
@@ -1679,7 +264,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderBlockEndUserAccess(): ?bool {
-        return $this->defenderBlockEndUserAccess;
+        return $this->getBackingStore()->get('defenderBlockEndUserAccess');
     }
 
     /**
@@ -1687,7 +272,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderBlockOnAccessProtection(): ?bool {
-        return $this->defenderBlockOnAccessProtection;
+        return $this->getBackingStore()->get('defenderBlockOnAccessProtection');
     }
 
     /**
@@ -1695,7 +280,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderCloudBlockLevelType|null
     */
     public function getDefenderCloudBlockLevel(): ?DefenderCloudBlockLevelType {
-        return $this->defenderCloudBlockLevel;
+        return $this->getBackingStore()->get('defenderCloudBlockLevel');
     }
 
     /**
@@ -1703,7 +288,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderCloudExtendedTimeout(): ?int {
-        return $this->defenderCloudExtendedTimeout;
+        return $this->getBackingStore()->get('defenderCloudExtendedTimeout');
     }
 
     /**
@@ -1711,7 +296,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderCloudExtendedTimeoutInSeconds(): ?int {
-        return $this->defenderCloudExtendedTimeoutInSeconds;
+        return $this->getBackingStore()->get('defenderCloudExtendedTimeoutInSeconds');
     }
 
     /**
@@ -1719,7 +304,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderDaysBeforeDeletingQuarantinedMalware(): ?int {
-        return $this->defenderDaysBeforeDeletingQuarantinedMalware;
+        return $this->getBackingStore()->get('defenderDaysBeforeDeletingQuarantinedMalware');
     }
 
     /**
@@ -1727,7 +312,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderDetectedMalwareActions|null
     */
     public function getDefenderDetectedMalwareActions(): ?DefenderDetectedMalwareActions {
-        return $this->defenderDetectedMalwareActions;
+        return $this->getBackingStore()->get('defenderDetectedMalwareActions');
     }
 
     /**
@@ -1735,7 +320,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderDisableCatchupFullScan(): ?bool {
-        return $this->defenderDisableCatchupFullScan;
+        return $this->getBackingStore()->get('defenderDisableCatchupFullScan');
     }
 
     /**
@@ -1743,7 +328,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderDisableCatchupQuickScan(): ?bool {
-        return $this->defenderDisableCatchupQuickScan;
+        return $this->getBackingStore()->get('defenderDisableCatchupQuickScan');
     }
 
     /**
@@ -1751,7 +336,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderFileExtensionsToExclude(): ?array {
-        return $this->defenderFileExtensionsToExclude;
+        return $this->getBackingStore()->get('defenderFileExtensionsToExclude');
     }
 
     /**
@@ -1759,7 +344,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderFilesAndFoldersToExclude(): ?array {
-        return $this->defenderFilesAndFoldersToExclude;
+        return $this->getBackingStore()->get('defenderFilesAndFoldersToExclude');
     }
 
     /**
@@ -1767,7 +352,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderMonitorFileActivity|null
     */
     public function getDefenderMonitorFileActivity(): ?DefenderMonitorFileActivity {
-        return $this->defenderMonitorFileActivity;
+        return $this->getBackingStore()->get('defenderMonitorFileActivity');
     }
 
     /**
@@ -1775,7 +360,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderPotentiallyUnwantedAppAction|null
     */
     public function getDefenderPotentiallyUnwantedAppAction(): ?DefenderPotentiallyUnwantedAppAction {
-        return $this->defenderPotentiallyUnwantedAppAction;
+        return $this->getBackingStore()->get('defenderPotentiallyUnwantedAppAction');
     }
 
     /**
@@ -1783,7 +368,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderProtectionType|null
     */
     public function getDefenderPotentiallyUnwantedAppActionSetting(): ?DefenderProtectionType {
-        return $this->defenderPotentiallyUnwantedAppActionSetting;
+        return $this->getBackingStore()->get('defenderPotentiallyUnwantedAppActionSetting');
     }
 
     /**
@@ -1791,7 +376,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDefenderProcessesToExclude(): ?array {
-        return $this->defenderProcessesToExclude;
+        return $this->getBackingStore()->get('defenderProcessesToExclude');
     }
 
     /**
@@ -1799,7 +384,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderPromptForSampleSubmission|null
     */
     public function getDefenderPromptForSampleSubmission(): ?DefenderPromptForSampleSubmission {
-        return $this->defenderPromptForSampleSubmission;
+        return $this->getBackingStore()->get('defenderPromptForSampleSubmission');
     }
 
     /**
@@ -1807,7 +392,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireBehaviorMonitoring(): ?bool {
-        return $this->defenderRequireBehaviorMonitoring;
+        return $this->getBackingStore()->get('defenderRequireBehaviorMonitoring');
     }
 
     /**
@@ -1815,7 +400,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireCloudProtection(): ?bool {
-        return $this->defenderRequireCloudProtection;
+        return $this->getBackingStore()->get('defenderRequireCloudProtection');
     }
 
     /**
@@ -1823,7 +408,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireNetworkInspectionSystem(): ?bool {
-        return $this->defenderRequireNetworkInspectionSystem;
+        return $this->getBackingStore()->get('defenderRequireNetworkInspectionSystem');
     }
 
     /**
@@ -1831,7 +416,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderRequireRealTimeMonitoring(): ?bool {
-        return $this->defenderRequireRealTimeMonitoring;
+        return $this->getBackingStore()->get('defenderRequireRealTimeMonitoring');
     }
 
     /**
@@ -1839,7 +424,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanArchiveFiles(): ?bool {
-        return $this->defenderScanArchiveFiles;
+        return $this->getBackingStore()->get('defenderScanArchiveFiles');
     }
 
     /**
@@ -1847,7 +432,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanDownloads(): ?bool {
-        return $this->defenderScanDownloads;
+        return $this->getBackingStore()->get('defenderScanDownloads');
     }
 
     /**
@@ -1855,7 +440,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanIncomingMail(): ?bool {
-        return $this->defenderScanIncomingMail;
+        return $this->getBackingStore()->get('defenderScanIncomingMail');
     }
 
     /**
@@ -1863,7 +448,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanMappedNetworkDrivesDuringFullScan(): ?bool {
-        return $this->defenderScanMappedNetworkDrivesDuringFullScan;
+        return $this->getBackingStore()->get('defenderScanMappedNetworkDrivesDuringFullScan');
     }
 
     /**
@@ -1871,7 +456,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderScanMaxCpu(): ?int {
-        return $this->defenderScanMaxCpu;
+        return $this->getBackingStore()->get('defenderScanMaxCpu');
     }
 
     /**
@@ -1879,7 +464,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanNetworkFiles(): ?bool {
-        return $this->defenderScanNetworkFiles;
+        return $this->getBackingStore()->get('defenderScanNetworkFiles');
     }
 
     /**
@@ -1887,7 +472,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanRemovableDrivesDuringFullScan(): ?bool {
-        return $this->defenderScanRemovableDrivesDuringFullScan;
+        return $this->getBackingStore()->get('defenderScanRemovableDrivesDuringFullScan');
     }
 
     /**
@@ -1895,7 +480,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScanScriptsLoadedInInternetExplorer(): ?bool {
-        return $this->defenderScanScriptsLoadedInInternetExplorer;
+        return $this->getBackingStore()->get('defenderScanScriptsLoadedInInternetExplorer');
     }
 
     /**
@@ -1903,7 +488,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderScanType|null
     */
     public function getDefenderScanType(): ?DefenderScanType {
-        return $this->defenderScanType;
+        return $this->getBackingStore()->get('defenderScanType');
     }
 
     /**
@@ -1911,7 +496,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Time|null
     */
     public function getDefenderScheduledQuickScanTime(): ?Time {
-        return $this->defenderScheduledQuickScanTime;
+        return $this->getBackingStore()->get('defenderScheduledQuickScanTime');
     }
 
     /**
@@ -1919,7 +504,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Time|null
     */
     public function getDefenderScheduledScanTime(): ?Time {
-        return $this->defenderScheduledScanTime;
+        return $this->getBackingStore()->get('defenderScheduledScanTime');
     }
 
     /**
@@ -1927,7 +512,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDefenderScheduleScanEnableLowCpuPriority(): ?bool {
-        return $this->defenderScheduleScanEnableLowCpuPriority;
+        return $this->getBackingStore()->get('defenderScheduleScanEnableLowCpuPriority');
     }
 
     /**
@@ -1935,7 +520,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getDefenderSignatureUpdateIntervalInHours(): ?int {
-        return $this->defenderSignatureUpdateIntervalInHours;
+        return $this->getBackingStore()->get('defenderSignatureUpdateIntervalInHours');
     }
 
     /**
@@ -1943,7 +528,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DefenderSubmitSamplesConsentType|null
     */
     public function getDefenderSubmitSamplesConsentType(): ?DefenderSubmitSamplesConsentType {
-        return $this->defenderSubmitSamplesConsentType;
+        return $this->getBackingStore()->get('defenderSubmitSamplesConsentType');
     }
 
     /**
@@ -1951,7 +536,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WeeklySchedule|null
     */
     public function getDefenderSystemScanSchedule(): ?WeeklySchedule {
-        return $this->defenderSystemScanSchedule;
+        return $this->getBackingStore()->get('defenderSystemScanSchedule');
     }
 
     /**
@@ -1959,7 +544,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getDeveloperUnlockSetting(): ?StateManagementSetting {
-        return $this->developerUnlockSetting;
+        return $this->getBackingStore()->get('developerUnlockSetting');
     }
 
     /**
@@ -1967,7 +552,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDeviceManagementBlockFactoryResetOnMobile(): ?bool {
-        return $this->deviceManagementBlockFactoryResetOnMobile;
+        return $this->getBackingStore()->get('deviceManagementBlockFactoryResetOnMobile');
     }
 
     /**
@@ -1975,7 +560,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getDeviceManagementBlockManualUnenroll(): ?bool {
-        return $this->deviceManagementBlockManualUnenroll;
+        return $this->getBackingStore()->get('deviceManagementBlockManualUnenroll');
     }
 
     /**
@@ -1983,7 +568,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return DiagnosticDataSubmissionMode|null
     */
     public function getDiagnosticsDataSubmissionMode(): ?DiagnosticDataSubmissionMode {
-        return $this->diagnosticsDataSubmissionMode;
+        return $this->getBackingStore()->get('diagnosticsDataSubmissionMode');
     }
 
     /**
@@ -1991,7 +576,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOff(): ?array {
-        return $this->displayAppListWithGdiDPIScalingTurnedOff;
+        return $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOff');
     }
 
     /**
@@ -1999,7 +584,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOn(): ?array {
-        return $this->displayAppListWithGdiDPIScalingTurnedOn;
+        return $this->getBackingStore()->get('displayAppListWithGdiDPIScalingTurnedOn');
     }
 
     /**
@@ -2007,7 +592,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeAllowStartPagesModification(): ?bool {
-        return $this->edgeAllowStartPagesModification;
+        return $this->getBackingStore()->get('edgeAllowStartPagesModification');
     }
 
     /**
@@ -2015,7 +600,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAccessToAboutFlags(): ?bool {
-        return $this->edgeBlockAccessToAboutFlags;
+        return $this->getBackingStore()->get('edgeBlockAccessToAboutFlags');
     }
 
     /**
@@ -2023,7 +608,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAddressBarDropdown(): ?bool {
-        return $this->edgeBlockAddressBarDropdown;
+        return $this->getBackingStore()->get('edgeBlockAddressBarDropdown');
     }
 
     /**
@@ -2031,7 +616,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockAutofill(): ?bool {
-        return $this->edgeBlockAutofill;
+        return $this->getBackingStore()->get('edgeBlockAutofill');
     }
 
     /**
@@ -2039,7 +624,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockCompatibilityList(): ?bool {
-        return $this->edgeBlockCompatibilityList;
+        return $this->getBackingStore()->get('edgeBlockCompatibilityList');
     }
 
     /**
@@ -2047,7 +632,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockDeveloperTools(): ?bool {
-        return $this->edgeBlockDeveloperTools;
+        return $this->getBackingStore()->get('edgeBlockDeveloperTools');
     }
 
     /**
@@ -2055,7 +640,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlocked(): ?bool {
-        return $this->edgeBlocked;
+        return $this->getBackingStore()->get('edgeBlocked');
     }
 
     /**
@@ -2063,7 +648,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockEditFavorites(): ?bool {
-        return $this->edgeBlockEditFavorites;
+        return $this->getBackingStore()->get('edgeBlockEditFavorites');
     }
 
     /**
@@ -2071,7 +656,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockExtensions(): ?bool {
-        return $this->edgeBlockExtensions;
+        return $this->getBackingStore()->get('edgeBlockExtensions');
     }
 
     /**
@@ -2079,7 +664,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockFullScreenMode(): ?bool {
-        return $this->edgeBlockFullScreenMode;
+        return $this->getBackingStore()->get('edgeBlockFullScreenMode');
     }
 
     /**
@@ -2087,7 +672,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockInPrivateBrowsing(): ?bool {
-        return $this->edgeBlockInPrivateBrowsing;
+        return $this->getBackingStore()->get('edgeBlockInPrivateBrowsing');
     }
 
     /**
@@ -2095,7 +680,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockJavaScript(): ?bool {
-        return $this->edgeBlockJavaScript;
+        return $this->getBackingStore()->get('edgeBlockJavaScript');
     }
 
     /**
@@ -2103,7 +688,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockLiveTileDataCollection(): ?bool {
-        return $this->edgeBlockLiveTileDataCollection;
+        return $this->getBackingStore()->get('edgeBlockLiveTileDataCollection');
     }
 
     /**
@@ -2111,7 +696,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPasswordManager(): ?bool {
-        return $this->edgeBlockPasswordManager;
+        return $this->getBackingStore()->get('edgeBlockPasswordManager');
     }
 
     /**
@@ -2119,7 +704,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPopups(): ?bool {
-        return $this->edgeBlockPopups;
+        return $this->getBackingStore()->get('edgeBlockPopups');
     }
 
     /**
@@ -2127,7 +712,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPrelaunch(): ?bool {
-        return $this->edgeBlockPrelaunch;
+        return $this->getBackingStore()->get('edgeBlockPrelaunch');
     }
 
     /**
@@ -2135,7 +720,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockPrinting(): ?bool {
-        return $this->edgeBlockPrinting;
+        return $this->getBackingStore()->get('edgeBlockPrinting');
     }
 
     /**
@@ -2143,7 +728,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSavingHistory(): ?bool {
-        return $this->edgeBlockSavingHistory;
+        return $this->getBackingStore()->get('edgeBlockSavingHistory');
     }
 
     /**
@@ -2151,7 +736,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSearchEngineCustomization(): ?bool {
-        return $this->edgeBlockSearchEngineCustomization;
+        return $this->getBackingStore()->get('edgeBlockSearchEngineCustomization');
     }
 
     /**
@@ -2159,7 +744,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSearchSuggestions(): ?bool {
-        return $this->edgeBlockSearchSuggestions;
+        return $this->getBackingStore()->get('edgeBlockSearchSuggestions');
     }
 
     /**
@@ -2167,7 +752,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSendingDoNotTrackHeader(): ?bool {
-        return $this->edgeBlockSendingDoNotTrackHeader;
+        return $this->getBackingStore()->get('edgeBlockSendingDoNotTrackHeader');
     }
 
     /**
@@ -2175,7 +760,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSendingIntranetTrafficToInternetExplorer(): ?bool {
-        return $this->edgeBlockSendingIntranetTrafficToInternetExplorer;
+        return $this->getBackingStore()->get('edgeBlockSendingIntranetTrafficToInternetExplorer');
     }
 
     /**
@@ -2183,7 +768,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockSideloadingExtensions(): ?bool {
-        return $this->edgeBlockSideloadingExtensions;
+        return $this->getBackingStore()->get('edgeBlockSideloadingExtensions');
     }
 
     /**
@@ -2191,7 +776,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockTabPreloading(): ?bool {
-        return $this->edgeBlockTabPreloading;
+        return $this->getBackingStore()->get('edgeBlockTabPreloading');
     }
 
     /**
@@ -2199,7 +784,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeBlockWebContentOnNewTabPage(): ?bool {
-        return $this->edgeBlockWebContentOnNewTabPage;
+        return $this->getBackingStore()->get('edgeBlockWebContentOnNewTabPage');
     }
 
     /**
@@ -2207,7 +792,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeClearBrowsingDataOnExit(): ?bool {
-        return $this->edgeClearBrowsingDataOnExit;
+        return $this->getBackingStore()->get('edgeClearBrowsingDataOnExit');
     }
 
     /**
@@ -2215,7 +800,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeCookiePolicy|null
     */
     public function getEdgeCookiePolicy(): ?EdgeCookiePolicy {
-        return $this->edgeCookiePolicy;
+        return $this->getBackingStore()->get('edgeCookiePolicy');
     }
 
     /**
@@ -2223,7 +808,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeDisableFirstRunPage(): ?bool {
-        return $this->edgeDisableFirstRunPage;
+        return $this->getBackingStore()->get('edgeDisableFirstRunPage');
     }
 
     /**
@@ -2231,7 +816,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeEnterpriseModeSiteListLocation(): ?string {
-        return $this->edgeEnterpriseModeSiteListLocation;
+        return $this->getBackingStore()->get('edgeEnterpriseModeSiteListLocation');
     }
 
     /**
@@ -2239,7 +824,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getEdgeFavoritesBarVisibility(): ?VisibilitySetting {
-        return $this->edgeFavoritesBarVisibility;
+        return $this->getBackingStore()->get('edgeFavoritesBarVisibility');
     }
 
     /**
@@ -2247,7 +832,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeFavoritesListLocation(): ?string {
-        return $this->edgeFavoritesListLocation;
+        return $this->getBackingStore()->get('edgeFavoritesListLocation');
     }
 
     /**
@@ -2255,7 +840,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeFirstRunUrl(): ?string {
-        return $this->edgeFirstRunUrl;
+        return $this->getBackingStore()->get('edgeFirstRunUrl');
     }
 
     /**
@@ -2263,7 +848,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeHomeButtonConfiguration|null
     */
     public function getEdgeHomeButtonConfiguration(): ?EdgeHomeButtonConfiguration {
-        return $this->edgeHomeButtonConfiguration;
+        return $this->getBackingStore()->get('edgeHomeButtonConfiguration');
     }
 
     /**
@@ -2271,7 +856,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeHomeButtonConfigurationEnabled(): ?bool {
-        return $this->edgeHomeButtonConfigurationEnabled;
+        return $this->getBackingStore()->get('edgeHomeButtonConfigurationEnabled');
     }
 
     /**
@@ -2279,7 +864,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getEdgeHomepageUrls(): ?array {
-        return $this->edgeHomepageUrls;
+        return $this->getBackingStore()->get('edgeHomepageUrls');
     }
 
     /**
@@ -2287,7 +872,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeKioskModeRestrictionType|null
     */
     public function getEdgeKioskModeRestriction(): ?EdgeKioskModeRestrictionType {
-        return $this->edgeKioskModeRestriction;
+        return $this->getBackingStore()->get('edgeKioskModeRestriction');
     }
 
     /**
@@ -2295,7 +880,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEdgeKioskResetAfterIdleTimeInMinutes(): ?int {
-        return $this->edgeKioskResetAfterIdleTimeInMinutes;
+        return $this->getBackingStore()->get('edgeKioskResetAfterIdleTimeInMinutes');
     }
 
     /**
@@ -2303,7 +888,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEdgeNewTabPageURL(): ?string {
-        return $this->edgeNewTabPageURL;
+        return $this->getBackingStore()->get('edgeNewTabPageURL');
     }
 
     /**
@@ -2311,7 +896,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeOpenOptions|null
     */
     public function getEdgeOpensWith(): ?EdgeOpenOptions {
-        return $this->edgeOpensWith;
+        return $this->getBackingStore()->get('edgeOpensWith');
     }
 
     /**
@@ -2319,7 +904,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgePreventCertificateErrorOverride(): ?bool {
-        return $this->edgePreventCertificateErrorOverride;
+        return $this->getBackingStore()->get('edgePreventCertificateErrorOverride');
     }
 
     /**
@@ -2327,7 +912,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getEdgeRequiredExtensionPackageFamilyNames(): ?array {
-        return $this->edgeRequiredExtensionPackageFamilyNames;
+        return $this->getBackingStore()->get('edgeRequiredExtensionPackageFamilyNames');
     }
 
     /**
@@ -2335,7 +920,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeRequireSmartScreen(): ?bool {
-        return $this->edgeRequireSmartScreen;
+        return $this->getBackingStore()->get('edgeRequireSmartScreen');
     }
 
     /**
@@ -2343,7 +928,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeSearchEngineBase|null
     */
     public function getEdgeSearchEngine(): ?EdgeSearchEngineBase {
-        return $this->edgeSearchEngine;
+        return $this->getBackingStore()->get('edgeSearchEngine');
     }
 
     /**
@@ -2351,7 +936,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeSendIntranetTrafficToInternetExplorer(): ?bool {
-        return $this->edgeSendIntranetTrafficToInternetExplorer;
+        return $this->getBackingStore()->get('edgeSendIntranetTrafficToInternetExplorer');
     }
 
     /**
@@ -2359,7 +944,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return InternetExplorerMessageSetting|null
     */
     public function getEdgeShowMessageWhenOpeningInternetExplorerSites(): ?InternetExplorerMessageSetting {
-        return $this->edgeShowMessageWhenOpeningInternetExplorerSites;
+        return $this->getBackingStore()->get('edgeShowMessageWhenOpeningInternetExplorerSites');
     }
 
     /**
@@ -2367,7 +952,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEdgeSyncFavoritesWithInternetExplorer(): ?bool {
-        return $this->edgeSyncFavoritesWithInternetExplorer;
+        return $this->getBackingStore()->get('edgeSyncFavoritesWithInternetExplorer');
     }
 
     /**
@@ -2375,7 +960,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return EdgeTelemetryMode|null
     */
     public function getEdgeTelemetryForMicrosoft365Analytics(): ?EdgeTelemetryMode {
-        return $this->edgeTelemetryForMicrosoft365Analytics;
+        return $this->getBackingStore()->get('edgeTelemetryForMicrosoft365Analytics');
     }
 
     /**
@@ -2383,7 +968,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getEnableAutomaticRedeployment(): ?bool {
-        return $this->enableAutomaticRedeployment;
+        return $this->getBackingStore()->get('enableAutomaticRedeployment');
     }
 
     /**
@@ -2391,7 +976,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnergySaverOnBatteryThresholdPercentage(): ?int {
-        return $this->energySaverOnBatteryThresholdPercentage;
+        return $this->getBackingStore()->get('energySaverOnBatteryThresholdPercentage');
     }
 
     /**
@@ -2399,7 +984,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnergySaverPluggedInThresholdPercentage(): ?int {
-        return $this->energySaverPluggedInThresholdPercentage;
+        return $this->getBackingStore()->get('energySaverPluggedInThresholdPercentage');
     }
 
     /**
@@ -2407,7 +992,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintDiscoveryEndPoint(): ?string {
-        return $this->enterpriseCloudPrintDiscoveryEndPoint;
+        return $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryEndPoint');
     }
 
     /**
@@ -2415,7 +1000,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getEnterpriseCloudPrintDiscoveryMaxLimit(): ?int {
-        return $this->enterpriseCloudPrintDiscoveryMaxLimit;
+        return $this->getBackingStore()->get('enterpriseCloudPrintDiscoveryMaxLimit');
     }
 
     /**
@@ -2423,7 +1008,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier(): ?string {
-        return $this->enterpriseCloudPrintMopriaDiscoveryResourceIdentifier;
+        return $this->getBackingStore()->get('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier');
     }
 
     /**
@@ -2431,7 +1016,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintOAuthAuthority(): ?string {
-        return $this->enterpriseCloudPrintOAuthAuthority;
+        return $this->getBackingStore()->get('enterpriseCloudPrintOAuthAuthority');
     }
 
     /**
@@ -2439,7 +1024,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintOAuthClientIdentifier(): ?string {
-        return $this->enterpriseCloudPrintOAuthClientIdentifier;
+        return $this->getBackingStore()->get('enterpriseCloudPrintOAuthClientIdentifier');
     }
 
     /**
@@ -2447,7 +1032,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getEnterpriseCloudPrintResourceIdentifier(): ?string {
-        return $this->enterpriseCloudPrintResourceIdentifier;
+        return $this->getBackingStore()->get('enterpriseCloudPrintResourceIdentifier');
     }
 
     /**
@@ -2455,7 +1040,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockDeviceDiscovery(): ?bool {
-        return $this->experienceBlockDeviceDiscovery;
+        return $this->getBackingStore()->get('experienceBlockDeviceDiscovery');
     }
 
     /**
@@ -2463,7 +1048,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockErrorDialogWhenNoSIM(): ?bool {
-        return $this->experienceBlockErrorDialogWhenNoSIM;
+        return $this->getBackingStore()->get('experienceBlockErrorDialogWhenNoSIM');
     }
 
     /**
@@ -2471,7 +1056,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getExperienceBlockTaskSwitcher(): ?bool {
-        return $this->experienceBlockTaskSwitcher;
+        return $this->getBackingStore()->get('experienceBlockTaskSwitcher');
     }
 
     /**
@@ -2479,7 +1064,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return BrowserSyncSetting|null
     */
     public function getExperienceDoNotSyncBrowserSettings(): ?BrowserSyncSetting {
-        return $this->experienceDoNotSyncBrowserSettings;
+        return $this->getBackingStore()->get('experienceDoNotSyncBrowserSettings');
     }
 
     /**
@@ -2780,7 +1365,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getFindMyFiles(): ?Enablement {
-        return $this->findMyFiles;
+        return $this->getBackingStore()->get('findMyFiles');
     }
 
     /**
@@ -2788,7 +1373,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getGameDvrBlocked(): ?bool {
-        return $this->gameDvrBlocked;
+        return $this->getBackingStore()->get('gameDvrBlocked');
     }
 
     /**
@@ -2796,7 +1381,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return InkAccessSetting|null
     */
     public function getInkWorkspaceAccess(): ?InkAccessSetting {
-        return $this->inkWorkspaceAccess;
+        return $this->getBackingStore()->get('inkWorkspaceAccess');
     }
 
     /**
@@ -2804,7 +1389,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getInkWorkspaceAccessState(): ?StateManagementSetting {
-        return $this->inkWorkspaceAccessState;
+        return $this->getBackingStore()->get('inkWorkspaceAccessState');
     }
 
     /**
@@ -2812,7 +1397,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getInkWorkspaceBlockSuggestedApps(): ?bool {
-        return $this->inkWorkspaceBlockSuggestedApps;
+        return $this->getBackingStore()->get('inkWorkspaceBlockSuggestedApps');
     }
 
     /**
@@ -2820,7 +1405,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getInternetSharingBlocked(): ?bool {
-        return $this->internetSharingBlocked;
+        return $this->getBackingStore()->get('internetSharingBlocked');
     }
 
     /**
@@ -2828,7 +1413,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLocationServicesBlocked(): ?bool {
-        return $this->locationServicesBlocked;
+        return $this->getBackingStore()->get('locationServicesBlocked');
     }
 
     /**
@@ -2836,7 +1421,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getLockScreenActivateAppsWithVoice(): ?Enablement {
-        return $this->lockScreenActivateAppsWithVoice;
+        return $this->getBackingStore()->get('lockScreenActivateAppsWithVoice');
     }
 
     /**
@@ -2844,7 +1429,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenAllowTimeoutConfiguration(): ?bool {
-        return $this->lockScreenAllowTimeoutConfiguration;
+        return $this->getBackingStore()->get('lockScreenAllowTimeoutConfiguration');
     }
 
     /**
@@ -2852,7 +1437,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockActionCenterNotifications(): ?bool {
-        return $this->lockScreenBlockActionCenterNotifications;
+        return $this->getBackingStore()->get('lockScreenBlockActionCenterNotifications');
     }
 
     /**
@@ -2860,7 +1445,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockCortana(): ?bool {
-        return $this->lockScreenBlockCortana;
+        return $this->getBackingStore()->get('lockScreenBlockCortana');
     }
 
     /**
@@ -2868,7 +1453,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLockScreenBlockToastNotifications(): ?bool {
-        return $this->lockScreenBlockToastNotifications;
+        return $this->getBackingStore()->get('lockScreenBlockToastNotifications');
     }
 
     /**
@@ -2876,7 +1461,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getLockScreenTimeoutInSeconds(): ?int {
-        return $this->lockScreenTimeoutInSeconds;
+        return $this->getBackingStore()->get('lockScreenTimeoutInSeconds');
     }
 
     /**
@@ -2884,7 +1469,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getLogonBlockFastUserSwitching(): ?bool {
-        return $this->logonBlockFastUserSwitching;
+        return $this->getBackingStore()->get('logonBlockFastUserSwitching');
     }
 
     /**
@@ -2892,7 +1477,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockMMS(): ?bool {
-        return $this->messagingBlockMMS;
+        return $this->getBackingStore()->get('messagingBlockMMS');
     }
 
     /**
@@ -2900,7 +1485,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockRichCommunicationServices(): ?bool {
-        return $this->messagingBlockRichCommunicationServices;
+        return $this->getBackingStore()->get('messagingBlockRichCommunicationServices');
     }
 
     /**
@@ -2908,7 +1493,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMessagingBlockSync(): ?bool {
-        return $this->messagingBlockSync;
+        return $this->getBackingStore()->get('messagingBlockSync');
     }
 
     /**
@@ -2916,7 +1501,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMicrosoftAccountBlocked(): ?bool {
-        return $this->microsoftAccountBlocked;
+        return $this->getBackingStore()->get('microsoftAccountBlocked');
     }
 
     /**
@@ -2924,7 +1509,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getMicrosoftAccountBlockSettingsSync(): ?bool {
-        return $this->microsoftAccountBlockSettingsSync;
+        return $this->getBackingStore()->get('microsoftAccountBlockSettingsSync');
     }
 
     /**
@@ -2932,7 +1517,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return SignInAssistantOptions|null
     */
     public function getMicrosoftAccountSignInAssistantSettings(): ?SignInAssistantOptions {
-        return $this->microsoftAccountSignInAssistantSettings;
+        return $this->getBackingStore()->get('microsoftAccountSignInAssistantSettings');
     }
 
     /**
@@ -2940,7 +1525,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNetworkProxyApplySettingsDeviceWide(): ?bool {
-        return $this->networkProxyApplySettingsDeviceWide;
+        return $this->getBackingStore()->get('networkProxyApplySettingsDeviceWide');
     }
 
     /**
@@ -2948,7 +1533,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getNetworkProxyAutomaticConfigurationUrl(): ?string {
-        return $this->networkProxyAutomaticConfigurationUrl;
+        return $this->getBackingStore()->get('networkProxyAutomaticConfigurationUrl');
     }
 
     /**
@@ -2956,7 +1541,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNetworkProxyDisableAutoDetect(): ?bool {
-        return $this->networkProxyDisableAutoDetect;
+        return $this->getBackingStore()->get('networkProxyDisableAutoDetect');
     }
 
     /**
@@ -2964,7 +1549,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Windows10NetworkProxyServer|null
     */
     public function getNetworkProxyServer(): ?Windows10NetworkProxyServer {
-        return $this->networkProxyServer;
+        return $this->getBackingStore()->get('networkProxyServer');
     }
 
     /**
@@ -2972,7 +1557,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getNfcBlocked(): ?bool {
-        return $this->nfcBlocked;
+        return $this->getBackingStore()->get('nfcBlocked');
     }
 
     /**
@@ -2980,7 +1565,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getOneDriveDisableFileSync(): ?bool {
-        return $this->oneDriveDisableFileSync;
+        return $this->getBackingStore()->get('oneDriveDisableFileSync');
     }
 
     /**
@@ -2988,7 +1573,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->passwordBlockSimple;
+        return $this->getBackingStore()->get('passwordBlockSimple');
     }
 
     /**
@@ -2996,7 +1581,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->passwordExpirationDays;
+        return $this->getBackingStore()->get('passwordExpirationDays');
     }
 
     /**
@@ -3004,7 +1589,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumAgeInDays(): ?int {
-        return $this->passwordMinimumAgeInDays;
+        return $this->getBackingStore()->get('passwordMinimumAgeInDays');
     }
 
     /**
@@ -3012,7 +1597,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->passwordMinimumCharacterSetCount;
+        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
     }
 
     /**
@@ -3020,7 +1605,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->passwordMinimumLength;
+        return $this->getBackingStore()->get('passwordMinimumLength');
     }
 
     /**
@@ -3028,7 +1613,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeScreenTimeout(): ?int {
-        return $this->passwordMinutesOfInactivityBeforeScreenTimeout;
+        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeScreenTimeout');
     }
 
     /**
@@ -3036,7 +1621,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->passwordPreviousPasswordBlockCount;
+        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
     }
 
     /**
@@ -3044,7 +1629,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->passwordRequired;
+        return $this->getBackingStore()->get('passwordRequired');
     }
 
     /**
@@ -3052,7 +1637,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->passwordRequiredType;
+        return $this->getBackingStore()->get('passwordRequiredType');
     }
 
     /**
@@ -3060,7 +1645,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPasswordRequireWhenResumeFromIdleState(): ?bool {
-        return $this->passwordRequireWhenResumeFromIdleState;
+        return $this->getBackingStore()->get('passwordRequireWhenResumeFromIdleState');
     }
 
     /**
@@ -3068,7 +1653,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getPasswordSignInFailureCountBeforeFactoryReset(): ?int {
-        return $this->passwordSignInFailureCountBeforeFactoryReset;
+        return $this->getBackingStore()->get('passwordSignInFailureCountBeforeFactoryReset');
     }
 
     /**
@@ -3076,7 +1661,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPersonalizationDesktopImageUrl(): ?string {
-        return $this->personalizationDesktopImageUrl;
+        return $this->getBackingStore()->get('personalizationDesktopImageUrl');
     }
 
     /**
@@ -3084,7 +1669,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPersonalizationLockScreenImageUrl(): ?string {
-        return $this->personalizationLockScreenImageUrl;
+        return $this->getBackingStore()->get('personalizationLockScreenImageUrl');
     }
 
     /**
@@ -3092,7 +1677,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerButtonActionOnBattery(): ?PowerActionType {
-        return $this->powerButtonActionOnBattery;
+        return $this->getBackingStore()->get('powerButtonActionOnBattery');
     }
 
     /**
@@ -3100,7 +1685,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerButtonActionPluggedIn(): ?PowerActionType {
-        return $this->powerButtonActionPluggedIn;
+        return $this->getBackingStore()->get('powerButtonActionPluggedIn');
     }
 
     /**
@@ -3108,7 +1693,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getPowerHybridSleepOnBattery(): ?Enablement {
-        return $this->powerHybridSleepOnBattery;
+        return $this->getBackingStore()->get('powerHybridSleepOnBattery');
     }
 
     /**
@@ -3116,7 +1701,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Enablement|null
     */
     public function getPowerHybridSleepPluggedIn(): ?Enablement {
-        return $this->powerHybridSleepPluggedIn;
+        return $this->getBackingStore()->get('powerHybridSleepPluggedIn');
     }
 
     /**
@@ -3124,7 +1709,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerLidCloseActionOnBattery(): ?PowerActionType {
-        return $this->powerLidCloseActionOnBattery;
+        return $this->getBackingStore()->get('powerLidCloseActionOnBattery');
     }
 
     /**
@@ -3132,7 +1717,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerLidCloseActionPluggedIn(): ?PowerActionType {
-        return $this->powerLidCloseActionPluggedIn;
+        return $this->getBackingStore()->get('powerLidCloseActionPluggedIn');
     }
 
     /**
@@ -3140,7 +1725,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerSleepButtonActionOnBattery(): ?PowerActionType {
-        return $this->powerSleepButtonActionOnBattery;
+        return $this->getBackingStore()->get('powerSleepButtonActionOnBattery');
     }
 
     /**
@@ -3148,7 +1733,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return PowerActionType|null
     */
     public function getPowerSleepButtonActionPluggedIn(): ?PowerActionType {
-        return $this->powerSleepButtonActionPluggedIn;
+        return $this->getBackingStore()->get('powerSleepButtonActionPluggedIn');
     }
 
     /**
@@ -3156,7 +1741,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrinterBlockAddition(): ?bool {
-        return $this->printerBlockAddition;
+        return $this->getBackingStore()->get('printerBlockAddition');
     }
 
     /**
@@ -3164,7 +1749,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getPrinterDefaultName(): ?string {
-        return $this->printerDefaultName;
+        return $this->getBackingStore()->get('printerDefaultName');
     }
 
     /**
@@ -3172,7 +1757,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<string>|null
     */
     public function getPrinterNames(): ?array {
-        return $this->printerNames;
+        return $this->getBackingStore()->get('printerNames');
     }
 
     /**
@@ -3180,7 +1765,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return array<WindowsPrivacyDataAccessControlItem>|null
     */
     public function getPrivacyAccessControls(): ?array {
-        return $this->privacyAccessControls;
+        return $this->getBackingStore()->get('privacyAccessControls');
     }
 
     /**
@@ -3188,7 +1773,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return StateManagementSetting|null
     */
     public function getPrivacyAdvertisingId(): ?StateManagementSetting {
-        return $this->privacyAdvertisingId;
+        return $this->getBackingStore()->get('privacyAdvertisingId');
     }
 
     /**
@@ -3196,7 +1781,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyAutoAcceptPairingAndConsentPrompts(): ?bool {
-        return $this->privacyAutoAcceptPairingAndConsentPrompts;
+        return $this->getBackingStore()->get('privacyAutoAcceptPairingAndConsentPrompts');
     }
 
     /**
@@ -3204,7 +1789,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockActivityFeed(): ?bool {
-        return $this->privacyBlockActivityFeed;
+        return $this->getBackingStore()->get('privacyBlockActivityFeed');
     }
 
     /**
@@ -3212,7 +1797,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockInputPersonalization(): ?bool {
-        return $this->privacyBlockInputPersonalization;
+        return $this->getBackingStore()->get('privacyBlockInputPersonalization');
     }
 
     /**
@@ -3220,7 +1805,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyBlockPublishUserActivities(): ?bool {
-        return $this->privacyBlockPublishUserActivities;
+        return $this->getBackingStore()->get('privacyBlockPublishUserActivities');
     }
 
     /**
@@ -3228,7 +1813,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getPrivacyDisableLaunchExperience(): ?bool {
-        return $this->privacyDisableLaunchExperience;
+        return $this->getBackingStore()->get('privacyDisableLaunchExperience');
     }
 
     /**
@@ -3236,7 +1821,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getResetProtectionModeBlocked(): ?bool {
-        return $this->resetProtectionModeBlocked;
+        return $this->getBackingStore()->get('resetProtectionModeBlocked');
     }
 
     /**
@@ -3244,7 +1829,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return SafeSearchFilterType|null
     */
     public function getSafeSearchFilter(): ?SafeSearchFilterType {
-        return $this->safeSearchFilter;
+        return $this->getBackingStore()->get('safeSearchFilter');
     }
 
     /**
@@ -3252,7 +1837,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getScreenCaptureBlocked(): ?bool {
-        return $this->screenCaptureBlocked;
+        return $this->getBackingStore()->get('screenCaptureBlocked');
     }
 
     /**
@@ -3260,7 +1845,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchBlockDiacritics(): ?bool {
-        return $this->searchBlockDiacritics;
+        return $this->getBackingStore()->get('searchBlockDiacritics');
     }
 
     /**
@@ -3268,7 +1853,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchBlockWebResults(): ?bool {
-        return $this->searchBlockWebResults;
+        return $this->getBackingStore()->get('searchBlockWebResults');
     }
 
     /**
@@ -3276,7 +1861,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableAutoLanguageDetection(): ?bool {
-        return $this->searchDisableAutoLanguageDetection;
+        return $this->getBackingStore()->get('searchDisableAutoLanguageDetection');
     }
 
     /**
@@ -3284,7 +1869,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexerBackoff(): ?bool {
-        return $this->searchDisableIndexerBackoff;
+        return $this->getBackingStore()->get('searchDisableIndexerBackoff');
     }
 
     /**
@@ -3292,7 +1877,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexingEncryptedItems(): ?bool {
-        return $this->searchDisableIndexingEncryptedItems;
+        return $this->getBackingStore()->get('searchDisableIndexingEncryptedItems');
     }
 
     /**
@@ -3300,7 +1885,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableIndexingRemovableDrive(): ?bool {
-        return $this->searchDisableIndexingRemovableDrive;
+        return $this->getBackingStore()->get('searchDisableIndexingRemovableDrive');
     }
 
     /**
@@ -3308,7 +1893,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableLocation(): ?bool {
-        return $this->searchDisableLocation;
+        return $this->getBackingStore()->get('searchDisableLocation');
     }
 
     /**
@@ -3316,7 +1901,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchDisableUseLocation(): ?bool {
-        return $this->searchDisableUseLocation;
+        return $this->getBackingStore()->get('searchDisableUseLocation');
     }
 
     /**
@@ -3324,7 +1909,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchEnableAutomaticIndexSizeManangement(): ?bool {
-        return $this->searchEnableAutomaticIndexSizeManangement;
+        return $this->getBackingStore()->get('searchEnableAutomaticIndexSizeManangement');
     }
 
     /**
@@ -3332,7 +1917,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSearchEnableRemoteQueries(): ?bool {
-        return $this->searchEnableRemoteQueries;
+        return $this->getBackingStore()->get('searchEnableRemoteQueries');
     }
 
     /**
@@ -3340,7 +1925,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSecurityBlockAzureADJoinedDevicesAutoEncryption(): ?bool {
-        return $this->securityBlockAzureADJoinedDevicesAutoEncryption;
+        return $this->getBackingStore()->get('securityBlockAzureADJoinedDevicesAutoEncryption');
     }
 
     /**
@@ -3348,7 +1933,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAccountsPage(): ?bool {
-        return $this->settingsBlockAccountsPage;
+        return $this->getBackingStore()->get('settingsBlockAccountsPage');
     }
 
     /**
@@ -3356,7 +1941,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAddProvisioningPackage(): ?bool {
-        return $this->settingsBlockAddProvisioningPackage;
+        return $this->getBackingStore()->get('settingsBlockAddProvisioningPackage');
     }
 
     /**
@@ -3364,7 +1949,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockAppsPage(): ?bool {
-        return $this->settingsBlockAppsPage;
+        return $this->getBackingStore()->get('settingsBlockAppsPage');
     }
 
     /**
@@ -3372,7 +1957,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeLanguage(): ?bool {
-        return $this->settingsBlockChangeLanguage;
+        return $this->getBackingStore()->get('settingsBlockChangeLanguage');
     }
 
     /**
@@ -3380,7 +1965,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangePowerSleep(): ?bool {
-        return $this->settingsBlockChangePowerSleep;
+        return $this->getBackingStore()->get('settingsBlockChangePowerSleep');
     }
 
     /**
@@ -3388,7 +1973,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeRegion(): ?bool {
-        return $this->settingsBlockChangeRegion;
+        return $this->getBackingStore()->get('settingsBlockChangeRegion');
     }
 
     /**
@@ -3396,7 +1981,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockChangeSystemTime(): ?bool {
-        return $this->settingsBlockChangeSystemTime;
+        return $this->getBackingStore()->get('settingsBlockChangeSystemTime');
     }
 
     /**
@@ -3404,7 +1989,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockDevicesPage(): ?bool {
-        return $this->settingsBlockDevicesPage;
+        return $this->getBackingStore()->get('settingsBlockDevicesPage');
     }
 
     /**
@@ -3412,7 +1997,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockEaseOfAccessPage(): ?bool {
-        return $this->settingsBlockEaseOfAccessPage;
+        return $this->getBackingStore()->get('settingsBlockEaseOfAccessPage');
     }
 
     /**
@@ -3420,7 +2005,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockEditDeviceName(): ?bool {
-        return $this->settingsBlockEditDeviceName;
+        return $this->getBackingStore()->get('settingsBlockEditDeviceName');
     }
 
     /**
@@ -3428,7 +2013,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockGamingPage(): ?bool {
-        return $this->settingsBlockGamingPage;
+        return $this->getBackingStore()->get('settingsBlockGamingPage');
     }
 
     /**
@@ -3436,7 +2021,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockNetworkInternetPage(): ?bool {
-        return $this->settingsBlockNetworkInternetPage;
+        return $this->getBackingStore()->get('settingsBlockNetworkInternetPage');
     }
 
     /**
@@ -3444,7 +2029,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockPersonalizationPage(): ?bool {
-        return $this->settingsBlockPersonalizationPage;
+        return $this->getBackingStore()->get('settingsBlockPersonalizationPage');
     }
 
     /**
@@ -3452,7 +2037,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockPrivacyPage(): ?bool {
-        return $this->settingsBlockPrivacyPage;
+        return $this->getBackingStore()->get('settingsBlockPrivacyPage');
     }
 
     /**
@@ -3460,7 +2045,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockRemoveProvisioningPackage(): ?bool {
-        return $this->settingsBlockRemoveProvisioningPackage;
+        return $this->getBackingStore()->get('settingsBlockRemoveProvisioningPackage');
     }
 
     /**
@@ -3468,7 +2053,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockSettingsApp(): ?bool {
-        return $this->settingsBlockSettingsApp;
+        return $this->getBackingStore()->get('settingsBlockSettingsApp');
     }
 
     /**
@@ -3476,7 +2061,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockSystemPage(): ?bool {
-        return $this->settingsBlockSystemPage;
+        return $this->getBackingStore()->get('settingsBlockSystemPage');
     }
 
     /**
@@ -3484,7 +2069,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockTimeLanguagePage(): ?bool {
-        return $this->settingsBlockTimeLanguagePage;
+        return $this->getBackingStore()->get('settingsBlockTimeLanguagePage');
     }
 
     /**
@@ -3492,7 +2077,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSettingsBlockUpdateSecurityPage(): ?bool {
-        return $this->settingsBlockUpdateSecurityPage;
+        return $this->getBackingStore()->get('settingsBlockUpdateSecurityPage');
     }
 
     /**
@@ -3500,7 +2085,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSharedUserAppDataAllowed(): ?bool {
-        return $this->sharedUserAppDataAllowed;
+        return $this->getBackingStore()->get('sharedUserAppDataAllowed');
     }
 
     /**
@@ -3508,7 +2093,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return AppInstallControlType|null
     */
     public function getSmartScreenAppInstallControl(): ?AppInstallControlType {
-        return $this->smartScreenAppInstallControl;
+        return $this->getBackingStore()->get('smartScreenAppInstallControl');
     }
 
     /**
@@ -3516,7 +2101,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenBlockPromptOverride(): ?bool {
-        return $this->smartScreenBlockPromptOverride;
+        return $this->getBackingStore()->get('smartScreenBlockPromptOverride');
     }
 
     /**
@@ -3524,7 +2109,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenBlockPromptOverrideForFiles(): ?bool {
-        return $this->smartScreenBlockPromptOverrideForFiles;
+        return $this->getBackingStore()->get('smartScreenBlockPromptOverrideForFiles');
     }
 
     /**
@@ -3532,7 +2117,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getSmartScreenEnableAppInstallControl(): ?bool {
-        return $this->smartScreenEnableAppInstallControl;
+        return $this->getBackingStore()->get('smartScreenEnableAppInstallControl');
     }
 
     /**
@@ -3540,7 +2125,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartBlockUnpinningAppsFromTaskbar(): ?bool {
-        return $this->startBlockUnpinningAppsFromTaskbar;
+        return $this->getBackingStore()->get('startBlockUnpinningAppsFromTaskbar');
     }
 
     /**
@@ -3548,7 +2133,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsStartMenuAppListVisibilityType|null
     */
     public function getStartMenuAppListVisibility(): ?WindowsStartMenuAppListVisibilityType {
-        return $this->startMenuAppListVisibility;
+        return $this->getBackingStore()->get('startMenuAppListVisibility');
     }
 
     /**
@@ -3556,7 +2141,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideChangeAccountSettings(): ?bool {
-        return $this->startMenuHideChangeAccountSettings;
+        return $this->getBackingStore()->get('startMenuHideChangeAccountSettings');
     }
 
     /**
@@ -3564,7 +2149,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideFrequentlyUsedApps(): ?bool {
-        return $this->startMenuHideFrequentlyUsedApps;
+        return $this->getBackingStore()->get('startMenuHideFrequentlyUsedApps');
     }
 
     /**
@@ -3572,7 +2157,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideHibernate(): ?bool {
-        return $this->startMenuHideHibernate;
+        return $this->getBackingStore()->get('startMenuHideHibernate');
     }
 
     /**
@@ -3580,7 +2165,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideLock(): ?bool {
-        return $this->startMenuHideLock;
+        return $this->getBackingStore()->get('startMenuHideLock');
     }
 
     /**
@@ -3588,7 +2173,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHidePowerButton(): ?bool {
-        return $this->startMenuHidePowerButton;
+        return $this->getBackingStore()->get('startMenuHidePowerButton');
     }
 
     /**
@@ -3596,7 +2181,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRecentJumpLists(): ?bool {
-        return $this->startMenuHideRecentJumpLists;
+        return $this->getBackingStore()->get('startMenuHideRecentJumpLists');
     }
 
     /**
@@ -3604,7 +2189,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRecentlyAddedApps(): ?bool {
-        return $this->startMenuHideRecentlyAddedApps;
+        return $this->getBackingStore()->get('startMenuHideRecentlyAddedApps');
     }
 
     /**
@@ -3612,7 +2197,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideRestartOptions(): ?bool {
-        return $this->startMenuHideRestartOptions;
+        return $this->getBackingStore()->get('startMenuHideRestartOptions');
     }
 
     /**
@@ -3620,7 +2205,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideShutDown(): ?bool {
-        return $this->startMenuHideShutDown;
+        return $this->getBackingStore()->get('startMenuHideShutDown');
     }
 
     /**
@@ -3628,7 +2213,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSignOut(): ?bool {
-        return $this->startMenuHideSignOut;
+        return $this->getBackingStore()->get('startMenuHideSignOut');
     }
 
     /**
@@ -3636,7 +2221,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSleep(): ?bool {
-        return $this->startMenuHideSleep;
+        return $this->getBackingStore()->get('startMenuHideSleep');
     }
 
     /**
@@ -3644,7 +2229,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideSwitchAccount(): ?bool {
-        return $this->startMenuHideSwitchAccount;
+        return $this->getBackingStore()->get('startMenuHideSwitchAccount');
     }
 
     /**
@@ -3652,23 +2237,23 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStartMenuHideUserTile(): ?bool {
-        return $this->startMenuHideUserTile;
+        return $this->getBackingStore()->get('startMenuHideUserTile');
     }
 
     /**
      * Gets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getStartMenuLayoutEdgeAssetsXml(): StreamInterface {
-        return $this->startMenuLayoutEdgeAssetsXml;
+    public function getStartMenuLayoutEdgeAssetsXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('startMenuLayoutEdgeAssetsXml');
     }
 
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getStartMenuLayoutXml(): StreamInterface {
-        return $this->startMenuLayoutXml;
+    public function getStartMenuLayoutXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('startMenuLayoutXml');
     }
 
     /**
@@ -3676,7 +2261,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsStartMenuModeType|null
     */
     public function getStartMenuMode(): ?WindowsStartMenuModeType {
-        return $this->startMenuMode;
+        return $this->getBackingStore()->get('startMenuMode');
     }
 
     /**
@@ -3684,7 +2269,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderDocuments(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderDocuments;
+        return $this->getBackingStore()->get('startMenuPinnedFolderDocuments');
     }
 
     /**
@@ -3692,7 +2277,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderDownloads(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderDownloads;
+        return $this->getBackingStore()->get('startMenuPinnedFolderDownloads');
     }
 
     /**
@@ -3700,7 +2285,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderFileExplorer(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderFileExplorer;
+        return $this->getBackingStore()->get('startMenuPinnedFolderFileExplorer');
     }
 
     /**
@@ -3708,7 +2293,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderHomeGroup(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderHomeGroup;
+        return $this->getBackingStore()->get('startMenuPinnedFolderHomeGroup');
     }
 
     /**
@@ -3716,7 +2301,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderMusic(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderMusic;
+        return $this->getBackingStore()->get('startMenuPinnedFolderMusic');
     }
 
     /**
@@ -3724,7 +2309,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderNetwork(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderNetwork;
+        return $this->getBackingStore()->get('startMenuPinnedFolderNetwork');
     }
 
     /**
@@ -3732,7 +2317,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderPersonalFolder(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderPersonalFolder;
+        return $this->getBackingStore()->get('startMenuPinnedFolderPersonalFolder');
     }
 
     /**
@@ -3740,7 +2325,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderPictures(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderPictures;
+        return $this->getBackingStore()->get('startMenuPinnedFolderPictures');
     }
 
     /**
@@ -3748,7 +2333,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderSettings(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderSettings;
+        return $this->getBackingStore()->get('startMenuPinnedFolderSettings');
     }
 
     /**
@@ -3756,7 +2341,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return VisibilitySetting|null
     */
     public function getStartMenuPinnedFolderVideos(): ?VisibilitySetting {
-        return $this->startMenuPinnedFolderVideos;
+        return $this->getBackingStore()->get('startMenuPinnedFolderVideos');
     }
 
     /**
@@ -3764,7 +2349,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageBlockRemovableStorage(): ?bool {
-        return $this->storageBlockRemovableStorage;
+        return $this->getBackingStore()->get('storageBlockRemovableStorage');
     }
 
     /**
@@ -3772,7 +2357,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRequireMobileDeviceEncryption(): ?bool {
-        return $this->storageRequireMobileDeviceEncryption;
+        return $this->getBackingStore()->get('storageRequireMobileDeviceEncryption');
     }
 
     /**
@@ -3780,7 +2365,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRestrictAppDataToSystemVolume(): ?bool {
-        return $this->storageRestrictAppDataToSystemVolume;
+        return $this->getBackingStore()->get('storageRestrictAppDataToSystemVolume');
     }
 
     /**
@@ -3788,7 +2373,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getStorageRestrictAppInstallToSystemVolume(): ?bool {
-        return $this->storageRestrictAppInstallToSystemVolume;
+        return $this->getBackingStore()->get('storageRestrictAppInstallToSystemVolume');
     }
 
     /**
@@ -3796,7 +2381,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return string|null
     */
     public function getSystemTelemetryProxyServer(): ?string {
-        return $this->systemTelemetryProxyServer;
+        return $this->getBackingStore()->get('systemTelemetryProxyServer');
     }
 
     /**
@@ -3804,7 +2389,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getTaskManagerBlockEndTask(): ?bool {
-        return $this->taskManagerBlockEndTask;
+        return $this->getBackingStore()->get('taskManagerBlockEndTask');
     }
 
     /**
@@ -3812,7 +2397,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getTenantLockdownRequireNetworkDuringOutOfBoxExperience(): ?bool {
-        return $this->tenantLockdownRequireNetworkDuringOutOfBoxExperience;
+        return $this->getBackingStore()->get('tenantLockdownRequireNetworkDuringOutOfBoxExperience');
     }
 
     /**
@@ -3820,7 +2405,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getUninstallBuiltInApps(): ?bool {
-        return $this->uninstallBuiltInApps;
+        return $this->getBackingStore()->get('uninstallBuiltInApps');
     }
 
     /**
@@ -3828,7 +2413,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getUsbBlocked(): ?bool {
-        return $this->usbBlocked;
+        return $this->getBackingStore()->get('usbBlocked');
     }
 
     /**
@@ -3836,7 +2421,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getVoiceRecordingBlocked(): ?bool {
-        return $this->voiceRecordingBlocked;
+        return $this->getBackingStore()->get('voiceRecordingBlocked');
     }
 
     /**
@@ -3844,7 +2429,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWebRtcBlockLocalhostIpAddress(): ?bool {
-        return $this->webRtcBlockLocalhostIpAddress;
+        return $this->getBackingStore()->get('webRtcBlockLocalhostIpAddress');
     }
 
     /**
@@ -3852,7 +2437,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlockAutomaticConnectHotspots(): ?bool {
-        return $this->wiFiBlockAutomaticConnectHotspots;
+        return $this->getBackingStore()->get('wiFiBlockAutomaticConnectHotspots');
     }
 
     /**
@@ -3860,7 +2445,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlocked(): ?bool {
-        return $this->wiFiBlocked;
+        return $this->getBackingStore()->get('wiFiBlocked');
     }
 
     /**
@@ -3868,7 +2453,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWiFiBlockManualConfiguration(): ?bool {
-        return $this->wiFiBlockManualConfiguration;
+        return $this->getBackingStore()->get('wiFiBlockManualConfiguration');
     }
 
     /**
@@ -3876,7 +2461,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return int|null
     */
     public function getWiFiScanInterval(): ?int {
-        return $this->wiFiScanInterval;
+        return $this->getBackingStore()->get('wiFiScanInterval');
     }
 
     /**
@@ -3884,7 +2469,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return Windows10AppsForceUpdateSchedule|null
     */
     public function getWindows10AppsForceUpdateSchedule(): ?Windows10AppsForceUpdateSchedule {
-        return $this->windows10AppsForceUpdateSchedule;
+        return $this->getBackingStore()->get('windows10AppsForceUpdateSchedule');
     }
 
     /**
@@ -3892,7 +2477,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockConsumerSpecificFeatures(): ?bool {
-        return $this->windowsSpotlightBlockConsumerSpecificFeatures;
+        return $this->getBackingStore()->get('windowsSpotlightBlockConsumerSpecificFeatures');
     }
 
     /**
@@ -3900,7 +2485,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlocked(): ?bool {
-        return $this->windowsSpotlightBlocked;
+        return $this->getBackingStore()->get('windowsSpotlightBlocked');
     }
 
     /**
@@ -3908,7 +2493,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockOnActionCenter(): ?bool {
-        return $this->windowsSpotlightBlockOnActionCenter;
+        return $this->getBackingStore()->get('windowsSpotlightBlockOnActionCenter');
     }
 
     /**
@@ -3916,7 +2501,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockTailoredExperiences(): ?bool {
-        return $this->windowsSpotlightBlockTailoredExperiences;
+        return $this->getBackingStore()->get('windowsSpotlightBlockTailoredExperiences');
     }
 
     /**
@@ -3924,7 +2509,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockThirdPartyNotifications(): ?bool {
-        return $this->windowsSpotlightBlockThirdPartyNotifications;
+        return $this->getBackingStore()->get('windowsSpotlightBlockThirdPartyNotifications');
     }
 
     /**
@@ -3932,7 +2517,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockWelcomeExperience(): ?bool {
-        return $this->windowsSpotlightBlockWelcomeExperience;
+        return $this->getBackingStore()->get('windowsSpotlightBlockWelcomeExperience');
     }
 
     /**
@@ -3940,7 +2525,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsSpotlightBlockWindowsTips(): ?bool {
-        return $this->windowsSpotlightBlockWindowsTips;
+        return $this->getBackingStore()->get('windowsSpotlightBlockWindowsTips');
     }
 
     /**
@@ -3948,7 +2533,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return WindowsSpotlightEnablementSettings|null
     */
     public function getWindowsSpotlightConfigureOnLockScreen(): ?WindowsSpotlightEnablementSettings {
-        return $this->windowsSpotlightConfigureOnLockScreen;
+        return $this->getBackingStore()->get('windowsSpotlightConfigureOnLockScreen');
     }
 
     /**
@@ -3956,7 +2541,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreBlockAutoUpdate(): ?bool {
-        return $this->windowsStoreBlockAutoUpdate;
+        return $this->getBackingStore()->get('windowsStoreBlockAutoUpdate');
     }
 
     /**
@@ -3964,7 +2549,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreBlocked(): ?bool {
-        return $this->windowsStoreBlocked;
+        return $this->getBackingStore()->get('windowsStoreBlocked');
     }
 
     /**
@@ -3972,7 +2557,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWindowsStoreEnablePrivateStoreOnly(): ?bool {
-        return $this->windowsStoreEnablePrivateStoreOnly;
+        return $this->getBackingStore()->get('windowsStoreEnablePrivateStoreOnly');
     }
 
     /**
@@ -3980,7 +2565,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayBlockProjectionToThisDevice(): ?bool {
-        return $this->wirelessDisplayBlockProjectionToThisDevice;
+        return $this->getBackingStore()->get('wirelessDisplayBlockProjectionToThisDevice');
     }
 
     /**
@@ -3988,7 +2573,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayBlockUserInputFromReceiver(): ?bool {
-        return $this->wirelessDisplayBlockUserInputFromReceiver;
+        return $this->getBackingStore()->get('wirelessDisplayBlockUserInputFromReceiver');
     }
 
     /**
@@ -3996,7 +2581,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
      * @return bool|null
     */
     public function getWirelessDisplayRequirePinForPairing(): ?bool {
-        return $this->wirelessDisplayRequirePinForPairing;
+        return $this->getBackingStore()->get('wirelessDisplayRequirePinForPairing');
     }
 
     /**
@@ -4005,2553 +2590,2553 @@ class Windows10GeneralConfiguration extends DeviceConfiguration implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('accountsBlockAddingNonMicrosoftAccountEmail', $this->accountsBlockAddingNonMicrosoftAccountEmail);
-        $writer->writeEnumValue('activateAppsWithVoice', $this->activateAppsWithVoice);
-        $writer->writeBooleanValue('antiTheftModeBlocked', $this->antiTheftModeBlocked);
-        $writer->writeBooleanValue('appManagementMSIAllowUserControlOverInstall', $this->appManagementMSIAllowUserControlOverInstall);
-        $writer->writeBooleanValue('appManagementMSIAlwaysInstallWithElevatedPrivileges', $this->appManagementMSIAlwaysInstallWithElevatedPrivileges);
-        $writer->writeCollectionOfPrimitiveValues('appManagementPackageFamilyNamesToLaunchAfterLogOn', $this->appManagementPackageFamilyNamesToLaunchAfterLogOn);
-        $writer->writeEnumValue('appsAllowTrustedAppsSideloading', $this->appsAllowTrustedAppsSideloading);
-        $writer->writeBooleanValue('appsBlockWindowsStoreOriginatedApps', $this->appsBlockWindowsStoreOriginatedApps);
-        $writer->writeBooleanValue('authenticationAllowSecondaryDevice', $this->authenticationAllowSecondaryDevice);
-        $writer->writeStringValue('authenticationPreferredAzureADTenantDomainName', $this->authenticationPreferredAzureADTenantDomainName);
-        $writer->writeEnumValue('authenticationWebSignIn', $this->authenticationWebSignIn);
-        $writer->writeCollectionOfPrimitiveValues('bluetoothAllowedServices', $this->bluetoothAllowedServices);
-        $writer->writeBooleanValue('bluetoothBlockAdvertising', $this->bluetoothBlockAdvertising);
-        $writer->writeBooleanValue('bluetoothBlockDiscoverableMode', $this->bluetoothBlockDiscoverableMode);
-        $writer->writeBooleanValue('bluetoothBlocked', $this->bluetoothBlocked);
-        $writer->writeBooleanValue('bluetoothBlockPrePairing', $this->bluetoothBlockPrePairing);
-        $writer->writeBooleanValue('bluetoothBlockPromptedProximalConnections', $this->bluetoothBlockPromptedProximalConnections);
-        $writer->writeBooleanValue('cameraBlocked', $this->cameraBlocked);
-        $writer->writeBooleanValue('cellularBlockDataWhenRoaming', $this->cellularBlockDataWhenRoaming);
-        $writer->writeBooleanValue('cellularBlockVpn', $this->cellularBlockVpn);
-        $writer->writeBooleanValue('cellularBlockVpnWhenRoaming', $this->cellularBlockVpnWhenRoaming);
-        $writer->writeEnumValue('cellularData', $this->cellularData);
-        $writer->writeBooleanValue('certificatesBlockManualRootCertificateInstallation', $this->certificatesBlockManualRootCertificateInstallation);
-        $writer->writeStringValue('configureTimeZone', $this->configureTimeZone);
-        $writer->writeBooleanValue('connectedDevicesServiceBlocked', $this->connectedDevicesServiceBlocked);
-        $writer->writeBooleanValue('copyPasteBlocked', $this->copyPasteBlocked);
-        $writer->writeBooleanValue('cortanaBlocked', $this->cortanaBlocked);
-        $writer->writeBooleanValue('cryptographyAllowFipsAlgorithmPolicy', $this->cryptographyAllowFipsAlgorithmPolicy);
-        $writer->writeBooleanValue('dataProtectionBlockDirectMemoryAccess', $this->dataProtectionBlockDirectMemoryAccess);
-        $writer->writeBooleanValue('defenderBlockEndUserAccess', $this->defenderBlockEndUserAccess);
-        $writer->writeBooleanValue('defenderBlockOnAccessProtection', $this->defenderBlockOnAccessProtection);
-        $writer->writeEnumValue('defenderCloudBlockLevel', $this->defenderCloudBlockLevel);
-        $writer->writeIntegerValue('defenderCloudExtendedTimeout', $this->defenderCloudExtendedTimeout);
-        $writer->writeIntegerValue('defenderCloudExtendedTimeoutInSeconds', $this->defenderCloudExtendedTimeoutInSeconds);
-        $writer->writeIntegerValue('defenderDaysBeforeDeletingQuarantinedMalware', $this->defenderDaysBeforeDeletingQuarantinedMalware);
-        $writer->writeObjectValue('defenderDetectedMalwareActions', $this->defenderDetectedMalwareActions);
-        $writer->writeBooleanValue('defenderDisableCatchupFullScan', $this->defenderDisableCatchupFullScan);
-        $writer->writeBooleanValue('defenderDisableCatchupQuickScan', $this->defenderDisableCatchupQuickScan);
-        $writer->writeCollectionOfPrimitiveValues('defenderFileExtensionsToExclude', $this->defenderFileExtensionsToExclude);
-        $writer->writeCollectionOfPrimitiveValues('defenderFilesAndFoldersToExclude', $this->defenderFilesAndFoldersToExclude);
-        $writer->writeEnumValue('defenderMonitorFileActivity', $this->defenderMonitorFileActivity);
-        $writer->writeEnumValue('defenderPotentiallyUnwantedAppAction', $this->defenderPotentiallyUnwantedAppAction);
-        $writer->writeEnumValue('defenderPotentiallyUnwantedAppActionSetting', $this->defenderPotentiallyUnwantedAppActionSetting);
-        $writer->writeCollectionOfPrimitiveValues('defenderProcessesToExclude', $this->defenderProcessesToExclude);
-        $writer->writeEnumValue('defenderPromptForSampleSubmission', $this->defenderPromptForSampleSubmission);
-        $writer->writeBooleanValue('defenderRequireBehaviorMonitoring', $this->defenderRequireBehaviorMonitoring);
-        $writer->writeBooleanValue('defenderRequireCloudProtection', $this->defenderRequireCloudProtection);
-        $writer->writeBooleanValue('defenderRequireNetworkInspectionSystem', $this->defenderRequireNetworkInspectionSystem);
-        $writer->writeBooleanValue('defenderRequireRealTimeMonitoring', $this->defenderRequireRealTimeMonitoring);
-        $writer->writeBooleanValue('defenderScanArchiveFiles', $this->defenderScanArchiveFiles);
-        $writer->writeBooleanValue('defenderScanDownloads', $this->defenderScanDownloads);
-        $writer->writeBooleanValue('defenderScanIncomingMail', $this->defenderScanIncomingMail);
-        $writer->writeBooleanValue('defenderScanMappedNetworkDrivesDuringFullScan', $this->defenderScanMappedNetworkDrivesDuringFullScan);
-        $writer->writeIntegerValue('defenderScanMaxCpu', $this->defenderScanMaxCpu);
-        $writer->writeBooleanValue('defenderScanNetworkFiles', $this->defenderScanNetworkFiles);
-        $writer->writeBooleanValue('defenderScanRemovableDrivesDuringFullScan', $this->defenderScanRemovableDrivesDuringFullScan);
-        $writer->writeBooleanValue('defenderScanScriptsLoadedInInternetExplorer', $this->defenderScanScriptsLoadedInInternetExplorer);
-        $writer->writeEnumValue('defenderScanType', $this->defenderScanType);
-        $writer->writeTimeValue('defenderScheduledQuickScanTime', $this->defenderScheduledQuickScanTime);
-        $writer->writeTimeValue('defenderScheduledScanTime', $this->defenderScheduledScanTime);
-        $writer->writeBooleanValue('defenderScheduleScanEnableLowCpuPriority', $this->defenderScheduleScanEnableLowCpuPriority);
-        $writer->writeIntegerValue('defenderSignatureUpdateIntervalInHours', $this->defenderSignatureUpdateIntervalInHours);
-        $writer->writeEnumValue('defenderSubmitSamplesConsentType', $this->defenderSubmitSamplesConsentType);
-        $writer->writeEnumValue('defenderSystemScanSchedule', $this->defenderSystemScanSchedule);
-        $writer->writeEnumValue('developerUnlockSetting', $this->developerUnlockSetting);
-        $writer->writeBooleanValue('deviceManagementBlockFactoryResetOnMobile', $this->deviceManagementBlockFactoryResetOnMobile);
-        $writer->writeBooleanValue('deviceManagementBlockManualUnenroll', $this->deviceManagementBlockManualUnenroll);
-        $writer->writeEnumValue('diagnosticsDataSubmissionMode', $this->diagnosticsDataSubmissionMode);
-        $writer->writeCollectionOfPrimitiveValues('displayAppListWithGdiDPIScalingTurnedOff', $this->displayAppListWithGdiDPIScalingTurnedOff);
-        $writer->writeCollectionOfPrimitiveValues('displayAppListWithGdiDPIScalingTurnedOn', $this->displayAppListWithGdiDPIScalingTurnedOn);
-        $writer->writeBooleanValue('edgeAllowStartPagesModification', $this->edgeAllowStartPagesModification);
-        $writer->writeBooleanValue('edgeBlockAccessToAboutFlags', $this->edgeBlockAccessToAboutFlags);
-        $writer->writeBooleanValue('edgeBlockAddressBarDropdown', $this->edgeBlockAddressBarDropdown);
-        $writer->writeBooleanValue('edgeBlockAutofill', $this->edgeBlockAutofill);
-        $writer->writeBooleanValue('edgeBlockCompatibilityList', $this->edgeBlockCompatibilityList);
-        $writer->writeBooleanValue('edgeBlockDeveloperTools', $this->edgeBlockDeveloperTools);
-        $writer->writeBooleanValue('edgeBlocked', $this->edgeBlocked);
-        $writer->writeBooleanValue('edgeBlockEditFavorites', $this->edgeBlockEditFavorites);
-        $writer->writeBooleanValue('edgeBlockExtensions', $this->edgeBlockExtensions);
-        $writer->writeBooleanValue('edgeBlockFullScreenMode', $this->edgeBlockFullScreenMode);
-        $writer->writeBooleanValue('edgeBlockInPrivateBrowsing', $this->edgeBlockInPrivateBrowsing);
-        $writer->writeBooleanValue('edgeBlockJavaScript', $this->edgeBlockJavaScript);
-        $writer->writeBooleanValue('edgeBlockLiveTileDataCollection', $this->edgeBlockLiveTileDataCollection);
-        $writer->writeBooleanValue('edgeBlockPasswordManager', $this->edgeBlockPasswordManager);
-        $writer->writeBooleanValue('edgeBlockPopups', $this->edgeBlockPopups);
-        $writer->writeBooleanValue('edgeBlockPrelaunch', $this->edgeBlockPrelaunch);
-        $writer->writeBooleanValue('edgeBlockPrinting', $this->edgeBlockPrinting);
-        $writer->writeBooleanValue('edgeBlockSavingHistory', $this->edgeBlockSavingHistory);
-        $writer->writeBooleanValue('edgeBlockSearchEngineCustomization', $this->edgeBlockSearchEngineCustomization);
-        $writer->writeBooleanValue('edgeBlockSearchSuggestions', $this->edgeBlockSearchSuggestions);
-        $writer->writeBooleanValue('edgeBlockSendingDoNotTrackHeader', $this->edgeBlockSendingDoNotTrackHeader);
-        $writer->writeBooleanValue('edgeBlockSendingIntranetTrafficToInternetExplorer', $this->edgeBlockSendingIntranetTrafficToInternetExplorer);
-        $writer->writeBooleanValue('edgeBlockSideloadingExtensions', $this->edgeBlockSideloadingExtensions);
-        $writer->writeBooleanValue('edgeBlockTabPreloading', $this->edgeBlockTabPreloading);
-        $writer->writeBooleanValue('edgeBlockWebContentOnNewTabPage', $this->edgeBlockWebContentOnNewTabPage);
-        $writer->writeBooleanValue('edgeClearBrowsingDataOnExit', $this->edgeClearBrowsingDataOnExit);
-        $writer->writeEnumValue('edgeCookiePolicy', $this->edgeCookiePolicy);
-        $writer->writeBooleanValue('edgeDisableFirstRunPage', $this->edgeDisableFirstRunPage);
-        $writer->writeStringValue('edgeEnterpriseModeSiteListLocation', $this->edgeEnterpriseModeSiteListLocation);
-        $writer->writeEnumValue('edgeFavoritesBarVisibility', $this->edgeFavoritesBarVisibility);
-        $writer->writeStringValue('edgeFavoritesListLocation', $this->edgeFavoritesListLocation);
-        $writer->writeStringValue('edgeFirstRunUrl', $this->edgeFirstRunUrl);
-        $writer->writeObjectValue('edgeHomeButtonConfiguration', $this->edgeHomeButtonConfiguration);
-        $writer->writeBooleanValue('edgeHomeButtonConfigurationEnabled', $this->edgeHomeButtonConfigurationEnabled);
-        $writer->writeCollectionOfPrimitiveValues('edgeHomepageUrls', $this->edgeHomepageUrls);
-        $writer->writeEnumValue('edgeKioskModeRestriction', $this->edgeKioskModeRestriction);
-        $writer->writeIntegerValue('edgeKioskResetAfterIdleTimeInMinutes', $this->edgeKioskResetAfterIdleTimeInMinutes);
-        $writer->writeStringValue('edgeNewTabPageURL', $this->edgeNewTabPageURL);
-        $writer->writeEnumValue('edgeOpensWith', $this->edgeOpensWith);
-        $writer->writeBooleanValue('edgePreventCertificateErrorOverride', $this->edgePreventCertificateErrorOverride);
-        $writer->writeCollectionOfPrimitiveValues('edgeRequiredExtensionPackageFamilyNames', $this->edgeRequiredExtensionPackageFamilyNames);
-        $writer->writeBooleanValue('edgeRequireSmartScreen', $this->edgeRequireSmartScreen);
-        $writer->writeObjectValue('edgeSearchEngine', $this->edgeSearchEngine);
-        $writer->writeBooleanValue('edgeSendIntranetTrafficToInternetExplorer', $this->edgeSendIntranetTrafficToInternetExplorer);
-        $writer->writeEnumValue('edgeShowMessageWhenOpeningInternetExplorerSites', $this->edgeShowMessageWhenOpeningInternetExplorerSites);
-        $writer->writeBooleanValue('edgeSyncFavoritesWithInternetExplorer', $this->edgeSyncFavoritesWithInternetExplorer);
-        $writer->writeEnumValue('edgeTelemetryForMicrosoft365Analytics', $this->edgeTelemetryForMicrosoft365Analytics);
-        $writer->writeBooleanValue('enableAutomaticRedeployment', $this->enableAutomaticRedeployment);
-        $writer->writeIntegerValue('energySaverOnBatteryThresholdPercentage', $this->energySaverOnBatteryThresholdPercentage);
-        $writer->writeIntegerValue('energySaverPluggedInThresholdPercentage', $this->energySaverPluggedInThresholdPercentage);
-        $writer->writeStringValue('enterpriseCloudPrintDiscoveryEndPoint', $this->enterpriseCloudPrintDiscoveryEndPoint);
-        $writer->writeIntegerValue('enterpriseCloudPrintDiscoveryMaxLimit', $this->enterpriseCloudPrintDiscoveryMaxLimit);
-        $writer->writeStringValue('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier', $this->enterpriseCloudPrintMopriaDiscoveryResourceIdentifier);
-        $writer->writeStringValue('enterpriseCloudPrintOAuthAuthority', $this->enterpriseCloudPrintOAuthAuthority);
-        $writer->writeStringValue('enterpriseCloudPrintOAuthClientIdentifier', $this->enterpriseCloudPrintOAuthClientIdentifier);
-        $writer->writeStringValue('enterpriseCloudPrintResourceIdentifier', $this->enterpriseCloudPrintResourceIdentifier);
-        $writer->writeBooleanValue('experienceBlockDeviceDiscovery', $this->experienceBlockDeviceDiscovery);
-        $writer->writeBooleanValue('experienceBlockErrorDialogWhenNoSIM', $this->experienceBlockErrorDialogWhenNoSIM);
-        $writer->writeBooleanValue('experienceBlockTaskSwitcher', $this->experienceBlockTaskSwitcher);
-        $writer->writeEnumValue('experienceDoNotSyncBrowserSettings', $this->experienceDoNotSyncBrowserSettings);
-        $writer->writeEnumValue('findMyFiles', $this->findMyFiles);
-        $writer->writeBooleanValue('gameDvrBlocked', $this->gameDvrBlocked);
-        $writer->writeEnumValue('inkWorkspaceAccess', $this->inkWorkspaceAccess);
-        $writer->writeEnumValue('inkWorkspaceAccessState', $this->inkWorkspaceAccessState);
-        $writer->writeBooleanValue('inkWorkspaceBlockSuggestedApps', $this->inkWorkspaceBlockSuggestedApps);
-        $writer->writeBooleanValue('internetSharingBlocked', $this->internetSharingBlocked);
-        $writer->writeBooleanValue('locationServicesBlocked', $this->locationServicesBlocked);
-        $writer->writeEnumValue('lockScreenActivateAppsWithVoice', $this->lockScreenActivateAppsWithVoice);
-        $writer->writeBooleanValue('lockScreenAllowTimeoutConfiguration', $this->lockScreenAllowTimeoutConfiguration);
-        $writer->writeBooleanValue('lockScreenBlockActionCenterNotifications', $this->lockScreenBlockActionCenterNotifications);
-        $writer->writeBooleanValue('lockScreenBlockCortana', $this->lockScreenBlockCortana);
-        $writer->writeBooleanValue('lockScreenBlockToastNotifications', $this->lockScreenBlockToastNotifications);
-        $writer->writeIntegerValue('lockScreenTimeoutInSeconds', $this->lockScreenTimeoutInSeconds);
-        $writer->writeBooleanValue('logonBlockFastUserSwitching', $this->logonBlockFastUserSwitching);
-        $writer->writeBooleanValue('messagingBlockMMS', $this->messagingBlockMMS);
-        $writer->writeBooleanValue('messagingBlockRichCommunicationServices', $this->messagingBlockRichCommunicationServices);
-        $writer->writeBooleanValue('messagingBlockSync', $this->messagingBlockSync);
-        $writer->writeBooleanValue('microsoftAccountBlocked', $this->microsoftAccountBlocked);
-        $writer->writeBooleanValue('microsoftAccountBlockSettingsSync', $this->microsoftAccountBlockSettingsSync);
-        $writer->writeEnumValue('microsoftAccountSignInAssistantSettings', $this->microsoftAccountSignInAssistantSettings);
-        $writer->writeBooleanValue('networkProxyApplySettingsDeviceWide', $this->networkProxyApplySettingsDeviceWide);
-        $writer->writeStringValue('networkProxyAutomaticConfigurationUrl', $this->networkProxyAutomaticConfigurationUrl);
-        $writer->writeBooleanValue('networkProxyDisableAutoDetect', $this->networkProxyDisableAutoDetect);
-        $writer->writeObjectValue('networkProxyServer', $this->networkProxyServer);
-        $writer->writeBooleanValue('nfcBlocked', $this->nfcBlocked);
-        $writer->writeBooleanValue('oneDriveDisableFileSync', $this->oneDriveDisableFileSync);
-        $writer->writeBooleanValue('passwordBlockSimple', $this->passwordBlockSimple);
-        $writer->writeIntegerValue('passwordExpirationDays', $this->passwordExpirationDays);
-        $writer->writeIntegerValue('passwordMinimumAgeInDays', $this->passwordMinimumAgeInDays);
-        $writer->writeIntegerValue('passwordMinimumCharacterSetCount', $this->passwordMinimumCharacterSetCount);
-        $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
-        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeScreenTimeout', $this->passwordMinutesOfInactivityBeforeScreenTimeout);
-        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->passwordPreviousPasswordBlockCount);
-        $writer->writeBooleanValue('passwordRequired', $this->passwordRequired);
-        $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
-        $writer->writeBooleanValue('passwordRequireWhenResumeFromIdleState', $this->passwordRequireWhenResumeFromIdleState);
-        $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->passwordSignInFailureCountBeforeFactoryReset);
-        $writer->writeStringValue('personalizationDesktopImageUrl', $this->personalizationDesktopImageUrl);
-        $writer->writeStringValue('personalizationLockScreenImageUrl', $this->personalizationLockScreenImageUrl);
-        $writer->writeEnumValue('powerButtonActionOnBattery', $this->powerButtonActionOnBattery);
-        $writer->writeEnumValue('powerButtonActionPluggedIn', $this->powerButtonActionPluggedIn);
-        $writer->writeEnumValue('powerHybridSleepOnBattery', $this->powerHybridSleepOnBattery);
-        $writer->writeEnumValue('powerHybridSleepPluggedIn', $this->powerHybridSleepPluggedIn);
-        $writer->writeEnumValue('powerLidCloseActionOnBattery', $this->powerLidCloseActionOnBattery);
-        $writer->writeEnumValue('powerLidCloseActionPluggedIn', $this->powerLidCloseActionPluggedIn);
-        $writer->writeEnumValue('powerSleepButtonActionOnBattery', $this->powerSleepButtonActionOnBattery);
-        $writer->writeEnumValue('powerSleepButtonActionPluggedIn', $this->powerSleepButtonActionPluggedIn);
-        $writer->writeBooleanValue('printerBlockAddition', $this->printerBlockAddition);
-        $writer->writeStringValue('printerDefaultName', $this->printerDefaultName);
-        $writer->writeCollectionOfPrimitiveValues('printerNames', $this->printerNames);
-        $writer->writeCollectionOfObjectValues('privacyAccessControls', $this->privacyAccessControls);
-        $writer->writeEnumValue('privacyAdvertisingId', $this->privacyAdvertisingId);
-        $writer->writeBooleanValue('privacyAutoAcceptPairingAndConsentPrompts', $this->privacyAutoAcceptPairingAndConsentPrompts);
-        $writer->writeBooleanValue('privacyBlockActivityFeed', $this->privacyBlockActivityFeed);
-        $writer->writeBooleanValue('privacyBlockInputPersonalization', $this->privacyBlockInputPersonalization);
-        $writer->writeBooleanValue('privacyBlockPublishUserActivities', $this->privacyBlockPublishUserActivities);
-        $writer->writeBooleanValue('privacyDisableLaunchExperience', $this->privacyDisableLaunchExperience);
-        $writer->writeBooleanValue('resetProtectionModeBlocked', $this->resetProtectionModeBlocked);
-        $writer->writeEnumValue('safeSearchFilter', $this->safeSearchFilter);
-        $writer->writeBooleanValue('screenCaptureBlocked', $this->screenCaptureBlocked);
-        $writer->writeBooleanValue('searchBlockDiacritics', $this->searchBlockDiacritics);
-        $writer->writeBooleanValue('searchBlockWebResults', $this->searchBlockWebResults);
-        $writer->writeBooleanValue('searchDisableAutoLanguageDetection', $this->searchDisableAutoLanguageDetection);
-        $writer->writeBooleanValue('searchDisableIndexerBackoff', $this->searchDisableIndexerBackoff);
-        $writer->writeBooleanValue('searchDisableIndexingEncryptedItems', $this->searchDisableIndexingEncryptedItems);
-        $writer->writeBooleanValue('searchDisableIndexingRemovableDrive', $this->searchDisableIndexingRemovableDrive);
-        $writer->writeBooleanValue('searchDisableLocation', $this->searchDisableLocation);
-        $writer->writeBooleanValue('searchDisableUseLocation', $this->searchDisableUseLocation);
-        $writer->writeBooleanValue('searchEnableAutomaticIndexSizeManangement', $this->searchEnableAutomaticIndexSizeManangement);
-        $writer->writeBooleanValue('searchEnableRemoteQueries', $this->searchEnableRemoteQueries);
-        $writer->writeBooleanValue('securityBlockAzureADJoinedDevicesAutoEncryption', $this->securityBlockAzureADJoinedDevicesAutoEncryption);
-        $writer->writeBooleanValue('settingsBlockAccountsPage', $this->settingsBlockAccountsPage);
-        $writer->writeBooleanValue('settingsBlockAddProvisioningPackage', $this->settingsBlockAddProvisioningPackage);
-        $writer->writeBooleanValue('settingsBlockAppsPage', $this->settingsBlockAppsPage);
-        $writer->writeBooleanValue('settingsBlockChangeLanguage', $this->settingsBlockChangeLanguage);
-        $writer->writeBooleanValue('settingsBlockChangePowerSleep', $this->settingsBlockChangePowerSleep);
-        $writer->writeBooleanValue('settingsBlockChangeRegion', $this->settingsBlockChangeRegion);
-        $writer->writeBooleanValue('settingsBlockChangeSystemTime', $this->settingsBlockChangeSystemTime);
-        $writer->writeBooleanValue('settingsBlockDevicesPage', $this->settingsBlockDevicesPage);
-        $writer->writeBooleanValue('settingsBlockEaseOfAccessPage', $this->settingsBlockEaseOfAccessPage);
-        $writer->writeBooleanValue('settingsBlockEditDeviceName', $this->settingsBlockEditDeviceName);
-        $writer->writeBooleanValue('settingsBlockGamingPage', $this->settingsBlockGamingPage);
-        $writer->writeBooleanValue('settingsBlockNetworkInternetPage', $this->settingsBlockNetworkInternetPage);
-        $writer->writeBooleanValue('settingsBlockPersonalizationPage', $this->settingsBlockPersonalizationPage);
-        $writer->writeBooleanValue('settingsBlockPrivacyPage', $this->settingsBlockPrivacyPage);
-        $writer->writeBooleanValue('settingsBlockRemoveProvisioningPackage', $this->settingsBlockRemoveProvisioningPackage);
-        $writer->writeBooleanValue('settingsBlockSettingsApp', $this->settingsBlockSettingsApp);
-        $writer->writeBooleanValue('settingsBlockSystemPage', $this->settingsBlockSystemPage);
-        $writer->writeBooleanValue('settingsBlockTimeLanguagePage', $this->settingsBlockTimeLanguagePage);
-        $writer->writeBooleanValue('settingsBlockUpdateSecurityPage', $this->settingsBlockUpdateSecurityPage);
-        $writer->writeBooleanValue('sharedUserAppDataAllowed', $this->sharedUserAppDataAllowed);
-        $writer->writeEnumValue('smartScreenAppInstallControl', $this->smartScreenAppInstallControl);
-        $writer->writeBooleanValue('smartScreenBlockPromptOverride', $this->smartScreenBlockPromptOverride);
-        $writer->writeBooleanValue('smartScreenBlockPromptOverrideForFiles', $this->smartScreenBlockPromptOverrideForFiles);
-        $writer->writeBooleanValue('smartScreenEnableAppInstallControl', $this->smartScreenEnableAppInstallControl);
-        $writer->writeBooleanValue('startBlockUnpinningAppsFromTaskbar', $this->startBlockUnpinningAppsFromTaskbar);
-        $writer->writeEnumValue('startMenuAppListVisibility', $this->startMenuAppListVisibility);
-        $writer->writeBooleanValue('startMenuHideChangeAccountSettings', $this->startMenuHideChangeAccountSettings);
-        $writer->writeBooleanValue('startMenuHideFrequentlyUsedApps', $this->startMenuHideFrequentlyUsedApps);
-        $writer->writeBooleanValue('startMenuHideHibernate', $this->startMenuHideHibernate);
-        $writer->writeBooleanValue('startMenuHideLock', $this->startMenuHideLock);
-        $writer->writeBooleanValue('startMenuHidePowerButton', $this->startMenuHidePowerButton);
-        $writer->writeBooleanValue('startMenuHideRecentJumpLists', $this->startMenuHideRecentJumpLists);
-        $writer->writeBooleanValue('startMenuHideRecentlyAddedApps', $this->startMenuHideRecentlyAddedApps);
-        $writer->writeBooleanValue('startMenuHideRestartOptions', $this->startMenuHideRestartOptions);
-        $writer->writeBooleanValue('startMenuHideShutDown', $this->startMenuHideShutDown);
-        $writer->writeBooleanValue('startMenuHideSignOut', $this->startMenuHideSignOut);
-        $writer->writeBooleanValue('startMenuHideSleep', $this->startMenuHideSleep);
-        $writer->writeBooleanValue('startMenuHideSwitchAccount', $this->startMenuHideSwitchAccount);
-        $writer->writeBooleanValue('startMenuHideUserTile', $this->startMenuHideUserTile);
-        $writer->writeBinaryContent('startMenuLayoutEdgeAssetsXml', $this->startMenuLayoutEdgeAssetsXml);
-        $writer->writeBinaryContent('startMenuLayoutXml', $this->startMenuLayoutXml);
-        $writer->writeEnumValue('startMenuMode', $this->startMenuMode);
-        $writer->writeEnumValue('startMenuPinnedFolderDocuments', $this->startMenuPinnedFolderDocuments);
-        $writer->writeEnumValue('startMenuPinnedFolderDownloads', $this->startMenuPinnedFolderDownloads);
-        $writer->writeEnumValue('startMenuPinnedFolderFileExplorer', $this->startMenuPinnedFolderFileExplorer);
-        $writer->writeEnumValue('startMenuPinnedFolderHomeGroup', $this->startMenuPinnedFolderHomeGroup);
-        $writer->writeEnumValue('startMenuPinnedFolderMusic', $this->startMenuPinnedFolderMusic);
-        $writer->writeEnumValue('startMenuPinnedFolderNetwork', $this->startMenuPinnedFolderNetwork);
-        $writer->writeEnumValue('startMenuPinnedFolderPersonalFolder', $this->startMenuPinnedFolderPersonalFolder);
-        $writer->writeEnumValue('startMenuPinnedFolderPictures', $this->startMenuPinnedFolderPictures);
-        $writer->writeEnumValue('startMenuPinnedFolderSettings', $this->startMenuPinnedFolderSettings);
-        $writer->writeEnumValue('startMenuPinnedFolderVideos', $this->startMenuPinnedFolderVideos);
-        $writer->writeBooleanValue('storageBlockRemovableStorage', $this->storageBlockRemovableStorage);
-        $writer->writeBooleanValue('storageRequireMobileDeviceEncryption', $this->storageRequireMobileDeviceEncryption);
-        $writer->writeBooleanValue('storageRestrictAppDataToSystemVolume', $this->storageRestrictAppDataToSystemVolume);
-        $writer->writeBooleanValue('storageRestrictAppInstallToSystemVolume', $this->storageRestrictAppInstallToSystemVolume);
-        $writer->writeStringValue('systemTelemetryProxyServer', $this->systemTelemetryProxyServer);
-        $writer->writeBooleanValue('taskManagerBlockEndTask', $this->taskManagerBlockEndTask);
-        $writer->writeBooleanValue('tenantLockdownRequireNetworkDuringOutOfBoxExperience', $this->tenantLockdownRequireNetworkDuringOutOfBoxExperience);
-        $writer->writeBooleanValue('uninstallBuiltInApps', $this->uninstallBuiltInApps);
-        $writer->writeBooleanValue('usbBlocked', $this->usbBlocked);
-        $writer->writeBooleanValue('voiceRecordingBlocked', $this->voiceRecordingBlocked);
-        $writer->writeBooleanValue('webRtcBlockLocalhostIpAddress', $this->webRtcBlockLocalhostIpAddress);
-        $writer->writeBooleanValue('wiFiBlockAutomaticConnectHotspots', $this->wiFiBlockAutomaticConnectHotspots);
-        $writer->writeBooleanValue('wiFiBlocked', $this->wiFiBlocked);
-        $writer->writeBooleanValue('wiFiBlockManualConfiguration', $this->wiFiBlockManualConfiguration);
-        $writer->writeIntegerValue('wiFiScanInterval', $this->wiFiScanInterval);
-        $writer->writeObjectValue('windows10AppsForceUpdateSchedule', $this->windows10AppsForceUpdateSchedule);
-        $writer->writeBooleanValue('windowsSpotlightBlockConsumerSpecificFeatures', $this->windowsSpotlightBlockConsumerSpecificFeatures);
-        $writer->writeBooleanValue('windowsSpotlightBlocked', $this->windowsSpotlightBlocked);
-        $writer->writeBooleanValue('windowsSpotlightBlockOnActionCenter', $this->windowsSpotlightBlockOnActionCenter);
-        $writer->writeBooleanValue('windowsSpotlightBlockTailoredExperiences', $this->windowsSpotlightBlockTailoredExperiences);
-        $writer->writeBooleanValue('windowsSpotlightBlockThirdPartyNotifications', $this->windowsSpotlightBlockThirdPartyNotifications);
-        $writer->writeBooleanValue('windowsSpotlightBlockWelcomeExperience', $this->windowsSpotlightBlockWelcomeExperience);
-        $writer->writeBooleanValue('windowsSpotlightBlockWindowsTips', $this->windowsSpotlightBlockWindowsTips);
-        $writer->writeEnumValue('windowsSpotlightConfigureOnLockScreen', $this->windowsSpotlightConfigureOnLockScreen);
-        $writer->writeBooleanValue('windowsStoreBlockAutoUpdate', $this->windowsStoreBlockAutoUpdate);
-        $writer->writeBooleanValue('windowsStoreBlocked', $this->windowsStoreBlocked);
-        $writer->writeBooleanValue('windowsStoreEnablePrivateStoreOnly', $this->windowsStoreEnablePrivateStoreOnly);
-        $writer->writeBooleanValue('wirelessDisplayBlockProjectionToThisDevice', $this->wirelessDisplayBlockProjectionToThisDevice);
-        $writer->writeBooleanValue('wirelessDisplayBlockUserInputFromReceiver', $this->wirelessDisplayBlockUserInputFromReceiver);
-        $writer->writeBooleanValue('wirelessDisplayRequirePinForPairing', $this->wirelessDisplayRequirePinForPairing);
+        $writer->writeBooleanValue('accountsBlockAddingNonMicrosoftAccountEmail', $this->getAccountsBlockAddingNonMicrosoftAccountEmail());
+        $writer->writeEnumValue('activateAppsWithVoice', $this->getActivateAppsWithVoice());
+        $writer->writeBooleanValue('antiTheftModeBlocked', $this->getAntiTheftModeBlocked());
+        $writer->writeBooleanValue('appManagementMSIAllowUserControlOverInstall', $this->getAppManagementMSIAllowUserControlOverInstall());
+        $writer->writeBooleanValue('appManagementMSIAlwaysInstallWithElevatedPrivileges', $this->getAppManagementMSIAlwaysInstallWithElevatedPrivileges());
+        $writer->writeCollectionOfPrimitiveValues('appManagementPackageFamilyNamesToLaunchAfterLogOn', $this->getAppManagementPackageFamilyNamesToLaunchAfterLogOn());
+        $writer->writeEnumValue('appsAllowTrustedAppsSideloading', $this->getAppsAllowTrustedAppsSideloading());
+        $writer->writeBooleanValue('appsBlockWindowsStoreOriginatedApps', $this->getAppsBlockWindowsStoreOriginatedApps());
+        $writer->writeBooleanValue('authenticationAllowSecondaryDevice', $this->getAuthenticationAllowSecondaryDevice());
+        $writer->writeStringValue('authenticationPreferredAzureADTenantDomainName', $this->getAuthenticationPreferredAzureADTenantDomainName());
+        $writer->writeEnumValue('authenticationWebSignIn', $this->getAuthenticationWebSignIn());
+        $writer->writeCollectionOfPrimitiveValues('bluetoothAllowedServices', $this->getBluetoothAllowedServices());
+        $writer->writeBooleanValue('bluetoothBlockAdvertising', $this->getBluetoothBlockAdvertising());
+        $writer->writeBooleanValue('bluetoothBlockDiscoverableMode', $this->getBluetoothBlockDiscoverableMode());
+        $writer->writeBooleanValue('bluetoothBlocked', $this->getBluetoothBlocked());
+        $writer->writeBooleanValue('bluetoothBlockPrePairing', $this->getBluetoothBlockPrePairing());
+        $writer->writeBooleanValue('bluetoothBlockPromptedProximalConnections', $this->getBluetoothBlockPromptedProximalConnections());
+        $writer->writeBooleanValue('cameraBlocked', $this->getCameraBlocked());
+        $writer->writeBooleanValue('cellularBlockDataWhenRoaming', $this->getCellularBlockDataWhenRoaming());
+        $writer->writeBooleanValue('cellularBlockVpn', $this->getCellularBlockVpn());
+        $writer->writeBooleanValue('cellularBlockVpnWhenRoaming', $this->getCellularBlockVpnWhenRoaming());
+        $writer->writeEnumValue('cellularData', $this->getCellularData());
+        $writer->writeBooleanValue('certificatesBlockManualRootCertificateInstallation', $this->getCertificatesBlockManualRootCertificateInstallation());
+        $writer->writeStringValue('configureTimeZone', $this->getConfigureTimeZone());
+        $writer->writeBooleanValue('connectedDevicesServiceBlocked', $this->getConnectedDevicesServiceBlocked());
+        $writer->writeBooleanValue('copyPasteBlocked', $this->getCopyPasteBlocked());
+        $writer->writeBooleanValue('cortanaBlocked', $this->getCortanaBlocked());
+        $writer->writeBooleanValue('cryptographyAllowFipsAlgorithmPolicy', $this->getCryptographyAllowFipsAlgorithmPolicy());
+        $writer->writeBooleanValue('dataProtectionBlockDirectMemoryAccess', $this->getDataProtectionBlockDirectMemoryAccess());
+        $writer->writeBooleanValue('defenderBlockEndUserAccess', $this->getDefenderBlockEndUserAccess());
+        $writer->writeBooleanValue('defenderBlockOnAccessProtection', $this->getDefenderBlockOnAccessProtection());
+        $writer->writeEnumValue('defenderCloudBlockLevel', $this->getDefenderCloudBlockLevel());
+        $writer->writeIntegerValue('defenderCloudExtendedTimeout', $this->getDefenderCloudExtendedTimeout());
+        $writer->writeIntegerValue('defenderCloudExtendedTimeoutInSeconds', $this->getDefenderCloudExtendedTimeoutInSeconds());
+        $writer->writeIntegerValue('defenderDaysBeforeDeletingQuarantinedMalware', $this->getDefenderDaysBeforeDeletingQuarantinedMalware());
+        $writer->writeObjectValue('defenderDetectedMalwareActions', $this->getDefenderDetectedMalwareActions());
+        $writer->writeBooleanValue('defenderDisableCatchupFullScan', $this->getDefenderDisableCatchupFullScan());
+        $writer->writeBooleanValue('defenderDisableCatchupQuickScan', $this->getDefenderDisableCatchupQuickScan());
+        $writer->writeCollectionOfPrimitiveValues('defenderFileExtensionsToExclude', $this->getDefenderFileExtensionsToExclude());
+        $writer->writeCollectionOfPrimitiveValues('defenderFilesAndFoldersToExclude', $this->getDefenderFilesAndFoldersToExclude());
+        $writer->writeEnumValue('defenderMonitorFileActivity', $this->getDefenderMonitorFileActivity());
+        $writer->writeEnumValue('defenderPotentiallyUnwantedAppAction', $this->getDefenderPotentiallyUnwantedAppAction());
+        $writer->writeEnumValue('defenderPotentiallyUnwantedAppActionSetting', $this->getDefenderPotentiallyUnwantedAppActionSetting());
+        $writer->writeCollectionOfPrimitiveValues('defenderProcessesToExclude', $this->getDefenderProcessesToExclude());
+        $writer->writeEnumValue('defenderPromptForSampleSubmission', $this->getDefenderPromptForSampleSubmission());
+        $writer->writeBooleanValue('defenderRequireBehaviorMonitoring', $this->getDefenderRequireBehaviorMonitoring());
+        $writer->writeBooleanValue('defenderRequireCloudProtection', $this->getDefenderRequireCloudProtection());
+        $writer->writeBooleanValue('defenderRequireNetworkInspectionSystem', $this->getDefenderRequireNetworkInspectionSystem());
+        $writer->writeBooleanValue('defenderRequireRealTimeMonitoring', $this->getDefenderRequireRealTimeMonitoring());
+        $writer->writeBooleanValue('defenderScanArchiveFiles', $this->getDefenderScanArchiveFiles());
+        $writer->writeBooleanValue('defenderScanDownloads', $this->getDefenderScanDownloads());
+        $writer->writeBooleanValue('defenderScanIncomingMail', $this->getDefenderScanIncomingMail());
+        $writer->writeBooleanValue('defenderScanMappedNetworkDrivesDuringFullScan', $this->getDefenderScanMappedNetworkDrivesDuringFullScan());
+        $writer->writeIntegerValue('defenderScanMaxCpu', $this->getDefenderScanMaxCpu());
+        $writer->writeBooleanValue('defenderScanNetworkFiles', $this->getDefenderScanNetworkFiles());
+        $writer->writeBooleanValue('defenderScanRemovableDrivesDuringFullScan', $this->getDefenderScanRemovableDrivesDuringFullScan());
+        $writer->writeBooleanValue('defenderScanScriptsLoadedInInternetExplorer', $this->getDefenderScanScriptsLoadedInInternetExplorer());
+        $writer->writeEnumValue('defenderScanType', $this->getDefenderScanType());
+        $writer->writeTimeValue('defenderScheduledQuickScanTime', $this->getDefenderScheduledQuickScanTime());
+        $writer->writeTimeValue('defenderScheduledScanTime', $this->getDefenderScheduledScanTime());
+        $writer->writeBooleanValue('defenderScheduleScanEnableLowCpuPriority', $this->getDefenderScheduleScanEnableLowCpuPriority());
+        $writer->writeIntegerValue('defenderSignatureUpdateIntervalInHours', $this->getDefenderSignatureUpdateIntervalInHours());
+        $writer->writeEnumValue('defenderSubmitSamplesConsentType', $this->getDefenderSubmitSamplesConsentType());
+        $writer->writeEnumValue('defenderSystemScanSchedule', $this->getDefenderSystemScanSchedule());
+        $writer->writeEnumValue('developerUnlockSetting', $this->getDeveloperUnlockSetting());
+        $writer->writeBooleanValue('deviceManagementBlockFactoryResetOnMobile', $this->getDeviceManagementBlockFactoryResetOnMobile());
+        $writer->writeBooleanValue('deviceManagementBlockManualUnenroll', $this->getDeviceManagementBlockManualUnenroll());
+        $writer->writeEnumValue('diagnosticsDataSubmissionMode', $this->getDiagnosticsDataSubmissionMode());
+        $writer->writeCollectionOfPrimitiveValues('displayAppListWithGdiDPIScalingTurnedOff', $this->getDisplayAppListWithGdiDPIScalingTurnedOff());
+        $writer->writeCollectionOfPrimitiveValues('displayAppListWithGdiDPIScalingTurnedOn', $this->getDisplayAppListWithGdiDPIScalingTurnedOn());
+        $writer->writeBooleanValue('edgeAllowStartPagesModification', $this->getEdgeAllowStartPagesModification());
+        $writer->writeBooleanValue('edgeBlockAccessToAboutFlags', $this->getEdgeBlockAccessToAboutFlags());
+        $writer->writeBooleanValue('edgeBlockAddressBarDropdown', $this->getEdgeBlockAddressBarDropdown());
+        $writer->writeBooleanValue('edgeBlockAutofill', $this->getEdgeBlockAutofill());
+        $writer->writeBooleanValue('edgeBlockCompatibilityList', $this->getEdgeBlockCompatibilityList());
+        $writer->writeBooleanValue('edgeBlockDeveloperTools', $this->getEdgeBlockDeveloperTools());
+        $writer->writeBooleanValue('edgeBlocked', $this->getEdgeBlocked());
+        $writer->writeBooleanValue('edgeBlockEditFavorites', $this->getEdgeBlockEditFavorites());
+        $writer->writeBooleanValue('edgeBlockExtensions', $this->getEdgeBlockExtensions());
+        $writer->writeBooleanValue('edgeBlockFullScreenMode', $this->getEdgeBlockFullScreenMode());
+        $writer->writeBooleanValue('edgeBlockInPrivateBrowsing', $this->getEdgeBlockInPrivateBrowsing());
+        $writer->writeBooleanValue('edgeBlockJavaScript', $this->getEdgeBlockJavaScript());
+        $writer->writeBooleanValue('edgeBlockLiveTileDataCollection', $this->getEdgeBlockLiveTileDataCollection());
+        $writer->writeBooleanValue('edgeBlockPasswordManager', $this->getEdgeBlockPasswordManager());
+        $writer->writeBooleanValue('edgeBlockPopups', $this->getEdgeBlockPopups());
+        $writer->writeBooleanValue('edgeBlockPrelaunch', $this->getEdgeBlockPrelaunch());
+        $writer->writeBooleanValue('edgeBlockPrinting', $this->getEdgeBlockPrinting());
+        $writer->writeBooleanValue('edgeBlockSavingHistory', $this->getEdgeBlockSavingHistory());
+        $writer->writeBooleanValue('edgeBlockSearchEngineCustomization', $this->getEdgeBlockSearchEngineCustomization());
+        $writer->writeBooleanValue('edgeBlockSearchSuggestions', $this->getEdgeBlockSearchSuggestions());
+        $writer->writeBooleanValue('edgeBlockSendingDoNotTrackHeader', $this->getEdgeBlockSendingDoNotTrackHeader());
+        $writer->writeBooleanValue('edgeBlockSendingIntranetTrafficToInternetExplorer', $this->getEdgeBlockSendingIntranetTrafficToInternetExplorer());
+        $writer->writeBooleanValue('edgeBlockSideloadingExtensions', $this->getEdgeBlockSideloadingExtensions());
+        $writer->writeBooleanValue('edgeBlockTabPreloading', $this->getEdgeBlockTabPreloading());
+        $writer->writeBooleanValue('edgeBlockWebContentOnNewTabPage', $this->getEdgeBlockWebContentOnNewTabPage());
+        $writer->writeBooleanValue('edgeClearBrowsingDataOnExit', $this->getEdgeClearBrowsingDataOnExit());
+        $writer->writeEnumValue('edgeCookiePolicy', $this->getEdgeCookiePolicy());
+        $writer->writeBooleanValue('edgeDisableFirstRunPage', $this->getEdgeDisableFirstRunPage());
+        $writer->writeStringValue('edgeEnterpriseModeSiteListLocation', $this->getEdgeEnterpriseModeSiteListLocation());
+        $writer->writeEnumValue('edgeFavoritesBarVisibility', $this->getEdgeFavoritesBarVisibility());
+        $writer->writeStringValue('edgeFavoritesListLocation', $this->getEdgeFavoritesListLocation());
+        $writer->writeStringValue('edgeFirstRunUrl', $this->getEdgeFirstRunUrl());
+        $writer->writeObjectValue('edgeHomeButtonConfiguration', $this->getEdgeHomeButtonConfiguration());
+        $writer->writeBooleanValue('edgeHomeButtonConfigurationEnabled', $this->getEdgeHomeButtonConfigurationEnabled());
+        $writer->writeCollectionOfPrimitiveValues('edgeHomepageUrls', $this->getEdgeHomepageUrls());
+        $writer->writeEnumValue('edgeKioskModeRestriction', $this->getEdgeKioskModeRestriction());
+        $writer->writeIntegerValue('edgeKioskResetAfterIdleTimeInMinutes', $this->getEdgeKioskResetAfterIdleTimeInMinutes());
+        $writer->writeStringValue('edgeNewTabPageURL', $this->getEdgeNewTabPageURL());
+        $writer->writeEnumValue('edgeOpensWith', $this->getEdgeOpensWith());
+        $writer->writeBooleanValue('edgePreventCertificateErrorOverride', $this->getEdgePreventCertificateErrorOverride());
+        $writer->writeCollectionOfPrimitiveValues('edgeRequiredExtensionPackageFamilyNames', $this->getEdgeRequiredExtensionPackageFamilyNames());
+        $writer->writeBooleanValue('edgeRequireSmartScreen', $this->getEdgeRequireSmartScreen());
+        $writer->writeObjectValue('edgeSearchEngine', $this->getEdgeSearchEngine());
+        $writer->writeBooleanValue('edgeSendIntranetTrafficToInternetExplorer', $this->getEdgeSendIntranetTrafficToInternetExplorer());
+        $writer->writeEnumValue('edgeShowMessageWhenOpeningInternetExplorerSites', $this->getEdgeShowMessageWhenOpeningInternetExplorerSites());
+        $writer->writeBooleanValue('edgeSyncFavoritesWithInternetExplorer', $this->getEdgeSyncFavoritesWithInternetExplorer());
+        $writer->writeEnumValue('edgeTelemetryForMicrosoft365Analytics', $this->getEdgeTelemetryForMicrosoft365Analytics());
+        $writer->writeBooleanValue('enableAutomaticRedeployment', $this->getEnableAutomaticRedeployment());
+        $writer->writeIntegerValue('energySaverOnBatteryThresholdPercentage', $this->getEnergySaverOnBatteryThresholdPercentage());
+        $writer->writeIntegerValue('energySaverPluggedInThresholdPercentage', $this->getEnergySaverPluggedInThresholdPercentage());
+        $writer->writeStringValue('enterpriseCloudPrintDiscoveryEndPoint', $this->getEnterpriseCloudPrintDiscoveryEndPoint());
+        $writer->writeIntegerValue('enterpriseCloudPrintDiscoveryMaxLimit', $this->getEnterpriseCloudPrintDiscoveryMaxLimit());
+        $writer->writeStringValue('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier', $this->getEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier());
+        $writer->writeStringValue('enterpriseCloudPrintOAuthAuthority', $this->getEnterpriseCloudPrintOAuthAuthority());
+        $writer->writeStringValue('enterpriseCloudPrintOAuthClientIdentifier', $this->getEnterpriseCloudPrintOAuthClientIdentifier());
+        $writer->writeStringValue('enterpriseCloudPrintResourceIdentifier', $this->getEnterpriseCloudPrintResourceIdentifier());
+        $writer->writeBooleanValue('experienceBlockDeviceDiscovery', $this->getExperienceBlockDeviceDiscovery());
+        $writer->writeBooleanValue('experienceBlockErrorDialogWhenNoSIM', $this->getExperienceBlockErrorDialogWhenNoSIM());
+        $writer->writeBooleanValue('experienceBlockTaskSwitcher', $this->getExperienceBlockTaskSwitcher());
+        $writer->writeEnumValue('experienceDoNotSyncBrowserSettings', $this->getExperienceDoNotSyncBrowserSettings());
+        $writer->writeEnumValue('findMyFiles', $this->getFindMyFiles());
+        $writer->writeBooleanValue('gameDvrBlocked', $this->getGameDvrBlocked());
+        $writer->writeEnumValue('inkWorkspaceAccess', $this->getInkWorkspaceAccess());
+        $writer->writeEnumValue('inkWorkspaceAccessState', $this->getInkWorkspaceAccessState());
+        $writer->writeBooleanValue('inkWorkspaceBlockSuggestedApps', $this->getInkWorkspaceBlockSuggestedApps());
+        $writer->writeBooleanValue('internetSharingBlocked', $this->getInternetSharingBlocked());
+        $writer->writeBooleanValue('locationServicesBlocked', $this->getLocationServicesBlocked());
+        $writer->writeEnumValue('lockScreenActivateAppsWithVoice', $this->getLockScreenActivateAppsWithVoice());
+        $writer->writeBooleanValue('lockScreenAllowTimeoutConfiguration', $this->getLockScreenAllowTimeoutConfiguration());
+        $writer->writeBooleanValue('lockScreenBlockActionCenterNotifications', $this->getLockScreenBlockActionCenterNotifications());
+        $writer->writeBooleanValue('lockScreenBlockCortana', $this->getLockScreenBlockCortana());
+        $writer->writeBooleanValue('lockScreenBlockToastNotifications', $this->getLockScreenBlockToastNotifications());
+        $writer->writeIntegerValue('lockScreenTimeoutInSeconds', $this->getLockScreenTimeoutInSeconds());
+        $writer->writeBooleanValue('logonBlockFastUserSwitching', $this->getLogonBlockFastUserSwitching());
+        $writer->writeBooleanValue('messagingBlockMMS', $this->getMessagingBlockMMS());
+        $writer->writeBooleanValue('messagingBlockRichCommunicationServices', $this->getMessagingBlockRichCommunicationServices());
+        $writer->writeBooleanValue('messagingBlockSync', $this->getMessagingBlockSync());
+        $writer->writeBooleanValue('microsoftAccountBlocked', $this->getMicrosoftAccountBlocked());
+        $writer->writeBooleanValue('microsoftAccountBlockSettingsSync', $this->getMicrosoftAccountBlockSettingsSync());
+        $writer->writeEnumValue('microsoftAccountSignInAssistantSettings', $this->getMicrosoftAccountSignInAssistantSettings());
+        $writer->writeBooleanValue('networkProxyApplySettingsDeviceWide', $this->getNetworkProxyApplySettingsDeviceWide());
+        $writer->writeStringValue('networkProxyAutomaticConfigurationUrl', $this->getNetworkProxyAutomaticConfigurationUrl());
+        $writer->writeBooleanValue('networkProxyDisableAutoDetect', $this->getNetworkProxyDisableAutoDetect());
+        $writer->writeObjectValue('networkProxyServer', $this->getNetworkProxyServer());
+        $writer->writeBooleanValue('nfcBlocked', $this->getNfcBlocked());
+        $writer->writeBooleanValue('oneDriveDisableFileSync', $this->getOneDriveDisableFileSync());
+        $writer->writeBooleanValue('passwordBlockSimple', $this->getPasswordBlockSimple());
+        $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());
+        $writer->writeIntegerValue('passwordMinimumAgeInDays', $this->getPasswordMinimumAgeInDays());
+        $writer->writeIntegerValue('passwordMinimumCharacterSetCount', $this->getPasswordMinimumCharacterSetCount());
+        $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
+        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeScreenTimeout', $this->getPasswordMinutesOfInactivityBeforeScreenTimeout());
+        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->getPasswordPreviousPasswordBlockCount());
+        $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
+        $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
+        $writer->writeBooleanValue('passwordRequireWhenResumeFromIdleState', $this->getPasswordRequireWhenResumeFromIdleState());
+        $writer->writeIntegerValue('passwordSignInFailureCountBeforeFactoryReset', $this->getPasswordSignInFailureCountBeforeFactoryReset());
+        $writer->writeStringValue('personalizationDesktopImageUrl', $this->getPersonalizationDesktopImageUrl());
+        $writer->writeStringValue('personalizationLockScreenImageUrl', $this->getPersonalizationLockScreenImageUrl());
+        $writer->writeEnumValue('powerButtonActionOnBattery', $this->getPowerButtonActionOnBattery());
+        $writer->writeEnumValue('powerButtonActionPluggedIn', $this->getPowerButtonActionPluggedIn());
+        $writer->writeEnumValue('powerHybridSleepOnBattery', $this->getPowerHybridSleepOnBattery());
+        $writer->writeEnumValue('powerHybridSleepPluggedIn', $this->getPowerHybridSleepPluggedIn());
+        $writer->writeEnumValue('powerLidCloseActionOnBattery', $this->getPowerLidCloseActionOnBattery());
+        $writer->writeEnumValue('powerLidCloseActionPluggedIn', $this->getPowerLidCloseActionPluggedIn());
+        $writer->writeEnumValue('powerSleepButtonActionOnBattery', $this->getPowerSleepButtonActionOnBattery());
+        $writer->writeEnumValue('powerSleepButtonActionPluggedIn', $this->getPowerSleepButtonActionPluggedIn());
+        $writer->writeBooleanValue('printerBlockAddition', $this->getPrinterBlockAddition());
+        $writer->writeStringValue('printerDefaultName', $this->getPrinterDefaultName());
+        $writer->writeCollectionOfPrimitiveValues('printerNames', $this->getPrinterNames());
+        $writer->writeCollectionOfObjectValues('privacyAccessControls', $this->getPrivacyAccessControls());
+        $writer->writeEnumValue('privacyAdvertisingId', $this->getPrivacyAdvertisingId());
+        $writer->writeBooleanValue('privacyAutoAcceptPairingAndConsentPrompts', $this->getPrivacyAutoAcceptPairingAndConsentPrompts());
+        $writer->writeBooleanValue('privacyBlockActivityFeed', $this->getPrivacyBlockActivityFeed());
+        $writer->writeBooleanValue('privacyBlockInputPersonalization', $this->getPrivacyBlockInputPersonalization());
+        $writer->writeBooleanValue('privacyBlockPublishUserActivities', $this->getPrivacyBlockPublishUserActivities());
+        $writer->writeBooleanValue('privacyDisableLaunchExperience', $this->getPrivacyDisableLaunchExperience());
+        $writer->writeBooleanValue('resetProtectionModeBlocked', $this->getResetProtectionModeBlocked());
+        $writer->writeEnumValue('safeSearchFilter', $this->getSafeSearchFilter());
+        $writer->writeBooleanValue('screenCaptureBlocked', $this->getScreenCaptureBlocked());
+        $writer->writeBooleanValue('searchBlockDiacritics', $this->getSearchBlockDiacritics());
+        $writer->writeBooleanValue('searchBlockWebResults', $this->getSearchBlockWebResults());
+        $writer->writeBooleanValue('searchDisableAutoLanguageDetection', $this->getSearchDisableAutoLanguageDetection());
+        $writer->writeBooleanValue('searchDisableIndexerBackoff', $this->getSearchDisableIndexerBackoff());
+        $writer->writeBooleanValue('searchDisableIndexingEncryptedItems', $this->getSearchDisableIndexingEncryptedItems());
+        $writer->writeBooleanValue('searchDisableIndexingRemovableDrive', $this->getSearchDisableIndexingRemovableDrive());
+        $writer->writeBooleanValue('searchDisableLocation', $this->getSearchDisableLocation());
+        $writer->writeBooleanValue('searchDisableUseLocation', $this->getSearchDisableUseLocation());
+        $writer->writeBooleanValue('searchEnableAutomaticIndexSizeManangement', $this->getSearchEnableAutomaticIndexSizeManangement());
+        $writer->writeBooleanValue('searchEnableRemoteQueries', $this->getSearchEnableRemoteQueries());
+        $writer->writeBooleanValue('securityBlockAzureADJoinedDevicesAutoEncryption', $this->getSecurityBlockAzureADJoinedDevicesAutoEncryption());
+        $writer->writeBooleanValue('settingsBlockAccountsPage', $this->getSettingsBlockAccountsPage());
+        $writer->writeBooleanValue('settingsBlockAddProvisioningPackage', $this->getSettingsBlockAddProvisioningPackage());
+        $writer->writeBooleanValue('settingsBlockAppsPage', $this->getSettingsBlockAppsPage());
+        $writer->writeBooleanValue('settingsBlockChangeLanguage', $this->getSettingsBlockChangeLanguage());
+        $writer->writeBooleanValue('settingsBlockChangePowerSleep', $this->getSettingsBlockChangePowerSleep());
+        $writer->writeBooleanValue('settingsBlockChangeRegion', $this->getSettingsBlockChangeRegion());
+        $writer->writeBooleanValue('settingsBlockChangeSystemTime', $this->getSettingsBlockChangeSystemTime());
+        $writer->writeBooleanValue('settingsBlockDevicesPage', $this->getSettingsBlockDevicesPage());
+        $writer->writeBooleanValue('settingsBlockEaseOfAccessPage', $this->getSettingsBlockEaseOfAccessPage());
+        $writer->writeBooleanValue('settingsBlockEditDeviceName', $this->getSettingsBlockEditDeviceName());
+        $writer->writeBooleanValue('settingsBlockGamingPage', $this->getSettingsBlockGamingPage());
+        $writer->writeBooleanValue('settingsBlockNetworkInternetPage', $this->getSettingsBlockNetworkInternetPage());
+        $writer->writeBooleanValue('settingsBlockPersonalizationPage', $this->getSettingsBlockPersonalizationPage());
+        $writer->writeBooleanValue('settingsBlockPrivacyPage', $this->getSettingsBlockPrivacyPage());
+        $writer->writeBooleanValue('settingsBlockRemoveProvisioningPackage', $this->getSettingsBlockRemoveProvisioningPackage());
+        $writer->writeBooleanValue('settingsBlockSettingsApp', $this->getSettingsBlockSettingsApp());
+        $writer->writeBooleanValue('settingsBlockSystemPage', $this->getSettingsBlockSystemPage());
+        $writer->writeBooleanValue('settingsBlockTimeLanguagePage', $this->getSettingsBlockTimeLanguagePage());
+        $writer->writeBooleanValue('settingsBlockUpdateSecurityPage', $this->getSettingsBlockUpdateSecurityPage());
+        $writer->writeBooleanValue('sharedUserAppDataAllowed', $this->getSharedUserAppDataAllowed());
+        $writer->writeEnumValue('smartScreenAppInstallControl', $this->getSmartScreenAppInstallControl());
+        $writer->writeBooleanValue('smartScreenBlockPromptOverride', $this->getSmartScreenBlockPromptOverride());
+        $writer->writeBooleanValue('smartScreenBlockPromptOverrideForFiles', $this->getSmartScreenBlockPromptOverrideForFiles());
+        $writer->writeBooleanValue('smartScreenEnableAppInstallControl', $this->getSmartScreenEnableAppInstallControl());
+        $writer->writeBooleanValue('startBlockUnpinningAppsFromTaskbar', $this->getStartBlockUnpinningAppsFromTaskbar());
+        $writer->writeEnumValue('startMenuAppListVisibility', $this->getStartMenuAppListVisibility());
+        $writer->writeBooleanValue('startMenuHideChangeAccountSettings', $this->getStartMenuHideChangeAccountSettings());
+        $writer->writeBooleanValue('startMenuHideFrequentlyUsedApps', $this->getStartMenuHideFrequentlyUsedApps());
+        $writer->writeBooleanValue('startMenuHideHibernate', $this->getStartMenuHideHibernate());
+        $writer->writeBooleanValue('startMenuHideLock', $this->getStartMenuHideLock());
+        $writer->writeBooleanValue('startMenuHidePowerButton', $this->getStartMenuHidePowerButton());
+        $writer->writeBooleanValue('startMenuHideRecentJumpLists', $this->getStartMenuHideRecentJumpLists());
+        $writer->writeBooleanValue('startMenuHideRecentlyAddedApps', $this->getStartMenuHideRecentlyAddedApps());
+        $writer->writeBooleanValue('startMenuHideRestartOptions', $this->getStartMenuHideRestartOptions());
+        $writer->writeBooleanValue('startMenuHideShutDown', $this->getStartMenuHideShutDown());
+        $writer->writeBooleanValue('startMenuHideSignOut', $this->getStartMenuHideSignOut());
+        $writer->writeBooleanValue('startMenuHideSleep', $this->getStartMenuHideSleep());
+        $writer->writeBooleanValue('startMenuHideSwitchAccount', $this->getStartMenuHideSwitchAccount());
+        $writer->writeBooleanValue('startMenuHideUserTile', $this->getStartMenuHideUserTile());
+        $writer->writeBinaryContent('startMenuLayoutEdgeAssetsXml', $this->getStartMenuLayoutEdgeAssetsXml());
+        $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
+        $writer->writeEnumValue('startMenuMode', $this->getStartMenuMode());
+        $writer->writeEnumValue('startMenuPinnedFolderDocuments', $this->getStartMenuPinnedFolderDocuments());
+        $writer->writeEnumValue('startMenuPinnedFolderDownloads', $this->getStartMenuPinnedFolderDownloads());
+        $writer->writeEnumValue('startMenuPinnedFolderFileExplorer', $this->getStartMenuPinnedFolderFileExplorer());
+        $writer->writeEnumValue('startMenuPinnedFolderHomeGroup', $this->getStartMenuPinnedFolderHomeGroup());
+        $writer->writeEnumValue('startMenuPinnedFolderMusic', $this->getStartMenuPinnedFolderMusic());
+        $writer->writeEnumValue('startMenuPinnedFolderNetwork', $this->getStartMenuPinnedFolderNetwork());
+        $writer->writeEnumValue('startMenuPinnedFolderPersonalFolder', $this->getStartMenuPinnedFolderPersonalFolder());
+        $writer->writeEnumValue('startMenuPinnedFolderPictures', $this->getStartMenuPinnedFolderPictures());
+        $writer->writeEnumValue('startMenuPinnedFolderSettings', $this->getStartMenuPinnedFolderSettings());
+        $writer->writeEnumValue('startMenuPinnedFolderVideos', $this->getStartMenuPinnedFolderVideos());
+        $writer->writeBooleanValue('storageBlockRemovableStorage', $this->getStorageBlockRemovableStorage());
+        $writer->writeBooleanValue('storageRequireMobileDeviceEncryption', $this->getStorageRequireMobileDeviceEncryption());
+        $writer->writeBooleanValue('storageRestrictAppDataToSystemVolume', $this->getStorageRestrictAppDataToSystemVolume());
+        $writer->writeBooleanValue('storageRestrictAppInstallToSystemVolume', $this->getStorageRestrictAppInstallToSystemVolume());
+        $writer->writeStringValue('systemTelemetryProxyServer', $this->getSystemTelemetryProxyServer());
+        $writer->writeBooleanValue('taskManagerBlockEndTask', $this->getTaskManagerBlockEndTask());
+        $writer->writeBooleanValue('tenantLockdownRequireNetworkDuringOutOfBoxExperience', $this->getTenantLockdownRequireNetworkDuringOutOfBoxExperience());
+        $writer->writeBooleanValue('uninstallBuiltInApps', $this->getUninstallBuiltInApps());
+        $writer->writeBooleanValue('usbBlocked', $this->getUsbBlocked());
+        $writer->writeBooleanValue('voiceRecordingBlocked', $this->getVoiceRecordingBlocked());
+        $writer->writeBooleanValue('webRtcBlockLocalhostIpAddress', $this->getWebRtcBlockLocalhostIpAddress());
+        $writer->writeBooleanValue('wiFiBlockAutomaticConnectHotspots', $this->getWiFiBlockAutomaticConnectHotspots());
+        $writer->writeBooleanValue('wiFiBlocked', $this->getWiFiBlocked());
+        $writer->writeBooleanValue('wiFiBlockManualConfiguration', $this->getWiFiBlockManualConfiguration());
+        $writer->writeIntegerValue('wiFiScanInterval', $this->getWiFiScanInterval());
+        $writer->writeObjectValue('windows10AppsForceUpdateSchedule', $this->getWindows10AppsForceUpdateSchedule());
+        $writer->writeBooleanValue('windowsSpotlightBlockConsumerSpecificFeatures', $this->getWindowsSpotlightBlockConsumerSpecificFeatures());
+        $writer->writeBooleanValue('windowsSpotlightBlocked', $this->getWindowsSpotlightBlocked());
+        $writer->writeBooleanValue('windowsSpotlightBlockOnActionCenter', $this->getWindowsSpotlightBlockOnActionCenter());
+        $writer->writeBooleanValue('windowsSpotlightBlockTailoredExperiences', $this->getWindowsSpotlightBlockTailoredExperiences());
+        $writer->writeBooleanValue('windowsSpotlightBlockThirdPartyNotifications', $this->getWindowsSpotlightBlockThirdPartyNotifications());
+        $writer->writeBooleanValue('windowsSpotlightBlockWelcomeExperience', $this->getWindowsSpotlightBlockWelcomeExperience());
+        $writer->writeBooleanValue('windowsSpotlightBlockWindowsTips', $this->getWindowsSpotlightBlockWindowsTips());
+        $writer->writeEnumValue('windowsSpotlightConfigureOnLockScreen', $this->getWindowsSpotlightConfigureOnLockScreen());
+        $writer->writeBooleanValue('windowsStoreBlockAutoUpdate', $this->getWindowsStoreBlockAutoUpdate());
+        $writer->writeBooleanValue('windowsStoreBlocked', $this->getWindowsStoreBlocked());
+        $writer->writeBooleanValue('windowsStoreEnablePrivateStoreOnly', $this->getWindowsStoreEnablePrivateStoreOnly());
+        $writer->writeBooleanValue('wirelessDisplayBlockProjectionToThisDevice', $this->getWirelessDisplayBlockProjectionToThisDevice());
+        $writer->writeBooleanValue('wirelessDisplayBlockUserInputFromReceiver', $this->getWirelessDisplayBlockUserInputFromReceiver());
+        $writer->writeBooleanValue('wirelessDisplayRequirePinForPairing', $this->getWirelessDisplayRequirePinForPairing());
     }
 
     /**
      * Sets the accountsBlockAddingNonMicrosoftAccountEmail property value. Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
      *  @param bool|null $value Value to set for the accountsBlockAddingNonMicrosoftAccountEmail property.
     */
-    public function setAccountsBlockAddingNonMicrosoftAccountEmail(?bool $value ): void {
-        $this->accountsBlockAddingNonMicrosoftAccountEmail = $value;
+    public function setAccountsBlockAddingNonMicrosoftAccountEmail(?bool $value): void {
+        $this->getBackingStore()->set('accountsBlockAddingNonMicrosoftAccountEmail', $value);
     }
 
     /**
      * Sets the activateAppsWithVoice property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the activateAppsWithVoice property.
     */
-    public function setActivateAppsWithVoice(?Enablement $value ): void {
-        $this->activateAppsWithVoice = $value;
+    public function setActivateAppsWithVoice(?Enablement $value): void {
+        $this->getBackingStore()->set('activateAppsWithVoice', $value);
     }
 
     /**
      * Sets the antiTheftModeBlocked property value. Indicates whether or not to block the user from selecting an AntiTheft mode preference (Windows 10 Mobile only).
      *  @param bool|null $value Value to set for the antiTheftModeBlocked property.
     */
-    public function setAntiTheftModeBlocked(?bool $value ): void {
-        $this->antiTheftModeBlocked = $value;
+    public function setAntiTheftModeBlocked(?bool $value): void {
+        $this->getBackingStore()->set('antiTheftModeBlocked', $value);
     }
 
     /**
      * Sets the appManagementMSIAllowUserControlOverInstall property value. This policy setting permits users to change installation options that typically are available only to system administrators.
      *  @param bool|null $value Value to set for the appManagementMSIAllowUserControlOverInstall property.
     */
-    public function setAppManagementMSIAllowUserControlOverInstall(?bool $value ): void {
-        $this->appManagementMSIAllowUserControlOverInstall = $value;
+    public function setAppManagementMSIAllowUserControlOverInstall(?bool $value): void {
+        $this->getBackingStore()->set('appManagementMSIAllowUserControlOverInstall', $value);
     }
 
     /**
      * Sets the appManagementMSIAlwaysInstallWithElevatedPrivileges property value. This policy setting directs Windows Installer to use elevated permissions when it installs any program on the system.
      *  @param bool|null $value Value to set for the appManagementMSIAlwaysInstallWithElevatedPrivileges property.
     */
-    public function setAppManagementMSIAlwaysInstallWithElevatedPrivileges(?bool $value ): void {
-        $this->appManagementMSIAlwaysInstallWithElevatedPrivileges = $value;
+    public function setAppManagementMSIAlwaysInstallWithElevatedPrivileges(?bool $value): void {
+        $this->getBackingStore()->set('appManagementMSIAlwaysInstallWithElevatedPrivileges', $value);
     }
 
     /**
      * Sets the appManagementPackageFamilyNamesToLaunchAfterLogOn property value. List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​
      *  @param array<string>|null $value Value to set for the appManagementPackageFamilyNamesToLaunchAfterLogOn property.
     */
-    public function setAppManagementPackageFamilyNamesToLaunchAfterLogOn(?array $value ): void {
-        $this->appManagementPackageFamilyNamesToLaunchAfterLogOn = $value;
+    public function setAppManagementPackageFamilyNamesToLaunchAfterLogOn(?array $value): void {
+        $this->getBackingStore()->set('appManagementPackageFamilyNamesToLaunchAfterLogOn', $value);
     }
 
     /**
      * Sets the appsAllowTrustedAppsSideloading property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the appsAllowTrustedAppsSideloading property.
     */
-    public function setAppsAllowTrustedAppsSideloading(?StateManagementSetting $value ): void {
-        $this->appsAllowTrustedAppsSideloading = $value;
+    public function setAppsAllowTrustedAppsSideloading(?StateManagementSetting $value): void {
+        $this->getBackingStore()->set('appsAllowTrustedAppsSideloading', $value);
     }
 
     /**
      * Sets the appsBlockWindowsStoreOriginatedApps property value. Indicates whether or not to disable the launch of all apps from Windows Store that came pre-installed or were downloaded.
      *  @param bool|null $value Value to set for the appsBlockWindowsStoreOriginatedApps property.
     */
-    public function setAppsBlockWindowsStoreOriginatedApps(?bool $value ): void {
-        $this->appsBlockWindowsStoreOriginatedApps = $value;
+    public function setAppsBlockWindowsStoreOriginatedApps(?bool $value): void {
+        $this->getBackingStore()->set('appsBlockWindowsStoreOriginatedApps', $value);
     }
 
     /**
      * Sets the authenticationAllowSecondaryDevice property value. Allows secondary authentication devices to work with Windows.
      *  @param bool|null $value Value to set for the authenticationAllowSecondaryDevice property.
     */
-    public function setAuthenticationAllowSecondaryDevice(?bool $value ): void {
-        $this->authenticationAllowSecondaryDevice = $value;
+    public function setAuthenticationAllowSecondaryDevice(?bool $value): void {
+        $this->getBackingStore()->set('authenticationAllowSecondaryDevice', $value);
     }
 
     /**
      * Sets the authenticationPreferredAzureADTenantDomainName property value. Specifies the preferred domain among available domains in the Azure AD tenant.
      *  @param string|null $value Value to set for the authenticationPreferredAzureADTenantDomainName property.
     */
-    public function setAuthenticationPreferredAzureADTenantDomainName(?string $value ): void {
-        $this->authenticationPreferredAzureADTenantDomainName = $value;
+    public function setAuthenticationPreferredAzureADTenantDomainName(?string $value): void {
+        $this->getBackingStore()->set('authenticationPreferredAzureADTenantDomainName', $value);
     }
 
     /**
      * Sets the authenticationWebSignIn property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the authenticationWebSignIn property.
     */
-    public function setAuthenticationWebSignIn(?Enablement $value ): void {
-        $this->authenticationWebSignIn = $value;
+    public function setAuthenticationWebSignIn(?Enablement $value): void {
+        $this->getBackingStore()->set('authenticationWebSignIn', $value);
     }
 
     /**
      * Sets the bluetoothAllowedServices property value. Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
      *  @param array<string>|null $value Value to set for the bluetoothAllowedServices property.
     */
-    public function setBluetoothAllowedServices(?array $value ): void {
-        $this->bluetoothAllowedServices = $value;
+    public function setBluetoothAllowedServices(?array $value): void {
+        $this->getBackingStore()->set('bluetoothAllowedServices', $value);
     }
 
     /**
      * Sets the bluetoothBlockAdvertising property value. Whether or not to Block the user from using bluetooth advertising.
      *  @param bool|null $value Value to set for the bluetoothBlockAdvertising property.
     */
-    public function setBluetoothBlockAdvertising(?bool $value ): void {
-        $this->bluetoothBlockAdvertising = $value;
+    public function setBluetoothBlockAdvertising(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlockAdvertising', $value);
     }
 
     /**
      * Sets the bluetoothBlockDiscoverableMode property value. Whether or not to Block the user from using bluetooth discoverable mode.
      *  @param bool|null $value Value to set for the bluetoothBlockDiscoverableMode property.
     */
-    public function setBluetoothBlockDiscoverableMode(?bool $value ): void {
-        $this->bluetoothBlockDiscoverableMode = $value;
+    public function setBluetoothBlockDiscoverableMode(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlockDiscoverableMode', $value);
     }
 
     /**
      * Sets the bluetoothBlocked property value. Whether or not to Block the user from using bluetooth.
      *  @param bool|null $value Value to set for the bluetoothBlocked property.
     */
-    public function setBluetoothBlocked(?bool $value ): void {
-        $this->bluetoothBlocked = $value;
+    public function setBluetoothBlocked(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlocked', $value);
     }
 
     /**
      * Sets the bluetoothBlockPrePairing property value. Whether or not to block specific bundled Bluetooth peripherals to automatically pair with the host device.
      *  @param bool|null $value Value to set for the bluetoothBlockPrePairing property.
     */
-    public function setBluetoothBlockPrePairing(?bool $value ): void {
-        $this->bluetoothBlockPrePairing = $value;
+    public function setBluetoothBlockPrePairing(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlockPrePairing', $value);
     }
 
     /**
      * Sets the bluetoothBlockPromptedProximalConnections property value. Whether or not to block the users from using Swift Pair and other proximity based scenarios.
      *  @param bool|null $value Value to set for the bluetoothBlockPromptedProximalConnections property.
     */
-    public function setBluetoothBlockPromptedProximalConnections(?bool $value ): void {
-        $this->bluetoothBlockPromptedProximalConnections = $value;
+    public function setBluetoothBlockPromptedProximalConnections(?bool $value): void {
+        $this->getBackingStore()->set('bluetoothBlockPromptedProximalConnections', $value);
     }
 
     /**
      * Sets the cameraBlocked property value. Whether or not to Block the user from accessing the camera of the device.
      *  @param bool|null $value Value to set for the cameraBlocked property.
     */
-    public function setCameraBlocked(?bool $value ): void {
-        $this->cameraBlocked = $value;
+    public function setCameraBlocked(?bool $value): void {
+        $this->getBackingStore()->set('cameraBlocked', $value);
     }
 
     /**
      * Sets the cellularBlockDataWhenRoaming property value. Whether or not to Block the user from using data over cellular while roaming.
      *  @param bool|null $value Value to set for the cellularBlockDataWhenRoaming property.
     */
-    public function setCellularBlockDataWhenRoaming(?bool $value ): void {
-        $this->cellularBlockDataWhenRoaming = $value;
+    public function setCellularBlockDataWhenRoaming(?bool $value): void {
+        $this->getBackingStore()->set('cellularBlockDataWhenRoaming', $value);
     }
 
     /**
      * Sets the cellularBlockVpn property value. Whether or not to Block the user from using VPN over cellular.
      *  @param bool|null $value Value to set for the cellularBlockVpn property.
     */
-    public function setCellularBlockVpn(?bool $value ): void {
-        $this->cellularBlockVpn = $value;
+    public function setCellularBlockVpn(?bool $value): void {
+        $this->getBackingStore()->set('cellularBlockVpn', $value);
     }
 
     /**
      * Sets the cellularBlockVpnWhenRoaming property value. Whether or not to Block the user from using VPN when roaming over cellular.
      *  @param bool|null $value Value to set for the cellularBlockVpnWhenRoaming property.
     */
-    public function setCellularBlockVpnWhenRoaming(?bool $value ): void {
-        $this->cellularBlockVpnWhenRoaming = $value;
+    public function setCellularBlockVpnWhenRoaming(?bool $value): void {
+        $this->getBackingStore()->set('cellularBlockVpnWhenRoaming', $value);
     }
 
     /**
      * Sets the cellularData property value. Possible values of the ConfigurationUsage list.
      *  @param ConfigurationUsage|null $value Value to set for the cellularData property.
     */
-    public function setCellularData(?ConfigurationUsage $value ): void {
-        $this->cellularData = $value;
+    public function setCellularData(?ConfigurationUsage $value): void {
+        $this->getBackingStore()->set('cellularData', $value);
     }
 
     /**
      * Sets the certificatesBlockManualRootCertificateInstallation property value. Whether or not to Block the user from doing manual root certificate installation.
      *  @param bool|null $value Value to set for the certificatesBlockManualRootCertificateInstallation property.
     */
-    public function setCertificatesBlockManualRootCertificateInstallation(?bool $value ): void {
-        $this->certificatesBlockManualRootCertificateInstallation = $value;
+    public function setCertificatesBlockManualRootCertificateInstallation(?bool $value): void {
+        $this->getBackingStore()->set('certificatesBlockManualRootCertificateInstallation', $value);
     }
 
     /**
      * Sets the configureTimeZone property value. Specifies the time zone to be applied to the device. This is the standard Windows name for the target time zone.
      *  @param string|null $value Value to set for the configureTimeZone property.
     */
-    public function setConfigureTimeZone(?string $value ): void {
-        $this->configureTimeZone = $value;
+    public function setConfigureTimeZone(?string $value): void {
+        $this->getBackingStore()->set('configureTimeZone', $value);
     }
 
     /**
      * Sets the connectedDevicesServiceBlocked property value. Whether or not to block Connected Devices Service which enables discovery and connection to other devices, remote messaging, remote app sessions and other cross-device experiences.
      *  @param bool|null $value Value to set for the connectedDevicesServiceBlocked property.
     */
-    public function setConnectedDevicesServiceBlocked(?bool $value ): void {
-        $this->connectedDevicesServiceBlocked = $value;
+    public function setConnectedDevicesServiceBlocked(?bool $value): void {
+        $this->getBackingStore()->set('connectedDevicesServiceBlocked', $value);
     }
 
     /**
      * Sets the copyPasteBlocked property value. Whether or not to Block the user from using copy paste.
      *  @param bool|null $value Value to set for the copyPasteBlocked property.
     */
-    public function setCopyPasteBlocked(?bool $value ): void {
-        $this->copyPasteBlocked = $value;
+    public function setCopyPasteBlocked(?bool $value): void {
+        $this->getBackingStore()->set('copyPasteBlocked', $value);
     }
 
     /**
      * Sets the cortanaBlocked property value. Whether or not to Block the user from using Cortana.
      *  @param bool|null $value Value to set for the cortanaBlocked property.
     */
-    public function setCortanaBlocked(?bool $value ): void {
-        $this->cortanaBlocked = $value;
+    public function setCortanaBlocked(?bool $value): void {
+        $this->getBackingStore()->set('cortanaBlocked', $value);
     }
 
     /**
      * Sets the cryptographyAllowFipsAlgorithmPolicy property value. Specify whether to allow or disallow the Federal Information Processing Standard (FIPS) policy.
      *  @param bool|null $value Value to set for the cryptographyAllowFipsAlgorithmPolicy property.
     */
-    public function setCryptographyAllowFipsAlgorithmPolicy(?bool $value ): void {
-        $this->cryptographyAllowFipsAlgorithmPolicy = $value;
+    public function setCryptographyAllowFipsAlgorithmPolicy(?bool $value): void {
+        $this->getBackingStore()->set('cryptographyAllowFipsAlgorithmPolicy', $value);
     }
 
     /**
      * Sets the dataProtectionBlockDirectMemoryAccess property value. This policy setting allows you to block direct memory access (DMA) for all hot pluggable PCI downstream ports until a user logs into Windows.
      *  @param bool|null $value Value to set for the dataProtectionBlockDirectMemoryAccess property.
     */
-    public function setDataProtectionBlockDirectMemoryAccess(?bool $value ): void {
-        $this->dataProtectionBlockDirectMemoryAccess = $value;
+    public function setDataProtectionBlockDirectMemoryAccess(?bool $value): void {
+        $this->getBackingStore()->set('dataProtectionBlockDirectMemoryAccess', $value);
     }
 
     /**
      * Sets the defenderBlockEndUserAccess property value. Whether or not to block end user access to Defender.
      *  @param bool|null $value Value to set for the defenderBlockEndUserAccess property.
     */
-    public function setDefenderBlockEndUserAccess(?bool $value ): void {
-        $this->defenderBlockEndUserAccess = $value;
+    public function setDefenderBlockEndUserAccess(?bool $value): void {
+        $this->getBackingStore()->set('defenderBlockEndUserAccess', $value);
     }
 
     /**
      * Sets the defenderBlockOnAccessProtection property value. Allows or disallows Windows Defender On Access Protection functionality.
      *  @param bool|null $value Value to set for the defenderBlockOnAccessProtection property.
     */
-    public function setDefenderBlockOnAccessProtection(?bool $value ): void {
-        $this->defenderBlockOnAccessProtection = $value;
+    public function setDefenderBlockOnAccessProtection(?bool $value): void {
+        $this->getBackingStore()->set('defenderBlockOnAccessProtection', $value);
     }
 
     /**
      * Sets the defenderCloudBlockLevel property value. Possible values of Cloud Block Level
      *  @param DefenderCloudBlockLevelType|null $value Value to set for the defenderCloudBlockLevel property.
     */
-    public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value ): void {
-        $this->defenderCloudBlockLevel = $value;
+    public function setDefenderCloudBlockLevel(?DefenderCloudBlockLevelType $value): void {
+        $this->getBackingStore()->set('defenderCloudBlockLevel', $value);
     }
 
     /**
      * Sets the defenderCloudExtendedTimeout property value. Timeout extension for file scanning by the cloud. Valid values 0 to 50
      *  @param int|null $value Value to set for the defenderCloudExtendedTimeout property.
     */
-    public function setDefenderCloudExtendedTimeout(?int $value ): void {
-        $this->defenderCloudExtendedTimeout = $value;
+    public function setDefenderCloudExtendedTimeout(?int $value): void {
+        $this->getBackingStore()->set('defenderCloudExtendedTimeout', $value);
     }
 
     /**
      * Sets the defenderCloudExtendedTimeoutInSeconds property value. Timeout extension for file scanning by the cloud. Valid values 0 to 50
      *  @param int|null $value Value to set for the defenderCloudExtendedTimeoutInSeconds property.
     */
-    public function setDefenderCloudExtendedTimeoutInSeconds(?int $value ): void {
-        $this->defenderCloudExtendedTimeoutInSeconds = $value;
+    public function setDefenderCloudExtendedTimeoutInSeconds(?int $value): void {
+        $this->getBackingStore()->set('defenderCloudExtendedTimeoutInSeconds', $value);
     }
 
     /**
      * Sets the defenderDaysBeforeDeletingQuarantinedMalware property value. Number of days before deleting quarantined malware. Valid values 0 to 90
      *  @param int|null $value Value to set for the defenderDaysBeforeDeletingQuarantinedMalware property.
     */
-    public function setDefenderDaysBeforeDeletingQuarantinedMalware(?int $value ): void {
-        $this->defenderDaysBeforeDeletingQuarantinedMalware = $value;
+    public function setDefenderDaysBeforeDeletingQuarantinedMalware(?int $value): void {
+        $this->getBackingStore()->set('defenderDaysBeforeDeletingQuarantinedMalware', $value);
     }
 
     /**
      * Sets the defenderDetectedMalwareActions property value. Gets or sets Defender’s actions to take on detected Malware per threat level.
      *  @param DefenderDetectedMalwareActions|null $value Value to set for the defenderDetectedMalwareActions property.
     */
-    public function setDefenderDetectedMalwareActions(?DefenderDetectedMalwareActions $value ): void {
-        $this->defenderDetectedMalwareActions = $value;
+    public function setDefenderDetectedMalwareActions(?DefenderDetectedMalwareActions $value): void {
+        $this->getBackingStore()->set('defenderDetectedMalwareActions', $value);
     }
 
     /**
      * Sets the defenderDisableCatchupFullScan property value. When blocked, catch-up scans for scheduled full scans will be turned off.
      *  @param bool|null $value Value to set for the defenderDisableCatchupFullScan property.
     */
-    public function setDefenderDisableCatchupFullScan(?bool $value ): void {
-        $this->defenderDisableCatchupFullScan = $value;
+    public function setDefenderDisableCatchupFullScan(?bool $value): void {
+        $this->getBackingStore()->set('defenderDisableCatchupFullScan', $value);
     }
 
     /**
      * Sets the defenderDisableCatchupQuickScan property value. When blocked, catch-up scans for scheduled quick scans will be turned off.
      *  @param bool|null $value Value to set for the defenderDisableCatchupQuickScan property.
     */
-    public function setDefenderDisableCatchupQuickScan(?bool $value ): void {
-        $this->defenderDisableCatchupQuickScan = $value;
+    public function setDefenderDisableCatchupQuickScan(?bool $value): void {
+        $this->getBackingStore()->set('defenderDisableCatchupQuickScan', $value);
     }
 
     /**
      * Sets the defenderFileExtensionsToExclude property value. File extensions to exclude from scans and real time protection.
      *  @param array<string>|null $value Value to set for the defenderFileExtensionsToExclude property.
     */
-    public function setDefenderFileExtensionsToExclude(?array $value ): void {
-        $this->defenderFileExtensionsToExclude = $value;
+    public function setDefenderFileExtensionsToExclude(?array $value): void {
+        $this->getBackingStore()->set('defenderFileExtensionsToExclude', $value);
     }
 
     /**
      * Sets the defenderFilesAndFoldersToExclude property value. Files and folder to exclude from scans and real time protection.
      *  @param array<string>|null $value Value to set for the defenderFilesAndFoldersToExclude property.
     */
-    public function setDefenderFilesAndFoldersToExclude(?array $value ): void {
-        $this->defenderFilesAndFoldersToExclude = $value;
+    public function setDefenderFilesAndFoldersToExclude(?array $value): void {
+        $this->getBackingStore()->set('defenderFilesAndFoldersToExclude', $value);
     }
 
     /**
      * Sets the defenderMonitorFileActivity property value. Possible values for monitoring file activity.
      *  @param DefenderMonitorFileActivity|null $value Value to set for the defenderMonitorFileActivity property.
     */
-    public function setDefenderMonitorFileActivity(?DefenderMonitorFileActivity $value ): void {
-        $this->defenderMonitorFileActivity = $value;
+    public function setDefenderMonitorFileActivity(?DefenderMonitorFileActivity $value): void {
+        $this->getBackingStore()->set('defenderMonitorFileActivity', $value);
     }
 
     /**
      * Sets the defenderPotentiallyUnwantedAppAction property value. Gets or sets Defender’s action to take on Potentially Unwanted Application (PUA), which includes software with behaviors of ad-injection, software bundling, persistent solicitation for payment or subscription, etc. Defender alerts user when PUA is being downloaded or attempts to install itself. Added in Windows 10 for desktop. Possible values are: deviceDefault, block, audit.
      *  @param DefenderPotentiallyUnwantedAppAction|null $value Value to set for the defenderPotentiallyUnwantedAppAction property.
     */
-    public function setDefenderPotentiallyUnwantedAppAction(?DefenderPotentiallyUnwantedAppAction $value ): void {
-        $this->defenderPotentiallyUnwantedAppAction = $value;
+    public function setDefenderPotentiallyUnwantedAppAction(?DefenderPotentiallyUnwantedAppAction $value): void {
+        $this->getBackingStore()->set('defenderPotentiallyUnwantedAppAction', $value);
     }
 
     /**
      * Sets the defenderPotentiallyUnwantedAppActionSetting property value. Possible values of Defender PUA Protection
      *  @param DefenderProtectionType|null $value Value to set for the defenderPotentiallyUnwantedAppActionSetting property.
     */
-    public function setDefenderPotentiallyUnwantedAppActionSetting(?DefenderProtectionType $value ): void {
-        $this->defenderPotentiallyUnwantedAppActionSetting = $value;
+    public function setDefenderPotentiallyUnwantedAppActionSetting(?DefenderProtectionType $value): void {
+        $this->getBackingStore()->set('defenderPotentiallyUnwantedAppActionSetting', $value);
     }
 
     /**
      * Sets the defenderProcessesToExclude property value. Processes to exclude from scans and real time protection.
      *  @param array<string>|null $value Value to set for the defenderProcessesToExclude property.
     */
-    public function setDefenderProcessesToExclude(?array $value ): void {
-        $this->defenderProcessesToExclude = $value;
+    public function setDefenderProcessesToExclude(?array $value): void {
+        $this->getBackingStore()->set('defenderProcessesToExclude', $value);
     }
 
     /**
      * Sets the defenderPromptForSampleSubmission property value. Possible values for prompting user for samples submission.
      *  @param DefenderPromptForSampleSubmission|null $value Value to set for the defenderPromptForSampleSubmission property.
     */
-    public function setDefenderPromptForSampleSubmission(?DefenderPromptForSampleSubmission $value ): void {
-        $this->defenderPromptForSampleSubmission = $value;
+    public function setDefenderPromptForSampleSubmission(?DefenderPromptForSampleSubmission $value): void {
+        $this->getBackingStore()->set('defenderPromptForSampleSubmission', $value);
     }
 
     /**
      * Sets the defenderRequireBehaviorMonitoring property value. Indicates whether or not to require behavior monitoring.
      *  @param bool|null $value Value to set for the defenderRequireBehaviorMonitoring property.
     */
-    public function setDefenderRequireBehaviorMonitoring(?bool $value ): void {
-        $this->defenderRequireBehaviorMonitoring = $value;
+    public function setDefenderRequireBehaviorMonitoring(?bool $value): void {
+        $this->getBackingStore()->set('defenderRequireBehaviorMonitoring', $value);
     }
 
     /**
      * Sets the defenderRequireCloudProtection property value. Indicates whether or not to require cloud protection.
      *  @param bool|null $value Value to set for the defenderRequireCloudProtection property.
     */
-    public function setDefenderRequireCloudProtection(?bool $value ): void {
-        $this->defenderRequireCloudProtection = $value;
+    public function setDefenderRequireCloudProtection(?bool $value): void {
+        $this->getBackingStore()->set('defenderRequireCloudProtection', $value);
     }
 
     /**
      * Sets the defenderRequireNetworkInspectionSystem property value. Indicates whether or not to require network inspection system.
      *  @param bool|null $value Value to set for the defenderRequireNetworkInspectionSystem property.
     */
-    public function setDefenderRequireNetworkInspectionSystem(?bool $value ): void {
-        $this->defenderRequireNetworkInspectionSystem = $value;
+    public function setDefenderRequireNetworkInspectionSystem(?bool $value): void {
+        $this->getBackingStore()->set('defenderRequireNetworkInspectionSystem', $value);
     }
 
     /**
      * Sets the defenderRequireRealTimeMonitoring property value. Indicates whether or not to require real time monitoring.
      *  @param bool|null $value Value to set for the defenderRequireRealTimeMonitoring property.
     */
-    public function setDefenderRequireRealTimeMonitoring(?bool $value ): void {
-        $this->defenderRequireRealTimeMonitoring = $value;
+    public function setDefenderRequireRealTimeMonitoring(?bool $value): void {
+        $this->getBackingStore()->set('defenderRequireRealTimeMonitoring', $value);
     }
 
     /**
      * Sets the defenderScanArchiveFiles property value. Indicates whether or not to scan archive files.
      *  @param bool|null $value Value to set for the defenderScanArchiveFiles property.
     */
-    public function setDefenderScanArchiveFiles(?bool $value ): void {
-        $this->defenderScanArchiveFiles = $value;
+    public function setDefenderScanArchiveFiles(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanArchiveFiles', $value);
     }
 
     /**
      * Sets the defenderScanDownloads property value. Indicates whether or not to scan downloads.
      *  @param bool|null $value Value to set for the defenderScanDownloads property.
     */
-    public function setDefenderScanDownloads(?bool $value ): void {
-        $this->defenderScanDownloads = $value;
+    public function setDefenderScanDownloads(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanDownloads', $value);
     }
 
     /**
      * Sets the defenderScanIncomingMail property value. Indicates whether or not to scan incoming mail messages.
      *  @param bool|null $value Value to set for the defenderScanIncomingMail property.
     */
-    public function setDefenderScanIncomingMail(?bool $value ): void {
-        $this->defenderScanIncomingMail = $value;
+    public function setDefenderScanIncomingMail(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanIncomingMail', $value);
     }
 
     /**
      * Sets the defenderScanMappedNetworkDrivesDuringFullScan property value. Indicates whether or not to scan mapped network drives during full scan.
      *  @param bool|null $value Value to set for the defenderScanMappedNetworkDrivesDuringFullScan property.
     */
-    public function setDefenderScanMappedNetworkDrivesDuringFullScan(?bool $value ): void {
-        $this->defenderScanMappedNetworkDrivesDuringFullScan = $value;
+    public function setDefenderScanMappedNetworkDrivesDuringFullScan(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanMappedNetworkDrivesDuringFullScan', $value);
     }
 
     /**
      * Sets the defenderScanMaxCpu property value. Max CPU usage percentage during scan. Valid values 0 to 100
      *  @param int|null $value Value to set for the defenderScanMaxCpu property.
     */
-    public function setDefenderScanMaxCpu(?int $value ): void {
-        $this->defenderScanMaxCpu = $value;
+    public function setDefenderScanMaxCpu(?int $value): void {
+        $this->getBackingStore()->set('defenderScanMaxCpu', $value);
     }
 
     /**
      * Sets the defenderScanNetworkFiles property value. Indicates whether or not to scan files opened from a network folder.
      *  @param bool|null $value Value to set for the defenderScanNetworkFiles property.
     */
-    public function setDefenderScanNetworkFiles(?bool $value ): void {
-        $this->defenderScanNetworkFiles = $value;
+    public function setDefenderScanNetworkFiles(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanNetworkFiles', $value);
     }
 
     /**
      * Sets the defenderScanRemovableDrivesDuringFullScan property value. Indicates whether or not to scan removable drives during full scan.
      *  @param bool|null $value Value to set for the defenderScanRemovableDrivesDuringFullScan property.
     */
-    public function setDefenderScanRemovableDrivesDuringFullScan(?bool $value ): void {
-        $this->defenderScanRemovableDrivesDuringFullScan = $value;
+    public function setDefenderScanRemovableDrivesDuringFullScan(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanRemovableDrivesDuringFullScan', $value);
     }
 
     /**
      * Sets the defenderScanScriptsLoadedInInternetExplorer property value. Indicates whether or not to scan scripts loaded in Internet Explorer browser.
      *  @param bool|null $value Value to set for the defenderScanScriptsLoadedInInternetExplorer property.
     */
-    public function setDefenderScanScriptsLoadedInInternetExplorer(?bool $value ): void {
-        $this->defenderScanScriptsLoadedInInternetExplorer = $value;
+    public function setDefenderScanScriptsLoadedInInternetExplorer(?bool $value): void {
+        $this->getBackingStore()->set('defenderScanScriptsLoadedInInternetExplorer', $value);
     }
 
     /**
      * Sets the defenderScanType property value. Possible values for system scan type.
      *  @param DefenderScanType|null $value Value to set for the defenderScanType property.
     */
-    public function setDefenderScanType(?DefenderScanType $value ): void {
-        $this->defenderScanType = $value;
+    public function setDefenderScanType(?DefenderScanType $value): void {
+        $this->getBackingStore()->set('defenderScanType', $value);
     }
 
     /**
      * Sets the defenderScheduledQuickScanTime property value. The time to perform a daily quick scan.
      *  @param Time|null $value Value to set for the defenderScheduledQuickScanTime property.
     */
-    public function setDefenderScheduledQuickScanTime(?Time $value ): void {
-        $this->defenderScheduledQuickScanTime = $value;
+    public function setDefenderScheduledQuickScanTime(?Time $value): void {
+        $this->getBackingStore()->set('defenderScheduledQuickScanTime', $value);
     }
 
     /**
      * Sets the defenderScheduledScanTime property value. The defender time for the system scan.
      *  @param Time|null $value Value to set for the defenderScheduledScanTime property.
     */
-    public function setDefenderScheduledScanTime(?Time $value ): void {
-        $this->defenderScheduledScanTime = $value;
+    public function setDefenderScheduledScanTime(?Time $value): void {
+        $this->getBackingStore()->set('defenderScheduledScanTime', $value);
     }
 
     /**
      * Sets the defenderScheduleScanEnableLowCpuPriority property value. When enabled, low CPU priority will be used during scheduled scans.
      *  @param bool|null $value Value to set for the defenderScheduleScanEnableLowCpuPriority property.
     */
-    public function setDefenderScheduleScanEnableLowCpuPriority(?bool $value ): void {
-        $this->defenderScheduleScanEnableLowCpuPriority = $value;
+    public function setDefenderScheduleScanEnableLowCpuPriority(?bool $value): void {
+        $this->getBackingStore()->set('defenderScheduleScanEnableLowCpuPriority', $value);
     }
 
     /**
      * Sets the defenderSignatureUpdateIntervalInHours property value. The signature update interval in hours. Specify 0 not to check. Valid values 0 to 24
      *  @param int|null $value Value to set for the defenderSignatureUpdateIntervalInHours property.
     */
-    public function setDefenderSignatureUpdateIntervalInHours(?int $value ): void {
-        $this->defenderSignatureUpdateIntervalInHours = $value;
+    public function setDefenderSignatureUpdateIntervalInHours(?int $value): void {
+        $this->getBackingStore()->set('defenderSignatureUpdateIntervalInHours', $value);
     }
 
     /**
      * Sets the defenderSubmitSamplesConsentType property value. Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
      *  @param DefenderSubmitSamplesConsentType|null $value Value to set for the defenderSubmitSamplesConsentType property.
     */
-    public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value ): void {
-        $this->defenderSubmitSamplesConsentType = $value;
+    public function setDefenderSubmitSamplesConsentType(?DefenderSubmitSamplesConsentType $value): void {
+        $this->getBackingStore()->set('defenderSubmitSamplesConsentType', $value);
     }
 
     /**
      * Sets the defenderSystemScanSchedule property value. Possible values for a weekly schedule.
      *  @param WeeklySchedule|null $value Value to set for the defenderSystemScanSchedule property.
     */
-    public function setDefenderSystemScanSchedule(?WeeklySchedule $value ): void {
-        $this->defenderSystemScanSchedule = $value;
+    public function setDefenderSystemScanSchedule(?WeeklySchedule $value): void {
+        $this->getBackingStore()->set('defenderSystemScanSchedule', $value);
     }
 
     /**
      * Sets the developerUnlockSetting property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the developerUnlockSetting property.
     */
-    public function setDeveloperUnlockSetting(?StateManagementSetting $value ): void {
-        $this->developerUnlockSetting = $value;
+    public function setDeveloperUnlockSetting(?StateManagementSetting $value): void {
+        $this->getBackingStore()->set('developerUnlockSetting', $value);
     }
 
     /**
      * Sets the deviceManagementBlockFactoryResetOnMobile property value. Indicates whether or not to Block the user from resetting their phone.
      *  @param bool|null $value Value to set for the deviceManagementBlockFactoryResetOnMobile property.
     */
-    public function setDeviceManagementBlockFactoryResetOnMobile(?bool $value ): void {
-        $this->deviceManagementBlockFactoryResetOnMobile = $value;
+    public function setDeviceManagementBlockFactoryResetOnMobile(?bool $value): void {
+        $this->getBackingStore()->set('deviceManagementBlockFactoryResetOnMobile', $value);
     }
 
     /**
      * Sets the deviceManagementBlockManualUnenroll property value. Indicates whether or not to Block the user from doing manual un-enrollment from device management.
      *  @param bool|null $value Value to set for the deviceManagementBlockManualUnenroll property.
     */
-    public function setDeviceManagementBlockManualUnenroll(?bool $value ): void {
-        $this->deviceManagementBlockManualUnenroll = $value;
+    public function setDeviceManagementBlockManualUnenroll(?bool $value): void {
+        $this->getBackingStore()->set('deviceManagementBlockManualUnenroll', $value);
     }
 
     /**
      * Sets the diagnosticsDataSubmissionMode property value. Allow the device to send diagnostic and usage telemetry data, such as Watson.
      *  @param DiagnosticDataSubmissionMode|null $value Value to set for the diagnosticsDataSubmissionMode property.
     */
-    public function setDiagnosticsDataSubmissionMode(?DiagnosticDataSubmissionMode $value ): void {
-        $this->diagnosticsDataSubmissionMode = $value;
+    public function setDiagnosticsDataSubmissionMode(?DiagnosticDataSubmissionMode $value): void {
+        $this->getBackingStore()->set('diagnosticsDataSubmissionMode', $value);
     }
 
     /**
      * Sets the displayAppListWithGdiDPIScalingTurnedOff property value. List of legacy applications that have GDI DPI Scaling turned off.
      *  @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOff property.
     */
-    public function setDisplayAppListWithGdiDPIScalingTurnedOff(?array $value ): void {
-        $this->displayAppListWithGdiDPIScalingTurnedOff = $value;
+    public function setDisplayAppListWithGdiDPIScalingTurnedOff(?array $value): void {
+        $this->getBackingStore()->set('displayAppListWithGdiDPIScalingTurnedOff', $value);
     }
 
     /**
      * Sets the displayAppListWithGdiDPIScalingTurnedOn property value. List of legacy applications that have GDI DPI Scaling turned on.
      *  @param array<string>|null $value Value to set for the displayAppListWithGdiDPIScalingTurnedOn property.
     */
-    public function setDisplayAppListWithGdiDPIScalingTurnedOn(?array $value ): void {
-        $this->displayAppListWithGdiDPIScalingTurnedOn = $value;
+    public function setDisplayAppListWithGdiDPIScalingTurnedOn(?array $value): void {
+        $this->getBackingStore()->set('displayAppListWithGdiDPIScalingTurnedOn', $value);
     }
 
     /**
      * Sets the edgeAllowStartPagesModification property value. Allow users to change Start pages on Edge. Use the EdgeHomepageUrls to specify the Start pages that the user would see by default when they open Edge.
      *  @param bool|null $value Value to set for the edgeAllowStartPagesModification property.
     */
-    public function setEdgeAllowStartPagesModification(?bool $value ): void {
-        $this->edgeAllowStartPagesModification = $value;
+    public function setEdgeAllowStartPagesModification(?bool $value): void {
+        $this->getBackingStore()->set('edgeAllowStartPagesModification', $value);
     }
 
     /**
      * Sets the edgeBlockAccessToAboutFlags property value. Indicates whether or not to prevent access to about flags on Edge browser.
      *  @param bool|null $value Value to set for the edgeBlockAccessToAboutFlags property.
     */
-    public function setEdgeBlockAccessToAboutFlags(?bool $value ): void {
-        $this->edgeBlockAccessToAboutFlags = $value;
+    public function setEdgeBlockAccessToAboutFlags(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockAccessToAboutFlags', $value);
     }
 
     /**
      * Sets the edgeBlockAddressBarDropdown property value. Block the address bar dropdown functionality in Microsoft Edge. Disable this settings to minimize network connections from Microsoft Edge to Microsoft services.
      *  @param bool|null $value Value to set for the edgeBlockAddressBarDropdown property.
     */
-    public function setEdgeBlockAddressBarDropdown(?bool $value ): void {
-        $this->edgeBlockAddressBarDropdown = $value;
+    public function setEdgeBlockAddressBarDropdown(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockAddressBarDropdown', $value);
     }
 
     /**
      * Sets the edgeBlockAutofill property value. Indicates whether or not to block auto fill.
      *  @param bool|null $value Value to set for the edgeBlockAutofill property.
     */
-    public function setEdgeBlockAutofill(?bool $value ): void {
-        $this->edgeBlockAutofill = $value;
+    public function setEdgeBlockAutofill(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockAutofill', $value);
     }
 
     /**
      * Sets the edgeBlockCompatibilityList property value. Block Microsoft compatibility list in Microsoft Edge. This list from Microsoft helps Edge properly display sites with known compatibility issues.
      *  @param bool|null $value Value to set for the edgeBlockCompatibilityList property.
     */
-    public function setEdgeBlockCompatibilityList(?bool $value ): void {
-        $this->edgeBlockCompatibilityList = $value;
+    public function setEdgeBlockCompatibilityList(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockCompatibilityList', $value);
     }
 
     /**
      * Sets the edgeBlockDeveloperTools property value. Indicates whether or not to block developer tools in the Edge browser.
      *  @param bool|null $value Value to set for the edgeBlockDeveloperTools property.
     */
-    public function setEdgeBlockDeveloperTools(?bool $value ): void {
-        $this->edgeBlockDeveloperTools = $value;
+    public function setEdgeBlockDeveloperTools(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockDeveloperTools', $value);
     }
 
     /**
      * Sets the edgeBlocked property value. Indicates whether or not to Block the user from using the Edge browser.
      *  @param bool|null $value Value to set for the edgeBlocked property.
     */
-    public function setEdgeBlocked(?bool $value ): void {
-        $this->edgeBlocked = $value;
+    public function setEdgeBlocked(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlocked', $value);
     }
 
     /**
      * Sets the edgeBlockEditFavorites property value. Indicates whether or not to Block the user from making changes to Favorites.
      *  @param bool|null $value Value to set for the edgeBlockEditFavorites property.
     */
-    public function setEdgeBlockEditFavorites(?bool $value ): void {
-        $this->edgeBlockEditFavorites = $value;
+    public function setEdgeBlockEditFavorites(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockEditFavorites', $value);
     }
 
     /**
      * Sets the edgeBlockExtensions property value. Indicates whether or not to block extensions in the Edge browser.
      *  @param bool|null $value Value to set for the edgeBlockExtensions property.
     */
-    public function setEdgeBlockExtensions(?bool $value ): void {
-        $this->edgeBlockExtensions = $value;
+    public function setEdgeBlockExtensions(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockExtensions', $value);
     }
 
     /**
      * Sets the edgeBlockFullScreenMode property value. Allow or prevent Edge from entering the full screen mode.
      *  @param bool|null $value Value to set for the edgeBlockFullScreenMode property.
     */
-    public function setEdgeBlockFullScreenMode(?bool $value ): void {
-        $this->edgeBlockFullScreenMode = $value;
+    public function setEdgeBlockFullScreenMode(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockFullScreenMode', $value);
     }
 
     /**
      * Sets the edgeBlockInPrivateBrowsing property value. Indicates whether or not to block InPrivate browsing on corporate networks, in the Edge browser.
      *  @param bool|null $value Value to set for the edgeBlockInPrivateBrowsing property.
     */
-    public function setEdgeBlockInPrivateBrowsing(?bool $value ): void {
-        $this->edgeBlockInPrivateBrowsing = $value;
+    public function setEdgeBlockInPrivateBrowsing(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockInPrivateBrowsing', $value);
     }
 
     /**
      * Sets the edgeBlockJavaScript property value. Indicates whether or not to Block the user from using JavaScript.
      *  @param bool|null $value Value to set for the edgeBlockJavaScript property.
     */
-    public function setEdgeBlockJavaScript(?bool $value ): void {
-        $this->edgeBlockJavaScript = $value;
+    public function setEdgeBlockJavaScript(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockJavaScript', $value);
     }
 
     /**
      * Sets the edgeBlockLiveTileDataCollection property value. Block the collection of information by Microsoft for live tile creation when users pin a site to Start from Microsoft Edge.
      *  @param bool|null $value Value to set for the edgeBlockLiveTileDataCollection property.
     */
-    public function setEdgeBlockLiveTileDataCollection(?bool $value ): void {
-        $this->edgeBlockLiveTileDataCollection = $value;
+    public function setEdgeBlockLiveTileDataCollection(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockLiveTileDataCollection', $value);
     }
 
     /**
      * Sets the edgeBlockPasswordManager property value. Indicates whether or not to Block password manager.
      *  @param bool|null $value Value to set for the edgeBlockPasswordManager property.
     */
-    public function setEdgeBlockPasswordManager(?bool $value ): void {
-        $this->edgeBlockPasswordManager = $value;
+    public function setEdgeBlockPasswordManager(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockPasswordManager', $value);
     }
 
     /**
      * Sets the edgeBlockPopups property value. Indicates whether or not to block popups.
      *  @param bool|null $value Value to set for the edgeBlockPopups property.
     */
-    public function setEdgeBlockPopups(?bool $value ): void {
-        $this->edgeBlockPopups = $value;
+    public function setEdgeBlockPopups(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockPopups', $value);
     }
 
     /**
      * Sets the edgeBlockPrelaunch property value. Decide whether Microsoft Edge is prelaunched at Windows startup.
      *  @param bool|null $value Value to set for the edgeBlockPrelaunch property.
     */
-    public function setEdgeBlockPrelaunch(?bool $value ): void {
-        $this->edgeBlockPrelaunch = $value;
+    public function setEdgeBlockPrelaunch(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockPrelaunch', $value);
     }
 
     /**
      * Sets the edgeBlockPrinting property value. Configure Edge to allow or block printing.
      *  @param bool|null $value Value to set for the edgeBlockPrinting property.
     */
-    public function setEdgeBlockPrinting(?bool $value ): void {
-        $this->edgeBlockPrinting = $value;
+    public function setEdgeBlockPrinting(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockPrinting', $value);
     }
 
     /**
      * Sets the edgeBlockSavingHistory property value. Configure Edge to allow browsing history to be saved or to never save browsing history.
      *  @param bool|null $value Value to set for the edgeBlockSavingHistory property.
     */
-    public function setEdgeBlockSavingHistory(?bool $value ): void {
-        $this->edgeBlockSavingHistory = $value;
+    public function setEdgeBlockSavingHistory(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSavingHistory', $value);
     }
 
     /**
      * Sets the edgeBlockSearchEngineCustomization property value. Indicates whether or not to block the user from adding new search engine or changing the default search engine.
      *  @param bool|null $value Value to set for the edgeBlockSearchEngineCustomization property.
     */
-    public function setEdgeBlockSearchEngineCustomization(?bool $value ): void {
-        $this->edgeBlockSearchEngineCustomization = $value;
+    public function setEdgeBlockSearchEngineCustomization(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSearchEngineCustomization', $value);
     }
 
     /**
      * Sets the edgeBlockSearchSuggestions property value. Indicates whether or not to block the user from using the search suggestions in the address bar.
      *  @param bool|null $value Value to set for the edgeBlockSearchSuggestions property.
     */
-    public function setEdgeBlockSearchSuggestions(?bool $value ): void {
-        $this->edgeBlockSearchSuggestions = $value;
+    public function setEdgeBlockSearchSuggestions(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSearchSuggestions', $value);
     }
 
     /**
      * Sets the edgeBlockSendingDoNotTrackHeader property value. Indicates whether or not to Block the user from sending the do not track header.
      *  @param bool|null $value Value to set for the edgeBlockSendingDoNotTrackHeader property.
     */
-    public function setEdgeBlockSendingDoNotTrackHeader(?bool $value ): void {
-        $this->edgeBlockSendingDoNotTrackHeader = $value;
+    public function setEdgeBlockSendingDoNotTrackHeader(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSendingDoNotTrackHeader', $value);
     }
 
     /**
      * Sets the edgeBlockSendingIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer. Note: the name of this property is misleading; the property is obsolete, use EdgeSendIntranetTrafficToInternetExplorer instead.
      *  @param bool|null $value Value to set for the edgeBlockSendingIntranetTrafficToInternetExplorer property.
     */
-    public function setEdgeBlockSendingIntranetTrafficToInternetExplorer(?bool $value ): void {
-        $this->edgeBlockSendingIntranetTrafficToInternetExplorer = $value;
+    public function setEdgeBlockSendingIntranetTrafficToInternetExplorer(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSendingIntranetTrafficToInternetExplorer', $value);
     }
 
     /**
      * Sets the edgeBlockSideloadingExtensions property value. Indicates whether the user can sideload extensions.
      *  @param bool|null $value Value to set for the edgeBlockSideloadingExtensions property.
     */
-    public function setEdgeBlockSideloadingExtensions(?bool $value ): void {
-        $this->edgeBlockSideloadingExtensions = $value;
+    public function setEdgeBlockSideloadingExtensions(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockSideloadingExtensions', $value);
     }
 
     /**
      * Sets the edgeBlockTabPreloading property value. Configure whether Edge preloads the new tab page at Windows startup.
      *  @param bool|null $value Value to set for the edgeBlockTabPreloading property.
     */
-    public function setEdgeBlockTabPreloading(?bool $value ): void {
-        $this->edgeBlockTabPreloading = $value;
+    public function setEdgeBlockTabPreloading(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockTabPreloading', $value);
     }
 
     /**
      * Sets the edgeBlockWebContentOnNewTabPage property value. Configure to load a blank page in Edge instead of the default New tab page and prevent users from changing it.
      *  @param bool|null $value Value to set for the edgeBlockWebContentOnNewTabPage property.
     */
-    public function setEdgeBlockWebContentOnNewTabPage(?bool $value ): void {
-        $this->edgeBlockWebContentOnNewTabPage = $value;
+    public function setEdgeBlockWebContentOnNewTabPage(?bool $value): void {
+        $this->getBackingStore()->set('edgeBlockWebContentOnNewTabPage', $value);
     }
 
     /**
      * Sets the edgeClearBrowsingDataOnExit property value. Clear browsing data on exiting Microsoft Edge.
      *  @param bool|null $value Value to set for the edgeClearBrowsingDataOnExit property.
     */
-    public function setEdgeClearBrowsingDataOnExit(?bool $value ): void {
-        $this->edgeClearBrowsingDataOnExit = $value;
+    public function setEdgeClearBrowsingDataOnExit(?bool $value): void {
+        $this->getBackingStore()->set('edgeClearBrowsingDataOnExit', $value);
     }
 
     /**
      * Sets the edgeCookiePolicy property value. Possible values to specify which cookies are allowed in Microsoft Edge.
      *  @param EdgeCookiePolicy|null $value Value to set for the edgeCookiePolicy property.
     */
-    public function setEdgeCookiePolicy(?EdgeCookiePolicy $value ): void {
-        $this->edgeCookiePolicy = $value;
+    public function setEdgeCookiePolicy(?EdgeCookiePolicy $value): void {
+        $this->getBackingStore()->set('edgeCookiePolicy', $value);
     }
 
     /**
      * Sets the edgeDisableFirstRunPage property value. Block the Microsoft web page that opens on the first use of Microsoft Edge. This policy allows enterprises, like those enrolled in zero emissions configurations, to block this page.
      *  @param bool|null $value Value to set for the edgeDisableFirstRunPage property.
     */
-    public function setEdgeDisableFirstRunPage(?bool $value ): void {
-        $this->edgeDisableFirstRunPage = $value;
+    public function setEdgeDisableFirstRunPage(?bool $value): void {
+        $this->getBackingStore()->set('edgeDisableFirstRunPage', $value);
     }
 
     /**
      * Sets the edgeEnterpriseModeSiteListLocation property value. Indicates the enterprise mode site list location. Could be a local file, local network or http location.
      *  @param string|null $value Value to set for the edgeEnterpriseModeSiteListLocation property.
     */
-    public function setEdgeEnterpriseModeSiteListLocation(?string $value ): void {
-        $this->edgeEnterpriseModeSiteListLocation = $value;
+    public function setEdgeEnterpriseModeSiteListLocation(?string $value): void {
+        $this->getBackingStore()->set('edgeEnterpriseModeSiteListLocation', $value);
     }
 
     /**
      * Sets the edgeFavoritesBarVisibility property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the edgeFavoritesBarVisibility property.
     */
-    public function setEdgeFavoritesBarVisibility(?VisibilitySetting $value ): void {
-        $this->edgeFavoritesBarVisibility = $value;
+    public function setEdgeFavoritesBarVisibility(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('edgeFavoritesBarVisibility', $value);
     }
 
     /**
      * Sets the edgeFavoritesListLocation property value. The location of the favorites list to provision. Could be a local file, local network or http location.
      *  @param string|null $value Value to set for the edgeFavoritesListLocation property.
     */
-    public function setEdgeFavoritesListLocation(?string $value ): void {
-        $this->edgeFavoritesListLocation = $value;
+    public function setEdgeFavoritesListLocation(?string $value): void {
+        $this->getBackingStore()->set('edgeFavoritesListLocation', $value);
     }
 
     /**
      * Sets the edgeFirstRunUrl property value. The first run URL for when Edge browser is opened for the first time.
      *  @param string|null $value Value to set for the edgeFirstRunUrl property.
     */
-    public function setEdgeFirstRunUrl(?string $value ): void {
-        $this->edgeFirstRunUrl = $value;
+    public function setEdgeFirstRunUrl(?string $value): void {
+        $this->getBackingStore()->set('edgeFirstRunUrl', $value);
     }
 
     /**
      * Sets the edgeHomeButtonConfiguration property value. Causes the Home button to either hide, load the default Start page, load a New tab page, or a custom URL
      *  @param EdgeHomeButtonConfiguration|null $value Value to set for the edgeHomeButtonConfiguration property.
     */
-    public function setEdgeHomeButtonConfiguration(?EdgeHomeButtonConfiguration $value ): void {
-        $this->edgeHomeButtonConfiguration = $value;
+    public function setEdgeHomeButtonConfiguration(?EdgeHomeButtonConfiguration $value): void {
+        $this->getBackingStore()->set('edgeHomeButtonConfiguration', $value);
     }
 
     /**
      * Sets the edgeHomeButtonConfigurationEnabled property value. Enable the Home button configuration.
      *  @param bool|null $value Value to set for the edgeHomeButtonConfigurationEnabled property.
     */
-    public function setEdgeHomeButtonConfigurationEnabled(?bool $value ): void {
-        $this->edgeHomeButtonConfigurationEnabled = $value;
+    public function setEdgeHomeButtonConfigurationEnabled(?bool $value): void {
+        $this->getBackingStore()->set('edgeHomeButtonConfigurationEnabled', $value);
     }
 
     /**
      * Sets the edgeHomepageUrls property value. The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
      *  @param array<string>|null $value Value to set for the edgeHomepageUrls property.
     */
-    public function setEdgeHomepageUrls(?array $value ): void {
-        $this->edgeHomepageUrls = $value;
+    public function setEdgeHomepageUrls(?array $value): void {
+        $this->getBackingStore()->set('edgeHomepageUrls', $value);
     }
 
     /**
      * Sets the edgeKioskModeRestriction property value. Specify how the Microsoft Edge settings are restricted based on kiosk mode.
      *  @param EdgeKioskModeRestrictionType|null $value Value to set for the edgeKioskModeRestriction property.
     */
-    public function setEdgeKioskModeRestriction(?EdgeKioskModeRestrictionType $value ): void {
-        $this->edgeKioskModeRestriction = $value;
+    public function setEdgeKioskModeRestriction(?EdgeKioskModeRestrictionType $value): void {
+        $this->getBackingStore()->set('edgeKioskModeRestriction', $value);
     }
 
     /**
      * Sets the edgeKioskResetAfterIdleTimeInMinutes property value. Specifies the time in minutes from the last user activity before Microsoft Edge kiosk resets.  Valid values are 0-1440. The default is 5. 0 indicates no reset. Valid values 0 to 1440
      *  @param int|null $value Value to set for the edgeKioskResetAfterIdleTimeInMinutes property.
     */
-    public function setEdgeKioskResetAfterIdleTimeInMinutes(?int $value ): void {
-        $this->edgeKioskResetAfterIdleTimeInMinutes = $value;
+    public function setEdgeKioskResetAfterIdleTimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('edgeKioskResetAfterIdleTimeInMinutes', $value);
     }
 
     /**
      * Sets the edgeNewTabPageURL property value. Specify the page opened when new tabs are created.
      *  @param string|null $value Value to set for the edgeNewTabPageURL property.
     */
-    public function setEdgeNewTabPageURL(?string $value ): void {
-        $this->edgeNewTabPageURL = $value;
+    public function setEdgeNewTabPageURL(?string $value): void {
+        $this->getBackingStore()->set('edgeNewTabPageURL', $value);
     }
 
     /**
      * Sets the edgeOpensWith property value. Possible values for the EdgeOpensWith setting.
      *  @param EdgeOpenOptions|null $value Value to set for the edgeOpensWith property.
     */
-    public function setEdgeOpensWith(?EdgeOpenOptions $value ): void {
-        $this->edgeOpensWith = $value;
+    public function setEdgeOpensWith(?EdgeOpenOptions $value): void {
+        $this->getBackingStore()->set('edgeOpensWith', $value);
     }
 
     /**
      * Sets the edgePreventCertificateErrorOverride property value. Allow or prevent users from overriding certificate errors.
      *  @param bool|null $value Value to set for the edgePreventCertificateErrorOverride property.
     */
-    public function setEdgePreventCertificateErrorOverride(?bool $value ): void {
-        $this->edgePreventCertificateErrorOverride = $value;
+    public function setEdgePreventCertificateErrorOverride(?bool $value): void {
+        $this->getBackingStore()->set('edgePreventCertificateErrorOverride', $value);
     }
 
     /**
      * Sets the edgeRequiredExtensionPackageFamilyNames property value. Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.
      *  @param array<string>|null $value Value to set for the edgeRequiredExtensionPackageFamilyNames property.
     */
-    public function setEdgeRequiredExtensionPackageFamilyNames(?array $value ): void {
-        $this->edgeRequiredExtensionPackageFamilyNames = $value;
+    public function setEdgeRequiredExtensionPackageFamilyNames(?array $value): void {
+        $this->getBackingStore()->set('edgeRequiredExtensionPackageFamilyNames', $value);
     }
 
     /**
      * Sets the edgeRequireSmartScreen property value. Indicates whether or not to Require the user to use the smart screen filter.
      *  @param bool|null $value Value to set for the edgeRequireSmartScreen property.
     */
-    public function setEdgeRequireSmartScreen(?bool $value ): void {
-        $this->edgeRequireSmartScreen = $value;
+    public function setEdgeRequireSmartScreen(?bool $value): void {
+        $this->getBackingStore()->set('edgeRequireSmartScreen', $value);
     }
 
     /**
      * Sets the edgeSearchEngine property value. Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
      *  @param EdgeSearchEngineBase|null $value Value to set for the edgeSearchEngine property.
     */
-    public function setEdgeSearchEngine(?EdgeSearchEngineBase $value ): void {
-        $this->edgeSearchEngine = $value;
+    public function setEdgeSearchEngine(?EdgeSearchEngineBase $value): void {
+        $this->getBackingStore()->set('edgeSearchEngine', $value);
     }
 
     /**
      * Sets the edgeSendIntranetTrafficToInternetExplorer property value. Indicates whether or not to switch the intranet traffic from Edge to Internet Explorer.
      *  @param bool|null $value Value to set for the edgeSendIntranetTrafficToInternetExplorer property.
     */
-    public function setEdgeSendIntranetTrafficToInternetExplorer(?bool $value ): void {
-        $this->edgeSendIntranetTrafficToInternetExplorer = $value;
+    public function setEdgeSendIntranetTrafficToInternetExplorer(?bool $value): void {
+        $this->getBackingStore()->set('edgeSendIntranetTrafficToInternetExplorer', $value);
     }
 
     /**
      * Sets the edgeShowMessageWhenOpeningInternetExplorerSites property value. What message will be displayed by Edge before switching to Internet Explorer.
      *  @param InternetExplorerMessageSetting|null $value Value to set for the edgeShowMessageWhenOpeningInternetExplorerSites property.
     */
-    public function setEdgeShowMessageWhenOpeningInternetExplorerSites(?InternetExplorerMessageSetting $value ): void {
-        $this->edgeShowMessageWhenOpeningInternetExplorerSites = $value;
+    public function setEdgeShowMessageWhenOpeningInternetExplorerSites(?InternetExplorerMessageSetting $value): void {
+        $this->getBackingStore()->set('edgeShowMessageWhenOpeningInternetExplorerSites', $value);
     }
 
     /**
      * Sets the edgeSyncFavoritesWithInternetExplorer property value. Enable favorites sync between Internet Explorer and Microsoft Edge. Additions, deletions, modifications and order changes to favorites are shared between browsers.
      *  @param bool|null $value Value to set for the edgeSyncFavoritesWithInternetExplorer property.
     */
-    public function setEdgeSyncFavoritesWithInternetExplorer(?bool $value ): void {
-        $this->edgeSyncFavoritesWithInternetExplorer = $value;
+    public function setEdgeSyncFavoritesWithInternetExplorer(?bool $value): void {
+        $this->getBackingStore()->set('edgeSyncFavoritesWithInternetExplorer', $value);
     }
 
     /**
      * Sets the edgeTelemetryForMicrosoft365Analytics property value. Type of browsing data sent to Microsoft 365 analytics
      *  @param EdgeTelemetryMode|null $value Value to set for the edgeTelemetryForMicrosoft365Analytics property.
     */
-    public function setEdgeTelemetryForMicrosoft365Analytics(?EdgeTelemetryMode $value ): void {
-        $this->edgeTelemetryForMicrosoft365Analytics = $value;
+    public function setEdgeTelemetryForMicrosoft365Analytics(?EdgeTelemetryMode $value): void {
+        $this->getBackingStore()->set('edgeTelemetryForMicrosoft365Analytics', $value);
     }
 
     /**
      * Sets the enableAutomaticRedeployment property value. Allow users with administrative rights to delete all user data and settings using CTRL + Win + R at the device lock screen so that the device can be automatically re-configured and re-enrolled into management.
      *  @param bool|null $value Value to set for the enableAutomaticRedeployment property.
     */
-    public function setEnableAutomaticRedeployment(?bool $value ): void {
-        $this->enableAutomaticRedeployment = $value;
+    public function setEnableAutomaticRedeployment(?bool $value): void {
+        $this->getBackingStore()->set('enableAutomaticRedeployment', $value);
     }
 
     /**
      * Sets the energySaverOnBatteryThresholdPercentage property value. This setting allows you to specify battery charge level at which Energy Saver is turned on. While on battery, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
      *  @param int|null $value Value to set for the energySaverOnBatteryThresholdPercentage property.
     */
-    public function setEnergySaverOnBatteryThresholdPercentage(?int $value ): void {
-        $this->energySaverOnBatteryThresholdPercentage = $value;
+    public function setEnergySaverOnBatteryThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('energySaverOnBatteryThresholdPercentage', $value);
     }
 
     /**
      * Sets the energySaverPluggedInThresholdPercentage property value. This setting allows you to specify battery charge level at which Energy Saver is turned on. While plugged in, Energy Saver is automatically turned on at (and below) the specified battery charge level. Valid input range (0-100). Valid values 0 to 100
      *  @param int|null $value Value to set for the energySaverPluggedInThresholdPercentage property.
     */
-    public function setEnergySaverPluggedInThresholdPercentage(?int $value ): void {
-        $this->energySaverPluggedInThresholdPercentage = $value;
+    public function setEnergySaverPluggedInThresholdPercentage(?int $value): void {
+        $this->getBackingStore()->set('energySaverPluggedInThresholdPercentage', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintDiscoveryEndPoint property value. Endpoint for discovering cloud printers.
      *  @param string|null $value Value to set for the enterpriseCloudPrintDiscoveryEndPoint property.
     */
-    public function setEnterpriseCloudPrintDiscoveryEndPoint(?string $value ): void {
-        $this->enterpriseCloudPrintDiscoveryEndPoint = $value;
+    public function setEnterpriseCloudPrintDiscoveryEndPoint(?string $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintDiscoveryEndPoint', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintDiscoveryMaxLimit property value. Maximum number of printers that should be queried from a discovery endpoint. This is a mobile only setting. Valid values 1 to 65535
      *  @param int|null $value Value to set for the enterpriseCloudPrintDiscoveryMaxLimit property.
     */
-    public function setEnterpriseCloudPrintDiscoveryMaxLimit(?int $value ): void {
-        $this->enterpriseCloudPrintDiscoveryMaxLimit = $value;
+    public function setEnterpriseCloudPrintDiscoveryMaxLimit(?int $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintDiscoveryMaxLimit', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property value. OAuth resource URI for printer discovery service as configured in Azure portal.
      *  @param string|null $value Value to set for the enterpriseCloudPrintMopriaDiscoveryResourceIdentifier property.
     */
-    public function setEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier(?string $value ): void {
-        $this->enterpriseCloudPrintMopriaDiscoveryResourceIdentifier = $value;
+    public function setEnterpriseCloudPrintMopriaDiscoveryResourceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintMopriaDiscoveryResourceIdentifier', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintOAuthAuthority property value. Authentication endpoint for acquiring OAuth tokens.
      *  @param string|null $value Value to set for the enterpriseCloudPrintOAuthAuthority property.
     */
-    public function setEnterpriseCloudPrintOAuthAuthority(?string $value ): void {
-        $this->enterpriseCloudPrintOAuthAuthority = $value;
+    public function setEnterpriseCloudPrintOAuthAuthority(?string $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintOAuthAuthority', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintOAuthClientIdentifier property value. GUID of a client application authorized to retrieve OAuth tokens from the OAuth Authority.
      *  @param string|null $value Value to set for the enterpriseCloudPrintOAuthClientIdentifier property.
     */
-    public function setEnterpriseCloudPrintOAuthClientIdentifier(?string $value ): void {
-        $this->enterpriseCloudPrintOAuthClientIdentifier = $value;
+    public function setEnterpriseCloudPrintOAuthClientIdentifier(?string $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintOAuthClientIdentifier', $value);
     }
 
     /**
      * Sets the enterpriseCloudPrintResourceIdentifier property value. OAuth resource URI for print service as configured in the Azure portal.
      *  @param string|null $value Value to set for the enterpriseCloudPrintResourceIdentifier property.
     */
-    public function setEnterpriseCloudPrintResourceIdentifier(?string $value ): void {
-        $this->enterpriseCloudPrintResourceIdentifier = $value;
+    public function setEnterpriseCloudPrintResourceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('enterpriseCloudPrintResourceIdentifier', $value);
     }
 
     /**
      * Sets the experienceBlockDeviceDiscovery property value. Indicates whether or not to enable device discovery UX.
      *  @param bool|null $value Value to set for the experienceBlockDeviceDiscovery property.
     */
-    public function setExperienceBlockDeviceDiscovery(?bool $value ): void {
-        $this->experienceBlockDeviceDiscovery = $value;
+    public function setExperienceBlockDeviceDiscovery(?bool $value): void {
+        $this->getBackingStore()->set('experienceBlockDeviceDiscovery', $value);
     }
 
     /**
      * Sets the experienceBlockErrorDialogWhenNoSIM property value. Indicates whether or not to allow the error dialog from displaying if no SIM card is detected.
      *  @param bool|null $value Value to set for the experienceBlockErrorDialogWhenNoSIM property.
     */
-    public function setExperienceBlockErrorDialogWhenNoSIM(?bool $value ): void {
-        $this->experienceBlockErrorDialogWhenNoSIM = $value;
+    public function setExperienceBlockErrorDialogWhenNoSIM(?bool $value): void {
+        $this->getBackingStore()->set('experienceBlockErrorDialogWhenNoSIM', $value);
     }
 
     /**
      * Sets the experienceBlockTaskSwitcher property value. Indicates whether or not to enable task switching on the device.
      *  @param bool|null $value Value to set for the experienceBlockTaskSwitcher property.
     */
-    public function setExperienceBlockTaskSwitcher(?bool $value ): void {
-        $this->experienceBlockTaskSwitcher = $value;
+    public function setExperienceBlockTaskSwitcher(?bool $value): void {
+        $this->getBackingStore()->set('experienceBlockTaskSwitcher', $value);
     }
 
     /**
      * Sets the experienceDoNotSyncBrowserSettings property value. Allow(Not Configured) or prevent(Block) the syncing of Microsoft Edge Browser settings. Option to prevent syncing across devices, but allow user override.
      *  @param BrowserSyncSetting|null $value Value to set for the experienceDoNotSyncBrowserSettings property.
     */
-    public function setExperienceDoNotSyncBrowserSettings(?BrowserSyncSetting $value ): void {
-        $this->experienceDoNotSyncBrowserSettings = $value;
+    public function setExperienceDoNotSyncBrowserSettings(?BrowserSyncSetting $value): void {
+        $this->getBackingStore()->set('experienceDoNotSyncBrowserSettings', $value);
     }
 
     /**
      * Sets the findMyFiles property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the findMyFiles property.
     */
-    public function setFindMyFiles(?Enablement $value ): void {
-        $this->findMyFiles = $value;
+    public function setFindMyFiles(?Enablement $value): void {
+        $this->getBackingStore()->set('findMyFiles', $value);
     }
 
     /**
      * Sets the gameDvrBlocked property value. Indicates whether or not to block DVR and broadcasting.
      *  @param bool|null $value Value to set for the gameDvrBlocked property.
     */
-    public function setGameDvrBlocked(?bool $value ): void {
-        $this->gameDvrBlocked = $value;
+    public function setGameDvrBlocked(?bool $value): void {
+        $this->getBackingStore()->set('gameDvrBlocked', $value);
     }
 
     /**
      * Sets the inkWorkspaceAccess property value. Values for the InkWorkspaceAccess setting.
      *  @param InkAccessSetting|null $value Value to set for the inkWorkspaceAccess property.
     */
-    public function setInkWorkspaceAccess(?InkAccessSetting $value ): void {
-        $this->inkWorkspaceAccess = $value;
+    public function setInkWorkspaceAccess(?InkAccessSetting $value): void {
+        $this->getBackingStore()->set('inkWorkspaceAccess', $value);
     }
 
     /**
      * Sets the inkWorkspaceAccessState property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the inkWorkspaceAccessState property.
     */
-    public function setInkWorkspaceAccessState(?StateManagementSetting $value ): void {
-        $this->inkWorkspaceAccessState = $value;
+    public function setInkWorkspaceAccessState(?StateManagementSetting $value): void {
+        $this->getBackingStore()->set('inkWorkspaceAccessState', $value);
     }
 
     /**
      * Sets the inkWorkspaceBlockSuggestedApps property value. Specify whether to show recommended app suggestions in the ink workspace.
      *  @param bool|null $value Value to set for the inkWorkspaceBlockSuggestedApps property.
     */
-    public function setInkWorkspaceBlockSuggestedApps(?bool $value ): void {
-        $this->inkWorkspaceBlockSuggestedApps = $value;
+    public function setInkWorkspaceBlockSuggestedApps(?bool $value): void {
+        $this->getBackingStore()->set('inkWorkspaceBlockSuggestedApps', $value);
     }
 
     /**
      * Sets the internetSharingBlocked property value. Indicates whether or not to Block the user from using internet sharing.
      *  @param bool|null $value Value to set for the internetSharingBlocked property.
     */
-    public function setInternetSharingBlocked(?bool $value ): void {
-        $this->internetSharingBlocked = $value;
+    public function setInternetSharingBlocked(?bool $value): void {
+        $this->getBackingStore()->set('internetSharingBlocked', $value);
     }
 
     /**
      * Sets the locationServicesBlocked property value. Indicates whether or not to Block the user from location services.
      *  @param bool|null $value Value to set for the locationServicesBlocked property.
     */
-    public function setLocationServicesBlocked(?bool $value ): void {
-        $this->locationServicesBlocked = $value;
+    public function setLocationServicesBlocked(?bool $value): void {
+        $this->getBackingStore()->set('locationServicesBlocked', $value);
     }
 
     /**
      * Sets the lockScreenActivateAppsWithVoice property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the lockScreenActivateAppsWithVoice property.
     */
-    public function setLockScreenActivateAppsWithVoice(?Enablement $value ): void {
-        $this->lockScreenActivateAppsWithVoice = $value;
+    public function setLockScreenActivateAppsWithVoice(?Enablement $value): void {
+        $this->getBackingStore()->set('lockScreenActivateAppsWithVoice', $value);
     }
 
     /**
      * Sets the lockScreenAllowTimeoutConfiguration property value. Specify whether to show a user-configurable setting to control the screen timeout while on the lock screen of Windows 10 Mobile devices. If this policy is set to Allow, the value set by lockScreenTimeoutInSeconds is ignored.
      *  @param bool|null $value Value to set for the lockScreenAllowTimeoutConfiguration property.
     */
-    public function setLockScreenAllowTimeoutConfiguration(?bool $value ): void {
-        $this->lockScreenAllowTimeoutConfiguration = $value;
+    public function setLockScreenAllowTimeoutConfiguration(?bool $value): void {
+        $this->getBackingStore()->set('lockScreenAllowTimeoutConfiguration', $value);
     }
 
     /**
      * Sets the lockScreenBlockActionCenterNotifications property value. Indicates whether or not to block action center notifications over lock screen.
      *  @param bool|null $value Value to set for the lockScreenBlockActionCenterNotifications property.
     */
-    public function setLockScreenBlockActionCenterNotifications(?bool $value ): void {
-        $this->lockScreenBlockActionCenterNotifications = $value;
+    public function setLockScreenBlockActionCenterNotifications(?bool $value): void {
+        $this->getBackingStore()->set('lockScreenBlockActionCenterNotifications', $value);
     }
 
     /**
      * Sets the lockScreenBlockCortana property value. Indicates whether or not the user can interact with Cortana using speech while the system is locked.
      *  @param bool|null $value Value to set for the lockScreenBlockCortana property.
     */
-    public function setLockScreenBlockCortana(?bool $value ): void {
-        $this->lockScreenBlockCortana = $value;
+    public function setLockScreenBlockCortana(?bool $value): void {
+        $this->getBackingStore()->set('lockScreenBlockCortana', $value);
     }
 
     /**
      * Sets the lockScreenBlockToastNotifications property value. Indicates whether to allow toast notifications above the device lock screen.
      *  @param bool|null $value Value to set for the lockScreenBlockToastNotifications property.
     */
-    public function setLockScreenBlockToastNotifications(?bool $value ): void {
-        $this->lockScreenBlockToastNotifications = $value;
+    public function setLockScreenBlockToastNotifications(?bool $value): void {
+        $this->getBackingStore()->set('lockScreenBlockToastNotifications', $value);
     }
 
     /**
      * Sets the lockScreenTimeoutInSeconds property value. Set the duration (in seconds) from the screen locking to the screen turning off for Windows 10 Mobile devices. Supported values are 11-1800. Valid values 11 to 1800
      *  @param int|null $value Value to set for the lockScreenTimeoutInSeconds property.
     */
-    public function setLockScreenTimeoutInSeconds(?int $value ): void {
-        $this->lockScreenTimeoutInSeconds = $value;
+    public function setLockScreenTimeoutInSeconds(?int $value): void {
+        $this->getBackingStore()->set('lockScreenTimeoutInSeconds', $value);
     }
 
     /**
      * Sets the logonBlockFastUserSwitching property value. Disables the ability to quickly switch between users that are logged on simultaneously without logging off.
      *  @param bool|null $value Value to set for the logonBlockFastUserSwitching property.
     */
-    public function setLogonBlockFastUserSwitching(?bool $value ): void {
-        $this->logonBlockFastUserSwitching = $value;
+    public function setLogonBlockFastUserSwitching(?bool $value): void {
+        $this->getBackingStore()->set('logonBlockFastUserSwitching', $value);
     }
 
     /**
      * Sets the messagingBlockMMS property value. Indicates whether or not to block the MMS send/receive functionality on the device.
      *  @param bool|null $value Value to set for the messagingBlockMMS property.
     */
-    public function setMessagingBlockMMS(?bool $value ): void {
-        $this->messagingBlockMMS = $value;
+    public function setMessagingBlockMMS(?bool $value): void {
+        $this->getBackingStore()->set('messagingBlockMMS', $value);
     }
 
     /**
      * Sets the messagingBlockRichCommunicationServices property value. Indicates whether or not to block the RCS send/receive functionality on the device.
      *  @param bool|null $value Value to set for the messagingBlockRichCommunicationServices property.
     */
-    public function setMessagingBlockRichCommunicationServices(?bool $value ): void {
-        $this->messagingBlockRichCommunicationServices = $value;
+    public function setMessagingBlockRichCommunicationServices(?bool $value): void {
+        $this->getBackingStore()->set('messagingBlockRichCommunicationServices', $value);
     }
 
     /**
      * Sets the messagingBlockSync property value. Indicates whether or not to block text message back up and restore and Messaging Everywhere.
      *  @param bool|null $value Value to set for the messagingBlockSync property.
     */
-    public function setMessagingBlockSync(?bool $value ): void {
-        $this->messagingBlockSync = $value;
+    public function setMessagingBlockSync(?bool $value): void {
+        $this->getBackingStore()->set('messagingBlockSync', $value);
     }
 
     /**
      * Sets the microsoftAccountBlocked property value. Indicates whether or not to Block a Microsoft account.
      *  @param bool|null $value Value to set for the microsoftAccountBlocked property.
     */
-    public function setMicrosoftAccountBlocked(?bool $value ): void {
-        $this->microsoftAccountBlocked = $value;
+    public function setMicrosoftAccountBlocked(?bool $value): void {
+        $this->getBackingStore()->set('microsoftAccountBlocked', $value);
     }
 
     /**
      * Sets the microsoftAccountBlockSettingsSync property value. Indicates whether or not to Block Microsoft account settings sync.
      *  @param bool|null $value Value to set for the microsoftAccountBlockSettingsSync property.
     */
-    public function setMicrosoftAccountBlockSettingsSync(?bool $value ): void {
-        $this->microsoftAccountBlockSettingsSync = $value;
+    public function setMicrosoftAccountBlockSettingsSync(?bool $value): void {
+        $this->getBackingStore()->set('microsoftAccountBlockSettingsSync', $value);
     }
 
     /**
      * Sets the microsoftAccountSignInAssistantSettings property value. Values for the SignInAssistantSettings.
      *  @param SignInAssistantOptions|null $value Value to set for the microsoftAccountSignInAssistantSettings property.
     */
-    public function setMicrosoftAccountSignInAssistantSettings(?SignInAssistantOptions $value ): void {
-        $this->microsoftAccountSignInAssistantSettings = $value;
+    public function setMicrosoftAccountSignInAssistantSettings(?SignInAssistantOptions $value): void {
+        $this->getBackingStore()->set('microsoftAccountSignInAssistantSettings', $value);
     }
 
     /**
      * Sets the networkProxyApplySettingsDeviceWide property value. If set, proxy settings will be applied to all processes and accounts in the device. Otherwise, it will be applied to the user account that’s enrolled into MDM.
      *  @param bool|null $value Value to set for the networkProxyApplySettingsDeviceWide property.
     */
-    public function setNetworkProxyApplySettingsDeviceWide(?bool $value ): void {
-        $this->networkProxyApplySettingsDeviceWide = $value;
+    public function setNetworkProxyApplySettingsDeviceWide(?bool $value): void {
+        $this->getBackingStore()->set('networkProxyApplySettingsDeviceWide', $value);
     }
 
     /**
      * Sets the networkProxyAutomaticConfigurationUrl property value. Address to the proxy auto-config (PAC) script you want to use.
      *  @param string|null $value Value to set for the networkProxyAutomaticConfigurationUrl property.
     */
-    public function setNetworkProxyAutomaticConfigurationUrl(?string $value ): void {
-        $this->networkProxyAutomaticConfigurationUrl = $value;
+    public function setNetworkProxyAutomaticConfigurationUrl(?string $value): void {
+        $this->getBackingStore()->set('networkProxyAutomaticConfigurationUrl', $value);
     }
 
     /**
      * Sets the networkProxyDisableAutoDetect property value. Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
      *  @param bool|null $value Value to set for the networkProxyDisableAutoDetect property.
     */
-    public function setNetworkProxyDisableAutoDetect(?bool $value ): void {
-        $this->networkProxyDisableAutoDetect = $value;
+    public function setNetworkProxyDisableAutoDetect(?bool $value): void {
+        $this->getBackingStore()->set('networkProxyDisableAutoDetect', $value);
     }
 
     /**
      * Sets the networkProxyServer property value. Specifies manual proxy server settings.
      *  @param Windows10NetworkProxyServer|null $value Value to set for the networkProxyServer property.
     */
-    public function setNetworkProxyServer(?Windows10NetworkProxyServer $value ): void {
-        $this->networkProxyServer = $value;
+    public function setNetworkProxyServer(?Windows10NetworkProxyServer $value): void {
+        $this->getBackingStore()->set('networkProxyServer', $value);
     }
 
     /**
      * Sets the nfcBlocked property value. Indicates whether or not to Block the user from using near field communication.
      *  @param bool|null $value Value to set for the nfcBlocked property.
     */
-    public function setNfcBlocked(?bool $value ): void {
-        $this->nfcBlocked = $value;
+    public function setNfcBlocked(?bool $value): void {
+        $this->getBackingStore()->set('nfcBlocked', $value);
     }
 
     /**
      * Sets the oneDriveDisableFileSync property value. Gets or sets a value allowing IT admins to prevent apps and features from working with files on OneDrive.
      *  @param bool|null $value Value to set for the oneDriveDisableFileSync property.
     */
-    public function setOneDriveDisableFileSync(?bool $value ): void {
-        $this->oneDriveDisableFileSync = $value;
+    public function setOneDriveDisableFileSync(?bool $value): void {
+        $this->getBackingStore()->set('oneDriveDisableFileSync', $value);
     }
 
     /**
      * Sets the passwordBlockSimple property value. Specify whether PINs or passwords such as '1111' or '1234' are allowed. For Windows 10 desktops, it also controls the use of picture passwords.
      *  @param bool|null $value Value to set for the passwordBlockSimple property.
     */
-    public function setPasswordBlockSimple(?bool $value ): void {
-        $this->passwordBlockSimple = $value;
+    public function setPasswordBlockSimple(?bool $value): void {
+        $this->getBackingStore()->set('passwordBlockSimple', $value);
     }
 
     /**
      * Sets the passwordExpirationDays property value. The password expiration in days. Valid values 0 to 730
      *  @param int|null $value Value to set for the passwordExpirationDays property.
     */
-    public function setPasswordExpirationDays(?int $value ): void {
-        $this->passwordExpirationDays = $value;
+    public function setPasswordExpirationDays(?int $value): void {
+        $this->getBackingStore()->set('passwordExpirationDays', $value);
     }
 
     /**
      * Sets the passwordMinimumAgeInDays property value. This security setting determines the period of time (in days) that a password must be used before the user can change it. Valid values 0 to 998
      *  @param int|null $value Value to set for the passwordMinimumAgeInDays property.
     */
-    public function setPasswordMinimumAgeInDays(?int $value ): void {
-        $this->passwordMinimumAgeInDays = $value;
+    public function setPasswordMinimumAgeInDays(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumAgeInDays', $value);
     }
 
     /**
      * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
      *  @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
     */
-    public function setPasswordMinimumCharacterSetCount(?int $value ): void {
-        $this->passwordMinimumCharacterSetCount = $value;
+    public function setPasswordMinimumCharacterSetCount(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumCharacterSetCount', $value);
     }
 
     /**
      * Sets the passwordMinimumLength property value. The minimum password length. Valid values 4 to 16
      *  @param int|null $value Value to set for the passwordMinimumLength property.
     */
-    public function setPasswordMinimumLength(?int $value ): void {
-        $this->passwordMinimumLength = $value;
+    public function setPasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumLength', $value);
     }
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeScreenTimeout property value. The minutes of inactivity before the screen times out.
      *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeScreenTimeout property.
     */
-    public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value ): void {
-        $this->passwordMinutesOfInactivityBeforeScreenTimeout = $value;
+    public function setPasswordMinutesOfInactivityBeforeScreenTimeout(?int $value): void {
+        $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeScreenTimeout', $value);
     }
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. The number of previous passwords to prevent reuse of. Valid values 0 to 50
      *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
-    public function setPasswordPreviousPasswordBlockCount(?int $value ): void {
-        $this->passwordPreviousPasswordBlockCount = $value;
+    public function setPasswordPreviousPasswordBlockCount(?int $value): void {
+        $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
     }
 
     /**
      * Sets the passwordRequired property value. Indicates whether or not to require the user to have a password.
      *  @param bool|null $value Value to set for the passwordRequired property.
     */
-    public function setPasswordRequired(?bool $value ): void {
-        $this->passwordRequired = $value;
+    public function setPasswordRequired(?bool $value): void {
+        $this->getBackingStore()->set('passwordRequired', $value);
     }
 
     /**
      * Sets the passwordRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?RequiredPasswordType $value ): void {
-        $this->passwordRequiredType = $value;
+    public function setPasswordRequiredType(?RequiredPasswordType $value): void {
+        $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 
     /**
      * Sets the passwordRequireWhenResumeFromIdleState property value. Indicates whether or not to require a password upon resuming from an idle state.
      *  @param bool|null $value Value to set for the passwordRequireWhenResumeFromIdleState property.
     */
-    public function setPasswordRequireWhenResumeFromIdleState(?bool $value ): void {
-        $this->passwordRequireWhenResumeFromIdleState = $value;
+    public function setPasswordRequireWhenResumeFromIdleState(?bool $value): void {
+        $this->getBackingStore()->set('passwordRequireWhenResumeFromIdleState', $value);
     }
 
     /**
      * Sets the passwordSignInFailureCountBeforeFactoryReset property value. The number of sign in failures before factory reset. Valid values 0 to 999
      *  @param int|null $value Value to set for the passwordSignInFailureCountBeforeFactoryReset property.
     */
-    public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value ): void {
-        $this->passwordSignInFailureCountBeforeFactoryReset = $value;
+    public function setPasswordSignInFailureCountBeforeFactoryReset(?int $value): void {
+        $this->getBackingStore()->set('passwordSignInFailureCountBeforeFactoryReset', $value);
     }
 
     /**
      * Sets the personalizationDesktopImageUrl property value. A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
      *  @param string|null $value Value to set for the personalizationDesktopImageUrl property.
     */
-    public function setPersonalizationDesktopImageUrl(?string $value ): void {
-        $this->personalizationDesktopImageUrl = $value;
+    public function setPersonalizationDesktopImageUrl(?string $value): void {
+        $this->getBackingStore()->set('personalizationDesktopImageUrl', $value);
     }
 
     /**
      * Sets the personalizationLockScreenImageUrl property value. A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
      *  @param string|null $value Value to set for the personalizationLockScreenImageUrl property.
     */
-    public function setPersonalizationLockScreenImageUrl(?string $value ): void {
-        $this->personalizationLockScreenImageUrl = $value;
+    public function setPersonalizationLockScreenImageUrl(?string $value): void {
+        $this->getBackingStore()->set('personalizationLockScreenImageUrl', $value);
     }
 
     /**
      * Sets the powerButtonActionOnBattery property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerButtonActionOnBattery property.
     */
-    public function setPowerButtonActionOnBattery(?PowerActionType $value ): void {
-        $this->powerButtonActionOnBattery = $value;
+    public function setPowerButtonActionOnBattery(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerButtonActionOnBattery', $value);
     }
 
     /**
      * Sets the powerButtonActionPluggedIn property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerButtonActionPluggedIn property.
     */
-    public function setPowerButtonActionPluggedIn(?PowerActionType $value ): void {
-        $this->powerButtonActionPluggedIn = $value;
+    public function setPowerButtonActionPluggedIn(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerButtonActionPluggedIn', $value);
     }
 
     /**
      * Sets the powerHybridSleepOnBattery property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the powerHybridSleepOnBattery property.
     */
-    public function setPowerHybridSleepOnBattery(?Enablement $value ): void {
-        $this->powerHybridSleepOnBattery = $value;
+    public function setPowerHybridSleepOnBattery(?Enablement $value): void {
+        $this->getBackingStore()->set('powerHybridSleepOnBattery', $value);
     }
 
     /**
      * Sets the powerHybridSleepPluggedIn property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the powerHybridSleepPluggedIn property.
     */
-    public function setPowerHybridSleepPluggedIn(?Enablement $value ): void {
-        $this->powerHybridSleepPluggedIn = $value;
+    public function setPowerHybridSleepPluggedIn(?Enablement $value): void {
+        $this->getBackingStore()->set('powerHybridSleepPluggedIn', $value);
     }
 
     /**
      * Sets the powerLidCloseActionOnBattery property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerLidCloseActionOnBattery property.
     */
-    public function setPowerLidCloseActionOnBattery(?PowerActionType $value ): void {
-        $this->powerLidCloseActionOnBattery = $value;
+    public function setPowerLidCloseActionOnBattery(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerLidCloseActionOnBattery', $value);
     }
 
     /**
      * Sets the powerLidCloseActionPluggedIn property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerLidCloseActionPluggedIn property.
     */
-    public function setPowerLidCloseActionPluggedIn(?PowerActionType $value ): void {
-        $this->powerLidCloseActionPluggedIn = $value;
+    public function setPowerLidCloseActionPluggedIn(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerLidCloseActionPluggedIn', $value);
     }
 
     /**
      * Sets the powerSleepButtonActionOnBattery property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerSleepButtonActionOnBattery property.
     */
-    public function setPowerSleepButtonActionOnBattery(?PowerActionType $value ): void {
-        $this->powerSleepButtonActionOnBattery = $value;
+    public function setPowerSleepButtonActionOnBattery(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerSleepButtonActionOnBattery', $value);
     }
 
     /**
      * Sets the powerSleepButtonActionPluggedIn property value. Power action types
      *  @param PowerActionType|null $value Value to set for the powerSleepButtonActionPluggedIn property.
     */
-    public function setPowerSleepButtonActionPluggedIn(?PowerActionType $value ): void {
-        $this->powerSleepButtonActionPluggedIn = $value;
+    public function setPowerSleepButtonActionPluggedIn(?PowerActionType $value): void {
+        $this->getBackingStore()->set('powerSleepButtonActionPluggedIn', $value);
     }
 
     /**
      * Sets the printerBlockAddition property value. Prevent user installation of additional printers from printers settings.
      *  @param bool|null $value Value to set for the printerBlockAddition property.
     */
-    public function setPrinterBlockAddition(?bool $value ): void {
-        $this->printerBlockAddition = $value;
+    public function setPrinterBlockAddition(?bool $value): void {
+        $this->getBackingStore()->set('printerBlockAddition', $value);
     }
 
     /**
      * Sets the printerDefaultName property value. Name (network host name) of an installed printer.
      *  @param string|null $value Value to set for the printerDefaultName property.
     */
-    public function setPrinterDefaultName(?string $value ): void {
-        $this->printerDefaultName = $value;
+    public function setPrinterDefaultName(?string $value): void {
+        $this->getBackingStore()->set('printerDefaultName', $value);
     }
 
     /**
      * Sets the printerNames property value. Automatically provision printers based on their names (network host names).
      *  @param array<string>|null $value Value to set for the printerNames property.
     */
-    public function setPrinterNames(?array $value ): void {
-        $this->printerNames = $value;
+    public function setPrinterNames(?array $value): void {
+        $this->getBackingStore()->set('printerNames', $value);
     }
 
     /**
      * Sets the privacyAccessControls property value. Indicates a list of applications with their access control levels over privacy data categories, and/or the default access levels per category. This collection can contain a maximum of 500 elements.
      *  @param array<WindowsPrivacyDataAccessControlItem>|null $value Value to set for the privacyAccessControls property.
     */
-    public function setPrivacyAccessControls(?array $value ): void {
-        $this->privacyAccessControls = $value;
+    public function setPrivacyAccessControls(?array $value): void {
+        $this->getBackingStore()->set('privacyAccessControls', $value);
     }
 
     /**
      * Sets the privacyAdvertisingId property value. State Management Setting.
      *  @param StateManagementSetting|null $value Value to set for the privacyAdvertisingId property.
     */
-    public function setPrivacyAdvertisingId(?StateManagementSetting $value ): void {
-        $this->privacyAdvertisingId = $value;
+    public function setPrivacyAdvertisingId(?StateManagementSetting $value): void {
+        $this->getBackingStore()->set('privacyAdvertisingId', $value);
     }
 
     /**
      * Sets the privacyAutoAcceptPairingAndConsentPrompts property value. Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
      *  @param bool|null $value Value to set for the privacyAutoAcceptPairingAndConsentPrompts property.
     */
-    public function setPrivacyAutoAcceptPairingAndConsentPrompts(?bool $value ): void {
-        $this->privacyAutoAcceptPairingAndConsentPrompts = $value;
+    public function setPrivacyAutoAcceptPairingAndConsentPrompts(?bool $value): void {
+        $this->getBackingStore()->set('privacyAutoAcceptPairingAndConsentPrompts', $value);
     }
 
     /**
      * Sets the privacyBlockActivityFeed property value. Blocks the usage of cloud based speech services for Cortana, Dictation, or Store applications.
      *  @param bool|null $value Value to set for the privacyBlockActivityFeed property.
     */
-    public function setPrivacyBlockActivityFeed(?bool $value ): void {
-        $this->privacyBlockActivityFeed = $value;
+    public function setPrivacyBlockActivityFeed(?bool $value): void {
+        $this->getBackingStore()->set('privacyBlockActivityFeed', $value);
     }
 
     /**
      * Sets the privacyBlockInputPersonalization property value. Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
      *  @param bool|null $value Value to set for the privacyBlockInputPersonalization property.
     */
-    public function setPrivacyBlockInputPersonalization(?bool $value ): void {
-        $this->privacyBlockInputPersonalization = $value;
+    public function setPrivacyBlockInputPersonalization(?bool $value): void {
+        $this->getBackingStore()->set('privacyBlockInputPersonalization', $value);
     }
 
     /**
      * Sets the privacyBlockPublishUserActivities property value. Blocks the shared experiences/discovery of recently used resources in task switcher etc.
      *  @param bool|null $value Value to set for the privacyBlockPublishUserActivities property.
     */
-    public function setPrivacyBlockPublishUserActivities(?bool $value ): void {
-        $this->privacyBlockPublishUserActivities = $value;
+    public function setPrivacyBlockPublishUserActivities(?bool $value): void {
+        $this->getBackingStore()->set('privacyBlockPublishUserActivities', $value);
     }
 
     /**
      * Sets the privacyDisableLaunchExperience property value. This policy prevents the privacy experience from launching during user logon for new and upgraded users.​
      *  @param bool|null $value Value to set for the privacyDisableLaunchExperience property.
     */
-    public function setPrivacyDisableLaunchExperience(?bool $value ): void {
-        $this->privacyDisableLaunchExperience = $value;
+    public function setPrivacyDisableLaunchExperience(?bool $value): void {
+        $this->getBackingStore()->set('privacyDisableLaunchExperience', $value);
     }
 
     /**
      * Sets the resetProtectionModeBlocked property value. Indicates whether or not to Block the user from reset protection mode.
      *  @param bool|null $value Value to set for the resetProtectionModeBlocked property.
     */
-    public function setResetProtectionModeBlocked(?bool $value ): void {
-        $this->resetProtectionModeBlocked = $value;
+    public function setResetProtectionModeBlocked(?bool $value): void {
+        $this->getBackingStore()->set('resetProtectionModeBlocked', $value);
     }
 
     /**
      * Sets the safeSearchFilter property value. Specifies what level of safe search (filtering adult content) is required
      *  @param SafeSearchFilterType|null $value Value to set for the safeSearchFilter property.
     */
-    public function setSafeSearchFilter(?SafeSearchFilterType $value ): void {
-        $this->safeSearchFilter = $value;
+    public function setSafeSearchFilter(?SafeSearchFilterType $value): void {
+        $this->getBackingStore()->set('safeSearchFilter', $value);
     }
 
     /**
      * Sets the screenCaptureBlocked property value. Indicates whether or not to Block the user from taking Screenshots.
      *  @param bool|null $value Value to set for the screenCaptureBlocked property.
     */
-    public function setScreenCaptureBlocked(?bool $value ): void {
-        $this->screenCaptureBlocked = $value;
+    public function setScreenCaptureBlocked(?bool $value): void {
+        $this->getBackingStore()->set('screenCaptureBlocked', $value);
     }
 
     /**
      * Sets the searchBlockDiacritics property value. Specifies if search can use diacritics.
      *  @param bool|null $value Value to set for the searchBlockDiacritics property.
     */
-    public function setSearchBlockDiacritics(?bool $value ): void {
-        $this->searchBlockDiacritics = $value;
+    public function setSearchBlockDiacritics(?bool $value): void {
+        $this->getBackingStore()->set('searchBlockDiacritics', $value);
     }
 
     /**
      * Sets the searchBlockWebResults property value. Indicates whether or not to block the web search.
      *  @param bool|null $value Value to set for the searchBlockWebResults property.
     */
-    public function setSearchBlockWebResults(?bool $value ): void {
-        $this->searchBlockWebResults = $value;
+    public function setSearchBlockWebResults(?bool $value): void {
+        $this->getBackingStore()->set('searchBlockWebResults', $value);
     }
 
     /**
      * Sets the searchDisableAutoLanguageDetection property value. Specifies whether to use automatic language detection when indexing content and properties.
      *  @param bool|null $value Value to set for the searchDisableAutoLanguageDetection property.
     */
-    public function setSearchDisableAutoLanguageDetection(?bool $value ): void {
-        $this->searchDisableAutoLanguageDetection = $value;
+    public function setSearchDisableAutoLanguageDetection(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableAutoLanguageDetection', $value);
     }
 
     /**
      * Sets the searchDisableIndexerBackoff property value. Indicates whether or not to disable the search indexer backoff feature.
      *  @param bool|null $value Value to set for the searchDisableIndexerBackoff property.
     */
-    public function setSearchDisableIndexerBackoff(?bool $value ): void {
-        $this->searchDisableIndexerBackoff = $value;
+    public function setSearchDisableIndexerBackoff(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableIndexerBackoff', $value);
     }
 
     /**
      * Sets the searchDisableIndexingEncryptedItems property value. Indicates whether or not to block indexing of WIP-protected items to prevent them from appearing in search results for Cortana or Explorer.
      *  @param bool|null $value Value to set for the searchDisableIndexingEncryptedItems property.
     */
-    public function setSearchDisableIndexingEncryptedItems(?bool $value ): void {
-        $this->searchDisableIndexingEncryptedItems = $value;
+    public function setSearchDisableIndexingEncryptedItems(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableIndexingEncryptedItems', $value);
     }
 
     /**
      * Sets the searchDisableIndexingRemovableDrive property value. Indicates whether or not to allow users to add locations on removable drives to libraries and to be indexed.
      *  @param bool|null $value Value to set for the searchDisableIndexingRemovableDrive property.
     */
-    public function setSearchDisableIndexingRemovableDrive(?bool $value ): void {
-        $this->searchDisableIndexingRemovableDrive = $value;
+    public function setSearchDisableIndexingRemovableDrive(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableIndexingRemovableDrive', $value);
     }
 
     /**
      * Sets the searchDisableLocation property value. Specifies if search can use location information.
      *  @param bool|null $value Value to set for the searchDisableLocation property.
     */
-    public function setSearchDisableLocation(?bool $value ): void {
-        $this->searchDisableLocation = $value;
+    public function setSearchDisableLocation(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableLocation', $value);
     }
 
     /**
      * Sets the searchDisableUseLocation property value. Specifies if search can use location information.
      *  @param bool|null $value Value to set for the searchDisableUseLocation property.
     */
-    public function setSearchDisableUseLocation(?bool $value ): void {
-        $this->searchDisableUseLocation = $value;
+    public function setSearchDisableUseLocation(?bool $value): void {
+        $this->getBackingStore()->set('searchDisableUseLocation', $value);
     }
 
     /**
      * Sets the searchEnableAutomaticIndexSizeManangement property value. Specifies minimum amount of hard drive space on the same drive as the index location before indexing stops.
      *  @param bool|null $value Value to set for the searchEnableAutomaticIndexSizeManangement property.
     */
-    public function setSearchEnableAutomaticIndexSizeManangement(?bool $value ): void {
-        $this->searchEnableAutomaticIndexSizeManangement = $value;
+    public function setSearchEnableAutomaticIndexSizeManangement(?bool $value): void {
+        $this->getBackingStore()->set('searchEnableAutomaticIndexSizeManangement', $value);
     }
 
     /**
      * Sets the searchEnableRemoteQueries property value. Indicates whether or not to block remote queries of this computer’s index.
      *  @param bool|null $value Value to set for the searchEnableRemoteQueries property.
     */
-    public function setSearchEnableRemoteQueries(?bool $value ): void {
-        $this->searchEnableRemoteQueries = $value;
+    public function setSearchEnableRemoteQueries(?bool $value): void {
+        $this->getBackingStore()->set('searchEnableRemoteQueries', $value);
     }
 
     /**
      * Sets the securityBlockAzureADJoinedDevicesAutoEncryption property value. Specify whether to allow automatic device encryption during OOBE when the device is Azure AD joined (desktop only).
      *  @param bool|null $value Value to set for the securityBlockAzureADJoinedDevicesAutoEncryption property.
     */
-    public function setSecurityBlockAzureADJoinedDevicesAutoEncryption(?bool $value ): void {
-        $this->securityBlockAzureADJoinedDevicesAutoEncryption = $value;
+    public function setSecurityBlockAzureADJoinedDevicesAutoEncryption(?bool $value): void {
+        $this->getBackingStore()->set('securityBlockAzureADJoinedDevicesAutoEncryption', $value);
     }
 
     /**
      * Sets the settingsBlockAccountsPage property value. Indicates whether or not to block access to Accounts in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockAccountsPage property.
     */
-    public function setSettingsBlockAccountsPage(?bool $value ): void {
-        $this->settingsBlockAccountsPage = $value;
+    public function setSettingsBlockAccountsPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockAccountsPage', $value);
     }
 
     /**
      * Sets the settingsBlockAddProvisioningPackage property value. Indicates whether or not to block the user from installing provisioning packages.
      *  @param bool|null $value Value to set for the settingsBlockAddProvisioningPackage property.
     */
-    public function setSettingsBlockAddProvisioningPackage(?bool $value ): void {
-        $this->settingsBlockAddProvisioningPackage = $value;
+    public function setSettingsBlockAddProvisioningPackage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockAddProvisioningPackage', $value);
     }
 
     /**
      * Sets the settingsBlockAppsPage property value. Indicates whether or not to block access to Apps in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockAppsPage property.
     */
-    public function setSettingsBlockAppsPage(?bool $value ): void {
-        $this->settingsBlockAppsPage = $value;
+    public function setSettingsBlockAppsPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockAppsPage', $value);
     }
 
     /**
      * Sets the settingsBlockChangeLanguage property value. Indicates whether or not to block the user from changing the language settings.
      *  @param bool|null $value Value to set for the settingsBlockChangeLanguage property.
     */
-    public function setSettingsBlockChangeLanguage(?bool $value ): void {
-        $this->settingsBlockChangeLanguage = $value;
+    public function setSettingsBlockChangeLanguage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockChangeLanguage', $value);
     }
 
     /**
      * Sets the settingsBlockChangePowerSleep property value. Indicates whether or not to block the user from changing power and sleep settings.
      *  @param bool|null $value Value to set for the settingsBlockChangePowerSleep property.
     */
-    public function setSettingsBlockChangePowerSleep(?bool $value ): void {
-        $this->settingsBlockChangePowerSleep = $value;
+    public function setSettingsBlockChangePowerSleep(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockChangePowerSleep', $value);
     }
 
     /**
      * Sets the settingsBlockChangeRegion property value. Indicates whether or not to block the user from changing the region settings.
      *  @param bool|null $value Value to set for the settingsBlockChangeRegion property.
     */
-    public function setSettingsBlockChangeRegion(?bool $value ): void {
-        $this->settingsBlockChangeRegion = $value;
+    public function setSettingsBlockChangeRegion(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockChangeRegion', $value);
     }
 
     /**
      * Sets the settingsBlockChangeSystemTime property value. Indicates whether or not to block the user from changing date and time settings.
      *  @param bool|null $value Value to set for the settingsBlockChangeSystemTime property.
     */
-    public function setSettingsBlockChangeSystemTime(?bool $value ): void {
-        $this->settingsBlockChangeSystemTime = $value;
+    public function setSettingsBlockChangeSystemTime(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockChangeSystemTime', $value);
     }
 
     /**
      * Sets the settingsBlockDevicesPage property value. Indicates whether or not to block access to Devices in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockDevicesPage property.
     */
-    public function setSettingsBlockDevicesPage(?bool $value ): void {
-        $this->settingsBlockDevicesPage = $value;
+    public function setSettingsBlockDevicesPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockDevicesPage', $value);
     }
 
     /**
      * Sets the settingsBlockEaseOfAccessPage property value. Indicates whether or not to block access to Ease of Access in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockEaseOfAccessPage property.
     */
-    public function setSettingsBlockEaseOfAccessPage(?bool $value ): void {
-        $this->settingsBlockEaseOfAccessPage = $value;
+    public function setSettingsBlockEaseOfAccessPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockEaseOfAccessPage', $value);
     }
 
     /**
      * Sets the settingsBlockEditDeviceName property value. Indicates whether or not to block the user from editing the device name.
      *  @param bool|null $value Value to set for the settingsBlockEditDeviceName property.
     */
-    public function setSettingsBlockEditDeviceName(?bool $value ): void {
-        $this->settingsBlockEditDeviceName = $value;
+    public function setSettingsBlockEditDeviceName(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockEditDeviceName', $value);
     }
 
     /**
      * Sets the settingsBlockGamingPage property value. Indicates whether or not to block access to Gaming in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockGamingPage property.
     */
-    public function setSettingsBlockGamingPage(?bool $value ): void {
-        $this->settingsBlockGamingPage = $value;
+    public function setSettingsBlockGamingPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockGamingPage', $value);
     }
 
     /**
      * Sets the settingsBlockNetworkInternetPage property value. Indicates whether or not to block access to Network & Internet in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockNetworkInternetPage property.
     */
-    public function setSettingsBlockNetworkInternetPage(?bool $value ): void {
-        $this->settingsBlockNetworkInternetPage = $value;
+    public function setSettingsBlockNetworkInternetPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockNetworkInternetPage', $value);
     }
 
     /**
      * Sets the settingsBlockPersonalizationPage property value. Indicates whether or not to block access to Personalization in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockPersonalizationPage property.
     */
-    public function setSettingsBlockPersonalizationPage(?bool $value ): void {
-        $this->settingsBlockPersonalizationPage = $value;
+    public function setSettingsBlockPersonalizationPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockPersonalizationPage', $value);
     }
 
     /**
      * Sets the settingsBlockPrivacyPage property value. Indicates whether or not to block access to Privacy in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockPrivacyPage property.
     */
-    public function setSettingsBlockPrivacyPage(?bool $value ): void {
-        $this->settingsBlockPrivacyPage = $value;
+    public function setSettingsBlockPrivacyPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockPrivacyPage', $value);
     }
 
     /**
      * Sets the settingsBlockRemoveProvisioningPackage property value. Indicates whether or not to block the runtime configuration agent from removing provisioning packages.
      *  @param bool|null $value Value to set for the settingsBlockRemoveProvisioningPackage property.
     */
-    public function setSettingsBlockRemoveProvisioningPackage(?bool $value ): void {
-        $this->settingsBlockRemoveProvisioningPackage = $value;
+    public function setSettingsBlockRemoveProvisioningPackage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockRemoveProvisioningPackage', $value);
     }
 
     /**
      * Sets the settingsBlockSettingsApp property value. Indicates whether or not to block access to Settings app.
      *  @param bool|null $value Value to set for the settingsBlockSettingsApp property.
     */
-    public function setSettingsBlockSettingsApp(?bool $value ): void {
-        $this->settingsBlockSettingsApp = $value;
+    public function setSettingsBlockSettingsApp(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockSettingsApp', $value);
     }
 
     /**
      * Sets the settingsBlockSystemPage property value. Indicates whether or not to block access to System in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockSystemPage property.
     */
-    public function setSettingsBlockSystemPage(?bool $value ): void {
-        $this->settingsBlockSystemPage = $value;
+    public function setSettingsBlockSystemPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockSystemPage', $value);
     }
 
     /**
      * Sets the settingsBlockTimeLanguagePage property value. Indicates whether or not to block access to Time & Language in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockTimeLanguagePage property.
     */
-    public function setSettingsBlockTimeLanguagePage(?bool $value ): void {
-        $this->settingsBlockTimeLanguagePage = $value;
+    public function setSettingsBlockTimeLanguagePage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockTimeLanguagePage', $value);
     }
 
     /**
      * Sets the settingsBlockUpdateSecurityPage property value. Indicates whether or not to block access to Update & Security in Settings app.
      *  @param bool|null $value Value to set for the settingsBlockUpdateSecurityPage property.
     */
-    public function setSettingsBlockUpdateSecurityPage(?bool $value ): void {
-        $this->settingsBlockUpdateSecurityPage = $value;
+    public function setSettingsBlockUpdateSecurityPage(?bool $value): void {
+        $this->getBackingStore()->set('settingsBlockUpdateSecurityPage', $value);
     }
 
     /**
      * Sets the sharedUserAppDataAllowed property value. Indicates whether or not to block multiple users of the same app to share data.
      *  @param bool|null $value Value to set for the sharedUserAppDataAllowed property.
     */
-    public function setSharedUserAppDataAllowed(?bool $value ): void {
-        $this->sharedUserAppDataAllowed = $value;
+    public function setSharedUserAppDataAllowed(?bool $value): void {
+        $this->getBackingStore()->set('sharedUserAppDataAllowed', $value);
     }
 
     /**
      * Sets the smartScreenAppInstallControl property value. App Install control Setting
      *  @param AppInstallControlType|null $value Value to set for the smartScreenAppInstallControl property.
     */
-    public function setSmartScreenAppInstallControl(?AppInstallControlType $value ): void {
-        $this->smartScreenAppInstallControl = $value;
+    public function setSmartScreenAppInstallControl(?AppInstallControlType $value): void {
+        $this->getBackingStore()->set('smartScreenAppInstallControl', $value);
     }
 
     /**
      * Sets the smartScreenBlockPromptOverride property value. Indicates whether or not users can override SmartScreen Filter warnings about potentially malicious websites.
      *  @param bool|null $value Value to set for the smartScreenBlockPromptOverride property.
     */
-    public function setSmartScreenBlockPromptOverride(?bool $value ): void {
-        $this->smartScreenBlockPromptOverride = $value;
+    public function setSmartScreenBlockPromptOverride(?bool $value): void {
+        $this->getBackingStore()->set('smartScreenBlockPromptOverride', $value);
     }
 
     /**
      * Sets the smartScreenBlockPromptOverrideForFiles property value. Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
      *  @param bool|null $value Value to set for the smartScreenBlockPromptOverrideForFiles property.
     */
-    public function setSmartScreenBlockPromptOverrideForFiles(?bool $value ): void {
-        $this->smartScreenBlockPromptOverrideForFiles = $value;
+    public function setSmartScreenBlockPromptOverrideForFiles(?bool $value): void {
+        $this->getBackingStore()->set('smartScreenBlockPromptOverrideForFiles', $value);
     }
 
     /**
      * Sets the smartScreenEnableAppInstallControl property value. This property will be deprecated in July 2019 and will be replaced by property SmartScreenAppInstallControl. Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
      *  @param bool|null $value Value to set for the smartScreenEnableAppInstallControl property.
     */
-    public function setSmartScreenEnableAppInstallControl(?bool $value ): void {
-        $this->smartScreenEnableAppInstallControl = $value;
+    public function setSmartScreenEnableAppInstallControl(?bool $value): void {
+        $this->getBackingStore()->set('smartScreenEnableAppInstallControl', $value);
     }
 
     /**
      * Sets the startBlockUnpinningAppsFromTaskbar property value. Indicates whether or not to block the user from unpinning apps from taskbar.
      *  @param bool|null $value Value to set for the startBlockUnpinningAppsFromTaskbar property.
     */
-    public function setStartBlockUnpinningAppsFromTaskbar(?bool $value ): void {
-        $this->startBlockUnpinningAppsFromTaskbar = $value;
+    public function setStartBlockUnpinningAppsFromTaskbar(?bool $value): void {
+        $this->getBackingStore()->set('startBlockUnpinningAppsFromTaskbar', $value);
     }
 
     /**
      * Sets the startMenuAppListVisibility property value. Type of start menu app list visibility.
      *  @param WindowsStartMenuAppListVisibilityType|null $value Value to set for the startMenuAppListVisibility property.
     */
-    public function setStartMenuAppListVisibility(?WindowsStartMenuAppListVisibilityType $value ): void {
-        $this->startMenuAppListVisibility = $value;
+    public function setStartMenuAppListVisibility(?WindowsStartMenuAppListVisibilityType $value): void {
+        $this->getBackingStore()->set('startMenuAppListVisibility', $value);
     }
 
     /**
      * Sets the startMenuHideChangeAccountSettings property value. Enabling this policy hides the change account setting from appearing in the user tile in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideChangeAccountSettings property.
     */
-    public function setStartMenuHideChangeAccountSettings(?bool $value ): void {
-        $this->startMenuHideChangeAccountSettings = $value;
+    public function setStartMenuHideChangeAccountSettings(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideChangeAccountSettings', $value);
     }
 
     /**
      * Sets the startMenuHideFrequentlyUsedApps property value. Enabling this policy hides the most used apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
      *  @param bool|null $value Value to set for the startMenuHideFrequentlyUsedApps property.
     */
-    public function setStartMenuHideFrequentlyUsedApps(?bool $value ): void {
-        $this->startMenuHideFrequentlyUsedApps = $value;
+    public function setStartMenuHideFrequentlyUsedApps(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideFrequentlyUsedApps', $value);
     }
 
     /**
      * Sets the startMenuHideHibernate property value. Enabling this policy hides hibernate from appearing in the power button in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideHibernate property.
     */
-    public function setStartMenuHideHibernate(?bool $value ): void {
-        $this->startMenuHideHibernate = $value;
+    public function setStartMenuHideHibernate(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideHibernate', $value);
     }
 
     /**
      * Sets the startMenuHideLock property value. Enabling this policy hides lock from appearing in the user tile in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideLock property.
     */
-    public function setStartMenuHideLock(?bool $value ): void {
-        $this->startMenuHideLock = $value;
+    public function setStartMenuHideLock(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideLock', $value);
     }
 
     /**
      * Sets the startMenuHidePowerButton property value. Enabling this policy hides the power button from appearing in the start menu.
      *  @param bool|null $value Value to set for the startMenuHidePowerButton property.
     */
-    public function setStartMenuHidePowerButton(?bool $value ): void {
-        $this->startMenuHidePowerButton = $value;
+    public function setStartMenuHidePowerButton(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHidePowerButton', $value);
     }
 
     /**
      * Sets the startMenuHideRecentJumpLists property value. Enabling this policy hides recent jump lists from appearing on the start menu/taskbar and disables the corresponding toggle in the Settings app.
      *  @param bool|null $value Value to set for the startMenuHideRecentJumpLists property.
     */
-    public function setStartMenuHideRecentJumpLists(?bool $value ): void {
-        $this->startMenuHideRecentJumpLists = $value;
+    public function setStartMenuHideRecentJumpLists(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideRecentJumpLists', $value);
     }
 
     /**
      * Sets the startMenuHideRecentlyAddedApps property value. Enabling this policy hides recently added apps from appearing on the start menu and disables the corresponding toggle in the Settings app.
      *  @param bool|null $value Value to set for the startMenuHideRecentlyAddedApps property.
     */
-    public function setStartMenuHideRecentlyAddedApps(?bool $value ): void {
-        $this->startMenuHideRecentlyAddedApps = $value;
+    public function setStartMenuHideRecentlyAddedApps(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideRecentlyAddedApps', $value);
     }
 
     /**
      * Sets the startMenuHideRestartOptions property value. Enabling this policy hides 'Restart/Update and Restart' from appearing in the power button in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideRestartOptions property.
     */
-    public function setStartMenuHideRestartOptions(?bool $value ): void {
-        $this->startMenuHideRestartOptions = $value;
+    public function setStartMenuHideRestartOptions(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideRestartOptions', $value);
     }
 
     /**
      * Sets the startMenuHideShutDown property value. Enabling this policy hides shut down/update and shut down from appearing in the power button in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideShutDown property.
     */
-    public function setStartMenuHideShutDown(?bool $value ): void {
-        $this->startMenuHideShutDown = $value;
+    public function setStartMenuHideShutDown(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideShutDown', $value);
     }
 
     /**
      * Sets the startMenuHideSignOut property value. Enabling this policy hides sign out from appearing in the user tile in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideSignOut property.
     */
-    public function setStartMenuHideSignOut(?bool $value ): void {
-        $this->startMenuHideSignOut = $value;
+    public function setStartMenuHideSignOut(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideSignOut', $value);
     }
 
     /**
      * Sets the startMenuHideSleep property value. Enabling this policy hides sleep from appearing in the power button in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideSleep property.
     */
-    public function setStartMenuHideSleep(?bool $value ): void {
-        $this->startMenuHideSleep = $value;
+    public function setStartMenuHideSleep(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideSleep', $value);
     }
 
     /**
      * Sets the startMenuHideSwitchAccount property value. Enabling this policy hides switch account from appearing in the user tile in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideSwitchAccount property.
     */
-    public function setStartMenuHideSwitchAccount(?bool $value ): void {
-        $this->startMenuHideSwitchAccount = $value;
+    public function setStartMenuHideSwitchAccount(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideSwitchAccount', $value);
     }
 
     /**
      * Sets the startMenuHideUserTile property value. Enabling this policy hides the user tile from appearing in the start menu.
      *  @param bool|null $value Value to set for the startMenuHideUserTile property.
     */
-    public function setStartMenuHideUserTile(?bool $value ): void {
-        $this->startMenuHideUserTile = $value;
+    public function setStartMenuHideUserTile(?bool $value): void {
+        $this->getBackingStore()->set('startMenuHideUserTile', $value);
     }
 
     /**
      * Sets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
      *  @param StreamInterface|null $value Value to set for the startMenuLayoutEdgeAssetsXml property.
     */
-    public function setStartMenuLayoutEdgeAssetsXml(?StreamInterface $value ): void {
-        $this->startMenuLayoutEdgeAssetsXml = $value;
+    public function setStartMenuLayoutEdgeAssetsXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('startMenuLayoutEdgeAssetsXml', $value);
     }
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
      *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
-    public function setStartMenuLayoutXml(?StreamInterface $value ): void {
-        $this->startMenuLayoutXml = $value;
+    public function setStartMenuLayoutXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('startMenuLayoutXml', $value);
     }
 
     /**
      * Sets the startMenuMode property value. Type of display modes for the start menu.
      *  @param WindowsStartMenuModeType|null $value Value to set for the startMenuMode property.
     */
-    public function setStartMenuMode(?WindowsStartMenuModeType $value ): void {
-        $this->startMenuMode = $value;
+    public function setStartMenuMode(?WindowsStartMenuModeType $value): void {
+        $this->getBackingStore()->set('startMenuMode', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderDocuments property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDocuments property.
     */
-    public function setStartMenuPinnedFolderDocuments(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderDocuments = $value;
+    public function setStartMenuPinnedFolderDocuments(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderDocuments', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderDownloads property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderDownloads property.
     */
-    public function setStartMenuPinnedFolderDownloads(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderDownloads = $value;
+    public function setStartMenuPinnedFolderDownloads(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderDownloads', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderFileExplorer property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderFileExplorer property.
     */
-    public function setStartMenuPinnedFolderFileExplorer(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderFileExplorer = $value;
+    public function setStartMenuPinnedFolderFileExplorer(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderFileExplorer', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderHomeGroup property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderHomeGroup property.
     */
-    public function setStartMenuPinnedFolderHomeGroup(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderHomeGroup = $value;
+    public function setStartMenuPinnedFolderHomeGroup(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderHomeGroup', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderMusic property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderMusic property.
     */
-    public function setStartMenuPinnedFolderMusic(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderMusic = $value;
+    public function setStartMenuPinnedFolderMusic(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderMusic', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderNetwork property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderNetwork property.
     */
-    public function setStartMenuPinnedFolderNetwork(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderNetwork = $value;
+    public function setStartMenuPinnedFolderNetwork(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderNetwork', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderPersonalFolder property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPersonalFolder property.
     */
-    public function setStartMenuPinnedFolderPersonalFolder(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderPersonalFolder = $value;
+    public function setStartMenuPinnedFolderPersonalFolder(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderPersonalFolder', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderPictures property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderPictures property.
     */
-    public function setStartMenuPinnedFolderPictures(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderPictures = $value;
+    public function setStartMenuPinnedFolderPictures(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderPictures', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderSettings property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderSettings property.
     */
-    public function setStartMenuPinnedFolderSettings(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderSettings = $value;
+    public function setStartMenuPinnedFolderSettings(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderSettings', $value);
     }
 
     /**
      * Sets the startMenuPinnedFolderVideos property value. Generic visibility state.
      *  @param VisibilitySetting|null $value Value to set for the startMenuPinnedFolderVideos property.
     */
-    public function setStartMenuPinnedFolderVideos(?VisibilitySetting $value ): void {
-        $this->startMenuPinnedFolderVideos = $value;
+    public function setStartMenuPinnedFolderVideos(?VisibilitySetting $value): void {
+        $this->getBackingStore()->set('startMenuPinnedFolderVideos', $value);
     }
 
     /**
      * Sets the storageBlockRemovableStorage property value. Indicates whether or not to Block the user from using removable storage.
      *  @param bool|null $value Value to set for the storageBlockRemovableStorage property.
     */
-    public function setStorageBlockRemovableStorage(?bool $value ): void {
-        $this->storageBlockRemovableStorage = $value;
+    public function setStorageBlockRemovableStorage(?bool $value): void {
+        $this->getBackingStore()->set('storageBlockRemovableStorage', $value);
     }
 
     /**
      * Sets the storageRequireMobileDeviceEncryption property value. Indicating whether or not to require encryption on a mobile device.
      *  @param bool|null $value Value to set for the storageRequireMobileDeviceEncryption property.
     */
-    public function setStorageRequireMobileDeviceEncryption(?bool $value ): void {
-        $this->storageRequireMobileDeviceEncryption = $value;
+    public function setStorageRequireMobileDeviceEncryption(?bool $value): void {
+        $this->getBackingStore()->set('storageRequireMobileDeviceEncryption', $value);
     }
 
     /**
      * Sets the storageRestrictAppDataToSystemVolume property value. Indicates whether application data is restricted to the system drive.
      *  @param bool|null $value Value to set for the storageRestrictAppDataToSystemVolume property.
     */
-    public function setStorageRestrictAppDataToSystemVolume(?bool $value ): void {
-        $this->storageRestrictAppDataToSystemVolume = $value;
+    public function setStorageRestrictAppDataToSystemVolume(?bool $value): void {
+        $this->getBackingStore()->set('storageRestrictAppDataToSystemVolume', $value);
     }
 
     /**
      * Sets the storageRestrictAppInstallToSystemVolume property value. Indicates whether the installation of applications is restricted to the system drive.
      *  @param bool|null $value Value to set for the storageRestrictAppInstallToSystemVolume property.
     */
-    public function setStorageRestrictAppInstallToSystemVolume(?bool $value ): void {
-        $this->storageRestrictAppInstallToSystemVolume = $value;
+    public function setStorageRestrictAppInstallToSystemVolume(?bool $value): void {
+        $this->getBackingStore()->set('storageRestrictAppInstallToSystemVolume', $value);
     }
 
     /**
      * Sets the systemTelemetryProxyServer property value. Gets or sets the fully qualified domain name (FQDN) or IP address of a proxy server to forward Connected User Experiences and Telemetry requests.
      *  @param string|null $value Value to set for the systemTelemetryProxyServer property.
     */
-    public function setSystemTelemetryProxyServer(?string $value ): void {
-        $this->systemTelemetryProxyServer = $value;
+    public function setSystemTelemetryProxyServer(?string $value): void {
+        $this->getBackingStore()->set('systemTelemetryProxyServer', $value);
     }
 
     /**
      * Sets the taskManagerBlockEndTask property value. Specify whether non-administrators can use Task Manager to end tasks.
      *  @param bool|null $value Value to set for the taskManagerBlockEndTask property.
     */
-    public function setTaskManagerBlockEndTask(?bool $value ): void {
-        $this->taskManagerBlockEndTask = $value;
+    public function setTaskManagerBlockEndTask(?bool $value): void {
+        $this->getBackingStore()->set('taskManagerBlockEndTask', $value);
     }
 
     /**
      * Sets the tenantLockdownRequireNetworkDuringOutOfBoxExperience property value. Whether the device is required to connect to the network.
      *  @param bool|null $value Value to set for the tenantLockdownRequireNetworkDuringOutOfBoxExperience property.
     */
-    public function setTenantLockdownRequireNetworkDuringOutOfBoxExperience(?bool $value ): void {
-        $this->tenantLockdownRequireNetworkDuringOutOfBoxExperience = $value;
+    public function setTenantLockdownRequireNetworkDuringOutOfBoxExperience(?bool $value): void {
+        $this->getBackingStore()->set('tenantLockdownRequireNetworkDuringOutOfBoxExperience', $value);
     }
 
     /**
      * Sets the uninstallBuiltInApps property value. Indicates whether or not to uninstall a fixed list of built-in Windows apps.
      *  @param bool|null $value Value to set for the uninstallBuiltInApps property.
     */
-    public function setUninstallBuiltInApps(?bool $value ): void {
-        $this->uninstallBuiltInApps = $value;
+    public function setUninstallBuiltInApps(?bool $value): void {
+        $this->getBackingStore()->set('uninstallBuiltInApps', $value);
     }
 
     /**
      * Sets the usbBlocked property value. Indicates whether or not to Block the user from USB connection.
      *  @param bool|null $value Value to set for the usbBlocked property.
     */
-    public function setUsbBlocked(?bool $value ): void {
-        $this->usbBlocked = $value;
+    public function setUsbBlocked(?bool $value): void {
+        $this->getBackingStore()->set('usbBlocked', $value);
     }
 
     /**
      * Sets the voiceRecordingBlocked property value. Indicates whether or not to Block the user from voice recording.
      *  @param bool|null $value Value to set for the voiceRecordingBlocked property.
     */
-    public function setVoiceRecordingBlocked(?bool $value ): void {
-        $this->voiceRecordingBlocked = $value;
+    public function setVoiceRecordingBlocked(?bool $value): void {
+        $this->getBackingStore()->set('voiceRecordingBlocked', $value);
     }
 
     /**
      * Sets the webRtcBlockLocalhostIpAddress property value. Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
      *  @param bool|null $value Value to set for the webRtcBlockLocalhostIpAddress property.
     */
-    public function setWebRtcBlockLocalhostIpAddress(?bool $value ): void {
-        $this->webRtcBlockLocalhostIpAddress = $value;
+    public function setWebRtcBlockLocalhostIpAddress(?bool $value): void {
+        $this->getBackingStore()->set('webRtcBlockLocalhostIpAddress', $value);
     }
 
     /**
      * Sets the wiFiBlockAutomaticConnectHotspots property value. Indicating whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
      *  @param bool|null $value Value to set for the wiFiBlockAutomaticConnectHotspots property.
     */
-    public function setWiFiBlockAutomaticConnectHotspots(?bool $value ): void {
-        $this->wiFiBlockAutomaticConnectHotspots = $value;
+    public function setWiFiBlockAutomaticConnectHotspots(?bool $value): void {
+        $this->getBackingStore()->set('wiFiBlockAutomaticConnectHotspots', $value);
     }
 
     /**
      * Sets the wiFiBlocked property value. Indicates whether or not to Block the user from using Wi-Fi.
      *  @param bool|null $value Value to set for the wiFiBlocked property.
     */
-    public function setWiFiBlocked(?bool $value ): void {
-        $this->wiFiBlocked = $value;
+    public function setWiFiBlocked(?bool $value): void {
+        $this->getBackingStore()->set('wiFiBlocked', $value);
     }
 
     /**
      * Sets the wiFiBlockManualConfiguration property value. Indicates whether or not to Block the user from using Wi-Fi manual configuration.
      *  @param bool|null $value Value to set for the wiFiBlockManualConfiguration property.
     */
-    public function setWiFiBlockManualConfiguration(?bool $value ): void {
-        $this->wiFiBlockManualConfiguration = $value;
+    public function setWiFiBlockManualConfiguration(?bool $value): void {
+        $this->getBackingStore()->set('wiFiBlockManualConfiguration', $value);
     }
 
     /**
      * Sets the wiFiScanInterval property value. Specify how often devices scan for Wi-Fi networks. Supported values are 1-500, where 100 = default, and 500 = low frequency. Valid values 1 to 500
      *  @param int|null $value Value to set for the wiFiScanInterval property.
     */
-    public function setWiFiScanInterval(?int $value ): void {
-        $this->wiFiScanInterval = $value;
+    public function setWiFiScanInterval(?int $value): void {
+        $this->getBackingStore()->set('wiFiScanInterval', $value);
     }
 
     /**
      * Sets the windows10AppsForceUpdateSchedule property value. Windows 10 force update schedule for Apps.
      *  @param Windows10AppsForceUpdateSchedule|null $value Value to set for the windows10AppsForceUpdateSchedule property.
     */
-    public function setWindows10AppsForceUpdateSchedule(?Windows10AppsForceUpdateSchedule $value ): void {
-        $this->windows10AppsForceUpdateSchedule = $value;
+    public function setWindows10AppsForceUpdateSchedule(?Windows10AppsForceUpdateSchedule $value): void {
+        $this->getBackingStore()->set('windows10AppsForceUpdateSchedule', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockConsumerSpecificFeatures property value. Allows IT admins to block experiences that are typically for consumers only, such as Start suggestions, Membership notifications, Post-OOBE app install and redirect tiles.
      *  @param bool|null $value Value to set for the windowsSpotlightBlockConsumerSpecificFeatures property.
     */
-    public function setWindowsSpotlightBlockConsumerSpecificFeatures(?bool $value ): void {
-        $this->windowsSpotlightBlockConsumerSpecificFeatures = $value;
+    public function setWindowsSpotlightBlockConsumerSpecificFeatures(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockConsumerSpecificFeatures', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlocked property value. Allows IT admins to turn off all Windows Spotlight features
      *  @param bool|null $value Value to set for the windowsSpotlightBlocked property.
     */
-    public function setWindowsSpotlightBlocked(?bool $value ): void {
-        $this->windowsSpotlightBlocked = $value;
+    public function setWindowsSpotlightBlocked(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlocked', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockOnActionCenter property value. Block suggestions from Microsoft that show after each OS clean install, upgrade or in an on-going basis to introduce users to what is new or changed
      *  @param bool|null $value Value to set for the windowsSpotlightBlockOnActionCenter property.
     */
-    public function setWindowsSpotlightBlockOnActionCenter(?bool $value ): void {
-        $this->windowsSpotlightBlockOnActionCenter = $value;
+    public function setWindowsSpotlightBlockOnActionCenter(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockOnActionCenter', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockTailoredExperiences property value. Block personalized content in Windows spotlight based on user’s device usage.
      *  @param bool|null $value Value to set for the windowsSpotlightBlockTailoredExperiences property.
     */
-    public function setWindowsSpotlightBlockTailoredExperiences(?bool $value ): void {
-        $this->windowsSpotlightBlockTailoredExperiences = $value;
+    public function setWindowsSpotlightBlockTailoredExperiences(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockTailoredExperiences', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockThirdPartyNotifications property value. Block third party content delivered via Windows Spotlight
      *  @param bool|null $value Value to set for the windowsSpotlightBlockThirdPartyNotifications property.
     */
-    public function setWindowsSpotlightBlockThirdPartyNotifications(?bool $value ): void {
-        $this->windowsSpotlightBlockThirdPartyNotifications = $value;
+    public function setWindowsSpotlightBlockThirdPartyNotifications(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockThirdPartyNotifications', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockWelcomeExperience property value. Block Windows Spotlight Windows welcome experience
      *  @param bool|null $value Value to set for the windowsSpotlightBlockWelcomeExperience property.
     */
-    public function setWindowsSpotlightBlockWelcomeExperience(?bool $value ): void {
-        $this->windowsSpotlightBlockWelcomeExperience = $value;
+    public function setWindowsSpotlightBlockWelcomeExperience(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockWelcomeExperience', $value);
     }
 
     /**
      * Sets the windowsSpotlightBlockWindowsTips property value. Allows IT admins to turn off the popup of Windows Tips.
      *  @param bool|null $value Value to set for the windowsSpotlightBlockWindowsTips property.
     */
-    public function setWindowsSpotlightBlockWindowsTips(?bool $value ): void {
-        $this->windowsSpotlightBlockWindowsTips = $value;
+    public function setWindowsSpotlightBlockWindowsTips(?bool $value): void {
+        $this->getBackingStore()->set('windowsSpotlightBlockWindowsTips', $value);
     }
 
     /**
      * Sets the windowsSpotlightConfigureOnLockScreen property value. Allows IT admind to set a predefined default search engine for MDM-Controlled devices
      *  @param WindowsSpotlightEnablementSettings|null $value Value to set for the windowsSpotlightConfigureOnLockScreen property.
     */
-    public function setWindowsSpotlightConfigureOnLockScreen(?WindowsSpotlightEnablementSettings $value ): void {
-        $this->windowsSpotlightConfigureOnLockScreen = $value;
+    public function setWindowsSpotlightConfigureOnLockScreen(?WindowsSpotlightEnablementSettings $value): void {
+        $this->getBackingStore()->set('windowsSpotlightConfigureOnLockScreen', $value);
     }
 
     /**
      * Sets the windowsStoreBlockAutoUpdate property value. Indicates whether or not to block automatic update of apps from Windows Store.
      *  @param bool|null $value Value to set for the windowsStoreBlockAutoUpdate property.
     */
-    public function setWindowsStoreBlockAutoUpdate(?bool $value ): void {
-        $this->windowsStoreBlockAutoUpdate = $value;
+    public function setWindowsStoreBlockAutoUpdate(?bool $value): void {
+        $this->getBackingStore()->set('windowsStoreBlockAutoUpdate', $value);
     }
 
     /**
      * Sets the windowsStoreBlocked property value. Indicates whether or not to Block the user from using the Windows store.
      *  @param bool|null $value Value to set for the windowsStoreBlocked property.
     */
-    public function setWindowsStoreBlocked(?bool $value ): void {
-        $this->windowsStoreBlocked = $value;
+    public function setWindowsStoreBlocked(?bool $value): void {
+        $this->getBackingStore()->set('windowsStoreBlocked', $value);
     }
 
     /**
      * Sets the windowsStoreEnablePrivateStoreOnly property value. Indicates whether or not to enable Private Store Only.
      *  @param bool|null $value Value to set for the windowsStoreEnablePrivateStoreOnly property.
     */
-    public function setWindowsStoreEnablePrivateStoreOnly(?bool $value ): void {
-        $this->windowsStoreEnablePrivateStoreOnly = $value;
+    public function setWindowsStoreEnablePrivateStoreOnly(?bool $value): void {
+        $this->getBackingStore()->set('windowsStoreEnablePrivateStoreOnly', $value);
     }
 
     /**
      * Sets the wirelessDisplayBlockProjectionToThisDevice property value. Indicates whether or not to allow other devices from discovering this PC for projection.
      *  @param bool|null $value Value to set for the wirelessDisplayBlockProjectionToThisDevice property.
     */
-    public function setWirelessDisplayBlockProjectionToThisDevice(?bool $value ): void {
-        $this->wirelessDisplayBlockProjectionToThisDevice = $value;
+    public function setWirelessDisplayBlockProjectionToThisDevice(?bool $value): void {
+        $this->getBackingStore()->set('wirelessDisplayBlockProjectionToThisDevice', $value);
     }
 
     /**
      * Sets the wirelessDisplayBlockUserInputFromReceiver property value. Indicates whether or not to allow user input from wireless display receiver.
      *  @param bool|null $value Value to set for the wirelessDisplayBlockUserInputFromReceiver property.
     */
-    public function setWirelessDisplayBlockUserInputFromReceiver(?bool $value ): void {
-        $this->wirelessDisplayBlockUserInputFromReceiver = $value;
+    public function setWirelessDisplayBlockUserInputFromReceiver(?bool $value): void {
+        $this->getBackingStore()->set('wirelessDisplayBlockUserInputFromReceiver', $value);
     }
 
     /**
      * Sets the wirelessDisplayRequirePinForPairing property value. Indicates whether or not to require a PIN for new devices to initiate pairing.
      *  @param bool|null $value Value to set for the wirelessDisplayRequirePinForPairing property.
     */
-    public function setWirelessDisplayRequirePinForPairing(?bool $value ): void {
-        $this->wirelessDisplayRequirePinForPairing = $value;
+    public function setWirelessDisplayRequirePinForPairing(?bool $value): void {
+        $this->getBackingStore()->set('wirelessDisplayRequirePinForPairing', $value);
     }
 
 }

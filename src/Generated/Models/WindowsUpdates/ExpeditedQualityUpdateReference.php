@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExpeditedQualityUpdateReference extends QualityUpdateReference implements Parsable 
 {
     /**
-     * @var EquivalentContentOption|null $equivalentContent Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity, unknownFutureValue.
-    */
-    private ?EquivalentContentOption $equivalentContent = null;
-    
-    /**
      * Instantiates a new ExpeditedQualityUpdateReference and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference implements 
      * @return EquivalentContentOption|null
     */
     public function getEquivalentContent(): ?EquivalentContentOption {
-        return $this->equivalentContent;
+        return $this->getBackingStore()->get('equivalentContent');
     }
 
     /**
@@ -55,15 +50,15 @@ class ExpeditedQualityUpdateReference extends QualityUpdateReference implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('equivalentContent', $this->equivalentContent);
+        $writer->writeEnumValue('equivalentContent', $this->getEquivalentContent());
     }
 
     /**
      * Sets the equivalentContent property value. Specifies other content to consider as equivalent. Supports a subset of the values for equivalentContentOption. Default value is latestSecurity. Possible values are: latestSecurity, unknownFutureValue.
      *  @param EquivalentContentOption|null $value Value to set for the equivalentContent property.
     */
-    public function setEquivalentContent(?EquivalentContentOption $value ): void {
-        $this->equivalentContent = $value;
+    public function setEquivalentContent(?EquivalentContentOption $value): void {
+        $this->getBackingStore()->set('equivalentContent', $value);
     }
 
 }

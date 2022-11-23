@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MessageRecipient extends Entity implements Parsable 
 {
     /**
-     * @var MessageStatus|null $deliveryStatus The deliveryStatus property
-    */
-    private ?MessageStatus $deliveryStatus = null;
-    
-    /**
-     * @var array<MessageEvent>|null $events The events property
-    */
-    private ?array $events = null;
-    
-    /**
-     * @var string|null $recipientEmail The recipientEmail property
-    */
-    private ?string $recipientEmail = null;
-    
-    /**
      * Instantiates a new MessageRecipient and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.messageRecipient');
     }
 
     /**
@@ -45,7 +29,7 @@ class MessageRecipient extends Entity implements Parsable
      * @return MessageStatus|null
     */
     public function getDeliveryStatus(): ?MessageStatus {
-        return $this->deliveryStatus;
+        return $this->getBackingStore()->get('deliveryStatus');
     }
 
     /**
@@ -53,7 +37,7 @@ class MessageRecipient extends Entity implements Parsable
      * @return array<MessageEvent>|null
     */
     public function getEvents(): ?array {
-        return $this->events;
+        return $this->getBackingStore()->get('events');
     }
 
     /**
@@ -74,7 +58,7 @@ class MessageRecipient extends Entity implements Parsable
      * @return string|null
     */
     public function getRecipientEmail(): ?string {
-        return $this->recipientEmail;
+        return $this->getBackingStore()->get('recipientEmail');
     }
 
     /**
@@ -83,33 +67,33 @@ class MessageRecipient extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('deliveryStatus', $this->deliveryStatus);
-        $writer->writeCollectionOfObjectValues('events', $this->events);
-        $writer->writeStringValue('recipientEmail', $this->recipientEmail);
+        $writer->writeEnumValue('deliveryStatus', $this->getDeliveryStatus());
+        $writer->writeCollectionOfObjectValues('events', $this->getEvents());
+        $writer->writeStringValue('recipientEmail', $this->getRecipientEmail());
     }
 
     /**
      * Sets the deliveryStatus property value. The deliveryStatus property
      *  @param MessageStatus|null $value Value to set for the deliveryStatus property.
     */
-    public function setDeliveryStatus(?MessageStatus $value ): void {
-        $this->deliveryStatus = $value;
+    public function setDeliveryStatus(?MessageStatus $value): void {
+        $this->getBackingStore()->set('deliveryStatus', $value);
     }
 
     /**
      * Sets the events property value. The events property
      *  @param array<MessageEvent>|null $value Value to set for the events property.
     */
-    public function setEvents(?array $value ): void {
-        $this->events = $value;
+    public function setEvents(?array $value): void {
+        $this->getBackingStore()->set('events', $value);
     }
 
     /**
      * Sets the recipientEmail property value. The recipientEmail property
      *  @param string|null $value Value to set for the recipientEmail property.
     */
-    public function setRecipientEmail(?string $value ): void {
-        $this->recipientEmail = $value;
+    public function setRecipientEmail(?string $value): void {
+        $this->getBackingStore()->set('recipientEmail', $value);
     }
 
 }

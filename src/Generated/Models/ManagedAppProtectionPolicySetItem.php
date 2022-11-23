@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsable 
 {
     /**
-     * @var string|null $targetedAppManagementLevels TargetedAppManagementLevels of the ManagedAppPolicySetItem.
-    */
-    private ?string $targetedAppManagementLevels = null;
-    
-    /**
      * Instantiates a new ManagedAppProtectionPolicySetItem and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsabl
      * @return string|null
     */
     public function getTargetedAppManagementLevels(): ?string {
-        return $this->targetedAppManagementLevels;
+        return $this->getBackingStore()->get('targetedAppManagementLevels');
     }
 
     /**
@@ -55,15 +50,15 @@ class ManagedAppProtectionPolicySetItem extends PolicySetItem implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetedAppManagementLevels', $this->targetedAppManagementLevels);
+        $writer->writeStringValue('targetedAppManagementLevels', $this->getTargetedAppManagementLevels());
     }
 
     /**
      * Sets the targetedAppManagementLevels property value. TargetedAppManagementLevels of the ManagedAppPolicySetItem.
      *  @param string|null $value Value to set for the targetedAppManagementLevels property.
     */
-    public function setTargetedAppManagementLevels(?string $value ): void {
-        $this->targetedAppManagementLevels = $value;
+    public function setTargetedAppManagementLevels(?string $value): void {
+        $this->getBackingStore()->set('targetedAppManagementLevels', $value);
     }
 
 }

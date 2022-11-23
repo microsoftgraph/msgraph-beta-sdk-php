@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable 
+class JoinMeetingIdSettings implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $isPasscodeRequired Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
-    */
-    private ?bool $isPasscodeRequired = null;
-    
-    /**
-     * @var string|null $joinMeetingId The meeting ID to be used to join a meeting. Optional. Read-only.
-    */
-    private ?string $joinMeetingId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $passcode The passcode to join a meeting.  Optional. Read-only.
-    */
-    private ?string $passcode = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new joinMeetingIdSettings and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.joinMeetingIdSettings');
     }
 
     /**
@@ -55,8 +38,16 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -78,7 +69,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsPasscodeRequired(): ?bool {
-        return $this->isPasscodeRequired;
+        return $this->getBackingStore()->get('isPasscodeRequired');
     }
 
     /**
@@ -86,7 +77,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getJoinMeetingId(): ?string {
-        return $this->joinMeetingId;
+        return $this->getBackingStore()->get('joinMeetingId');
     }
 
     /**
@@ -94,7 +85,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPasscode(): ?string {
-        return $this->passcode;
+        return $this->getBackingStore()->get('passcode');
     }
 
     /**
@@ -110,51 +101,59 @@ class JoinMeetingIdSettings implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('isPasscodeRequired', $this->isPasscodeRequired);
-        $writer->writeStringValue('joinMeetingId', $this->joinMeetingId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('passcode', $this->passcode);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('isPasscodeRequired', $this->getIsPasscodeRequired());
+        $writer->writeStringValue('joinMeetingId', $this->getJoinMeetingId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('passcode', $this->getPasscode());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the isPasscodeRequired property value. Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
      *  @param bool|null $value Value to set for the isPasscodeRequired property.
     */
-    public function setIsPasscodeRequired(?bool $value ): void {
-        $this->isPasscodeRequired = $value;
+    public function setIsPasscodeRequired(?bool $value): void {
+        $this->getBackingStore()->set('isPasscodeRequired', $value);
     }
 
     /**
      * Sets the joinMeetingId property value. The meeting ID to be used to join a meeting. Optional. Read-only.
      *  @param string|null $value Value to set for the joinMeetingId property.
     */
-    public function setJoinMeetingId(?string $value ): void {
-        $this->joinMeetingId = $value;
+    public function setJoinMeetingId(?string $value): void {
+        $this->getBackingStore()->set('joinMeetingId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the passcode property value. The passcode to join a meeting.  Optional. Read-only.
      *  @param string|null $value Value to set for the passcode property.
     */
-    public function setPasscode(?string $value ): void {
-        $this->passcode = $value;
+    public function setPasscode(?string $value): void {
+        $this->getBackingStore()->set('passcode', $value);
     }
 
 }

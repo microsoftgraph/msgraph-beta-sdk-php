@@ -10,131 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedDeviceCertificateState extends Entity implements Parsable 
 {
     /**
-     * @var string|null $certificateEnhancedKeyUsage Extended key usage
-    */
-    private ?string $certificateEnhancedKeyUsage = null;
-    
-    /**
-     * @var int|null $certificateErrorCode Error code
-    */
-    private ?int $certificateErrorCode = null;
-    
-    /**
-     * @var DateTime|null $certificateExpirationDateTime Certificate expiry date
-    */
-    private ?DateTime $certificateExpirationDateTime = null;
-    
-    /**
-     * @var DateTime|null $certificateIssuanceDateTime Issuance date
-    */
-    private ?DateTime $certificateIssuanceDateTime = null;
-    
-    /**
-     * @var CertificateIssuanceStates|null $certificateIssuanceState Certificate Issuance State Options.
-    */
-    private ?CertificateIssuanceStates $certificateIssuanceState = null;
-    
-    /**
-     * @var string|null $certificateIssuer Issuer
-    */
-    private ?string $certificateIssuer = null;
-    
-    /**
-     * @var int|null $certificateKeyLength Key length
-    */
-    private ?int $certificateKeyLength = null;
-    
-    /**
-     * @var KeyStorageProviderOption|null $certificateKeyStorageProvider Key Storage Provider (KSP) Import Options.
-    */
-    private ?KeyStorageProviderOption $certificateKeyStorageProvider = null;
-    
-    /**
-     * @var KeyUsages|null $certificateKeyUsage Key Usage Options.
-    */
-    private ?KeyUsages $certificateKeyUsage = null;
-    
-    /**
-     * @var DateTime|null $certificateLastIssuanceStateChangedDateTime Last certificate issuance state change
-    */
-    private ?DateTime $certificateLastIssuanceStateChangedDateTime = null;
-    
-    /**
-     * @var string|null $certificateProfileDisplayName Certificate profile display name
-    */
-    private ?string $certificateProfileDisplayName = null;
-    
-    /**
-     * @var CertificateRevocationStatus|null $certificateRevokeStatus Certificate Revocation Status.
-    */
-    private ?CertificateRevocationStatus $certificateRevokeStatus = null;
-    
-    /**
-     * @var string|null $certificateSerialNumber Serial number
-    */
-    private ?string $certificateSerialNumber = null;
-    
-    /**
-     * @var SubjectAlternativeNameType|null $certificateSubjectAlternativeNameFormat Subject Alternative Name Options.
-    */
-    private ?SubjectAlternativeNameType $certificateSubjectAlternativeNameFormat = null;
-    
-    /**
-     * @var string|null $certificateSubjectAlternativeNameFormatString Subject alternative name format string for custom formats
-    */
-    private ?string $certificateSubjectAlternativeNameFormatString = null;
-    
-    /**
-     * @var SubjectNameFormat|null $certificateSubjectNameFormat Subject Name Format Options.
-    */
-    private ?SubjectNameFormat $certificateSubjectNameFormat = null;
-    
-    /**
-     * @var string|null $certificateSubjectNameFormatString Subject name format string for custom subject name formats
-    */
-    private ?string $certificateSubjectNameFormatString = null;
-    
-    /**
-     * @var string|null $certificateThumbprint Thumbprint
-    */
-    private ?string $certificateThumbprint = null;
-    
-    /**
-     * @var int|null $certificateValidityPeriod Validity period
-    */
-    private ?int $certificateValidityPeriod = null;
-    
-    /**
-     * @var CertificateValidityPeriodScale|null $certificateValidityPeriodUnits Certificate Validity Period Options.
-    */
-    private ?CertificateValidityPeriodScale $certificateValidityPeriodUnits = null;
-    
-    /**
-     * @var string|null $deviceDisplayName Device display name
-    */
-    private ?string $deviceDisplayName = null;
-    
-    /**
-     * @var DevicePlatformType|null $devicePlatform Supported platform types.
-    */
-    private ?DevicePlatformType $devicePlatform = null;
-    
-    /**
-     * @var DateTime|null $lastCertificateStateChangeDateTime Last certificate issuance state change
-    */
-    private ?DateTime $lastCertificateStateChangeDateTime = null;
-    
-    /**
-     * @var string|null $userDisplayName User display name
-    */
-    private ?string $userDisplayName = null;
-    
-    /**
      * Instantiates a new managedDeviceCertificateState and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedDeviceCertificateState');
     }
 
     /**
@@ -151,7 +30,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateEnhancedKeyUsage(): ?string {
-        return $this->certificateEnhancedKeyUsage;
+        return $this->getBackingStore()->get('certificateEnhancedKeyUsage');
     }
 
     /**
@@ -159,7 +38,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateErrorCode(): ?int {
-        return $this->certificateErrorCode;
+        return $this->getBackingStore()->get('certificateErrorCode');
     }
 
     /**
@@ -167,7 +46,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateExpirationDateTime(): ?DateTime {
-        return $this->certificateExpirationDateTime;
+        return $this->getBackingStore()->get('certificateExpirationDateTime');
     }
 
     /**
@@ -175,7 +54,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateIssuanceDateTime(): ?DateTime {
-        return $this->certificateIssuanceDateTime;
+        return $this->getBackingStore()->get('certificateIssuanceDateTime');
     }
 
     /**
@@ -183,7 +62,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateIssuanceStates|null
     */
     public function getCertificateIssuanceState(): ?CertificateIssuanceStates {
-        return $this->certificateIssuanceState;
+        return $this->getBackingStore()->get('certificateIssuanceState');
     }
 
     /**
@@ -191,7 +70,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateIssuer(): ?string {
-        return $this->certificateIssuer;
+        return $this->getBackingStore()->get('certificateIssuer');
     }
 
     /**
@@ -199,7 +78,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateKeyLength(): ?int {
-        return $this->certificateKeyLength;
+        return $this->getBackingStore()->get('certificateKeyLength');
     }
 
     /**
@@ -207,7 +86,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return KeyStorageProviderOption|null
     */
     public function getCertificateKeyStorageProvider(): ?KeyStorageProviderOption {
-        return $this->certificateKeyStorageProvider;
+        return $this->getBackingStore()->get('certificateKeyStorageProvider');
     }
 
     /**
@@ -215,7 +94,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return KeyUsages|null
     */
     public function getCertificateKeyUsage(): ?KeyUsages {
-        return $this->certificateKeyUsage;
+        return $this->getBackingStore()->get('certificateKeyUsage');
     }
 
     /**
@@ -223,7 +102,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCertificateLastIssuanceStateChangedDateTime(): ?DateTime {
-        return $this->certificateLastIssuanceStateChangedDateTime;
+        return $this->getBackingStore()->get('certificateLastIssuanceStateChangedDateTime');
     }
 
     /**
@@ -231,7 +110,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateProfileDisplayName(): ?string {
-        return $this->certificateProfileDisplayName;
+        return $this->getBackingStore()->get('certificateProfileDisplayName');
     }
 
     /**
@@ -239,7 +118,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateRevocationStatus|null
     */
     public function getCertificateRevokeStatus(): ?CertificateRevocationStatus {
-        return $this->certificateRevokeStatus;
+        return $this->getBackingStore()->get('certificateRevokeStatus');
     }
 
     /**
@@ -247,7 +126,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSerialNumber(): ?string {
-        return $this->certificateSerialNumber;
+        return $this->getBackingStore()->get('certificateSerialNumber');
     }
 
     /**
@@ -255,7 +134,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return SubjectAlternativeNameType|null
     */
     public function getCertificateSubjectAlternativeNameFormat(): ?SubjectAlternativeNameType {
-        return $this->certificateSubjectAlternativeNameFormat;
+        return $this->getBackingStore()->get('certificateSubjectAlternativeNameFormat');
     }
 
     /**
@@ -263,7 +142,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSubjectAlternativeNameFormatString(): ?string {
-        return $this->certificateSubjectAlternativeNameFormatString;
+        return $this->getBackingStore()->get('certificateSubjectAlternativeNameFormatString');
     }
 
     /**
@@ -271,7 +150,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return SubjectNameFormat|null
     */
     public function getCertificateSubjectNameFormat(): ?SubjectNameFormat {
-        return $this->certificateSubjectNameFormat;
+        return $this->getBackingStore()->get('certificateSubjectNameFormat');
     }
 
     /**
@@ -279,7 +158,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateSubjectNameFormatString(): ?string {
-        return $this->certificateSubjectNameFormatString;
+        return $this->getBackingStore()->get('certificateSubjectNameFormatString');
     }
 
     /**
@@ -287,7 +166,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getCertificateThumbprint(): ?string {
-        return $this->certificateThumbprint;
+        return $this->getBackingStore()->get('certificateThumbprint');
     }
 
     /**
@@ -295,7 +174,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return int|null
     */
     public function getCertificateValidityPeriod(): ?int {
-        return $this->certificateValidityPeriod;
+        return $this->getBackingStore()->get('certificateValidityPeriod');
     }
 
     /**
@@ -303,7 +182,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return CertificateValidityPeriodScale|null
     */
     public function getCertificateValidityPeriodUnits(): ?CertificateValidityPeriodScale {
-        return $this->certificateValidityPeriodUnits;
+        return $this->getBackingStore()->get('certificateValidityPeriodUnits');
     }
 
     /**
@@ -311,7 +190,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceDisplayName(): ?string {
-        return $this->deviceDisplayName;
+        return $this->getBackingStore()->get('deviceDisplayName');
     }
 
     /**
@@ -319,7 +198,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DevicePlatformType|null
     */
     public function getDevicePlatform(): ?DevicePlatformType {
-        return $this->devicePlatform;
+        return $this->getBackingStore()->get('devicePlatform');
     }
 
     /**
@@ -361,7 +240,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCertificateStateChangeDateTime(): ?DateTime {
-        return $this->lastCertificateStateChangeDateTime;
+        return $this->getBackingStore()->get('lastCertificateStateChangeDateTime');
     }
 
     /**
@@ -369,7 +248,7 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
      * @return string|null
     */
     public function getUserDisplayName(): ?string {
-        return $this->userDisplayName;
+        return $this->getBackingStore()->get('userDisplayName');
     }
 
     /**
@@ -378,222 +257,222 @@ class ManagedDeviceCertificateState extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('certificateEnhancedKeyUsage', $this->certificateEnhancedKeyUsage);
-        $writer->writeIntegerValue('certificateErrorCode', $this->certificateErrorCode);
-        $writer->writeDateTimeValue('certificateExpirationDateTime', $this->certificateExpirationDateTime);
-        $writer->writeDateTimeValue('certificateIssuanceDateTime', $this->certificateIssuanceDateTime);
-        $writer->writeEnumValue('certificateIssuanceState', $this->certificateIssuanceState);
-        $writer->writeStringValue('certificateIssuer', $this->certificateIssuer);
-        $writer->writeIntegerValue('certificateKeyLength', $this->certificateKeyLength);
-        $writer->writeEnumValue('certificateKeyStorageProvider', $this->certificateKeyStorageProvider);
-        $writer->writeEnumValue('certificateKeyUsage', $this->certificateKeyUsage);
-        $writer->writeDateTimeValue('certificateLastIssuanceStateChangedDateTime', $this->certificateLastIssuanceStateChangedDateTime);
-        $writer->writeStringValue('certificateProfileDisplayName', $this->certificateProfileDisplayName);
-        $writer->writeEnumValue('certificateRevokeStatus', $this->certificateRevokeStatus);
-        $writer->writeStringValue('certificateSerialNumber', $this->certificateSerialNumber);
-        $writer->writeEnumValue('certificateSubjectAlternativeNameFormat', $this->certificateSubjectAlternativeNameFormat);
-        $writer->writeStringValue('certificateSubjectAlternativeNameFormatString', $this->certificateSubjectAlternativeNameFormatString);
-        $writer->writeEnumValue('certificateSubjectNameFormat', $this->certificateSubjectNameFormat);
-        $writer->writeStringValue('certificateSubjectNameFormatString', $this->certificateSubjectNameFormatString);
-        $writer->writeStringValue('certificateThumbprint', $this->certificateThumbprint);
-        $writer->writeIntegerValue('certificateValidityPeriod', $this->certificateValidityPeriod);
-        $writer->writeEnumValue('certificateValidityPeriodUnits', $this->certificateValidityPeriodUnits);
-        $writer->writeStringValue('deviceDisplayName', $this->deviceDisplayName);
-        $writer->writeEnumValue('devicePlatform', $this->devicePlatform);
-        $writer->writeDateTimeValue('lastCertificateStateChangeDateTime', $this->lastCertificateStateChangeDateTime);
-        $writer->writeStringValue('userDisplayName', $this->userDisplayName);
+        $writer->writeStringValue('certificateEnhancedKeyUsage', $this->getCertificateEnhancedKeyUsage());
+        $writer->writeIntegerValue('certificateErrorCode', $this->getCertificateErrorCode());
+        $writer->writeDateTimeValue('certificateExpirationDateTime', $this->getCertificateExpirationDateTime());
+        $writer->writeDateTimeValue('certificateIssuanceDateTime', $this->getCertificateIssuanceDateTime());
+        $writer->writeEnumValue('certificateIssuanceState', $this->getCertificateIssuanceState());
+        $writer->writeStringValue('certificateIssuer', $this->getCertificateIssuer());
+        $writer->writeIntegerValue('certificateKeyLength', $this->getCertificateKeyLength());
+        $writer->writeEnumValue('certificateKeyStorageProvider', $this->getCertificateKeyStorageProvider());
+        $writer->writeEnumValue('certificateKeyUsage', $this->getCertificateKeyUsage());
+        $writer->writeDateTimeValue('certificateLastIssuanceStateChangedDateTime', $this->getCertificateLastIssuanceStateChangedDateTime());
+        $writer->writeStringValue('certificateProfileDisplayName', $this->getCertificateProfileDisplayName());
+        $writer->writeEnumValue('certificateRevokeStatus', $this->getCertificateRevokeStatus());
+        $writer->writeStringValue('certificateSerialNumber', $this->getCertificateSerialNumber());
+        $writer->writeEnumValue('certificateSubjectAlternativeNameFormat', $this->getCertificateSubjectAlternativeNameFormat());
+        $writer->writeStringValue('certificateSubjectAlternativeNameFormatString', $this->getCertificateSubjectAlternativeNameFormatString());
+        $writer->writeEnumValue('certificateSubjectNameFormat', $this->getCertificateSubjectNameFormat());
+        $writer->writeStringValue('certificateSubjectNameFormatString', $this->getCertificateSubjectNameFormatString());
+        $writer->writeStringValue('certificateThumbprint', $this->getCertificateThumbprint());
+        $writer->writeIntegerValue('certificateValidityPeriod', $this->getCertificateValidityPeriod());
+        $writer->writeEnumValue('certificateValidityPeriodUnits', $this->getCertificateValidityPeriodUnits());
+        $writer->writeStringValue('deviceDisplayName', $this->getDeviceDisplayName());
+        $writer->writeEnumValue('devicePlatform', $this->getDevicePlatform());
+        $writer->writeDateTimeValue('lastCertificateStateChangeDateTime', $this->getLastCertificateStateChangeDateTime());
+        $writer->writeStringValue('userDisplayName', $this->getUserDisplayName());
     }
 
     /**
      * Sets the certificateEnhancedKeyUsage property value. Extended key usage
      *  @param string|null $value Value to set for the certificateEnhancedKeyUsage property.
     */
-    public function setCertificateEnhancedKeyUsage(?string $value ): void {
-        $this->certificateEnhancedKeyUsage = $value;
+    public function setCertificateEnhancedKeyUsage(?string $value): void {
+        $this->getBackingStore()->set('certificateEnhancedKeyUsage', $value);
     }
 
     /**
      * Sets the certificateErrorCode property value. Error code
      *  @param int|null $value Value to set for the certificateErrorCode property.
     */
-    public function setCertificateErrorCode(?int $value ): void {
-        $this->certificateErrorCode = $value;
+    public function setCertificateErrorCode(?int $value): void {
+        $this->getBackingStore()->set('certificateErrorCode', $value);
     }
 
     /**
      * Sets the certificateExpirationDateTime property value. Certificate expiry date
      *  @param DateTime|null $value Value to set for the certificateExpirationDateTime property.
     */
-    public function setCertificateExpirationDateTime(?DateTime $value ): void {
-        $this->certificateExpirationDateTime = $value;
+    public function setCertificateExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('certificateExpirationDateTime', $value);
     }
 
     /**
      * Sets the certificateIssuanceDateTime property value. Issuance date
      *  @param DateTime|null $value Value to set for the certificateIssuanceDateTime property.
     */
-    public function setCertificateIssuanceDateTime(?DateTime $value ): void {
-        $this->certificateIssuanceDateTime = $value;
+    public function setCertificateIssuanceDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('certificateIssuanceDateTime', $value);
     }
 
     /**
      * Sets the certificateIssuanceState property value. Certificate Issuance State Options.
      *  @param CertificateIssuanceStates|null $value Value to set for the certificateIssuanceState property.
     */
-    public function setCertificateIssuanceState(?CertificateIssuanceStates $value ): void {
-        $this->certificateIssuanceState = $value;
+    public function setCertificateIssuanceState(?CertificateIssuanceStates $value): void {
+        $this->getBackingStore()->set('certificateIssuanceState', $value);
     }
 
     /**
      * Sets the certificateIssuer property value. Issuer
      *  @param string|null $value Value to set for the certificateIssuer property.
     */
-    public function setCertificateIssuer(?string $value ): void {
-        $this->certificateIssuer = $value;
+    public function setCertificateIssuer(?string $value): void {
+        $this->getBackingStore()->set('certificateIssuer', $value);
     }
 
     /**
      * Sets the certificateKeyLength property value. Key length
      *  @param int|null $value Value to set for the certificateKeyLength property.
     */
-    public function setCertificateKeyLength(?int $value ): void {
-        $this->certificateKeyLength = $value;
+    public function setCertificateKeyLength(?int $value): void {
+        $this->getBackingStore()->set('certificateKeyLength', $value);
     }
 
     /**
      * Sets the certificateKeyStorageProvider property value. Key Storage Provider (KSP) Import Options.
      *  @param KeyStorageProviderOption|null $value Value to set for the certificateKeyStorageProvider property.
     */
-    public function setCertificateKeyStorageProvider(?KeyStorageProviderOption $value ): void {
-        $this->certificateKeyStorageProvider = $value;
+    public function setCertificateKeyStorageProvider(?KeyStorageProviderOption $value): void {
+        $this->getBackingStore()->set('certificateKeyStorageProvider', $value);
     }
 
     /**
      * Sets the certificateKeyUsage property value. Key Usage Options.
      *  @param KeyUsages|null $value Value to set for the certificateKeyUsage property.
     */
-    public function setCertificateKeyUsage(?KeyUsages $value ): void {
-        $this->certificateKeyUsage = $value;
+    public function setCertificateKeyUsage(?KeyUsages $value): void {
+        $this->getBackingStore()->set('certificateKeyUsage', $value);
     }
 
     /**
      * Sets the certificateLastIssuanceStateChangedDateTime property value. Last certificate issuance state change
      *  @param DateTime|null $value Value to set for the certificateLastIssuanceStateChangedDateTime property.
     */
-    public function setCertificateLastIssuanceStateChangedDateTime(?DateTime $value ): void {
-        $this->certificateLastIssuanceStateChangedDateTime = $value;
+    public function setCertificateLastIssuanceStateChangedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('certificateLastIssuanceStateChangedDateTime', $value);
     }
 
     /**
      * Sets the certificateProfileDisplayName property value. Certificate profile display name
      *  @param string|null $value Value to set for the certificateProfileDisplayName property.
     */
-    public function setCertificateProfileDisplayName(?string $value ): void {
-        $this->certificateProfileDisplayName = $value;
+    public function setCertificateProfileDisplayName(?string $value): void {
+        $this->getBackingStore()->set('certificateProfileDisplayName', $value);
     }
 
     /**
      * Sets the certificateRevokeStatus property value. Certificate Revocation Status.
      *  @param CertificateRevocationStatus|null $value Value to set for the certificateRevokeStatus property.
     */
-    public function setCertificateRevokeStatus(?CertificateRevocationStatus $value ): void {
-        $this->certificateRevokeStatus = $value;
+    public function setCertificateRevokeStatus(?CertificateRevocationStatus $value): void {
+        $this->getBackingStore()->set('certificateRevokeStatus', $value);
     }
 
     /**
      * Sets the certificateSerialNumber property value. Serial number
      *  @param string|null $value Value to set for the certificateSerialNumber property.
     */
-    public function setCertificateSerialNumber(?string $value ): void {
-        $this->certificateSerialNumber = $value;
+    public function setCertificateSerialNumber(?string $value): void {
+        $this->getBackingStore()->set('certificateSerialNumber', $value);
     }
 
     /**
      * Sets the certificateSubjectAlternativeNameFormat property value. Subject Alternative Name Options.
      *  @param SubjectAlternativeNameType|null $value Value to set for the certificateSubjectAlternativeNameFormat property.
     */
-    public function setCertificateSubjectAlternativeNameFormat(?SubjectAlternativeNameType $value ): void {
-        $this->certificateSubjectAlternativeNameFormat = $value;
+    public function setCertificateSubjectAlternativeNameFormat(?SubjectAlternativeNameType $value): void {
+        $this->getBackingStore()->set('certificateSubjectAlternativeNameFormat', $value);
     }
 
     /**
      * Sets the certificateSubjectAlternativeNameFormatString property value. Subject alternative name format string for custom formats
      *  @param string|null $value Value to set for the certificateSubjectAlternativeNameFormatString property.
     */
-    public function setCertificateSubjectAlternativeNameFormatString(?string $value ): void {
-        $this->certificateSubjectAlternativeNameFormatString = $value;
+    public function setCertificateSubjectAlternativeNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('certificateSubjectAlternativeNameFormatString', $value);
     }
 
     /**
      * Sets the certificateSubjectNameFormat property value. Subject Name Format Options.
      *  @param SubjectNameFormat|null $value Value to set for the certificateSubjectNameFormat property.
     */
-    public function setCertificateSubjectNameFormat(?SubjectNameFormat $value ): void {
-        $this->certificateSubjectNameFormat = $value;
+    public function setCertificateSubjectNameFormat(?SubjectNameFormat $value): void {
+        $this->getBackingStore()->set('certificateSubjectNameFormat', $value);
     }
 
     /**
      * Sets the certificateSubjectNameFormatString property value. Subject name format string for custom subject name formats
      *  @param string|null $value Value to set for the certificateSubjectNameFormatString property.
     */
-    public function setCertificateSubjectNameFormatString(?string $value ): void {
-        $this->certificateSubjectNameFormatString = $value;
+    public function setCertificateSubjectNameFormatString(?string $value): void {
+        $this->getBackingStore()->set('certificateSubjectNameFormatString', $value);
     }
 
     /**
      * Sets the certificateThumbprint property value. Thumbprint
      *  @param string|null $value Value to set for the certificateThumbprint property.
     */
-    public function setCertificateThumbprint(?string $value ): void {
-        $this->certificateThumbprint = $value;
+    public function setCertificateThumbprint(?string $value): void {
+        $this->getBackingStore()->set('certificateThumbprint', $value);
     }
 
     /**
      * Sets the certificateValidityPeriod property value. Validity period
      *  @param int|null $value Value to set for the certificateValidityPeriod property.
     */
-    public function setCertificateValidityPeriod(?int $value ): void {
-        $this->certificateValidityPeriod = $value;
+    public function setCertificateValidityPeriod(?int $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriod', $value);
     }
 
     /**
      * Sets the certificateValidityPeriodUnits property value. Certificate Validity Period Options.
      *  @param CertificateValidityPeriodScale|null $value Value to set for the certificateValidityPeriodUnits property.
     */
-    public function setCertificateValidityPeriodUnits(?CertificateValidityPeriodScale $value ): void {
-        $this->certificateValidityPeriodUnits = $value;
+    public function setCertificateValidityPeriodUnits(?CertificateValidityPeriodScale $value): void {
+        $this->getBackingStore()->set('certificateValidityPeriodUnits', $value);
     }
 
     /**
      * Sets the deviceDisplayName property value. Device display name
      *  @param string|null $value Value to set for the deviceDisplayName property.
     */
-    public function setDeviceDisplayName(?string $value ): void {
-        $this->deviceDisplayName = $value;
+    public function setDeviceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('deviceDisplayName', $value);
     }
 
     /**
      * Sets the devicePlatform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the devicePlatform property.
     */
-    public function setDevicePlatform(?DevicePlatformType $value ): void {
-        $this->devicePlatform = $value;
+    public function setDevicePlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('devicePlatform', $value);
     }
 
     /**
      * Sets the lastCertificateStateChangeDateTime property value. Last certificate issuance state change
      *  @param DateTime|null $value Value to set for the lastCertificateStateChangeDateTime property.
     */
-    public function setLastCertificateStateChangeDateTime(?DateTime $value ): void {
-        $this->lastCertificateStateChangeDateTime = $value;
+    public function setLastCertificateStateChangeDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCertificateStateChangeDateTime', $value);
     }
 
     /**
      * Sets the userDisplayName property value. User display name
      *  @param string|null $value Value to set for the userDisplayName property.
     */
-    public function setUserDisplayName(?string $value ): void {
-        $this->userDisplayName = $value;
+    public function setUserDisplayName(?string $value): void {
+        $this->getBackingStore()->set('userDisplayName', $value);
     }
 
 }

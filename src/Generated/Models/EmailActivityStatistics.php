@@ -10,21 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailActivityStatistics extends ActivityStatistics implements Parsable 
 {
     /**
-     * @var DateInterval|null $afterHours Total hours spent on email outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $afterHours = null;
-    
-    /**
-     * @var DateInterval|null $readEmail Total hours spent reading email. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $readEmail = null;
-    
-    /**
-     * @var DateInterval|null $sentEmail Total hours spent writing and sending email. The value is represented in ISO 8601 format for durations.
-    */
-    private ?DateInterval $sentEmail = null;
-    
-    /**
      * Instantiates a new EmailActivityStatistics and sets the default values.
     */
     public function __construct() {
@@ -46,7 +31,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getAfterHours(): ?DateInterval {
-        return $this->afterHours;
+        return $this->getBackingStore()->get('afterHours');
     }
 
     /**
@@ -67,7 +52,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getReadEmail(): ?DateInterval {
-        return $this->readEmail;
+        return $this->getBackingStore()->get('readEmail');
     }
 
     /**
@@ -75,7 +60,7 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
      * @return DateInterval|null
     */
     public function getSentEmail(): ?DateInterval {
-        return $this->sentEmail;
+        return $this->getBackingStore()->get('sentEmail');
     }
 
     /**
@@ -84,33 +69,33 @@ class EmailActivityStatistics extends ActivityStatistics implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateIntervalValue('afterHours', $this->afterHours);
-        $writer->writeDateIntervalValue('readEmail', $this->readEmail);
-        $writer->writeDateIntervalValue('sentEmail', $this->sentEmail);
+        $writer->writeDateIntervalValue('afterHours', $this->getAfterHours());
+        $writer->writeDateIntervalValue('readEmail', $this->getReadEmail());
+        $writer->writeDateIntervalValue('sentEmail', $this->getSentEmail());
     }
 
     /**
      * Sets the afterHours property value. Total hours spent on email outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the afterHours property.
     */
-    public function setAfterHours(?DateInterval $value ): void {
-        $this->afterHours = $value;
+    public function setAfterHours(?DateInterval $value): void {
+        $this->getBackingStore()->set('afterHours', $value);
     }
 
     /**
      * Sets the readEmail property value. Total hours spent reading email. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the readEmail property.
     */
-    public function setReadEmail(?DateInterval $value ): void {
-        $this->readEmail = $value;
+    public function setReadEmail(?DateInterval $value): void {
+        $this->getBackingStore()->set('readEmail', $value);
     }
 
     /**
      * Sets the sentEmail property value. Total hours spent writing and sending email. The value is represented in ISO 8601 format for durations.
      *  @param DateInterval|null $value Value to set for the sentEmail property.
     */
-    public function setSentEmail(?DateInterval $value ): void {
-        $this->sentEmail = $value;
+    public function setSentEmail(?DateInterval $value): void {
+        $this->getBackingStore()->set('sentEmail', $value);
     }
 
 }

@@ -9,91 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var int|null $backgroundDownloadFromHttpDelayInSeconds Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295
-    */
-    private ?int $backgroundDownloadFromHttpDelayInSeconds = null;
-    
-    /**
-     * @var DeliveryOptimizationBandwidth|null $bandwidthMode Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.
-    */
-    private ?DeliveryOptimizationBandwidth $bandwidthMode = null;
-    
-    /**
-     * @var int|null $cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.
-    */
-    private ?int $cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds = null;
-    
-    /**
-     * @var int|null $cacheServerForegroundDownloadFallbackToHttpDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a foreground download. Valid values 0 to 2592000.​
-    */
-    private ?int $cacheServerForegroundDownloadFallbackToHttpDelayInSeconds = null;
-    
-    /**
-     * @var array<string>|null $cacheServerHostNames Specifies cache servers host names.
-    */
-    private ?array $cacheServerHostNames = null;
-    
-    /**
-     * @var WindowsDeliveryOptimizationMode|null $deliveryOptimizationMode Delivery optimization mode for peer distribution
-    */
-    private ?WindowsDeliveryOptimizationMode $deliveryOptimizationMode = null;
-    
-    /**
-     * @var int|null $foregroundDownloadFromHttpDelayInSeconds Specifies number of seconds to delay an HTTP source in a foreground download that is allowed to use peer-to-peer (0-86400). Valid values 0 to 86400
-    */
-    private ?int $foregroundDownloadFromHttpDelayInSeconds = null;
-    
-    /**
-     * @var DeliveryOptimizationGroupIdSource|null $groupIdSource Specifies to restrict peer selection to a specfic source.
-    */
-    private ?DeliveryOptimizationGroupIdSource $groupIdSource = null;
-    
-    /**
-     * @var int|null $maximumCacheAgeInDays Specifies the maximum time in days that each file is held in the Delivery Optimization cache after downloading successfully (0-3650). Valid values 0 to 3650
-    */
-    private ?int $maximumCacheAgeInDays = null;
-    
-    /**
-     * @var DeliveryOptimizationMaxCacheSize|null $maximumCacheSize Specifies the maximum cache size that Delivery Optimization either as a percentage or in GB.
-    */
-    private ?DeliveryOptimizationMaxCacheSize $maximumCacheSize = null;
-    
-    /**
-     * @var int|null $minimumBatteryPercentageAllowedToUpload Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100
-    */
-    private ?int $minimumBatteryPercentageAllowedToUpload = null;
-    
-    /**
-     * @var int|null $minimumDiskSizeAllowedToPeerInGigabytes Specifies the minimum disk size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-    */
-    private ?int $minimumDiskSizeAllowedToPeerInGigabytes = null;
-    
-    /**
-     * @var int|null $minimumFileSizeToCacheInMegabytes Specifies the minimum content file size in MB enabled to use Peer Caching (1-100000). Valid values 1 to 100000
-    */
-    private ?int $minimumFileSizeToCacheInMegabytes = null;
-    
-    /**
-     * @var int|null $minimumRamAllowedToPeerInGigabytes Specifies the minimum RAM size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-    */
-    private ?int $minimumRamAllowedToPeerInGigabytes = null;
-    
-    /**
-     * @var string|null $modifyCacheLocation Specifies the drive that Delivery Optimization should use for its cache.
-    */
-    private ?string $modifyCacheLocation = null;
-    
-    /**
-     * @var DeliveryOptimizationRestrictPeerSelectionByOptions|null $restrictPeerSelectionBy Values to restrict peer selection by.
-    */
-    private ?DeliveryOptimizationRestrictPeerSelectionByOptions $restrictPeerSelectionBy = null;
-    
-    /**
-     * @var Enablement|null $vpnPeerCaching Possible values of a property
-    */
-    private ?Enablement $vpnPeerCaching = null;
-    
-    /**
      * Instantiates a new WindowsDeliveryOptimizationConfiguration and sets the default values.
     */
     public function __construct() {
@@ -115,7 +30,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getBackgroundDownloadFromHttpDelayInSeconds(): ?int {
-        return $this->backgroundDownloadFromHttpDelayInSeconds;
+        return $this->getBackingStore()->get('backgroundDownloadFromHttpDelayInSeconds');
     }
 
     /**
@@ -123,7 +38,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationBandwidth|null
     */
     public function getBandwidthMode(): ?DeliveryOptimizationBandwidth {
-        return $this->bandwidthMode;
+        return $this->getBackingStore()->get('bandwidthMode');
     }
 
     /**
@@ -131,7 +46,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds(): ?int {
-        return $this->cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds;
+        return $this->getBackingStore()->get('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds');
     }
 
     /**
@@ -139,7 +54,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getCacheServerForegroundDownloadFallbackToHttpDelayInSeconds(): ?int {
-        return $this->cacheServerForegroundDownloadFallbackToHttpDelayInSeconds;
+        return $this->getBackingStore()->get('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds');
     }
 
     /**
@@ -147,7 +62,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return array<string>|null
     */
     public function getCacheServerHostNames(): ?array {
-        return $this->cacheServerHostNames;
+        return $this->getBackingStore()->get('cacheServerHostNames');
     }
 
     /**
@@ -155,7 +70,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return WindowsDeliveryOptimizationMode|null
     */
     public function getDeliveryOptimizationMode(): ?WindowsDeliveryOptimizationMode {
-        return $this->deliveryOptimizationMode;
+        return $this->getBackingStore()->get('deliveryOptimizationMode');
     }
 
     /**
@@ -190,7 +105,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getForegroundDownloadFromHttpDelayInSeconds(): ?int {
-        return $this->foregroundDownloadFromHttpDelayInSeconds;
+        return $this->getBackingStore()->get('foregroundDownloadFromHttpDelayInSeconds');
     }
 
     /**
@@ -198,7 +113,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationGroupIdSource|null
     */
     public function getGroupIdSource(): ?DeliveryOptimizationGroupIdSource {
-        return $this->groupIdSource;
+        return $this->getBackingStore()->get('groupIdSource');
     }
 
     /**
@@ -206,7 +121,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMaximumCacheAgeInDays(): ?int {
-        return $this->maximumCacheAgeInDays;
+        return $this->getBackingStore()->get('maximumCacheAgeInDays');
     }
 
     /**
@@ -214,7 +129,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationMaxCacheSize|null
     */
     public function getMaximumCacheSize(): ?DeliveryOptimizationMaxCacheSize {
-        return $this->maximumCacheSize;
+        return $this->getBackingStore()->get('maximumCacheSize');
     }
 
     /**
@@ -222,7 +137,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumBatteryPercentageAllowedToUpload(): ?int {
-        return $this->minimumBatteryPercentageAllowedToUpload;
+        return $this->getBackingStore()->get('minimumBatteryPercentageAllowedToUpload');
     }
 
     /**
@@ -230,7 +145,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumDiskSizeAllowedToPeerInGigabytes(): ?int {
-        return $this->minimumDiskSizeAllowedToPeerInGigabytes;
+        return $this->getBackingStore()->get('minimumDiskSizeAllowedToPeerInGigabytes');
     }
 
     /**
@@ -238,7 +153,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumFileSizeToCacheInMegabytes(): ?int {
-        return $this->minimumFileSizeToCacheInMegabytes;
+        return $this->getBackingStore()->get('minimumFileSizeToCacheInMegabytes');
     }
 
     /**
@@ -246,7 +161,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return int|null
     */
     public function getMinimumRamAllowedToPeerInGigabytes(): ?int {
-        return $this->minimumRamAllowedToPeerInGigabytes;
+        return $this->getBackingStore()->get('minimumRamAllowedToPeerInGigabytes');
     }
 
     /**
@@ -254,7 +169,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return string|null
     */
     public function getModifyCacheLocation(): ?string {
-        return $this->modifyCacheLocation;
+        return $this->getBackingStore()->get('modifyCacheLocation');
     }
 
     /**
@@ -262,7 +177,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return DeliveryOptimizationRestrictPeerSelectionByOptions|null
     */
     public function getRestrictPeerSelectionBy(): ?DeliveryOptimizationRestrictPeerSelectionByOptions {
-        return $this->restrictPeerSelectionBy;
+        return $this->getBackingStore()->get('restrictPeerSelectionBy');
     }
 
     /**
@@ -270,7 +185,7 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
      * @return Enablement|null
     */
     public function getVpnPeerCaching(): ?Enablement {
-        return $this->vpnPeerCaching;
+        return $this->getBackingStore()->get('vpnPeerCaching');
     }
 
     /**
@@ -279,159 +194,159 @@ class WindowsDeliveryOptimizationConfiguration extends DeviceConfiguration imple
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('backgroundDownloadFromHttpDelayInSeconds', $this->backgroundDownloadFromHttpDelayInSeconds);
-        $writer->writeObjectValue('bandwidthMode', $this->bandwidthMode);
-        $writer->writeIntegerValue('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds', $this->cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds);
-        $writer->writeIntegerValue('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds', $this->cacheServerForegroundDownloadFallbackToHttpDelayInSeconds);
-        $writer->writeCollectionOfPrimitiveValues('cacheServerHostNames', $this->cacheServerHostNames);
-        $writer->writeEnumValue('deliveryOptimizationMode', $this->deliveryOptimizationMode);
-        $writer->writeIntegerValue('foregroundDownloadFromHttpDelayInSeconds', $this->foregroundDownloadFromHttpDelayInSeconds);
-        $writer->writeObjectValue('groupIdSource', $this->groupIdSource);
-        $writer->writeIntegerValue('maximumCacheAgeInDays', $this->maximumCacheAgeInDays);
-        $writer->writeObjectValue('maximumCacheSize', $this->maximumCacheSize);
-        $writer->writeIntegerValue('minimumBatteryPercentageAllowedToUpload', $this->minimumBatteryPercentageAllowedToUpload);
-        $writer->writeIntegerValue('minimumDiskSizeAllowedToPeerInGigabytes', $this->minimumDiskSizeAllowedToPeerInGigabytes);
-        $writer->writeIntegerValue('minimumFileSizeToCacheInMegabytes', $this->minimumFileSizeToCacheInMegabytes);
-        $writer->writeIntegerValue('minimumRamAllowedToPeerInGigabytes', $this->minimumRamAllowedToPeerInGigabytes);
-        $writer->writeStringValue('modifyCacheLocation', $this->modifyCacheLocation);
-        $writer->writeEnumValue('restrictPeerSelectionBy', $this->restrictPeerSelectionBy);
-        $writer->writeEnumValue('vpnPeerCaching', $this->vpnPeerCaching);
+        $writer->writeIntegerValue('backgroundDownloadFromHttpDelayInSeconds', $this->getBackgroundDownloadFromHttpDelayInSeconds());
+        $writer->writeObjectValue('bandwidthMode', $this->getBandwidthMode());
+        $writer->writeIntegerValue('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds', $this->getCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds());
+        $writer->writeIntegerValue('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds', $this->getCacheServerForegroundDownloadFallbackToHttpDelayInSeconds());
+        $writer->writeCollectionOfPrimitiveValues('cacheServerHostNames', $this->getCacheServerHostNames());
+        $writer->writeEnumValue('deliveryOptimizationMode', $this->getDeliveryOptimizationMode());
+        $writer->writeIntegerValue('foregroundDownloadFromHttpDelayInSeconds', $this->getForegroundDownloadFromHttpDelayInSeconds());
+        $writer->writeObjectValue('groupIdSource', $this->getGroupIdSource());
+        $writer->writeIntegerValue('maximumCacheAgeInDays', $this->getMaximumCacheAgeInDays());
+        $writer->writeObjectValue('maximumCacheSize', $this->getMaximumCacheSize());
+        $writer->writeIntegerValue('minimumBatteryPercentageAllowedToUpload', $this->getMinimumBatteryPercentageAllowedToUpload());
+        $writer->writeIntegerValue('minimumDiskSizeAllowedToPeerInGigabytes', $this->getMinimumDiskSizeAllowedToPeerInGigabytes());
+        $writer->writeIntegerValue('minimumFileSizeToCacheInMegabytes', $this->getMinimumFileSizeToCacheInMegabytes());
+        $writer->writeIntegerValue('minimumRamAllowedToPeerInGigabytes', $this->getMinimumRamAllowedToPeerInGigabytes());
+        $writer->writeStringValue('modifyCacheLocation', $this->getModifyCacheLocation());
+        $writer->writeEnumValue('restrictPeerSelectionBy', $this->getRestrictPeerSelectionBy());
+        $writer->writeEnumValue('vpnPeerCaching', $this->getVpnPeerCaching());
     }
 
     /**
      * Sets the backgroundDownloadFromHttpDelayInSeconds property value. Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295
      *  @param int|null $value Value to set for the backgroundDownloadFromHttpDelayInSeconds property.
     */
-    public function setBackgroundDownloadFromHttpDelayInSeconds(?int $value ): void {
-        $this->backgroundDownloadFromHttpDelayInSeconds = $value;
+    public function setBackgroundDownloadFromHttpDelayInSeconds(?int $value): void {
+        $this->getBackingStore()->set('backgroundDownloadFromHttpDelayInSeconds', $value);
     }
 
     /**
      * Sets the bandwidthMode property value. Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.
      *  @param DeliveryOptimizationBandwidth|null $value Value to set for the bandwidthMode property.
     */
-    public function setBandwidthMode(?DeliveryOptimizationBandwidth $value ): void {
-        $this->bandwidthMode = $value;
+    public function setBandwidthMode(?DeliveryOptimizationBandwidth $value): void {
+        $this->getBackingStore()->set('bandwidthMode', $value);
     }
 
     /**
      * Sets the cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds property value. Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.
      *  @param int|null $value Value to set for the cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds property.
     */
-    public function setCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds(?int $value ): void {
-        $this->cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds = $value;
+    public function setCacheServerBackgroundDownloadFallbackToHttpDelayInSeconds(?int $value): void {
+        $this->getBackingStore()->set('cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds', $value);
     }
 
     /**
      * Sets the cacheServerForegroundDownloadFallbackToHttpDelayInSeconds property value. Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a foreground download. Valid values 0 to 2592000.​
      *  @param int|null $value Value to set for the cacheServerForegroundDownloadFallbackToHttpDelayInSeconds property.
     */
-    public function setCacheServerForegroundDownloadFallbackToHttpDelayInSeconds(?int $value ): void {
-        $this->cacheServerForegroundDownloadFallbackToHttpDelayInSeconds = $value;
+    public function setCacheServerForegroundDownloadFallbackToHttpDelayInSeconds(?int $value): void {
+        $this->getBackingStore()->set('cacheServerForegroundDownloadFallbackToHttpDelayInSeconds', $value);
     }
 
     /**
      * Sets the cacheServerHostNames property value. Specifies cache servers host names.
      *  @param array<string>|null $value Value to set for the cacheServerHostNames property.
     */
-    public function setCacheServerHostNames(?array $value ): void {
-        $this->cacheServerHostNames = $value;
+    public function setCacheServerHostNames(?array $value): void {
+        $this->getBackingStore()->set('cacheServerHostNames', $value);
     }
 
     /**
      * Sets the deliveryOptimizationMode property value. Delivery optimization mode for peer distribution
      *  @param WindowsDeliveryOptimizationMode|null $value Value to set for the deliveryOptimizationMode property.
     */
-    public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value ): void {
-        $this->deliveryOptimizationMode = $value;
+    public function setDeliveryOptimizationMode(?WindowsDeliveryOptimizationMode $value): void {
+        $this->getBackingStore()->set('deliveryOptimizationMode', $value);
     }
 
     /**
      * Sets the foregroundDownloadFromHttpDelayInSeconds property value. Specifies number of seconds to delay an HTTP source in a foreground download that is allowed to use peer-to-peer (0-86400). Valid values 0 to 86400
      *  @param int|null $value Value to set for the foregroundDownloadFromHttpDelayInSeconds property.
     */
-    public function setForegroundDownloadFromHttpDelayInSeconds(?int $value ): void {
-        $this->foregroundDownloadFromHttpDelayInSeconds = $value;
+    public function setForegroundDownloadFromHttpDelayInSeconds(?int $value): void {
+        $this->getBackingStore()->set('foregroundDownloadFromHttpDelayInSeconds', $value);
     }
 
     /**
      * Sets the groupIdSource property value. Specifies to restrict peer selection to a specfic source.
      *  @param DeliveryOptimizationGroupIdSource|null $value Value to set for the groupIdSource property.
     */
-    public function setGroupIdSource(?DeliveryOptimizationGroupIdSource $value ): void {
-        $this->groupIdSource = $value;
+    public function setGroupIdSource(?DeliveryOptimizationGroupIdSource $value): void {
+        $this->getBackingStore()->set('groupIdSource', $value);
     }
 
     /**
      * Sets the maximumCacheAgeInDays property value. Specifies the maximum time in days that each file is held in the Delivery Optimization cache after downloading successfully (0-3650). Valid values 0 to 3650
      *  @param int|null $value Value to set for the maximumCacheAgeInDays property.
     */
-    public function setMaximumCacheAgeInDays(?int $value ): void {
-        $this->maximumCacheAgeInDays = $value;
+    public function setMaximumCacheAgeInDays(?int $value): void {
+        $this->getBackingStore()->set('maximumCacheAgeInDays', $value);
     }
 
     /**
      * Sets the maximumCacheSize property value. Specifies the maximum cache size that Delivery Optimization either as a percentage or in GB.
      *  @param DeliveryOptimizationMaxCacheSize|null $value Value to set for the maximumCacheSize property.
     */
-    public function setMaximumCacheSize(?DeliveryOptimizationMaxCacheSize $value ): void {
-        $this->maximumCacheSize = $value;
+    public function setMaximumCacheSize(?DeliveryOptimizationMaxCacheSize $value): void {
+        $this->getBackingStore()->set('maximumCacheSize', $value);
     }
 
     /**
      * Sets the minimumBatteryPercentageAllowedToUpload property value. Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100
      *  @param int|null $value Value to set for the minimumBatteryPercentageAllowedToUpload property.
     */
-    public function setMinimumBatteryPercentageAllowedToUpload(?int $value ): void {
-        $this->minimumBatteryPercentageAllowedToUpload = $value;
+    public function setMinimumBatteryPercentageAllowedToUpload(?int $value): void {
+        $this->getBackingStore()->set('minimumBatteryPercentageAllowedToUpload', $value);
     }
 
     /**
      * Sets the minimumDiskSizeAllowedToPeerInGigabytes property value. Specifies the minimum disk size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
      *  @param int|null $value Value to set for the minimumDiskSizeAllowedToPeerInGigabytes property.
     */
-    public function setMinimumDiskSizeAllowedToPeerInGigabytes(?int $value ): void {
-        $this->minimumDiskSizeAllowedToPeerInGigabytes = $value;
+    public function setMinimumDiskSizeAllowedToPeerInGigabytes(?int $value): void {
+        $this->getBackingStore()->set('minimumDiskSizeAllowedToPeerInGigabytes', $value);
     }
 
     /**
      * Sets the minimumFileSizeToCacheInMegabytes property value. Specifies the minimum content file size in MB enabled to use Peer Caching (1-100000). Valid values 1 to 100000
      *  @param int|null $value Value to set for the minimumFileSizeToCacheInMegabytes property.
     */
-    public function setMinimumFileSizeToCacheInMegabytes(?int $value ): void {
-        $this->minimumFileSizeToCacheInMegabytes = $value;
+    public function setMinimumFileSizeToCacheInMegabytes(?int $value): void {
+        $this->getBackingStore()->set('minimumFileSizeToCacheInMegabytes', $value);
     }
 
     /**
      * Sets the minimumRamAllowedToPeerInGigabytes property value. Specifies the minimum RAM size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
      *  @param int|null $value Value to set for the minimumRamAllowedToPeerInGigabytes property.
     */
-    public function setMinimumRamAllowedToPeerInGigabytes(?int $value ): void {
-        $this->minimumRamAllowedToPeerInGigabytes = $value;
+    public function setMinimumRamAllowedToPeerInGigabytes(?int $value): void {
+        $this->getBackingStore()->set('minimumRamAllowedToPeerInGigabytes', $value);
     }
 
     /**
      * Sets the modifyCacheLocation property value. Specifies the drive that Delivery Optimization should use for its cache.
      *  @param string|null $value Value to set for the modifyCacheLocation property.
     */
-    public function setModifyCacheLocation(?string $value ): void {
-        $this->modifyCacheLocation = $value;
+    public function setModifyCacheLocation(?string $value): void {
+        $this->getBackingStore()->set('modifyCacheLocation', $value);
     }
 
     /**
      * Sets the restrictPeerSelectionBy property value. Values to restrict peer selection by.
      *  @param DeliveryOptimizationRestrictPeerSelectionByOptions|null $value Value to set for the restrictPeerSelectionBy property.
     */
-    public function setRestrictPeerSelectionBy(?DeliveryOptimizationRestrictPeerSelectionByOptions $value ): void {
-        $this->restrictPeerSelectionBy = $value;
+    public function setRestrictPeerSelectionBy(?DeliveryOptimizationRestrictPeerSelectionByOptions $value): void {
+        $this->getBackingStore()->set('restrictPeerSelectionBy', $value);
     }
 
     /**
      * Sets the vpnPeerCaching property value. Possible values of a property
      *  @param Enablement|null $value Value to set for the vpnPeerCaching property.
     */
-    public function setVpnPeerCaching(?Enablement $value ): void {
-        $this->vpnPeerCaching = $value;
+    public function setVpnPeerCaching(?Enablement $value): void {
+        $this->getBackingStore()->set('vpnPeerCaching', $value);
     }
 
 }

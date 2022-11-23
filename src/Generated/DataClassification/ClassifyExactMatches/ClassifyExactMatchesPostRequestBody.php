@@ -7,38 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsable 
+class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<ContentClassification>|null $contentClassifications The contentClassifications property
-    */
-    private ?array $contentClassifications = null;
-    
-    /**
-     * @var array<string>|null $sensitiveTypeIds The sensitiveTypeIds property
-    */
-    private ?array $sensitiveTypeIds = null;
-    
-    /**
-     * @var string|null $text The text property
-    */
-    private ?string $text = null;
-    
-    /**
-     * @var string|null $timeoutInMs The timeoutInMs property
-    */
-    private ?string $timeoutInMs = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new classifyExactMatchesPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -55,8 +39,16 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +56,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * @return array<ContentClassification>|null
     */
     public function getContentClassifications(): ?array {
-        return $this->contentClassifications;
+        return $this->getBackingStore()->get('contentClassifications');
     }
 
     /**
@@ -86,7 +78,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * @return array<string>|null
     */
     public function getSensitiveTypeIds(): ?array {
-        return $this->sensitiveTypeIds;
+        return $this->getBackingStore()->get('sensitiveTypeIds');
     }
 
     /**
@@ -94,7 +86,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getText(): ?string {
-        return $this->text;
+        return $this->getBackingStore()->get('text');
     }
 
     /**
@@ -102,7 +94,7 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getTimeoutInMs(): ?string {
-        return $this->timeoutInMs;
+        return $this->getBackingStore()->get('timeoutInMs');
     }
 
     /**
@@ -110,51 +102,59 @@ class ClassifyExactMatchesPostRequestBody implements AdditionalDataHolder, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('contentClassifications', $this->contentClassifications);
-        $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->sensitiveTypeIds);
-        $writer->writeStringValue('text', $this->text);
-        $writer->writeStringValue('timeoutInMs', $this->timeoutInMs);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('contentClassifications', $this->getContentClassifications());
+        $writer->writeCollectionOfPrimitiveValues('sensitiveTypeIds', $this->getSensitiveTypeIds());
+        $writer->writeStringValue('text', $this->getText());
+        $writer->writeStringValue('timeoutInMs', $this->getTimeoutInMs());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the contentClassifications property value. The contentClassifications property
      *  @param array<ContentClassification>|null $value Value to set for the contentClassifications property.
     */
-    public function setContentClassifications(?array $value ): void {
-        $this->contentClassifications = $value;
+    public function setContentClassifications(?array $value): void {
+        $this->getBackingStore()->set('contentClassifications', $value);
     }
 
     /**
      * Sets the sensitiveTypeIds property value. The sensitiveTypeIds property
      *  @param array<string>|null $value Value to set for the sensitiveTypeIds property.
     */
-    public function setSensitiveTypeIds(?array $value ): void {
-        $this->sensitiveTypeIds = $value;
+    public function setSensitiveTypeIds(?array $value): void {
+        $this->getBackingStore()->set('sensitiveTypeIds', $value);
     }
 
     /**
      * Sets the text property value. The text property
      *  @param string|null $value Value to set for the text property.
     */
-    public function setText(?string $value ): void {
-        $this->text = $value;
+    public function setText(?string $value): void {
+        $this->getBackingStore()->set('text', $value);
     }
 
     /**
      * Sets the timeoutInMs property value. The timeoutInMs property
      *  @param string|null $value Value to set for the timeoutInMs property.
     */
-    public function setTimeoutInMs(?string $value ): void {
-        $this->timeoutInMs = $value;
+    public function setTimeoutInMs(?string $value): void {
+        $this->getBackingStore()->set('timeoutInMs', $value);
     }
 
 }

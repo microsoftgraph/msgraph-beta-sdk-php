@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary extends Entity implements Parsable 
 {
     /**
-     * @var int|null $deployedDeviceCount Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?int $deployedDeviceCount = null;
-    
-    /**
-     * @var int|null $failedDeviceCount Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
-    */
-    private ?int $failedDeviceCount = null;
-    
-    /**
      * Instantiates a new windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsDefenderApplicationControlSupplementalPolicyDeploymentSummary');
     }
 
     /**
@@ -40,7 +29,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @return int|null
     */
     public function getDeployedDeviceCount(): ?int {
-        return $this->deployedDeviceCount;
+        return $this->getBackingStore()->get('deployedDeviceCount');
     }
 
     /**
@@ -48,7 +37,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
      * @return int|null
     */
     public function getFailedDeviceCount(): ?int {
-        return $this->failedDeviceCount;
+        return $this->getBackingStore()->get('failedDeviceCount');
     }
 
     /**
@@ -69,24 +58,24 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('deployedDeviceCount', $this->deployedDeviceCount);
-        $writer->writeIntegerValue('failedDeviceCount', $this->failedDeviceCount);
+        $writer->writeIntegerValue('deployedDeviceCount', $this->getDeployedDeviceCount());
+        $writer->writeIntegerValue('failedDeviceCount', $this->getFailedDeviceCount());
     }
 
     /**
      * Sets the deployedDeviceCount property value. Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
      *  @param int|null $value Value to set for the deployedDeviceCount property.
     */
-    public function setDeployedDeviceCount(?int $value ): void {
-        $this->deployedDeviceCount = $value;
+    public function setDeployedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('deployedDeviceCount', $value);
     }
 
     /**
      * Sets the failedDeviceCount property value. Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
      *  @param int|null $value Value to set for the failedDeviceCount property.
     */
-    public function setFailedDeviceCount(?int $value ): void {
-        $this->failedDeviceCount = $value;
+    public function setFailedDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('failedDeviceCount', $value);
     }
 
 }

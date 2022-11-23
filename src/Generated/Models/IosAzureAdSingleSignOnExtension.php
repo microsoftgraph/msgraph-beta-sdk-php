@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implements Parsable 
 {
     /**
-     * @var array<string>|null $bundleIdAccessControlList An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.
-    */
-    private ?array $bundleIdAccessControlList = null;
-    
-    /**
-     * @var array<KeyTypedValuePair>|null $configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $configurations = null;
-    
-    /**
-     * @var bool|null $enableSharedDeviceMode Enables or disables shared device mode.
-    */
-    private ?bool $enableSharedDeviceMode = null;
-    
-    /**
      * Instantiates a new IosAzureAdSingleSignOnExtension and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return array<string>|null
     */
     public function getBundleIdAccessControlList(): ?array {
-        return $this->bundleIdAccessControlList;
+        return $this->getBackingStore()->get('bundleIdAccessControlList');
     }
 
     /**
@@ -53,7 +38,7 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return array<KeyTypedValuePair>|null
     */
     public function getConfigurations(): ?array {
-        return $this->configurations;
+        return $this->getBackingStore()->get('configurations');
     }
 
     /**
@@ -61,7 +46,7 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
      * @return bool|null
     */
     public function getEnableSharedDeviceMode(): ?bool {
-        return $this->enableSharedDeviceMode;
+        return $this->getBackingStore()->get('enableSharedDeviceMode');
     }
 
     /**
@@ -83,33 +68,33 @@ class IosAzureAdSingleSignOnExtension extends IosSingleSignOnExtension implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('bundleIdAccessControlList', $this->bundleIdAccessControlList);
-        $writer->writeCollectionOfObjectValues('configurations', $this->configurations);
-        $writer->writeBooleanValue('enableSharedDeviceMode', $this->enableSharedDeviceMode);
+        $writer->writeCollectionOfPrimitiveValues('bundleIdAccessControlList', $this->getBundleIdAccessControlList());
+        $writer->writeCollectionOfObjectValues('configurations', $this->getConfigurations());
+        $writer->writeBooleanValue('enableSharedDeviceMode', $this->getEnableSharedDeviceMode());
     }
 
     /**
      * Sets the bundleIdAccessControlList property value. An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.
      *  @param array<string>|null $value Value to set for the bundleIdAccessControlList property.
     */
-    public function setBundleIdAccessControlList(?array $value ): void {
-        $this->bundleIdAccessControlList = $value;
+    public function setBundleIdAccessControlList(?array $value): void {
+        $this->getBackingStore()->set('bundleIdAccessControlList', $value);
     }
 
     /**
      * Sets the configurations property value. Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
      *  @param array<KeyTypedValuePair>|null $value Value to set for the configurations property.
     */
-    public function setConfigurations(?array $value ): void {
-        $this->configurations = $value;
+    public function setConfigurations(?array $value): void {
+        $this->getBackingStore()->set('configurations', $value);
     }
 
     /**
      * Sets the enableSharedDeviceMode property value. Enables or disables shared device mode.
      *  @param bool|null $value Value to set for the enableSharedDeviceMode property.
     */
-    public function setEnableSharedDeviceMode(?bool $value ): void {
-        $this->enableSharedDeviceMode = $value;
+    public function setEnableSharedDeviceMode(?bool $value): void {
+        $this->getBackingStore()->set('enableSharedDeviceMode', $value);
     }
 
 }

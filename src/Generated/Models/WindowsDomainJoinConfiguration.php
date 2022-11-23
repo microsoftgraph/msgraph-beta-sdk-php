@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var string|null $activeDirectoryDomainName Active Directory domain name to join.
-    */
-    private ?string $activeDirectoryDomainName = null;
-    
-    /**
-     * @var string|null $computerNameStaticPrefix Fixed prefix to be used for computer name.
-    */
-    private ?string $computerNameStaticPrefix = null;
-    
-    /**
-     * @var int|null $computerNameSuffixRandomCharCount Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
-    */
-    private ?int $computerNameSuffixRandomCharCount = null;
-    
-    /**
-     * @var array<DeviceConfiguration>|null $networkAccessConfigurations Reference to device configurations required for network connectivity
-    */
-    private ?array $networkAccessConfigurations = null;
-    
-    /**
-     * @var string|null $organizationalUnit Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
-    */
-    private ?string $organizationalUnit = null;
-    
-    /**
      * Instantiates a new WindowsDomainJoinConfiguration and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getActiveDirectoryDomainName(): ?string {
-        return $this->activeDirectoryDomainName;
+        return $this->getBackingStore()->get('activeDirectoryDomainName');
     }
 
     /**
@@ -63,7 +38,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getComputerNameStaticPrefix(): ?string {
-        return $this->computerNameStaticPrefix;
+        return $this->getBackingStore()->get('computerNameStaticPrefix');
     }
 
     /**
@@ -71,7 +46,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return int|null
     */
     public function getComputerNameSuffixRandomCharCount(): ?int {
-        return $this->computerNameSuffixRandomCharCount;
+        return $this->getBackingStore()->get('computerNameSuffixRandomCharCount');
     }
 
     /**
@@ -94,7 +69,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return array<DeviceConfiguration>|null
     */
     public function getNetworkAccessConfigurations(): ?array {
-        return $this->networkAccessConfigurations;
+        return $this->getBackingStore()->get('networkAccessConfigurations');
     }
 
     /**
@@ -102,7 +77,7 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
      * @return string|null
     */
     public function getOrganizationalUnit(): ?string {
-        return $this->organizationalUnit;
+        return $this->getBackingStore()->get('organizationalUnit');
     }
 
     /**
@@ -111,51 +86,51 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('activeDirectoryDomainName', $this->activeDirectoryDomainName);
-        $writer->writeStringValue('computerNameStaticPrefix', $this->computerNameStaticPrefix);
-        $writer->writeIntegerValue('computerNameSuffixRandomCharCount', $this->computerNameSuffixRandomCharCount);
-        $writer->writeCollectionOfObjectValues('networkAccessConfigurations', $this->networkAccessConfigurations);
-        $writer->writeStringValue('organizationalUnit', $this->organizationalUnit);
+        $writer->writeStringValue('activeDirectoryDomainName', $this->getActiveDirectoryDomainName());
+        $writer->writeStringValue('computerNameStaticPrefix', $this->getComputerNameStaticPrefix());
+        $writer->writeIntegerValue('computerNameSuffixRandomCharCount', $this->getComputerNameSuffixRandomCharCount());
+        $writer->writeCollectionOfObjectValues('networkAccessConfigurations', $this->getNetworkAccessConfigurations());
+        $writer->writeStringValue('organizationalUnit', $this->getOrganizationalUnit());
     }
 
     /**
      * Sets the activeDirectoryDomainName property value. Active Directory domain name to join.
      *  @param string|null $value Value to set for the activeDirectoryDomainName property.
     */
-    public function setActiveDirectoryDomainName(?string $value ): void {
-        $this->activeDirectoryDomainName = $value;
+    public function setActiveDirectoryDomainName(?string $value): void {
+        $this->getBackingStore()->set('activeDirectoryDomainName', $value);
     }
 
     /**
      * Sets the computerNameStaticPrefix property value. Fixed prefix to be used for computer name.
      *  @param string|null $value Value to set for the computerNameStaticPrefix property.
     */
-    public function setComputerNameStaticPrefix(?string $value ): void {
-        $this->computerNameStaticPrefix = $value;
+    public function setComputerNameStaticPrefix(?string $value): void {
+        $this->getBackingStore()->set('computerNameStaticPrefix', $value);
     }
 
     /**
      * Sets the computerNameSuffixRandomCharCount property value. Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
      *  @param int|null $value Value to set for the computerNameSuffixRandomCharCount property.
     */
-    public function setComputerNameSuffixRandomCharCount(?int $value ): void {
-        $this->computerNameSuffixRandomCharCount = $value;
+    public function setComputerNameSuffixRandomCharCount(?int $value): void {
+        $this->getBackingStore()->set('computerNameSuffixRandomCharCount', $value);
     }
 
     /**
      * Sets the networkAccessConfigurations property value. Reference to device configurations required for network connectivity
      *  @param array<DeviceConfiguration>|null $value Value to set for the networkAccessConfigurations property.
     */
-    public function setNetworkAccessConfigurations(?array $value ): void {
-        $this->networkAccessConfigurations = $value;
+    public function setNetworkAccessConfigurations(?array $value): void {
+        $this->getBackingStore()->set('networkAccessConfigurations', $value);
     }
 
     /**
      * Sets the organizationalUnit property value. Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
      *  @param string|null $value Value to set for the organizationalUnit property.
     */
-    public function setOrganizationalUnit(?string $value ): void {
-        $this->organizationalUnit = $value;
+    public function setOrganizationalUnit(?string $value): void {
+        $this->getBackingStore()->set('organizationalUnit', $value);
     }
 
 }

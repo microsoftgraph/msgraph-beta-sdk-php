@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory implements Parsable 
 {
     /**
-     * @var array<DeviceManagementSettingInstance>|null $recommendedSettings The settings this category contains
-    */
-    private ?array $recommendedSettings = null;
-    
-    /**
      * Instantiates a new DeviceManagementTemplateSettingCategory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementTemplateSettingCategory');
     }
 
     /**
@@ -46,7 +40,7 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
      * @return array<DeviceManagementSettingInstance>|null
     */
     public function getRecommendedSettings(): ?array {
-        return $this->recommendedSettings;
+        return $this->getBackingStore()->get('recommendedSettings');
     }
 
     /**
@@ -55,15 +49,15 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('recommendedSettings', $this->recommendedSettings);
+        $writer->writeCollectionOfObjectValues('recommendedSettings', $this->getRecommendedSettings());
     }
 
     /**
      * Sets the recommendedSettings property value. The settings this category contains
      *  @param array<DeviceManagementSettingInstance>|null $value Value to set for the recommendedSettings property.
     */
-    public function setRecommendedSettings(?array $value ): void {
-        $this->recommendedSettings = $value;
+    public function setRecommendedSettings(?array $value): void {
+        $this->getBackingStore()->set('recommendedSettings', $value);
     }
 
 }

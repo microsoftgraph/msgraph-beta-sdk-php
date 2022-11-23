@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureADDevice extends UpdatableAsset implements Parsable 
 {
     /**
-     * @var array<UpdatableAssetEnrollment>|null $enrollments Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
-    */
-    private ?array $enrollments = null;
-    
-    /**
-     * @var array<UpdatableAssetError>|null $errors Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
-    */
-    private ?array $errors = null;
-    
-    /**
      * Instantiates a new AzureADDevice and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
      * @return array<UpdatableAssetEnrollment>|null
     */
     public function getEnrollments(): ?array {
-        return $this->enrollments;
+        return $this->getBackingStore()->get('enrollments');
     }
 
     /**
@@ -48,7 +38,7 @@ class AzureADDevice extends UpdatableAsset implements Parsable
      * @return array<UpdatableAssetError>|null
     */
     public function getErrors(): ?array {
-        return $this->errors;
+        return $this->getBackingStore()->get('errors');
     }
 
     /**
@@ -69,24 +59,24 @@ class AzureADDevice extends UpdatableAsset implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('enrollments', $this->enrollments);
-        $writer->writeCollectionOfObjectValues('errors', $this->errors);
+        $writer->writeCollectionOfObjectValues('enrollments', $this->getEnrollments());
+        $writer->writeCollectionOfObjectValues('errors', $this->getErrors());
     }
 
     /**
      * Sets the enrollments property value. Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
      *  @param array<UpdatableAssetEnrollment>|null $value Value to set for the enrollments property.
     */
-    public function setEnrollments(?array $value ): void {
-        $this->enrollments = $value;
+    public function setEnrollments(?array $value): void {
+        $this->getBackingStore()->set('enrollments', $value);
     }
 
     /**
      * Sets the errors property value. Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
      *  @param array<UpdatableAssetError>|null $value Value to set for the errors property.
     */
-    public function setErrors(?array $value ): void {
-        $this->errors = $value;
+    public function setErrors(?array $value): void {
+        $this->getBackingStore()->set('errors', $value);
     }
 
 }

@@ -10,41 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class WindowsAssignedAccessProfile extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $appUserModelIds These are the only Windows Store Apps that will be available to launch from the Start menu.
-    */
-    private ?array $appUserModelIds = null;
-    
-    /**
-     * @var array<string>|null $desktopAppPaths These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
-    */
-    private ?array $desktopAppPaths = null;
-    
-    /**
-     * @var string|null $profileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-    */
-    private ?string $profileName = null;
-    
-    /**
-     * @var bool|null $showTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
-    */
-    private ?bool $showTaskBar = null;
-    
-    /**
-     * @var StreamInterface|null $startMenuLayoutXml Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-    */
-    private ?StreamInterface $startMenuLayoutXml = null;
-    
-    /**
-     * @var array<string>|null $userAccounts The user accounts that will be locked to this kiosk configuration.
-    */
-    private ?array $userAccounts = null;
-    
-    /**
      * Instantiates a new WindowsAssignedAccessProfile and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsAssignedAccessProfile');
     }
 
     /**
@@ -61,7 +30,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getAppUserModelIds(): ?array {
-        return $this->appUserModelIds;
+        return $this->getBackingStore()->get('appUserModelIds');
     }
 
     /**
@@ -69,7 +38,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getDesktopAppPaths(): ?array {
-        return $this->desktopAppPaths;
+        return $this->getBackingStore()->get('desktopAppPaths');
     }
 
     /**
@@ -93,7 +62,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return string|null
     */
     public function getProfileName(): ?string {
-        return $this->profileName;
+        return $this->getBackingStore()->get('profileName');
     }
 
     /**
@@ -101,15 +70,15 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return bool|null
     */
     public function getShowTaskBar(): ?bool {
-        return $this->showTaskBar;
+        return $this->getBackingStore()->get('showTaskBar');
     }
 
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getStartMenuLayoutXml(): StreamInterface {
-        return $this->startMenuLayoutXml;
+    public function getStartMenuLayoutXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('startMenuLayoutXml');
     }
 
     /**
@@ -117,7 +86,7 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getUserAccounts(): ?array {
-        return $this->userAccounts;
+        return $this->getBackingStore()->get('userAccounts');
     }
 
     /**
@@ -126,60 +95,60 @@ class WindowsAssignedAccessProfile extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('appUserModelIds', $this->appUserModelIds);
-        $writer->writeCollectionOfPrimitiveValues('desktopAppPaths', $this->desktopAppPaths);
-        $writer->writeStringValue('profileName', $this->profileName);
-        $writer->writeBooleanValue('showTaskBar', $this->showTaskBar);
-        $writer->writeBinaryContent('startMenuLayoutXml', $this->startMenuLayoutXml);
-        $writer->writeCollectionOfPrimitiveValues('userAccounts', $this->userAccounts);
+        $writer->writeCollectionOfPrimitiveValues('appUserModelIds', $this->getAppUserModelIds());
+        $writer->writeCollectionOfPrimitiveValues('desktopAppPaths', $this->getDesktopAppPaths());
+        $writer->writeStringValue('profileName', $this->getProfileName());
+        $writer->writeBooleanValue('showTaskBar', $this->getShowTaskBar());
+        $writer->writeBinaryContent('startMenuLayoutXml', $this->getStartMenuLayoutXml());
+        $writer->writeCollectionOfPrimitiveValues('userAccounts', $this->getUserAccounts());
     }
 
     /**
      * Sets the appUserModelIds property value. These are the only Windows Store Apps that will be available to launch from the Start menu.
      *  @param array<string>|null $value Value to set for the appUserModelIds property.
     */
-    public function setAppUserModelIds(?array $value ): void {
-        $this->appUserModelIds = $value;
+    public function setAppUserModelIds(?array $value): void {
+        $this->getBackingStore()->set('appUserModelIds', $value);
     }
 
     /**
      * Sets the desktopAppPaths property value. These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
      *  @param array<string>|null $value Value to set for the desktopAppPaths property.
     */
-    public function setDesktopAppPaths(?array $value ): void {
-        $this->desktopAppPaths = $value;
+    public function setDesktopAppPaths(?array $value): void {
+        $this->getBackingStore()->set('desktopAppPaths', $value);
     }
 
     /**
      * Sets the profileName property value. This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
      *  @param string|null $value Value to set for the profileName property.
     */
-    public function setProfileName(?string $value ): void {
-        $this->profileName = $value;
+    public function setProfileName(?string $value): void {
+        $this->getBackingStore()->set('profileName', $value);
     }
 
     /**
      * Sets the showTaskBar property value. This setting allows the admin to specify whether the Task Bar is shown or not.
      *  @param bool|null $value Value to set for the showTaskBar property.
     */
-    public function setShowTaskBar(?bool $value ): void {
-        $this->showTaskBar = $value;
+    public function setShowTaskBar(?bool $value): void {
+        $this->getBackingStore()->set('showTaskBar', $value);
     }
 
     /**
      * Sets the startMenuLayoutXml property value. Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
      *  @param StreamInterface|null $value Value to set for the startMenuLayoutXml property.
     */
-    public function setStartMenuLayoutXml(?StreamInterface $value ): void {
-        $this->startMenuLayoutXml = $value;
+    public function setStartMenuLayoutXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('startMenuLayoutXml', $value);
     }
 
     /**
      * Sets the userAccounts property value. The user accounts that will be locked to this kiosk configuration.
      *  @param array<string>|null $value Value to set for the userAccounts property.
     */
-    public function setUserAccounts(?array $value ): void {
-        $this->userAccounts = $value;
+    public function setUserAccounts(?array $value): void {
+        $this->getBackingStore()->set('userAccounts', $value);
     }
 
 }

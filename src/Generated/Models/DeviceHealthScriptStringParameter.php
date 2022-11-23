@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter implements Parsable 
 {
     /**
-     * @var string|null $defaultValue The default value of string param
-    */
-    private ?string $defaultValue = null;
-    
-    /**
      * Instantiates a new DeviceHealthScriptStringParameter and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter impl
      * @return string|null
     */
     public function getDefaultValue(): ?string {
-        return $this->defaultValue;
+        return $this->getBackingStore()->get('defaultValue');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceHealthScriptStringParameter extends DeviceHealthScriptParameter impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('defaultValue', $this->defaultValue);
+        $writer->writeStringValue('defaultValue', $this->getDefaultValue());
     }
 
     /**
      * Sets the defaultValue property value. The default value of string param
      *  @param string|null $value Value to set for the defaultValue property.
     */
-    public function setDefaultValue(?string $value ): void {
-        $this->defaultValue = $value;
+    public function setDefaultValue(?string $value): void {
+        $this->getBackingStore()->set('defaultValue', $value);
     }
 
 }

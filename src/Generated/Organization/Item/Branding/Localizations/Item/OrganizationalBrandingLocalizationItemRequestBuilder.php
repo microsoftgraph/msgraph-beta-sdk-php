@@ -9,7 +9,9 @@ use Microsoft\Graph\Beta\Generated\Models\ODataErrors\ODataError;
 use Microsoft\Graph\Beta\Generated\Models\OrganizationalBrandingLocalization;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BackgroundImage\BackgroundImageRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\BannerLogo\BannerLogoRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\CustomCSS\CustomCSSRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\Favicon\FaviconRequestBuilder;
+use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\HeaderLogo\HeaderLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\SquareLogo\SquareLogoRequestBuilder;
 use Microsoft\Graph\Beta\Generated\Organization\Item\Branding\Localizations\Item\SquareLogoDark\SquareLogoDarkRequestBuilder;
 use Microsoft\Kiota\Abstractions\HttpMethod;
@@ -39,8 +41,22 @@ class OrganizationalBrandingLocalizationItemRequestBuilder
     /**
      * Provides operations to manage the media for the organization entity.
     */
+    public function customCSS(): CustomCSSRequestBuilder {
+        return new CustomCSSRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the organization entity.
+    */
     public function favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder($this->pathParameters, $this->requestAdapter);
+    }
+    
+    /**
+     * Provides operations to manage the media for the organization entity.
+    */
+    public function headerLogo(): HeaderLogoRequestBuilder {
+        return new HeaderLogoRequestBuilder($this->pathParameters, $this->requestAdapter);
     }
     
     /**

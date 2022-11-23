@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var WindowsNetworkIsolationPolicy|null $windowsNetworkIsolationPolicy Windows Network Isolation Policy
-    */
-    private ?WindowsNetworkIsolationPolicy $windowsNetworkIsolationPolicy = null;
-    
-    /**
      * Instantiates a new Windows10NetworkBoundaryConfiguration and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
      * @return WindowsNetworkIsolationPolicy|null
     */
     public function getWindowsNetworkIsolationPolicy(): ?WindowsNetworkIsolationPolicy {
-        return $this->windowsNetworkIsolationPolicy;
+        return $this->getBackingStore()->get('windowsNetworkIsolationPolicy');
     }
 
     /**
@@ -55,15 +50,15 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('windowsNetworkIsolationPolicy', $this->windowsNetworkIsolationPolicy);
+        $writer->writeObjectValue('windowsNetworkIsolationPolicy', $this->getWindowsNetworkIsolationPolicy());
     }
 
     /**
      * Sets the windowsNetworkIsolationPolicy property value. Windows Network Isolation Policy
      *  @param WindowsNetworkIsolationPolicy|null $value Value to set for the windowsNetworkIsolationPolicy property.
     */
-    public function setWindowsNetworkIsolationPolicy(?WindowsNetworkIsolationPolicy $value ): void {
-        $this->windowsNetworkIsolationPolicy = $value;
+    public function setWindowsNetworkIsolationPolicy(?WindowsNetworkIsolationPolicy $value): void {
+        $this->getBackingStore()->set('windowsNetworkIsolationPolicy', $value);
     }
 
 }

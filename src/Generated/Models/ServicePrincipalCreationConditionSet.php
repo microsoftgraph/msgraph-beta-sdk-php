@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ServicePrincipalCreationConditionSet extends Entity implements Parsable 
 {
     /**
-     * @var array<string>|null $applicationIds The applicationIds property
-    */
-    private ?array $applicationIds = null;
-    
-    /**
-     * @var array<string>|null $applicationPublisherIds The applicationPublisherIds property
-    */
-    private ?array $applicationPublisherIds = null;
-    
-    /**
-     * @var bool|null $applicationsFromVerifiedPublisherOnly The applicationsFromVerifiedPublisherOnly property
-    */
-    private ?bool $applicationsFromVerifiedPublisherOnly = null;
-    
-    /**
-     * @var array<string>|null $applicationTenantIds The applicationTenantIds property
-    */
-    private ?array $applicationTenantIds = null;
-    
-    /**
-     * @var bool|null $certifiedApplicationsOnly The certifiedApplicationsOnly property
-    */
-    private ?bool $certifiedApplicationsOnly = null;
-    
-    /**
      * Instantiates a new servicePrincipalCreationConditionSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.servicePrincipalCreationConditionSet');
     }
 
     /**
@@ -55,7 +29,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationIds(): ?array {
-        return $this->applicationIds;
+        return $this->getBackingStore()->get('applicationIds');
     }
 
     /**
@@ -63,7 +37,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationPublisherIds(): ?array {
-        return $this->applicationPublisherIds;
+        return $this->getBackingStore()->get('applicationPublisherIds');
     }
 
     /**
@@ -71,7 +45,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return bool|null
     */
     public function getApplicationsFromVerifiedPublisherOnly(): ?bool {
-        return $this->applicationsFromVerifiedPublisherOnly;
+        return $this->getBackingStore()->get('applicationsFromVerifiedPublisherOnly');
     }
 
     /**
@@ -79,7 +53,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getApplicationTenantIds(): ?array {
-        return $this->applicationTenantIds;
+        return $this->getBackingStore()->get('applicationTenantIds');
     }
 
     /**
@@ -87,7 +61,7 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
      * @return bool|null
     */
     public function getCertifiedApplicationsOnly(): ?bool {
-        return $this->certifiedApplicationsOnly;
+        return $this->getBackingStore()->get('certifiedApplicationsOnly');
     }
 
     /**
@@ -111,51 +85,51 @@ class ServicePrincipalCreationConditionSet extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('applicationIds', $this->applicationIds);
-        $writer->writeCollectionOfPrimitiveValues('applicationPublisherIds', $this->applicationPublisherIds);
-        $writer->writeBooleanValue('applicationsFromVerifiedPublisherOnly', $this->applicationsFromVerifiedPublisherOnly);
-        $writer->writeCollectionOfPrimitiveValues('applicationTenantIds', $this->applicationTenantIds);
-        $writer->writeBooleanValue('certifiedApplicationsOnly', $this->certifiedApplicationsOnly);
+        $writer->writeCollectionOfPrimitiveValues('applicationIds', $this->getApplicationIds());
+        $writer->writeCollectionOfPrimitiveValues('applicationPublisherIds', $this->getApplicationPublisherIds());
+        $writer->writeBooleanValue('applicationsFromVerifiedPublisherOnly', $this->getApplicationsFromVerifiedPublisherOnly());
+        $writer->writeCollectionOfPrimitiveValues('applicationTenantIds', $this->getApplicationTenantIds());
+        $writer->writeBooleanValue('certifiedApplicationsOnly', $this->getCertifiedApplicationsOnly());
     }
 
     /**
      * Sets the applicationIds property value. The applicationIds property
      *  @param array<string>|null $value Value to set for the applicationIds property.
     */
-    public function setApplicationIds(?array $value ): void {
-        $this->applicationIds = $value;
+    public function setApplicationIds(?array $value): void {
+        $this->getBackingStore()->set('applicationIds', $value);
     }
 
     /**
      * Sets the applicationPublisherIds property value. The applicationPublisherIds property
      *  @param array<string>|null $value Value to set for the applicationPublisherIds property.
     */
-    public function setApplicationPublisherIds(?array $value ): void {
-        $this->applicationPublisherIds = $value;
+    public function setApplicationPublisherIds(?array $value): void {
+        $this->getBackingStore()->set('applicationPublisherIds', $value);
     }
 
     /**
      * Sets the applicationsFromVerifiedPublisherOnly property value. The applicationsFromVerifiedPublisherOnly property
      *  @param bool|null $value Value to set for the applicationsFromVerifiedPublisherOnly property.
     */
-    public function setApplicationsFromVerifiedPublisherOnly(?bool $value ): void {
-        $this->applicationsFromVerifiedPublisherOnly = $value;
+    public function setApplicationsFromVerifiedPublisherOnly(?bool $value): void {
+        $this->getBackingStore()->set('applicationsFromVerifiedPublisherOnly', $value);
     }
 
     /**
      * Sets the applicationTenantIds property value. The applicationTenantIds property
      *  @param array<string>|null $value Value to set for the applicationTenantIds property.
     */
-    public function setApplicationTenantIds(?array $value ): void {
-        $this->applicationTenantIds = $value;
+    public function setApplicationTenantIds(?array $value): void {
+        $this->getBackingStore()->set('applicationTenantIds', $value);
     }
 
     /**
      * Sets the certifiedApplicationsOnly property value. The certifiedApplicationsOnly property
      *  @param bool|null $value Value to set for the certifiedApplicationsOnly property.
     */
-    public function setCertifiedApplicationsOnly(?bool $value ): void {
-        $this->certifiedApplicationsOnly = $value;
+    public function setCertifiedApplicationsOnly(?bool $value): void {
+        $this->getBackingStore()->set('certifiedApplicationsOnly', $value);
     }
 
 }

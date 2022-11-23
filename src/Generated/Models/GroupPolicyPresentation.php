@@ -10,26 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentation extends Entity implements Parsable 
 {
     /**
-     * @var GroupPolicyDefinition|null $definition The group policy definition associated with the presentation.
-    */
-    private ?GroupPolicyDefinition $definition = null;
-    
-    /**
-     * @var string|null $label Localized text label for any presentation entity. The default value is empty.
-    */
-    private ?string $label = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
      * Instantiates a new groupPolicyPresentation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyPresentation');
     }
 
     /**
@@ -62,7 +46,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return GroupPolicyDefinition|null
     */
     public function getDefinition(): ?GroupPolicyDefinition {
-        return $this->definition;
+        return $this->getBackingStore()->get('definition');
     }
 
     /**
@@ -83,7 +67,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return string|null
     */
     public function getLabel(): ?string {
-        return $this->label;
+        return $this->getBackingStore()->get('label');
     }
 
     /**
@@ -91,7 +75,7 @@ class GroupPolicyPresentation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -100,33 +84,33 @@ class GroupPolicyPresentation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('definition', $this->definition);
-        $writer->writeStringValue('label', $this->label);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
+        $writer->writeObjectValue('definition', $this->getDefinition());
+        $writer->writeStringValue('label', $this->getLabel());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
     }
 
     /**
      * Sets the definition property value. The group policy definition associated with the presentation.
      *  @param GroupPolicyDefinition|null $value Value to set for the definition property.
     */
-    public function setDefinition(?GroupPolicyDefinition $value ): void {
-        $this->definition = $value;
+    public function setDefinition(?GroupPolicyDefinition $value): void {
+        $this->getBackingStore()->set('definition', $value);
     }
 
     /**
      * Sets the label property value. Localized text label for any presentation entity. The default value is empty.
      *  @param string|null $value Value to set for the label property.
     */
-    public function setLabel(?string $value ): void {
-        $this->label = $value;
+    public function setLabel(?string $value): void {
+        $this->getBackingStore()->set('label', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
 }

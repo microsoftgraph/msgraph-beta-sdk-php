@@ -10,46 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class JobResponseBase extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $creationDateTime The creationDateTime property
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var DateTime|null $endDateTime The endDateTime property
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var ClassificationError|null $error The error property
-    */
-    private ?ClassificationError $error = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The startDateTime property
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $status The status property
-    */
-    private ?string $status = null;
-    
-    /**
-     * @var string|null $tenantId The tenantId property
-    */
-    private ?string $tenantId = null;
-    
-    /**
-     * @var string|null $type The type property
-    */
-    private ?string $type = null;
-    
-    /**
      * Instantiates a new jobResponseBase and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.jobResponseBase');
     }
 
     /**
@@ -75,7 +39,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -83,7 +47,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -91,7 +55,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return ClassificationError|null
     */
     public function getError(): ?ClassificationError {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -116,7 +80,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -124,7 +88,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getStatus(): ?string {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -132,7 +96,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -140,7 +104,7 @@ class JobResponseBase extends Entity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -149,69 +113,69 @@ class JobResponseBase extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeObjectValue('error', $this->error);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('status', $this->status);
-        $writer->writeStringValue('tenantId', $this->tenantId);
-        $writer->writeStringValue('type', $this->type);
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeObjectValue('error', $this->getError());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('status', $this->getStatus());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
+        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the endDateTime property value. The endDateTime property
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the error property value. The error property
      *  @param ClassificationError|null $value Value to set for the error property.
     */
-    public function setError(?ClassificationError $value ): void {
-        $this->error = $value;
+    public function setError(?ClassificationError $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the startDateTime property value. The startDateTime property
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param string|null $value Value to set for the status property.
     */
-    public function setStatus(?string $value ): void {
-        $this->status = $value;
+    public function setStatus(?string $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the tenantId property value. The tenantId property
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
     /**
      * Sets the type property value. The type property
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

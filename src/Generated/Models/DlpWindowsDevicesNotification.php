@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DlpWindowsDevicesNotification extends DlpNotification implements Parsable 
 {
     /**
-     * @var string|null $contentName The contentName property
-    */
-    private ?string $contentName = null;
-    
-    /**
-     * @var string|null $lastModfiedBy The lastModfiedBy property
-    */
-    private ?string $lastModfiedBy = null;
-    
-    /**
      * Instantiates a new DlpWindowsDevicesNotification and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
      * @return string|null
     */
     public function getContentName(): ?string {
-        return $this->contentName;
+        return $this->getBackingStore()->get('contentName');
     }
 
     /**
@@ -60,7 +50,7 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
      * @return string|null
     */
     public function getLastModfiedBy(): ?string {
-        return $this->lastModfiedBy;
+        return $this->getBackingStore()->get('lastModfiedBy');
     }
 
     /**
@@ -69,24 +59,24 @@ class DlpWindowsDevicesNotification extends DlpNotification implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('contentName', $this->contentName);
-        $writer->writeStringValue('lastModfiedBy', $this->lastModfiedBy);
+        $writer->writeStringValue('contentName', $this->getContentName());
+        $writer->writeStringValue('lastModfiedBy', $this->getLastModfiedBy());
     }
 
     /**
      * Sets the contentName property value. The contentName property
      *  @param string|null $value Value to set for the contentName property.
     */
-    public function setContentName(?string $value ): void {
-        $this->contentName = $value;
+    public function setContentName(?string $value): void {
+        $this->getBackingStore()->set('contentName', $value);
     }
 
     /**
      * Sets the lastModfiedBy property value. The lastModfiedBy property
      *  @param string|null $value Value to set for the lastModfiedBy property.
     */
-    public function setLastModfiedBy(?string $value ): void {
-        $this->lastModfiedBy = $value;
+    public function setLastModfiedBy(?string $value): void {
+        $this->getBackingStore()->set('lastModfiedBy', $value);
     }
 
 }

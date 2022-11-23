@@ -11,56 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ManagedTenantApiNotification extends Entity implements Parsable 
 {
     /**
-     * @var ManagedTenantAlert|null $alert The alert property
-    */
-    private ?ManagedTenantAlert $alert = null;
-    
-    /**
-     * @var string|null $createdByUserId The createdByUserId property
-    */
-    private ?string $createdByUserId = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The createdDateTime property
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var bool|null $isAcknowledged The isAcknowledged property
-    */
-    private ?bool $isAcknowledged = null;
-    
-    /**
-     * @var string|null $lastActionByUserId The lastActionByUserId property
-    */
-    private ?string $lastActionByUserId = null;
-    
-    /**
-     * @var DateTime|null $lastActionDateTime The lastActionDateTime property
-    */
-    private ?DateTime $lastActionDateTime = null;
-    
-    /**
-     * @var string|null $message The message property
-    */
-    private ?string $message = null;
-    
-    /**
-     * @var string|null $title The title property
-    */
-    private ?string $title = null;
-    
-    /**
-     * @var string|null $userId The userId property
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new managedTenantApiNotification and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.managedTenants.managedTenantApiNotification');
     }
 
     /**
@@ -77,7 +31,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return ManagedTenantAlert|null
     */
     public function getAlert(): ?ManagedTenantAlert {
-        return $this->alert;
+        return $this->getBackingStore()->get('alert');
     }
 
     /**
@@ -85,7 +39,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getCreatedByUserId(): ?string {
-        return $this->createdByUserId;
+        return $this->getBackingStore()->get('createdByUserId');
     }
 
     /**
@@ -93,7 +47,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -120,7 +74,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAcknowledged(): ?bool {
-        return $this->isAcknowledged;
+        return $this->getBackingStore()->get('isAcknowledged');
     }
 
     /**
@@ -128,7 +82,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getLastActionByUserId(): ?string {
-        return $this->lastActionByUserId;
+        return $this->getBackingStore()->get('lastActionByUserId');
     }
 
     /**
@@ -136,7 +90,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastActionDateTime(): ?DateTime {
-        return $this->lastActionDateTime;
+        return $this->getBackingStore()->get('lastActionDateTime');
     }
 
     /**
@@ -144,7 +98,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getMessage(): ?string {
-        return $this->message;
+        return $this->getBackingStore()->get('message');
     }
 
     /**
@@ -152,7 +106,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getTitle(): ?string {
-        return $this->title;
+        return $this->getBackingStore()->get('title');
     }
 
     /**
@@ -160,7 +114,7 @@ class ManagedTenantApiNotification extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -169,87 +123,87 @@ class ManagedTenantApiNotification extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('alert', $this->alert);
-        $writer->writeStringValue('createdByUserId', $this->createdByUserId);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeBooleanValue('isAcknowledged', $this->isAcknowledged);
-        $writer->writeStringValue('lastActionByUserId', $this->lastActionByUserId);
-        $writer->writeDateTimeValue('lastActionDateTime', $this->lastActionDateTime);
-        $writer->writeStringValue('message', $this->message);
-        $writer->writeStringValue('title', $this->title);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeObjectValue('alert', $this->getAlert());
+        $writer->writeStringValue('createdByUserId', $this->getCreatedByUserId());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeBooleanValue('isAcknowledged', $this->getIsAcknowledged());
+        $writer->writeStringValue('lastActionByUserId', $this->getLastActionByUserId());
+        $writer->writeDateTimeValue('lastActionDateTime', $this->getLastActionDateTime());
+        $writer->writeStringValue('message', $this->getMessage());
+        $writer->writeStringValue('title', $this->getTitle());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the alert property value. The alert property
      *  @param ManagedTenantAlert|null $value Value to set for the alert property.
     */
-    public function setAlert(?ManagedTenantAlert $value ): void {
-        $this->alert = $value;
+    public function setAlert(?ManagedTenantAlert $value): void {
+        $this->getBackingStore()->set('alert', $value);
     }
 
     /**
      * Sets the createdByUserId property value. The createdByUserId property
      *  @param string|null $value Value to set for the createdByUserId property.
     */
-    public function setCreatedByUserId(?string $value ): void {
-        $this->createdByUserId = $value;
+    public function setCreatedByUserId(?string $value): void {
+        $this->getBackingStore()->set('createdByUserId', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The createdDateTime property
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the isAcknowledged property value. The isAcknowledged property
      *  @param bool|null $value Value to set for the isAcknowledged property.
     */
-    public function setIsAcknowledged(?bool $value ): void {
-        $this->isAcknowledged = $value;
+    public function setIsAcknowledged(?bool $value): void {
+        $this->getBackingStore()->set('isAcknowledged', $value);
     }
 
     /**
      * Sets the lastActionByUserId property value. The lastActionByUserId property
      *  @param string|null $value Value to set for the lastActionByUserId property.
     */
-    public function setLastActionByUserId(?string $value ): void {
-        $this->lastActionByUserId = $value;
+    public function setLastActionByUserId(?string $value): void {
+        $this->getBackingStore()->set('lastActionByUserId', $value);
     }
 
     /**
      * Sets the lastActionDateTime property value. The lastActionDateTime property
      *  @param DateTime|null $value Value to set for the lastActionDateTime property.
     */
-    public function setLastActionDateTime(?DateTime $value ): void {
-        $this->lastActionDateTime = $value;
+    public function setLastActionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastActionDateTime', $value);
     }
 
     /**
      * Sets the message property value. The message property
      *  @param string|null $value Value to set for the message property.
     */
-    public function setMessage(?string $value ): void {
-        $this->message = $value;
+    public function setMessage(?string $value): void {
+        $this->getBackingStore()->set('message', $value);
     }
 
     /**
      * Sets the title property value. The title property
      *  @param string|null $value Value to set for the title property.
     */
-    public function setTitle(?string $value ): void {
-        $this->title = $value;
+    public function setTitle(?string $value): void {
+        $this->getBackingStore()->set('title', $value);
     }
 
     /**
      * Sets the userId property value. The userId property
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

@@ -9,51 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidManagedStoreApp extends MobileApp implements Parsable 
 {
     /**
-     * @var string|null $appIdentifier The Identity Name.
-    */
-    private ?string $appIdentifier = null;
-    
-    /**
-     * @var string|null $appStoreUrl The Play for Work Store app URL.
-    */
-    private ?string $appStoreUrl = null;
-    
-    /**
-     * @var array<AndroidManagedStoreAppTrack>|null $appTracks The tracks that are visible to this enterprise.
-    */
-    private ?array $appTracks = null;
-    
-    /**
-     * @var bool|null $isPrivate Indicates whether the app is only available to a given enterprise's users.
-    */
-    private ?bool $isPrivate = null;
-    
-    /**
-     * @var bool|null $isSystemApp Indicates whether the app is a preinstalled system app.
-    */
-    private ?bool $isSystemApp = null;
-    
-    /**
-     * @var string|null $packageId The package identifier.
-    */
-    private ?string $packageId = null;
-    
-    /**
-     * @var bool|null $supportsOemConfig Whether this app supports OEMConfig policy.
-    */
-    private ?bool $supportsOemConfig = null;
-    
-    /**
-     * @var int|null $totalLicenseCount The total number of VPP licenses.
-    */
-    private ?int $totalLicenseCount = null;
-    
-    /**
-     * @var int|null $usedLicenseCount The number of VPP licenses in use.
-    */
-    private ?int $usedLicenseCount = null;
-    
-    /**
      * Instantiates a new AndroidManagedStoreApp and sets the default values.
     */
     public function __construct() {
@@ -82,7 +37,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppIdentifier(): ?string {
-        return $this->appIdentifier;
+        return $this->getBackingStore()->get('appIdentifier');
     }
 
     /**
@@ -90,7 +45,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getAppStoreUrl(): ?string {
-        return $this->appStoreUrl;
+        return $this->getBackingStore()->get('appStoreUrl');
     }
 
     /**
@@ -98,7 +53,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return array<AndroidManagedStoreAppTrack>|null
     */
     public function getAppTracks(): ?array {
-        return $this->appTracks;
+        return $this->getBackingStore()->get('appTracks');
     }
 
     /**
@@ -125,7 +80,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getIsPrivate(): ?bool {
-        return $this->isPrivate;
+        return $this->getBackingStore()->get('isPrivate');
     }
 
     /**
@@ -133,7 +88,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getIsSystemApp(): ?bool {
-        return $this->isSystemApp;
+        return $this->getBackingStore()->get('isSystemApp');
     }
 
     /**
@@ -141,7 +96,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageId(): ?string {
-        return $this->packageId;
+        return $this->getBackingStore()->get('packageId');
     }
 
     /**
@@ -149,7 +104,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getSupportsOemConfig(): ?bool {
-        return $this->supportsOemConfig;
+        return $this->getBackingStore()->get('supportsOemConfig');
     }
 
     /**
@@ -157,7 +112,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->totalLicenseCount;
+        return $this->getBackingStore()->get('totalLicenseCount');
     }
 
     /**
@@ -165,7 +120,7 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->usedLicenseCount;
+        return $this->getBackingStore()->get('usedLicenseCount');
     }
 
     /**
@@ -174,87 +129,87 @@ class AndroidManagedStoreApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('appIdentifier', $this->appIdentifier);
-        $writer->writeStringValue('appStoreUrl', $this->appStoreUrl);
-        $writer->writeCollectionOfObjectValues('appTracks', $this->appTracks);
-        $writer->writeBooleanValue('isPrivate', $this->isPrivate);
-        $writer->writeBooleanValue('isSystemApp', $this->isSystemApp);
-        $writer->writeStringValue('packageId', $this->packageId);
-        $writer->writeBooleanValue('supportsOemConfig', $this->supportsOemConfig);
-        $writer->writeIntegerValue('totalLicenseCount', $this->totalLicenseCount);
-        $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
+        $writer->writeStringValue('appIdentifier', $this->getAppIdentifier());
+        $writer->writeStringValue('appStoreUrl', $this->getAppStoreUrl());
+        $writer->writeCollectionOfObjectValues('appTracks', $this->getAppTracks());
+        $writer->writeBooleanValue('isPrivate', $this->getIsPrivate());
+        $writer->writeBooleanValue('isSystemApp', $this->getIsSystemApp());
+        $writer->writeStringValue('packageId', $this->getPackageId());
+        $writer->writeBooleanValue('supportsOemConfig', $this->getSupportsOemConfig());
+        $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
+        $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
     }
 
     /**
      * Sets the appIdentifier property value. The Identity Name.
      *  @param string|null $value Value to set for the appIdentifier property.
     */
-    public function setAppIdentifier(?string $value ): void {
-        $this->appIdentifier = $value;
+    public function setAppIdentifier(?string $value): void {
+        $this->getBackingStore()->set('appIdentifier', $value);
     }
 
     /**
      * Sets the appStoreUrl property value. The Play for Work Store app URL.
      *  @param string|null $value Value to set for the appStoreUrl property.
     */
-    public function setAppStoreUrl(?string $value ): void {
-        $this->appStoreUrl = $value;
+    public function setAppStoreUrl(?string $value): void {
+        $this->getBackingStore()->set('appStoreUrl', $value);
     }
 
     /**
      * Sets the appTracks property value. The tracks that are visible to this enterprise.
      *  @param array<AndroidManagedStoreAppTrack>|null $value Value to set for the appTracks property.
     */
-    public function setAppTracks(?array $value ): void {
-        $this->appTracks = $value;
+    public function setAppTracks(?array $value): void {
+        $this->getBackingStore()->set('appTracks', $value);
     }
 
     /**
      * Sets the isPrivate property value. Indicates whether the app is only available to a given enterprise's users.
      *  @param bool|null $value Value to set for the isPrivate property.
     */
-    public function setIsPrivate(?bool $value ): void {
-        $this->isPrivate = $value;
+    public function setIsPrivate(?bool $value): void {
+        $this->getBackingStore()->set('isPrivate', $value);
     }
 
     /**
      * Sets the isSystemApp property value. Indicates whether the app is a preinstalled system app.
      *  @param bool|null $value Value to set for the isSystemApp property.
     */
-    public function setIsSystemApp(?bool $value ): void {
-        $this->isSystemApp = $value;
+    public function setIsSystemApp(?bool $value): void {
+        $this->getBackingStore()->set('isSystemApp', $value);
     }
 
     /**
      * Sets the packageId property value. The package identifier.
      *  @param string|null $value Value to set for the packageId property.
     */
-    public function setPackageId(?string $value ): void {
-        $this->packageId = $value;
+    public function setPackageId(?string $value): void {
+        $this->getBackingStore()->set('packageId', $value);
     }
 
     /**
      * Sets the supportsOemConfig property value. Whether this app supports OEMConfig policy.
      *  @param bool|null $value Value to set for the supportsOemConfig property.
     */
-    public function setSupportsOemConfig(?bool $value ): void {
-        $this->supportsOemConfig = $value;
+    public function setSupportsOemConfig(?bool $value): void {
+        $this->getBackingStore()->set('supportsOemConfig', $value);
     }
 
     /**
      * Sets the totalLicenseCount property value. The total number of VPP licenses.
      *  @param int|null $value Value to set for the totalLicenseCount property.
     */
-    public function setTotalLicenseCount(?int $value ): void {
-        $this->totalLicenseCount = $value;
+    public function setTotalLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicenseCount', $value);
     }
 
     /**
      * Sets the usedLicenseCount property value. The number of VPP licenses in use.
      *  @param int|null $value Value to set for the usedLicenseCount property.
     */
-    public function setUsedLicenseCount(?int $value ): void {
-        $this->usedLicenseCount = $value;
+    public function setUsedLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('usedLicenseCount', $value);
     }
 
 }

@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable 
+class TeamworkHardwareConfiguration implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var TeamworkPeripheral|null $compute The compute property
-    */
-    private ?TeamworkPeripheral $compute = null;
-    
-    /**
-     * @var TeamworkPeripheral|null $hdmiIngest The hdmiIngest property
-    */
-    private ?TeamworkPeripheral $hdmiIngest = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $processorModel The CPU model on the device.
-    */
-    private ?string $processorModel = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new teamworkHardwareConfiguration and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.teamworkHardwareConfiguration');
     }
 
     /**
@@ -55,8 +38,16 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getCompute(): ?TeamworkPeripheral {
-        return $this->compute;
+        return $this->getBackingStore()->get('compute');
     }
 
     /**
@@ -86,7 +77,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @return TeamworkPeripheral|null
     */
     public function getHdmiIngest(): ?TeamworkPeripheral {
-        return $this->hdmiIngest;
+        return $this->getBackingStore()->get('hdmiIngest');
     }
 
     /**
@@ -94,7 +85,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getProcessorModel(): ?string {
-        return $this->processorModel;
+        return $this->getBackingStore()->get('processorModel');
     }
 
     /**
@@ -110,51 +101,59 @@ class TeamworkHardwareConfiguration implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeObjectValue('compute', $this->compute);
-        $writer->writeObjectValue('hdmiIngest', $this->hdmiIngest);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('processorModel', $this->processorModel);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeObjectValue('compute', $this->getCompute());
+        $writer->writeObjectValue('hdmiIngest', $this->getHdmiIngest());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('processorModel', $this->getProcessorModel());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the compute property value. The compute property
      *  @param TeamworkPeripheral|null $value Value to set for the compute property.
     */
-    public function setCompute(?TeamworkPeripheral $value ): void {
-        $this->compute = $value;
+    public function setCompute(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('compute', $value);
     }
 
     /**
      * Sets the hdmiIngest property value. The hdmiIngest property
      *  @param TeamworkPeripheral|null $value Value to set for the hdmiIngest property.
     */
-    public function setHdmiIngest(?TeamworkPeripheral $value ): void {
-        $this->hdmiIngest = $value;
+    public function setHdmiIngest(?TeamworkPeripheral $value): void {
+        $this->getBackingStore()->set('hdmiIngest', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the processorModel property value. The CPU model on the device.
      *  @param string|null $value Value to set for the processorModel property.
     */
-    public function setProcessorModel(?string $value ): void {
-        $this->processorModel = $value;
+    public function setProcessorModel(?string $value): void {
+        $this->getBackingStore()->set('processorModel', $value);
     }
 
 }

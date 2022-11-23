@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftTunnelServer extends Entity implements Parsable 
 {
     /**
-     * @var string|null $agentImageDigest The digest of the current agent image running on this server
-    */
-    private ?string $agentImageDigest = null;
-    
-    /**
-     * @var string|null $displayName The display name for the server. This property is required when a server is created and cannot be cleared during updates.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastCheckinDateTime Indicates when the server last checked in
-    */
-    private ?DateTime $lastCheckinDateTime = null;
-    
-    /**
-     * @var string|null $serverImageDigest The digest of the current server image running on this server
-    */
-    private ?string $serverImageDigest = null;
-    
-    /**
-     * @var MicrosoftTunnelServerHealthStatus|null $tunnelServerHealthStatus Enum of possible MicrosoftTunnelServer health status types
-    */
-    private ?MicrosoftTunnelServerHealthStatus $tunnelServerHealthStatus = null;
-    
-    /**
      * Instantiates a new microsoftTunnelServer and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.microsoftTunnelServer');
     }
 
     /**
@@ -56,7 +30,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return string|null
     */
     public function getAgentImageDigest(): ?string {
-        return $this->agentImageDigest;
+        return $this->getBackingStore()->get('agentImageDigest');
     }
 
     /**
@@ -64,7 +38,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -87,7 +61,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastCheckinDateTime(): ?DateTime {
-        return $this->lastCheckinDateTime;
+        return $this->getBackingStore()->get('lastCheckinDateTime');
     }
 
     /**
@@ -95,7 +69,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return string|null
     */
     public function getServerImageDigest(): ?string {
-        return $this->serverImageDigest;
+        return $this->getBackingStore()->get('serverImageDigest');
     }
 
     /**
@@ -103,7 +77,7 @@ class MicrosoftTunnelServer extends Entity implements Parsable
      * @return MicrosoftTunnelServerHealthStatus|null
     */
     public function getTunnelServerHealthStatus(): ?MicrosoftTunnelServerHealthStatus {
-        return $this->tunnelServerHealthStatus;
+        return $this->getBackingStore()->get('tunnelServerHealthStatus');
     }
 
     /**
@@ -112,51 +86,51 @@ class MicrosoftTunnelServer extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('agentImageDigest', $this->agentImageDigest);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastCheckinDateTime', $this->lastCheckinDateTime);
-        $writer->writeStringValue('serverImageDigest', $this->serverImageDigest);
-        $writer->writeEnumValue('tunnelServerHealthStatus', $this->tunnelServerHealthStatus);
+        $writer->writeStringValue('agentImageDigest', $this->getAgentImageDigest());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastCheckinDateTime', $this->getLastCheckinDateTime());
+        $writer->writeStringValue('serverImageDigest', $this->getServerImageDigest());
+        $writer->writeEnumValue('tunnelServerHealthStatus', $this->getTunnelServerHealthStatus());
     }
 
     /**
      * Sets the agentImageDigest property value. The digest of the current agent image running on this server
      *  @param string|null $value Value to set for the agentImageDigest property.
     */
-    public function setAgentImageDigest(?string $value ): void {
-        $this->agentImageDigest = $value;
+    public function setAgentImageDigest(?string $value): void {
+        $this->getBackingStore()->set('agentImageDigest', $value);
     }
 
     /**
      * Sets the displayName property value. The display name for the server. This property is required when a server is created and cannot be cleared during updates.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastCheckinDateTime property value. Indicates when the server last checked in
      *  @param DateTime|null $value Value to set for the lastCheckinDateTime property.
     */
-    public function setLastCheckinDateTime(?DateTime $value ): void {
-        $this->lastCheckinDateTime = $value;
+    public function setLastCheckinDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckinDateTime', $value);
     }
 
     /**
      * Sets the serverImageDigest property value. The digest of the current server image running on this server
      *  @param string|null $value Value to set for the serverImageDigest property.
     */
-    public function setServerImageDigest(?string $value ): void {
-        $this->serverImageDigest = $value;
+    public function setServerImageDigest(?string $value): void {
+        $this->getBackingStore()->set('serverImageDigest', $value);
     }
 
     /**
      * Sets the tunnelServerHealthStatus property value. Enum of possible MicrosoftTunnelServer health status types
      *  @param MicrosoftTunnelServerHealthStatus|null $value Value to set for the tunnelServerHealthStatus property.
     */
-    public function setTunnelServerHealthStatus(?MicrosoftTunnelServerHealthStatus $value ): void {
-        $this->tunnelServerHealthStatus = $value;
+    public function setTunnelServerHealthStatus(?MicrosoftTunnelServerHealthStatus $value): void {
+        $this->getBackingStore()->set('tunnelServerHealthStatus', $value);
     }
 
 }

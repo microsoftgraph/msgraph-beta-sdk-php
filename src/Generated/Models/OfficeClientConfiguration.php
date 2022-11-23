@@ -10,51 +10,10 @@ use Psr\Http\Message\StreamInterface;
 class OfficeClientConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var array<OfficeClientConfigurationAssignment>|null $assignments The list of group assignments for the policy.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var array<OfficeClientCheckinStatus>|null $checkinStatuses List of office Client check-in status.
-    */
-    private ?array $checkinStatuses = null;
-    
-    /**
-     * @var string|null $description Not yet documented
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Admin provided description of the office client configuration policy.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var StreamInterface|null $policyPayload Policy settings JSON string in binary format, these values cannot be changed by the user.
-    */
-    private ?StreamInterface $policyPayload = null;
-    
-    /**
-     * @var int|null $priority Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
-    */
-    private ?int $priority = null;
-    
-    /**
-     * @var OfficeUserCheckinSummary|null $userCheckinSummary User check-in summary for the policy.
-    */
-    private ?OfficeUserCheckinSummary $userCheckinSummary = null;
-    
-    /**
-     * @var StreamInterface|null $userPreferencePayload Preference settings JSON string in binary format, these values can be overridden by the user.
-    */
-    private ?StreamInterface $userPreferencePayload = null;
-    
-    /**
      * Instantiates a new OfficeClientConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.officeClientConfiguration');
     }
 
     /**
@@ -79,7 +38,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return array<OfficeClientConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -87,7 +46,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return array<OfficeClientCheckinStatus>|null
     */
     public function getCheckinStatuses(): ?array {
-        return $this->checkinStatuses;
+        return $this->getBackingStore()->get('checkinStatuses');
     }
 
     /**
@@ -95,7 +54,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -103,7 +62,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -126,10 +85,10 @@ class OfficeClientConfiguration extends Entity implements Parsable
 
     /**
      * Gets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getPolicyPayload(): StreamInterface {
-        return $this->policyPayload;
+    public function getPolicyPayload(): ?StreamInterface {
+        return $this->getBackingStore()->get('policyPayload');
     }
 
     /**
@@ -137,7 +96,7 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getPriority(): ?int {
-        return $this->priority;
+        return $this->getBackingStore()->get('priority');
     }
 
     /**
@@ -145,15 +104,15 @@ class OfficeClientConfiguration extends Entity implements Parsable
      * @return OfficeUserCheckinSummary|null
     */
     public function getUserCheckinSummary(): ?OfficeUserCheckinSummary {
-        return $this->userCheckinSummary;
+        return $this->getBackingStore()->get('userCheckinSummary');
     }
 
     /**
      * Gets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getUserPreferencePayload(): StreamInterface {
-        return $this->userPreferencePayload;
+    public function getUserPreferencePayload(): ?StreamInterface {
+        return $this->getBackingStore()->get('userPreferencePayload');
     }
 
     /**
@@ -162,78 +121,78 @@ class OfficeClientConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeCollectionOfObjectValues('checkinStatuses', $this->checkinStatuses);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBinaryContent('policyPayload', $this->policyPayload);
-        $writer->writeIntegerValue('priority', $this->priority);
-        $writer->writeObjectValue('userCheckinSummary', $this->userCheckinSummary);
-        $writer->writeBinaryContent('userPreferencePayload', $this->userPreferencePayload);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeCollectionOfObjectValues('checkinStatuses', $this->getCheckinStatuses());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBinaryContent('policyPayload', $this->getPolicyPayload());
+        $writer->writeIntegerValue('priority', $this->getPriority());
+        $writer->writeObjectValue('userCheckinSummary', $this->getUserCheckinSummary());
+        $writer->writeBinaryContent('userPreferencePayload', $this->getUserPreferencePayload());
     }
 
     /**
      * Sets the assignments property value. The list of group assignments for the policy.
      *  @param array<OfficeClientConfigurationAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the checkinStatuses property value. List of office Client check-in status.
      *  @param array<OfficeClientCheckinStatus>|null $value Value to set for the checkinStatuses property.
     */
-    public function setCheckinStatuses(?array $value ): void {
-        $this->checkinStatuses = $value;
+    public function setCheckinStatuses(?array $value): void {
+        $this->getBackingStore()->set('checkinStatuses', $value);
     }
 
     /**
      * Sets the description property value. Not yet documented
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Admin provided description of the office client configuration policy.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the policyPayload property value. Policy settings JSON string in binary format, these values cannot be changed by the user.
      *  @param StreamInterface|null $value Value to set for the policyPayload property.
     */
-    public function setPolicyPayload(?StreamInterface $value ): void {
-        $this->policyPayload = $value;
+    public function setPolicyPayload(?StreamInterface $value): void {
+        $this->getBackingStore()->set('policyPayload', $value);
     }
 
     /**
      * Sets the priority property value. Priority value should be unique value for each policy under a tenant and will be used for conflict resolution, lower values mean priority is high.
      *  @param int|null $value Value to set for the priority property.
     */
-    public function setPriority(?int $value ): void {
-        $this->priority = $value;
+    public function setPriority(?int $value): void {
+        $this->getBackingStore()->set('priority', $value);
     }
 
     /**
      * Sets the userCheckinSummary property value. User check-in summary for the policy.
      *  @param OfficeUserCheckinSummary|null $value Value to set for the userCheckinSummary property.
     */
-    public function setUserCheckinSummary(?OfficeUserCheckinSummary $value ): void {
-        $this->userCheckinSummary = $value;
+    public function setUserCheckinSummary(?OfficeUserCheckinSummary $value): void {
+        $this->getBackingStore()->set('userCheckinSummary', $value);
     }
 
     /**
      * Sets the userPreferencePayload property value. Preference settings JSON string in binary format, these values can be overridden by the user.
      *  @param StreamInterface|null $value Value to set for the userPreferencePayload property.
     */
-    public function setUserPreferencePayload(?StreamInterface $value ): void {
-        $this->userPreferencePayload = $value;
+    public function setUserPreferencePayload(?StreamInterface $value): void {
+        $this->getBackingStore()->set('userPreferencePayload', $value);
     }
 
 }

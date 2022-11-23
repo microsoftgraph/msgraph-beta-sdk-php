@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFolderItem implements Parsable 
 {
     /**
-     * @var string|null $label Display name for weblink
-    */
-    private ?string $label = null;
-    
-    /**
-     * @var string|null $link Link for weblink
-    */
-    private ?string $link = null;
-    
-    /**
      * Instantiates a new AndroidDeviceOwnerKioskModeWeblink and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
      * @return string|null
     */
     public function getLabel(): ?string {
-        return $this->label;
+        return $this->getBackingStore()->get('label');
     }
 
     /**
@@ -60,7 +50,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
      * @return string|null
     */
     public function getLink(): ?string {
-        return $this->link;
+        return $this->getBackingStore()->get('link');
     }
 
     /**
@@ -69,24 +59,24 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('label', $this->label);
-        $writer->writeStringValue('link', $this->link);
+        $writer->writeStringValue('label', $this->getLabel());
+        $writer->writeStringValue('link', $this->getLink());
     }
 
     /**
      * Sets the label property value. Display name for weblink
      *  @param string|null $value Value to set for the label property.
     */
-    public function setLabel(?string $value ): void {
-        $this->label = $value;
+    public function setLabel(?string $value): void {
+        $this->getBackingStore()->set('label', $value);
     }
 
     /**
      * Sets the link property value. Link for weblink
      *  @param string|null $value Value to set for the link property.
     */
-    public function setLink(?string $value ): void {
-        $this->link = $value;
+    public function setLink(?string $value): void {
+        $this->getBackingStore()->set('link', $value);
     }
 
 }

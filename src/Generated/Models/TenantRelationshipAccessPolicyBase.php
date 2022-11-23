@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable 
 {
     /**
-     * @var array<string>|null $definition The definition property
-    */
-    private ?array $definition = null;
-    
-    /**
      * Instantiates a new TenantRelationshipAccessPolicyBase and sets the default values.
     */
     public function __construct() {
@@ -42,7 +37,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
      * @return array<string>|null
     */
     public function getDefinition(): ?array {
-        return $this->definition;
+        return $this->getBackingStore()->get('definition');
     }
 
     /**
@@ -62,15 +57,15 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('definition', $this->definition);
+        $writer->writeCollectionOfPrimitiveValues('definition', $this->getDefinition());
     }
 
     /**
      * Sets the definition property value. The definition property
      *  @param array<string>|null $value Value to set for the definition property.
     */
-    public function setDefinition(?array $value ): void {
-        $this->definition = $value;
+    public function setDefinition(?array $value): void {
+        $this->getBackingStore()->set('definition', $value);
     }
 
 }

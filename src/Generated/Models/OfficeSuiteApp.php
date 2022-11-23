@@ -10,71 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class OfficeSuiteApp extends MobileApp implements Parsable 
 {
     /**
-     * @var bool|null $autoAcceptEula The value to accept the EULA automatically on the enduser's device.
-    */
-    private ?bool $autoAcceptEula = null;
-    
-    /**
-     * @var ExcludedApps|null $excludedApps The property to represent the apps which are excluded from the selected Office365 Product Id.
-    */
-    private ?ExcludedApps $excludedApps = null;
-    
-    /**
-     * @var OfficeSuiteInstallProgressDisplayLevel|null $installProgressDisplayLevel The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
-    */
-    private ?OfficeSuiteInstallProgressDisplayLevel $installProgressDisplayLevel = null;
-    
-    /**
-     * @var array<string>|null $localesToInstall The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
-    */
-    private ?array $localesToInstall = null;
-    
-    /**
-     * @var StreamInterface|null $officeConfigurationXml The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
-    */
-    private ?StreamInterface $officeConfigurationXml = null;
-    
-    /**
-     * @var WindowsArchitecture|null $officePlatformArchitecture Contains properties for Windows architecture.
-    */
-    private ?WindowsArchitecture $officePlatformArchitecture = null;
-    
-    /**
-     * @var OfficeSuiteDefaultFileFormatType|null $officeSuiteAppDefaultFileFormat Describes the OfficeSuiteApp file format types that can be selected.
-    */
-    private ?OfficeSuiteDefaultFileFormatType $officeSuiteAppDefaultFileFormat = null;
-    
-    /**
-     * @var array<OfficeProductId>|null $productIds The Product Ids that represent the Office365 Suite SKU.
-    */
-    private ?array $productIds = null;
-    
-    /**
-     * @var bool|null $shouldUninstallOlderVersionsOfOffice The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.
-    */
-    private ?bool $shouldUninstallOlderVersionsOfOffice = null;
-    
-    /**
-     * @var string|null $targetVersion The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.
-    */
-    private ?string $targetVersion = null;
-    
-    /**
-     * @var OfficeUpdateChannel|null $updateChannel The Enum to specify the Office365 Updates Channel.
-    */
-    private ?OfficeUpdateChannel $updateChannel = null;
-    
-    /**
-     * @var string|null $updateVersion The property to represent the update version in which the specific target version is available for the Office365 app suite.
-    */
-    private ?string $updateVersion = null;
-    
-    /**
-     * @var bool|null $useSharedComputerActivation The property to represent that whether the shared computer activation is used not for Office365 app suite.
-    */
-    private ?bool $useSharedComputerActivation = null;
-    
-    /**
      * Instantiates a new OfficeSuiteApp and sets the default values.
     */
     public function __construct() {
@@ -96,7 +31,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getAutoAcceptEula(): ?bool {
-        return $this->autoAcceptEula;
+        return $this->getBackingStore()->get('autoAcceptEula');
     }
 
     /**
@@ -104,7 +39,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return ExcludedApps|null
     */
     public function getExcludedApps(): ?ExcludedApps {
-        return $this->excludedApps;
+        return $this->getBackingStore()->get('excludedApps');
     }
 
     /**
@@ -135,7 +70,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeSuiteInstallProgressDisplayLevel|null
     */
     public function getInstallProgressDisplayLevel(): ?OfficeSuiteInstallProgressDisplayLevel {
-        return $this->installProgressDisplayLevel;
+        return $this->getBackingStore()->get('installProgressDisplayLevel');
     }
 
     /**
@@ -143,15 +78,15 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return array<string>|null
     */
     public function getLocalesToInstall(): ?array {
-        return $this->localesToInstall;
+        return $this->getBackingStore()->get('localesToInstall');
     }
 
     /**
      * Gets the officeConfigurationXml property value. The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getOfficeConfigurationXml(): StreamInterface {
-        return $this->officeConfigurationXml;
+    public function getOfficeConfigurationXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('officeConfigurationXml');
     }
 
     /**
@@ -159,7 +94,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return WindowsArchitecture|null
     */
     public function getOfficePlatformArchitecture(): ?WindowsArchitecture {
-        return $this->officePlatformArchitecture;
+        return $this->getBackingStore()->get('officePlatformArchitecture');
     }
 
     /**
@@ -167,7 +102,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeSuiteDefaultFileFormatType|null
     */
     public function getOfficeSuiteAppDefaultFileFormat(): ?OfficeSuiteDefaultFileFormatType {
-        return $this->officeSuiteAppDefaultFileFormat;
+        return $this->getBackingStore()->get('officeSuiteAppDefaultFileFormat');
     }
 
     /**
@@ -175,7 +110,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return array<OfficeProductId>|null
     */
     public function getProductIds(): ?array {
-        return $this->productIds;
+        return $this->getBackingStore()->get('productIds');
     }
 
     /**
@@ -183,7 +118,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getShouldUninstallOlderVersionsOfOffice(): ?bool {
-        return $this->shouldUninstallOlderVersionsOfOffice;
+        return $this->getBackingStore()->get('shouldUninstallOlderVersionsOfOffice');
     }
 
     /**
@@ -191,7 +126,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getTargetVersion(): ?string {
-        return $this->targetVersion;
+        return $this->getBackingStore()->get('targetVersion');
     }
 
     /**
@@ -199,7 +134,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return OfficeUpdateChannel|null
     */
     public function getUpdateChannel(): ?OfficeUpdateChannel {
-        return $this->updateChannel;
+        return $this->getBackingStore()->get('updateChannel');
     }
 
     /**
@@ -207,7 +142,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getUpdateVersion(): ?string {
-        return $this->updateVersion;
+        return $this->getBackingStore()->get('updateVersion');
     }
 
     /**
@@ -215,7 +150,7 @@ class OfficeSuiteApp extends MobileApp implements Parsable
      * @return bool|null
     */
     public function getUseSharedComputerActivation(): ?bool {
-        return $this->useSharedComputerActivation;
+        return $this->getBackingStore()->get('useSharedComputerActivation');
     }
 
     /**
@@ -224,123 +159,123 @@ class OfficeSuiteApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('autoAcceptEula', $this->autoAcceptEula);
-        $writer->writeObjectValue('excludedApps', $this->excludedApps);
-        $writer->writeEnumValue('installProgressDisplayLevel', $this->installProgressDisplayLevel);
-        $writer->writeCollectionOfPrimitiveValues('localesToInstall', $this->localesToInstall);
-        $writer->writeBinaryContent('officeConfigurationXml', $this->officeConfigurationXml);
-        $writer->writeEnumValue('officePlatformArchitecture', $this->officePlatformArchitecture);
-        $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->officeSuiteAppDefaultFileFormat);
-        $writer->writeCollectionOfEnumValues('productIds', $this->productIds);
-        $writer->writeBooleanValue('shouldUninstallOlderVersionsOfOffice', $this->shouldUninstallOlderVersionsOfOffice);
-        $writer->writeStringValue('targetVersion', $this->targetVersion);
-        $writer->writeEnumValue('updateChannel', $this->updateChannel);
-        $writer->writeStringValue('updateVersion', $this->updateVersion);
-        $writer->writeBooleanValue('useSharedComputerActivation', $this->useSharedComputerActivation);
+        $writer->writeBooleanValue('autoAcceptEula', $this->getAutoAcceptEula());
+        $writer->writeObjectValue('excludedApps', $this->getExcludedApps());
+        $writer->writeEnumValue('installProgressDisplayLevel', $this->getInstallProgressDisplayLevel());
+        $writer->writeCollectionOfPrimitiveValues('localesToInstall', $this->getLocalesToInstall());
+        $writer->writeBinaryContent('officeConfigurationXml', $this->getOfficeConfigurationXml());
+        $writer->writeEnumValue('officePlatformArchitecture', $this->getOfficePlatformArchitecture());
+        $writer->writeEnumValue('officeSuiteAppDefaultFileFormat', $this->getOfficeSuiteAppDefaultFileFormat());
+        $writer->writeCollectionOfEnumValues('productIds', $this->getProductIds());
+        $writer->writeBooleanValue('shouldUninstallOlderVersionsOfOffice', $this->getShouldUninstallOlderVersionsOfOffice());
+        $writer->writeStringValue('targetVersion', $this->getTargetVersion());
+        $writer->writeEnumValue('updateChannel', $this->getUpdateChannel());
+        $writer->writeStringValue('updateVersion', $this->getUpdateVersion());
+        $writer->writeBooleanValue('useSharedComputerActivation', $this->getUseSharedComputerActivation());
     }
 
     /**
      * Sets the autoAcceptEula property value. The value to accept the EULA automatically on the enduser's device.
      *  @param bool|null $value Value to set for the autoAcceptEula property.
     */
-    public function setAutoAcceptEula(?bool $value ): void {
-        $this->autoAcceptEula = $value;
+    public function setAutoAcceptEula(?bool $value): void {
+        $this->getBackingStore()->set('autoAcceptEula', $value);
     }
 
     /**
      * Sets the excludedApps property value. The property to represent the apps which are excluded from the selected Office365 Product Id.
      *  @param ExcludedApps|null $value Value to set for the excludedApps property.
     */
-    public function setExcludedApps(?ExcludedApps $value ): void {
-        $this->excludedApps = $value;
+    public function setExcludedApps(?ExcludedApps $value): void {
+        $this->getBackingStore()->set('excludedApps', $value);
     }
 
     /**
      * Sets the installProgressDisplayLevel property value. The Enum to specify the level of display for the Installation Progress Setup UI on the Device.
      *  @param OfficeSuiteInstallProgressDisplayLevel|null $value Value to set for the installProgressDisplayLevel property.
     */
-    public function setInstallProgressDisplayLevel(?OfficeSuiteInstallProgressDisplayLevel $value ): void {
-        $this->installProgressDisplayLevel = $value;
+    public function setInstallProgressDisplayLevel(?OfficeSuiteInstallProgressDisplayLevel $value): void {
+        $this->getBackingStore()->set('installProgressDisplayLevel', $value);
     }
 
     /**
      * Sets the localesToInstall property value. The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
      *  @param array<string>|null $value Value to set for the localesToInstall property.
     */
-    public function setLocalesToInstall(?array $value ): void {
-        $this->localesToInstall = $value;
+    public function setLocalesToInstall(?array $value): void {
+        $this->getBackingStore()->set('localesToInstall', $value);
     }
 
     /**
      * Sets the officeConfigurationXml property value. The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
      *  @param StreamInterface|null $value Value to set for the officeConfigurationXml property.
     */
-    public function setOfficeConfigurationXml(?StreamInterface $value ): void {
-        $this->officeConfigurationXml = $value;
+    public function setOfficeConfigurationXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('officeConfigurationXml', $value);
     }
 
     /**
      * Sets the officePlatformArchitecture property value. Contains properties for Windows architecture.
      *  @param WindowsArchitecture|null $value Value to set for the officePlatformArchitecture property.
     */
-    public function setOfficePlatformArchitecture(?WindowsArchitecture $value ): void {
-        $this->officePlatformArchitecture = $value;
+    public function setOfficePlatformArchitecture(?WindowsArchitecture $value): void {
+        $this->getBackingStore()->set('officePlatformArchitecture', $value);
     }
 
     /**
      * Sets the officeSuiteAppDefaultFileFormat property value. Describes the OfficeSuiteApp file format types that can be selected.
      *  @param OfficeSuiteDefaultFileFormatType|null $value Value to set for the officeSuiteAppDefaultFileFormat property.
     */
-    public function setOfficeSuiteAppDefaultFileFormat(?OfficeSuiteDefaultFileFormatType $value ): void {
-        $this->officeSuiteAppDefaultFileFormat = $value;
+    public function setOfficeSuiteAppDefaultFileFormat(?OfficeSuiteDefaultFileFormatType $value): void {
+        $this->getBackingStore()->set('officeSuiteAppDefaultFileFormat', $value);
     }
 
     /**
      * Sets the productIds property value. The Product Ids that represent the Office365 Suite SKU.
      *  @param array<OfficeProductId>|null $value Value to set for the productIds property.
     */
-    public function setProductIds(?array $value ): void {
-        $this->productIds = $value;
+    public function setProductIds(?array $value): void {
+        $this->getBackingStore()->set('productIds', $value);
     }
 
     /**
      * Sets the shouldUninstallOlderVersionsOfOffice property value. The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.
      *  @param bool|null $value Value to set for the shouldUninstallOlderVersionsOfOffice property.
     */
-    public function setShouldUninstallOlderVersionsOfOffice(?bool $value ): void {
-        $this->shouldUninstallOlderVersionsOfOffice = $value;
+    public function setShouldUninstallOlderVersionsOfOffice(?bool $value): void {
+        $this->getBackingStore()->set('shouldUninstallOlderVersionsOfOffice', $value);
     }
 
     /**
      * Sets the targetVersion property value. The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.
      *  @param string|null $value Value to set for the targetVersion property.
     */
-    public function setTargetVersion(?string $value ): void {
-        $this->targetVersion = $value;
+    public function setTargetVersion(?string $value): void {
+        $this->getBackingStore()->set('targetVersion', $value);
     }
 
     /**
      * Sets the updateChannel property value. The Enum to specify the Office365 Updates Channel.
      *  @param OfficeUpdateChannel|null $value Value to set for the updateChannel property.
     */
-    public function setUpdateChannel(?OfficeUpdateChannel $value ): void {
-        $this->updateChannel = $value;
+    public function setUpdateChannel(?OfficeUpdateChannel $value): void {
+        $this->getBackingStore()->set('updateChannel', $value);
     }
 
     /**
      * Sets the updateVersion property value. The property to represent the update version in which the specific target version is available for the Office365 app suite.
      *  @param string|null $value Value to set for the updateVersion property.
     */
-    public function setUpdateVersion(?string $value ): void {
-        $this->updateVersion = $value;
+    public function setUpdateVersion(?string $value): void {
+        $this->getBackingStore()->set('updateVersion', $value);
     }
 
     /**
      * Sets the useSharedComputerActivation property value. The property to represent that whether the shared computer activation is used not for Office365 app suite.
      *  @param bool|null $value Value to set for the useSharedComputerActivation property.
     */
-    public function setUseSharedComputerActivation(?bool $value ): void {
-        $this->useSharedComputerActivation = $value;
+    public function setUseSharedComputerActivation(?bool $value): void {
+        $this->getBackingStore()->set('useSharedComputerActivation', $value);
     }
 
 }

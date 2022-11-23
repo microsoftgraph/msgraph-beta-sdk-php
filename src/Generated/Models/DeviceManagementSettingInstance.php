@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingInstance extends Entity implements Parsable 
 {
     /**
-     * @var string|null $definitionId The ID of the setting definition for this instance
-    */
-    private ?string $definitionId = null;
-    
-    /**
-     * @var string|null $valueJson JSON representation of the value
-    */
-    private ?string $valueJson = null;
-    
-    /**
      * Instantiates a new deviceManagementSettingInstance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementSettingInstance');
     }
 
     /**
@@ -52,7 +41,7 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @return string|null
     */
     public function getDefinitionId(): ?string {
-        return $this->definitionId;
+        return $this->getBackingStore()->get('definitionId');
     }
 
     /**
@@ -72,7 +61,7 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
      * @return string|null
     */
     public function getValueJson(): ?string {
-        return $this->valueJson;
+        return $this->getBackingStore()->get('valueJson');
     }
 
     /**
@@ -81,24 +70,24 @@ class DeviceManagementSettingInstance extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('definitionId', $this->definitionId);
-        $writer->writeStringValue('valueJson', $this->valueJson);
+        $writer->writeStringValue('definitionId', $this->getDefinitionId());
+        $writer->writeStringValue('valueJson', $this->getValueJson());
     }
 
     /**
      * Sets the definitionId property value. The ID of the setting definition for this instance
      *  @param string|null $value Value to set for the definitionId property.
     */
-    public function setDefinitionId(?string $value ): void {
-        $this->definitionId = $value;
+    public function setDefinitionId(?string $value): void {
+        $this->getBackingStore()->set('definitionId', $value);
     }
 
     /**
      * Sets the valueJson property value. JSON representation of the value
      *  @param string|null $value Value to set for the valueJson property.
     */
-    public function setValueJson(?string $value ): void {
-        $this->valueJson = $value;
+    public function setValueJson(?string $value): void {
+        $this->getBackingStore()->set('valueJson', $value);
     }
 
 }

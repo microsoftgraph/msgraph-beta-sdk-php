@@ -7,65 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsable 
+class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $assignmentFilterDisplayName The admin defined name for assignment filter.
-    */
-    private ?string $assignmentFilterDisplayName = null;
-    
-    /**
-     * @var string|null $assignmentFilterId Unique identifier for the assignment filter object
-    */
-    private ?string $assignmentFilterId = null;
-    
-    /**
-     * @var DateTime|null $assignmentFilterLastModifiedDateTime The time the assignment filter was last modified.
-    */
-    private ?DateTime $assignmentFilterLastModifiedDateTime = null;
-    
-    /**
-     * @var DevicePlatformType|null $assignmentFilterPlatform Supported platform types.
-    */
-    private ?DevicePlatformType $assignmentFilterPlatform = null;
-    
-    /**
-     * @var DeviceAndAppManagementAssignmentFilterType|null $assignmentFilterType Represents type of the assignment filter.
-    */
-    private ?DeviceAndAppManagementAssignmentFilterType $assignmentFilterType = null;
-    
-    /**
-     * @var array<AssignmentFilterTypeAndEvaluationResult>|null $assignmentFilterTypeAndEvaluationResults A collection of filter types and their corresponding evaluation results.
-    */
-    private ?array $assignmentFilterTypeAndEvaluationResults = null;
-    
-    /**
-     * @var DateTime|null $evaluationDateTime The time assignment filter was evaluated.
-    */
-    private ?DateTime $evaluationDateTime = null;
-    
-    /**
-     * @var AssignmentFilterEvaluationResult|null $evaluationResult Supported evaluation results for filter.
-    */
-    private ?AssignmentFilterEvaluationResult $evaluationResult = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new assignmentFilterEvaluationSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.assignmentFilterEvaluationSummary');
     }
 
     /**
@@ -81,8 +39,8 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -90,7 +48,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAssignmentFilterDisplayName(): ?string {
-        return $this->assignmentFilterDisplayName;
+        return $this->getBackingStore()->get('assignmentFilterDisplayName');
     }
 
     /**
@@ -98,7 +56,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getAssignmentFilterId(): ?string {
-        return $this->assignmentFilterId;
+        return $this->getBackingStore()->get('assignmentFilterId');
     }
 
     /**
@@ -106,7 +64,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return DateTime|null
     */
     public function getAssignmentFilterLastModifiedDateTime(): ?DateTime {
-        return $this->assignmentFilterLastModifiedDateTime;
+        return $this->getBackingStore()->get('assignmentFilterLastModifiedDateTime');
     }
 
     /**
@@ -114,7 +72,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return DevicePlatformType|null
     */
     public function getAssignmentFilterPlatform(): ?DevicePlatformType {
-        return $this->assignmentFilterPlatform;
+        return $this->getBackingStore()->get('assignmentFilterPlatform');
     }
 
     /**
@@ -122,7 +80,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return DeviceAndAppManagementAssignmentFilterType|null
     */
     public function getAssignmentFilterType(): ?DeviceAndAppManagementAssignmentFilterType {
-        return $this->assignmentFilterType;
+        return $this->getBackingStore()->get('assignmentFilterType');
     }
 
     /**
@@ -130,7 +88,15 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return array<AssignmentFilterTypeAndEvaluationResult>|null
     */
     public function getAssignmentFilterTypeAndEvaluationResults(): ?array {
-        return $this->assignmentFilterTypeAndEvaluationResults;
+        return $this->getBackingStore()->get('assignmentFilterTypeAndEvaluationResults');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -138,7 +104,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return DateTime|null
     */
     public function getEvaluationDateTime(): ?DateTime {
-        return $this->evaluationDateTime;
+        return $this->getBackingStore()->get('evaluationDateTime');
     }
 
     /**
@@ -146,7 +112,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return AssignmentFilterEvaluationResult|null
     */
     public function getEvaluationResult(): ?AssignmentFilterEvaluationResult {
-        return $this->evaluationResult;
+        return $this->getBackingStore()->get('evaluationResult');
     }
 
     /**
@@ -173,7 +139,7 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -181,96 +147,104 @@ class AssignmentFilterEvaluationSummary implements AdditionalDataHolder, Parsabl
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('assignmentFilterDisplayName', $this->assignmentFilterDisplayName);
-        $writer->writeStringValue('assignmentFilterId', $this->assignmentFilterId);
-        $writer->writeDateTimeValue('assignmentFilterLastModifiedDateTime', $this->assignmentFilterLastModifiedDateTime);
-        $writer->writeEnumValue('assignmentFilterPlatform', $this->assignmentFilterPlatform);
-        $writer->writeEnumValue('assignmentFilterType', $this->assignmentFilterType);
-        $writer->writeCollectionOfObjectValues('assignmentFilterTypeAndEvaluationResults', $this->assignmentFilterTypeAndEvaluationResults);
-        $writer->writeDateTimeValue('evaluationDateTime', $this->evaluationDateTime);
-        $writer->writeEnumValue('evaluationResult', $this->evaluationResult);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('assignmentFilterDisplayName', $this->getAssignmentFilterDisplayName());
+        $writer->writeStringValue('assignmentFilterId', $this->getAssignmentFilterId());
+        $writer->writeDateTimeValue('assignmentFilterLastModifiedDateTime', $this->getAssignmentFilterLastModifiedDateTime());
+        $writer->writeEnumValue('assignmentFilterPlatform', $this->getAssignmentFilterPlatform());
+        $writer->writeEnumValue('assignmentFilterType', $this->getAssignmentFilterType());
+        $writer->writeCollectionOfObjectValues('assignmentFilterTypeAndEvaluationResults', $this->getAssignmentFilterTypeAndEvaluationResults());
+        $writer->writeDateTimeValue('evaluationDateTime', $this->getEvaluationDateTime());
+        $writer->writeEnumValue('evaluationResult', $this->getEvaluationResult());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assignmentFilterDisplayName property value. The admin defined name for assignment filter.
      *  @param string|null $value Value to set for the assignmentFilterDisplayName property.
     */
-    public function setAssignmentFilterDisplayName(?string $value ): void {
-        $this->assignmentFilterDisplayName = $value;
+    public function setAssignmentFilterDisplayName(?string $value): void {
+        $this->getBackingStore()->set('assignmentFilterDisplayName', $value);
     }
 
     /**
      * Sets the assignmentFilterId property value. Unique identifier for the assignment filter object
      *  @param string|null $value Value to set for the assignmentFilterId property.
     */
-    public function setAssignmentFilterId(?string $value ): void {
-        $this->assignmentFilterId = $value;
+    public function setAssignmentFilterId(?string $value): void {
+        $this->getBackingStore()->set('assignmentFilterId', $value);
     }
 
     /**
      * Sets the assignmentFilterLastModifiedDateTime property value. The time the assignment filter was last modified.
      *  @param DateTime|null $value Value to set for the assignmentFilterLastModifiedDateTime property.
     */
-    public function setAssignmentFilterLastModifiedDateTime(?DateTime $value ): void {
-        $this->assignmentFilterLastModifiedDateTime = $value;
+    public function setAssignmentFilterLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('assignmentFilterLastModifiedDateTime', $value);
     }
 
     /**
      * Sets the assignmentFilterPlatform property value. Supported platform types.
      *  @param DevicePlatformType|null $value Value to set for the assignmentFilterPlatform property.
     */
-    public function setAssignmentFilterPlatform(?DevicePlatformType $value ): void {
-        $this->assignmentFilterPlatform = $value;
+    public function setAssignmentFilterPlatform(?DevicePlatformType $value): void {
+        $this->getBackingStore()->set('assignmentFilterPlatform', $value);
     }
 
     /**
      * Sets the assignmentFilterType property value. Represents type of the assignment filter.
      *  @param DeviceAndAppManagementAssignmentFilterType|null $value Value to set for the assignmentFilterType property.
     */
-    public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value ): void {
-        $this->assignmentFilterType = $value;
+    public function setAssignmentFilterType(?DeviceAndAppManagementAssignmentFilterType $value): void {
+        $this->getBackingStore()->set('assignmentFilterType', $value);
     }
 
     /**
      * Sets the assignmentFilterTypeAndEvaluationResults property value. A collection of filter types and their corresponding evaluation results.
      *  @param array<AssignmentFilterTypeAndEvaluationResult>|null $value Value to set for the assignmentFilterTypeAndEvaluationResults property.
     */
-    public function setAssignmentFilterTypeAndEvaluationResults(?array $value ): void {
-        $this->assignmentFilterTypeAndEvaluationResults = $value;
+    public function setAssignmentFilterTypeAndEvaluationResults(?array $value): void {
+        $this->getBackingStore()->set('assignmentFilterTypeAndEvaluationResults', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the evaluationDateTime property value. The time assignment filter was evaluated.
      *  @param DateTime|null $value Value to set for the evaluationDateTime property.
     */
-    public function setEvaluationDateTime(?DateTime $value ): void {
-        $this->evaluationDateTime = $value;
+    public function setEvaluationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('evaluationDateTime', $value);
     }
 
     /**
      * Sets the evaluationResult property value. Supported evaluation results for filter.
      *  @param AssignmentFilterEvaluationResult|null $value Value to set for the evaluationResult property.
     */
-    public function setEvaluationResult(?AssignmentFilterEvaluationResult $value ): void {
-        $this->evaluationResult = $value;
+    public function setEvaluationResult(?AssignmentFilterEvaluationResult $value): void {
+        $this->getBackingStore()->set('evaluationResult', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

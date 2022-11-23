@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
     /**
-     * @var array<string>|null $implementations List of definition IDs for all possible implementations of this abstract complex setting
-    */
-    private ?array $implementations = null;
-    
-    /**
      * Instantiates a new DeviceManagementAbstractComplexSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementAbstractComplexSettingDefinition');
     }
 
     /**
@@ -46,7 +40,7 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
      * @return array<string>|null
     */
     public function getImplementations(): ?array {
-        return $this->implementations;
+        return $this->getBackingStore()->get('implementations');
     }
 
     /**
@@ -55,15 +49,15 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('implementations', $this->implementations);
+        $writer->writeCollectionOfPrimitiveValues('implementations', $this->getImplementations());
     }
 
     /**
      * Sets the implementations property value. List of definition IDs for all possible implementations of this abstract complex setting
      *  @param array<string>|null $value Value to set for the implementations property.
     */
-    public function setImplementations(?array $value ): void {
-        $this->implementations = $value;
+    public function setImplementations(?array $value): void {
+        $this->getBackingStore()->set('implementations', $value);
     }
 
 }

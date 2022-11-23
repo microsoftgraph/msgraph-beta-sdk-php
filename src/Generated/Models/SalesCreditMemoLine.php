@@ -10,131 +10,10 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class SalesCreditMemoLine extends Entity implements Parsable 
 {
     /**
-     * @var Account|null $account The account property
-    */
-    private ?Account $account = null;
-    
-    /**
-     * @var string|null $accountId The accountId property
-    */
-    private ?string $accountId = null;
-    
-    /**
-     * @var string|null $amountExcludingTax The amountExcludingTax property
-    */
-    private ?string $amountExcludingTax = null;
-    
-    /**
-     * @var string|null $amountIncludingTax The amountIncludingTax property
-    */
-    private ?string $amountIncludingTax = null;
-    
-    /**
-     * @var string|null $description The description property
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $discountAmount The discountAmount property
-    */
-    private ?string $discountAmount = null;
-    
-    /**
-     * @var bool|null $discountAppliedBeforeTax The discountAppliedBeforeTax property
-    */
-    private ?bool $discountAppliedBeforeTax = null;
-    
-    /**
-     * @var string|null $discountPercent The discountPercent property
-    */
-    private ?string $discountPercent = null;
-    
-    /**
-     * @var string|null $documentId The documentId property
-    */
-    private ?string $documentId = null;
-    
-    /**
-     * @var string|null $invoiceDiscountAllocation The invoiceDiscountAllocation property
-    */
-    private ?string $invoiceDiscountAllocation = null;
-    
-    /**
-     * @var Item|null $item The item property
-    */
-    private ?Item $item = null;
-    
-    /**
-     * @var string|null $itemId The itemId property
-    */
-    private ?string $itemId = null;
-    
-    /**
-     * @var string|null $lineType The lineType property
-    */
-    private ?string $lineType = null;
-    
-    /**
-     * @var string|null $netAmount The netAmount property
-    */
-    private ?string $netAmount = null;
-    
-    /**
-     * @var string|null $netAmountIncludingTax The netAmountIncludingTax property
-    */
-    private ?string $netAmountIncludingTax = null;
-    
-    /**
-     * @var string|null $netTaxAmount The netTaxAmount property
-    */
-    private ?string $netTaxAmount = null;
-    
-    /**
-     * @var string|null $quantity The quantity property
-    */
-    private ?string $quantity = null;
-    
-    /**
-     * @var int|null $sequence The sequence property
-    */
-    private ?int $sequence = null;
-    
-    /**
-     * @var Date|null $shipmentDate The shipmentDate property
-    */
-    private ?Date $shipmentDate = null;
-    
-    /**
-     * @var string|null $taxCode The taxCode property
-    */
-    private ?string $taxCode = null;
-    
-    /**
-     * @var string|null $taxPercent The taxPercent property
-    */
-    private ?string $taxPercent = null;
-    
-    /**
-     * @var string|null $totalTaxAmount The totalTaxAmount property
-    */
-    private ?string $totalTaxAmount = null;
-    
-    /**
-     * @var string|null $unitOfMeasureId The unitOfMeasureId property
-    */
-    private ?string $unitOfMeasureId = null;
-    
-    /**
-     * @var string|null $unitPrice The unitPrice property
-    */
-    private ?string $unitPrice = null;
-    
-    /**
      * Instantiates a new salesCreditMemoLine and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.salesCreditMemoLine');
     }
 
     /**
@@ -151,7 +30,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return Account|null
     */
     public function getAccount(): ?Account {
-        return $this->account;
+        return $this->getBackingStore()->get('account');
     }
 
     /**
@@ -159,7 +38,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAccountId(): ?string {
-        return $this->accountId;
+        return $this->getBackingStore()->get('accountId');
     }
 
     /**
@@ -167,7 +46,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountExcludingTax(): ?string {
-        return $this->amountExcludingTax;
+        return $this->getBackingStore()->get('amountExcludingTax');
     }
 
     /**
@@ -175,7 +54,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getAmountIncludingTax(): ?string {
-        return $this->amountIncludingTax;
+        return $this->getBackingStore()->get('amountIncludingTax');
     }
 
     /**
@@ -183,7 +62,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -191,7 +70,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountAmount(): ?string {
-        return $this->discountAmount;
+        return $this->getBackingStore()->get('discountAmount');
     }
 
     /**
@@ -199,7 +78,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return bool|null
     */
     public function getDiscountAppliedBeforeTax(): ?bool {
-        return $this->discountAppliedBeforeTax;
+        return $this->getBackingStore()->get('discountAppliedBeforeTax');
     }
 
     /**
@@ -207,7 +86,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDiscountPercent(): ?string {
-        return $this->discountPercent;
+        return $this->getBackingStore()->get('discountPercent');
     }
 
     /**
@@ -215,7 +94,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getDocumentId(): ?string {
-        return $this->documentId;
+        return $this->getBackingStore()->get('documentId');
     }
 
     /**
@@ -257,7 +136,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getInvoiceDiscountAllocation(): ?string {
-        return $this->invoiceDiscountAllocation;
+        return $this->getBackingStore()->get('invoiceDiscountAllocation');
     }
 
     /**
@@ -265,7 +144,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return Item|null
     */
     public function getItem(): ?Item {
-        return $this->item;
+        return $this->getBackingStore()->get('item');
     }
 
     /**
@@ -273,7 +152,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getItemId(): ?string {
-        return $this->itemId;
+        return $this->getBackingStore()->get('itemId');
     }
 
     /**
@@ -281,7 +160,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getLineType(): ?string {
-        return $this->lineType;
+        return $this->getBackingStore()->get('lineType');
     }
 
     /**
@@ -289,7 +168,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetAmount(): ?string {
-        return $this->netAmount;
+        return $this->getBackingStore()->get('netAmount');
     }
 
     /**
@@ -297,7 +176,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetAmountIncludingTax(): ?string {
-        return $this->netAmountIncludingTax;
+        return $this->getBackingStore()->get('netAmountIncludingTax');
     }
 
     /**
@@ -305,7 +184,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getNetTaxAmount(): ?string {
-        return $this->netTaxAmount;
+        return $this->getBackingStore()->get('netTaxAmount');
     }
 
     /**
@@ -313,7 +192,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getQuantity(): ?string {
-        return $this->quantity;
+        return $this->getBackingStore()->get('quantity');
     }
 
     /**
@@ -321,7 +200,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return int|null
     */
     public function getSequence(): ?int {
-        return $this->sequence;
+        return $this->getBackingStore()->get('sequence');
     }
 
     /**
@@ -329,7 +208,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return Date|null
     */
     public function getShipmentDate(): ?Date {
-        return $this->shipmentDate;
+        return $this->getBackingStore()->get('shipmentDate');
     }
 
     /**
@@ -337,7 +216,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxCode(): ?string {
-        return $this->taxCode;
+        return $this->getBackingStore()->get('taxCode');
     }
 
     /**
@@ -345,7 +224,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTaxPercent(): ?string {
-        return $this->taxPercent;
+        return $this->getBackingStore()->get('taxPercent');
     }
 
     /**
@@ -353,7 +232,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getTotalTaxAmount(): ?string {
-        return $this->totalTaxAmount;
+        return $this->getBackingStore()->get('totalTaxAmount');
     }
 
     /**
@@ -361,7 +240,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getUnitOfMeasureId(): ?string {
-        return $this->unitOfMeasureId;
+        return $this->getBackingStore()->get('unitOfMeasureId');
     }
 
     /**
@@ -369,7 +248,7 @@ class SalesCreditMemoLine extends Entity implements Parsable
      * @return string|null
     */
     public function getUnitPrice(): ?string {
-        return $this->unitPrice;
+        return $this->getBackingStore()->get('unitPrice');
     }
 
     /**
@@ -378,222 +257,222 @@ class SalesCreditMemoLine extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('account', $this->account);
-        $writer->writeStringValue('accountId', $this->accountId);
-        $writer->writeStringValue('amountExcludingTax', $this->amountExcludingTax);
-        $writer->writeStringValue('amountIncludingTax', $this->amountIncludingTax);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('discountAmount', $this->discountAmount);
-        $writer->writeBooleanValue('discountAppliedBeforeTax', $this->discountAppliedBeforeTax);
-        $writer->writeStringValue('discountPercent', $this->discountPercent);
-        $writer->writeStringValue('documentId', $this->documentId);
-        $writer->writeStringValue('invoiceDiscountAllocation', $this->invoiceDiscountAllocation);
-        $writer->writeObjectValue('item', $this->item);
-        $writer->writeStringValue('itemId', $this->itemId);
-        $writer->writeStringValue('lineType', $this->lineType);
-        $writer->writeStringValue('netAmount', $this->netAmount);
-        $writer->writeStringValue('netAmountIncludingTax', $this->netAmountIncludingTax);
-        $writer->writeStringValue('netTaxAmount', $this->netTaxAmount);
-        $writer->writeStringValue('quantity', $this->quantity);
-        $writer->writeIntegerValue('sequence', $this->sequence);
-        $writer->writeDateValue('shipmentDate', $this->shipmentDate);
-        $writer->writeStringValue('taxCode', $this->taxCode);
-        $writer->writeStringValue('taxPercent', $this->taxPercent);
-        $writer->writeStringValue('totalTaxAmount', $this->totalTaxAmount);
-        $writer->writeStringValue('unitOfMeasureId', $this->unitOfMeasureId);
-        $writer->writeStringValue('unitPrice', $this->unitPrice);
+        $writer->writeObjectValue('account', $this->getAccount());
+        $writer->writeStringValue('accountId', $this->getAccountId());
+        $writer->writeStringValue('amountExcludingTax', $this->getAmountExcludingTax());
+        $writer->writeStringValue('amountIncludingTax', $this->getAmountIncludingTax());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('discountAmount', $this->getDiscountAmount());
+        $writer->writeBooleanValue('discountAppliedBeforeTax', $this->getDiscountAppliedBeforeTax());
+        $writer->writeStringValue('discountPercent', $this->getDiscountPercent());
+        $writer->writeStringValue('documentId', $this->getDocumentId());
+        $writer->writeStringValue('invoiceDiscountAllocation', $this->getInvoiceDiscountAllocation());
+        $writer->writeObjectValue('item', $this->getItem());
+        $writer->writeStringValue('itemId', $this->getItemId());
+        $writer->writeStringValue('lineType', $this->getLineType());
+        $writer->writeStringValue('netAmount', $this->getNetAmount());
+        $writer->writeStringValue('netAmountIncludingTax', $this->getNetAmountIncludingTax());
+        $writer->writeStringValue('netTaxAmount', $this->getNetTaxAmount());
+        $writer->writeStringValue('quantity', $this->getQuantity());
+        $writer->writeIntegerValue('sequence', $this->getSequence());
+        $writer->writeDateValue('shipmentDate', $this->getShipmentDate());
+        $writer->writeStringValue('taxCode', $this->getTaxCode());
+        $writer->writeStringValue('taxPercent', $this->getTaxPercent());
+        $writer->writeStringValue('totalTaxAmount', $this->getTotalTaxAmount());
+        $writer->writeStringValue('unitOfMeasureId', $this->getUnitOfMeasureId());
+        $writer->writeStringValue('unitPrice', $this->getUnitPrice());
     }
 
     /**
      * Sets the account property value. The account property
      *  @param Account|null $value Value to set for the account property.
     */
-    public function setAccount(?Account $value ): void {
-        $this->account = $value;
+    public function setAccount(?Account $value): void {
+        $this->getBackingStore()->set('account', $value);
     }
 
     /**
      * Sets the accountId property value. The accountId property
      *  @param string|null $value Value to set for the accountId property.
     */
-    public function setAccountId(?string $value ): void {
-        $this->accountId = $value;
+    public function setAccountId(?string $value): void {
+        $this->getBackingStore()->set('accountId', $value);
     }
 
     /**
      * Sets the amountExcludingTax property value. The amountExcludingTax property
      *  @param string|null $value Value to set for the amountExcludingTax property.
     */
-    public function setAmountExcludingTax(?string $value ): void {
-        $this->amountExcludingTax = $value;
+    public function setAmountExcludingTax(?string $value): void {
+        $this->getBackingStore()->set('amountExcludingTax', $value);
     }
 
     /**
      * Sets the amountIncludingTax property value. The amountIncludingTax property
      *  @param string|null $value Value to set for the amountIncludingTax property.
     */
-    public function setAmountIncludingTax(?string $value ): void {
-        $this->amountIncludingTax = $value;
+    public function setAmountIncludingTax(?string $value): void {
+        $this->getBackingStore()->set('amountIncludingTax', $value);
     }
 
     /**
      * Sets the description property value. The description property
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the discountAmount property value. The discountAmount property
      *  @param string|null $value Value to set for the discountAmount property.
     */
-    public function setDiscountAmount(?string $value ): void {
-        $this->discountAmount = $value;
+    public function setDiscountAmount(?string $value): void {
+        $this->getBackingStore()->set('discountAmount', $value);
     }
 
     /**
      * Sets the discountAppliedBeforeTax property value. The discountAppliedBeforeTax property
      *  @param bool|null $value Value to set for the discountAppliedBeforeTax property.
     */
-    public function setDiscountAppliedBeforeTax(?bool $value ): void {
-        $this->discountAppliedBeforeTax = $value;
+    public function setDiscountAppliedBeforeTax(?bool $value): void {
+        $this->getBackingStore()->set('discountAppliedBeforeTax', $value);
     }
 
     /**
      * Sets the discountPercent property value. The discountPercent property
      *  @param string|null $value Value to set for the discountPercent property.
     */
-    public function setDiscountPercent(?string $value ): void {
-        $this->discountPercent = $value;
+    public function setDiscountPercent(?string $value): void {
+        $this->getBackingStore()->set('discountPercent', $value);
     }
 
     /**
      * Sets the documentId property value. The documentId property
      *  @param string|null $value Value to set for the documentId property.
     */
-    public function setDocumentId(?string $value ): void {
-        $this->documentId = $value;
+    public function setDocumentId(?string $value): void {
+        $this->getBackingStore()->set('documentId', $value);
     }
 
     /**
      * Sets the invoiceDiscountAllocation property value. The invoiceDiscountAllocation property
      *  @param string|null $value Value to set for the invoiceDiscountAllocation property.
     */
-    public function setInvoiceDiscountAllocation(?string $value ): void {
-        $this->invoiceDiscountAllocation = $value;
+    public function setInvoiceDiscountAllocation(?string $value): void {
+        $this->getBackingStore()->set('invoiceDiscountAllocation', $value);
     }
 
     /**
      * Sets the item property value. The item property
      *  @param Item|null $value Value to set for the item property.
     */
-    public function setItem(?Item $value ): void {
-        $this->item = $value;
+    public function setItem(?Item $value): void {
+        $this->getBackingStore()->set('item', $value);
     }
 
     /**
      * Sets the itemId property value. The itemId property
      *  @param string|null $value Value to set for the itemId property.
     */
-    public function setItemId(?string $value ): void {
-        $this->itemId = $value;
+    public function setItemId(?string $value): void {
+        $this->getBackingStore()->set('itemId', $value);
     }
 
     /**
      * Sets the lineType property value. The lineType property
      *  @param string|null $value Value to set for the lineType property.
     */
-    public function setLineType(?string $value ): void {
-        $this->lineType = $value;
+    public function setLineType(?string $value): void {
+        $this->getBackingStore()->set('lineType', $value);
     }
 
     /**
      * Sets the netAmount property value. The netAmount property
      *  @param string|null $value Value to set for the netAmount property.
     */
-    public function setNetAmount(?string $value ): void {
-        $this->netAmount = $value;
+    public function setNetAmount(?string $value): void {
+        $this->getBackingStore()->set('netAmount', $value);
     }
 
     /**
      * Sets the netAmountIncludingTax property value. The netAmountIncludingTax property
      *  @param string|null $value Value to set for the netAmountIncludingTax property.
     */
-    public function setNetAmountIncludingTax(?string $value ): void {
-        $this->netAmountIncludingTax = $value;
+    public function setNetAmountIncludingTax(?string $value): void {
+        $this->getBackingStore()->set('netAmountIncludingTax', $value);
     }
 
     /**
      * Sets the netTaxAmount property value. The netTaxAmount property
      *  @param string|null $value Value to set for the netTaxAmount property.
     */
-    public function setNetTaxAmount(?string $value ): void {
-        $this->netTaxAmount = $value;
+    public function setNetTaxAmount(?string $value): void {
+        $this->getBackingStore()->set('netTaxAmount', $value);
     }
 
     /**
      * Sets the quantity property value. The quantity property
      *  @param string|null $value Value to set for the quantity property.
     */
-    public function setQuantity(?string $value ): void {
-        $this->quantity = $value;
+    public function setQuantity(?string $value): void {
+        $this->getBackingStore()->set('quantity', $value);
     }
 
     /**
      * Sets the sequence property value. The sequence property
      *  @param int|null $value Value to set for the sequence property.
     */
-    public function setSequence(?int $value ): void {
-        $this->sequence = $value;
+    public function setSequence(?int $value): void {
+        $this->getBackingStore()->set('sequence', $value);
     }
 
     /**
      * Sets the shipmentDate property value. The shipmentDate property
      *  @param Date|null $value Value to set for the shipmentDate property.
     */
-    public function setShipmentDate(?Date $value ): void {
-        $this->shipmentDate = $value;
+    public function setShipmentDate(?Date $value): void {
+        $this->getBackingStore()->set('shipmentDate', $value);
     }
 
     /**
      * Sets the taxCode property value. The taxCode property
      *  @param string|null $value Value to set for the taxCode property.
     */
-    public function setTaxCode(?string $value ): void {
-        $this->taxCode = $value;
+    public function setTaxCode(?string $value): void {
+        $this->getBackingStore()->set('taxCode', $value);
     }
 
     /**
      * Sets the taxPercent property value. The taxPercent property
      *  @param string|null $value Value to set for the taxPercent property.
     */
-    public function setTaxPercent(?string $value ): void {
-        $this->taxPercent = $value;
+    public function setTaxPercent(?string $value): void {
+        $this->getBackingStore()->set('taxPercent', $value);
     }
 
     /**
      * Sets the totalTaxAmount property value. The totalTaxAmount property
      *  @param string|null $value Value to set for the totalTaxAmount property.
     */
-    public function setTotalTaxAmount(?string $value ): void {
-        $this->totalTaxAmount = $value;
+    public function setTotalTaxAmount(?string $value): void {
+        $this->getBackingStore()->set('totalTaxAmount', $value);
     }
 
     /**
      * Sets the unitOfMeasureId property value. The unitOfMeasureId property
      *  @param string|null $value Value to set for the unitOfMeasureId property.
     */
-    public function setUnitOfMeasureId(?string $value ): void {
-        $this->unitOfMeasureId = $value;
+    public function setUnitOfMeasureId(?string $value): void {
+        $this->getBackingStore()->set('unitOfMeasureId', $value);
     }
 
     /**
      * Sets the unitPrice property value. The unitPrice property
      *  @param string|null $value Value to set for the unitPrice property.
     */
-    public function setUnitPrice(?string $value ): void {
-        $this->unitPrice = $value;
+    public function setUnitPrice(?string $value): void {
+        $this->getBackingStore()->set('unitPrice', $value);
     }
 
 }

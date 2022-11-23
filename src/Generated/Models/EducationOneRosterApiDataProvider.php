@@ -9,36 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProvider implements Parsable 
 {
     /**
-     * @var EducationSynchronizationConnectionSettings|null $connectionSettings The connectionSettings property
-    */
-    private ?EducationSynchronizationConnectionSettings $connectionSettings = null;
-    
-    /**
-     * @var string|null $connectionUrl The connectionUrl property
-    */
-    private ?string $connectionUrl = null;
-    
-    /**
-     * @var EducationSynchronizationCustomizations|null $customizations The customizations property
-    */
-    private ?EducationSynchronizationCustomizations $customizations = null;
-    
-    /**
-     * @var string|null $providerName The providerName property
-    */
-    private ?string $providerName = null;
-    
-    /**
-     * @var array<string>|null $schoolsIds The schoolsIds property
-    */
-    private ?array $schoolsIds = null;
-    
-    /**
-     * @var array<string>|null $termIds The termIds property
-    */
-    private ?array $termIds = null;
-    
-    /**
      * Instantiates a new EducationOneRosterApiDataProvider and sets the default values.
     */
     public function __construct() {
@@ -60,7 +30,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return EducationSynchronizationConnectionSettings|null
     */
     public function getConnectionSettings(): ?EducationSynchronizationConnectionSettings {
-        return $this->connectionSettings;
+        return $this->getBackingStore()->get('connectionSettings');
     }
 
     /**
@@ -68,7 +38,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return string|null
     */
     public function getConnectionUrl(): ?string {
-        return $this->connectionUrl;
+        return $this->getBackingStore()->get('connectionUrl');
     }
 
     /**
@@ -76,7 +46,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return EducationSynchronizationCustomizations|null
     */
     public function getCustomizations(): ?EducationSynchronizationCustomizations {
-        return $this->customizations;
+        return $this->getBackingStore()->get('customizations');
     }
 
     /**
@@ -100,7 +70,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return string|null
     */
     public function getProviderName(): ?string {
-        return $this->providerName;
+        return $this->getBackingStore()->get('providerName');
     }
 
     /**
@@ -108,7 +78,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return array<string>|null
     */
     public function getSchoolsIds(): ?array {
-        return $this->schoolsIds;
+        return $this->getBackingStore()->get('schoolsIds');
     }
 
     /**
@@ -116,7 +86,7 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
      * @return array<string>|null
     */
     public function getTermIds(): ?array {
-        return $this->termIds;
+        return $this->getBackingStore()->get('termIds');
     }
 
     /**
@@ -125,60 +95,60 @@ class EducationOneRosterApiDataProvider extends EducationSynchronizationDataProv
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('connectionSettings', $this->connectionSettings);
-        $writer->writeStringValue('connectionUrl', $this->connectionUrl);
-        $writer->writeObjectValue('customizations', $this->customizations);
-        $writer->writeStringValue('providerName', $this->providerName);
-        $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->schoolsIds);
-        $writer->writeCollectionOfPrimitiveValues('termIds', $this->termIds);
+        $writer->writeObjectValue('connectionSettings', $this->getConnectionSettings());
+        $writer->writeStringValue('connectionUrl', $this->getConnectionUrl());
+        $writer->writeObjectValue('customizations', $this->getCustomizations());
+        $writer->writeStringValue('providerName', $this->getProviderName());
+        $writer->writeCollectionOfPrimitiveValues('schoolsIds', $this->getSchoolsIds());
+        $writer->writeCollectionOfPrimitiveValues('termIds', $this->getTermIds());
     }
 
     /**
      * Sets the connectionSettings property value. The connectionSettings property
      *  @param EducationSynchronizationConnectionSettings|null $value Value to set for the connectionSettings property.
     */
-    public function setConnectionSettings(?EducationSynchronizationConnectionSettings $value ): void {
-        $this->connectionSettings = $value;
+    public function setConnectionSettings(?EducationSynchronizationConnectionSettings $value): void {
+        $this->getBackingStore()->set('connectionSettings', $value);
     }
 
     /**
      * Sets the connectionUrl property value. The connectionUrl property
      *  @param string|null $value Value to set for the connectionUrl property.
     */
-    public function setConnectionUrl(?string $value ): void {
-        $this->connectionUrl = $value;
+    public function setConnectionUrl(?string $value): void {
+        $this->getBackingStore()->set('connectionUrl', $value);
     }
 
     /**
      * Sets the customizations property value. The customizations property
      *  @param EducationSynchronizationCustomizations|null $value Value to set for the customizations property.
     */
-    public function setCustomizations(?EducationSynchronizationCustomizations $value ): void {
-        $this->customizations = $value;
+    public function setCustomizations(?EducationSynchronizationCustomizations $value): void {
+        $this->getBackingStore()->set('customizations', $value);
     }
 
     /**
      * Sets the providerName property value. The providerName property
      *  @param string|null $value Value to set for the providerName property.
     */
-    public function setProviderName(?string $value ): void {
-        $this->providerName = $value;
+    public function setProviderName(?string $value): void {
+        $this->getBackingStore()->set('providerName', $value);
     }
 
     /**
      * Sets the schoolsIds property value. The schoolsIds property
      *  @param array<string>|null $value Value to set for the schoolsIds property.
     */
-    public function setSchoolsIds(?array $value ): void {
-        $this->schoolsIds = $value;
+    public function setSchoolsIds(?array $value): void {
+        $this->getBackingStore()->set('schoolsIds', $value);
     }
 
     /**
      * Sets the termIds property value. The termIds property
      *  @param array<string>|null $value Value to set for the termIds property.
     */
-    public function setTermIds(?array $value ): void {
-        $this->termIds = $value;
+    public function setTermIds(?array $value): void {
+        $this->getBackingStore()->set('termIds', $value);
     }
 
 }

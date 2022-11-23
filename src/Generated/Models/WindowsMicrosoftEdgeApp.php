@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable 
 {
     /**
-     * @var MicrosoftEdgeChannel|null $channel The enum to specify the channels for Microsoft Edge apps.
-    */
-    private ?MicrosoftEdgeChannel $channel = null;
-    
-    /**
-     * @var string|null $displayLanguageLocale The language locale to use when the Edge app displays text to the user.
-    */
-    private ?string $displayLanguageLocale = null;
-    
-    /**
      * Instantiates a new WindowsMicrosoftEdgeApp and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
      * @return MicrosoftEdgeChannel|null
     */
     public function getChannel(): ?MicrosoftEdgeChannel {
-        return $this->channel;
+        return $this->getBackingStore()->get('channel');
     }
 
     /**
@@ -48,7 +38,7 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getDisplayLanguageLocale(): ?string {
-        return $this->displayLanguageLocale;
+        return $this->getBackingStore()->get('displayLanguageLocale');
     }
 
     /**
@@ -69,24 +59,24 @@ class WindowsMicrosoftEdgeApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('channel', $this->channel);
-        $writer->writeStringValue('displayLanguageLocale', $this->displayLanguageLocale);
+        $writer->writeEnumValue('channel', $this->getChannel());
+        $writer->writeStringValue('displayLanguageLocale', $this->getDisplayLanguageLocale());
     }
 
     /**
      * Sets the channel property value. The enum to specify the channels for Microsoft Edge apps.
      *  @param MicrosoftEdgeChannel|null $value Value to set for the channel property.
     */
-    public function setChannel(?MicrosoftEdgeChannel $value ): void {
-        $this->channel = $value;
+    public function setChannel(?MicrosoftEdgeChannel $value): void {
+        $this->getBackingStore()->set('channel', $value);
     }
 
     /**
      * Sets the displayLanguageLocale property value. The language locale to use when the Edge app displays text to the user.
      *  @param string|null $value Value to set for the displayLanguageLocale property.
     */
-    public function setDisplayLanguageLocale(?string $value ): void {
-        $this->displayLanguageLocale = $value;
+    public function setDisplayLanguageLocale(?string $value): void {
+        $this->getBackingStore()->set('displayLanguageLocale', $value);
     }
 
 }

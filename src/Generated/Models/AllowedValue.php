@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AllowedValue extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $isActive Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
-    */
-    private ?bool $isActive = null;
-    
-    /**
      * Instantiates a new allowedValue and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.allowedValue');
     }
 
     /**
@@ -46,7 +40,7 @@ class AllowedValue extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsActive(): ?bool {
-        return $this->isActive;
+        return $this->getBackingStore()->get('isActive');
     }
 
     /**
@@ -55,15 +49,15 @@ class AllowedValue extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isActive', $this->isActive);
+        $writer->writeBooleanValue('isActive', $this->getIsActive());
     }
 
     /**
      * Sets the isActive property value. Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
      *  @param bool|null $value Value to set for the isActive property.
     */
-    public function setIsActive(?bool $value ): void {
-        $this->isActive = $value;
+    public function setIsActive(?bool $value): void {
+        $this->getBackingStore()->set('isActive', $value);
     }
 
 }

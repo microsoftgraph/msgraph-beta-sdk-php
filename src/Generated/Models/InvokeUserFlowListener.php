@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InvokeUserFlowListener extends AuthenticationListener implements Parsable 
 {
     /**
-     * @var B2xIdentityUserFlow|null $userFlow The user flow that is invoked when this action executes.
-    */
-    private ?B2xIdentityUserFlow $userFlow = null;
-    
-    /**
      * Instantiates a new InvokeUserFlowListener and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
      * @return B2xIdentityUserFlow|null
     */
     public function getUserFlow(): ?B2xIdentityUserFlow {
-        return $this->userFlow;
+        return $this->getBackingStore()->get('userFlow');
     }
 
     /**
@@ -55,15 +50,15 @@ class InvokeUserFlowListener extends AuthenticationListener implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('userFlow', $this->userFlow);
+        $writer->writeObjectValue('userFlow', $this->getUserFlow());
     }
 
     /**
      * Sets the userFlow property value. The user flow that is invoked when this action executes.
      *  @param B2xIdentityUserFlow|null $value Value to set for the userFlow property.
     */
-    public function setUserFlow(?B2xIdentityUserFlow $value ): void {
-        $this->userFlow = $value;
+    public function setUserFlow(?B2xIdentityUserFlow $value): void {
+        $this->getBackingStore()->set('userFlow', $value);
     }
 
 }

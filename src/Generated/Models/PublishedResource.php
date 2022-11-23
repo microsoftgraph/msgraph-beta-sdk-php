@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PublishedResource extends Entity implements Parsable 
 {
     /**
-     * @var array<OnPremisesAgentGroup>|null $agentGroups List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
-    */
-    private ?array $agentGroups = null;
-    
-    /**
-     * @var string|null $displayName Display Name of the publishedResource.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var OnPremisesPublishingType|null $publishingType The publishingType property
-    */
-    private ?OnPremisesPublishingType $publishingType = null;
-    
-    /**
-     * @var string|null $resourceName Name of the publishedResource.
-    */
-    private ?string $resourceName = null;
-    
-    /**
      * Instantiates a new publishedResource and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.publishedResource');
     }
 
     /**
@@ -50,7 +29,7 @@ class PublishedResource extends Entity implements Parsable
      * @return array<OnPremisesAgentGroup>|null
     */
     public function getAgentGroups(): ?array {
-        return $this->agentGroups;
+        return $this->getBackingStore()->get('agentGroups');
     }
 
     /**
@@ -58,7 +37,7 @@ class PublishedResource extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -80,7 +59,7 @@ class PublishedResource extends Entity implements Parsable
      * @return OnPremisesPublishingType|null
     */
     public function getPublishingType(): ?OnPremisesPublishingType {
-        return $this->publishingType;
+        return $this->getBackingStore()->get('publishingType');
     }
 
     /**
@@ -88,7 +67,7 @@ class PublishedResource extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceName(): ?string {
-        return $this->resourceName;
+        return $this->getBackingStore()->get('resourceName');
     }
 
     /**
@@ -97,42 +76,42 @@ class PublishedResource extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('agentGroups', $this->agentGroups);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeEnumValue('publishingType', $this->publishingType);
-        $writer->writeStringValue('resourceName', $this->resourceName);
+        $writer->writeCollectionOfObjectValues('agentGroups', $this->getAgentGroups());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeEnumValue('publishingType', $this->getPublishingType());
+        $writer->writeStringValue('resourceName', $this->getResourceName());
     }
 
     /**
      * Sets the agentGroups property value. List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
      *  @param array<OnPremisesAgentGroup>|null $value Value to set for the agentGroups property.
     */
-    public function setAgentGroups(?array $value ): void {
-        $this->agentGroups = $value;
+    public function setAgentGroups(?array $value): void {
+        $this->getBackingStore()->set('agentGroups', $value);
     }
 
     /**
      * Sets the displayName property value. Display Name of the publishedResource.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the publishingType property value. The publishingType property
      *  @param OnPremisesPublishingType|null $value Value to set for the publishingType property.
     */
-    public function setPublishingType(?OnPremisesPublishingType $value ): void {
-        $this->publishingType = $value;
+    public function setPublishingType(?OnPremisesPublishingType $value): void {
+        $this->getBackingStore()->set('publishingType', $value);
     }
 
     /**
      * Sets the resourceName property value. Name of the publishedResource.
      *  @param string|null $value Value to set for the resourceName property.
     */
-    public function setResourceName(?string $value ): void {
-        $this->resourceName = $value;
+    public function setResourceName(?string $value): void {
+        $this->getBackingStore()->set('resourceName', $value);
     }
 
 }

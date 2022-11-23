@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Synchronization extends Entity implements Parsable 
 {
     /**
-     * @var array<SynchronizationJob>|null $jobs Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
-    */
-    private ?array $jobs = null;
-    
-    /**
-     * @var array<SynchronizationSecretKeyStringValuePair>|null $secrets Represents a collection of credentials to access provisioned cloud applications.
-    */
-    private ?array $secrets = null;
-    
-    /**
-     * @var array<SynchronizationTemplate>|null $templates Pre-configured synchronization settings for a particular application.
-    */
-    private ?array $templates = null;
-    
-    /**
      * Instantiates a new synchronization and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.synchronization');
     }
 
     /**
@@ -58,7 +42,7 @@ class Synchronization extends Entity implements Parsable
      * @return array<SynchronizationJob>|null
     */
     public function getJobs(): ?array {
-        return $this->jobs;
+        return $this->getBackingStore()->get('jobs');
     }
 
     /**
@@ -66,7 +50,7 @@ class Synchronization extends Entity implements Parsable
      * @return array<SynchronizationSecretKeyStringValuePair>|null
     */
     public function getSecrets(): ?array {
-        return $this->secrets;
+        return $this->getBackingStore()->get('secrets');
     }
 
     /**
@@ -74,7 +58,7 @@ class Synchronization extends Entity implements Parsable
      * @return array<SynchronizationTemplate>|null
     */
     public function getTemplates(): ?array {
-        return $this->templates;
+        return $this->getBackingStore()->get('templates');
     }
 
     /**
@@ -83,33 +67,33 @@ class Synchronization extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('jobs', $this->jobs);
-        $writer->writeCollectionOfObjectValues('secrets', $this->secrets);
-        $writer->writeCollectionOfObjectValues('templates', $this->templates);
+        $writer->writeCollectionOfObjectValues('jobs', $this->getJobs());
+        $writer->writeCollectionOfObjectValues('secrets', $this->getSecrets());
+        $writer->writeCollectionOfObjectValues('templates', $this->getTemplates());
     }
 
     /**
      * Sets the jobs property value. Performs synchronization by periodically running in the background, polling for changes in one directory, and pushing them to another directory.
      *  @param array<SynchronizationJob>|null $value Value to set for the jobs property.
     */
-    public function setJobs(?array $value ): void {
-        $this->jobs = $value;
+    public function setJobs(?array $value): void {
+        $this->getBackingStore()->set('jobs', $value);
     }
 
     /**
      * Sets the secrets property value. Represents a collection of credentials to access provisioned cloud applications.
      *  @param array<SynchronizationSecretKeyStringValuePair>|null $value Value to set for the secrets property.
     */
-    public function setSecrets(?array $value ): void {
-        $this->secrets = $value;
+    public function setSecrets(?array $value): void {
+        $this->getBackingStore()->set('secrets', $value);
     }
 
     /**
      * Sets the templates property value. Pre-configured synchronization settings for a particular application.
      *  @param array<SynchronizationTemplate>|null $value Value to set for the templates property.
     */
-    public function setTemplates(?array $value ): void {
-        $this->templates = $value;
+    public function setTemplates(?array $value): void {
+        $this->getBackingStore()->set('templates', $value);
     }
 
 }

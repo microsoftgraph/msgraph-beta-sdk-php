@@ -9,31 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable 
 {
     /**
-     * @var OnlineMeetingForwarders|null $allowedForwarders The allowedForwarders property
-    */
-    private ?OnlineMeetingForwarders $allowedForwarders = null;
-    
-    /**
-     * @var OnlineMeetingPresenters|null $allowedPresenters The allowedPresenters property
-    */
-    private ?OnlineMeetingPresenters $allowedPresenters = null;
-    
-    /**
-     * @var bool|null $isCopyToClipboardEnabled The isCopyToClipboardEnabled property
-    */
-    private ?bool $isCopyToClipboardEnabled = null;
-    
-    /**
-     * @var bool|null $isLobbyEnabled The isLobbyEnabled property
-    */
-    private ?bool $isLobbyEnabled = null;
-    
-    /**
-     * @var LobbyBypassSettings|null $lobbyBypassSettings The lobbyBypassSettings property
-    */
-    private ?LobbyBypassSettings $lobbyBypassSettings = null;
-    
-    /**
      * Instantiates a new ProtectOnlineMeetingAction and sets the default values.
     */
     public function __construct() {
@@ -55,7 +30,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return OnlineMeetingForwarders|null
     */
     public function getAllowedForwarders(): ?OnlineMeetingForwarders {
-        return $this->allowedForwarders;
+        return $this->getBackingStore()->get('allowedForwarders');
     }
 
     /**
@@ -63,7 +38,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return OnlineMeetingPresenters|null
     */
     public function getAllowedPresenters(): ?OnlineMeetingPresenters {
-        return $this->allowedPresenters;
+        return $this->getBackingStore()->get('allowedPresenters');
     }
 
     /**
@@ -86,7 +61,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getIsCopyToClipboardEnabled(): ?bool {
-        return $this->isCopyToClipboardEnabled;
+        return $this->getBackingStore()->get('isCopyToClipboardEnabled');
     }
 
     /**
@@ -94,7 +69,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return bool|null
     */
     public function getIsLobbyEnabled(): ?bool {
-        return $this->isLobbyEnabled;
+        return $this->getBackingStore()->get('isLobbyEnabled');
     }
 
     /**
@@ -102,7 +77,7 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
      * @return LobbyBypassSettings|null
     */
     public function getLobbyBypassSettings(): ?LobbyBypassSettings {
-        return $this->lobbyBypassSettings;
+        return $this->getBackingStore()->get('lobbyBypassSettings');
     }
 
     /**
@@ -111,51 +86,51 @@ class ProtectOnlineMeetingAction extends LabelActionBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('allowedForwarders', $this->allowedForwarders);
-        $writer->writeEnumValue('allowedPresenters', $this->allowedPresenters);
-        $writer->writeBooleanValue('isCopyToClipboardEnabled', $this->isCopyToClipboardEnabled);
-        $writer->writeBooleanValue('isLobbyEnabled', $this->isLobbyEnabled);
-        $writer->writeObjectValue('lobbyBypassSettings', $this->lobbyBypassSettings);
+        $writer->writeEnumValue('allowedForwarders', $this->getAllowedForwarders());
+        $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
+        $writer->writeBooleanValue('isCopyToClipboardEnabled', $this->getIsCopyToClipboardEnabled());
+        $writer->writeBooleanValue('isLobbyEnabled', $this->getIsLobbyEnabled());
+        $writer->writeObjectValue('lobbyBypassSettings', $this->getLobbyBypassSettings());
     }
 
     /**
      * Sets the allowedForwarders property value. The allowedForwarders property
      *  @param OnlineMeetingForwarders|null $value Value to set for the allowedForwarders property.
     */
-    public function setAllowedForwarders(?OnlineMeetingForwarders $value ): void {
-        $this->allowedForwarders = $value;
+    public function setAllowedForwarders(?OnlineMeetingForwarders $value): void {
+        $this->getBackingStore()->set('allowedForwarders', $value);
     }
 
     /**
      * Sets the allowedPresenters property value. The allowedPresenters property
      *  @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
-    public function setAllowedPresenters(?OnlineMeetingPresenters $value ): void {
-        $this->allowedPresenters = $value;
+    public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
+        $this->getBackingStore()->set('allowedPresenters', $value);
     }
 
     /**
      * Sets the isCopyToClipboardEnabled property value. The isCopyToClipboardEnabled property
      *  @param bool|null $value Value to set for the isCopyToClipboardEnabled property.
     */
-    public function setIsCopyToClipboardEnabled(?bool $value ): void {
-        $this->isCopyToClipboardEnabled = $value;
+    public function setIsCopyToClipboardEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isCopyToClipboardEnabled', $value);
     }
 
     /**
      * Sets the isLobbyEnabled property value. The isLobbyEnabled property
      *  @param bool|null $value Value to set for the isLobbyEnabled property.
     */
-    public function setIsLobbyEnabled(?bool $value ): void {
-        $this->isLobbyEnabled = $value;
+    public function setIsLobbyEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isLobbyEnabled', $value);
     }
 
     /**
      * Sets the lobbyBypassSettings property value. The lobbyBypassSettings property
      *  @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
     */
-    public function setLobbyBypassSettings(?LobbyBypassSettings $value ): void {
-        $this->lobbyBypassSettings = $value;
+    public function setLobbyBypassSettings(?LobbyBypassSettings $value): void {
+        $this->getBackingStore()->set('lobbyBypassSettings', $value);
     }
 
 }

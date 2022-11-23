@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsable 
+class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $defaultMessage The default message displayed if the user's locale doesn't match with any of the localized messages
-    */
-    private ?string $defaultMessage = null;
-    
-    /**
-     * @var array<KeyValuePair>|null $localizedMessages The list of <locale, message> pairs. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $localizedMessages = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new androidDeviceOwnerUserFacingMessage and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.androidDeviceOwnerUserFacingMessage');
     }
 
     /**
@@ -50,8 +38,16 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -59,7 +55,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getDefaultMessage(): ?string {
-        return $this->defaultMessage;
+        return $this->getBackingStore()->get('defaultMessage');
     }
 
     /**
@@ -80,7 +76,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
      * @return array<KeyValuePair>|null
     */
     public function getLocalizedMessages(): ?array {
-        return $this->localizedMessages;
+        return $this->getBackingStore()->get('localizedMessages');
     }
 
     /**
@@ -88,7 +84,7 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class AndroidDeviceOwnerUserFacingMessage implements AdditionalDataHolder, Parsa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('defaultMessage', $this->defaultMessage);
-        $writer->writeCollectionOfObjectValues('localizedMessages', $this->localizedMessages);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('defaultMessage', $this->getDefaultMessage());
+        $writer->writeCollectionOfObjectValues('localizedMessages', $this->getLocalizedMessages());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the defaultMessage property value. The default message displayed if the user's locale doesn't match with any of the localized messages
      *  @param string|null $value Value to set for the defaultMessage property.
     */
-    public function setDefaultMessage(?string $value ): void {
-        $this->defaultMessage = $value;
+    public function setDefaultMessage(?string $value): void {
+        $this->getBackingStore()->set('defaultMessage', $value);
     }
 
     /**
      * Sets the localizedMessages property value. The list of <locale, message> pairs. This collection can contain a maximum of 500 elements.
      *  @param array<KeyValuePair>|null $value Value to set for the localizedMessages property.
     */
-    public function setLocalizedMessages(?array $value ): void {
-        $this->localizedMessages = $value;
+    public function setLocalizedMessages(?array $value): void {
+        $this->getBackingStore()->set('localizedMessages', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

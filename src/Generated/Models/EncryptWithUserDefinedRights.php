@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EncryptWithUserDefinedRights extends EncryptContent implements Parsable 
 {
     /**
-     * @var bool|null $allowAdHocPermissions The allowAdHocPermissions property
-    */
-    private ?bool $allowAdHocPermissions = null;
-    
-    /**
-     * @var bool|null $allowMailForwarding The allowMailForwarding property
-    */
-    private ?bool $allowMailForwarding = null;
-    
-    /**
-     * @var string|null $decryptionRightsManagementTemplateId The decryptionRightsManagementTemplateId property
-    */
-    private ?string $decryptionRightsManagementTemplateId = null;
-    
-    /**
      * Instantiates a new EncryptWithUserDefinedRights and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return bool|null
     */
     public function getAllowAdHocPermissions(): ?bool {
-        return $this->allowAdHocPermissions;
+        return $this->getBackingStore()->get('allowAdHocPermissions');
     }
 
     /**
@@ -53,7 +38,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return bool|null
     */
     public function getAllowMailForwarding(): ?bool {
-        return $this->allowMailForwarding;
+        return $this->getBackingStore()->get('allowMailForwarding');
     }
 
     /**
@@ -61,7 +46,7 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
      * @return string|null
     */
     public function getDecryptionRightsManagementTemplateId(): ?string {
-        return $this->decryptionRightsManagementTemplateId;
+        return $this->getBackingStore()->get('decryptionRightsManagementTemplateId');
     }
 
     /**
@@ -83,33 +68,33 @@ class EncryptWithUserDefinedRights extends EncryptContent implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowAdHocPermissions', $this->allowAdHocPermissions);
-        $writer->writeBooleanValue('allowMailForwarding', $this->allowMailForwarding);
-        $writer->writeStringValue('decryptionRightsManagementTemplateId', $this->decryptionRightsManagementTemplateId);
+        $writer->writeBooleanValue('allowAdHocPermissions', $this->getAllowAdHocPermissions());
+        $writer->writeBooleanValue('allowMailForwarding', $this->getAllowMailForwarding());
+        $writer->writeStringValue('decryptionRightsManagementTemplateId', $this->getDecryptionRightsManagementTemplateId());
     }
 
     /**
      * Sets the allowAdHocPermissions property value. The allowAdHocPermissions property
      *  @param bool|null $value Value to set for the allowAdHocPermissions property.
     */
-    public function setAllowAdHocPermissions(?bool $value ): void {
-        $this->allowAdHocPermissions = $value;
+    public function setAllowAdHocPermissions(?bool $value): void {
+        $this->getBackingStore()->set('allowAdHocPermissions', $value);
     }
 
     /**
      * Sets the allowMailForwarding property value. The allowMailForwarding property
      *  @param bool|null $value Value to set for the allowMailForwarding property.
     */
-    public function setAllowMailForwarding(?bool $value ): void {
-        $this->allowMailForwarding = $value;
+    public function setAllowMailForwarding(?bool $value): void {
+        $this->getBackingStore()->set('allowMailForwarding', $value);
     }
 
     /**
      * Sets the decryptionRightsManagementTemplateId property value. The decryptionRightsManagementTemplateId property
      *  @param string|null $value Value to set for the decryptionRightsManagementTemplateId property.
     */
-    public function setDecryptionRightsManagementTemplateId(?string $value ): void {
-        $this->decryptionRightsManagementTemplateId = $value;
+    public function setDecryptionRightsManagementTemplateId(?string $value): void {
+        $this->getBackingStore()->set('decryptionRightsManagementTemplateId', $value);
     }
 
 }

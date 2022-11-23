@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewPolicy extends Entity implements Parsable 
 {
     /**
-     * @var string|null $description Description for this policy. Read-only.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName Display name for this policy. Read-only.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $isGroupOwnerManagementEnabled If true, group owners can create and manage access reviews on groups they own.
-    */
-    private ?bool $isGroupOwnerManagementEnabled = null;
-    
-    /**
      * Instantiates a new accessReviewPolicy and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessReviewPolicy');
     }
 
     /**
@@ -45,7 +29,7 @@ class AccessReviewPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -53,7 +37,7 @@ class AccessReviewPolicy extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +58,7 @@ class AccessReviewPolicy extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsGroupOwnerManagementEnabled(): ?bool {
-        return $this->isGroupOwnerManagementEnabled;
+        return $this->getBackingStore()->get('isGroupOwnerManagementEnabled');
     }
 
     /**
@@ -83,33 +67,33 @@ class AccessReviewPolicy extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('isGroupOwnerManagementEnabled', $this->isGroupOwnerManagementEnabled);
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('isGroupOwnerManagementEnabled', $this->getIsGroupOwnerManagementEnabled());
     }
 
     /**
      * Sets the description property value. Description for this policy. Read-only.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. Display name for this policy. Read-only.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the isGroupOwnerManagementEnabled property value. If true, group owners can create and manage access reviews on groups they own.
      *  @param bool|null $value Value to set for the isGroupOwnerManagementEnabled property.
     */
-    public function setIsGroupOwnerManagementEnabled(?bool $value ): void {
-        $this->isGroupOwnerManagementEnabled = $value;
+    public function setIsGroupOwnerManagementEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isGroupOwnerManagementEnabled', $value);
     }
 
 }

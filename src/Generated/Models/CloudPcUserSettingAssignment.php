@@ -10,21 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcUserSettingAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var CloudPcManagementAssignmentTarget|null $target The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
-    */
-    private ?CloudPcManagementAssignmentTarget $target = null;
-    
-    /**
      * Instantiates a new cloudPcUserSettingAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.cloudPcUserSettingAssignment');
     }
 
     /**
@@ -41,7 +30,7 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -61,7 +50,7 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
      * @return CloudPcManagementAssignmentTarget|null
     */
     public function getTarget(): ?CloudPcManagementAssignmentTarget {
-        return $this->target;
+        return $this->getBackingStore()->get('target');
     }
 
     /**
@@ -70,24 +59,24 @@ class CloudPcUserSettingAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeObjectValue('target', $this->target);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeObjectValue('target', $this->getTarget());
     }
 
     /**
      * Sets the createdDateTime property value. The date and time this assignment was created. The Timestamp type represents the date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 looks like this: '2014-01-01T00:00:00Z'.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the target property value. The assignment target for the user setting. Currently, the only target supported for this user setting is a user group. For details, see cloudPcManagementGroupAssignmentTarget.
      *  @param CloudPcManagementAssignmentTarget|null $value Value to set for the target property.
     */
-    public function setTarget(?CloudPcManagementAssignmentTarget $value ): void {
-        $this->target = $value;
+    public function setTarget(?CloudPcManagementAssignmentTarget $value): void {
+        $this->getBackingStore()->set('target', $value);
     }
 
 }

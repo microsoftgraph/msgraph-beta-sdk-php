@@ -11,171 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class OnlineMeeting extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $allowAttendeeToEnableCamera Indicates whether attendees can turn on their camera.
-    */
-    private ?bool $allowAttendeeToEnableCamera = null;
-    
-    /**
-     * @var bool|null $allowAttendeeToEnableMic Indicates whether attendees can turn on their microphone.
-    */
-    private ?bool $allowAttendeeToEnableMic = null;
-    
-    /**
-     * @var OnlineMeetingPresenters|null $allowedPresenters Specifies who can be a presenter in a meeting.
-    */
-    private ?OnlineMeetingPresenters $allowedPresenters = null;
-    
-    /**
-     * @var bool|null $allowTeamworkReactions Indicates if Teams reactions are enabled for the meeting.
-    */
-    private ?bool $allowTeamworkReactions = null;
-    
-    /**
-     * @var StreamInterface|null $alternativeRecording The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
-    */
-    private ?StreamInterface $alternativeRecording = null;
-    
-    /**
-     * @var array<OnlineMeetingRole>|null $anonymizeIdentityForRoles The anonymizeIdentityForRoles property
-    */
-    private ?array $anonymizeIdentityForRoles = null;
-    
-    /**
-     * @var array<MeetingAttendanceReport>|null $attendanceReports The attendance reports of an online meeting. Read-only.
-    */
-    private ?array $attendanceReports = null;
-    
-    /**
-     * @var StreamInterface|null $attendeeReport The content stream of the attendee report of a Teams live event. Read-only.
-    */
-    private ?StreamInterface $attendeeReport = null;
-    
-    /**
-     * @var AudioConferencing|null $audioConferencing The phone access (dial-in) information for an online meeting. Read-only.
-    */
-    private ?AudioConferencing $audioConferencing = null;
-    
-    /**
-     * @var BroadcastMeetingSettings|null $broadcastSettings Settings related to a live event.
-    */
-    private ?BroadcastMeetingSettings $broadcastSettings = null;
-    
-    /**
-     * @var array<MeetingCapabilities>|null $capabilities The capabilities property
-    */
-    private ?array $capabilities = null;
-    
-    /**
-     * @var ChatInfo|null $chatInfo The chat information associated with this online meeting.
-    */
-    private ?ChatInfo $chatInfo = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime The meeting creation time in UTC. Read-only.
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var DateTime|null $endDateTime The meeting end time in UTC.
-    */
-    private ?DateTime $endDateTime = null;
-    
-    /**
-     * @var string|null $externalId The external ID. A custom ID. Optional.
-    */
-    private ?string $externalId = null;
-    
-    /**
-     * @var bool|null $isBroadcast Indicates whether this is a Teams live event.
-    */
-    private ?bool $isBroadcast = null;
-    
-    /**
-     * @var bool|null $isEntryExitAnnounced Indicates whether to announce when callers join or leave.
-    */
-    private ?bool $isEntryExitAnnounced = null;
-    
-    /**
-     * @var ItemBody|null $joinInformation The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
-    */
-    private ?ItemBody $joinInformation = null;
-    
-    /**
-     * @var JoinMeetingIdSettings|null $joinMeetingIdSettings Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
-    */
-    private ?JoinMeetingIdSettings $joinMeetingIdSettings = null;
-    
-    /**
-     * @var string|null $joinUrl The joinUrl property
-    */
-    private ?string $joinUrl = null;
-    
-    /**
-     * @var string|null $joinWebUrl The join URL of the online meeting. Read-only.
-    */
-    private ?string $joinWebUrl = null;
-    
-    /**
-     * @var LobbyBypassSettings|null $lobbyBypassSettings Specifies which participants can bypass the meeting lobby.
-    */
-    private ?LobbyBypassSettings $lobbyBypassSettings = null;
-    
-    /**
-     * @var MeetingAttendanceReport|null $meetingAttendanceReport The meetingAttendanceReport property
-    */
-    private ?MeetingAttendanceReport $meetingAttendanceReport = null;
-    
-    /**
-     * @var MeetingParticipants|null $participants The participants associated with the online meeting. This includes the organizer and the attendees.
-    */
-    private ?MeetingParticipants $participants = null;
-    
-    /**
-     * @var bool|null $recordAutomatically Indicates whether to record the meeting automatically.
-    */
-    private ?bool $recordAutomatically = null;
-    
-    /**
-     * @var StreamInterface|null $recording The content stream of the recording of a Teams live event. Read-only.
-    */
-    private ?StreamInterface $recording = null;
-    
-    /**
-     * @var MeetingRegistration|null $registration The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
-    */
-    private ?MeetingRegistration $registration = null;
-    
-    /**
-     * @var DateTime|null $startDateTime The meeting start time in UTC.
-    */
-    private ?DateTime $startDateTime = null;
-    
-    /**
-     * @var string|null $subject The subject of the online meeting.
-    */
-    private ?string $subject = null;
-    
-    /**
-     * @var array<CallTranscript>|null $transcripts The transcripts of an online meeting. Read-only.
-    */
-    private ?array $transcripts = null;
-    
-    /**
-     * @var string|null $videoTeleconferenceId The video teleconferencing ID. Read-only.
-    */
-    private ?string $videoTeleconferenceId = null;
-    
-    /**
-     * @var VirtualAppointment|null $virtualAppointment The virtualAppointment property
-    */
-    private ?VirtualAppointment $virtualAppointment = null;
-    
-    /**
      * Instantiates a new onlineMeeting and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.onlineMeeting');
     }
 
     /**
@@ -192,7 +31,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllowAttendeeToEnableCamera(): ?bool {
-        return $this->allowAttendeeToEnableCamera;
+        return $this->getBackingStore()->get('allowAttendeeToEnableCamera');
     }
 
     /**
@@ -200,7 +39,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllowAttendeeToEnableMic(): ?bool {
-        return $this->allowAttendeeToEnableMic;
+        return $this->getBackingStore()->get('allowAttendeeToEnableMic');
     }
 
     /**
@@ -208,7 +47,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return OnlineMeetingPresenters|null
     */
     public function getAllowedPresenters(): ?OnlineMeetingPresenters {
-        return $this->allowedPresenters;
+        return $this->getBackingStore()->get('allowedPresenters');
     }
 
     /**
@@ -216,15 +55,15 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllowTeamworkReactions(): ?bool {
-        return $this->allowTeamworkReactions;
+        return $this->getBackingStore()->get('allowTeamworkReactions');
     }
 
     /**
      * Gets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getAlternativeRecording(): StreamInterface {
-        return $this->alternativeRecording;
+    public function getAlternativeRecording(): ?StreamInterface {
+        return $this->getBackingStore()->get('alternativeRecording');
     }
 
     /**
@@ -232,7 +71,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return array<OnlineMeetingRole>|null
     */
     public function getAnonymizeIdentityForRoles(): ?array {
-        return $this->anonymizeIdentityForRoles;
+        return $this->getBackingStore()->get('anonymizeIdentityForRoles');
     }
 
     /**
@@ -240,15 +79,15 @@ class OnlineMeeting extends Entity implements Parsable
      * @return array<MeetingAttendanceReport>|null
     */
     public function getAttendanceReports(): ?array {
-        return $this->attendanceReports;
+        return $this->getBackingStore()->get('attendanceReports');
     }
 
     /**
      * Gets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getAttendeeReport(): StreamInterface {
-        return $this->attendeeReport;
+    public function getAttendeeReport(): ?StreamInterface {
+        return $this->getBackingStore()->get('attendeeReport');
     }
 
     /**
@@ -256,7 +95,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return AudioConferencing|null
     */
     public function getAudioConferencing(): ?AudioConferencing {
-        return $this->audioConferencing;
+        return $this->getBackingStore()->get('audioConferencing');
     }
 
     /**
@@ -264,7 +103,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return BroadcastMeetingSettings|null
     */
     public function getBroadcastSettings(): ?BroadcastMeetingSettings {
-        return $this->broadcastSettings;
+        return $this->getBackingStore()->get('broadcastSettings');
     }
 
     /**
@@ -272,7 +111,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return array<MeetingCapabilities>|null
     */
     public function getCapabilities(): ?array {
-        return $this->capabilities;
+        return $this->getBackingStore()->get('capabilities');
     }
 
     /**
@@ -280,7 +119,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return ChatInfo|null
     */
     public function getChatInfo(): ?ChatInfo {
-        return $this->chatInfo;
+        return $this->getBackingStore()->get('chatInfo');
     }
 
     /**
@@ -288,7 +127,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -296,7 +135,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getEndDateTime(): ?DateTime {
-        return $this->endDateTime;
+        return $this->getBackingStore()->get('endDateTime');
     }
 
     /**
@@ -304,7 +143,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return string|null
     */
     public function getExternalId(): ?string {
-        return $this->externalId;
+        return $this->getBackingStore()->get('externalId');
     }
 
     /**
@@ -354,7 +193,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsBroadcast(): ?bool {
-        return $this->isBroadcast;
+        return $this->getBackingStore()->get('isBroadcast');
     }
 
     /**
@@ -362,7 +201,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsEntryExitAnnounced(): ?bool {
-        return $this->isEntryExitAnnounced;
+        return $this->getBackingStore()->get('isEntryExitAnnounced');
     }
 
     /**
@@ -370,7 +209,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return ItemBody|null
     */
     public function getJoinInformation(): ?ItemBody {
-        return $this->joinInformation;
+        return $this->getBackingStore()->get('joinInformation');
     }
 
     /**
@@ -378,7 +217,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return JoinMeetingIdSettings|null
     */
     public function getJoinMeetingIdSettings(): ?JoinMeetingIdSettings {
-        return $this->joinMeetingIdSettings;
+        return $this->getBackingStore()->get('joinMeetingIdSettings');
     }
 
     /**
@@ -386,7 +225,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return string|null
     */
     public function getJoinUrl(): ?string {
-        return $this->joinUrl;
+        return $this->getBackingStore()->get('joinUrl');
     }
 
     /**
@@ -394,7 +233,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return string|null
     */
     public function getJoinWebUrl(): ?string {
-        return $this->joinWebUrl;
+        return $this->getBackingStore()->get('joinWebUrl');
     }
 
     /**
@@ -402,7 +241,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return LobbyBypassSettings|null
     */
     public function getLobbyBypassSettings(): ?LobbyBypassSettings {
-        return $this->lobbyBypassSettings;
+        return $this->getBackingStore()->get('lobbyBypassSettings');
     }
 
     /**
@@ -410,7 +249,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return MeetingAttendanceReport|null
     */
     public function getMeetingAttendanceReport(): ?MeetingAttendanceReport {
-        return $this->meetingAttendanceReport;
+        return $this->getBackingStore()->get('meetingAttendanceReport');
     }
 
     /**
@@ -418,7 +257,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return MeetingParticipants|null
     */
     public function getParticipants(): ?MeetingParticipants {
-        return $this->participants;
+        return $this->getBackingStore()->get('participants');
     }
 
     /**
@@ -426,15 +265,15 @@ class OnlineMeeting extends Entity implements Parsable
      * @return bool|null
     */
     public function getRecordAutomatically(): ?bool {
-        return $this->recordAutomatically;
+        return $this->getBackingStore()->get('recordAutomatically');
     }
 
     /**
      * Gets the recording property value. The content stream of the recording of a Teams live event. Read-only.
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getRecording(): StreamInterface {
-        return $this->recording;
+    public function getRecording(): ?StreamInterface {
+        return $this->getBackingStore()->get('recording');
     }
 
     /**
@@ -442,7 +281,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return MeetingRegistration|null
     */
     public function getRegistration(): ?MeetingRegistration {
-        return $this->registration;
+        return $this->getBackingStore()->get('registration');
     }
 
     /**
@@ -450,7 +289,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getStartDateTime(): ?DateTime {
-        return $this->startDateTime;
+        return $this->getBackingStore()->get('startDateTime');
     }
 
     /**
@@ -458,7 +297,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -466,7 +305,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return array<CallTranscript>|null
     */
     public function getTranscripts(): ?array {
-        return $this->transcripts;
+        return $this->getBackingStore()->get('transcripts');
     }
 
     /**
@@ -474,7 +313,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return string|null
     */
     public function getVideoTeleconferenceId(): ?string {
-        return $this->videoTeleconferenceId;
+        return $this->getBackingStore()->get('videoTeleconferenceId');
     }
 
     /**
@@ -482,7 +321,7 @@ class OnlineMeeting extends Entity implements Parsable
      * @return VirtualAppointment|null
     */
     public function getVirtualAppointment(): ?VirtualAppointment {
-        return $this->virtualAppointment;
+        return $this->getBackingStore()->get('virtualAppointment');
     }
 
     /**
@@ -491,294 +330,294 @@ class OnlineMeeting extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->allowAttendeeToEnableCamera);
-        $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->allowAttendeeToEnableMic);
-        $writer->writeEnumValue('allowedPresenters', $this->allowedPresenters);
-        $writer->writeBooleanValue('allowTeamworkReactions', $this->allowTeamworkReactions);
-        $writer->writeBinaryContent('alternativeRecording', $this->alternativeRecording);
-        $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->anonymizeIdentityForRoles);
-        $writer->writeCollectionOfObjectValues('attendanceReports', $this->attendanceReports);
-        $writer->writeBinaryContent('attendeeReport', $this->attendeeReport);
-        $writer->writeObjectValue('audioConferencing', $this->audioConferencing);
-        $writer->writeObjectValue('broadcastSettings', $this->broadcastSettings);
-        $writer->writeCollectionOfEnumValues('capabilities', $this->capabilities);
-        $writer->writeObjectValue('chatInfo', $this->chatInfo);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeDateTimeValue('endDateTime', $this->endDateTime);
-        $writer->writeStringValue('externalId', $this->externalId);
-        $writer->writeBooleanValue('isBroadcast', $this->isBroadcast);
-        $writer->writeBooleanValue('isEntryExitAnnounced', $this->isEntryExitAnnounced);
-        $writer->writeObjectValue('joinInformation', $this->joinInformation);
-        $writer->writeObjectValue('joinMeetingIdSettings', $this->joinMeetingIdSettings);
-        $writer->writeStringValue('joinUrl', $this->joinUrl);
-        $writer->writeStringValue('joinWebUrl', $this->joinWebUrl);
-        $writer->writeObjectValue('lobbyBypassSettings', $this->lobbyBypassSettings);
-        $writer->writeObjectValue('meetingAttendanceReport', $this->meetingAttendanceReport);
-        $writer->writeObjectValue('participants', $this->participants);
-        $writer->writeBooleanValue('recordAutomatically', $this->recordAutomatically);
-        $writer->writeBinaryContent('recording', $this->recording);
-        $writer->writeObjectValue('registration', $this->registration);
-        $writer->writeDateTimeValue('startDateTime', $this->startDateTime);
-        $writer->writeStringValue('subject', $this->subject);
-        $writer->writeCollectionOfObjectValues('transcripts', $this->transcripts);
-        $writer->writeStringValue('videoTeleconferenceId', $this->videoTeleconferenceId);
-        $writer->writeObjectValue('virtualAppointment', $this->virtualAppointment);
+        $writer->writeBooleanValue('allowAttendeeToEnableCamera', $this->getAllowAttendeeToEnableCamera());
+        $writer->writeBooleanValue('allowAttendeeToEnableMic', $this->getAllowAttendeeToEnableMic());
+        $writer->writeEnumValue('allowedPresenters', $this->getAllowedPresenters());
+        $writer->writeBooleanValue('allowTeamworkReactions', $this->getAllowTeamworkReactions());
+        $writer->writeBinaryContent('alternativeRecording', $this->getAlternativeRecording());
+        $writer->writeCollectionOfEnumValues('anonymizeIdentityForRoles', $this->getAnonymizeIdentityForRoles());
+        $writer->writeCollectionOfObjectValues('attendanceReports', $this->getAttendanceReports());
+        $writer->writeBinaryContent('attendeeReport', $this->getAttendeeReport());
+        $writer->writeObjectValue('audioConferencing', $this->getAudioConferencing());
+        $writer->writeObjectValue('broadcastSettings', $this->getBroadcastSettings());
+        $writer->writeCollectionOfEnumValues('capabilities', $this->getCapabilities());
+        $writer->writeObjectValue('chatInfo', $this->getChatInfo());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeDateTimeValue('endDateTime', $this->getEndDateTime());
+        $writer->writeStringValue('externalId', $this->getExternalId());
+        $writer->writeBooleanValue('isBroadcast', $this->getIsBroadcast());
+        $writer->writeBooleanValue('isEntryExitAnnounced', $this->getIsEntryExitAnnounced());
+        $writer->writeObjectValue('joinInformation', $this->getJoinInformation());
+        $writer->writeObjectValue('joinMeetingIdSettings', $this->getJoinMeetingIdSettings());
+        $writer->writeStringValue('joinUrl', $this->getJoinUrl());
+        $writer->writeStringValue('joinWebUrl', $this->getJoinWebUrl());
+        $writer->writeObjectValue('lobbyBypassSettings', $this->getLobbyBypassSettings());
+        $writer->writeObjectValue('meetingAttendanceReport', $this->getMeetingAttendanceReport());
+        $writer->writeObjectValue('participants', $this->getParticipants());
+        $writer->writeBooleanValue('recordAutomatically', $this->getRecordAutomatically());
+        $writer->writeBinaryContent('recording', $this->getRecording());
+        $writer->writeObjectValue('registration', $this->getRegistration());
+        $writer->writeDateTimeValue('startDateTime', $this->getStartDateTime());
+        $writer->writeStringValue('subject', $this->getSubject());
+        $writer->writeCollectionOfObjectValues('transcripts', $this->getTranscripts());
+        $writer->writeStringValue('videoTeleconferenceId', $this->getVideoTeleconferenceId());
+        $writer->writeObjectValue('virtualAppointment', $this->getVirtualAppointment());
     }
 
     /**
      * Sets the allowAttendeeToEnableCamera property value. Indicates whether attendees can turn on their camera.
      *  @param bool|null $value Value to set for the allowAttendeeToEnableCamera property.
     */
-    public function setAllowAttendeeToEnableCamera(?bool $value ): void {
-        $this->allowAttendeeToEnableCamera = $value;
+    public function setAllowAttendeeToEnableCamera(?bool $value): void {
+        $this->getBackingStore()->set('allowAttendeeToEnableCamera', $value);
     }
 
     /**
      * Sets the allowAttendeeToEnableMic property value. Indicates whether attendees can turn on their microphone.
      *  @param bool|null $value Value to set for the allowAttendeeToEnableMic property.
     */
-    public function setAllowAttendeeToEnableMic(?bool $value ): void {
-        $this->allowAttendeeToEnableMic = $value;
+    public function setAllowAttendeeToEnableMic(?bool $value): void {
+        $this->getBackingStore()->set('allowAttendeeToEnableMic', $value);
     }
 
     /**
      * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
      *  @param OnlineMeetingPresenters|null $value Value to set for the allowedPresenters property.
     */
-    public function setAllowedPresenters(?OnlineMeetingPresenters $value ): void {
-        $this->allowedPresenters = $value;
+    public function setAllowedPresenters(?OnlineMeetingPresenters $value): void {
+        $this->getBackingStore()->set('allowedPresenters', $value);
     }
 
     /**
      * Sets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
      *  @param bool|null $value Value to set for the allowTeamworkReactions property.
     */
-    public function setAllowTeamworkReactions(?bool $value ): void {
-        $this->allowTeamworkReactions = $value;
+    public function setAllowTeamworkReactions(?bool $value): void {
+        $this->getBackingStore()->set('allowTeamworkReactions', $value);
     }
 
     /**
      * Sets the alternativeRecording property value. The content stream of the alternative recording of a Microsoft Teams live event. Read-only.
      *  @param StreamInterface|null $value Value to set for the alternativeRecording property.
     */
-    public function setAlternativeRecording(?StreamInterface $value ): void {
-        $this->alternativeRecording = $value;
+    public function setAlternativeRecording(?StreamInterface $value): void {
+        $this->getBackingStore()->set('alternativeRecording', $value);
     }
 
     /**
      * Sets the anonymizeIdentityForRoles property value. The anonymizeIdentityForRoles property
      *  @param array<OnlineMeetingRole>|null $value Value to set for the anonymizeIdentityForRoles property.
     */
-    public function setAnonymizeIdentityForRoles(?array $value ): void {
-        $this->anonymizeIdentityForRoles = $value;
+    public function setAnonymizeIdentityForRoles(?array $value): void {
+        $this->getBackingStore()->set('anonymizeIdentityForRoles', $value);
     }
 
     /**
      * Sets the attendanceReports property value. The attendance reports of an online meeting. Read-only.
      *  @param array<MeetingAttendanceReport>|null $value Value to set for the attendanceReports property.
     */
-    public function setAttendanceReports(?array $value ): void {
-        $this->attendanceReports = $value;
+    public function setAttendanceReports(?array $value): void {
+        $this->getBackingStore()->set('attendanceReports', $value);
     }
 
     /**
      * Sets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
      *  @param StreamInterface|null $value Value to set for the attendeeReport property.
     */
-    public function setAttendeeReport(?StreamInterface $value ): void {
-        $this->attendeeReport = $value;
+    public function setAttendeeReport(?StreamInterface $value): void {
+        $this->getBackingStore()->set('attendeeReport', $value);
     }
 
     /**
      * Sets the audioConferencing property value. The phone access (dial-in) information for an online meeting. Read-only.
      *  @param AudioConferencing|null $value Value to set for the audioConferencing property.
     */
-    public function setAudioConferencing(?AudioConferencing $value ): void {
-        $this->audioConferencing = $value;
+    public function setAudioConferencing(?AudioConferencing $value): void {
+        $this->getBackingStore()->set('audioConferencing', $value);
     }
 
     /**
      * Sets the broadcastSettings property value. Settings related to a live event.
      *  @param BroadcastMeetingSettings|null $value Value to set for the broadcastSettings property.
     */
-    public function setBroadcastSettings(?BroadcastMeetingSettings $value ): void {
-        $this->broadcastSettings = $value;
+    public function setBroadcastSettings(?BroadcastMeetingSettings $value): void {
+        $this->getBackingStore()->set('broadcastSettings', $value);
     }
 
     /**
      * Sets the capabilities property value. The capabilities property
      *  @param array<MeetingCapabilities>|null $value Value to set for the capabilities property.
     */
-    public function setCapabilities(?array $value ): void {
-        $this->capabilities = $value;
+    public function setCapabilities(?array $value): void {
+        $this->getBackingStore()->set('capabilities', $value);
     }
 
     /**
      * Sets the chatInfo property value. The chat information associated with this online meeting.
      *  @param ChatInfo|null $value Value to set for the chatInfo property.
     */
-    public function setChatInfo(?ChatInfo $value ): void {
-        $this->chatInfo = $value;
+    public function setChatInfo(?ChatInfo $value): void {
+        $this->getBackingStore()->set('chatInfo', $value);
     }
 
     /**
      * Sets the creationDateTime property value. The meeting creation time in UTC. Read-only.
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the endDateTime property value. The meeting end time in UTC.
      *  @param DateTime|null $value Value to set for the endDateTime property.
     */
-    public function setEndDateTime(?DateTime $value ): void {
-        $this->endDateTime = $value;
+    public function setEndDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('endDateTime', $value);
     }
 
     /**
      * Sets the externalId property value. The external ID. A custom ID. Optional.
      *  @param string|null $value Value to set for the externalId property.
     */
-    public function setExternalId(?string $value ): void {
-        $this->externalId = $value;
+    public function setExternalId(?string $value): void {
+        $this->getBackingStore()->set('externalId', $value);
     }
 
     /**
      * Sets the isBroadcast property value. Indicates whether this is a Teams live event.
      *  @param bool|null $value Value to set for the isBroadcast property.
     */
-    public function setIsBroadcast(?bool $value ): void {
-        $this->isBroadcast = $value;
+    public function setIsBroadcast(?bool $value): void {
+        $this->getBackingStore()->set('isBroadcast', $value);
     }
 
     /**
      * Sets the isEntryExitAnnounced property value. Indicates whether to announce when callers join or leave.
      *  @param bool|null $value Value to set for the isEntryExitAnnounced property.
     */
-    public function setIsEntryExitAnnounced(?bool $value ): void {
-        $this->isEntryExitAnnounced = $value;
+    public function setIsEntryExitAnnounced(?bool $value): void {
+        $this->getBackingStore()->set('isEntryExitAnnounced', $value);
     }
 
     /**
      * Sets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
      *  @param ItemBody|null $value Value to set for the joinInformation property.
     */
-    public function setJoinInformation(?ItemBody $value ): void {
-        $this->joinInformation = $value;
+    public function setJoinInformation(?ItemBody $value): void {
+        $this->getBackingStore()->set('joinInformation', $value);
     }
 
     /**
      * Sets the joinMeetingIdSettings property value. Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
      *  @param JoinMeetingIdSettings|null $value Value to set for the joinMeetingIdSettings property.
     */
-    public function setJoinMeetingIdSettings(?JoinMeetingIdSettings $value ): void {
-        $this->joinMeetingIdSettings = $value;
+    public function setJoinMeetingIdSettings(?JoinMeetingIdSettings $value): void {
+        $this->getBackingStore()->set('joinMeetingIdSettings', $value);
     }
 
     /**
      * Sets the joinUrl property value. The joinUrl property
      *  @param string|null $value Value to set for the joinUrl property.
     */
-    public function setJoinUrl(?string $value ): void {
-        $this->joinUrl = $value;
+    public function setJoinUrl(?string $value): void {
+        $this->getBackingStore()->set('joinUrl', $value);
     }
 
     /**
      * Sets the joinWebUrl property value. The join URL of the online meeting. Read-only.
      *  @param string|null $value Value to set for the joinWebUrl property.
     */
-    public function setJoinWebUrl(?string $value ): void {
-        $this->joinWebUrl = $value;
+    public function setJoinWebUrl(?string $value): void {
+        $this->getBackingStore()->set('joinWebUrl', $value);
     }
 
     /**
      * Sets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
      *  @param LobbyBypassSettings|null $value Value to set for the lobbyBypassSettings property.
     */
-    public function setLobbyBypassSettings(?LobbyBypassSettings $value ): void {
-        $this->lobbyBypassSettings = $value;
+    public function setLobbyBypassSettings(?LobbyBypassSettings $value): void {
+        $this->getBackingStore()->set('lobbyBypassSettings', $value);
     }
 
     /**
      * Sets the meetingAttendanceReport property value. The meetingAttendanceReport property
      *  @param MeetingAttendanceReport|null $value Value to set for the meetingAttendanceReport property.
     */
-    public function setMeetingAttendanceReport(?MeetingAttendanceReport $value ): void {
-        $this->meetingAttendanceReport = $value;
+    public function setMeetingAttendanceReport(?MeetingAttendanceReport $value): void {
+        $this->getBackingStore()->set('meetingAttendanceReport', $value);
     }
 
     /**
      * Sets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
      *  @param MeetingParticipants|null $value Value to set for the participants property.
     */
-    public function setParticipants(?MeetingParticipants $value ): void {
-        $this->participants = $value;
+    public function setParticipants(?MeetingParticipants $value): void {
+        $this->getBackingStore()->set('participants', $value);
     }
 
     /**
      * Sets the recordAutomatically property value. Indicates whether to record the meeting automatically.
      *  @param bool|null $value Value to set for the recordAutomatically property.
     */
-    public function setRecordAutomatically(?bool $value ): void {
-        $this->recordAutomatically = $value;
+    public function setRecordAutomatically(?bool $value): void {
+        $this->getBackingStore()->set('recordAutomatically', $value);
     }
 
     /**
      * Sets the recording property value. The content stream of the recording of a Teams live event. Read-only.
      *  @param StreamInterface|null $value Value to set for the recording property.
     */
-    public function setRecording(?StreamInterface $value ): void {
-        $this->recording = $value;
+    public function setRecording(?StreamInterface $value): void {
+        $this->getBackingStore()->set('recording', $value);
     }
 
     /**
      * Sets the registration property value. The registration that has been enabled for an online meeting. One online meeting can only have one registration enabled.
      *  @param MeetingRegistration|null $value Value to set for the registration property.
     */
-    public function setRegistration(?MeetingRegistration $value ): void {
-        $this->registration = $value;
+    public function setRegistration(?MeetingRegistration $value): void {
+        $this->getBackingStore()->set('registration', $value);
     }
 
     /**
      * Sets the startDateTime property value. The meeting start time in UTC.
      *  @param DateTime|null $value Value to set for the startDateTime property.
     */
-    public function setStartDateTime(?DateTime $value ): void {
-        $this->startDateTime = $value;
+    public function setStartDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('startDateTime', $value);
     }
 
     /**
      * Sets the subject property value. The subject of the online meeting.
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the transcripts property value. The transcripts of an online meeting. Read-only.
      *  @param array<CallTranscript>|null $value Value to set for the transcripts property.
     */
-    public function setTranscripts(?array $value ): void {
-        $this->transcripts = $value;
+    public function setTranscripts(?array $value): void {
+        $this->getBackingStore()->set('transcripts', $value);
     }
 
     /**
      * Sets the videoTeleconferenceId property value. The video teleconferencing ID. Read-only.
      *  @param string|null $value Value to set for the videoTeleconferenceId property.
     */
-    public function setVideoTeleconferenceId(?string $value ): void {
-        $this->videoTeleconferenceId = $value;
+    public function setVideoTeleconferenceId(?string $value): void {
+        $this->getBackingStore()->set('videoTeleconferenceId', $value);
     }
 
     /**
      * Sets the virtualAppointment property value. The virtualAppointment property
      *  @param VirtualAppointment|null $value Value to set for the virtualAppointment property.
     */
-    public function setVirtualAppointment(?VirtualAppointment $value ): void {
-        $this->virtualAppointment = $value;
+    public function setVirtualAppointment(?VirtualAppointment $value): void {
+        $this->getBackingStore()->set('virtualAppointment', $value);
     }
 
 }

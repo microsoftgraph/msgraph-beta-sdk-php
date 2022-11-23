@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DocumentComment extends Entity implements Parsable 
 {
     /**
-     * @var string|null $content The content property
-    */
-    private ?string $content = null;
-    
-    /**
-     * @var array<DocumentCommentReply>|null $replies The replies property
-    */
-    private ?array $replies = null;
-    
-    /**
-     * Instantiates a new documentComment and sets the default values.
+     * Instantiates a new DocumentComment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.documentComment');
     }
 
     /**
@@ -40,7 +29,7 @@ class DocumentComment extends Entity implements Parsable
      * @return string|null
     */
     public function getContent(): ?string {
-        return $this->content;
+        return $this->getBackingStore()->get('content');
     }
 
     /**
@@ -60,7 +49,7 @@ class DocumentComment extends Entity implements Parsable
      * @return array<DocumentCommentReply>|null
     */
     public function getReplies(): ?array {
-        return $this->replies;
+        return $this->getBackingStore()->get('replies');
     }
 
     /**
@@ -69,24 +58,24 @@ class DocumentComment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('content', $this->content);
-        $writer->writeCollectionOfObjectValues('replies', $this->replies);
+        $writer->writeStringValue('content', $this->getContent());
+        $writer->writeCollectionOfObjectValues('replies', $this->getReplies());
     }
 
     /**
      * Sets the content property value. The content property
      *  @param string|null $value Value to set for the content property.
     */
-    public function setContent(?string $value ): void {
-        $this->content = $value;
+    public function setContent(?string $value): void {
+        $this->getBackingStore()->set('content', $value);
     }
 
     /**
      * Sets the replies property value. The replies property
      *  @param array<DocumentCommentReply>|null $value Value to set for the replies property.
     */
-    public function setReplies(?array $value ): void {
-        $this->replies = $value;
+    public function setReplies(?array $value): void {
+        $this->getBackingStore()->set('replies', $value);
     }
 
 }

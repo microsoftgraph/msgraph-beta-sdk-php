@@ -7,45 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SynchronizationProgress implements AdditionalDataHolder, Parsable 
+class SynchronizationProgress implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $completedUnits The numerator of a progress ratio; the number of units of changes already processed.
-    */
-    private ?int $completedUnits = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var DateTime|null $progressObservationDateTime The time of a progress observation as an offset in minutes from UTC.
-    */
-    private ?DateTime $progressObservationDateTime = null;
-    
-    /**
-     * @var int|null $totalUnits The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
-    */
-    private ?int $totalUnits = null;
-    
-    /**
-     * @var string|null $units An optional description of the units.
-    */
-    private ?string $units = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new synchronizationProgress and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.synchronizationProgress');
     }
 
     /**
@@ -61,8 +39,16 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -70,7 +56,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getCompletedUnits(): ?int {
-        return $this->completedUnits;
+        return $this->getBackingStore()->get('completedUnits');
     }
 
     /**
@@ -93,7 +79,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -101,7 +87,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getProgressObservationDateTime(): ?DateTime {
-        return $this->progressObservationDateTime;
+        return $this->getBackingStore()->get('progressObservationDateTime');
     }
 
     /**
@@ -109,7 +95,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalUnits(): ?int {
-        return $this->totalUnits;
+        return $this->getBackingStore()->get('totalUnits');
     }
 
     /**
@@ -117,7 +103,7 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUnits(): ?string {
-        return $this->units;
+        return $this->getBackingStore()->get('units');
     }
 
     /**
@@ -125,60 +111,68 @@ class SynchronizationProgress implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('completedUnits', $this->completedUnits);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeDateTimeValue('progressObservationDateTime', $this->progressObservationDateTime);
-        $writer->writeIntegerValue('totalUnits', $this->totalUnits);
-        $writer->writeStringValue('units', $this->units);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('completedUnits', $this->getCompletedUnits());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeDateTimeValue('progressObservationDateTime', $this->getProgressObservationDateTime());
+        $writer->writeIntegerValue('totalUnits', $this->getTotalUnits());
+        $writer->writeStringValue('units', $this->getUnits());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the completedUnits property value. The numerator of a progress ratio; the number of units of changes already processed.
      *  @param int|null $value Value to set for the completedUnits property.
     */
-    public function setCompletedUnits(?int $value ): void {
-        $this->completedUnits = $value;
+    public function setCompletedUnits(?int $value): void {
+        $this->getBackingStore()->set('completedUnits', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the progressObservationDateTime property value. The time of a progress observation as an offset in minutes from UTC.
      *  @param DateTime|null $value Value to set for the progressObservationDateTime property.
     */
-    public function setProgressObservationDateTime(?DateTime $value ): void {
-        $this->progressObservationDateTime = $value;
+    public function setProgressObservationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('progressObservationDateTime', $value);
     }
 
     /**
      * Sets the totalUnits property value. The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
      *  @param int|null $value Value to set for the totalUnits property.
     */
-    public function setTotalUnits(?int $value ): void {
-        $this->totalUnits = $value;
+    public function setTotalUnits(?int $value): void {
+        $this->getBackingStore()->set('totalUnits', $value);
     }
 
     /**
      * Sets the units property value. An optional description of the units.
      *  @param string|null $value Value to set for the units property.
     */
-    public function setUnits(?string $value ): void {
-        $this->units = $value;
+    public function setUnits(?string $value): void {
+        $this->getBackingStore()->set('units', $value);
     }
 
 }

@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable 
 {
     /**
-     * @var DeviceCompliancePolicy|null $deviceCompliancePolicy The navigation link to the  device compliance polic targeted.
-    */
-    private ?DeviceCompliancePolicy $deviceCompliancePolicy = null;
-    
-    /**
-     * @var bool|null $excludeGroup Indicates if this group is should be excluded. Defaults that the group should be included
-    */
-    private ?bool $excludeGroup = null;
-    
-    /**
-     * @var string|null $targetGroupId The Id of the AAD group we are targeting the device compliance policy to.
-    */
-    private ?string $targetGroupId = null;
-    
-    /**
      * Instantiates a new DeviceCompliancePolicyGroupAssignment and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceCompliancePolicyGroupAssignment');
     }
 
     /**
@@ -45,7 +29,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return DeviceCompliancePolicy|null
     */
     public function getDeviceCompliancePolicy(): ?DeviceCompliancePolicy {
-        return $this->deviceCompliancePolicy;
+        return $this->getBackingStore()->get('deviceCompliancePolicy');
     }
 
     /**
@@ -53,7 +37,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return bool|null
     */
     public function getExcludeGroup(): ?bool {
-        return $this->excludeGroup;
+        return $this->getBackingStore()->get('excludeGroup');
     }
 
     /**
@@ -74,7 +58,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
      * @return string|null
     */
     public function getTargetGroupId(): ?string {
-        return $this->targetGroupId;
+        return $this->getBackingStore()->get('targetGroupId');
     }
 
     /**
@@ -83,33 +67,33 @@ class DeviceCompliancePolicyGroupAssignment extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('deviceCompliancePolicy', $this->deviceCompliancePolicy);
-        $writer->writeBooleanValue('excludeGroup', $this->excludeGroup);
-        $writer->writeStringValue('targetGroupId', $this->targetGroupId);
+        $writer->writeObjectValue('deviceCompliancePolicy', $this->getDeviceCompliancePolicy());
+        $writer->writeBooleanValue('excludeGroup', $this->getExcludeGroup());
+        $writer->writeStringValue('targetGroupId', $this->getTargetGroupId());
     }
 
     /**
      * Sets the deviceCompliancePolicy property value. The navigation link to the  device compliance polic targeted.
      *  @param DeviceCompliancePolicy|null $value Value to set for the deviceCompliancePolicy property.
     */
-    public function setDeviceCompliancePolicy(?DeviceCompliancePolicy $value ): void {
-        $this->deviceCompliancePolicy = $value;
+    public function setDeviceCompliancePolicy(?DeviceCompliancePolicy $value): void {
+        $this->getBackingStore()->set('deviceCompliancePolicy', $value);
     }
 
     /**
      * Sets the excludeGroup property value. Indicates if this group is should be excluded. Defaults that the group should be included
      *  @param bool|null $value Value to set for the excludeGroup property.
     */
-    public function setExcludeGroup(?bool $value ): void {
-        $this->excludeGroup = $value;
+    public function setExcludeGroup(?bool $value): void {
+        $this->getBackingStore()->set('excludeGroup', $value);
     }
 
     /**
      * Sets the targetGroupId property value. The Id of the AAD group we are targeting the device compliance policy to.
      *  @param string|null $value Value to set for the targetGroupId property.
     */
-    public function setTargetGroupId(?string $value ): void {
-        $this->targetGroupId = $value;
+    public function setTargetGroupId(?string $value): void {
+        $this->getBackingStore()->set('targetGroupId', $value);
     }
 
 }

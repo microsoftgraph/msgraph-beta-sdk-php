@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ProgramResource extends Identity implements Parsable 
 {
     /**
-     * @var string|null $type Type of the resource, indicating whether it is a group or an app.
-    */
-    private ?string $type = null;
-    
-    /**
      * Instantiates a new ProgramResource and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class ProgramResource extends Identity implements Parsable
      * @return string|null
     */
     public function getType(): ?string {
-        return $this->type;
+        return $this->getBackingStore()->get('type');
     }
 
     /**
@@ -55,15 +50,15 @@ class ProgramResource extends Identity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('type', $this->type);
+        $writer->writeStringValue('type', $this->getType());
     }
 
     /**
      * Sets the type property value. Type of the resource, indicating whether it is a group or an app.
      *  @param string|null $value Value to set for the type property.
     */
-    public function setType(?string $value ): void {
-        $this->type = $value;
+    public function setType(?string $value): void {
+        $this->getBackingStore()->set('type', $value);
     }
 
 }

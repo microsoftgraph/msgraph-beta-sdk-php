@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RuleBasedSubjectSet extends SubjectSet implements Parsable 
 {
     /**
-     * @var string|null $rule The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
-    */
-    private ?string $rule = null;
-    
-    /**
      * Instantiates a new RuleBasedSubjectSet and sets the default values.
     */
     public function __construct() {
@@ -47,7 +42,7 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
      * @return string|null
     */
     public function getRule(): ?string {
-        return $this->rule;
+        return $this->getBackingStore()->get('rule');
     }
 
     /**
@@ -56,15 +51,15 @@ class RuleBasedSubjectSet extends SubjectSet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('rule', $this->rule);
+        $writer->writeStringValue('rule', $this->getRule());
     }
 
     /**
      * Sets the rule property value. The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
      *  @param string|null $value Value to set for the rule property.
     */
-    public function setRule(?string $value ): void {
-        $this->rule = $value;
+    public function setRule(?string $value): void {
+        $this->getBackingStore()->set('rule', $value);
     }
 
 }

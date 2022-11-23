@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue implements Parsable 
 {
     /**
-     * @var string|null $value A string value for the associated presentation.
-    */
-    private ?string $value = null;
-    
-    /**
      * Instantiates a new GroupPolicyPresentationValueText and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyPresentationValueText');
     }
 
     /**
@@ -46,7 +40,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue impl
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +49,15 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('value', $this->value);
+        $writer->writeStringValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. A string value for the associated presentation.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

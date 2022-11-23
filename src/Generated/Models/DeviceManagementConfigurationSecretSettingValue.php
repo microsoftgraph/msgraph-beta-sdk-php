@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementConfigurationSimpleSettingValue implements Parsable 
 {
     /**
-     * @var string|null $value Value of the secret setting.
-    */
-    private ?string $value = null;
-    
-    /**
-     * @var DeviceManagementConfigurationSecretSettingValueState|null $valueState type tracking the encryption state of a secret setting value
-    */
-    private ?DeviceManagementConfigurationSecretSettingValueState $valueState = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSecretSettingValue and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
      * @return DeviceManagementConfigurationSecretSettingValueState|null
     */
     public function getValueState(): ?DeviceManagementConfigurationSecretSettingValueState {
-        return $this->valueState;
+        return $this->getBackingStore()->get('valueState');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationSecretSettingValue extends DeviceManagementCo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('value', $this->value);
-        $writer->writeEnumValue('valueState', $this->valueState);
+        $writer->writeStringValue('value', $this->getValue());
+        $writer->writeEnumValue('valueState', $this->getValueState());
     }
 
     /**
      * Sets the value property value. Value of the secret setting.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
     /**
      * Sets the valueState property value. type tracking the encryption state of a secret setting value
      *  @param DeviceManagementConfigurationSecretSettingValueState|null $value Value to set for the valueState property.
     */
-    public function setValueState(?DeviceManagementConfigurationSecretSettingValueState $value ): void {
-        $this->valueState = $value;
+    public function setValueState(?DeviceManagementConfigurationSecretSettingValueState $value): void {
+        $this->getBackingStore()->set('valueState', $value);
     }
 
 }

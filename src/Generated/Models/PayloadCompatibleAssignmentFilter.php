@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter implements Parsable 
 {
     /**
-     * @var AssignmentFilterPayloadType|null $payloadType Represents the payload type AssignmentFilter is being assigned to.
-    */
-    private ?AssignmentFilterPayloadType $payloadType = null;
-    
-    /**
      * Instantiates a new PayloadCompatibleAssignmentFilter and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
      * @return AssignmentFilterPayloadType|null
     */
     public function getPayloadType(): ?AssignmentFilterPayloadType {
-        return $this->payloadType;
+        return $this->getBackingStore()->get('payloadType');
     }
 
     /**
@@ -55,15 +50,15 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('payloadType', $this->payloadType);
+        $writer->writeEnumValue('payloadType', $this->getPayloadType());
     }
 
     /**
      * Sets the payloadType property value. Represents the payload type AssignmentFilter is being assigned to.
      *  @param AssignmentFilterPayloadType|null $value Value to set for the payloadType property.
     */
-    public function setPayloadType(?AssignmentFilterPayloadType $value ): void {
-        $this->payloadType = $value;
+    public function setPayloadType(?AssignmentFilterPayloadType $value): void {
+        $this->getBackingStore()->set('payloadType', $value);
     }
 
 }

@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementConfigurationSettingValue implements Parsable 
 {
     /**
-     * @var array<DeviceManagementConfigurationSettingInstance>|null $children Child settings.
-    */
-    private ?array $children = null;
-    
-    /**
-     * @var string|null $value Choice setting value: an OptionDefinition ItemId.
-    */
-    private ?string $value = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationChoiceSettingValue and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
      * @return array<DeviceManagementConfigurationSettingInstance>|null
     */
     public function getChildren(): ?array {
-        return $this->children;
+        return $this->getBackingStore()->get('children');
     }
 
     /**
@@ -60,7 +50,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
      * @return string|null
     */
     public function getValue(): ?string {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -69,24 +59,24 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('children', $this->children);
-        $writer->writeStringValue('value', $this->value);
+        $writer->writeCollectionOfObjectValues('children', $this->getChildren());
+        $writer->writeStringValue('value', $this->getValue());
     }
 
     /**
      * Sets the children property value. Child settings.
      *  @param array<DeviceManagementConfigurationSettingInstance>|null $value Value to set for the children property.
     */
-    public function setChildren(?array $value ): void {
-        $this->children = $value;
+    public function setChildren(?array $value): void {
+        $this->getBackingStore()->set('children', $value);
     }
 
     /**
      * Sets the value property value. Choice setting value: an OptionDefinition ItemId.
      *  @param string|null $value Value to set for the value property.
     */
-    public function setValue(?string $value ): void {
-        $this->value = $value;
+    public function setValue(?string $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

@@ -6,45 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable 
+class HasPayloadLinkResultItem implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $error Exception information indicates if check for this item was successful or not.Empty string for no error.
-    */
-    private ?string $error = null;
-    
-    /**
-     * @var bool|null $hasLink Indicate whether a payload has any link or not.
-    */
-    private ?bool $hasLink = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $payloadId Key of the Payload, In the format of Guid.
-    */
-    private ?string $payloadId = null;
-    
-    /**
-     * @var array<DeviceAndAppManagementAssignmentSource>|null $sources The reason where the link comes from.
-    */
-    private ?array $sources = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new hasPayloadLinkResultItem and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.hasPayloadLinkResultItem');
     }
 
     /**
@@ -60,8 +38,16 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -69,7 +55,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getError(): ?string {
-        return $this->error;
+        return $this->getBackingStore()->get('error');
     }
 
     /**
@@ -92,7 +78,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getHasLink(): ?bool {
-        return $this->hasLink;
+        return $this->getBackingStore()->get('hasLink');
     }
 
     /**
@@ -100,7 +86,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -108,7 +94,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->payloadId;
+        return $this->getBackingStore()->get('payloadId');
     }
 
     /**
@@ -116,7 +102,7 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @return array<DeviceAndAppManagementAssignmentSource>|null
     */
     public function getSources(): ?array {
-        return $this->sources;
+        return $this->getBackingStore()->get('sources');
     }
 
     /**
@@ -124,60 +110,68 @@ class HasPayloadLinkResultItem implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('error', $this->error);
-        $writer->writeBooleanValue('hasLink', $this->hasLink);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeCollectionOfEnumValues('sources', $this->sources);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('error', $this->getError());
+        $writer->writeBooleanValue('hasLink', $this->getHasLink());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('payloadId', $this->getPayloadId());
+        $writer->writeCollectionOfEnumValues('sources', $this->getSources());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the error property value. Exception information indicates if check for this item was successful or not.Empty string for no error.
      *  @param string|null $value Value to set for the error property.
     */
-    public function setError(?string $value ): void {
-        $this->error = $value;
+    public function setError(?string $value): void {
+        $this->getBackingStore()->set('error', $value);
     }
 
     /**
      * Sets the hasLink property value. Indicate whether a payload has any link or not.
      *  @param bool|null $value Value to set for the hasLink property.
     */
-    public function setHasLink(?bool $value ): void {
-        $this->hasLink = $value;
+    public function setHasLink(?bool $value): void {
+        $this->getBackingStore()->set('hasLink', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the payloadId property value. Key of the Payload, In the format of Guid.
      *  @param string|null $value Value to set for the payloadId property.
     */
-    public function setPayloadId(?string $value ): void {
-        $this->payloadId = $value;
+    public function setPayloadId(?string $value): void {
+        $this->getBackingStore()->set('payloadId', $value);
     }
 
     /**
      * Sets the sources property value. The reason where the link comes from.
      *  @param array<DeviceAndAppManagementAssignmentSource>|null $value Value to set for the sources property.
     */
-    public function setSources(?array $value ): void {
-        $this->sources = $value;
+    public function setSources(?array $value): void {
+        $this->getBackingStore()->set('sources', $value);
     }
 
 }

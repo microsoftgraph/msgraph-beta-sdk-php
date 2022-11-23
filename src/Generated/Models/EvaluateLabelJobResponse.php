@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EvaluateLabelJobResponse extends JobResponseBase implements Parsable 
 {
     /**
-     * @var EvaluateLabelJobResultGroup|null $result The result property
-    */
-    private ?EvaluateLabelJobResultGroup $result = null;
-    
-    /**
      * Instantiates a new EvaluateLabelJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.evaluateLabelJobResponse');
     }
 
     /**
@@ -46,7 +40,7 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
      * @return EvaluateLabelJobResultGroup|null
     */
     public function getResult(): ?EvaluateLabelJobResultGroup {
-        return $this->result;
+        return $this->getBackingStore()->get('result');
     }
 
     /**
@@ -55,15 +49,15 @@ class EvaluateLabelJobResponse extends JobResponseBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('result', $this->result);
+        $writer->writeObjectValue('result', $this->getResult());
     }
 
     /**
      * Sets the result property value. The result property
      *  @param EvaluateLabelJobResultGroup|null $value Value to set for the result property.
     */
-    public function setResult(?EvaluateLabelJobResultGroup $value ): void {
-        $this->result = $value;
+    public function setResult(?EvaluateLabelJobResultGroup $value): void {
+        $this->getBackingStore()->set('result', $value);
     }
 
 }

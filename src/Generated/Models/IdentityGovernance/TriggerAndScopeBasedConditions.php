@@ -10,16 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions implements Parsable 
 {
     /**
-     * @var SubjectSet|null $scope Defines who the workflow runs for.
-    */
-    private ?SubjectSet $scope = null;
-    
-    /**
-     * @var WorkflowExecutionTrigger|null $trigger What triggers a workflow to run.
-    */
-    private ?WorkflowExecutionTrigger $trigger = null;
-    
-    /**
      * Instantiates a new TriggerAndScopeBasedConditions and sets the default values.
     */
     public function __construct() {
@@ -53,7 +43,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
      * @return SubjectSet|null
     */
     public function getScope(): ?SubjectSet {
-        return $this->scope;
+        return $this->getBackingStore()->get('scope');
     }
 
     /**
@@ -61,7 +51,7 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
      * @return WorkflowExecutionTrigger|null
     */
     public function getTrigger(): ?WorkflowExecutionTrigger {
-        return $this->trigger;
+        return $this->getBackingStore()->get('trigger');
     }
 
     /**
@@ -70,24 +60,24 @@ class TriggerAndScopeBasedConditions extends WorkflowExecutionConditions impleme
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('scope', $this->scope);
-        $writer->writeObjectValue('trigger', $this->trigger);
+        $writer->writeObjectValue('scope', $this->getScope());
+        $writer->writeObjectValue('trigger', $this->getTrigger());
     }
 
     /**
      * Sets the scope property value. Defines who the workflow runs for.
      *  @param SubjectSet|null $value Value to set for the scope property.
     */
-    public function setScope(?SubjectSet $value ): void {
-        $this->scope = $value;
+    public function setScope(?SubjectSet $value): void {
+        $this->getBackingStore()->set('scope', $value);
     }
 
     /**
      * Sets the trigger property value. What triggers a workflow to run.
      *  @param WorkflowExecutionTrigger|null $value Value to set for the trigger property.
     */
-    public function setTrigger(?WorkflowExecutionTrigger $value ): void {
-        $this->trigger = $value;
+    public function setTrigger(?WorkflowExecutionTrigger $value): void {
+        $this->getBackingStore()->set('trigger', $value);
     }
 
 }

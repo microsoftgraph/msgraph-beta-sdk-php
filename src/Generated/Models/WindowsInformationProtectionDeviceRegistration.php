@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsInformationProtectionDeviceRegistration extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceMacAddress Device Mac address.
-    */
-    private ?string $deviceMacAddress = null;
-    
-    /**
-     * @var string|null $deviceName Device name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var string|null $deviceRegistrationId Device identifier for this device registration record.
-    */
-    private ?string $deviceRegistrationId = null;
-    
-    /**
-     * @var string|null $deviceType Device type, for example, Windows laptop VS Windows phone.
-    */
-    private ?string $deviceType = null;
-    
-    /**
-     * @var DateTime|null $lastCheckInDateTime Last checkin time of the device.
-    */
-    private ?DateTime $lastCheckInDateTime = null;
-    
-    /**
-     * @var string|null $userId UserId associated with this device registration record.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new windowsInformationProtectionDeviceRegistration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.windowsInformationProtectionDeviceRegistration');
     }
 
     /**
@@ -61,7 +30,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceMacAddress(): ?string {
-        return $this->deviceMacAddress;
+        return $this->getBackingStore()->get('deviceMacAddress');
     }
 
     /**
@@ -69,7 +38,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -77,7 +46,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceRegistrationId(): ?string {
-        return $this->deviceRegistrationId;
+        return $this->getBackingStore()->get('deviceRegistrationId');
     }
 
     /**
@@ -85,7 +54,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getDeviceType(): ?string {
-        return $this->deviceType;
+        return $this->getBackingStore()->get('deviceType');
     }
 
     /**
@@ -109,7 +78,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return DateTime|null
     */
     public function getLastCheckInDateTime(): ?DateTime {
-        return $this->lastCheckInDateTime;
+        return $this->getBackingStore()->get('lastCheckInDateTime');
     }
 
     /**
@@ -117,7 +86,7 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -126,60 +95,60 @@ class WindowsInformationProtectionDeviceRegistration extends Entity implements P
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceMacAddress', $this->deviceMacAddress);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeStringValue('deviceRegistrationId', $this->deviceRegistrationId);
-        $writer->writeStringValue('deviceType', $this->deviceType);
-        $writer->writeDateTimeValue('lastCheckInDateTime', $this->lastCheckInDateTime);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('deviceMacAddress', $this->getDeviceMacAddress());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeStringValue('deviceRegistrationId', $this->getDeviceRegistrationId());
+        $writer->writeStringValue('deviceType', $this->getDeviceType());
+        $writer->writeDateTimeValue('lastCheckInDateTime', $this->getLastCheckInDateTime());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the deviceMacAddress property value. Device Mac address.
      *  @param string|null $value Value to set for the deviceMacAddress property.
     */
-    public function setDeviceMacAddress(?string $value ): void {
-        $this->deviceMacAddress = $value;
+    public function setDeviceMacAddress(?string $value): void {
+        $this->getBackingStore()->set('deviceMacAddress', $value);
     }
 
     /**
      * Sets the deviceName property value. Device name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the deviceRegistrationId property value. Device identifier for this device registration record.
      *  @param string|null $value Value to set for the deviceRegistrationId property.
     */
-    public function setDeviceRegistrationId(?string $value ): void {
-        $this->deviceRegistrationId = $value;
+    public function setDeviceRegistrationId(?string $value): void {
+        $this->getBackingStore()->set('deviceRegistrationId', $value);
     }
 
     /**
      * Sets the deviceType property value. Device type, for example, Windows laptop VS Windows phone.
      *  @param string|null $value Value to set for the deviceType property.
     */
-    public function setDeviceType(?string $value ): void {
-        $this->deviceType = $value;
+    public function setDeviceType(?string $value): void {
+        $this->getBackingStore()->set('deviceType', $value);
     }
 
     /**
      * Sets the lastCheckInDateTime property value. Last checkin time of the device.
      *  @param DateTime|null $value Value to set for the lastCheckInDateTime property.
     */
-    public function setLastCheckInDateTime(?DateTime $value ): void {
-        $this->lastCheckInDateTime = $value;
+    public function setLastCheckInDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastCheckInDateTime', $value);
     }
 
     /**
      * Sets the userId property value. UserId associated with this device registration record.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

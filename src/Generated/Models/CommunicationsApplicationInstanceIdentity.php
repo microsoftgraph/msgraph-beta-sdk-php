@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CommunicationsApplicationInstanceIdentity extends Identity implements Parsable 
 {
     /**
-     * @var bool|null $hidden True if the participant would not like to be shown in other participants' rosters.
-    */
-    private ?bool $hidden = null;
-    
-    /**
-     * @var string|null $tenantId The application's tenant ID.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new CommunicationsApplicationInstanceIdentity and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
      * @return bool|null
     */
     public function getHidden(): ?bool {
-        return $this->hidden;
+        return $this->getBackingStore()->get('hidden');
     }
 
     /**
@@ -60,7 +50,7 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -69,24 +59,24 @@ class CommunicationsApplicationInstanceIdentity extends Identity implements Pars
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('hidden', $this->hidden);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeBooleanValue('hidden', $this->getHidden());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the hidden property value. True if the participant would not like to be shown in other participants' rosters.
      *  @param bool|null $value Value to set for the hidden property.
     */
-    public function setHidden(?bool $value ): void {
-        $this->hidden = $value;
+    public function setHidden(?bool $value): void {
+        $this->getBackingStore()->set('hidden', $value);
     }
 
     /**
      * Sets the tenantId property value. The application's tenant ID.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class Office365GroupsActivityFileCounts extends Entity implements Parsable 
 {
     /**
-     * @var int|null $active The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library.
-    */
-    private ?int $active = null;
-    
-    /**
-     * @var Date|null $reportDate The date on which a number of files were active in the group's SharePoint site.
-    */
-    private ?Date $reportDate = null;
-    
-    /**
-     * @var string|null $reportPeriod The number of days the report covers.
-    */
-    private ?string $reportPeriod = null;
-    
-    /**
-     * @var Date|null $reportRefreshDate The latest date of the content.
-    */
-    private ?Date $reportRefreshDate = null;
-    
-    /**
-     * @var int|null $total The total number of files in the group's SharePoint document library.
-    */
-    private ?int $total = null;
-    
-    /**
      * Instantiates a new Office365GroupsActivityFileCounts and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.office365GroupsActivityFileCounts');
     }
 
     /**
@@ -56,7 +30,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getActive(): ?int {
-        return $this->active;
+        return $this->getBackingStore()->get('active');
     }
 
     /**
@@ -79,7 +53,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportDate(): ?Date {
-        return $this->reportDate;
+        return $this->getBackingStore()->get('reportDate');
     }
 
     /**
@@ -87,7 +61,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
      * @return string|null
     */
     public function getReportPeriod(): ?string {
-        return $this->reportPeriod;
+        return $this->getBackingStore()->get('reportPeriod');
     }
 
     /**
@@ -95,7 +69,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
      * @return Date|null
     */
     public function getReportRefreshDate(): ?Date {
-        return $this->reportRefreshDate;
+        return $this->getBackingStore()->get('reportRefreshDate');
     }
 
     /**
@@ -103,7 +77,7 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
      * @return int|null
     */
     public function getTotal(): ?int {
-        return $this->total;
+        return $this->getBackingStore()->get('total');
     }
 
     /**
@@ -112,51 +86,51 @@ class Office365GroupsActivityFileCounts extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('active', $this->active);
-        $writer->writeDateValue('reportDate', $this->reportDate);
-        $writer->writeStringValue('reportPeriod', $this->reportPeriod);
-        $writer->writeDateValue('reportRefreshDate', $this->reportRefreshDate);
-        $writer->writeIntegerValue('total', $this->total);
+        $writer->writeIntegerValue('active', $this->getActive());
+        $writer->writeDateValue('reportDate', $this->getReportDate());
+        $writer->writeStringValue('reportPeriod', $this->getReportPeriod());
+        $writer->writeDateValue('reportRefreshDate', $this->getReportRefreshDate());
+        $writer->writeIntegerValue('total', $this->getTotal());
     }
 
     /**
      * Sets the active property value. The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library.
      *  @param int|null $value Value to set for the active property.
     */
-    public function setActive(?int $value ): void {
-        $this->active = $value;
+    public function setActive(?int $value): void {
+        $this->getBackingStore()->set('active', $value);
     }
 
     /**
      * Sets the reportDate property value. The date on which a number of files were active in the group's SharePoint site.
      *  @param Date|null $value Value to set for the reportDate property.
     */
-    public function setReportDate(?Date $value ): void {
-        $this->reportDate = $value;
+    public function setReportDate(?Date $value): void {
+        $this->getBackingStore()->set('reportDate', $value);
     }
 
     /**
      * Sets the reportPeriod property value. The number of days the report covers.
      *  @param string|null $value Value to set for the reportPeriod property.
     */
-    public function setReportPeriod(?string $value ): void {
-        $this->reportPeriod = $value;
+    public function setReportPeriod(?string $value): void {
+        $this->getBackingStore()->set('reportPeriod', $value);
     }
 
     /**
      * Sets the reportRefreshDate property value. The latest date of the content.
      *  @param Date|null $value Value to set for the reportRefreshDate property.
     */
-    public function setReportRefreshDate(?Date $value ): void {
-        $this->reportRefreshDate = $value;
+    public function setReportRefreshDate(?Date $value): void {
+        $this->getBackingStore()->set('reportRefreshDate', $value);
     }
 
     /**
      * Sets the total property value. The total number of files in the group's SharePoint document library.
      *  @param int|null $value Value to set for the total property.
     */
-    public function setTotal(?int $value ): void {
-        $this->total = $value;
+    public function setTotal(?int $value): void {
+        $this->getBackingStore()->set('total', $value);
     }
 
 }

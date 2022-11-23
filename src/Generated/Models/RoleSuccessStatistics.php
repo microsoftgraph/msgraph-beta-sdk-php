@@ -6,70 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class RoleSuccessStatistics implements AdditionalDataHolder, Parsable 
+class RoleSuccessStatistics implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $permanentFail The permanentFail property
-    */
-    private ?int $permanentFail = null;
-    
-    /**
-     * @var int|null $permanentSuccess The permanentSuccess property
-    */
-    private ?int $permanentSuccess = null;
-    
-    /**
-     * @var int|null $removeFail The removeFail property
-    */
-    private ?int $removeFail = null;
-    
-    /**
-     * @var int|null $removeSuccess The removeSuccess property
-    */
-    private ?int $removeSuccess = null;
-    
-    /**
-     * @var string|null $roleId The roleId property
-    */
-    private ?string $roleId = null;
-    
-    /**
-     * @var string|null $roleName The roleName property
-    */
-    private ?string $roleName = null;
-    
-    /**
-     * @var int|null $temporaryFail The temporaryFail property
-    */
-    private ?int $temporaryFail = null;
-    
-    /**
-     * @var int|null $temporarySuccess The temporarySuccess property
-    */
-    private ?int $temporarySuccess = null;
-    
-    /**
-     * @var int|null $unknownFail The unknownFail property
-    */
-    private ?int $unknownFail = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new roleSuccessStatistics and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.roleSuccessStatistics');
     }
 
     /**
@@ -85,8 +38,16 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -114,7 +75,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -122,7 +83,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getPermanentFail(): ?int {
-        return $this->permanentFail;
+        return $this->getBackingStore()->get('permanentFail');
     }
 
     /**
@@ -130,7 +91,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getPermanentSuccess(): ?int {
-        return $this->permanentSuccess;
+        return $this->getBackingStore()->get('permanentSuccess');
     }
 
     /**
@@ -138,7 +99,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getRemoveFail(): ?int {
-        return $this->removeFail;
+        return $this->getBackingStore()->get('removeFail');
     }
 
     /**
@@ -146,7 +107,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getRemoveSuccess(): ?int {
-        return $this->removeSuccess;
+        return $this->getBackingStore()->get('removeSuccess');
     }
 
     /**
@@ -154,7 +115,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRoleId(): ?string {
-        return $this->roleId;
+        return $this->getBackingStore()->get('roleId');
     }
 
     /**
@@ -162,7 +123,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getRoleName(): ?string {
-        return $this->roleName;
+        return $this->getBackingStore()->get('roleName');
     }
 
     /**
@@ -170,7 +131,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTemporaryFail(): ?int {
-        return $this->temporaryFail;
+        return $this->getBackingStore()->get('temporaryFail');
     }
 
     /**
@@ -178,7 +139,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTemporarySuccess(): ?int {
-        return $this->temporarySuccess;
+        return $this->getBackingStore()->get('temporarySuccess');
     }
 
     /**
@@ -186,7 +147,7 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getUnknownFail(): ?int {
-        return $this->unknownFail;
+        return $this->getBackingStore()->get('unknownFail');
     }
 
     /**
@@ -194,105 +155,113 @@ class RoleSuccessStatistics implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('permanentFail', $this->permanentFail);
-        $writer->writeIntegerValue('permanentSuccess', $this->permanentSuccess);
-        $writer->writeIntegerValue('removeFail', $this->removeFail);
-        $writer->writeIntegerValue('removeSuccess', $this->removeSuccess);
-        $writer->writeStringValue('roleId', $this->roleId);
-        $writer->writeStringValue('roleName', $this->roleName);
-        $writer->writeIntegerValue('temporaryFail', $this->temporaryFail);
-        $writer->writeIntegerValue('temporarySuccess', $this->temporarySuccess);
-        $writer->writeIntegerValue('unknownFail', $this->unknownFail);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('permanentFail', $this->getPermanentFail());
+        $writer->writeIntegerValue('permanentSuccess', $this->getPermanentSuccess());
+        $writer->writeIntegerValue('removeFail', $this->getRemoveFail());
+        $writer->writeIntegerValue('removeSuccess', $this->getRemoveSuccess());
+        $writer->writeStringValue('roleId', $this->getRoleId());
+        $writer->writeStringValue('roleName', $this->getRoleName());
+        $writer->writeIntegerValue('temporaryFail', $this->getTemporaryFail());
+        $writer->writeIntegerValue('temporarySuccess', $this->getTemporarySuccess());
+        $writer->writeIntegerValue('unknownFail', $this->getUnknownFail());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the permanentFail property value. The permanentFail property
      *  @param int|null $value Value to set for the permanentFail property.
     */
-    public function setPermanentFail(?int $value ): void {
-        $this->permanentFail = $value;
+    public function setPermanentFail(?int $value): void {
+        $this->getBackingStore()->set('permanentFail', $value);
     }
 
     /**
      * Sets the permanentSuccess property value. The permanentSuccess property
      *  @param int|null $value Value to set for the permanentSuccess property.
     */
-    public function setPermanentSuccess(?int $value ): void {
-        $this->permanentSuccess = $value;
+    public function setPermanentSuccess(?int $value): void {
+        $this->getBackingStore()->set('permanentSuccess', $value);
     }
 
     /**
      * Sets the removeFail property value. The removeFail property
      *  @param int|null $value Value to set for the removeFail property.
     */
-    public function setRemoveFail(?int $value ): void {
-        $this->removeFail = $value;
+    public function setRemoveFail(?int $value): void {
+        $this->getBackingStore()->set('removeFail', $value);
     }
 
     /**
      * Sets the removeSuccess property value. The removeSuccess property
      *  @param int|null $value Value to set for the removeSuccess property.
     */
-    public function setRemoveSuccess(?int $value ): void {
-        $this->removeSuccess = $value;
+    public function setRemoveSuccess(?int $value): void {
+        $this->getBackingStore()->set('removeSuccess', $value);
     }
 
     /**
      * Sets the roleId property value. The roleId property
      *  @param string|null $value Value to set for the roleId property.
     */
-    public function setRoleId(?string $value ): void {
-        $this->roleId = $value;
+    public function setRoleId(?string $value): void {
+        $this->getBackingStore()->set('roleId', $value);
     }
 
     /**
      * Sets the roleName property value. The roleName property
      *  @param string|null $value Value to set for the roleName property.
     */
-    public function setRoleName(?string $value ): void {
-        $this->roleName = $value;
+    public function setRoleName(?string $value): void {
+        $this->getBackingStore()->set('roleName', $value);
     }
 
     /**
      * Sets the temporaryFail property value. The temporaryFail property
      *  @param int|null $value Value to set for the temporaryFail property.
     */
-    public function setTemporaryFail(?int $value ): void {
-        $this->temporaryFail = $value;
+    public function setTemporaryFail(?int $value): void {
+        $this->getBackingStore()->set('temporaryFail', $value);
     }
 
     /**
      * Sets the temporarySuccess property value. The temporarySuccess property
      *  @param int|null $value Value to set for the temporarySuccess property.
     */
-    public function setTemporarySuccess(?int $value ): void {
-        $this->temporarySuccess = $value;
+    public function setTemporarySuccess(?int $value): void {
+        $this->getBackingStore()->set('temporarySuccess', $value);
     }
 
     /**
      * Sets the unknownFail property value. The unknownFail property
      *  @param int|null $value Value to set for the unknownFail property.
     */
-    public function setUnknownFail(?int $value ): void {
-        $this->unknownFail = $value;
+    public function setUnknownFail(?int $value): void {
+        $this->getBackingStore()->set('unknownFail', $value);
     }
 
 }

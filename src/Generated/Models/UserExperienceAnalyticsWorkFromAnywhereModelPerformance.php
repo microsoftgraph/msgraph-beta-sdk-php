@@ -9,56 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity implements Parsable 
 {
     /**
-     * @var float|null $cloudIdentityScore The user experience work from anywhere's cloud identity score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $cloudIdentityScore = null;
-    
-    /**
-     * @var float|null $cloudManagementScore The user experience work from anywhere's cloud management score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $cloudManagementScore = null;
-    
-    /**
-     * @var float|null $cloudProvisioningScore The user experience work from anywhere's cloud provisioning score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $cloudProvisioningScore = null;
-    
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
-    */
-    private ?UserExperienceAnalyticsHealthState $healthStatus = null;
-    
-    /**
-     * @var string|null $manufacturer The user experience work from anywhere's manufacturer name of the devices.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The user experience work from anywhere's model name of the devices.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var int|null $modelDeviceCount The user experience work from anywhere's devices count for the model. Valid values -2147483648 to 2147483647
-    */
-    private ?int $modelDeviceCount = null;
-    
-    /**
-     * @var float|null $windowsScore The user experience work from anywhere windows score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $windowsScore = null;
-    
-    /**
-     * @var float|null $workFromAnywhereScore The user experience work from anywhere overall score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $workFromAnywhereScore = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsWorkFromAnywhereModelPerformance and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereModelPerformance');
     }
 
     /**
@@ -75,7 +29,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return float|null
     */
     public function getCloudIdentityScore(): ?float {
-        return $this->cloudIdentityScore;
+        return $this->getBackingStore()->get('cloudIdentityScore');
     }
 
     /**
@@ -83,7 +37,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return float|null
     */
     public function getCloudManagementScore(): ?float {
-        return $this->cloudManagementScore;
+        return $this->getBackingStore()->get('cloudManagementScore');
     }
 
     /**
@@ -91,7 +45,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return float|null
     */
     public function getCloudProvisioningScore(): ?float {
-        return $this->cloudProvisioningScore;
+        return $this->getBackingStore()->get('cloudProvisioningScore');
     }
 
     /**
@@ -118,7 +72,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->healthStatus;
+        return $this->getBackingStore()->get('healthStatus');
     }
 
     /**
@@ -126,7 +80,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -134,7 +88,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -142,7 +96,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return int|null
     */
     public function getModelDeviceCount(): ?int {
-        return $this->modelDeviceCount;
+        return $this->getBackingStore()->get('modelDeviceCount');
     }
 
     /**
@@ -150,7 +104,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return float|null
     */
     public function getWindowsScore(): ?float {
-        return $this->windowsScore;
+        return $this->getBackingStore()->get('windowsScore');
     }
 
     /**
@@ -158,7 +112,7 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
-        return $this->workFromAnywhereScore;
+        return $this->getBackingStore()->get('workFromAnywhereScore');
     }
 
     /**
@@ -167,87 +121,87 @@ class UserExperienceAnalyticsWorkFromAnywhereModelPerformance extends Entity imp
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('cloudIdentityScore', $this->cloudIdentityScore);
-        $writer->writeFloatValue('cloudManagementScore', $this->cloudManagementScore);
-        $writer->writeFloatValue('cloudProvisioningScore', $this->cloudProvisioningScore);
-        $writer->writeEnumValue('healthStatus', $this->healthStatus);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeIntegerValue('modelDeviceCount', $this->modelDeviceCount);
-        $writer->writeFloatValue('windowsScore', $this->windowsScore);
-        $writer->writeFloatValue('workFromAnywhereScore', $this->workFromAnywhereScore);
+        $writer->writeFloatValue('cloudIdentityScore', $this->getCloudIdentityScore());
+        $writer->writeFloatValue('cloudManagementScore', $this->getCloudManagementScore());
+        $writer->writeFloatValue('cloudProvisioningScore', $this->getCloudProvisioningScore());
+        $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeIntegerValue('modelDeviceCount', $this->getModelDeviceCount());
+        $writer->writeFloatValue('windowsScore', $this->getWindowsScore());
+        $writer->writeFloatValue('workFromAnywhereScore', $this->getWorkFromAnywhereScore());
     }
 
     /**
      * Sets the cloudIdentityScore property value. The user experience work from anywhere's cloud identity score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the cloudIdentityScore property.
     */
-    public function setCloudIdentityScore(?float $value ): void {
-        $this->cloudIdentityScore = $value;
+    public function setCloudIdentityScore(?float $value): void {
+        $this->getBackingStore()->set('cloudIdentityScore', $value);
     }
 
     /**
      * Sets the cloudManagementScore property value. The user experience work from anywhere's cloud management score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the cloudManagementScore property.
     */
-    public function setCloudManagementScore(?float $value ): void {
-        $this->cloudManagementScore = $value;
+    public function setCloudManagementScore(?float $value): void {
+        $this->getBackingStore()->set('cloudManagementScore', $value);
     }
 
     /**
      * Sets the cloudProvisioningScore property value. The user experience work from anywhere's cloud provisioning score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the cloudProvisioningScore property.
     */
-    public function setCloudProvisioningScore(?float $value ): void {
-        $this->cloudProvisioningScore = $value;
+    public function setCloudProvisioningScore(?float $value): void {
+        $this->getBackingStore()->set('cloudProvisioningScore', $value);
     }
 
     /**
      * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
-    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {
-        $this->healthStatus = $value;
+    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
     }
 
     /**
      * Sets the manufacturer property value. The user experience work from anywhere's manufacturer name of the devices.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The user experience work from anywhere's model name of the devices.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the modelDeviceCount property value. The user experience work from anywhere's devices count for the model. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the modelDeviceCount property.
     */
-    public function setModelDeviceCount(?int $value ): void {
-        $this->modelDeviceCount = $value;
+    public function setModelDeviceCount(?int $value): void {
+        $this->getBackingStore()->set('modelDeviceCount', $value);
     }
 
     /**
      * Sets the windowsScore property value. The user experience work from anywhere windows score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the windowsScore property.
     */
-    public function setWindowsScore(?float $value ): void {
-        $this->windowsScore = $value;
+    public function setWindowsScore(?float $value): void {
+        $this->getBackingStore()->set('windowsScore', $value);
     }
 
     /**
      * Sets the workFromAnywhereScore property value. The user experience work from anywhere overall score for the model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the workFromAnywhereScore property.
     */
-    public function setWorkFromAnywhereScore(?float $value ): void {
-        $this->workFromAnywhereScore = $value;
+    public function setWorkFromAnywhereScore(?float $value): void {
+        $this->getBackingStore()->set('workFromAnywhereScore', $value);
     }
 
 }

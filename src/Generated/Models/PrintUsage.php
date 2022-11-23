@@ -10,66 +10,10 @@ use Microsoft\Kiota\Abstractions\Types\Date;
 class PrintUsage extends Entity implements Parsable 
 {
     /**
-     * @var int|null $blackAndWhitePageCount The blackAndWhitePageCount property
-    */
-    private ?int $blackAndWhitePageCount = null;
-    
-    /**
-     * @var int|null $colorPageCount The colorPageCount property
-    */
-    private ?int $colorPageCount = null;
-    
-    /**
-     * @var int|null $completedBlackAndWhiteJobCount The completedBlackAndWhiteJobCount property
-    */
-    private ?int $completedBlackAndWhiteJobCount = null;
-    
-    /**
-     * @var int|null $completedColorJobCount The completedColorJobCount property
-    */
-    private ?int $completedColorJobCount = null;
-    
-    /**
-     * @var int|null $completedJobCount The completedJobCount property
-    */
-    private ?int $completedJobCount = null;
-    
-    /**
-     * @var int|null $doubleSidedSheetCount The doubleSidedSheetCount property
-    */
-    private ?int $doubleSidedSheetCount = null;
-    
-    /**
-     * @var int|null $incompleteJobCount The incompleteJobCount property
-    */
-    private ?int $incompleteJobCount = null;
-    
-    /**
-     * @var int|null $mediaSheetCount The mediaSheetCount property
-    */
-    private ?int $mediaSheetCount = null;
-    
-    /**
-     * @var int|null $pageCount The pageCount property
-    */
-    private ?int $pageCount = null;
-    
-    /**
-     * @var int|null $singleSidedSheetCount The singleSidedSheetCount property
-    */
-    private ?int $singleSidedSheetCount = null;
-    
-    /**
-     * @var Date|null $usageDate The usageDate property
-    */
-    private ?Date $usageDate = null;
-    
-    /**
      * Instantiates a new printUsage and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.printUsage');
     }
 
     /**
@@ -94,7 +38,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getBlackAndWhitePageCount(): ?int {
-        return $this->blackAndWhitePageCount;
+        return $this->getBackingStore()->get('blackAndWhitePageCount');
     }
 
     /**
@@ -102,7 +46,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getColorPageCount(): ?int {
-        return $this->colorPageCount;
+        return $this->getBackingStore()->get('colorPageCount');
     }
 
     /**
@@ -110,7 +54,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedBlackAndWhiteJobCount(): ?int {
-        return $this->completedBlackAndWhiteJobCount;
+        return $this->getBackingStore()->get('completedBlackAndWhiteJobCount');
     }
 
     /**
@@ -118,7 +62,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedColorJobCount(): ?int {
-        return $this->completedColorJobCount;
+        return $this->getBackingStore()->get('completedColorJobCount');
     }
 
     /**
@@ -126,7 +70,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getCompletedJobCount(): ?int {
-        return $this->completedJobCount;
+        return $this->getBackingStore()->get('completedJobCount');
     }
 
     /**
@@ -134,7 +78,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getDoubleSidedSheetCount(): ?int {
-        return $this->doubleSidedSheetCount;
+        return $this->getBackingStore()->get('doubleSidedSheetCount');
     }
 
     /**
@@ -163,7 +107,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getIncompleteJobCount(): ?int {
-        return $this->incompleteJobCount;
+        return $this->getBackingStore()->get('incompleteJobCount');
     }
 
     /**
@@ -171,7 +115,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getMediaSheetCount(): ?int {
-        return $this->mediaSheetCount;
+        return $this->getBackingStore()->get('mediaSheetCount');
     }
 
     /**
@@ -179,7 +123,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getPageCount(): ?int {
-        return $this->pageCount;
+        return $this->getBackingStore()->get('pageCount');
     }
 
     /**
@@ -187,7 +131,7 @@ class PrintUsage extends Entity implements Parsable
      * @return int|null
     */
     public function getSingleSidedSheetCount(): ?int {
-        return $this->singleSidedSheetCount;
+        return $this->getBackingStore()->get('singleSidedSheetCount');
     }
 
     /**
@@ -195,7 +139,7 @@ class PrintUsage extends Entity implements Parsable
      * @return Date|null
     */
     public function getUsageDate(): ?Date {
-        return $this->usageDate;
+        return $this->getBackingStore()->get('usageDate');
     }
 
     /**
@@ -204,105 +148,105 @@ class PrintUsage extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('blackAndWhitePageCount', $this->blackAndWhitePageCount);
-        $writer->writeIntegerValue('colorPageCount', $this->colorPageCount);
-        $writer->writeIntegerValue('completedBlackAndWhiteJobCount', $this->completedBlackAndWhiteJobCount);
-        $writer->writeIntegerValue('completedColorJobCount', $this->completedColorJobCount);
-        $writer->writeIntegerValue('completedJobCount', $this->completedJobCount);
-        $writer->writeIntegerValue('doubleSidedSheetCount', $this->doubleSidedSheetCount);
-        $writer->writeIntegerValue('incompleteJobCount', $this->incompleteJobCount);
-        $writer->writeIntegerValue('mediaSheetCount', $this->mediaSheetCount);
-        $writer->writeIntegerValue('pageCount', $this->pageCount);
-        $writer->writeIntegerValue('singleSidedSheetCount', $this->singleSidedSheetCount);
-        $writer->writeDateValue('usageDate', $this->usageDate);
+        $writer->writeIntegerValue('blackAndWhitePageCount', $this->getBlackAndWhitePageCount());
+        $writer->writeIntegerValue('colorPageCount', $this->getColorPageCount());
+        $writer->writeIntegerValue('completedBlackAndWhiteJobCount', $this->getCompletedBlackAndWhiteJobCount());
+        $writer->writeIntegerValue('completedColorJobCount', $this->getCompletedColorJobCount());
+        $writer->writeIntegerValue('completedJobCount', $this->getCompletedJobCount());
+        $writer->writeIntegerValue('doubleSidedSheetCount', $this->getDoubleSidedSheetCount());
+        $writer->writeIntegerValue('incompleteJobCount', $this->getIncompleteJobCount());
+        $writer->writeIntegerValue('mediaSheetCount', $this->getMediaSheetCount());
+        $writer->writeIntegerValue('pageCount', $this->getPageCount());
+        $writer->writeIntegerValue('singleSidedSheetCount', $this->getSingleSidedSheetCount());
+        $writer->writeDateValue('usageDate', $this->getUsageDate());
     }
 
     /**
      * Sets the blackAndWhitePageCount property value. The blackAndWhitePageCount property
      *  @param int|null $value Value to set for the blackAndWhitePageCount property.
     */
-    public function setBlackAndWhitePageCount(?int $value ): void {
-        $this->blackAndWhitePageCount = $value;
+    public function setBlackAndWhitePageCount(?int $value): void {
+        $this->getBackingStore()->set('blackAndWhitePageCount', $value);
     }
 
     /**
      * Sets the colorPageCount property value. The colorPageCount property
      *  @param int|null $value Value to set for the colorPageCount property.
     */
-    public function setColorPageCount(?int $value ): void {
-        $this->colorPageCount = $value;
+    public function setColorPageCount(?int $value): void {
+        $this->getBackingStore()->set('colorPageCount', $value);
     }
 
     /**
      * Sets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property
      *  @param int|null $value Value to set for the completedBlackAndWhiteJobCount property.
     */
-    public function setCompletedBlackAndWhiteJobCount(?int $value ): void {
-        $this->completedBlackAndWhiteJobCount = $value;
+    public function setCompletedBlackAndWhiteJobCount(?int $value): void {
+        $this->getBackingStore()->set('completedBlackAndWhiteJobCount', $value);
     }
 
     /**
      * Sets the completedColorJobCount property value. The completedColorJobCount property
      *  @param int|null $value Value to set for the completedColorJobCount property.
     */
-    public function setCompletedColorJobCount(?int $value ): void {
-        $this->completedColorJobCount = $value;
+    public function setCompletedColorJobCount(?int $value): void {
+        $this->getBackingStore()->set('completedColorJobCount', $value);
     }
 
     /**
      * Sets the completedJobCount property value. The completedJobCount property
      *  @param int|null $value Value to set for the completedJobCount property.
     */
-    public function setCompletedJobCount(?int $value ): void {
-        $this->completedJobCount = $value;
+    public function setCompletedJobCount(?int $value): void {
+        $this->getBackingStore()->set('completedJobCount', $value);
     }
 
     /**
      * Sets the doubleSidedSheetCount property value. The doubleSidedSheetCount property
      *  @param int|null $value Value to set for the doubleSidedSheetCount property.
     */
-    public function setDoubleSidedSheetCount(?int $value ): void {
-        $this->doubleSidedSheetCount = $value;
+    public function setDoubleSidedSheetCount(?int $value): void {
+        $this->getBackingStore()->set('doubleSidedSheetCount', $value);
     }
 
     /**
      * Sets the incompleteJobCount property value. The incompleteJobCount property
      *  @param int|null $value Value to set for the incompleteJobCount property.
     */
-    public function setIncompleteJobCount(?int $value ): void {
-        $this->incompleteJobCount = $value;
+    public function setIncompleteJobCount(?int $value): void {
+        $this->getBackingStore()->set('incompleteJobCount', $value);
     }
 
     /**
      * Sets the mediaSheetCount property value. The mediaSheetCount property
      *  @param int|null $value Value to set for the mediaSheetCount property.
     */
-    public function setMediaSheetCount(?int $value ): void {
-        $this->mediaSheetCount = $value;
+    public function setMediaSheetCount(?int $value): void {
+        $this->getBackingStore()->set('mediaSheetCount', $value);
     }
 
     /**
      * Sets the pageCount property value. The pageCount property
      *  @param int|null $value Value to set for the pageCount property.
     */
-    public function setPageCount(?int $value ): void {
-        $this->pageCount = $value;
+    public function setPageCount(?int $value): void {
+        $this->getBackingStore()->set('pageCount', $value);
     }
 
     /**
      * Sets the singleSidedSheetCount property value. The singleSidedSheetCount property
      *  @param int|null $value Value to set for the singleSidedSheetCount property.
     */
-    public function setSingleSidedSheetCount(?int $value ): void {
-        $this->singleSidedSheetCount = $value;
+    public function setSingleSidedSheetCount(?int $value): void {
+        $this->getBackingStore()->set('singleSidedSheetCount', $value);
     }
 
     /**
      * Sets the usageDate property value. The usageDate property
      *  @param Date|null $value Value to set for the usageDate property.
     */
-    public function setUsageDate(?Date $value ): void {
-        $this->usageDate = $value;
+    public function setUsageDate(?Date $value): void {
+        $this->getBackingStore()->set('usageDate', $value);
     }
 
 }

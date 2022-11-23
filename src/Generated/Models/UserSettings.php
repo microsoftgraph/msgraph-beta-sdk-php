@@ -9,41 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserSettings extends Entity implements Parsable 
 {
     /**
-     * @var ContactMergeSuggestions|null $contactMergeSuggestions The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
-    */
-    private ?ContactMergeSuggestions $contactMergeSuggestions = null;
-    
-    /**
-     * @var bool|null $contributionToContentDiscoveryAsOrganizationDisabled Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
-    */
-    private ?bool $contributionToContentDiscoveryAsOrganizationDisabled = null;
-    
-    /**
-     * @var bool|null $contributionToContentDiscoveryDisabled When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
-    */
-    private ?bool $contributionToContentDiscoveryDisabled = null;
-    
-    /**
-     * @var UserInsightsSettings|null $itemInsights The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
-    */
-    private ?UserInsightsSettings $itemInsights = null;
-    
-    /**
-     * @var RegionalAndLanguageSettings|null $regionalAndLanguageSettings The user's preferences for languages, regional locale and date/time formatting.
-    */
-    private ?RegionalAndLanguageSettings $regionalAndLanguageSettings = null;
-    
-    /**
-     * @var ShiftPreferences|null $shiftPreferences The shift preferences for the user.
-    */
-    private ?ShiftPreferences $shiftPreferences = null;
-    
-    /**
      * Instantiates a new userSettings and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userSettings');
     }
 
     /**
@@ -60,7 +29,7 @@ class UserSettings extends Entity implements Parsable
      * @return ContactMergeSuggestions|null
     */
     public function getContactMergeSuggestions(): ?ContactMergeSuggestions {
-        return $this->contactMergeSuggestions;
+        return $this->getBackingStore()->get('contactMergeSuggestions');
     }
 
     /**
@@ -68,7 +37,7 @@ class UserSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getContributionToContentDiscoveryAsOrganizationDisabled(): ?bool {
-        return $this->contributionToContentDiscoveryAsOrganizationDisabled;
+        return $this->getBackingStore()->get('contributionToContentDiscoveryAsOrganizationDisabled');
     }
 
     /**
@@ -76,7 +45,7 @@ class UserSettings extends Entity implements Parsable
      * @return bool|null
     */
     public function getContributionToContentDiscoveryDisabled(): ?bool {
-        return $this->contributionToContentDiscoveryDisabled;
+        return $this->getBackingStore()->get('contributionToContentDiscoveryDisabled');
     }
 
     /**
@@ -100,7 +69,7 @@ class UserSettings extends Entity implements Parsable
      * @return UserInsightsSettings|null
     */
     public function getItemInsights(): ?UserInsightsSettings {
-        return $this->itemInsights;
+        return $this->getBackingStore()->get('itemInsights');
     }
 
     /**
@@ -108,7 +77,7 @@ class UserSettings extends Entity implements Parsable
      * @return RegionalAndLanguageSettings|null
     */
     public function getRegionalAndLanguageSettings(): ?RegionalAndLanguageSettings {
-        return $this->regionalAndLanguageSettings;
+        return $this->getBackingStore()->get('regionalAndLanguageSettings');
     }
 
     /**
@@ -116,7 +85,7 @@ class UserSettings extends Entity implements Parsable
      * @return ShiftPreferences|null
     */
     public function getShiftPreferences(): ?ShiftPreferences {
-        return $this->shiftPreferences;
+        return $this->getBackingStore()->get('shiftPreferences');
     }
 
     /**
@@ -125,60 +94,60 @@ class UserSettings extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('contactMergeSuggestions', $this->contactMergeSuggestions);
-        $writer->writeBooleanValue('contributionToContentDiscoveryAsOrganizationDisabled', $this->contributionToContentDiscoveryAsOrganizationDisabled);
-        $writer->writeBooleanValue('contributionToContentDiscoveryDisabled', $this->contributionToContentDiscoveryDisabled);
-        $writer->writeObjectValue('itemInsights', $this->itemInsights);
-        $writer->writeObjectValue('regionalAndLanguageSettings', $this->regionalAndLanguageSettings);
-        $writer->writeObjectValue('shiftPreferences', $this->shiftPreferences);
+        $writer->writeObjectValue('contactMergeSuggestions', $this->getContactMergeSuggestions());
+        $writer->writeBooleanValue('contributionToContentDiscoveryAsOrganizationDisabled', $this->getContributionToContentDiscoveryAsOrganizationDisabled());
+        $writer->writeBooleanValue('contributionToContentDiscoveryDisabled', $this->getContributionToContentDiscoveryDisabled());
+        $writer->writeObjectValue('itemInsights', $this->getItemInsights());
+        $writer->writeObjectValue('regionalAndLanguageSettings', $this->getRegionalAndLanguageSettings());
+        $writer->writeObjectValue('shiftPreferences', $this->getShiftPreferences());
     }
 
     /**
      * Sets the contactMergeSuggestions property value. The user's settings for the visibility of merge suggestion for the duplicate contacts in the user's contact list.
      *  @param ContactMergeSuggestions|null $value Value to set for the contactMergeSuggestions property.
     */
-    public function setContactMergeSuggestions(?ContactMergeSuggestions $value ): void {
-        $this->contactMergeSuggestions = $value;
+    public function setContactMergeSuggestions(?ContactMergeSuggestions $value): void {
+        $this->getBackingStore()->set('contactMergeSuggestions', $value);
     }
 
     /**
      * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
      *  @param bool|null $value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
     */
-    public function setContributionToContentDiscoveryAsOrganizationDisabled(?bool $value ): void {
-        $this->contributionToContentDiscoveryAsOrganizationDisabled = $value;
+    public function setContributionToContentDiscoveryAsOrganizationDisabled(?bool $value): void {
+        $this->getBackingStore()->set('contributionToContentDiscoveryAsOrganizationDisabled', $value);
     }
 
     /**
      * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
      *  @param bool|null $value Value to set for the contributionToContentDiscoveryDisabled property.
     */
-    public function setContributionToContentDiscoveryDisabled(?bool $value ): void {
-        $this->contributionToContentDiscoveryDisabled = $value;
+    public function setContributionToContentDiscoveryDisabled(?bool $value): void {
+        $this->getBackingStore()->set('contributionToContentDiscoveryDisabled', $value);
     }
 
     /**
      * Sets the itemInsights property value. The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.
      *  @param UserInsightsSettings|null $value Value to set for the itemInsights property.
     */
-    public function setItemInsights(?UserInsightsSettings $value ): void {
-        $this->itemInsights = $value;
+    public function setItemInsights(?UserInsightsSettings $value): void {
+        $this->getBackingStore()->set('itemInsights', $value);
     }
 
     /**
      * Sets the regionalAndLanguageSettings property value. The user's preferences for languages, regional locale and date/time formatting.
      *  @param RegionalAndLanguageSettings|null $value Value to set for the regionalAndLanguageSettings property.
     */
-    public function setRegionalAndLanguageSettings(?RegionalAndLanguageSettings $value ): void {
-        $this->regionalAndLanguageSettings = $value;
+    public function setRegionalAndLanguageSettings(?RegionalAndLanguageSettings $value): void {
+        $this->getBackingStore()->set('regionalAndLanguageSettings', $value);
     }
 
     /**
      * Sets the shiftPreferences property value. The shift preferences for the user.
      *  @param ShiftPreferences|null $value Value to set for the shiftPreferences property.
     */
-    public function setShiftPreferences(?ShiftPreferences $value ): void {
-        $this->shiftPreferences = $value;
+    public function setShiftPreferences(?ShiftPreferences $value): void {
+        $this->getBackingStore()->set('shiftPreferences', $value);
     }
 
 }

@@ -6,35 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable 
+class DelegatedAdminAccessContainer implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var string|null $accessContainerId The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of an Azure AD security group in the Microsoft partner's tenant.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private ?string $accessContainerId = null;
-    
-    /**
-     * @var DelegatedAdminAccessContainerType|null $accessContainerType The accessContainerType property
-    */
-    private ?DelegatedAdminAccessContainerType $accessContainerType = null;
-    
-    /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-    */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new delegatedAdminAccessContainer and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.delegatedAdminAccessContainer');
     }
 
     /**
@@ -51,7 +39,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAccessContainerId(): ?string {
-        return $this->accessContainerId;
+        return $this->getBackingStore()->get('accessContainerId');
     }
 
     /**
@@ -59,15 +47,23 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @return DelegatedAdminAccessContainerType|null
     */
     public function getAccessContainerType(): ?DelegatedAdminAccessContainerType {
-        return $this->accessContainerType;
+        return $this->getBackingStore()->get('accessContainerType');
     }
 
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -88,7 +84,7 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -96,42 +92,50 @@ class DelegatedAdminAccessContainer implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('accessContainerId', $this->accessContainerId);
-        $writer->writeEnumValue('accessContainerType', $this->accessContainerType);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('accessContainerId', $this->getAccessContainerId());
+        $writer->writeEnumValue('accessContainerType', $this->getAccessContainerType());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the accessContainerId property value. The identifier of the access container (for example, a security group). For 'securityGroup' access containers, this must be a valid ID of an Azure AD security group in the Microsoft partner's tenant.
      *  @param string|null $value Value to set for the accessContainerId property.
     */
-    public function setAccessContainerId(?string $value ): void {
-        $this->accessContainerId = $value;
+    public function setAccessContainerId(?string $value): void {
+        $this->getBackingStore()->set('accessContainerId', $value);
     }
 
     /**
      * Sets the accessContainerType property value. The accessContainerType property
      *  @param DelegatedAdminAccessContainerType|null $value Value to set for the accessContainerType property.
     */
-    public function setAccessContainerType(?DelegatedAdminAccessContainerType $value ): void {
-        $this->accessContainerType = $value;
+    public function setAccessContainerType(?DelegatedAdminAccessContainerType $value): void {
+        $this->getBackingStore()->set('accessContainerType', $value);
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

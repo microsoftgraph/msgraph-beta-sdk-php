@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DataSharingConsent extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $grantDateTime The time consent was granted for this account
-    */
-    private ?DateTime $grantDateTime = null;
-    
-    /**
-     * @var bool|null $granted The granted state for the data sharing consent
-    */
-    private ?bool $granted = null;
-    
-    /**
-     * @var string|null $grantedByUpn The Upn of the user that granted consent for this account
-    */
-    private ?string $grantedByUpn = null;
-    
-    /**
-     * @var string|null $grantedByUserId The UserId of the user that granted consent for this account
-    */
-    private ?string $grantedByUserId = null;
-    
-    /**
-     * @var string|null $serviceDisplayName The display name of the service work flow
-    */
-    private ?string $serviceDisplayName = null;
-    
-    /**
-     * @var string|null $termsUrl The TermsUrl for the data sharing consent
-    */
-    private ?string $termsUrl = null;
-    
-    /**
      * Instantiates a new dataSharingConsent and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.dataSharingConsent');
     }
 
     /**
@@ -77,7 +46,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getGrantDateTime(): ?DateTime {
-        return $this->grantDateTime;
+        return $this->getBackingStore()->get('grantDateTime');
     }
 
     /**
@@ -85,7 +54,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return bool|null
     */
     public function getGranted(): ?bool {
-        return $this->granted;
+        return $this->getBackingStore()->get('granted');
     }
 
     /**
@@ -93,7 +62,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getGrantedByUpn(): ?string {
-        return $this->grantedByUpn;
+        return $this->getBackingStore()->get('grantedByUpn');
     }
 
     /**
@@ -101,7 +70,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getGrantedByUserId(): ?string {
-        return $this->grantedByUserId;
+        return $this->getBackingStore()->get('grantedByUserId');
     }
 
     /**
@@ -109,7 +78,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceDisplayName(): ?string {
-        return $this->serviceDisplayName;
+        return $this->getBackingStore()->get('serviceDisplayName');
     }
 
     /**
@@ -117,7 +86,7 @@ class DataSharingConsent extends Entity implements Parsable
      * @return string|null
     */
     public function getTermsUrl(): ?string {
-        return $this->termsUrl;
+        return $this->getBackingStore()->get('termsUrl');
     }
 
     /**
@@ -126,60 +95,60 @@ class DataSharingConsent extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('grantDateTime', $this->grantDateTime);
-        $writer->writeBooleanValue('granted', $this->granted);
-        $writer->writeStringValue('grantedByUpn', $this->grantedByUpn);
-        $writer->writeStringValue('grantedByUserId', $this->grantedByUserId);
-        $writer->writeStringValue('serviceDisplayName', $this->serviceDisplayName);
-        $writer->writeStringValue('termsUrl', $this->termsUrl);
+        $writer->writeDateTimeValue('grantDateTime', $this->getGrantDateTime());
+        $writer->writeBooleanValue('granted', $this->getGranted());
+        $writer->writeStringValue('grantedByUpn', $this->getGrantedByUpn());
+        $writer->writeStringValue('grantedByUserId', $this->getGrantedByUserId());
+        $writer->writeStringValue('serviceDisplayName', $this->getServiceDisplayName());
+        $writer->writeStringValue('termsUrl', $this->getTermsUrl());
     }
 
     /**
      * Sets the grantDateTime property value. The time consent was granted for this account
      *  @param DateTime|null $value Value to set for the grantDateTime property.
     */
-    public function setGrantDateTime(?DateTime $value ): void {
-        $this->grantDateTime = $value;
+    public function setGrantDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('grantDateTime', $value);
     }
 
     /**
      * Sets the granted property value. The granted state for the data sharing consent
      *  @param bool|null $value Value to set for the granted property.
     */
-    public function setGranted(?bool $value ): void {
-        $this->granted = $value;
+    public function setGranted(?bool $value): void {
+        $this->getBackingStore()->set('granted', $value);
     }
 
     /**
      * Sets the grantedByUpn property value. The Upn of the user that granted consent for this account
      *  @param string|null $value Value to set for the grantedByUpn property.
     */
-    public function setGrantedByUpn(?string $value ): void {
-        $this->grantedByUpn = $value;
+    public function setGrantedByUpn(?string $value): void {
+        $this->getBackingStore()->set('grantedByUpn', $value);
     }
 
     /**
      * Sets the grantedByUserId property value. The UserId of the user that granted consent for this account
      *  @param string|null $value Value to set for the grantedByUserId property.
     */
-    public function setGrantedByUserId(?string $value ): void {
-        $this->grantedByUserId = $value;
+    public function setGrantedByUserId(?string $value): void {
+        $this->getBackingStore()->set('grantedByUserId', $value);
     }
 
     /**
      * Sets the serviceDisplayName property value. The display name of the service work flow
      *  @param string|null $value Value to set for the serviceDisplayName property.
     */
-    public function setServiceDisplayName(?string $value ): void {
-        $this->serviceDisplayName = $value;
+    public function setServiceDisplayName(?string $value): void {
+        $this->getBackingStore()->set('serviceDisplayName', $value);
     }
 
     /**
      * Sets the termsUrl property value. The TermsUrl for the data sharing consent
      *  @param string|null $value Value to set for the termsUrl property.
     */
-    public function setTermsUrl(?string $value ): void {
-        $this->termsUrl = $value;
+    public function setTermsUrl(?string $value): void {
+        $this->getBackingStore()->set('termsUrl', $value);
     }
 
 }

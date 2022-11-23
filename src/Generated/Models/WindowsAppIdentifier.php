@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsAppIdentifier extends MobileAppIdentifier implements Parsable 
 {
     /**
-     * @var string|null $windowsAppId The identifier for an app, as specified in the app store.
-    */
-    private ?string $windowsAppId = null;
-    
-    /**
      * Instantiates a new WindowsAppIdentifier and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class WindowsAppIdentifier extends MobileAppIdentifier implements Parsable
      * @return string|null
     */
     public function getWindowsAppId(): ?string {
-        return $this->windowsAppId;
+        return $this->getBackingStore()->get('windowsAppId');
     }
 
     /**
@@ -55,15 +50,15 @@ class WindowsAppIdentifier extends MobileAppIdentifier implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('windowsAppId', $this->windowsAppId);
+        $writer->writeStringValue('windowsAppId', $this->getWindowsAppId());
     }
 
     /**
      * Sets the windowsAppId property value. The identifier for an app, as specified in the app store.
      *  @param string|null $value Value to set for the windowsAppId property.
     */
-    public function setWindowsAppId(?string $value ): void {
-        $this->windowsAppId = $value;
+    public function setWindowsAppId(?string $value): void {
+        $this->getBackingStore()->set('windowsAppId', $value);
     }
 
 }

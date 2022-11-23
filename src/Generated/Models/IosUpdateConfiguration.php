@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Types\Time;
 class IosUpdateConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var Time|null $activeHoursEnd Active Hours End (active hours mean the time window when updates install should not happen)
-    */
-    private ?Time $activeHoursEnd = null;
-    
-    /**
-     * @var Time|null $activeHoursStart Active Hours Start (active hours mean the time window when updates install should not happen)
-    */
-    private ?Time $activeHoursStart = null;
-    
-    /**
-     * @var array<CustomUpdateTimeWindow>|null $customUpdateTimeWindows If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.
-    */
-    private ?array $customUpdateTimeWindows = null;
-    
-    /**
-     * @var string|null $desiredOsVersion If left unspecified, devices will update to the latest version of the OS.
-    */
-    private ?string $desiredOsVersion = null;
-    
-    /**
-     * @var int|null $enforcedSoftwareUpdateDelayInDays Days before software updates are visible to iOS devices ranging from 0 to 90 inclusive
-    */
-    private ?int $enforcedSoftwareUpdateDelayInDays = null;
-    
-    /**
-     * @var bool|null $isEnabled Is setting enabled in UI
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var array<DayOfWeek>|null $scheduledInstallDays Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
-    */
-    private ?array $scheduledInstallDays = null;
-    
-    /**
-     * @var IosSoftwareUpdateScheduleType|null $updateScheduleType Update schedule type for iOS software updates.
-    */
-    private ?IosSoftwareUpdateScheduleType $updateScheduleType = null;
-    
-    /**
-     * @var int|null $utcTimeOffsetInMinutes UTC Time Offset indicated in minutes
-    */
-    private ?int $utcTimeOffsetInMinutes = null;
-    
-    /**
      * Instantiates a new IosUpdateConfiguration and sets the default values.
     */
     public function __construct() {
@@ -76,7 +31,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getActiveHoursEnd(): ?Time {
-        return $this->activeHoursEnd;
+        return $this->getBackingStore()->get('activeHoursEnd');
     }
 
     /**
@@ -84,7 +39,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return Time|null
     */
     public function getActiveHoursStart(): ?Time {
-        return $this->activeHoursStart;
+        return $this->getBackingStore()->get('activeHoursStart');
     }
 
     /**
@@ -92,7 +47,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return array<CustomUpdateTimeWindow>|null
     */
     public function getCustomUpdateTimeWindows(): ?array {
-        return $this->customUpdateTimeWindows;
+        return $this->getBackingStore()->get('customUpdateTimeWindows');
     }
 
     /**
@@ -100,7 +55,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getDesiredOsVersion(): ?string {
-        return $this->desiredOsVersion;
+        return $this->getBackingStore()->get('desiredOsVersion');
     }
 
     /**
@@ -108,7 +63,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getEnforcedSoftwareUpdateDelayInDays(): ?int {
-        return $this->enforcedSoftwareUpdateDelayInDays;
+        return $this->getBackingStore()->get('enforcedSoftwareUpdateDelayInDays');
     }
 
     /**
@@ -135,7 +90,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -143,7 +98,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return array<DayOfWeek>|null
     */
     public function getScheduledInstallDays(): ?array {
-        return $this->scheduledInstallDays;
+        return $this->getBackingStore()->get('scheduledInstallDays');
     }
 
     /**
@@ -151,7 +106,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return IosSoftwareUpdateScheduleType|null
     */
     public function getUpdateScheduleType(): ?IosSoftwareUpdateScheduleType {
-        return $this->updateScheduleType;
+        return $this->getBackingStore()->get('updateScheduleType');
     }
 
     /**
@@ -159,7 +114,7 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
      * @return int|null
     */
     public function getUtcTimeOffsetInMinutes(): ?int {
-        return $this->utcTimeOffsetInMinutes;
+        return $this->getBackingStore()->get('utcTimeOffsetInMinutes');
     }
 
     /**
@@ -168,87 +123,87 @@ class IosUpdateConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeTimeValue('activeHoursEnd', $this->activeHoursEnd);
-        $writer->writeTimeValue('activeHoursStart', $this->activeHoursStart);
-        $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->customUpdateTimeWindows);
-        $writer->writeStringValue('desiredOsVersion', $this->desiredOsVersion);
-        $writer->writeIntegerValue('enforcedSoftwareUpdateDelayInDays', $this->enforcedSoftwareUpdateDelayInDays);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeCollectionOfEnumValues('scheduledInstallDays', $this->scheduledInstallDays);
-        $writer->writeEnumValue('updateScheduleType', $this->updateScheduleType);
-        $writer->writeIntegerValue('utcTimeOffsetInMinutes', $this->utcTimeOffsetInMinutes);
+        $writer->writeTimeValue('activeHoursEnd', $this->getActiveHoursEnd());
+        $writer->writeTimeValue('activeHoursStart', $this->getActiveHoursStart());
+        $writer->writeCollectionOfObjectValues('customUpdateTimeWindows', $this->getCustomUpdateTimeWindows());
+        $writer->writeStringValue('desiredOsVersion', $this->getDesiredOsVersion());
+        $writer->writeIntegerValue('enforcedSoftwareUpdateDelayInDays', $this->getEnforcedSoftwareUpdateDelayInDays());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeCollectionOfEnumValues('scheduledInstallDays', $this->getScheduledInstallDays());
+        $writer->writeEnumValue('updateScheduleType', $this->getUpdateScheduleType());
+        $writer->writeIntegerValue('utcTimeOffsetInMinutes', $this->getUtcTimeOffsetInMinutes());
     }
 
     /**
      * Sets the activeHoursEnd property value. Active Hours End (active hours mean the time window when updates install should not happen)
      *  @param Time|null $value Value to set for the activeHoursEnd property.
     */
-    public function setActiveHoursEnd(?Time $value ): void {
-        $this->activeHoursEnd = $value;
+    public function setActiveHoursEnd(?Time $value): void {
+        $this->getBackingStore()->set('activeHoursEnd', $value);
     }
 
     /**
      * Sets the activeHoursStart property value. Active Hours Start (active hours mean the time window when updates install should not happen)
      *  @param Time|null $value Value to set for the activeHoursStart property.
     */
-    public function setActiveHoursStart(?Time $value ): void {
-        $this->activeHoursStart = $value;
+    public function setActiveHoursStart(?Time $value): void {
+        $this->getBackingStore()->set('activeHoursStart', $value);
     }
 
     /**
      * Sets the customUpdateTimeWindows property value. If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.
      *  @param array<CustomUpdateTimeWindow>|null $value Value to set for the customUpdateTimeWindows property.
     */
-    public function setCustomUpdateTimeWindows(?array $value ): void {
-        $this->customUpdateTimeWindows = $value;
+    public function setCustomUpdateTimeWindows(?array $value): void {
+        $this->getBackingStore()->set('customUpdateTimeWindows', $value);
     }
 
     /**
      * Sets the desiredOsVersion property value. If left unspecified, devices will update to the latest version of the OS.
      *  @param string|null $value Value to set for the desiredOsVersion property.
     */
-    public function setDesiredOsVersion(?string $value ): void {
-        $this->desiredOsVersion = $value;
+    public function setDesiredOsVersion(?string $value): void {
+        $this->getBackingStore()->set('desiredOsVersion', $value);
     }
 
     /**
      * Sets the enforcedSoftwareUpdateDelayInDays property value. Days before software updates are visible to iOS devices ranging from 0 to 90 inclusive
      *  @param int|null $value Value to set for the enforcedSoftwareUpdateDelayInDays property.
     */
-    public function setEnforcedSoftwareUpdateDelayInDays(?int $value ): void {
-        $this->enforcedSoftwareUpdateDelayInDays = $value;
+    public function setEnforcedSoftwareUpdateDelayInDays(?int $value): void {
+        $this->getBackingStore()->set('enforcedSoftwareUpdateDelayInDays', $value);
     }
 
     /**
      * Sets the isEnabled property value. Is setting enabled in UI
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the scheduledInstallDays property value. Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
      *  @param array<DayOfWeek>|null $value Value to set for the scheduledInstallDays property.
     */
-    public function setScheduledInstallDays(?array $value ): void {
-        $this->scheduledInstallDays = $value;
+    public function setScheduledInstallDays(?array $value): void {
+        $this->getBackingStore()->set('scheduledInstallDays', $value);
     }
 
     /**
      * Sets the updateScheduleType property value. Update schedule type for iOS software updates.
      *  @param IosSoftwareUpdateScheduleType|null $value Value to set for the updateScheduleType property.
     */
-    public function setUpdateScheduleType(?IosSoftwareUpdateScheduleType $value ): void {
-        $this->updateScheduleType = $value;
+    public function setUpdateScheduleType(?IosSoftwareUpdateScheduleType $value): void {
+        $this->getBackingStore()->set('updateScheduleType', $value);
     }
 
     /**
      * Sets the utcTimeOffsetInMinutes property value. UTC Time Offset indicated in minutes
      *  @param int|null $value Value to set for the utcTimeOffsetInMinutes property.
     */
-    public function setUtcTimeOffsetInMinutes(?int $value ): void {
-        $this->utcTimeOffsetInMinutes = $value;
+    public function setUtcTimeOffsetInMinutes(?int $value): void {
+        $this->getBackingStore()->set('utcTimeOffsetInMinutes', $value);
     }
 
 }

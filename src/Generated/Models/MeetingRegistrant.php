@@ -10,36 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MeetingRegistrant extends MeetingRegistrantBase implements Parsable 
 {
     /**
-     * @var array<CustomQuestionAnswer>|null $customQuestionAnswers The registrant's answer to custom questions.
-    */
-    private ?array $customQuestionAnswers = null;
-    
-    /**
-     * @var string|null $email The email address of the registrant.
-    */
-    private ?string $email = null;
-    
-    /**
-     * @var string|null $firstName The first name of the registrant.
-    */
-    private ?string $firstName = null;
-    
-    /**
-     * @var string|null $lastName The last name of the registrant.
-    */
-    private ?string $lastName = null;
-    
-    /**
-     * @var DateTime|null $registrationDateTime Time in UTC when the registrant registers for the meeting. Read-only.
-    */
-    private ?DateTime $registrationDateTime = null;
-    
-    /**
-     * @var MeetingRegistrantStatus|null $status The registration status of the registrant. Read-only.
-    */
-    private ?MeetingRegistrantStatus $status = null;
-    
-    /**
      * Instantiates a new MeetingRegistrant and sets the default values.
     */
     public function __construct() {
@@ -61,7 +31,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return array<CustomQuestionAnswer>|null
     */
     public function getCustomQuestionAnswers(): ?array {
-        return $this->customQuestionAnswers;
+        return $this->getBackingStore()->get('customQuestionAnswers');
     }
 
     /**
@@ -69,7 +39,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return string|null
     */
     public function getEmail(): ?string {
-        return $this->email;
+        return $this->getBackingStore()->get('email');
     }
 
     /**
@@ -93,7 +63,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return string|null
     */
     public function getFirstName(): ?string {
-        return $this->firstName;
+        return $this->getBackingStore()->get('firstName');
     }
 
     /**
@@ -101,7 +71,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return string|null
     */
     public function getLastName(): ?string {
-        return $this->lastName;
+        return $this->getBackingStore()->get('lastName');
     }
 
     /**
@@ -109,7 +79,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return DateTime|null
     */
     public function getRegistrationDateTime(): ?DateTime {
-        return $this->registrationDateTime;
+        return $this->getBackingStore()->get('registrationDateTime');
     }
 
     /**
@@ -117,7 +87,7 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
      * @return MeetingRegistrantStatus|null
     */
     public function getStatus(): ?MeetingRegistrantStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -126,60 +96,60 @@ class MeetingRegistrant extends MeetingRegistrantBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('customQuestionAnswers', $this->customQuestionAnswers);
-        $writer->writeStringValue('email', $this->email);
-        $writer->writeStringValue('firstName', $this->firstName);
-        $writer->writeStringValue('lastName', $this->lastName);
-        $writer->writeDateTimeValue('registrationDateTime', $this->registrationDateTime);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeCollectionOfObjectValues('customQuestionAnswers', $this->getCustomQuestionAnswers());
+        $writer->writeStringValue('email', $this->getEmail());
+        $writer->writeStringValue('firstName', $this->getFirstName());
+        $writer->writeStringValue('lastName', $this->getLastName());
+        $writer->writeDateTimeValue('registrationDateTime', $this->getRegistrationDateTime());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the customQuestionAnswers property value. The registrant's answer to custom questions.
      *  @param array<CustomQuestionAnswer>|null $value Value to set for the customQuestionAnswers property.
     */
-    public function setCustomQuestionAnswers(?array $value ): void {
-        $this->customQuestionAnswers = $value;
+    public function setCustomQuestionAnswers(?array $value): void {
+        $this->getBackingStore()->set('customQuestionAnswers', $value);
     }
 
     /**
      * Sets the email property value. The email address of the registrant.
      *  @param string|null $value Value to set for the email property.
     */
-    public function setEmail(?string $value ): void {
-        $this->email = $value;
+    public function setEmail(?string $value): void {
+        $this->getBackingStore()->set('email', $value);
     }
 
     /**
      * Sets the firstName property value. The first name of the registrant.
      *  @param string|null $value Value to set for the firstName property.
     */
-    public function setFirstName(?string $value ): void {
-        $this->firstName = $value;
+    public function setFirstName(?string $value): void {
+        $this->getBackingStore()->set('firstName', $value);
     }
 
     /**
      * Sets the lastName property value. The last name of the registrant.
      *  @param string|null $value Value to set for the lastName property.
     */
-    public function setLastName(?string $value ): void {
-        $this->lastName = $value;
+    public function setLastName(?string $value): void {
+        $this->getBackingStore()->set('lastName', $value);
     }
 
     /**
      * Sets the registrationDateTime property value. Time in UTC when the registrant registers for the meeting. Read-only.
      *  @param DateTime|null $value Value to set for the registrationDateTime property.
     */
-    public function setRegistrationDateTime(?DateTime $value ): void {
-        $this->registrationDateTime = $value;
+    public function setRegistrationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('registrationDateTime', $value);
     }
 
     /**
      * Sets the status property value. The registration status of the registrant. Read-only.
      *  @param MeetingRegistrantStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?MeetingRegistrantStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?MeetingRegistrantStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

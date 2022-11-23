@@ -10,51 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ImportedDeviceIdentity extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime Created Date Time of the device
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description The description of the device
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var EnrollmentState|null $enrollmentState The enrollmentState property
-    */
-    private ?EnrollmentState $enrollmentState = null;
-    
-    /**
-     * @var string|null $importedDeviceIdentifier Imported Device Identifier
-    */
-    private ?string $importedDeviceIdentifier = null;
-    
-    /**
-     * @var ImportedDeviceIdentityType|null $importedDeviceIdentityType The importedDeviceIdentityType property
-    */
-    private ?ImportedDeviceIdentityType $importedDeviceIdentityType = null;
-    
-    /**
-     * @var DateTime|null $lastContactedDateTime Last Contacted Date Time of the device
-    */
-    private ?DateTime $lastContactedDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime Last Modified DateTime of the description
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var Platform|null $platform The platform property
-    */
-    private ?Platform $platform = null;
-    
-    /**
      * Instantiates a new importedDeviceIdentity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.importedDeviceIdentity');
     }
 
     /**
@@ -78,7 +37,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -86,7 +45,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -94,7 +53,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return EnrollmentState|null
     */
     public function getEnrollmentState(): ?EnrollmentState {
-        return $this->enrollmentState;
+        return $this->getBackingStore()->get('enrollmentState');
     }
 
     /**
@@ -120,7 +79,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return string|null
     */
     public function getImportedDeviceIdentifier(): ?string {
-        return $this->importedDeviceIdentifier;
+        return $this->getBackingStore()->get('importedDeviceIdentifier');
     }
 
     /**
@@ -128,7 +87,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return ImportedDeviceIdentityType|null
     */
     public function getImportedDeviceIdentityType(): ?ImportedDeviceIdentityType {
-        return $this->importedDeviceIdentityType;
+        return $this->getBackingStore()->get('importedDeviceIdentityType');
     }
 
     /**
@@ -136,7 +95,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastContactedDateTime(): ?DateTime {
-        return $this->lastContactedDateTime;
+        return $this->getBackingStore()->get('lastContactedDateTime');
     }
 
     /**
@@ -144,7 +103,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -152,7 +111,7 @@ class ImportedDeviceIdentity extends Entity implements Parsable
      * @return Platform|null
     */
     public function getPlatform(): ?Platform {
-        return $this->platform;
+        return $this->getBackingStore()->get('platform');
     }
 
     /**
@@ -161,78 +120,78 @@ class ImportedDeviceIdentity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeEnumValue('enrollmentState', $this->enrollmentState);
-        $writer->writeStringValue('importedDeviceIdentifier', $this->importedDeviceIdentifier);
-        $writer->writeEnumValue('importedDeviceIdentityType', $this->importedDeviceIdentityType);
-        $writer->writeDateTimeValue('lastContactedDateTime', $this->lastContactedDateTime);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('platform', $this->platform);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeEnumValue('enrollmentState', $this->getEnrollmentState());
+        $writer->writeStringValue('importedDeviceIdentifier', $this->getImportedDeviceIdentifier());
+        $writer->writeEnumValue('importedDeviceIdentityType', $this->getImportedDeviceIdentityType());
+        $writer->writeDateTimeValue('lastContactedDateTime', $this->getLastContactedDateTime());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('platform', $this->getPlatform());
     }
 
     /**
      * Sets the createdDateTime property value. Created Date Time of the device
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. The description of the device
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the enrollmentState property value. The enrollmentState property
      *  @param EnrollmentState|null $value Value to set for the enrollmentState property.
     */
-    public function setEnrollmentState(?EnrollmentState $value ): void {
-        $this->enrollmentState = $value;
+    public function setEnrollmentState(?EnrollmentState $value): void {
+        $this->getBackingStore()->set('enrollmentState', $value);
     }
 
     /**
      * Sets the importedDeviceIdentifier property value. Imported Device Identifier
      *  @param string|null $value Value to set for the importedDeviceIdentifier property.
     */
-    public function setImportedDeviceIdentifier(?string $value ): void {
-        $this->importedDeviceIdentifier = $value;
+    public function setImportedDeviceIdentifier(?string $value): void {
+        $this->getBackingStore()->set('importedDeviceIdentifier', $value);
     }
 
     /**
      * Sets the importedDeviceIdentityType property value. The importedDeviceIdentityType property
      *  @param ImportedDeviceIdentityType|null $value Value to set for the importedDeviceIdentityType property.
     */
-    public function setImportedDeviceIdentityType(?ImportedDeviceIdentityType $value ): void {
-        $this->importedDeviceIdentityType = $value;
+    public function setImportedDeviceIdentityType(?ImportedDeviceIdentityType $value): void {
+        $this->getBackingStore()->set('importedDeviceIdentityType', $value);
     }
 
     /**
      * Sets the lastContactedDateTime property value. Last Contacted Date Time of the device
      *  @param DateTime|null $value Value to set for the lastContactedDateTime property.
     */
-    public function setLastContactedDateTime(?DateTime $value ): void {
-        $this->lastContactedDateTime = $value;
+    public function setLastContactedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastContactedDateTime', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. Last Modified DateTime of the description
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the platform property value. The platform property
      *  @param Platform|null $value Value to set for the platform property.
     */
-    public function setPlatform(?Platform $value ): void {
-        $this->platform = $value;
+    public function setPlatform(?Platform $value): void {
+        $this->getBackingStore()->set('platform', $value);
     }
 
 }

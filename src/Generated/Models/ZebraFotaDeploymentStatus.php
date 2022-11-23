@@ -7,95 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable 
+class ZebraFotaDeploymentStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $cancelRequested A boolean that indicates if a cancellation was requested on the deployment. NOTE: A cancellation request does not guarantee that the deployment was canceled.
-    */
-    private ?bool $cancelRequested = null;
-    
-    /**
-     * @var DateTime|null $completeOrCanceledDateTime The date and time when this deployment was completed or canceled. The actual date time is determined by the value of state. If the state is canceled, this property holds the cancellation date/time. If the the state is completed, this property holds the completion date/time. If the deployment is not completed before the deployment end date, then completed date/time and end date/time are the same. This is always in the deployment timezone. Note: An installation that is in progress can continue past the deployment end date.
-    */
-    private ?DateTime $completeOrCanceledDateTime = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Date and time when the deployment status was updated from Zebra
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var ZebraFotaDeploymentState|null $state Represents the state of Zebra FOTA deployment.
-    */
-    private ?ZebraFotaDeploymentState $state = null;
-    
-    /**
-     * @var int|null $totalAwaitingInstall An integer that indicates the total number of devices where installation was successful.
-    */
-    private ?int $totalAwaitingInstall = null;
-    
-    /**
-     * @var int|null $totalCanceled An integer that indicates the total number of devices where installation was canceled.
-    */
-    private ?int $totalCanceled = null;
-    
-    /**
-     * @var int|null $totalCreated An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices.
-    */
-    private ?int $totalCreated = null;
-    
-    /**
-     * @var int|null $totalDevices An integer that indicates the total number of devices in the deployment.
-    */
-    private ?int $totalDevices = null;
-    
-    /**
-     * @var int|null $totalDownloading An integer that indicates the total number of devices where installation was successful.
-    */
-    private ?int $totalDownloading = null;
-    
-    /**
-     * @var int|null $totalFailedDownload An integer that indicates the total number of devices that have failed to download the new OS file.
-    */
-    private ?int $totalFailedDownload = null;
-    
-    /**
-     * @var int|null $totalFailedInstall An integer that indicates the total number of devices that have failed to install the new OS file.
-    */
-    private ?int $totalFailedInstall = null;
-    
-    /**
-     * @var int|null $totalScheduled An integer that indicates the total number of devices that received the json and are scheduled.
-    */
-    private ?int $totalScheduled = null;
-    
-    /**
-     * @var int|null $totalSucceededInstall An integer that indicates the total number of devices where installation was successful.
-    */
-    private ?int $totalSucceededInstall = null;
-    
-    /**
-     * @var int|null $totalUnknown An integer that indicates the total number of devices where no deployment status or end state has not received, even after the scheduled end date was reached.
-    */
-    private ?int $totalUnknown = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new zebraFotaDeploymentStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.zebraFotaDeploymentStatus');
     }
 
     /**
@@ -111,8 +39,16 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -120,7 +56,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getCancelRequested(): ?bool {
-        return $this->cancelRequested;
+        return $this->getBackingStore()->get('cancelRequested');
     }
 
     /**
@@ -128,7 +64,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getCompleteOrCanceledDateTime(): ?DateTime {
-        return $this->completeOrCanceledDateTime;
+        return $this->getBackingStore()->get('completeOrCanceledDateTime');
     }
 
     /**
@@ -161,7 +97,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -169,7 +105,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -177,7 +113,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return ZebraFotaDeploymentState|null
     */
     public function getState(): ?ZebraFotaDeploymentState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -185,7 +121,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalAwaitingInstall(): ?int {
-        return $this->totalAwaitingInstall;
+        return $this->getBackingStore()->get('totalAwaitingInstall');
     }
 
     /**
@@ -193,7 +129,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalCanceled(): ?int {
-        return $this->totalCanceled;
+        return $this->getBackingStore()->get('totalCanceled');
     }
 
     /**
@@ -201,7 +137,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalCreated(): ?int {
-        return $this->totalCreated;
+        return $this->getBackingStore()->get('totalCreated');
     }
 
     /**
@@ -209,7 +145,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalDevices(): ?int {
-        return $this->totalDevices;
+        return $this->getBackingStore()->get('totalDevices');
     }
 
     /**
@@ -217,7 +153,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalDownloading(): ?int {
-        return $this->totalDownloading;
+        return $this->getBackingStore()->get('totalDownloading');
     }
 
     /**
@@ -225,7 +161,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalFailedDownload(): ?int {
-        return $this->totalFailedDownload;
+        return $this->getBackingStore()->get('totalFailedDownload');
     }
 
     /**
@@ -233,7 +169,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalFailedInstall(): ?int {
-        return $this->totalFailedInstall;
+        return $this->getBackingStore()->get('totalFailedInstall');
     }
 
     /**
@@ -241,7 +177,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalScheduled(): ?int {
-        return $this->totalScheduled;
+        return $this->getBackingStore()->get('totalScheduled');
     }
 
     /**
@@ -249,7 +185,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalSucceededInstall(): ?int {
-        return $this->totalSucceededInstall;
+        return $this->getBackingStore()->get('totalSucceededInstall');
     }
 
     /**
@@ -257,7 +193,7 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @return int|null
     */
     public function getTotalUnknown(): ?int {
-        return $this->totalUnknown;
+        return $this->getBackingStore()->get('totalUnknown');
     }
 
     /**
@@ -265,150 +201,158 @@ class ZebraFotaDeploymentStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('cancelRequested', $this->cancelRequested);
-        $writer->writeDateTimeValue('completeOrCanceledDateTime', $this->completeOrCanceledDateTime);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeIntegerValue('totalAwaitingInstall', $this->totalAwaitingInstall);
-        $writer->writeIntegerValue('totalCanceled', $this->totalCanceled);
-        $writer->writeIntegerValue('totalCreated', $this->totalCreated);
-        $writer->writeIntegerValue('totalDevices', $this->totalDevices);
-        $writer->writeIntegerValue('totalDownloading', $this->totalDownloading);
-        $writer->writeIntegerValue('totalFailedDownload', $this->totalFailedDownload);
-        $writer->writeIntegerValue('totalFailedInstall', $this->totalFailedInstall);
-        $writer->writeIntegerValue('totalScheduled', $this->totalScheduled);
-        $writer->writeIntegerValue('totalSucceededInstall', $this->totalSucceededInstall);
-        $writer->writeIntegerValue('totalUnknown', $this->totalUnknown);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('cancelRequested', $this->getCancelRequested());
+        $writer->writeDateTimeValue('completeOrCanceledDateTime', $this->getCompleteOrCanceledDateTime());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeIntegerValue('totalAwaitingInstall', $this->getTotalAwaitingInstall());
+        $writer->writeIntegerValue('totalCanceled', $this->getTotalCanceled());
+        $writer->writeIntegerValue('totalCreated', $this->getTotalCreated());
+        $writer->writeIntegerValue('totalDevices', $this->getTotalDevices());
+        $writer->writeIntegerValue('totalDownloading', $this->getTotalDownloading());
+        $writer->writeIntegerValue('totalFailedDownload', $this->getTotalFailedDownload());
+        $writer->writeIntegerValue('totalFailedInstall', $this->getTotalFailedInstall());
+        $writer->writeIntegerValue('totalScheduled', $this->getTotalScheduled());
+        $writer->writeIntegerValue('totalSucceededInstall', $this->getTotalSucceededInstall());
+        $writer->writeIntegerValue('totalUnknown', $this->getTotalUnknown());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the cancelRequested property value. A boolean that indicates if a cancellation was requested on the deployment. NOTE: A cancellation request does not guarantee that the deployment was canceled.
      *  @param bool|null $value Value to set for the cancelRequested property.
     */
-    public function setCancelRequested(?bool $value ): void {
-        $this->cancelRequested = $value;
+    public function setCancelRequested(?bool $value): void {
+        $this->getBackingStore()->set('cancelRequested', $value);
     }
 
     /**
      * Sets the completeOrCanceledDateTime property value. The date and time when this deployment was completed or canceled. The actual date time is determined by the value of state. If the state is canceled, this property holds the cancellation date/time. If the the state is completed, this property holds the completion date/time. If the deployment is not completed before the deployment end date, then completed date/time and end date/time are the same. This is always in the deployment timezone. Note: An installation that is in progress can continue past the deployment end date.
      *  @param DateTime|null $value Value to set for the completeOrCanceledDateTime property.
     */
-    public function setCompleteOrCanceledDateTime(?DateTime $value ): void {
-        $this->completeOrCanceledDateTime = $value;
+    public function setCompleteOrCanceledDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('completeOrCanceledDateTime', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Date and time when the deployment status was updated from Zebra
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the state property value. Represents the state of Zebra FOTA deployment.
      *  @param ZebraFotaDeploymentState|null $value Value to set for the state property.
     */
-    public function setState(?ZebraFotaDeploymentState $value ): void {
-        $this->state = $value;
+    public function setState(?ZebraFotaDeploymentState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the totalAwaitingInstall property value. An integer that indicates the total number of devices where installation was successful.
      *  @param int|null $value Value to set for the totalAwaitingInstall property.
     */
-    public function setTotalAwaitingInstall(?int $value ): void {
-        $this->totalAwaitingInstall = $value;
+    public function setTotalAwaitingInstall(?int $value): void {
+        $this->getBackingStore()->set('totalAwaitingInstall', $value);
     }
 
     /**
      * Sets the totalCanceled property value. An integer that indicates the total number of devices where installation was canceled.
      *  @param int|null $value Value to set for the totalCanceled property.
     */
-    public function setTotalCanceled(?int $value ): void {
-        $this->totalCanceled = $value;
+    public function setTotalCanceled(?int $value): void {
+        $this->getBackingStore()->set('totalCanceled', $value);
     }
 
     /**
      * Sets the totalCreated property value. An integer that indicates the total number of devices that have a job in the CREATED state. Typically indicates jobs that did not reach the devices.
      *  @param int|null $value Value to set for the totalCreated property.
     */
-    public function setTotalCreated(?int $value ): void {
-        $this->totalCreated = $value;
+    public function setTotalCreated(?int $value): void {
+        $this->getBackingStore()->set('totalCreated', $value);
     }
 
     /**
      * Sets the totalDevices property value. An integer that indicates the total number of devices in the deployment.
      *  @param int|null $value Value to set for the totalDevices property.
     */
-    public function setTotalDevices(?int $value ): void {
-        $this->totalDevices = $value;
+    public function setTotalDevices(?int $value): void {
+        $this->getBackingStore()->set('totalDevices', $value);
     }
 
     /**
      * Sets the totalDownloading property value. An integer that indicates the total number of devices where installation was successful.
      *  @param int|null $value Value to set for the totalDownloading property.
     */
-    public function setTotalDownloading(?int $value ): void {
-        $this->totalDownloading = $value;
+    public function setTotalDownloading(?int $value): void {
+        $this->getBackingStore()->set('totalDownloading', $value);
     }
 
     /**
      * Sets the totalFailedDownload property value. An integer that indicates the total number of devices that have failed to download the new OS file.
      *  @param int|null $value Value to set for the totalFailedDownload property.
     */
-    public function setTotalFailedDownload(?int $value ): void {
-        $this->totalFailedDownload = $value;
+    public function setTotalFailedDownload(?int $value): void {
+        $this->getBackingStore()->set('totalFailedDownload', $value);
     }
 
     /**
      * Sets the totalFailedInstall property value. An integer that indicates the total number of devices that have failed to install the new OS file.
      *  @param int|null $value Value to set for the totalFailedInstall property.
     */
-    public function setTotalFailedInstall(?int $value ): void {
-        $this->totalFailedInstall = $value;
+    public function setTotalFailedInstall(?int $value): void {
+        $this->getBackingStore()->set('totalFailedInstall', $value);
     }
 
     /**
      * Sets the totalScheduled property value. An integer that indicates the total number of devices that received the json and are scheduled.
      *  @param int|null $value Value to set for the totalScheduled property.
     */
-    public function setTotalScheduled(?int $value ): void {
-        $this->totalScheduled = $value;
+    public function setTotalScheduled(?int $value): void {
+        $this->getBackingStore()->set('totalScheduled', $value);
     }
 
     /**
      * Sets the totalSucceededInstall property value. An integer that indicates the total number of devices where installation was successful.
      *  @param int|null $value Value to set for the totalSucceededInstall property.
     */
-    public function setTotalSucceededInstall(?int $value ): void {
-        $this->totalSucceededInstall = $value;
+    public function setTotalSucceededInstall(?int $value): void {
+        $this->getBackingStore()->set('totalSucceededInstall', $value);
     }
 
     /**
      * Sets the totalUnknown property value. An integer that indicates the total number of devices where no deployment status or end state has not received, even after the scheduled end date was reached.
      *  @param int|null $value Value to set for the totalUnknown property.
     */
-    public function setTotalUnknown(?int $value ): void {
-        $this->totalUnknown = $value;
+    public function setTotalUnknown(?int $value): void {
+        $this->getBackingStore()->set('totalUnknown', $value);
     }
 
 }

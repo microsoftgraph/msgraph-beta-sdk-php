@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OfficeGraphInsights extends Entity implements Parsable 
 {
     /**
-     * @var array<SharedInsight>|null $shared Access this property from the derived type itemInsights.
-    */
-    private ?array $shared = null;
-    
-    /**
-     * @var array<Trending>|null $trending Access this property from the derived type itemInsights.
-    */
-    private ?array $trending = null;
-    
-    /**
-     * @var array<UsedInsight>|null $used Access this property from the derived type itemInsights.
-    */
-    private ?array $used = null;
-    
-    /**
      * Instantiates a new officeGraphInsights and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.officeGraphInsights');
     }
 
     /**
@@ -65,7 +49,7 @@ class OfficeGraphInsights extends Entity implements Parsable
      * @return array<SharedInsight>|null
     */
     public function getShared(): ?array {
-        return $this->shared;
+        return $this->getBackingStore()->get('shared');
     }
 
     /**
@@ -73,7 +57,7 @@ class OfficeGraphInsights extends Entity implements Parsable
      * @return array<Trending>|null
     */
     public function getTrending(): ?array {
-        return $this->trending;
+        return $this->getBackingStore()->get('trending');
     }
 
     /**
@@ -81,7 +65,7 @@ class OfficeGraphInsights extends Entity implements Parsable
      * @return array<UsedInsight>|null
     */
     public function getUsed(): ?array {
-        return $this->used;
+        return $this->getBackingStore()->get('used');
     }
 
     /**
@@ -90,33 +74,33 @@ class OfficeGraphInsights extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('shared', $this->shared);
-        $writer->writeCollectionOfObjectValues('trending', $this->trending);
-        $writer->writeCollectionOfObjectValues('used', $this->used);
+        $writer->writeCollectionOfObjectValues('shared', $this->getShared());
+        $writer->writeCollectionOfObjectValues('trending', $this->getTrending());
+        $writer->writeCollectionOfObjectValues('used', $this->getUsed());
     }
 
     /**
      * Sets the shared property value. Access this property from the derived type itemInsights.
      *  @param array<SharedInsight>|null $value Value to set for the shared property.
     */
-    public function setShared(?array $value ): void {
-        $this->shared = $value;
+    public function setShared(?array $value): void {
+        $this->getBackingStore()->set('shared', $value);
     }
 
     /**
      * Sets the trending property value. Access this property from the derived type itemInsights.
      *  @param array<Trending>|null $value Value to set for the trending property.
     */
-    public function setTrending(?array $value ): void {
-        $this->trending = $value;
+    public function setTrending(?array $value): void {
+        $this->getBackingStore()->set('trending', $value);
     }
 
     /**
      * Sets the used property value. Access this property from the derived type itemInsights.
      *  @param array<UsedInsight>|null $value Value to set for the used property.
     */
-    public function setUsed(?array $value ): void {
-        $this->used = $value;
+    public function setUsed(?array $value): void {
+        $this->getBackingStore()->set('used', $value);
     }
 
 }

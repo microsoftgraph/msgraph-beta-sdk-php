@@ -9,111 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable 
 {
     /**
-     * @var DeviceThreatProtectionLevel|null $advancedThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
-    */
-    private ?DeviceThreatProtectionLevel $advancedThreatProtectionRequiredSecurityLevel = null;
-    
-    /**
-     * @var bool|null $deviceThreatProtectionEnabled Require that devices have enabled device threat protection.
-    */
-    private ?bool $deviceThreatProtectionEnabled = null;
-    
-    /**
-     * @var DeviceThreatProtectionLevel|null $deviceThreatProtectionRequiredSecurityLevel Device threat protection levels for the Device Threat Protection API.
-    */
-    private ?DeviceThreatProtectionLevel $deviceThreatProtectionRequiredSecurityLevel = null;
-    
-    /**
-     * @var bool|null $firewallBlockAllIncoming Corresponds to the 'Block all incoming connections' option.
-    */
-    private ?bool $firewallBlockAllIncoming = null;
-    
-    /**
-     * @var bool|null $firewallEnabled Whether the firewall should be enabled or not.
-    */
-    private ?bool $firewallEnabled = null;
-    
-    /**
-     * @var bool|null $firewallEnableStealthMode Corresponds to 'Enable stealth mode.'
-    */
-    private ?bool $firewallEnableStealthMode = null;
-    
-    /**
-     * @var MacOSGatekeeperAppSources|null $gatekeeperAllowedAppSource App source options for macOS Gatekeeper.
-    */
-    private ?MacOSGatekeeperAppSources $gatekeeperAllowedAppSource = null;
-    
-    /**
-     * @var string|null $osMaximumBuildVersion Maximum MacOS build version.
-    */
-    private ?string $osMaximumBuildVersion = null;
-    
-    /**
-     * @var string|null $osMaximumVersion Maximum MacOS version.
-    */
-    private ?string $osMaximumVersion = null;
-    
-    /**
-     * @var string|null $osMinimumBuildVersion Minimum MacOS build version.
-    */
-    private ?string $osMinimumBuildVersion = null;
-    
-    /**
-     * @var string|null $osMinimumVersion Minimum MacOS version.
-    */
-    private ?string $osMinimumVersion = null;
-    
-    /**
-     * @var bool|null $passwordBlockSimple Indicates whether or not to block simple passwords.
-    */
-    private ?bool $passwordBlockSimple = null;
-    
-    /**
-     * @var int|null $passwordExpirationDays Number of days before the password expires. Valid values 1 to 65535
-    */
-    private ?int $passwordExpirationDays = null;
-    
-    /**
-     * @var int|null $passwordMinimumCharacterSetCount The number of character sets required in the password.
-    */
-    private ?int $passwordMinimumCharacterSetCount = null;
-    
-    /**
-     * @var int|null $passwordMinimumLength Minimum length of password. Valid values 4 to 14
-    */
-    private ?int $passwordMinimumLength = null;
-    
-    /**
-     * @var int|null $passwordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
-    */
-    private ?int $passwordMinutesOfInactivityBeforeLock = null;
-    
-    /**
-     * @var int|null $passwordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
-    */
-    private ?int $passwordPreviousPasswordBlockCount = null;
-    
-    /**
-     * @var bool|null $passwordRequired Whether or not to require a password.
-    */
-    private ?bool $passwordRequired = null;
-    
-    /**
-     * @var RequiredPasswordType|null $passwordRequiredType Possible values of required passwords.
-    */
-    private ?RequiredPasswordType $passwordRequiredType = null;
-    
-    /**
-     * @var bool|null $storageRequireEncryption Require encryption on Mac OS devices.
-    */
-    private ?bool $storageRequireEncryption = null;
-    
-    /**
-     * @var bool|null $systemIntegrityProtectionEnabled Require that devices have enabled system integrity protection.
-    */
-    private ?bool $systemIntegrityProtectionEnabled = null;
-    
-    /**
      * Instantiates a new MacOSCompliancePolicy and sets the default values.
     */
     public function __construct() {
@@ -135,7 +30,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getAdvancedThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->advancedThreatProtectionRequiredSecurityLevel;
+        return $this->getBackingStore()->get('advancedThreatProtectionRequiredSecurityLevel');
     }
 
     /**
@@ -143,7 +38,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getDeviceThreatProtectionEnabled(): ?bool {
-        return $this->deviceThreatProtectionEnabled;
+        return $this->getBackingStore()->get('deviceThreatProtectionEnabled');
     }
 
     /**
@@ -151,7 +46,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return DeviceThreatProtectionLevel|null
     */
     public function getDeviceThreatProtectionRequiredSecurityLevel(): ?DeviceThreatProtectionLevel {
-        return $this->deviceThreatProtectionRequiredSecurityLevel;
+        return $this->getBackingStore()->get('deviceThreatProtectionRequiredSecurityLevel');
     }
 
     /**
@@ -190,7 +85,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallBlockAllIncoming(): ?bool {
-        return $this->firewallBlockAllIncoming;
+        return $this->getBackingStore()->get('firewallBlockAllIncoming');
     }
 
     /**
@@ -198,7 +93,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallEnabled(): ?bool {
-        return $this->firewallEnabled;
+        return $this->getBackingStore()->get('firewallEnabled');
     }
 
     /**
@@ -206,7 +101,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getFirewallEnableStealthMode(): ?bool {
-        return $this->firewallEnableStealthMode;
+        return $this->getBackingStore()->get('firewallEnableStealthMode');
     }
 
     /**
@@ -214,7 +109,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return MacOSGatekeeperAppSources|null
     */
     public function getGatekeeperAllowedAppSource(): ?MacOSGatekeeperAppSources {
-        return $this->gatekeeperAllowedAppSource;
+        return $this->getBackingStore()->get('gatekeeperAllowedAppSource');
     }
 
     /**
@@ -222,7 +117,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumBuildVersion(): ?string {
-        return $this->osMaximumBuildVersion;
+        return $this->getBackingStore()->get('osMaximumBuildVersion');
     }
 
     /**
@@ -230,7 +125,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMaximumVersion(): ?string {
-        return $this->osMaximumVersion;
+        return $this->getBackingStore()->get('osMaximumVersion');
     }
 
     /**
@@ -238,7 +133,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumBuildVersion(): ?string {
-        return $this->osMinimumBuildVersion;
+        return $this->getBackingStore()->get('osMinimumBuildVersion');
     }
 
     /**
@@ -246,7 +141,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return string|null
     */
     public function getOsMinimumVersion(): ?string {
-        return $this->osMinimumVersion;
+        return $this->getBackingStore()->get('osMinimumVersion');
     }
 
     /**
@@ -254,7 +149,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasswordBlockSimple(): ?bool {
-        return $this->passwordBlockSimple;
+        return $this->getBackingStore()->get('passwordBlockSimple');
     }
 
     /**
@@ -262,7 +157,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordExpirationDays(): ?int {
-        return $this->passwordExpirationDays;
+        return $this->getBackingStore()->get('passwordExpirationDays');
     }
 
     /**
@@ -270,7 +165,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinimumCharacterSetCount(): ?int {
-        return $this->passwordMinimumCharacterSetCount;
+        return $this->getBackingStore()->get('passwordMinimumCharacterSetCount');
     }
 
     /**
@@ -278,7 +173,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinimumLength(): ?int {
-        return $this->passwordMinimumLength;
+        return $this->getBackingStore()->get('passwordMinimumLength');
     }
 
     /**
@@ -286,7 +181,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordMinutesOfInactivityBeforeLock(): ?int {
-        return $this->passwordMinutesOfInactivityBeforeLock;
+        return $this->getBackingStore()->get('passwordMinutesOfInactivityBeforeLock');
     }
 
     /**
@@ -294,7 +189,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return int|null
     */
     public function getPasswordPreviousPasswordBlockCount(): ?int {
-        return $this->passwordPreviousPasswordBlockCount;
+        return $this->getBackingStore()->get('passwordPreviousPasswordBlockCount');
     }
 
     /**
@@ -302,7 +197,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getPasswordRequired(): ?bool {
-        return $this->passwordRequired;
+        return $this->getBackingStore()->get('passwordRequired');
     }
 
     /**
@@ -310,7 +205,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return RequiredPasswordType|null
     */
     public function getPasswordRequiredType(): ?RequiredPasswordType {
-        return $this->passwordRequiredType;
+        return $this->getBackingStore()->get('passwordRequiredType');
     }
 
     /**
@@ -318,7 +213,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getStorageRequireEncryption(): ?bool {
-        return $this->storageRequireEncryption;
+        return $this->getBackingStore()->get('storageRequireEncryption');
     }
 
     /**
@@ -326,7 +221,7 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
      * @return bool|null
     */
     public function getSystemIntegrityProtectionEnabled(): ?bool {
-        return $this->systemIntegrityProtectionEnabled;
+        return $this->getBackingStore()->get('systemIntegrityProtectionEnabled');
     }
 
     /**
@@ -335,195 +230,195 @@ class MacOSCompliancePolicy extends DeviceCompliancePolicy implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('advancedThreatProtectionRequiredSecurityLevel', $this->advancedThreatProtectionRequiredSecurityLevel);
-        $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->deviceThreatProtectionEnabled);
-        $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->deviceThreatProtectionRequiredSecurityLevel);
-        $writer->writeBooleanValue('firewallBlockAllIncoming', $this->firewallBlockAllIncoming);
-        $writer->writeBooleanValue('firewallEnabled', $this->firewallEnabled);
-        $writer->writeBooleanValue('firewallEnableStealthMode', $this->firewallEnableStealthMode);
-        $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->gatekeeperAllowedAppSource);
-        $writer->writeStringValue('osMaximumBuildVersion', $this->osMaximumBuildVersion);
-        $writer->writeStringValue('osMaximumVersion', $this->osMaximumVersion);
-        $writer->writeStringValue('osMinimumBuildVersion', $this->osMinimumBuildVersion);
-        $writer->writeStringValue('osMinimumVersion', $this->osMinimumVersion);
-        $writer->writeBooleanValue('passwordBlockSimple', $this->passwordBlockSimple);
-        $writer->writeIntegerValue('passwordExpirationDays', $this->passwordExpirationDays);
-        $writer->writeIntegerValue('passwordMinimumCharacterSetCount', $this->passwordMinimumCharacterSetCount);
-        $writer->writeIntegerValue('passwordMinimumLength', $this->passwordMinimumLength);
-        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeLock', $this->passwordMinutesOfInactivityBeforeLock);
-        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->passwordPreviousPasswordBlockCount);
-        $writer->writeBooleanValue('passwordRequired', $this->passwordRequired);
-        $writer->writeEnumValue('passwordRequiredType', $this->passwordRequiredType);
-        $writer->writeBooleanValue('storageRequireEncryption', $this->storageRequireEncryption);
-        $writer->writeBooleanValue('systemIntegrityProtectionEnabled', $this->systemIntegrityProtectionEnabled);
+        $writer->writeEnumValue('advancedThreatProtectionRequiredSecurityLevel', $this->getAdvancedThreatProtectionRequiredSecurityLevel());
+        $writer->writeBooleanValue('deviceThreatProtectionEnabled', $this->getDeviceThreatProtectionEnabled());
+        $writer->writeEnumValue('deviceThreatProtectionRequiredSecurityLevel', $this->getDeviceThreatProtectionRequiredSecurityLevel());
+        $writer->writeBooleanValue('firewallBlockAllIncoming', $this->getFirewallBlockAllIncoming());
+        $writer->writeBooleanValue('firewallEnabled', $this->getFirewallEnabled());
+        $writer->writeBooleanValue('firewallEnableStealthMode', $this->getFirewallEnableStealthMode());
+        $writer->writeEnumValue('gatekeeperAllowedAppSource', $this->getGatekeeperAllowedAppSource());
+        $writer->writeStringValue('osMaximumBuildVersion', $this->getOsMaximumBuildVersion());
+        $writer->writeStringValue('osMaximumVersion', $this->getOsMaximumVersion());
+        $writer->writeStringValue('osMinimumBuildVersion', $this->getOsMinimumBuildVersion());
+        $writer->writeStringValue('osMinimumVersion', $this->getOsMinimumVersion());
+        $writer->writeBooleanValue('passwordBlockSimple', $this->getPasswordBlockSimple());
+        $writer->writeIntegerValue('passwordExpirationDays', $this->getPasswordExpirationDays());
+        $writer->writeIntegerValue('passwordMinimumCharacterSetCount', $this->getPasswordMinimumCharacterSetCount());
+        $writer->writeIntegerValue('passwordMinimumLength', $this->getPasswordMinimumLength());
+        $writer->writeIntegerValue('passwordMinutesOfInactivityBeforeLock', $this->getPasswordMinutesOfInactivityBeforeLock());
+        $writer->writeIntegerValue('passwordPreviousPasswordBlockCount', $this->getPasswordPreviousPasswordBlockCount());
+        $writer->writeBooleanValue('passwordRequired', $this->getPasswordRequired());
+        $writer->writeEnumValue('passwordRequiredType', $this->getPasswordRequiredType());
+        $writer->writeBooleanValue('storageRequireEncryption', $this->getStorageRequireEncryption());
+        $writer->writeBooleanValue('systemIntegrityProtectionEnabled', $this->getSystemIntegrityProtectionEnabled());
     }
 
     /**
      * Sets the advancedThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the advancedThreatProtectionRequiredSecurityLevel property.
     */
-    public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
-        $this->advancedThreatProtectionRequiredSecurityLevel = $value;
+    public function setAdvancedThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+        $this->getBackingStore()->set('advancedThreatProtectionRequiredSecurityLevel', $value);
     }
 
     /**
      * Sets the deviceThreatProtectionEnabled property value. Require that devices have enabled device threat protection.
      *  @param bool|null $value Value to set for the deviceThreatProtectionEnabled property.
     */
-    public function setDeviceThreatProtectionEnabled(?bool $value ): void {
-        $this->deviceThreatProtectionEnabled = $value;
+    public function setDeviceThreatProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('deviceThreatProtectionEnabled', $value);
     }
 
     /**
      * Sets the deviceThreatProtectionRequiredSecurityLevel property value. Device threat protection levels for the Device Threat Protection API.
      *  @param DeviceThreatProtectionLevel|null $value Value to set for the deviceThreatProtectionRequiredSecurityLevel property.
     */
-    public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value ): void {
-        $this->deviceThreatProtectionRequiredSecurityLevel = $value;
+    public function setDeviceThreatProtectionRequiredSecurityLevel(?DeviceThreatProtectionLevel $value): void {
+        $this->getBackingStore()->set('deviceThreatProtectionRequiredSecurityLevel', $value);
     }
 
     /**
      * Sets the firewallBlockAllIncoming property value. Corresponds to the 'Block all incoming connections' option.
      *  @param bool|null $value Value to set for the firewallBlockAllIncoming property.
     */
-    public function setFirewallBlockAllIncoming(?bool $value ): void {
-        $this->firewallBlockAllIncoming = $value;
+    public function setFirewallBlockAllIncoming(?bool $value): void {
+        $this->getBackingStore()->set('firewallBlockAllIncoming', $value);
     }
 
     /**
      * Sets the firewallEnabled property value. Whether the firewall should be enabled or not.
      *  @param bool|null $value Value to set for the firewallEnabled property.
     */
-    public function setFirewallEnabled(?bool $value ): void {
-        $this->firewallEnabled = $value;
+    public function setFirewallEnabled(?bool $value): void {
+        $this->getBackingStore()->set('firewallEnabled', $value);
     }
 
     /**
      * Sets the firewallEnableStealthMode property value. Corresponds to 'Enable stealth mode.'
      *  @param bool|null $value Value to set for the firewallEnableStealthMode property.
     */
-    public function setFirewallEnableStealthMode(?bool $value ): void {
-        $this->firewallEnableStealthMode = $value;
+    public function setFirewallEnableStealthMode(?bool $value): void {
+        $this->getBackingStore()->set('firewallEnableStealthMode', $value);
     }
 
     /**
      * Sets the gatekeeperAllowedAppSource property value. App source options for macOS Gatekeeper.
      *  @param MacOSGatekeeperAppSources|null $value Value to set for the gatekeeperAllowedAppSource property.
     */
-    public function setGatekeeperAllowedAppSource(?MacOSGatekeeperAppSources $value ): void {
-        $this->gatekeeperAllowedAppSource = $value;
+    public function setGatekeeperAllowedAppSource(?MacOSGatekeeperAppSources $value): void {
+        $this->getBackingStore()->set('gatekeeperAllowedAppSource', $value);
     }
 
     /**
      * Sets the osMaximumBuildVersion property value. Maximum MacOS build version.
      *  @param string|null $value Value to set for the osMaximumBuildVersion property.
     */
-    public function setOsMaximumBuildVersion(?string $value ): void {
-        $this->osMaximumBuildVersion = $value;
+    public function setOsMaximumBuildVersion(?string $value): void {
+        $this->getBackingStore()->set('osMaximumBuildVersion', $value);
     }
 
     /**
      * Sets the osMaximumVersion property value. Maximum MacOS version.
      *  @param string|null $value Value to set for the osMaximumVersion property.
     */
-    public function setOsMaximumVersion(?string $value ): void {
-        $this->osMaximumVersion = $value;
+    public function setOsMaximumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMaximumVersion', $value);
     }
 
     /**
      * Sets the osMinimumBuildVersion property value. Minimum MacOS build version.
      *  @param string|null $value Value to set for the osMinimumBuildVersion property.
     */
-    public function setOsMinimumBuildVersion(?string $value ): void {
-        $this->osMinimumBuildVersion = $value;
+    public function setOsMinimumBuildVersion(?string $value): void {
+        $this->getBackingStore()->set('osMinimumBuildVersion', $value);
     }
 
     /**
      * Sets the osMinimumVersion property value. Minimum MacOS version.
      *  @param string|null $value Value to set for the osMinimumVersion property.
     */
-    public function setOsMinimumVersion(?string $value ): void {
-        $this->osMinimumVersion = $value;
+    public function setOsMinimumVersion(?string $value): void {
+        $this->getBackingStore()->set('osMinimumVersion', $value);
     }
 
     /**
      * Sets the passwordBlockSimple property value. Indicates whether or not to block simple passwords.
      *  @param bool|null $value Value to set for the passwordBlockSimple property.
     */
-    public function setPasswordBlockSimple(?bool $value ): void {
-        $this->passwordBlockSimple = $value;
+    public function setPasswordBlockSimple(?bool $value): void {
+        $this->getBackingStore()->set('passwordBlockSimple', $value);
     }
 
     /**
      * Sets the passwordExpirationDays property value. Number of days before the password expires. Valid values 1 to 65535
      *  @param int|null $value Value to set for the passwordExpirationDays property.
     */
-    public function setPasswordExpirationDays(?int $value ): void {
-        $this->passwordExpirationDays = $value;
+    public function setPasswordExpirationDays(?int $value): void {
+        $this->getBackingStore()->set('passwordExpirationDays', $value);
     }
 
     /**
      * Sets the passwordMinimumCharacterSetCount property value. The number of character sets required in the password.
      *  @param int|null $value Value to set for the passwordMinimumCharacterSetCount property.
     */
-    public function setPasswordMinimumCharacterSetCount(?int $value ): void {
-        $this->passwordMinimumCharacterSetCount = $value;
+    public function setPasswordMinimumCharacterSetCount(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumCharacterSetCount', $value);
     }
 
     /**
      * Sets the passwordMinimumLength property value. Minimum length of password. Valid values 4 to 14
      *  @param int|null $value Value to set for the passwordMinimumLength property.
     */
-    public function setPasswordMinimumLength(?int $value ): void {
-        $this->passwordMinimumLength = $value;
+    public function setPasswordMinimumLength(?int $value): void {
+        $this->getBackingStore()->set('passwordMinimumLength', $value);
     }
 
     /**
      * Sets the passwordMinutesOfInactivityBeforeLock property value. Minutes of inactivity before a password is required.
      *  @param int|null $value Value to set for the passwordMinutesOfInactivityBeforeLock property.
     */
-    public function setPasswordMinutesOfInactivityBeforeLock(?int $value ): void {
-        $this->passwordMinutesOfInactivityBeforeLock = $value;
+    public function setPasswordMinutesOfInactivityBeforeLock(?int $value): void {
+        $this->getBackingStore()->set('passwordMinutesOfInactivityBeforeLock', $value);
     }
 
     /**
      * Sets the passwordPreviousPasswordBlockCount property value. Number of previous passwords to block. Valid values 1 to 24
      *  @param int|null $value Value to set for the passwordPreviousPasswordBlockCount property.
     */
-    public function setPasswordPreviousPasswordBlockCount(?int $value ): void {
-        $this->passwordPreviousPasswordBlockCount = $value;
+    public function setPasswordPreviousPasswordBlockCount(?int $value): void {
+        $this->getBackingStore()->set('passwordPreviousPasswordBlockCount', $value);
     }
 
     /**
      * Sets the passwordRequired property value. Whether or not to require a password.
      *  @param bool|null $value Value to set for the passwordRequired property.
     */
-    public function setPasswordRequired(?bool $value ): void {
-        $this->passwordRequired = $value;
+    public function setPasswordRequired(?bool $value): void {
+        $this->getBackingStore()->set('passwordRequired', $value);
     }
 
     /**
      * Sets the passwordRequiredType property value. Possible values of required passwords.
      *  @param RequiredPasswordType|null $value Value to set for the passwordRequiredType property.
     */
-    public function setPasswordRequiredType(?RequiredPasswordType $value ): void {
-        $this->passwordRequiredType = $value;
+    public function setPasswordRequiredType(?RequiredPasswordType $value): void {
+        $this->getBackingStore()->set('passwordRequiredType', $value);
     }
 
     /**
      * Sets the storageRequireEncryption property value. Require encryption on Mac OS devices.
      *  @param bool|null $value Value to set for the storageRequireEncryption property.
     */
-    public function setStorageRequireEncryption(?bool $value ): void {
-        $this->storageRequireEncryption = $value;
+    public function setStorageRequireEncryption(?bool $value): void {
+        $this->getBackingStore()->set('storageRequireEncryption', $value);
     }
 
     /**
      * Sets the systemIntegrityProtectionEnabled property value. Require that devices have enabled system integrity protection.
      *  @param bool|null $value Value to set for the systemIntegrityProtectionEnabled property.
     */
-    public function setSystemIntegrityProtectionEnabled(?bool $value ): void {
-        $this->systemIntegrityProtectionEnabled = $value;
+    public function setSystemIntegrityProtectionEnabled(?bool $value): void {
+        $this->getBackingStore()->set('systemIntegrityProtectionEnabled', $value);
     }
 
 }

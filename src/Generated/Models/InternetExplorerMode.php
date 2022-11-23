@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InternetExplorerMode extends Entity implements Parsable 
 {
     /**
-     * @var array<BrowserSiteList>|null $siteLists A collection of site lists to support Internet Explorer mode.
-    */
-    private ?array $siteLists = null;
-    
-    /**
      * Instantiates a new internetExplorerMode and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.internetExplorerMode');
     }
 
     /**
@@ -46,7 +40,7 @@ class InternetExplorerMode extends Entity implements Parsable
      * @return array<BrowserSiteList>|null
     */
     public function getSiteLists(): ?array {
-        return $this->siteLists;
+        return $this->getBackingStore()->get('siteLists');
     }
 
     /**
@@ -55,15 +49,15 @@ class InternetExplorerMode extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('siteLists', $this->siteLists);
+        $writer->writeCollectionOfObjectValues('siteLists', $this->getSiteLists());
     }
 
     /**
      * Sets the siteLists property value. A collection of site lists to support Internet Explorer mode.
      *  @param array<BrowserSiteList>|null $value Value to set for the siteLists property.
     */
-    public function setSiteLists(?array $value ): void {
-        $this->siteLists = $value;
+    public function setSiteLists(?array $value): void {
+        $this->getBackingStore()->set('siteLists', $value);
     }
 
 }

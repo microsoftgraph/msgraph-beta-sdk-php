@@ -9,56 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable 
 {
     /**
-     * @var float|null $appReliabilityScore The user experience analytics device app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $appReliabilityScore = null;
-    
-    /**
-     * @var float|null $batteryHealthScore The user experience analytics device battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $batteryHealthScore = null;
-    
-    /**
-     * @var string|null $deviceName The user experience analytics device name.
-    */
-    private ?string $deviceName = null;
-    
-    /**
-     * @var float|null $endpointAnalyticsScore The user experience analytics device score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $endpointAnalyticsScore = null;
-    
-    /**
-     * @var UserExperienceAnalyticsHealthState|null $healthStatus The healthStatus property
-    */
-    private ?UserExperienceAnalyticsHealthState $healthStatus = null;
-    
-    /**
-     * @var string|null $manufacturer The user experience analytics device manufacturer.
-    */
-    private ?string $manufacturer = null;
-    
-    /**
-     * @var string|null $model The user experience analytics device model.
-    */
-    private ?string $model = null;
-    
-    /**
-     * @var float|null $startupPerformanceScore The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $startupPerformanceScore = null;
-    
-    /**
-     * @var float|null $workFromAnywhereScore The user experience analytics device work From anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
-    */
-    private ?float $workFromAnywhereScore = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsDeviceScores and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsDeviceScores');
     }
 
     /**
@@ -75,7 +29,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return float|null
     */
     public function getAppReliabilityScore(): ?float {
-        return $this->appReliabilityScore;
+        return $this->getBackingStore()->get('appReliabilityScore');
     }
 
     /**
@@ -83,7 +37,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return float|null
     */
     public function getBatteryHealthScore(): ?float {
-        return $this->batteryHealthScore;
+        return $this->getBackingStore()->get('batteryHealthScore');
     }
 
     /**
@@ -91,7 +45,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceName(): ?string {
-        return $this->deviceName;
+        return $this->getBackingStore()->get('deviceName');
     }
 
     /**
@@ -99,7 +53,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return float|null
     */
     public function getEndpointAnalyticsScore(): ?float {
-        return $this->endpointAnalyticsScore;
+        return $this->getBackingStore()->get('endpointAnalyticsScore');
     }
 
     /**
@@ -126,7 +80,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return UserExperienceAnalyticsHealthState|null
     */
     public function getHealthStatus(): ?UserExperienceAnalyticsHealthState {
-        return $this->healthStatus;
+        return $this->getBackingStore()->get('healthStatus');
     }
 
     /**
@@ -134,7 +88,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return string|null
     */
     public function getManufacturer(): ?string {
-        return $this->manufacturer;
+        return $this->getBackingStore()->get('manufacturer');
     }
 
     /**
@@ -142,7 +96,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return string|null
     */
     public function getModel(): ?string {
-        return $this->model;
+        return $this->getBackingStore()->get('model');
     }
 
     /**
@@ -150,7 +104,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return float|null
     */
     public function getStartupPerformanceScore(): ?float {
-        return $this->startupPerformanceScore;
+        return $this->getBackingStore()->get('startupPerformanceScore');
     }
 
     /**
@@ -158,7 +112,7 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
      * @return float|null
     */
     public function getWorkFromAnywhereScore(): ?float {
-        return $this->workFromAnywhereScore;
+        return $this->getBackingStore()->get('workFromAnywhereScore');
     }
 
     /**
@@ -167,87 +121,87 @@ class UserExperienceAnalyticsDeviceScores extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('appReliabilityScore', $this->appReliabilityScore);
-        $writer->writeFloatValue('batteryHealthScore', $this->batteryHealthScore);
-        $writer->writeStringValue('deviceName', $this->deviceName);
-        $writer->writeFloatValue('endpointAnalyticsScore', $this->endpointAnalyticsScore);
-        $writer->writeEnumValue('healthStatus', $this->healthStatus);
-        $writer->writeStringValue('manufacturer', $this->manufacturer);
-        $writer->writeStringValue('model', $this->model);
-        $writer->writeFloatValue('startupPerformanceScore', $this->startupPerformanceScore);
-        $writer->writeFloatValue('workFromAnywhereScore', $this->workFromAnywhereScore);
+        $writer->writeFloatValue('appReliabilityScore', $this->getAppReliabilityScore());
+        $writer->writeFloatValue('batteryHealthScore', $this->getBatteryHealthScore());
+        $writer->writeStringValue('deviceName', $this->getDeviceName());
+        $writer->writeFloatValue('endpointAnalyticsScore', $this->getEndpointAnalyticsScore());
+        $writer->writeEnumValue('healthStatus', $this->getHealthStatus());
+        $writer->writeStringValue('manufacturer', $this->getManufacturer());
+        $writer->writeStringValue('model', $this->getModel());
+        $writer->writeFloatValue('startupPerformanceScore', $this->getStartupPerformanceScore());
+        $writer->writeFloatValue('workFromAnywhereScore', $this->getWorkFromAnywhereScore());
     }
 
     /**
      * Sets the appReliabilityScore property value. The user experience analytics device app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the appReliabilityScore property.
     */
-    public function setAppReliabilityScore(?float $value ): void {
-        $this->appReliabilityScore = $value;
+    public function setAppReliabilityScore(?float $value): void {
+        $this->getBackingStore()->set('appReliabilityScore', $value);
     }
 
     /**
      * Sets the batteryHealthScore property value. The user experience analytics device battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the batteryHealthScore property.
     */
-    public function setBatteryHealthScore(?float $value ): void {
-        $this->batteryHealthScore = $value;
+    public function setBatteryHealthScore(?float $value): void {
+        $this->getBackingStore()->set('batteryHealthScore', $value);
     }
 
     /**
      * Sets the deviceName property value. The user experience analytics device name.
      *  @param string|null $value Value to set for the deviceName property.
     */
-    public function setDeviceName(?string $value ): void {
-        $this->deviceName = $value;
+    public function setDeviceName(?string $value): void {
+        $this->getBackingStore()->set('deviceName', $value);
     }
 
     /**
      * Sets the endpointAnalyticsScore property value. The user experience analytics device score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the endpointAnalyticsScore property.
     */
-    public function setEndpointAnalyticsScore(?float $value ): void {
-        $this->endpointAnalyticsScore = $value;
+    public function setEndpointAnalyticsScore(?float $value): void {
+        $this->getBackingStore()->set('endpointAnalyticsScore', $value);
     }
 
     /**
      * Sets the healthStatus property value. The healthStatus property
      *  @param UserExperienceAnalyticsHealthState|null $value Value to set for the healthStatus property.
     */
-    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value ): void {
-        $this->healthStatus = $value;
+    public function setHealthStatus(?UserExperienceAnalyticsHealthState $value): void {
+        $this->getBackingStore()->set('healthStatus', $value);
     }
 
     /**
      * Sets the manufacturer property value. The user experience analytics device manufacturer.
      *  @param string|null $value Value to set for the manufacturer property.
     */
-    public function setManufacturer(?string $value ): void {
-        $this->manufacturer = $value;
+    public function setManufacturer(?string $value): void {
+        $this->getBackingStore()->set('manufacturer', $value);
     }
 
     /**
      * Sets the model property value. The user experience analytics device model.
      *  @param string|null $value Value to set for the model property.
     */
-    public function setModel(?string $value ): void {
-        $this->model = $value;
+    public function setModel(?string $value): void {
+        $this->getBackingStore()->set('model', $value);
     }
 
     /**
      * Sets the startupPerformanceScore property value. The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the startupPerformanceScore property.
     */
-    public function setStartupPerformanceScore(?float $value ): void {
-        $this->startupPerformanceScore = $value;
+    public function setStartupPerformanceScore(?float $value): void {
+        $this->getBackingStore()->set('startupPerformanceScore', $value);
     }
 
     /**
      * Sets the workFromAnywhereScore property value. The user experience analytics device work From anywhere score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
      *  @param float|null $value Value to set for the workFromAnywhereScore property.
     */
-    public function setWorkFromAnywhereScore(?float $value ): void {
-        $this->workFromAnywhereScore = $value;
+    public function setWorkFromAnywhereScore(?float $value): void {
+        $this->getBackingStore()->set('workFromAnywhereScore', $value);
     }
 
 }

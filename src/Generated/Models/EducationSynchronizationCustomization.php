@@ -7,45 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EducationSynchronizationCustomization implements AdditionalDataHolder, Parsable 
+class EducationSynchronizationCustomization implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var bool|null $allowDisplayNameUpdate Indicates whether the display name of the resource can be overwritten by the sync.
-    */
-    private ?bool $allowDisplayNameUpdate = null;
-    
-    /**
-     * @var bool|null $isSyncDeferred Indicates whether synchronization of the parent entity is deferred to a later date.
-    */
-    private ?bool $isSyncDeferred = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var array<string>|null $optionalPropertiesToSync The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
-    */
-    private ?array $optionalPropertiesToSync = null;
-    
-    /**
-     * @var DateTime|null $synchronizationStartDate The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
-    */
-    private ?DateTime $synchronizationStartDate = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new educationSynchronizationCustomization and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.educationSynchronizationCustomization');
     }
 
     /**
@@ -61,8 +39,8 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -70,7 +48,15 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getAllowDisplayNameUpdate(): ?bool {
-        return $this->allowDisplayNameUpdate;
+        return $this->getBackingStore()->get('allowDisplayNameUpdate');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -93,7 +79,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @return bool|null
     */
     public function getIsSyncDeferred(): ?bool {
-        return $this->isSyncDeferred;
+        return $this->getBackingStore()->get('isSyncDeferred');
     }
 
     /**
@@ -101,7 +87,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -109,7 +95,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @return array<string>|null
     */
     public function getOptionalPropertiesToSync(): ?array {
-        return $this->optionalPropertiesToSync;
+        return $this->getBackingStore()->get('optionalPropertiesToSync');
     }
 
     /**
@@ -117,7 +103,7 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @return DateTime|null
     */
     public function getSynchronizationStartDate(): ?DateTime {
-        return $this->synchronizationStartDate;
+        return $this->getBackingStore()->get('synchronizationStartDate');
     }
 
     /**
@@ -125,60 +111,68 @@ class EducationSynchronizationCustomization implements AdditionalDataHolder, Par
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeBooleanValue('allowDisplayNameUpdate', $this->allowDisplayNameUpdate);
-        $writer->writeBooleanValue('isSyncDeferred', $this->isSyncDeferred);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeCollectionOfPrimitiveValues('optionalPropertiesToSync', $this->optionalPropertiesToSync);
-        $writer->writeDateTimeValue('synchronizationStartDate', $this->synchronizationStartDate);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeBooleanValue('allowDisplayNameUpdate', $this->getAllowDisplayNameUpdate());
+        $writer->writeBooleanValue('isSyncDeferred', $this->getIsSyncDeferred());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeCollectionOfPrimitiveValues('optionalPropertiesToSync', $this->getOptionalPropertiesToSync());
+        $writer->writeDateTimeValue('synchronizationStartDate', $this->getSynchronizationStartDate());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the allowDisplayNameUpdate property value. Indicates whether the display name of the resource can be overwritten by the sync.
      *  @param bool|null $value Value to set for the allowDisplayNameUpdate property.
     */
-    public function setAllowDisplayNameUpdate(?bool $value ): void {
-        $this->allowDisplayNameUpdate = $value;
+    public function setAllowDisplayNameUpdate(?bool $value): void {
+        $this->getBackingStore()->set('allowDisplayNameUpdate', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the isSyncDeferred property value. Indicates whether synchronization of the parent entity is deferred to a later date.
      *  @param bool|null $value Value to set for the isSyncDeferred property.
     */
-    public function setIsSyncDeferred(?bool $value ): void {
-        $this->isSyncDeferred = $value;
+    public function setIsSyncDeferred(?bool $value): void {
+        $this->getBackingStore()->set('isSyncDeferred', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the optionalPropertiesToSync property value. The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
      *  @param array<string>|null $value Value to set for the optionalPropertiesToSync property.
     */
-    public function setOptionalPropertiesToSync(?array $value ): void {
-        $this->optionalPropertiesToSync = $value;
+    public function setOptionalPropertiesToSync(?array $value): void {
+        $this->getBackingStore()->set('optionalPropertiesToSync', $value);
     }
 
     /**
      * Sets the synchronizationStartDate property value. The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
      *  @param DateTime|null $value Value to set for the synchronizationStartDate property.
     */
-    public function setSynchronizationStartDate(?DateTime $value ): void {
-        $this->synchronizationStartDate = $value;
+    public function setSynchronizationStartDate(?DateTime $value): void {
+        $this->getBackingStore()->set('synchronizationStartDate', $value);
     }
 
 }

@@ -10,31 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class GroupPolicyOperation extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $lastModifiedDateTime The date and time the entity was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var GroupPolicyOperationStatus|null $operationStatus Type of Group Policy operation status.
-    */
-    private ?GroupPolicyOperationStatus $operationStatus = null;
-    
-    /**
-     * @var GroupPolicyOperationType|null $operationType Type of Group Policy operation.
-    */
-    private ?GroupPolicyOperationType $operationType = null;
-    
-    /**
-     * @var string|null $statusDetails The group policy operation status detail.
-    */
-    private ?string $statusDetails = null;
-    
-    /**
      * Instantiates a new groupPolicyOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.groupPolicyOperation');
     }
 
     /**
@@ -65,7 +44,7 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -73,7 +52,7 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @return GroupPolicyOperationStatus|null
     */
     public function getOperationStatus(): ?GroupPolicyOperationStatus {
-        return $this->operationStatus;
+        return $this->getBackingStore()->get('operationStatus');
     }
 
     /**
@@ -81,7 +60,7 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @return GroupPolicyOperationType|null
     */
     public function getOperationType(): ?GroupPolicyOperationType {
-        return $this->operationType;
+        return $this->getBackingStore()->get('operationType');
     }
 
     /**
@@ -89,7 +68,7 @@ class GroupPolicyOperation extends Entity implements Parsable
      * @return string|null
     */
     public function getStatusDetails(): ?string {
-        return $this->statusDetails;
+        return $this->getBackingStore()->get('statusDetails');
     }
 
     /**
@@ -98,42 +77,42 @@ class GroupPolicyOperation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('operationStatus', $this->operationStatus);
-        $writer->writeEnumValue('operationType', $this->operationType);
-        $writer->writeStringValue('statusDetails', $this->statusDetails);
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('operationStatus', $this->getOperationStatus());
+        $writer->writeEnumValue('operationType', $this->getOperationType());
+        $writer->writeStringValue('statusDetails', $this->getStatusDetails());
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time the entity was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the operationStatus property value. Type of Group Policy operation status.
      *  @param GroupPolicyOperationStatus|null $value Value to set for the operationStatus property.
     */
-    public function setOperationStatus(?GroupPolicyOperationStatus $value ): void {
-        $this->operationStatus = $value;
+    public function setOperationStatus(?GroupPolicyOperationStatus $value): void {
+        $this->getBackingStore()->set('operationStatus', $value);
     }
 
     /**
      * Sets the operationType property value. Type of Group Policy operation.
      *  @param GroupPolicyOperationType|null $value Value to set for the operationType property.
     */
-    public function setOperationType(?GroupPolicyOperationType $value ): void {
-        $this->operationType = $value;
+    public function setOperationType(?GroupPolicyOperationType $value): void {
+        $this->getBackingStore()->set('operationType', $value);
     }
 
     /**
      * Sets the statusDetails property value. The group policy operation status detail.
      *  @param string|null $value Value to set for the statusDetails property.
     */
-    public function setStatusDetails(?string $value ): void {
-        $this->statusDetails = $value;
+    public function setStatusDetails(?string $value): void {
+        $this->getBackingStore()->set('statusDetails', $value);
     }
 
 }

@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends DeviceManagementConfigurationSimpleSettingDefinition implements Parsable 
 {
     /**
-     * @var int|null $maximumCount Maximum number of simple settings in the collection. Valid values 1 to 100
-    */
-    private ?int $maximumCount = null;
-    
-    /**
-     * @var int|null $minimumCount Minimum number of simple settings in the collection. Valid values 1 to 100
-    */
-    private ?int $minimumCount = null;
-    
-    /**
      * Instantiates a new DeviceManagementConfigurationSimpleSettingCollectionDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition');
     }
 
     /**
@@ -52,7 +41,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
      * @return int|null
     */
     public function getMaximumCount(): ?int {
-        return $this->maximumCount;
+        return $this->getBackingStore()->get('maximumCount');
     }
 
     /**
@@ -60,7 +49,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
      * @return int|null
     */
     public function getMinimumCount(): ?int {
-        return $this->minimumCount;
+        return $this->getBackingStore()->get('minimumCount');
     }
 
     /**
@@ -69,24 +58,24 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeIntegerValue('maximumCount', $this->maximumCount);
-        $writer->writeIntegerValue('minimumCount', $this->minimumCount);
+        $writer->writeIntegerValue('maximumCount', $this->getMaximumCount());
+        $writer->writeIntegerValue('minimumCount', $this->getMinimumCount());
     }
 
     /**
      * Sets the maximumCount property value. Maximum number of simple settings in the collection. Valid values 1 to 100
      *  @param int|null $value Value to set for the maximumCount property.
     */
-    public function setMaximumCount(?int $value ): void {
-        $this->maximumCount = $value;
+    public function setMaximumCount(?int $value): void {
+        $this->getBackingStore()->set('maximumCount', $value);
     }
 
     /**
      * Sets the minimumCount property value. Minimum number of simple settings in the collection. Valid values 1 to 100
      *  @param int|null $value Value to set for the minimumCount property.
     */
-    public function setMinimumCount(?int $value ): void {
-        $this->minimumCount = $value;
+    public function setMinimumCount(?int $value): void {
+        $this->getBackingStore()->set('minimumCount', $value);
     }
 
 }

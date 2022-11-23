@@ -9,56 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EdiscoveryExportOperation extends CaseOperation implements Parsable 
 {
     /**
-     * @var string|null $azureBlobContainer The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
-    */
-    private ?string $azureBlobContainer = null;
-    
-    /**
-     * @var string|null $azureBlobToken The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
-    */
-    private ?string $azureBlobToken = null;
-    
-    /**
-     * @var string|null $description The description provided for the export.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var ExportOptions|null $exportOptions The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
-    */
-    private ?ExportOptions $exportOptions = null;
-    
-    /**
-     * @var ExportFileStructure|null $exportStructure The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
-    */
-    private ?ExportFileStructure $exportStructure = null;
-    
-    /**
-     * @var string|null $outputFolderId The outputFolderId property
-    */
-    private ?string $outputFolderId = null;
-    
-    /**
-     * @var string|null $outputName The name provided for the export.
-    */
-    private ?string $outputName = null;
-    
-    /**
-     * @var EdiscoveryReviewSet|null $reviewSet Review set from where documents are exported.
-    */
-    private ?EdiscoveryReviewSet $reviewSet = null;
-    
-    /**
-     * @var EdiscoveryReviewSetQuery|null $reviewSetQuery The review set query which is used to filter the documents for export.
-    */
-    private ?EdiscoveryReviewSetQuery $reviewSetQuery = null;
-    
-    /**
      * Instantiates a new EdiscoveryExportOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.ediscoveryExportOperation');
     }
 
     /**
@@ -75,7 +29,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getAzureBlobContainer(): ?string {
-        return $this->azureBlobContainer;
+        return $this->getBackingStore()->get('azureBlobContainer');
     }
 
     /**
@@ -83,7 +37,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getAzureBlobToken(): ?string {
-        return $this->azureBlobToken;
+        return $this->getBackingStore()->get('azureBlobToken');
     }
 
     /**
@@ -91,7 +45,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -99,7 +53,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return ExportOptions|null
     */
     public function getExportOptions(): ?ExportOptions {
-        return $this->exportOptions;
+        return $this->getBackingStore()->get('exportOptions');
     }
 
     /**
@@ -107,7 +61,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return ExportFileStructure|null
     */
     public function getExportStructure(): ?ExportFileStructure {
-        return $this->exportStructure;
+        return $this->getBackingStore()->get('exportStructure');
     }
 
     /**
@@ -134,7 +88,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getOutputFolderId(): ?string {
-        return $this->outputFolderId;
+        return $this->getBackingStore()->get('outputFolderId');
     }
 
     /**
@@ -142,7 +96,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return string|null
     */
     public function getOutputName(): ?string {
-        return $this->outputName;
+        return $this->getBackingStore()->get('outputName');
     }
 
     /**
@@ -150,7 +104,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return EdiscoveryReviewSet|null
     */
     public function getReviewSet(): ?EdiscoveryReviewSet {
-        return $this->reviewSet;
+        return $this->getBackingStore()->get('reviewSet');
     }
 
     /**
@@ -158,7 +112,7 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
      * @return EdiscoveryReviewSetQuery|null
     */
     public function getReviewSetQuery(): ?EdiscoveryReviewSetQuery {
-        return $this->reviewSetQuery;
+        return $this->getBackingStore()->get('reviewSetQuery');
     }
 
     /**
@@ -167,87 +121,87 @@ class EdiscoveryExportOperation extends CaseOperation implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureBlobContainer', $this->azureBlobContainer);
-        $writer->writeStringValue('azureBlobToken', $this->azureBlobToken);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeEnumValue('exportOptions', $this->exportOptions);
-        $writer->writeEnumValue('exportStructure', $this->exportStructure);
-        $writer->writeStringValue('outputFolderId', $this->outputFolderId);
-        $writer->writeStringValue('outputName', $this->outputName);
-        $writer->writeObjectValue('reviewSet', $this->reviewSet);
-        $writer->writeObjectValue('reviewSetQuery', $this->reviewSetQuery);
+        $writer->writeStringValue('azureBlobContainer', $this->getAzureBlobContainer());
+        $writer->writeStringValue('azureBlobToken', $this->getAzureBlobToken());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeEnumValue('exportOptions', $this->getExportOptions());
+        $writer->writeEnumValue('exportStructure', $this->getExportStructure());
+        $writer->writeStringValue('outputFolderId', $this->getOutputFolderId());
+        $writer->writeStringValue('outputName', $this->getOutputName());
+        $writer->writeObjectValue('reviewSet', $this->getReviewSet());
+        $writer->writeObjectValue('reviewSetQuery', $this->getReviewSetQuery());
     }
 
     /**
      * Sets the azureBlobContainer property value. The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
      *  @param string|null $value Value to set for the azureBlobContainer property.
     */
-    public function setAzureBlobContainer(?string $value ): void {
-        $this->azureBlobContainer = $value;
+    public function setAzureBlobContainer(?string $value): void {
+        $this->getBackingStore()->set('azureBlobContainer', $value);
     }
 
     /**
      * Sets the azureBlobToken property value. The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
      *  @param string|null $value Value to set for the azureBlobToken property.
     */
-    public function setAzureBlobToken(?string $value ): void {
-        $this->azureBlobToken = $value;
+    public function setAzureBlobToken(?string $value): void {
+        $this->getBackingStore()->set('azureBlobToken', $value);
     }
 
     /**
      * Sets the description property value. The description provided for the export.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the exportOptions property value. The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
      *  @param ExportOptions|null $value Value to set for the exportOptions property.
     */
-    public function setExportOptions(?ExportOptions $value ): void {
-        $this->exportOptions = $value;
+    public function setExportOptions(?ExportOptions $value): void {
+        $this->getBackingStore()->set('exportOptions', $value);
     }
 
     /**
      * Sets the exportStructure property value. The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
      *  @param ExportFileStructure|null $value Value to set for the exportStructure property.
     */
-    public function setExportStructure(?ExportFileStructure $value ): void {
-        $this->exportStructure = $value;
+    public function setExportStructure(?ExportFileStructure $value): void {
+        $this->getBackingStore()->set('exportStructure', $value);
     }
 
     /**
      * Sets the outputFolderId property value. The outputFolderId property
      *  @param string|null $value Value to set for the outputFolderId property.
     */
-    public function setOutputFolderId(?string $value ): void {
-        $this->outputFolderId = $value;
+    public function setOutputFolderId(?string $value): void {
+        $this->getBackingStore()->set('outputFolderId', $value);
     }
 
     /**
      * Sets the outputName property value. The name provided for the export.
      *  @param string|null $value Value to set for the outputName property.
     */
-    public function setOutputName(?string $value ): void {
-        $this->outputName = $value;
+    public function setOutputName(?string $value): void {
+        $this->getBackingStore()->set('outputName', $value);
     }
 
     /**
      * Sets the reviewSet property value. Review set from where documents are exported.
      *  @param EdiscoveryReviewSet|null $value Value to set for the reviewSet property.
     */
-    public function setReviewSet(?EdiscoveryReviewSet $value ): void {
-        $this->reviewSet = $value;
+    public function setReviewSet(?EdiscoveryReviewSet $value): void {
+        $this->getBackingStore()->set('reviewSet', $value);
     }
 
     /**
      * Sets the reviewSetQuery property value. The review set query which is used to filter the documents for export.
      *  @param EdiscoveryReviewSetQuery|null $value Value to set for the reviewSetQuery property.
     */
-    public function setReviewSetQuery(?EdiscoveryReviewSetQuery $value ): void {
-        $this->reviewSetQuery = $value;
+    public function setReviewSetQuery(?EdiscoveryReviewSetQuery $value): void {
+        $this->getBackingStore()->set('reviewSetQuery', $value);
     }
 
 }

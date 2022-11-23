@@ -7,33 +7,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Parsable 
+class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<string>|null $managedDeviceIds The managedDeviceIds property
-    */
-    private ?array $managedDeviceIds = null;
-    
-    /**
-     * @var bool|null $scopedToAllDevices The scopedToAllDevices property
-    */
-    private ?bool $scopedToAllDevices = null;
-    
-    /**
-     * @var ScheduledRetireState|null $state Cancel or confirm scheduled retire 
-    */
-    private ?ScheduledRetireState $state = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new setScheduledRetireStatePostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -50,8 +39,16 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +69,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * @return array<string>|null
     */
     public function getManagedDeviceIds(): ?array {
-        return $this->managedDeviceIds;
+        return $this->getBackingStore()->get('managedDeviceIds');
     }
 
     /**
@@ -80,7 +77,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * @return bool|null
     */
     public function getScopedToAllDevices(): ?bool {
-        return $this->scopedToAllDevices;
+        return $this->getBackingStore()->get('scopedToAllDevices');
     }
 
     /**
@@ -88,7 +85,7 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * @return ScheduledRetireState|null
     */
     public function getState(): ?ScheduledRetireState {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -96,42 +93,50 @@ class SetScheduledRetireStatePostRequestBody implements AdditionalDataHolder, Pa
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfPrimitiveValues('managedDeviceIds', $this->managedDeviceIds);
-        $writer->writeBooleanValue('scopedToAllDevices', $this->scopedToAllDevices);
-        $writer->writeEnumValue('state', $this->state);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfPrimitiveValues('managedDeviceIds', $this->getManagedDeviceIds());
+        $writer->writeBooleanValue('scopedToAllDevices', $this->getScopedToAllDevices());
+        $writer->writeEnumValue('state', $this->getState());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the managedDeviceIds property value. The managedDeviceIds property
      *  @param array<string>|null $value Value to set for the managedDeviceIds property.
     */
-    public function setManagedDeviceIds(?array $value ): void {
-        $this->managedDeviceIds = $value;
+    public function setManagedDeviceIds(?array $value): void {
+        $this->getBackingStore()->set('managedDeviceIds', $value);
     }
 
     /**
      * Sets the scopedToAllDevices property value. The scopedToAllDevices property
      *  @param bool|null $value Value to set for the scopedToAllDevices property.
     */
-    public function setScopedToAllDevices(?bool $value ): void {
-        $this->scopedToAllDevices = $value;
+    public function setScopedToAllDevices(?bool $value): void {
+        $this->getBackingStore()->set('scopedToAllDevices', $value);
     }
 
     /**
      * Sets the state property value. Cancel or confirm scheduled retire 
      *  @param ScheduledRetireState|null $value Value to set for the state property.
     */
-    public function setState(?ScheduledRetireState $value ): void {
-        $this->state = $value;
+    public function setState(?ScheduledRetireState $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
 }

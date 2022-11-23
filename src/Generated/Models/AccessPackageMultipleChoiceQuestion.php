@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implements Parsable 
 {
     /**
-     * @var bool|null $allowsMultipleSelection Indicates whether requestor can select multiple choices as their answer.
-    */
-    private ?bool $allowsMultipleSelection = null;
-    
-    /**
-     * @var array<AccessPackageAnswerChoice>|null $choices List of answer choices.
-    */
-    private ?array $choices = null;
-    
-    /**
      * Instantiates a new AccessPackageMultipleChoiceQuestion and sets the default values.
     */
     public function __construct() {
@@ -40,7 +30,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
      * @return bool|null
     */
     public function getAllowsMultipleSelection(): ?bool {
-        return $this->allowsMultipleSelection;
+        return $this->getBackingStore()->get('allowsMultipleSelection');
     }
 
     /**
@@ -48,7 +38,7 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
      * @return array<AccessPackageAnswerChoice>|null
     */
     public function getChoices(): ?array {
-        return $this->choices;
+        return $this->getBackingStore()->get('choices');
     }
 
     /**
@@ -69,24 +59,24 @@ class AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion implemen
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowsMultipleSelection', $this->allowsMultipleSelection);
-        $writer->writeCollectionOfObjectValues('choices', $this->choices);
+        $writer->writeBooleanValue('allowsMultipleSelection', $this->getAllowsMultipleSelection());
+        $writer->writeCollectionOfObjectValues('choices', $this->getChoices());
     }
 
     /**
      * Sets the allowsMultipleSelection property value. Indicates whether requestor can select multiple choices as their answer.
      *  @param bool|null $value Value to set for the allowsMultipleSelection property.
     */
-    public function setAllowsMultipleSelection(?bool $value ): void {
-        $this->allowsMultipleSelection = $value;
+    public function setAllowsMultipleSelection(?bool $value): void {
+        $this->getBackingStore()->set('allowsMultipleSelection', $value);
     }
 
     /**
      * Sets the choices property value. List of answer choices.
      *  @param array<AccessPackageAnswerChoice>|null $value Value to set for the choices property.
     */
-    public function setChoices(?array $value ): void {
-        $this->choices = $value;
+    public function setChoices(?array $value): void {
+        $this->getBackingStore()->set('choices', $value);
     }
 
 }

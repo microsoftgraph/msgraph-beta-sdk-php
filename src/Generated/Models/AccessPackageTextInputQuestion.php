@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Parsable 
 {
     /**
-     * @var bool|null $isSingleLineQuestion Indicates whether the answer will be in single or multiple line format.
-    */
-    private ?bool $isSingleLineQuestion = null;
-    
-    /**
-     * @var string|null $regexPattern This is the regex pattern that the corresponding text answer must follow.
-    */
-    private ?string $regexPattern = null;
-    
-    /**
      * Instantiates a new AccessPackageTextInputQuestion and sets the default values.
     */
     public function __construct() {
@@ -52,7 +42,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
      * @return bool|null
     */
     public function getIsSingleLineQuestion(): ?bool {
-        return $this->isSingleLineQuestion;
+        return $this->getBackingStore()->get('isSingleLineQuestion');
     }
 
     /**
@@ -60,7 +50,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
      * @return string|null
     */
     public function getRegexPattern(): ?string {
-        return $this->regexPattern;
+        return $this->getBackingStore()->get('regexPattern');
     }
 
     /**
@@ -69,24 +59,24 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion implements Pa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('isSingleLineQuestion', $this->isSingleLineQuestion);
-        $writer->writeStringValue('regexPattern', $this->regexPattern);
+        $writer->writeBooleanValue('isSingleLineQuestion', $this->getIsSingleLineQuestion());
+        $writer->writeStringValue('regexPattern', $this->getRegexPattern());
     }
 
     /**
      * Sets the isSingleLineQuestion property value. Indicates whether the answer will be in single or multiple line format.
      *  @param bool|null $value Value to set for the isSingleLineQuestion property.
     */
-    public function setIsSingleLineQuestion(?bool $value ): void {
-        $this->isSingleLineQuestion = $value;
+    public function setIsSingleLineQuestion(?bool $value): void {
+        $this->getBackingStore()->set('isSingleLineQuestion', $value);
     }
 
     /**
      * Sets the regexPattern property value. This is the regex pattern that the corresponding text answer must follow.
      *  @param string|null $value Value to set for the regexPattern property.
     */
-    public function setRegexPattern(?string $value ): void {
-        $this->regexPattern = $value;
+    public function setRegexPattern(?string $value): void {
+        $this->getBackingStore()->set('regexPattern', $value);
     }
 
 }

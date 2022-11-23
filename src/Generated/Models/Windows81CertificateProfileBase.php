@@ -9,16 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Windows81CertificateProfileBase extends WindowsCertificateProfileBase implements Parsable 
 {
     /**
-     * @var array<CustomSubjectAlternativeName>|null $customSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $customSubjectAlternativeNames = null;
-    
-    /**
-     * @var array<ExtendedKeyUsage>|null $extendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $extendedKeyUsages = null;
-    
-    /**
      * Instantiates a new Windows81CertificateProfileBase and sets the default values.
     */
     public function __construct() {
@@ -47,7 +37,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
      * @return array<CustomSubjectAlternativeName>|null
     */
     public function getCustomSubjectAlternativeNames(): ?array {
-        return $this->customSubjectAlternativeNames;
+        return $this->getBackingStore()->get('customSubjectAlternativeNames');
     }
 
     /**
@@ -55,7 +45,7 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
      * @return array<ExtendedKeyUsage>|null
     */
     public function getExtendedKeyUsages(): ?array {
-        return $this->extendedKeyUsages;
+        return $this->getBackingStore()->get('extendedKeyUsages');
     }
 
     /**
@@ -76,24 +66,24 @@ class Windows81CertificateProfileBase extends WindowsCertificateProfileBase impl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->customSubjectAlternativeNames);
-        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->extendedKeyUsages);
+        $writer->writeCollectionOfObjectValues('customSubjectAlternativeNames', $this->getCustomSubjectAlternativeNames());
+        $writer->writeCollectionOfObjectValues('extendedKeyUsages', $this->getExtendedKeyUsages());
     }
 
     /**
      * Sets the customSubjectAlternativeNames property value. Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
      *  @param array<CustomSubjectAlternativeName>|null $value Value to set for the customSubjectAlternativeNames property.
     */
-    public function setCustomSubjectAlternativeNames(?array $value ): void {
-        $this->customSubjectAlternativeNames = $value;
+    public function setCustomSubjectAlternativeNames(?array $value): void {
+        $this->getBackingStore()->set('customSubjectAlternativeNames', $value);
     }
 
     /**
      * Sets the extendedKeyUsages property value. Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *  @param array<ExtendedKeyUsage>|null $value Value to set for the extendedKeyUsages property.
     */
-    public function setExtendedKeyUsages(?array $value ): void {
-        $this->extendedKeyUsages = $value;
+    public function setExtendedKeyUsages(?array $value): void {
+        $this->getBackingStore()->set('extendedKeyUsages', $value);
     }
 
 }

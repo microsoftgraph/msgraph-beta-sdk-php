@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureCommunicationServicesUserIdentity extends Identity implements Parsable 
 {
     /**
-     * @var string|null $azureCommunicationServicesResourceId The Azure Communication Services resource ID associated with the user.
-    */
-    private ?string $azureCommunicationServicesResourceId = null;
-    
-    /**
      * Instantiates a new AzureCommunicationServicesUserIdentity and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
      * @return string|null
     */
     public function getAzureCommunicationServicesResourceId(): ?string {
-        return $this->azureCommunicationServicesResourceId;
+        return $this->getBackingStore()->get('azureCommunicationServicesResourceId');
     }
 
     /**
@@ -55,15 +50,15 @@ class AzureCommunicationServicesUserIdentity extends Identity implements Parsabl
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('azureCommunicationServicesResourceId', $this->azureCommunicationServicesResourceId);
+        $writer->writeStringValue('azureCommunicationServicesResourceId', $this->getAzureCommunicationServicesResourceId());
     }
 
     /**
      * Sets the azureCommunicationServicesResourceId property value. The Azure Communication Services resource ID associated with the user.
      *  @param string|null $value Value to set for the azureCommunicationServicesResourceId property.
     */
-    public function setAzureCommunicationServicesResourceId(?string $value ): void {
-        $this->azureCommunicationServicesResourceId = $value;
+    public function setAzureCommunicationServicesResourceId(?string $value): void {
+        $this->getBackingStore()->set('azureCommunicationServicesResourceId', $value);
     }
 
 }

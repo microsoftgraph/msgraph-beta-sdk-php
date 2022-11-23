@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class KeyBooleanValuePair extends KeyTypedValuePair implements Parsable 
 {
     /**
-     * @var bool|null $value The Boolean value of the key-value pair.
-    */
-    private ?bool $value = null;
-    
-    /**
      * Instantiates a new KeyBooleanValuePair and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class KeyBooleanValuePair extends KeyTypedValuePair implements Parsable
      * @return bool|null
     */
     public function getValue(): ?bool {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class KeyBooleanValuePair extends KeyTypedValuePair implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('value', $this->value);
+        $writer->writeBooleanValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The Boolean value of the key-value pair.
      *  @param bool|null $value Value to set for the value property.
     */
-    public function setValue(?bool $value ): void {
-        $this->value = $value;
+    public function setValue(?bool $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

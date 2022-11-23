@@ -9,46 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRbacResourceAction extends Entity implements Parsable 
 {
     /**
-     * @var string|null $actionVerb HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
-    */
-    private ?string $actionVerb = null;
-    
-    /**
-     * @var string|null $authenticationContextId The authenticationContextId property
-    */
-    private ?string $authenticationContextId = null;
-    
-    /**
-     * @var string|null $description Description for the action. Supports $filter (eq).
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var bool|null $isAuthenticationContextSettable The isAuthenticationContextSettable property
-    */
-    private ?bool $isAuthenticationContextSettable = null;
-    
-    /**
-     * @var string|null $name Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var UnifiedRbacResourceScope|null $resourceScope The resourceScope property
-    */
-    private ?UnifiedRbacResourceScope $resourceScope = null;
-    
-    /**
-     * @var string|null $resourceScopeId Not implemented.
-    */
-    private ?string $resourceScopeId = null;
-    
-    /**
      * Instantiates a new unifiedRbacResourceAction and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.unifiedRbacResourceAction');
     }
 
     /**
@@ -65,7 +29,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return string|null
     */
     public function getActionVerb(): ?string {
-        return $this->actionVerb;
+        return $this->getBackingStore()->get('actionVerb');
     }
 
     /**
@@ -73,7 +37,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return string|null
     */
     public function getAuthenticationContextId(): ?string {
-        return $this->authenticationContextId;
+        return $this->getBackingStore()->get('authenticationContextId');
     }
 
     /**
@@ -81,7 +45,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -106,7 +70,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsAuthenticationContextSettable(): ?bool {
-        return $this->isAuthenticationContextSettable;
+        return $this->getBackingStore()->get('isAuthenticationContextSettable');
     }
 
     /**
@@ -114,7 +78,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -122,7 +86,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return UnifiedRbacResourceScope|null
     */
     public function getResourceScope(): ?UnifiedRbacResourceScope {
-        return $this->resourceScope;
+        return $this->getBackingStore()->get('resourceScope');
     }
 
     /**
@@ -130,7 +94,7 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
      * @return string|null
     */
     public function getResourceScopeId(): ?string {
-        return $this->resourceScopeId;
+        return $this->getBackingStore()->get('resourceScopeId');
     }
 
     /**
@@ -139,69 +103,69 @@ class UnifiedRbacResourceAction extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('actionVerb', $this->actionVerb);
-        $writer->writeStringValue('authenticationContextId', $this->authenticationContextId);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isAuthenticationContextSettable', $this->isAuthenticationContextSettable);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeObjectValue('resourceScope', $this->resourceScope);
-        $writer->writeStringValue('resourceScopeId', $this->resourceScopeId);
+        $writer->writeStringValue('actionVerb', $this->getActionVerb());
+        $writer->writeStringValue('authenticationContextId', $this->getAuthenticationContextId());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('isAuthenticationContextSettable', $this->getIsAuthenticationContextSettable());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeObjectValue('resourceScope', $this->getResourceScope());
+        $writer->writeStringValue('resourceScopeId', $this->getResourceScopeId());
     }
 
     /**
      * Sets the actionVerb property value. HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
      *  @param string|null $value Value to set for the actionVerb property.
     */
-    public function setActionVerb(?string $value ): void {
-        $this->actionVerb = $value;
+    public function setActionVerb(?string $value): void {
+        $this->getBackingStore()->set('actionVerb', $value);
     }
 
     /**
      * Sets the authenticationContextId property value. The authenticationContextId property
      *  @param string|null $value Value to set for the authenticationContextId property.
     */
-    public function setAuthenticationContextId(?string $value ): void {
-        $this->authenticationContextId = $value;
+    public function setAuthenticationContextId(?string $value): void {
+        $this->getBackingStore()->set('authenticationContextId', $value);
     }
 
     /**
      * Sets the description property value. Description for the action. Supports $filter (eq).
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the isAuthenticationContextSettable property value. The isAuthenticationContextSettable property
      *  @param bool|null $value Value to set for the isAuthenticationContextSettable property.
     */
-    public function setIsAuthenticationContextSettable(?bool $value ): void {
-        $this->isAuthenticationContextSettable = $value;
+    public function setIsAuthenticationContextSettable(?bool $value): void {
+        $this->getBackingStore()->set('isAuthenticationContextSettable', $value);
     }
 
     /**
      * Sets the name property value. Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the resourceScope property value. The resourceScope property
      *  @param UnifiedRbacResourceScope|null $value Value to set for the resourceScope property.
     */
-    public function setResourceScope(?UnifiedRbacResourceScope $value ): void {
-        $this->resourceScope = $value;
+    public function setResourceScope(?UnifiedRbacResourceScope $value): void {
+        $this->getBackingStore()->set('resourceScope', $value);
     }
 
     /**
      * Sets the resourceScopeId property value. Not implemented.
      *  @param string|null $value Value to set for the resourceScopeId property.
     */
-    public function setResourceScopeId(?string $value ): void {
-        $this->resourceScopeId = $value;
+    public function setResourceScopeId(?string $value): void {
+        $this->getBackingStore()->set('resourceScopeId', $value);
     }
 
 }

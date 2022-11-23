@@ -10,71 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BrowserSite extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $allowRedirect Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
-    */
-    private ?bool $allowRedirect = null;
-    
-    /**
-     * @var string|null $comment The comment for the site.
-    */
-    private ?string $comment = null;
-    
-    /**
-     * @var BrowserSiteCompatibilityMode|null $compatibilityMode The compatibilityMode property
-    */
-    private ?BrowserSiteCompatibilityMode $compatibilityMode = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The date and time when the site was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $deletedDateTime The date and time when the site was deleted.
-    */
-    private ?DateTime $deletedDateTime = null;
-    
-    /**
-     * @var array<BrowserSiteHistory>|null $history The history of modifications applied to the site.
-    */
-    private ?array $history = null;
-    
-    /**
-     * @var IdentitySet|null $lastModifiedBy The user who last modified the site.
-    */
-    private ?IdentitySet $lastModifiedBy = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The date and time when the site was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var BrowserSiteMergeType|null $mergeType The mergeType property
-    */
-    private ?BrowserSiteMergeType $mergeType = null;
-    
-    /**
-     * @var BrowserSiteStatus|null $status The status property
-    */
-    private ?BrowserSiteStatus $status = null;
-    
-    /**
-     * @var BrowserSiteTargetEnvironment|null $targetEnvironment The targetEnvironment property
-    */
-    private ?BrowserSiteTargetEnvironment $targetEnvironment = null;
-    
-    /**
-     * @var string|null $webUrl The URL of the site.
-    */
-    private ?string $webUrl = null;
-    
-    /**
      * Instantiates a new browserSite and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.browserSite');
     }
 
     /**
@@ -91,7 +30,7 @@ class BrowserSite extends Entity implements Parsable
      * @return bool|null
     */
     public function getAllowRedirect(): ?bool {
-        return $this->allowRedirect;
+        return $this->getBackingStore()->get('allowRedirect');
     }
 
     /**
@@ -99,7 +38,7 @@ class BrowserSite extends Entity implements Parsable
      * @return string|null
     */
     public function getComment(): ?string {
-        return $this->comment;
+        return $this->getBackingStore()->get('comment');
     }
 
     /**
@@ -107,7 +46,7 @@ class BrowserSite extends Entity implements Parsable
      * @return BrowserSiteCompatibilityMode|null
     */
     public function getCompatibilityMode(): ?BrowserSiteCompatibilityMode {
-        return $this->compatibilityMode;
+        return $this->getBackingStore()->get('compatibilityMode');
     }
 
     /**
@@ -115,7 +54,7 @@ class BrowserSite extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -123,7 +62,7 @@ class BrowserSite extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getDeletedDateTime(): ?DateTime {
-        return $this->deletedDateTime;
+        return $this->getBackingStore()->get('deletedDateTime');
     }
 
     /**
@@ -153,7 +92,7 @@ class BrowserSite extends Entity implements Parsable
      * @return array<BrowserSiteHistory>|null
     */
     public function getHistory(): ?array {
-        return $this->history;
+        return $this->getBackingStore()->get('history');
     }
 
     /**
@@ -161,7 +100,7 @@ class BrowserSite extends Entity implements Parsable
      * @return IdentitySet|null
     */
     public function getLastModifiedBy(): ?IdentitySet {
-        return $this->lastModifiedBy;
+        return $this->getBackingStore()->get('lastModifiedBy');
     }
 
     /**
@@ -169,7 +108,7 @@ class BrowserSite extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -177,7 +116,7 @@ class BrowserSite extends Entity implements Parsable
      * @return BrowserSiteMergeType|null
     */
     public function getMergeType(): ?BrowserSiteMergeType {
-        return $this->mergeType;
+        return $this->getBackingStore()->get('mergeType');
     }
 
     /**
@@ -185,7 +124,7 @@ class BrowserSite extends Entity implements Parsable
      * @return BrowserSiteStatus|null
     */
     public function getStatus(): ?BrowserSiteStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -193,7 +132,7 @@ class BrowserSite extends Entity implements Parsable
      * @return BrowserSiteTargetEnvironment|null
     */
     public function getTargetEnvironment(): ?BrowserSiteTargetEnvironment {
-        return $this->targetEnvironment;
+        return $this->getBackingStore()->get('targetEnvironment');
     }
 
     /**
@@ -201,7 +140,7 @@ class BrowserSite extends Entity implements Parsable
      * @return string|null
     */
     public function getWebUrl(): ?string {
-        return $this->webUrl;
+        return $this->getBackingStore()->get('webUrl');
     }
 
     /**
@@ -210,114 +149,114 @@ class BrowserSite extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('allowRedirect', $this->allowRedirect);
-        $writer->writeStringValue('comment', $this->comment);
-        $writer->writeEnumValue('compatibilityMode', $this->compatibilityMode);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('deletedDateTime', $this->deletedDateTime);
-        $writer->writeCollectionOfObjectValues('history', $this->history);
-        $writer->writeObjectValue('lastModifiedBy', $this->lastModifiedBy);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('mergeType', $this->mergeType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeEnumValue('targetEnvironment', $this->targetEnvironment);
-        $writer->writeStringValue('webUrl', $this->webUrl);
+        $writer->writeBooleanValue('allowRedirect', $this->getAllowRedirect());
+        $writer->writeStringValue('comment', $this->getComment());
+        $writer->writeEnumValue('compatibilityMode', $this->getCompatibilityMode());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('deletedDateTime', $this->getDeletedDateTime());
+        $writer->writeCollectionOfObjectValues('history', $this->getHistory());
+        $writer->writeObjectValue('lastModifiedBy', $this->getLastModifiedBy());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('mergeType', $this->getMergeType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeEnumValue('targetEnvironment', $this->getTargetEnvironment());
+        $writer->writeStringValue('webUrl', $this->getWebUrl());
     }
 
     /**
      * Sets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
      *  @param bool|null $value Value to set for the allowRedirect property.
     */
-    public function setAllowRedirect(?bool $value ): void {
-        $this->allowRedirect = $value;
+    public function setAllowRedirect(?bool $value): void {
+        $this->getBackingStore()->set('allowRedirect', $value);
     }
 
     /**
      * Sets the comment property value. The comment for the site.
      *  @param string|null $value Value to set for the comment property.
     */
-    public function setComment(?string $value ): void {
-        $this->comment = $value;
+    public function setComment(?string $value): void {
+        $this->getBackingStore()->set('comment', $value);
     }
 
     /**
      * Sets the compatibilityMode property value. The compatibilityMode property
      *  @param BrowserSiteCompatibilityMode|null $value Value to set for the compatibilityMode property.
     */
-    public function setCompatibilityMode(?BrowserSiteCompatibilityMode $value ): void {
-        $this->compatibilityMode = $value;
+    public function setCompatibilityMode(?BrowserSiteCompatibilityMode $value): void {
+        $this->getBackingStore()->set('compatibilityMode', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The date and time when the site was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the deletedDateTime property value. The date and time when the site was deleted.
      *  @param DateTime|null $value Value to set for the deletedDateTime property.
     */
-    public function setDeletedDateTime(?DateTime $value ): void {
-        $this->deletedDateTime = $value;
+    public function setDeletedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('deletedDateTime', $value);
     }
 
     /**
      * Sets the history property value. The history of modifications applied to the site.
      *  @param array<BrowserSiteHistory>|null $value Value to set for the history property.
     */
-    public function setHistory(?array $value ): void {
-        $this->history = $value;
+    public function setHistory(?array $value): void {
+        $this->getBackingStore()->set('history', $value);
     }
 
     /**
      * Sets the lastModifiedBy property value. The user who last modified the site.
      *  @param IdentitySet|null $value Value to set for the lastModifiedBy property.
     */
-    public function setLastModifiedBy(?IdentitySet $value ): void {
-        $this->lastModifiedBy = $value;
+    public function setLastModifiedBy(?IdentitySet $value): void {
+        $this->getBackingStore()->set('lastModifiedBy', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The date and time when the site was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the mergeType property value. The mergeType property
      *  @param BrowserSiteMergeType|null $value Value to set for the mergeType property.
     */
-    public function setMergeType(?BrowserSiteMergeType $value ): void {
-        $this->mergeType = $value;
+    public function setMergeType(?BrowserSiteMergeType $value): void {
+        $this->getBackingStore()->set('mergeType', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param BrowserSiteStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?BrowserSiteStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?BrowserSiteStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the targetEnvironment property value. The targetEnvironment property
      *  @param BrowserSiteTargetEnvironment|null $value Value to set for the targetEnvironment property.
     */
-    public function setTargetEnvironment(?BrowserSiteTargetEnvironment $value ): void {
-        $this->targetEnvironment = $value;
+    public function setTargetEnvironment(?BrowserSiteTargetEnvironment $value): void {
+        $this->getBackingStore()->set('targetEnvironment', $value);
     }
 
     /**
      * Sets the webUrl property value. The URL of the site.
      *  @param string|null $value Value to set for the webUrl property.
     */
-    public function setWebUrl(?string $value ): void {
-        $this->webUrl = $value;
+    public function setWebUrl(?string $value): void {
+        $this->getBackingStore()->set('webUrl', $value);
     }
 
 }

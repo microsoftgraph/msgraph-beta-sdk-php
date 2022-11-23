@@ -10,56 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceId The device ID.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var string|null $displayName The name of the report
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var int|null $failedUpdateCount Number of failed updates on the device
-    */
-    private ?int $failedUpdateCount = null;
-    
-    /**
-     * @var DateTime|null $lastUpdatedDateTime Last date time the report for this device was updated.
-    */
-    private ?DateTime $lastUpdatedDateTime = null;
-    
-    /**
-     * @var int|null $successfulUpdateCount Number of successful updates on the device
-    */
-    private ?int $successfulUpdateCount = null;
-    
-    /**
-     * @var int|null $totalUpdateCount Number of total updates on the device
-    */
-    private ?int $totalUpdateCount = null;
-    
-    /**
-     * @var MacOSSoftwareUpdateCategory|null $updateCategory MacOS Software Update Category
-    */
-    private ?MacOSSoftwareUpdateCategory $updateCategory = null;
-    
-    /**
-     * @var array<MacOSSoftwareUpdateStateSummary>|null $updateStateSummaries Summary of the update states.
-    */
-    private ?array $updateStateSummaries = null;
-    
-    /**
-     * @var string|null $userId The user ID.
-    */
-    private ?string $userId = null;
-    
-    /**
      * Instantiates a new macOSSoftwareUpdateCategorySummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.macOSSoftwareUpdateCategorySummary');
     }
 
     /**
@@ -76,7 +30,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -84,7 +38,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -92,7 +46,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailedUpdateCount(): ?int {
-        return $this->failedUpdateCount;
+        return $this->getBackingStore()->get('failedUpdateCount');
     }
 
     /**
@@ -119,7 +73,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdatedDateTime(): ?DateTime {
-        return $this->lastUpdatedDateTime;
+        return $this->getBackingStore()->get('lastUpdatedDateTime');
     }
 
     /**
@@ -127,7 +81,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulUpdateCount(): ?int {
-        return $this->successfulUpdateCount;
+        return $this->getBackingStore()->get('successfulUpdateCount');
     }
 
     /**
@@ -135,7 +89,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return int|null
     */
     public function getTotalUpdateCount(): ?int {
-        return $this->totalUpdateCount;
+        return $this->getBackingStore()->get('totalUpdateCount');
     }
 
     /**
@@ -143,7 +97,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return MacOSSoftwareUpdateCategory|null
     */
     public function getUpdateCategory(): ?MacOSSoftwareUpdateCategory {
-        return $this->updateCategory;
+        return $this->getBackingStore()->get('updateCategory');
     }
 
     /**
@@ -151,7 +105,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return array<MacOSSoftwareUpdateStateSummary>|null
     */
     public function getUpdateStateSummaries(): ?array {
-        return $this->updateStateSummaries;
+        return $this->getBackingStore()->get('updateStateSummaries');
     }
 
     /**
@@ -159,7 +113,7 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -168,87 +122,87 @@ class MacOSSoftwareUpdateCategorySummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeIntegerValue('failedUpdateCount', $this->failedUpdateCount);
-        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->lastUpdatedDateTime);
-        $writer->writeIntegerValue('successfulUpdateCount', $this->successfulUpdateCount);
-        $writer->writeIntegerValue('totalUpdateCount', $this->totalUpdateCount);
-        $writer->writeEnumValue('updateCategory', $this->updateCategory);
-        $writer->writeCollectionOfObjectValues('updateStateSummaries', $this->updateStateSummaries);
-        $writer->writeStringValue('userId', $this->userId);
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeIntegerValue('failedUpdateCount', $this->getFailedUpdateCount());
+        $writer->writeDateTimeValue('lastUpdatedDateTime', $this->getLastUpdatedDateTime());
+        $writer->writeIntegerValue('successfulUpdateCount', $this->getSuccessfulUpdateCount());
+        $writer->writeIntegerValue('totalUpdateCount', $this->getTotalUpdateCount());
+        $writer->writeEnumValue('updateCategory', $this->getUpdateCategory());
+        $writer->writeCollectionOfObjectValues('updateStateSummaries', $this->getUpdateStateSummaries());
+        $writer->writeStringValue('userId', $this->getUserId());
     }
 
     /**
      * Sets the deviceId property value. The device ID.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the displayName property value. The name of the report
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the failedUpdateCount property value. Number of failed updates on the device
      *  @param int|null $value Value to set for the failedUpdateCount property.
     */
-    public function setFailedUpdateCount(?int $value ): void {
-        $this->failedUpdateCount = $value;
+    public function setFailedUpdateCount(?int $value): void {
+        $this->getBackingStore()->set('failedUpdateCount', $value);
     }
 
     /**
      * Sets the lastUpdatedDateTime property value. Last date time the report for this device was updated.
      *  @param DateTime|null $value Value to set for the lastUpdatedDateTime property.
     */
-    public function setLastUpdatedDateTime(?DateTime $value ): void {
-        $this->lastUpdatedDateTime = $value;
+    public function setLastUpdatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdatedDateTime', $value);
     }
 
     /**
      * Sets the successfulUpdateCount property value. Number of successful updates on the device
      *  @param int|null $value Value to set for the successfulUpdateCount property.
     */
-    public function setSuccessfulUpdateCount(?int $value ): void {
-        $this->successfulUpdateCount = $value;
+    public function setSuccessfulUpdateCount(?int $value): void {
+        $this->getBackingStore()->set('successfulUpdateCount', $value);
     }
 
     /**
      * Sets the totalUpdateCount property value. Number of total updates on the device
      *  @param int|null $value Value to set for the totalUpdateCount property.
     */
-    public function setTotalUpdateCount(?int $value ): void {
-        $this->totalUpdateCount = $value;
+    public function setTotalUpdateCount(?int $value): void {
+        $this->getBackingStore()->set('totalUpdateCount', $value);
     }
 
     /**
      * Sets the updateCategory property value. MacOS Software Update Category
      *  @param MacOSSoftwareUpdateCategory|null $value Value to set for the updateCategory property.
     */
-    public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value ): void {
-        $this->updateCategory = $value;
+    public function setUpdateCategory(?MacOSSoftwareUpdateCategory $value): void {
+        $this->getBackingStore()->set('updateCategory', $value);
     }
 
     /**
      * Sets the updateStateSummaries property value. Summary of the update states.
      *  @param array<MacOSSoftwareUpdateStateSummary>|null $value Value to set for the updateStateSummaries property.
     */
-    public function setUpdateStateSummaries(?array $value ): void {
-        $this->updateStateSummaries = $value;
+    public function setUpdateStateSummaries(?array $value): void {
+        $this->getBackingStore()->set('updateStateSummaries', $value);
     }
 
     /**
      * Sets the userId property value. The user ID.
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ItemAddress extends ItemFacet implements Parsable 
 {
     /**
-     * @var PhysicalAddress|null $detail The detail property
-    */
-    private ?PhysicalAddress $detail = null;
-    
-    /**
-     * @var string|null $displayName Friendly name the user has assigned to this address.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var GeoCoordinates|null $geoCoordinates The geocoordinates of the address.
-    */
-    private ?GeoCoordinates $geoCoordinates = null;
-    
-    /**
      * Instantiates a new ItemAddress and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return PhysicalAddress|null
     */
     public function getDetail(): ?PhysicalAddress {
-        return $this->detail;
+        return $this->getBackingStore()->get('detail');
     }
 
     /**
@@ -53,7 +38,7 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -74,7 +59,7 @@ class ItemAddress extends ItemFacet implements Parsable
      * @return GeoCoordinates|null
     */
     public function getGeoCoordinates(): ?GeoCoordinates {
-        return $this->geoCoordinates;
+        return $this->getBackingStore()->get('geoCoordinates');
     }
 
     /**
@@ -83,33 +68,33 @@ class ItemAddress extends ItemFacet implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('detail', $this->detail);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeObjectValue('geoCoordinates', $this->geoCoordinates);
+        $writer->writeObjectValue('detail', $this->getDetail());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeObjectValue('geoCoordinates', $this->getGeoCoordinates());
     }
 
     /**
      * Sets the detail property value. The detail property
      *  @param PhysicalAddress|null $value Value to set for the detail property.
     */
-    public function setDetail(?PhysicalAddress $value ): void {
-        $this->detail = $value;
+    public function setDetail(?PhysicalAddress $value): void {
+        $this->getBackingStore()->set('detail', $value);
     }
 
     /**
      * Sets the displayName property value. Friendly name the user has assigned to this address.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the geoCoordinates property value. The geocoordinates of the address.
      *  @param GeoCoordinates|null $value Value to set for the geoCoordinates property.
     */
-    public function setGeoCoordinates(?GeoCoordinates $value ): void {
-        $this->geoCoordinates = $value;
+    public function setGeoCoordinates(?GeoCoordinates $value): void {
+        $this->getBackingStore()->set('geoCoordinates', $value);
     }
 
 }

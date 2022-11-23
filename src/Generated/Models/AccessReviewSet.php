@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AccessReviewSet extends Entity implements Parsable 
 {
     /**
-     * @var array<AccessReviewInstanceDecisionItem>|null $decisions Represents an Azure AD access review decision on an instance of a review.
-    */
-    private ?array $decisions = null;
-    
-    /**
-     * @var array<AccessReviewScheduleDefinition>|null $definitions Represents the template and scheduling for an access review.
-    */
-    private ?array $definitions = null;
-    
-    /**
-     * @var array<AccessReviewHistoryDefinition>|null $historyDefinitions Represents a collection of access review history data and the scopes used to collect that data.
-    */
-    private ?array $historyDefinitions = null;
-    
-    /**
-     * @var AccessReviewPolicy|null $policy Resource that enables administrators to manage directory-level access review policies in their tenant.
-    */
-    private ?AccessReviewPolicy $policy = null;
-    
-    /**
      * Instantiates a new AccessReviewSet and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.accessReviewSet');
     }
 
     /**
@@ -50,7 +29,7 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewInstanceDecisionItem>|null
     */
     public function getDecisions(): ?array {
-        return $this->decisions;
+        return $this->getBackingStore()->get('decisions');
     }
 
     /**
@@ -58,7 +37,7 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewScheduleDefinition>|null
     */
     public function getDefinitions(): ?array {
-        return $this->definitions;
+        return $this->getBackingStore()->get('definitions');
     }
 
     /**
@@ -80,7 +59,7 @@ class AccessReviewSet extends Entity implements Parsable
      * @return array<AccessReviewHistoryDefinition>|null
     */
     public function getHistoryDefinitions(): ?array {
-        return $this->historyDefinitions;
+        return $this->getBackingStore()->get('historyDefinitions');
     }
 
     /**
@@ -88,7 +67,7 @@ class AccessReviewSet extends Entity implements Parsable
      * @return AccessReviewPolicy|null
     */
     public function getPolicy(): ?AccessReviewPolicy {
-        return $this->policy;
+        return $this->getBackingStore()->get('policy');
     }
 
     /**
@@ -97,42 +76,42 @@ class AccessReviewSet extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('decisions', $this->decisions);
-        $writer->writeCollectionOfObjectValues('definitions', $this->definitions);
-        $writer->writeCollectionOfObjectValues('historyDefinitions', $this->historyDefinitions);
-        $writer->writeObjectValue('policy', $this->policy);
+        $writer->writeCollectionOfObjectValues('decisions', $this->getDecisions());
+        $writer->writeCollectionOfObjectValues('definitions', $this->getDefinitions());
+        $writer->writeCollectionOfObjectValues('historyDefinitions', $this->getHistoryDefinitions());
+        $writer->writeObjectValue('policy', $this->getPolicy());
     }
 
     /**
      * Sets the decisions property value. Represents an Azure AD access review decision on an instance of a review.
      *  @param array<AccessReviewInstanceDecisionItem>|null $value Value to set for the decisions property.
     */
-    public function setDecisions(?array $value ): void {
-        $this->decisions = $value;
+    public function setDecisions(?array $value): void {
+        $this->getBackingStore()->set('decisions', $value);
     }
 
     /**
      * Sets the definitions property value. Represents the template and scheduling for an access review.
      *  @param array<AccessReviewScheduleDefinition>|null $value Value to set for the definitions property.
     */
-    public function setDefinitions(?array $value ): void {
-        $this->definitions = $value;
+    public function setDefinitions(?array $value): void {
+        $this->getBackingStore()->set('definitions', $value);
     }
 
     /**
      * Sets the historyDefinitions property value. Represents a collection of access review history data and the scopes used to collect that data.
      *  @param array<AccessReviewHistoryDefinition>|null $value Value to set for the historyDefinitions property.
     */
-    public function setHistoryDefinitions(?array $value ): void {
-        $this->historyDefinitions = $value;
+    public function setHistoryDefinitions(?array $value): void {
+        $this->getBackingStore()->set('historyDefinitions', $value);
     }
 
     /**
      * Sets the policy property value. Resource that enables administrators to manage directory-level access review policies in their tenant.
      *  @param AccessReviewPolicy|null $value Value to set for the policy property.
     */
-    public function setPolicy(?AccessReviewPolicy $value ): void {
-        $this->policy = $value;
+    public function setPolicy(?AccessReviewPolicy $value): void {
+        $this->getBackingStore()->set('policy', $value);
     }
 
 }

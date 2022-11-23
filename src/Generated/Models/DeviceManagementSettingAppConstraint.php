@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint implements Parsable 
 {
     /**
-     * @var array<string>|null $supportedTypes Acceptable app types to allow for this setting
-    */
-    private ?array $supportedTypes = null;
-    
-    /**
      * Instantiates a new DeviceManagementSettingAppConstraint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
      * @return array<string>|null
     */
     public function getSupportedTypes(): ?array {
-        return $this->supportedTypes;
+        return $this->getBackingStore()->get('supportedTypes');
     }
 
     /**
@@ -55,15 +50,15 @@ class DeviceManagementSettingAppConstraint extends DeviceManagementConstraint im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('supportedTypes', $this->supportedTypes);
+        $writer->writeCollectionOfPrimitiveValues('supportedTypes', $this->getSupportedTypes());
     }
 
     /**
      * Sets the supportedTypes property value. Acceptable app types to allow for this setting
      *  @param array<string>|null $value Value to set for the supportedTypes property.
     */
-    public function setSupportedTypes(?array $value ): void {
-        $this->supportedTypes = $value;
+    public function setSupportedTypes(?array $value): void {
+        $this->getBackingStore()->set('supportedTypes', $value);
     }
 
 }

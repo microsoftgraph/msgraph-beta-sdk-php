@@ -10,46 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable 
 {
     /**
-     * @var string|null $dataStoreId The dataStoreId property
-    */
-    private ?string $dataStoreId = null;
-    
-    /**
-     * @var DateTime|null $processingCompletionDateTime The processingCompletionDateTime property
-    */
-    private ?DateTime $processingCompletionDateTime = null;
-    
-    /**
-     * @var int|null $remainingBlockCount The remainingBlockCount property
-    */
-    private ?int $remainingBlockCount = null;
-    
-    /**
-     * @var int|null $remainingJobCount The remainingJobCount property
-    */
-    private ?int $remainingJobCount = null;
-    
-    /**
-     * @var string|null $state The state property
-    */
-    private ?string $state = null;
-    
-    /**
-     * @var int|null $totalBlockCount The totalBlockCount property
-    */
-    private ?int $totalBlockCount = null;
-    
-    /**
-     * @var int|null $totalJobCount The totalJobCount property
-    */
-    private ?int $totalJobCount = null;
-    
-    /**
-     * @var DateTime|null $uploadCompletionDateTime The uploadCompletionDateTime property
-    */
-    private ?DateTime $uploadCompletionDateTime = null;
-    
-    /**
      * Instantiates a new ExactMatchSessionBase and sets the default values.
     */
     public function __construct() {
@@ -78,7 +38,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getDataStoreId(): ?string {
-        return $this->dataStoreId;
+        return $this->getBackingStore()->get('dataStoreId');
     }
 
     /**
@@ -104,7 +64,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return DateTime|null
     */
     public function getProcessingCompletionDateTime(): ?DateTime {
-        return $this->processingCompletionDateTime;
+        return $this->getBackingStore()->get('processingCompletionDateTime');
     }
 
     /**
@@ -112,7 +72,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getRemainingBlockCount(): ?int {
-        return $this->remainingBlockCount;
+        return $this->getBackingStore()->get('remainingBlockCount');
     }
 
     /**
@@ -120,7 +80,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getRemainingJobCount(): ?int {
-        return $this->remainingJobCount;
+        return $this->getBackingStore()->get('remainingJobCount');
     }
 
     /**
@@ -128,7 +88,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -136,7 +96,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getTotalBlockCount(): ?int {
-        return $this->totalBlockCount;
+        return $this->getBackingStore()->get('totalBlockCount');
     }
 
     /**
@@ -144,7 +104,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return int|null
     */
     public function getTotalJobCount(): ?int {
-        return $this->totalJobCount;
+        return $this->getBackingStore()->get('totalJobCount');
     }
 
     /**
@@ -152,7 +112,7 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
      * @return DateTime|null
     */
     public function getUploadCompletionDateTime(): ?DateTime {
-        return $this->uploadCompletionDateTime;
+        return $this->getBackingStore()->get('uploadCompletionDateTime');
     }
 
     /**
@@ -161,78 +121,78 @@ class ExactMatchSessionBase extends ExactMatchJobBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('dataStoreId', $this->dataStoreId);
-        $writer->writeDateTimeValue('processingCompletionDateTime', $this->processingCompletionDateTime);
-        $writer->writeIntegerValue('remainingBlockCount', $this->remainingBlockCount);
-        $writer->writeIntegerValue('remainingJobCount', $this->remainingJobCount);
-        $writer->writeStringValue('state', $this->state);
-        $writer->writeIntegerValue('totalBlockCount', $this->totalBlockCount);
-        $writer->writeIntegerValue('totalJobCount', $this->totalJobCount);
-        $writer->writeDateTimeValue('uploadCompletionDateTime', $this->uploadCompletionDateTime);
+        $writer->writeStringValue('dataStoreId', $this->getDataStoreId());
+        $writer->writeDateTimeValue('processingCompletionDateTime', $this->getProcessingCompletionDateTime());
+        $writer->writeIntegerValue('remainingBlockCount', $this->getRemainingBlockCount());
+        $writer->writeIntegerValue('remainingJobCount', $this->getRemainingJobCount());
+        $writer->writeStringValue('state', $this->getState());
+        $writer->writeIntegerValue('totalBlockCount', $this->getTotalBlockCount());
+        $writer->writeIntegerValue('totalJobCount', $this->getTotalJobCount());
+        $writer->writeDateTimeValue('uploadCompletionDateTime', $this->getUploadCompletionDateTime());
     }
 
     /**
      * Sets the dataStoreId property value. The dataStoreId property
      *  @param string|null $value Value to set for the dataStoreId property.
     */
-    public function setDataStoreId(?string $value ): void {
-        $this->dataStoreId = $value;
+    public function setDataStoreId(?string $value): void {
+        $this->getBackingStore()->set('dataStoreId', $value);
     }
 
     /**
      * Sets the processingCompletionDateTime property value. The processingCompletionDateTime property
      *  @param DateTime|null $value Value to set for the processingCompletionDateTime property.
     */
-    public function setProcessingCompletionDateTime(?DateTime $value ): void {
-        $this->processingCompletionDateTime = $value;
+    public function setProcessingCompletionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('processingCompletionDateTime', $value);
     }
 
     /**
      * Sets the remainingBlockCount property value. The remainingBlockCount property
      *  @param int|null $value Value to set for the remainingBlockCount property.
     */
-    public function setRemainingBlockCount(?int $value ): void {
-        $this->remainingBlockCount = $value;
+    public function setRemainingBlockCount(?int $value): void {
+        $this->getBackingStore()->set('remainingBlockCount', $value);
     }
 
     /**
      * Sets the remainingJobCount property value. The remainingJobCount property
      *  @param int|null $value Value to set for the remainingJobCount property.
     */
-    public function setRemainingJobCount(?int $value ): void {
-        $this->remainingJobCount = $value;
+    public function setRemainingJobCount(?int $value): void {
+        $this->getBackingStore()->set('remainingJobCount', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
-    public function setState(?string $value ): void {
-        $this->state = $value;
+    public function setState(?string $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the totalBlockCount property value. The totalBlockCount property
      *  @param int|null $value Value to set for the totalBlockCount property.
     */
-    public function setTotalBlockCount(?int $value ): void {
-        $this->totalBlockCount = $value;
+    public function setTotalBlockCount(?int $value): void {
+        $this->getBackingStore()->set('totalBlockCount', $value);
     }
 
     /**
      * Sets the totalJobCount property value. The totalJobCount property
      *  @param int|null $value Value to set for the totalJobCount property.
     */
-    public function setTotalJobCount(?int $value ): void {
-        $this->totalJobCount = $value;
+    public function setTotalJobCount(?int $value): void {
+        $this->getBackingStore()->set('totalJobCount', $value);
     }
 
     /**
      * Sets the uploadCompletionDateTime property value. The uploadCompletionDateTime property
      *  @param DateTime|null $value Value to set for the uploadCompletionDateTime property.
     */
-    public function setUploadCompletionDateTime(?DateTime $value ): void {
-        $this->uploadCompletionDateTime = $value;
+    public function setUploadCompletionDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('uploadCompletionDateTime', $value);
     }
 
 }

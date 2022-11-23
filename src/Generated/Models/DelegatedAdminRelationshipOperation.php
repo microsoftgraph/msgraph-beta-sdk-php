@@ -10,36 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminRelationshipOperation extends Entity implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The time in ISO 8601 format and in UTC time when the long-running operation was created. Read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $data The data (payload) for the operation. Read-only.
-    */
-    private ?string $data = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var DelegatedAdminRelationshipOperationType|null $operationType The operationType property
-    */
-    private ?DelegatedAdminRelationshipOperationType $operationType = null;
-    
-    /**
-     * @var LongRunningOperationStatus|null $status The status property
-    */
-    private ?LongRunningOperationStatus $status = null;
-    
-    /**
      * Instantiates a new delegatedAdminRelationshipOperation and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.delegatedAdminRelationshipOperation');
     }
 
     /**
@@ -56,7 +30,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -64,7 +38,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
      * @return string|null
     */
     public function getData(): ?string {
-        return $this->data;
+        return $this->getBackingStore()->get('data');
     }
 
     /**
@@ -87,7 +61,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -95,7 +69,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
      * @return DelegatedAdminRelationshipOperationType|null
     */
     public function getOperationType(): ?DelegatedAdminRelationshipOperationType {
-        return $this->operationType;
+        return $this->getBackingStore()->get('operationType');
     }
 
     /**
@@ -103,7 +77,7 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
      * @return LongRunningOperationStatus|null
     */
     public function getStatus(): ?LongRunningOperationStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -112,51 +86,51 @@ class DelegatedAdminRelationshipOperation extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('data', $this->data);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeEnumValue('operationType', $this->operationType);
-        $writer->writeEnumValue('status', $this->status);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('data', $this->getData());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeEnumValue('operationType', $this->getOperationType());
+        $writer->writeEnumValue('status', $this->getStatus());
     }
 
     /**
      * Sets the createdDateTime property value. The time in ISO 8601 format and in UTC time when the long-running operation was created. Read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the data property value. The data (payload) for the operation. Read-only.
      *  @param string|null $value Value to set for the data property.
     */
-    public function setData(?string $value ): void {
-        $this->data = $value;
+    public function setData(?string $value): void {
+        $this->getBackingStore()->set('data', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The time in ISO 8601 format and in UTC time when the long-running operation was last modified. Read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the operationType property value. The operationType property
      *  @param DelegatedAdminRelationshipOperationType|null $value Value to set for the operationType property.
     */
-    public function setOperationType(?DelegatedAdminRelationshipOperationType $value ): void {
-        $this->operationType = $value;
+    public function setOperationType(?DelegatedAdminRelationshipOperationType $value): void {
+        $this->getBackingStore()->set('operationType', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param LongRunningOperationStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?LongRunningOperationStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?LongRunningOperationStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

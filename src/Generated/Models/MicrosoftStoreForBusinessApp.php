@@ -9,41 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
 {
     /**
-     * @var array<MobileContainedApp>|null $containedApps The collection of contained apps in a mobileApp acting as a package.
-    */
-    private ?array $containedApps = null;
-    
-    /**
-     * @var MicrosoftStoreForBusinessLicenseType|null $licenseType The licenseType property
-    */
-    private ?MicrosoftStoreForBusinessLicenseType $licenseType = null;
-    
-    /**
-     * @var VppLicensingType|null $licensingType The supported License Type.
-    */
-    private ?VppLicensingType $licensingType = null;
-    
-    /**
-     * @var string|null $packageIdentityName The app package identifier
-    */
-    private ?string $packageIdentityName = null;
-    
-    /**
-     * @var string|null $productKey The app product key
-    */
-    private ?string $productKey = null;
-    
-    /**
-     * @var int|null $totalLicenseCount The total number of Microsoft Store for Business licenses.
-    */
-    private ?int $totalLicenseCount = null;
-    
-    /**
-     * @var int|null $usedLicenseCount The number of Microsoft Store for Business licenses in use.
-    */
-    private ?int $usedLicenseCount = null;
-    
-    /**
      * Instantiates a new MicrosoftStoreForBusinessApp and sets the default values.
     */
     public function __construct() {
@@ -65,7 +30,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return array<MobileContainedApp>|null
     */
     public function getContainedApps(): ?array {
-        return $this->containedApps;
+        return $this->getBackingStore()->get('containedApps');
     }
 
     /**
@@ -90,7 +55,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return MicrosoftStoreForBusinessLicenseType|null
     */
     public function getLicenseType(): ?MicrosoftStoreForBusinessLicenseType {
-        return $this->licenseType;
+        return $this->getBackingStore()->get('licenseType');
     }
 
     /**
@@ -98,7 +63,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return VppLicensingType|null
     */
     public function getLicensingType(): ?VppLicensingType {
-        return $this->licensingType;
+        return $this->getBackingStore()->get('licensingType');
     }
 
     /**
@@ -106,7 +71,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getPackageIdentityName(): ?string {
-        return $this->packageIdentityName;
+        return $this->getBackingStore()->get('packageIdentityName');
     }
 
     /**
@@ -114,7 +79,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return string|null
     */
     public function getProductKey(): ?string {
-        return $this->productKey;
+        return $this->getBackingStore()->get('productKey');
     }
 
     /**
@@ -122,7 +87,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getTotalLicenseCount(): ?int {
-        return $this->totalLicenseCount;
+        return $this->getBackingStore()->get('totalLicenseCount');
     }
 
     /**
@@ -130,7 +95,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
      * @return int|null
     */
     public function getUsedLicenseCount(): ?int {
-        return $this->usedLicenseCount;
+        return $this->getBackingStore()->get('usedLicenseCount');
     }
 
     /**
@@ -139,69 +104,69 @@ class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('containedApps', $this->containedApps);
-        $writer->writeEnumValue('licenseType', $this->licenseType);
-        $writer->writeObjectValue('licensingType', $this->licensingType);
-        $writer->writeStringValue('packageIdentityName', $this->packageIdentityName);
-        $writer->writeStringValue('productKey', $this->productKey);
-        $writer->writeIntegerValue('totalLicenseCount', $this->totalLicenseCount);
-        $writer->writeIntegerValue('usedLicenseCount', $this->usedLicenseCount);
+        $writer->writeCollectionOfObjectValues('containedApps', $this->getContainedApps());
+        $writer->writeEnumValue('licenseType', $this->getLicenseType());
+        $writer->writeObjectValue('licensingType', $this->getLicensingType());
+        $writer->writeStringValue('packageIdentityName', $this->getPackageIdentityName());
+        $writer->writeStringValue('productKey', $this->getProductKey());
+        $writer->writeIntegerValue('totalLicenseCount', $this->getTotalLicenseCount());
+        $writer->writeIntegerValue('usedLicenseCount', $this->getUsedLicenseCount());
     }
 
     /**
      * Sets the containedApps property value. The collection of contained apps in a mobileApp acting as a package.
      *  @param array<MobileContainedApp>|null $value Value to set for the containedApps property.
     */
-    public function setContainedApps(?array $value ): void {
-        $this->containedApps = $value;
+    public function setContainedApps(?array $value): void {
+        $this->getBackingStore()->set('containedApps', $value);
     }
 
     /**
      * Sets the licenseType property value. The licenseType property
      *  @param MicrosoftStoreForBusinessLicenseType|null $value Value to set for the licenseType property.
     */
-    public function setLicenseType(?MicrosoftStoreForBusinessLicenseType $value ): void {
-        $this->licenseType = $value;
+    public function setLicenseType(?MicrosoftStoreForBusinessLicenseType $value): void {
+        $this->getBackingStore()->set('licenseType', $value);
     }
 
     /**
      * Sets the licensingType property value. The supported License Type.
      *  @param VppLicensingType|null $value Value to set for the licensingType property.
     */
-    public function setLicensingType(?VppLicensingType $value ): void {
-        $this->licensingType = $value;
+    public function setLicensingType(?VppLicensingType $value): void {
+        $this->getBackingStore()->set('licensingType', $value);
     }
 
     /**
      * Sets the packageIdentityName property value. The app package identifier
      *  @param string|null $value Value to set for the packageIdentityName property.
     */
-    public function setPackageIdentityName(?string $value ): void {
-        $this->packageIdentityName = $value;
+    public function setPackageIdentityName(?string $value): void {
+        $this->getBackingStore()->set('packageIdentityName', $value);
     }
 
     /**
      * Sets the productKey property value. The app product key
      *  @param string|null $value Value to set for the productKey property.
     */
-    public function setProductKey(?string $value ): void {
-        $this->productKey = $value;
+    public function setProductKey(?string $value): void {
+        $this->getBackingStore()->set('productKey', $value);
     }
 
     /**
      * Sets the totalLicenseCount property value. The total number of Microsoft Store for Business licenses.
      *  @param int|null $value Value to set for the totalLicenseCount property.
     */
-    public function setTotalLicenseCount(?int $value ): void {
-        $this->totalLicenseCount = $value;
+    public function setTotalLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('totalLicenseCount', $value);
     }
 
     /**
      * Sets the usedLicenseCount property value. The number of Microsoft Store for Business licenses in use.
      *  @param int|null $value Value to set for the usedLicenseCount property.
     */
-    public function setUsedLicenseCount(?int $value ): void {
-        $this->usedLicenseCount = $value;
+    public function setUsedLicenseCount(?int $value): void {
+        $this->getBackingStore()->set('usedLicenseCount', $value);
     }
 
 }

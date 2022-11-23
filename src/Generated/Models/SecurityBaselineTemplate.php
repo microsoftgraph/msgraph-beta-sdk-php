@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsable 
 {
     /**
-     * @var array<SecurityBaselineCategoryStateSummary>|null $categoryDeviceStateSummaries The security baseline per category device state summary
-    */
-    private ?array $categoryDeviceStateSummaries = null;
-    
-    /**
-     * @var array<SecurityBaselineDeviceState>|null $deviceStates The security baseline device states
-    */
-    private ?array $deviceStates = null;
-    
-    /**
-     * @var SecurityBaselineStateSummary|null $deviceStateSummary The security baseline device state summary
-    */
-    private ?SecurityBaselineStateSummary $deviceStateSummary = null;
-    
-    /**
      * Instantiates a new SecurityBaselineTemplate and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return array<SecurityBaselineCategoryStateSummary>|null
     */
     public function getCategoryDeviceStateSummaries(): ?array {
-        return $this->categoryDeviceStateSummaries;
+        return $this->getBackingStore()->get('categoryDeviceStateSummaries');
     }
 
     /**
@@ -53,7 +38,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return array<SecurityBaselineDeviceState>|null
     */
     public function getDeviceStates(): ?array {
-        return $this->deviceStates;
+        return $this->getBackingStore()->get('deviceStates');
     }
 
     /**
@@ -61,7 +46,7 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
      * @return SecurityBaselineStateSummary|null
     */
     public function getDeviceStateSummary(): ?SecurityBaselineStateSummary {
-        return $this->deviceStateSummary;
+        return $this->getBackingStore()->get('deviceStateSummary');
     }
 
     /**
@@ -83,33 +68,33 @@ class SecurityBaselineTemplate extends DeviceManagementTemplate implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('categoryDeviceStateSummaries', $this->categoryDeviceStateSummaries);
-        $writer->writeCollectionOfObjectValues('deviceStates', $this->deviceStates);
-        $writer->writeObjectValue('deviceStateSummary', $this->deviceStateSummary);
+        $writer->writeCollectionOfObjectValues('categoryDeviceStateSummaries', $this->getCategoryDeviceStateSummaries());
+        $writer->writeCollectionOfObjectValues('deviceStates', $this->getDeviceStates());
+        $writer->writeObjectValue('deviceStateSummary', $this->getDeviceStateSummary());
     }
 
     /**
      * Sets the categoryDeviceStateSummaries property value. The security baseline per category device state summary
      *  @param array<SecurityBaselineCategoryStateSummary>|null $value Value to set for the categoryDeviceStateSummaries property.
     */
-    public function setCategoryDeviceStateSummaries(?array $value ): void {
-        $this->categoryDeviceStateSummaries = $value;
+    public function setCategoryDeviceStateSummaries(?array $value): void {
+        $this->getBackingStore()->set('categoryDeviceStateSummaries', $value);
     }
 
     /**
      * Sets the deviceStates property value. The security baseline device states
      *  @param array<SecurityBaselineDeviceState>|null $value Value to set for the deviceStates property.
     */
-    public function setDeviceStates(?array $value ): void {
-        $this->deviceStates = $value;
+    public function setDeviceStates(?array $value): void {
+        $this->getBackingStore()->set('deviceStates', $value);
     }
 
     /**
      * Sets the deviceStateSummary property value. The security baseline device state summary
      *  @param SecurityBaselineStateSummary|null $value Value to set for the deviceStateSummary property.
     */
-    public function setDeviceStateSummary(?SecurityBaselineStateSummary $value ): void {
-        $this->deviceStateSummary = $value;
+    public function setDeviceStateSummary(?SecurityBaselineStateSummary $value): void {
+        $this->getBackingStore()->set('deviceStateSummary', $value);
     }
 
 }

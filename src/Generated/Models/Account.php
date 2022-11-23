@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Account extends Entity implements Parsable 
 {
     /**
-     * @var bool|null $blocked The blocked property
-    */
-    private ?bool $blocked = null;
-    
-    /**
-     * @var string|null $category The category property
-    */
-    private ?string $category = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The lastModifiedDateTime property
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $number The number property
-    */
-    private ?string $number = null;
-    
-    /**
-     * @var string|null $subCategory The subCategory property
-    */
-    private ?string $subCategory = null;
-    
-    /**
-     * Instantiates a new account and sets the default values.
+     * Instantiates a new Account and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.account');
     }
 
     /**
@@ -61,7 +30,7 @@ class Account extends Entity implements Parsable
      * @return bool|null
     */
     public function getBlocked(): ?bool {
-        return $this->blocked;
+        return $this->getBackingStore()->get('blocked');
     }
 
     /**
@@ -69,7 +38,7 @@ class Account extends Entity implements Parsable
      * @return string|null
     */
     public function getCategory(): ?string {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -77,7 +46,7 @@ class Account extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -101,7 +70,7 @@ class Account extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -109,7 +78,7 @@ class Account extends Entity implements Parsable
      * @return string|null
     */
     public function getNumber(): ?string {
-        return $this->number;
+        return $this->getBackingStore()->get('number');
     }
 
     /**
@@ -117,7 +86,7 @@ class Account extends Entity implements Parsable
      * @return string|null
     */
     public function getSubCategory(): ?string {
-        return $this->subCategory;
+        return $this->getBackingStore()->get('subCategory');
     }
 
     /**
@@ -126,60 +95,60 @@ class Account extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeBooleanValue('blocked', $this->blocked);
-        $writer->writeStringValue('category', $this->category);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeStringValue('number', $this->number);
-        $writer->writeStringValue('subCategory', $this->subCategory);
+        $writer->writeBooleanValue('blocked', $this->getBlocked());
+        $writer->writeStringValue('category', $this->getCategory());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeStringValue('number', $this->getNumber());
+        $writer->writeStringValue('subCategory', $this->getSubCategory());
     }
 
     /**
      * Sets the blocked property value. The blocked property
      *  @param bool|null $value Value to set for the blocked property.
     */
-    public function setBlocked(?bool $value ): void {
-        $this->blocked = $value;
+    public function setBlocked(?bool $value): void {
+        $this->getBackingStore()->set('blocked', $value);
     }
 
     /**
      * Sets the category property value. The category property
      *  @param string|null $value Value to set for the category property.
     */
-    public function setCategory(?string $value ): void {
-        $this->category = $value;
+    public function setCategory(?string $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The lastModifiedDateTime property
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the number property value. The number property
      *  @param string|null $value Value to set for the number property.
     */
-    public function setNumber(?string $value ): void {
-        $this->number = $value;
+    public function setNumber(?string $value): void {
+        $this->getBackingStore()->set('number', $value);
     }
 
     /**
      * Sets the subCategory property value. The subCategory property
      *  @param string|null $value Value to set for the subCategory property.
     */
-    public function setSubCategory(?string $value ): void {
-        $this->subCategory = $value;
+    public function setSubCategory(?string $value): void {
+        $this->getBackingStore()->set('subCategory', $value);
     }
 
 }

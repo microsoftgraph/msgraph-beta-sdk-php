@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TenantAppManagementPolicy extends PolicyBase implements Parsable 
 {
     /**
-     * @var AppManagementConfiguration|null $applicationRestrictions Restrictions that apply as default to all application objects in the tenant.
-    */
-    private ?AppManagementConfiguration $applicationRestrictions = null;
-    
-    /**
-     * @var bool|null $isEnabled Denotes whether the policy is enabled. Default value is false.
-    */
-    private ?bool $isEnabled = null;
-    
-    /**
-     * @var AppManagementConfiguration|null $servicePrincipalRestrictions Restrictions that apply as default to all service principal objects in the tenant.
-    */
-    private ?AppManagementConfiguration $servicePrincipalRestrictions = null;
-    
-    /**
      * Instantiates a new TenantAppManagementPolicy and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
      * @return AppManagementConfiguration|null
     */
     public function getApplicationRestrictions(): ?AppManagementConfiguration {
-        return $this->applicationRestrictions;
+        return $this->getBackingStore()->get('applicationRestrictions');
     }
 
     /**
@@ -66,7 +51,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
      * @return bool|null
     */
     public function getIsEnabled(): ?bool {
-        return $this->isEnabled;
+        return $this->getBackingStore()->get('isEnabled');
     }
 
     /**
@@ -74,7 +59,7 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
      * @return AppManagementConfiguration|null
     */
     public function getServicePrincipalRestrictions(): ?AppManagementConfiguration {
-        return $this->servicePrincipalRestrictions;
+        return $this->getBackingStore()->get('servicePrincipalRestrictions');
     }
 
     /**
@@ -83,33 +68,33 @@ class TenantAppManagementPolicy extends PolicyBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('applicationRestrictions', $this->applicationRestrictions);
-        $writer->writeBooleanValue('isEnabled', $this->isEnabled);
-        $writer->writeObjectValue('servicePrincipalRestrictions', $this->servicePrincipalRestrictions);
+        $writer->writeObjectValue('applicationRestrictions', $this->getApplicationRestrictions());
+        $writer->writeBooleanValue('isEnabled', $this->getIsEnabled());
+        $writer->writeObjectValue('servicePrincipalRestrictions', $this->getServicePrincipalRestrictions());
     }
 
     /**
      * Sets the applicationRestrictions property value. Restrictions that apply as default to all application objects in the tenant.
      *  @param AppManagementConfiguration|null $value Value to set for the applicationRestrictions property.
     */
-    public function setApplicationRestrictions(?AppManagementConfiguration $value ): void {
-        $this->applicationRestrictions = $value;
+    public function setApplicationRestrictions(?AppManagementConfiguration $value): void {
+        $this->getBackingStore()->set('applicationRestrictions', $value);
     }
 
     /**
      * Sets the isEnabled property value. Denotes whether the policy is enabled. Default value is false.
      *  @param bool|null $value Value to set for the isEnabled property.
     */
-    public function setIsEnabled(?bool $value ): void {
-        $this->isEnabled = $value;
+    public function setIsEnabled(?bool $value): void {
+        $this->getBackingStore()->set('isEnabled', $value);
     }
 
     /**
      * Sets the servicePrincipalRestrictions property value. Restrictions that apply as default to all service principal objects in the tenant.
      *  @param AppManagementConfiguration|null $value Value to set for the servicePrincipalRestrictions property.
     */
-    public function setServicePrincipalRestrictions(?AppManagementConfiguration $value ): void {
-        $this->servicePrincipalRestrictions = $value;
+    public function setServicePrincipalRestrictions(?AppManagementConfiguration $value): void {
+        $this->getBackingStore()->set('servicePrincipalRestrictions', $value);
     }
 
 }

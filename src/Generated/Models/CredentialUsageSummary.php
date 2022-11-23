@@ -9,31 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CredentialUsageSummary extends Entity implements Parsable 
 {
     /**
-     * @var UsageAuthMethod|null $authMethod The authMethod property
-    */
-    private ?UsageAuthMethod $authMethod = null;
-    
-    /**
-     * @var int|null $failureActivityCount Provides the count of failed resets or registration data.
-    */
-    private ?int $failureActivityCount = null;
-    
-    /**
-     * @var FeatureType|null $feature The feature property
-    */
-    private ?FeatureType $feature = null;
-    
-    /**
-     * @var int|null $successfulActivityCount Provides the count of successful registrations or resets.
-    */
-    private ?int $successfulActivityCount = null;
-    
-    /**
      * Instantiates a new CredentialUsageSummary and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.credentialUsageSummary');
     }
 
     /**
@@ -50,7 +29,7 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return UsageAuthMethod|null
     */
     public function getAuthMethod(): ?UsageAuthMethod {
-        return $this->authMethod;
+        return $this->getBackingStore()->get('authMethod');
     }
 
     /**
@@ -58,7 +37,7 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getFailureActivityCount(): ?int {
-        return $this->failureActivityCount;
+        return $this->getBackingStore()->get('failureActivityCount');
     }
 
     /**
@@ -66,7 +45,7 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return FeatureType|null
     */
     public function getFeature(): ?FeatureType {
-        return $this->feature;
+        return $this->getBackingStore()->get('feature');
     }
 
     /**
@@ -88,7 +67,7 @@ class CredentialUsageSummary extends Entity implements Parsable
      * @return int|null
     */
     public function getSuccessfulActivityCount(): ?int {
-        return $this->successfulActivityCount;
+        return $this->getBackingStore()->get('successfulActivityCount');
     }
 
     /**
@@ -97,42 +76,42 @@ class CredentialUsageSummary extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('authMethod', $this->authMethod);
-        $writer->writeIntegerValue('failureActivityCount', $this->failureActivityCount);
-        $writer->writeEnumValue('feature', $this->feature);
-        $writer->writeIntegerValue('successfulActivityCount', $this->successfulActivityCount);
+        $writer->writeEnumValue('authMethod', $this->getAuthMethod());
+        $writer->writeIntegerValue('failureActivityCount', $this->getFailureActivityCount());
+        $writer->writeEnumValue('feature', $this->getFeature());
+        $writer->writeIntegerValue('successfulActivityCount', $this->getSuccessfulActivityCount());
     }
 
     /**
      * Sets the authMethod property value. The authMethod property
      *  @param UsageAuthMethod|null $value Value to set for the authMethod property.
     */
-    public function setAuthMethod(?UsageAuthMethod $value ): void {
-        $this->authMethod = $value;
+    public function setAuthMethod(?UsageAuthMethod $value): void {
+        $this->getBackingStore()->set('authMethod', $value);
     }
 
     /**
      * Sets the failureActivityCount property value. Provides the count of failed resets or registration data.
      *  @param int|null $value Value to set for the failureActivityCount property.
     */
-    public function setFailureActivityCount(?int $value ): void {
-        $this->failureActivityCount = $value;
+    public function setFailureActivityCount(?int $value): void {
+        $this->getBackingStore()->set('failureActivityCount', $value);
     }
 
     /**
      * Sets the feature property value. The feature property
      *  @param FeatureType|null $value Value to set for the feature property.
     */
-    public function setFeature(?FeatureType $value ): void {
-        $this->feature = $value;
+    public function setFeature(?FeatureType $value): void {
+        $this->getBackingStore()->set('feature', $value);
     }
 
     /**
      * Sets the successfulActivityCount property value. Provides the count of successful registrations or resets.
      *  @param int|null $value Value to set for the successfulActivityCount property.
     */
-    public function setSuccessfulActivityCount(?int $value ): void {
-        $this->successfulActivityCount = $value;
+    public function setSuccessfulActivityCount(?int $value): void {
+        $this->getBackingStore()->set('successfulActivityCount', $value);
     }
 
 }

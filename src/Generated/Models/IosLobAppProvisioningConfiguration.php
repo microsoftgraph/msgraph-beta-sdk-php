@@ -11,76 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class IosLobAppProvisioningConfiguration extends Entity implements Parsable 
 {
     /**
-     * @var array<IosLobAppProvisioningConfigurationAssignment>|null $assignments The associated group assignments for IosLobAppProvisioningConfiguration.
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime DateTime the object was created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Admin provided description of the Device Configuration.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $deviceStatuses The list of device installation states for this mobile app configuration.
-    */
-    private ?array $deviceStatuses = null;
-    
-    /**
-     * @var string|null $displayName Admin provided name of the device configuration.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var DateTime|null $expirationDateTime Optional profile expiration date and time.
-    */
-    private ?DateTime $expirationDateTime = null;
-    
-    /**
-     * @var array<MobileAppProvisioningConfigGroupAssignment>|null $groupAssignments The associated group assignments.
-    */
-    private ?array $groupAssignments = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime DateTime the object was last modified.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var StreamInterface|null $payload Payload. (UTF8 encoded byte array)
-    */
-    private ?StreamInterface $payload = null;
-    
-    /**
-     * @var string|null $payloadFileName Payload file name (.mobileprovision
-    */
-    private ?string $payloadFileName = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tags for this iOS LOB app provisioning configuration entity.
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var array<ManagedDeviceMobileAppConfigurationUserStatus>|null $userStatuses The list of user installation states for this mobile app configuration.
-    */
-    private ?array $userStatuses = null;
-    
-    /**
-     * @var int|null $version Version of the device configuration.
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new iosLobAppProvisioningConfiguration and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.iosLobAppProvisioningConfiguration');
     }
 
     /**
@@ -97,7 +31,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<IosLobAppProvisioningConfigurationAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -105,7 +39,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -113,7 +47,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -121,7 +55,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null
     */
     public function getDeviceStatuses(): ?array {
-        return $this->deviceStatuses;
+        return $this->getBackingStore()->get('deviceStatuses');
     }
 
     /**
@@ -129,7 +63,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -137,7 +71,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getExpirationDateTime(): ?DateTime {
-        return $this->expirationDateTime;
+        return $this->getBackingStore()->get('expirationDateTime');
     }
 
     /**
@@ -168,7 +102,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<MobileAppProvisioningConfigGroupAssignment>|null
     */
     public function getGroupAssignments(): ?array {
-        return $this->groupAssignments;
+        return $this->getBackingStore()->get('groupAssignments');
     }
 
     /**
@@ -176,15 +110,15 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array)
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getPayload(): StreamInterface {
-        return $this->payload;
+    public function getPayload(): ?StreamInterface {
+        return $this->getBackingStore()->get('payload');
     }
 
     /**
@@ -192,7 +126,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return string|null
     */
     public function getPayloadFileName(): ?string {
-        return $this->payloadFileName;
+        return $this->getBackingStore()->get('payloadFileName');
     }
 
     /**
@@ -200,7 +134,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -208,7 +142,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return array<ManagedDeviceMobileAppConfigurationUserStatus>|null
     */
     public function getUserStatuses(): ?array {
-        return $this->userStatuses;
+        return $this->getBackingStore()->get('userStatuses');
     }
 
     /**
@@ -216,7 +150,7 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -225,123 +159,123 @@ class IosLobAppProvisioningConfiguration extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->deviceStatuses);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeDateTimeValue('expirationDateTime', $this->expirationDateTime);
-        $writer->writeCollectionOfObjectValues('groupAssignments', $this->groupAssignments);
-        $writer->writeDateTimeValue('lastModifiedDateTime', $this->lastModifiedDateTime);
-        $writer->writeBinaryContent('payload', $this->payload);
-        $writer->writeStringValue('payloadFileName', $this->payloadFileName);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeCollectionOfObjectValues('userStatuses', $this->userStatuses);
-        $writer->writeIntegerValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeCollectionOfObjectValues('deviceStatuses', $this->getDeviceStatuses());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeDateTimeValue('expirationDateTime', $this->getExpirationDateTime());
+        $writer->writeCollectionOfObjectValues('groupAssignments', $this->getGroupAssignments());
+        $writer->writeDateTimeValue('lastModifiedDateTime', $this->getLastModifiedDateTime());
+        $writer->writeBinaryContent('payload', $this->getPayload());
+        $writer->writeStringValue('payloadFileName', $this->getPayloadFileName());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeCollectionOfObjectValues('userStatuses', $this->getUserStatuses());
+        $writer->writeIntegerValue('version', $this->getVersion());
     }
 
     /**
      * Sets the assignments property value. The associated group assignments for IosLobAppProvisioningConfiguration.
      *  @param array<IosLobAppProvisioningConfigurationAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. DateTime the object was created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Admin provided description of the Device Configuration.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the deviceStatuses property value. The list of device installation states for this mobile app configuration.
      *  @param array<ManagedDeviceMobileAppConfigurationDeviceStatus>|null $value Value to set for the deviceStatuses property.
     */
-    public function setDeviceStatuses(?array $value ): void {
-        $this->deviceStatuses = $value;
+    public function setDeviceStatuses(?array $value): void {
+        $this->getBackingStore()->set('deviceStatuses', $value);
     }
 
     /**
      * Sets the displayName property value. Admin provided name of the device configuration.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the expirationDateTime property value. Optional profile expiration date and time.
      *  @param DateTime|null $value Value to set for the expirationDateTime property.
     */
-    public function setExpirationDateTime(?DateTime $value ): void {
-        $this->expirationDateTime = $value;
+    public function setExpirationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('expirationDateTime', $value);
     }
 
     /**
      * Sets the groupAssignments property value. The associated group assignments.
      *  @param array<MobileAppProvisioningConfigGroupAssignment>|null $value Value to set for the groupAssignments property.
     */
-    public function setGroupAssignments(?array $value ): void {
-        $this->groupAssignments = $value;
+    public function setGroupAssignments(?array $value): void {
+        $this->getBackingStore()->set('groupAssignments', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. DateTime the object was last modified.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the payload property value. Payload. (UTF8 encoded byte array)
      *  @param StreamInterface|null $value Value to set for the payload property.
     */
-    public function setPayload(?StreamInterface $value ): void {
-        $this->payload = $value;
+    public function setPayload(?StreamInterface $value): void {
+        $this->getBackingStore()->set('payload', $value);
     }
 
     /**
      * Sets the payloadFileName property value. Payload file name (.mobileprovision
      *  @param string|null $value Value to set for the payloadFileName property.
     */
-    public function setPayloadFileName(?string $value ): void {
-        $this->payloadFileName = $value;
+    public function setPayloadFileName(?string $value): void {
+        $this->getBackingStore()->set('payloadFileName', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tags for this iOS LOB app provisioning configuration entity.
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the userStatuses property value. The list of user installation states for this mobile app configuration.
      *  @param array<ManagedDeviceMobileAppConfigurationUserStatus>|null $value Value to set for the userStatuses property.
     */
-    public function setUserStatuses(?array $value ): void {
-        $this->userStatuses = $value;
+    public function setUserStatuses(?array $value): void {
+        $this->getBackingStore()->set('userStatuses', $value);
     }
 
     /**
      * Sets the version property value. Version of the device configuration.
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

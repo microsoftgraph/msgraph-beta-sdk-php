@@ -10,11 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CloudPcDeviceCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable 
 {
     /**
-     * @var array<CloudPcDevice>|null $value The value property
-    */
-    private ?array $value = null;
-    
-    /**
      * Instantiates a new CloudPcDeviceCollectionResponse and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class CloudPcDeviceCollectionResponse extends BaseCollectionPaginationCountRespo
      * @return array<CloudPcDevice>|null
     */
     public function getValue(): ?array {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class CloudPcDeviceCollectionResponse extends BaseCollectionPaginationCountRespo
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('value', $this->value);
+        $writer->writeCollectionOfObjectValues('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. The value property
      *  @param array<CloudPcDevice>|null $value Value to set for the value property.
     */
-    public function setValue(?array $value ): void {
-        $this->value = $value;
+    public function setValue(?array $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

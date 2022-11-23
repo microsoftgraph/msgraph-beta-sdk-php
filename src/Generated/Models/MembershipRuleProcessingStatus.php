@@ -7,40 +7,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable 
+class MembershipRuleProcessingStatus implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $errorMessage Detailed error message if dynamic group processing ran into an error.  Optional. Read-only.
-    */
-    private ?string $errorMessage = null;
-    
-    /**
-     * @var DateTime|null $lastMembershipUpdated Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only.
-    */
-    private ?DateTime $lastMembershipUpdated = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var MembershipRuleProcessingStatusDetails|null $status Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
-    */
-    private ?MembershipRuleProcessingStatusDetails $status = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new membershipRuleProcessingStatus and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.membershipRuleProcessingStatus');
     }
 
     /**
@@ -56,8 +39,16 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -65,7 +56,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getErrorMessage(): ?string {
-        return $this->errorMessage;
+        return $this->getBackingStore()->get('errorMessage');
     }
 
     /**
@@ -87,7 +78,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @return DateTime|null
     */
     public function getLastMembershipUpdated(): ?DateTime {
-        return $this->lastMembershipUpdated;
+        return $this->getBackingStore()->get('lastMembershipUpdated');
     }
 
     /**
@@ -95,7 +86,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -103,7 +94,7 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @return MembershipRuleProcessingStatusDetails|null
     */
     public function getStatus(): ?MembershipRuleProcessingStatusDetails {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -111,51 +102,59 @@ class MembershipRuleProcessingStatus implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('errorMessage', $this->errorMessage);
-        $writer->writeDateTimeValue('lastMembershipUpdated', $this->lastMembershipUpdated);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('errorMessage', $this->getErrorMessage());
+        $writer->writeDateTimeValue('lastMembershipUpdated', $this->getLastMembershipUpdated());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the errorMessage property value. Detailed error message if dynamic group processing ran into an error.  Optional. Read-only.
      *  @param string|null $value Value to set for the errorMessage property.
     */
-    public function setErrorMessage(?string $value ): void {
-        $this->errorMessage = $value;
+    public function setErrorMessage(?string $value): void {
+        $this->getBackingStore()->set('errorMessage', $value);
     }
 
     /**
      * Sets the lastMembershipUpdated property value. Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only.
      *  @param DateTime|null $value Value to set for the lastMembershipUpdated property.
     */
-    public function setLastMembershipUpdated(?DateTime $value ): void {
-        $this->lastMembershipUpdated = $value;
+    public function setLastMembershipUpdated(?DateTime $value): void {
+        $this->getBackingStore()->set('lastMembershipUpdated', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the status property value. Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
      *  @param MembershipRuleProcessingStatusDetails|null $value Value to set for the status property.
     */
-    public function setStatus(?MembershipRuleProcessingStatusDetails $value ): void {
-        $this->status = $value;
+    public function setStatus(?MembershipRuleProcessingStatusDetails $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
 }

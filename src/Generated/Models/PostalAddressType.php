@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class PostalAddressType implements AdditionalDataHolder, Parsable 
+class PostalAddressType implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $city The city property
-    */
-    private ?string $city = null;
-    
-    /**
-     * @var string|null $countryLetterCode The countryLetterCode property
-    */
-    private ?string $countryLetterCode = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $postalCode The postalCode property
-    */
-    private ?string $postalCode = null;
-    
-    /**
-     * @var string|null $state The state property
-    */
-    private ?string $state = null;
-    
-    /**
-     * @var string|null $street The street property
-    */
-    private ?string $street = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new postalAddressType and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.postalAddressType');
     }
 
     /**
@@ -65,8 +38,16 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +55,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCity(): ?string {
-        return $this->city;
+        return $this->getBackingStore()->get('city');
     }
 
     /**
@@ -82,7 +63,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getCountryLetterCode(): ?string {
-        return $this->countryLetterCode;
+        return $this->getBackingStore()->get('countryLetterCode');
     }
 
     /**
@@ -106,7 +87,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -114,7 +95,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPostalCode(): ?string {
-        return $this->postalCode;
+        return $this->getBackingStore()->get('postalCode');
     }
 
     /**
@@ -122,7 +103,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getState(): ?string {
-        return $this->state;
+        return $this->getBackingStore()->get('state');
     }
 
     /**
@@ -130,7 +111,7 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getStreet(): ?string {
-        return $this->street;
+        return $this->getBackingStore()->get('street');
     }
 
     /**
@@ -138,69 +119,77 @@ class PostalAddressType implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('city', $this->city);
-        $writer->writeStringValue('countryLetterCode', $this->countryLetterCode);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('postalCode', $this->postalCode);
-        $writer->writeStringValue('state', $this->state);
-        $writer->writeStringValue('street', $this->street);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('city', $this->getCity());
+        $writer->writeStringValue('countryLetterCode', $this->getCountryLetterCode());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('postalCode', $this->getPostalCode());
+        $writer->writeStringValue('state', $this->getState());
+        $writer->writeStringValue('street', $this->getStreet());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the city property value. The city property
      *  @param string|null $value Value to set for the city property.
     */
-    public function setCity(?string $value ): void {
-        $this->city = $value;
+    public function setCity(?string $value): void {
+        $this->getBackingStore()->set('city', $value);
     }
 
     /**
      * Sets the countryLetterCode property value. The countryLetterCode property
      *  @param string|null $value Value to set for the countryLetterCode property.
     */
-    public function setCountryLetterCode(?string $value ): void {
-        $this->countryLetterCode = $value;
+    public function setCountryLetterCode(?string $value): void {
+        $this->getBackingStore()->set('countryLetterCode', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the postalCode property value. The postalCode property
      *  @param string|null $value Value to set for the postalCode property.
     */
-    public function setPostalCode(?string $value ): void {
-        $this->postalCode = $value;
+    public function setPostalCode(?string $value): void {
+        $this->getBackingStore()->set('postalCode', $value);
     }
 
     /**
      * Sets the state property value. The state property
      *  @param string|null $value Value to set for the state property.
     */
-    public function setState(?string $value ): void {
-        $this->state = $value;
+    public function setState(?string $value): void {
+        $this->getBackingStore()->set('state', $value);
     }
 
     /**
      * Sets the street property value. The street property
      *  @param string|null $value Value to set for the street property.
     */
-    public function setStreet(?string $value ): void {
-        $this->street = $value;
+    public function setStreet(?string $value): void {
+        $this->getBackingStore()->set('street', $value);
     }
 
 }

@@ -11,106 +11,10 @@ use Psr\Http\Message\StreamInterface;
 class DeviceHealthScript extends Entity implements Parsable 
 {
     /**
-     * @var array<DeviceHealthScriptAssignment>|null $assignments The list of group assignments for the device health script
-    */
-    private ?array $assignments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime The timestamp of when the device health script was created. This property is read-only.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var string|null $description Description of the device health script
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var StreamInterface|null $detectionScriptContent The entire content of the detection powershell script
-    */
-    private ?StreamInterface $detectionScriptContent = null;
-    
-    /**
-     * @var array<DeviceHealthScriptParameter>|null $detectionScriptParameters List of ComplexType DetectionScriptParameters objects.
-    */
-    private ?array $detectionScriptParameters = null;
-    
-    /**
-     * @var array<DeviceHealthScriptDeviceState>|null $deviceRunStates List of run states for the device health script across all devices
-    */
-    private ?array $deviceRunStates = null;
-    
-    /**
-     * @var string|null $displayName Name of the device health script
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var bool|null $enforceSignatureCheck Indicate whether the script signature needs be checked
-    */
-    private ?bool $enforceSignatureCheck = null;
-    
-    /**
-     * @var string|null $highestAvailableVersion Highest available version for a Microsoft Proprietary script
-    */
-    private ?string $highestAvailableVersion = null;
-    
-    /**
-     * @var bool|null $isGlobalScript Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only
-    */
-    private ?bool $isGlobalScript = null;
-    
-    /**
-     * @var DateTime|null $lastModifiedDateTime The timestamp of when the device health script was modified. This property is read-only.
-    */
-    private ?DateTime $lastModifiedDateTime = null;
-    
-    /**
-     * @var string|null $publisher Name of the device health script publisher
-    */
-    private ?string $publisher = null;
-    
-    /**
-     * @var StreamInterface|null $remediationScriptContent The entire content of the remediation powershell script
-    */
-    private ?StreamInterface $remediationScriptContent = null;
-    
-    /**
-     * @var array<DeviceHealthScriptParameter>|null $remediationScriptParameters List of ComplexType RemediationScriptParameters objects.
-    */
-    private ?array $remediationScriptParameters = null;
-    
-    /**
-     * @var array<string>|null $roleScopeTagIds List of Scope Tag IDs for the device health script
-    */
-    private ?array $roleScopeTagIds = null;
-    
-    /**
-     * @var bool|null $runAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
-    */
-    private ?bool $runAs32Bit = null;
-    
-    /**
-     * @var RunAsAccountType|null $runAsAccount Indicates the type of execution context the app runs in.
-    */
-    private ?RunAsAccountType $runAsAccount = null;
-    
-    /**
-     * @var DeviceHealthScriptRunSummary|null $runSummary High level run summary for device health script.
-    */
-    private ?DeviceHealthScriptRunSummary $runSummary = null;
-    
-    /**
-     * @var string|null $version Version of the device health script
-    */
-    private ?string $version = null;
-    
-    /**
      * Instantiates a new deviceHealthScript and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceHealthScript');
     }
 
     /**
@@ -127,7 +31,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptAssignment>|null
     */
     public function getAssignments(): ?array {
-        return $this->assignments;
+        return $this->getBackingStore()->get('assignments');
     }
 
     /**
@@ -135,7 +39,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -143,15 +47,15 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
      * Gets the detectionScriptContent property value. The entire content of the detection powershell script
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getDetectionScriptContent(): StreamInterface {
-        return $this->detectionScriptContent;
+    public function getDetectionScriptContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('detectionScriptContent');
     }
 
     /**
@@ -159,7 +63,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptParameter>|null
     */
     public function getDetectionScriptParameters(): ?array {
-        return $this->detectionScriptParameters;
+        return $this->getBackingStore()->get('detectionScriptParameters');
     }
 
     /**
@@ -167,7 +71,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptDeviceState>|null
     */
     public function getDeviceRunStates(): ?array {
-        return $this->deviceRunStates;
+        return $this->getBackingStore()->get('deviceRunStates');
     }
 
     /**
@@ -175,7 +79,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -183,7 +87,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getEnforceSignatureCheck(): ?bool {
-        return $this->enforceSignatureCheck;
+        return $this->getBackingStore()->get('enforceSignatureCheck');
     }
 
     /**
@@ -220,7 +124,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getHighestAvailableVersion(): ?string {
-        return $this->highestAvailableVersion;
+        return $this->getBackingStore()->get('highestAvailableVersion');
     }
 
     /**
@@ -228,7 +132,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsGlobalScript(): ?bool {
-        return $this->isGlobalScript;
+        return $this->getBackingStore()->get('isGlobalScript');
     }
 
     /**
@@ -236,7 +140,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastModifiedDateTime(): ?DateTime {
-        return $this->lastModifiedDateTime;
+        return $this->getBackingStore()->get('lastModifiedDateTime');
     }
 
     /**
@@ -244,15 +148,15 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getPublisher(): ?string {
-        return $this->publisher;
+        return $this->getBackingStore()->get('publisher');
     }
 
     /**
      * Gets the remediationScriptContent property value. The entire content of the remediation powershell script
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getRemediationScriptContent(): StreamInterface {
-        return $this->remediationScriptContent;
+    public function getRemediationScriptContent(): ?StreamInterface {
+        return $this->getBackingStore()->get('remediationScriptContent');
     }
 
     /**
@@ -260,7 +164,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<DeviceHealthScriptParameter>|null
     */
     public function getRemediationScriptParameters(): ?array {
-        return $this->remediationScriptParameters;
+        return $this->getBackingStore()->get('remediationScriptParameters');
     }
 
     /**
@@ -268,7 +172,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getRoleScopeTagIds(): ?array {
-        return $this->roleScopeTagIds;
+        return $this->getBackingStore()->get('roleScopeTagIds');
     }
 
     /**
@@ -276,7 +180,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return bool|null
     */
     public function getRunAs32Bit(): ?bool {
-        return $this->runAs32Bit;
+        return $this->getBackingStore()->get('runAs32Bit');
     }
 
     /**
@@ -284,7 +188,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return RunAsAccountType|null
     */
     public function getRunAsAccount(): ?RunAsAccountType {
-        return $this->runAsAccount;
+        return $this->getBackingStore()->get('runAsAccount');
     }
 
     /**
@@ -292,7 +196,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return DeviceHealthScriptRunSummary|null
     */
     public function getRunSummary(): ?DeviceHealthScriptRunSummary {
-        return $this->runSummary;
+        return $this->getBackingStore()->get('runSummary');
     }
 
     /**
@@ -300,7 +204,7 @@ class DeviceHealthScript extends Entity implements Parsable
      * @return string|null
     */
     public function getVersion(): ?string {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -309,175 +213,175 @@ class DeviceHealthScript extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('assignments', $this->assignments);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeBinaryContent('detectionScriptContent', $this->detectionScriptContent);
-        $writer->writeCollectionOfObjectValues('detectionScriptParameters', $this->detectionScriptParameters);
-        $writer->writeCollectionOfObjectValues('deviceRunStates', $this->deviceRunStates);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeBooleanValue('enforceSignatureCheck', $this->enforceSignatureCheck);
-        $writer->writeStringValue('highestAvailableVersion', $this->highestAvailableVersion);
-        $writer->writeBooleanValue('isGlobalScript', $this->isGlobalScript);
-        $writer->writeStringValue('publisher', $this->publisher);
-        $writer->writeBinaryContent('remediationScriptContent', $this->remediationScriptContent);
-        $writer->writeCollectionOfObjectValues('remediationScriptParameters', $this->remediationScriptParameters);
-        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->roleScopeTagIds);
-        $writer->writeBooleanValue('runAs32Bit', $this->runAs32Bit);
-        $writer->writeEnumValue('runAsAccount', $this->runAsAccount);
-        $writer->writeObjectValue('runSummary', $this->runSummary);
-        $writer->writeStringValue('version', $this->version);
+        $writer->writeCollectionOfObjectValues('assignments', $this->getAssignments());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBinaryContent('detectionScriptContent', $this->getDetectionScriptContent());
+        $writer->writeCollectionOfObjectValues('detectionScriptParameters', $this->getDetectionScriptParameters());
+        $writer->writeCollectionOfObjectValues('deviceRunStates', $this->getDeviceRunStates());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeBooleanValue('enforceSignatureCheck', $this->getEnforceSignatureCheck());
+        $writer->writeStringValue('highestAvailableVersion', $this->getHighestAvailableVersion());
+        $writer->writeBooleanValue('isGlobalScript', $this->getIsGlobalScript());
+        $writer->writeStringValue('publisher', $this->getPublisher());
+        $writer->writeBinaryContent('remediationScriptContent', $this->getRemediationScriptContent());
+        $writer->writeCollectionOfObjectValues('remediationScriptParameters', $this->getRemediationScriptParameters());
+        $writer->writeCollectionOfPrimitiveValues('roleScopeTagIds', $this->getRoleScopeTagIds());
+        $writer->writeBooleanValue('runAs32Bit', $this->getRunAs32Bit());
+        $writer->writeEnumValue('runAsAccount', $this->getRunAsAccount());
+        $writer->writeObjectValue('runSummary', $this->getRunSummary());
+        $writer->writeStringValue('version', $this->getVersion());
     }
 
     /**
      * Sets the assignments property value. The list of group assignments for the device health script
      *  @param array<DeviceHealthScriptAssignment>|null $value Value to set for the assignments property.
     */
-    public function setAssignments(?array $value ): void {
-        $this->assignments = $value;
+    public function setAssignments(?array $value): void {
+        $this->getBackingStore()->set('assignments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. The timestamp of when the device health script was created. This property is read-only.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the description property value. Description of the device health script
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the detectionScriptContent property value. The entire content of the detection powershell script
      *  @param StreamInterface|null $value Value to set for the detectionScriptContent property.
     */
-    public function setDetectionScriptContent(?StreamInterface $value ): void {
-        $this->detectionScriptContent = $value;
+    public function setDetectionScriptContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('detectionScriptContent', $value);
     }
 
     /**
      * Sets the detectionScriptParameters property value. List of ComplexType DetectionScriptParameters objects.
      *  @param array<DeviceHealthScriptParameter>|null $value Value to set for the detectionScriptParameters property.
     */
-    public function setDetectionScriptParameters(?array $value ): void {
-        $this->detectionScriptParameters = $value;
+    public function setDetectionScriptParameters(?array $value): void {
+        $this->getBackingStore()->set('detectionScriptParameters', $value);
     }
 
     /**
      * Sets the deviceRunStates property value. List of run states for the device health script across all devices
      *  @param array<DeviceHealthScriptDeviceState>|null $value Value to set for the deviceRunStates property.
     */
-    public function setDeviceRunStates(?array $value ): void {
-        $this->deviceRunStates = $value;
+    public function setDeviceRunStates(?array $value): void {
+        $this->getBackingStore()->set('deviceRunStates', $value);
     }
 
     /**
      * Sets the displayName property value. Name of the device health script
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the enforceSignatureCheck property value. Indicate whether the script signature needs be checked
      *  @param bool|null $value Value to set for the enforceSignatureCheck property.
     */
-    public function setEnforceSignatureCheck(?bool $value ): void {
-        $this->enforceSignatureCheck = $value;
+    public function setEnforceSignatureCheck(?bool $value): void {
+        $this->getBackingStore()->set('enforceSignatureCheck', $value);
     }
 
     /**
      * Sets the highestAvailableVersion property value. Highest available version for a Microsoft Proprietary script
      *  @param string|null $value Value to set for the highestAvailableVersion property.
     */
-    public function setHighestAvailableVersion(?string $value ): void {
-        $this->highestAvailableVersion = $value;
+    public function setHighestAvailableVersion(?string $value): void {
+        $this->getBackingStore()->set('highestAvailableVersion', $value);
     }
 
     /**
      * Sets the isGlobalScript property value. Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only
      *  @param bool|null $value Value to set for the isGlobalScript property.
     */
-    public function setIsGlobalScript(?bool $value ): void {
-        $this->isGlobalScript = $value;
+    public function setIsGlobalScript(?bool $value): void {
+        $this->getBackingStore()->set('isGlobalScript', $value);
     }
 
     /**
      * Sets the lastModifiedDateTime property value. The timestamp of when the device health script was modified. This property is read-only.
      *  @param DateTime|null $value Value to set for the lastModifiedDateTime property.
     */
-    public function setLastModifiedDateTime(?DateTime $value ): void {
-        $this->lastModifiedDateTime = $value;
+    public function setLastModifiedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastModifiedDateTime', $value);
     }
 
     /**
      * Sets the publisher property value. Name of the device health script publisher
      *  @param string|null $value Value to set for the publisher property.
     */
-    public function setPublisher(?string $value ): void {
-        $this->publisher = $value;
+    public function setPublisher(?string $value): void {
+        $this->getBackingStore()->set('publisher', $value);
     }
 
     /**
      * Sets the remediationScriptContent property value. The entire content of the remediation powershell script
      *  @param StreamInterface|null $value Value to set for the remediationScriptContent property.
     */
-    public function setRemediationScriptContent(?StreamInterface $value ): void {
-        $this->remediationScriptContent = $value;
+    public function setRemediationScriptContent(?StreamInterface $value): void {
+        $this->getBackingStore()->set('remediationScriptContent', $value);
     }
 
     /**
      * Sets the remediationScriptParameters property value. List of ComplexType RemediationScriptParameters objects.
      *  @param array<DeviceHealthScriptParameter>|null $value Value to set for the remediationScriptParameters property.
     */
-    public function setRemediationScriptParameters(?array $value ): void {
-        $this->remediationScriptParameters = $value;
+    public function setRemediationScriptParameters(?array $value): void {
+        $this->getBackingStore()->set('remediationScriptParameters', $value);
     }
 
     /**
      * Sets the roleScopeTagIds property value. List of Scope Tag IDs for the device health script
      *  @param array<string>|null $value Value to set for the roleScopeTagIds property.
     */
-    public function setRoleScopeTagIds(?array $value ): void {
-        $this->roleScopeTagIds = $value;
+    public function setRoleScopeTagIds(?array $value): void {
+        $this->getBackingStore()->set('roleScopeTagIds', $value);
     }
 
     /**
      * Sets the runAs32Bit property value. Indicate whether PowerShell script(s) should run as 32-bit
      *  @param bool|null $value Value to set for the runAs32Bit property.
     */
-    public function setRunAs32Bit(?bool $value ): void {
-        $this->runAs32Bit = $value;
+    public function setRunAs32Bit(?bool $value): void {
+        $this->getBackingStore()->set('runAs32Bit', $value);
     }
 
     /**
      * Sets the runAsAccount property value. Indicates the type of execution context the app runs in.
      *  @param RunAsAccountType|null $value Value to set for the runAsAccount property.
     */
-    public function setRunAsAccount(?RunAsAccountType $value ): void {
-        $this->runAsAccount = $value;
+    public function setRunAsAccount(?RunAsAccountType $value): void {
+        $this->getBackingStore()->set('runAsAccount', $value);
     }
 
     /**
      * Sets the runSummary property value. High level run summary for device health script.
      *  @param DeviceHealthScriptRunSummary|null $value Value to set for the runSummary property.
     */
-    public function setRunSummary(?DeviceHealthScriptRunSummary $value ): void {
-        $this->runSummary = $value;
+    public function setRunSummary(?DeviceHealthScriptRunSummary $value): void {
+        $this->getBackingStore()->set('runSummary', $value);
     }
 
     /**
      * Sets the version property value. Version of the device health script
      *  @param string|null $value Value to set for the version property.
     */
-    public function setVersion(?string $value ): void {
-        $this->version = $value;
+    public function setVersion(?string $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

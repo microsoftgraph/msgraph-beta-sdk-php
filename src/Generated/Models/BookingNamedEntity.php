@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class BookingNamedEntity extends Entity implements Parsable 
 {
     /**
-     * @var string|null $displayName A name for the derived entity, which interfaces with customers.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * Instantiates a new BookingNamedEntity and sets the default values.
+     * Instantiates a new bookingNamedEntity and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.bookingNamedEntity');
     }
 
     /**
@@ -46,7 +40,7 @@ class BookingNamedEntity extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -66,15 +60,15 @@ class BookingNamedEntity extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
     }
 
     /**
      * Sets the displayName property value. A name for the derived entity, which interfaces with customers.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
 }

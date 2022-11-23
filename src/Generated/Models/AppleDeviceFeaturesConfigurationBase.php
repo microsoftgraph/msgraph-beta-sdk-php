@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var array<AirPrintDestination>|null $airPrintDestinations An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $airPrintDestinations = null;
-    
-    /**
      * Instantiates a new AppleDeviceFeaturesConfigurationBase and sets the default values.
     */
     public function __construct() {
@@ -43,7 +38,7 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
      * @return array<AirPrintDestination>|null
     */
     public function getAirPrintDestinations(): ?array {
-        return $this->airPrintDestinations;
+        return $this->getBackingStore()->get('airPrintDestinations');
     }
 
     /**
@@ -63,15 +58,15 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('airPrintDestinations', $this->airPrintDestinations);
+        $writer->writeCollectionOfObjectValues('airPrintDestinations', $this->getAirPrintDestinations());
     }
 
     /**
      * Sets the airPrintDestinations property value. An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
      *  @param array<AirPrintDestination>|null $value Value to set for the airPrintDestinations property.
     */
-    public function setAirPrintDestinations(?array $value ): void {
-        $this->airPrintDestinations = $value;
+    public function setAirPrintDestinations(?array $value): void {
+        $this->getBackingStore()->set('airPrintDestinations', $value);
     }
 
 }

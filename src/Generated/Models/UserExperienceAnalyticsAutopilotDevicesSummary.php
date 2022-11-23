@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHolder, Parsable 
+class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var int|null $devicesNotAutopilotRegistered The count of intune devices that are not autopilot registerd.
-    */
-    private ?int $devicesNotAutopilotRegistered = null;
-    
-    /**
-     * @var int|null $devicesWithoutAutopilotProfileAssigned The count of intune devices not autopilot profile assigned.
-    */
-    private ?int $devicesWithoutAutopilotProfileAssigned = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var int|null $totalWindows10DevicesWithoutTenantAttached The count of windows 10 devices that are Intune and Comanaged.
-    */
-    private ?int $totalWindows10DevicesWithoutTenantAttached = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new userExperienceAnalyticsAutopilotDevicesSummary and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsAutopilotDevicesSummary');
     }
 
     /**
@@ -55,8 +38,16 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -64,7 +55,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return int|null
     */
     public function getDevicesNotAutopilotRegistered(): ?int {
-        return $this->devicesNotAutopilotRegistered;
+        return $this->getBackingStore()->get('devicesNotAutopilotRegistered');
     }
 
     /**
@@ -72,7 +63,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return int|null
     */
     public function getDevicesWithoutAutopilotProfileAssigned(): ?int {
-        return $this->devicesWithoutAutopilotProfileAssigned;
+        return $this->getBackingStore()->get('devicesWithoutAutopilotProfileAssigned');
     }
 
     /**
@@ -94,7 +85,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -102,7 +93,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @return int|null
     */
     public function getTotalWindows10DevicesWithoutTenantAttached(): ?int {
-        return $this->totalWindows10DevicesWithoutTenantAttached;
+        return $this->getBackingStore()->get('totalWindows10DevicesWithoutTenantAttached');
     }
 
     /**
@@ -110,51 +101,59 @@ class UserExperienceAnalyticsAutopilotDevicesSummary implements AdditionalDataHo
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeIntegerValue('devicesNotAutopilotRegistered', $this->devicesNotAutopilotRegistered);
-        $writer->writeIntegerValue('devicesWithoutAutopilotProfileAssigned', $this->devicesWithoutAutopilotProfileAssigned);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeIntegerValue('totalWindows10DevicesWithoutTenantAttached', $this->totalWindows10DevicesWithoutTenantAttached);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeIntegerValue('devicesNotAutopilotRegistered', $this->getDevicesNotAutopilotRegistered());
+        $writer->writeIntegerValue('devicesWithoutAutopilotProfileAssigned', $this->getDevicesWithoutAutopilotProfileAssigned());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeIntegerValue('totalWindows10DevicesWithoutTenantAttached', $this->getTotalWindows10DevicesWithoutTenantAttached());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the devicesNotAutopilotRegistered property value. The count of intune devices that are not autopilot registerd.
      *  @param int|null $value Value to set for the devicesNotAutopilotRegistered property.
     */
-    public function setDevicesNotAutopilotRegistered(?int $value ): void {
-        $this->devicesNotAutopilotRegistered = $value;
+    public function setDevicesNotAutopilotRegistered(?int $value): void {
+        $this->getBackingStore()->set('devicesNotAutopilotRegistered', $value);
     }
 
     /**
      * Sets the devicesWithoutAutopilotProfileAssigned property value. The count of intune devices not autopilot profile assigned.
      *  @param int|null $value Value to set for the devicesWithoutAutopilotProfileAssigned property.
     */
-    public function setDevicesWithoutAutopilotProfileAssigned(?int $value ): void {
-        $this->devicesWithoutAutopilotProfileAssigned = $value;
+    public function setDevicesWithoutAutopilotProfileAssigned(?int $value): void {
+        $this->getBackingStore()->set('devicesWithoutAutopilotProfileAssigned', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the totalWindows10DevicesWithoutTenantAttached property value. The count of windows 10 devices that are Intune and Comanaged.
      *  @param int|null $value Value to set for the totalWindows10DevicesWithoutTenantAttached property.
     */
-    public function setTotalWindows10DevicesWithoutTenantAttached(?int $value ): void {
-        $this->totalWindows10DevicesWithoutTenantAttached = $value;
+    public function setTotalWindows10DevicesWithoutTenantAttached(?int $value): void {
+        $this->getBackingStore()->set('totalWindows10DevicesWithoutTenantAttached', $value);
     }
 
 }

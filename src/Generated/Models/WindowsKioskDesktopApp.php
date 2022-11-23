@@ -9,21 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable 
 {
     /**
-     * @var string|null $desktopApplicationId Define the DesktopApplicationID of the app
-    */
-    private ?string $desktopApplicationId = null;
-    
-    /**
-     * @var string|null $desktopApplicationLinkPath Define the DesktopApplicationLinkPath of the app
-    */
-    private ?string $desktopApplicationLinkPath = null;
-    
-    /**
-     * @var string|null $path Define the path of a desktop app
-    */
-    private ?string $path = null;
-    
-    /**
      * Instantiates a new WindowsKioskDesktopApp and sets the default values.
     */
     public function __construct() {
@@ -45,7 +30,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getDesktopApplicationId(): ?string {
-        return $this->desktopApplicationId;
+        return $this->getBackingStore()->get('desktopApplicationId');
     }
 
     /**
@@ -53,7 +38,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getDesktopApplicationLinkPath(): ?string {
-        return $this->desktopApplicationLinkPath;
+        return $this->getBackingStore()->get('desktopApplicationLinkPath');
     }
 
     /**
@@ -74,7 +59,7 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
      * @return string|null
     */
     public function getPath(): ?string {
-        return $this->path;
+        return $this->getBackingStore()->get('path');
     }
 
     /**
@@ -83,33 +68,33 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('desktopApplicationId', $this->desktopApplicationId);
-        $writer->writeStringValue('desktopApplicationLinkPath', $this->desktopApplicationLinkPath);
-        $writer->writeStringValue('path', $this->path);
+        $writer->writeStringValue('desktopApplicationId', $this->getDesktopApplicationId());
+        $writer->writeStringValue('desktopApplicationLinkPath', $this->getDesktopApplicationLinkPath());
+        $writer->writeStringValue('path', $this->getPath());
     }
 
     /**
      * Sets the desktopApplicationId property value. Define the DesktopApplicationID of the app
      *  @param string|null $value Value to set for the desktopApplicationId property.
     */
-    public function setDesktopApplicationId(?string $value ): void {
-        $this->desktopApplicationId = $value;
+    public function setDesktopApplicationId(?string $value): void {
+        $this->getBackingStore()->set('desktopApplicationId', $value);
     }
 
     /**
      * Sets the desktopApplicationLinkPath property value. Define the DesktopApplicationLinkPath of the app
      *  @param string|null $value Value to set for the desktopApplicationLinkPath property.
     */
-    public function setDesktopApplicationLinkPath(?string $value ): void {
-        $this->desktopApplicationLinkPath = $value;
+    public function setDesktopApplicationLinkPath(?string $value): void {
+        $this->getBackingStore()->set('desktopApplicationLinkPath', $value);
     }
 
     /**
      * Sets the path property value. Define the path of a desktop app
      *  @param string|null $value Value to set for the path property.
     */
-    public function setPath(?string $value ): void {
-        $this->path = $value;
+    public function setPath(?string $value): void {
+        $this->getBackingStore()->set('path', $value);
     }
 
 }

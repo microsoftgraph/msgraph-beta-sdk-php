@@ -6,50 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable 
+class AssignmentFilterStatusDetails implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<KeyValuePair>|null $deviceProperties Device properties used for filter evaluation during device check-in time.
-    */
-    private ?array $deviceProperties = null;
-    
-    /**
-     * @var array<AssignmentFilterEvaluationSummary>|null $evalutionSummaries Evaluation result summaries for each filter associated to device and payload
-    */
-    private ?array $evalutionSummaries = null;
-    
-    /**
-     * @var string|null $managedDeviceId Unique identifier for the device object.
-    */
-    private ?string $managedDeviceId = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var string|null $payloadId Unique identifier for payload object.
-    */
-    private ?string $payloadId = null;
-    
-    /**
-     * @var string|null $userId Unique identifier for UserId object. Can be null
-    */
-    private ?string $userId = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new assignmentFilterStatusDetails and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.assignmentFilterStatusDetails');
     }
 
     /**
@@ -65,8 +38,16 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -74,7 +55,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return array<KeyValuePair>|null
     */
     public function getDeviceProperties(): ?array {
-        return $this->deviceProperties;
+        return $this->getBackingStore()->get('deviceProperties');
     }
 
     /**
@@ -82,7 +63,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return array<AssignmentFilterEvaluationSummary>|null
     */
     public function getEvalutionSummaries(): ?array {
-        return $this->evalutionSummaries;
+        return $this->getBackingStore()->get('evalutionSummaries');
     }
 
     /**
@@ -106,7 +87,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getManagedDeviceId(): ?string {
-        return $this->managedDeviceId;
+        return $this->getBackingStore()->get('managedDeviceId');
     }
 
     /**
@@ -114,7 +95,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -122,7 +103,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getPayloadId(): ?string {
-        return $this->payloadId;
+        return $this->getBackingStore()->get('payloadId');
     }
 
     /**
@@ -130,7 +111,7 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getUserId(): ?string {
-        return $this->userId;
+        return $this->getBackingStore()->get('userId');
     }
 
     /**
@@ -138,69 +119,77 @@ class AssignmentFilterStatusDetails implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('deviceProperties', $this->deviceProperties);
-        $writer->writeCollectionOfObjectValues('evalutionSummaries', $this->evalutionSummaries);
-        $writer->writeStringValue('managedDeviceId', $this->managedDeviceId);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeStringValue('payloadId', $this->payloadId);
-        $writer->writeStringValue('userId', $this->userId);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('deviceProperties', $this->getDeviceProperties());
+        $writer->writeCollectionOfObjectValues('evalutionSummaries', $this->getEvalutionSummaries());
+        $writer->writeStringValue('managedDeviceId', $this->getManagedDeviceId());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeStringValue('payloadId', $this->getPayloadId());
+        $writer->writeStringValue('userId', $this->getUserId());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the deviceProperties property value. Device properties used for filter evaluation during device check-in time.
      *  @param array<KeyValuePair>|null $value Value to set for the deviceProperties property.
     */
-    public function setDeviceProperties(?array $value ): void {
-        $this->deviceProperties = $value;
+    public function setDeviceProperties(?array $value): void {
+        $this->getBackingStore()->set('deviceProperties', $value);
     }
 
     /**
      * Sets the evalutionSummaries property value. Evaluation result summaries for each filter associated to device and payload
      *  @param array<AssignmentFilterEvaluationSummary>|null $value Value to set for the evalutionSummaries property.
     */
-    public function setEvalutionSummaries(?array $value ): void {
-        $this->evalutionSummaries = $value;
+    public function setEvalutionSummaries(?array $value): void {
+        $this->getBackingStore()->set('evalutionSummaries', $value);
     }
 
     /**
      * Sets the managedDeviceId property value. Unique identifier for the device object.
      *  @param string|null $value Value to set for the managedDeviceId property.
     */
-    public function setManagedDeviceId(?string $value ): void {
-        $this->managedDeviceId = $value;
+    public function setManagedDeviceId(?string $value): void {
+        $this->getBackingStore()->set('managedDeviceId', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the payloadId property value. Unique identifier for payload object.
      *  @param string|null $value Value to set for the payloadId property.
     */
-    public function setPayloadId(?string $value ): void {
-        $this->payloadId = $value;
+    public function setPayloadId(?string $value): void {
+        $this->getBackingStore()->set('payloadId', $value);
     }
 
     /**
      * Sets the userId property value. Unique identifier for UserId object. Can be null
      *  @param string|null $value Value to set for the userId property.
     */
-    public function setUserId(?string $value ): void {
-        $this->userId = $value;
+    public function setUserId(?string $value): void {
+        $this->getBackingStore()->set('userId', $value);
     }
 
 }

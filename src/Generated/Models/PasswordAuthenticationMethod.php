@@ -10,21 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsable 
 {
     /**
-     * @var DateTime|null $createdDateTime The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var DateTime|null $creationDateTime The creationDateTime property
-    */
-    private ?DateTime $creationDateTime = null;
-    
-    /**
-     * @var string|null $password For security, the password is always returned as null from a LIST or GET operation.
-    */
-    private ?string $password = null;
-    
-    /**
      * Instantiates a new PasswordAuthenticationMethod and sets the default values.
     */
     public function __construct() {
@@ -46,7 +31,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -54,7 +39,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
      * @return DateTime|null
     */
     public function getCreationDateTime(): ?DateTime {
-        return $this->creationDateTime;
+        return $this->getBackingStore()->get('creationDateTime');
     }
 
     /**
@@ -75,7 +60,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
      * @return string|null
     */
     public function getPassword(): ?string {
-        return $this->password;
+        return $this->getBackingStore()->get('password');
     }
 
     /**
@@ -84,33 +69,33 @@ class PasswordAuthenticationMethod extends AuthenticationMethod implements Parsa
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeDateTimeValue('creationDateTime', $this->creationDateTime);
-        $writer->writeStringValue('password', $this->password);
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeDateTimeValue('creationDateTime', $this->getCreationDateTime());
+        $writer->writeStringValue('password', $this->getPassword());
     }
 
     /**
      * Sets the createdDateTime property value. The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the creationDateTime property value. The creationDateTime property
      *  @param DateTime|null $value Value to set for the creationDateTime property.
     */
-    public function setCreationDateTime(?DateTime $value ): void {
-        $this->creationDateTime = $value;
+    public function setCreationDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('creationDateTime', $value);
     }
 
     /**
      * Sets the password property value. For security, the password is always returned as null from a LIST or GET operation.
      *  @param string|null $value Value to set for the password property.
     */
-    public function setPassword(?string $value ): void {
-        $this->password = $value;
+    public function setPassword(?string $value): void {
+        $this->getBackingStore()->set('password', $value);
     }
 
 }

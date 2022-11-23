@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class InsightValueDouble extends UserExperienceAnalyticsInsightValue implements Parsable 
 {
     /**
-     * @var float|null $value Not yet documented
-    */
-    private ?float $value = null;
-    
-    /**
      * Instantiates a new InsightValueDouble and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class InsightValueDouble extends UserExperienceAnalyticsInsightValue implements 
      * @return float|null
     */
     public function getValue(): ?float {
-        return $this->value;
+        return $this->getBackingStore()->get('value');
     }
 
     /**
@@ -55,15 +50,15 @@ class InsightValueDouble extends UserExperienceAnalyticsInsightValue implements 
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeFloatValue('value', $this->value);
+        $writer->writeFloatValue('value', $this->getValue());
     }
 
     /**
      * Sets the value property value. Not yet documented
      *  @param float|null $value Value to set for the value property.
     */
-    public function setValue(?float $value ): void {
-        $this->value = $value;
+    public function setValue(?float $value): void {
+        $this->getBackingStore()->set('value', $value);
     }
 
 }

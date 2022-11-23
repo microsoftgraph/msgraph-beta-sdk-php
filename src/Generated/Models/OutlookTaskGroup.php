@@ -9,36 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class OutlookTaskGroup extends Entity implements Parsable 
 {
     /**
-     * @var string|null $changeKey The version of the task group.
-    */
-    private ?string $changeKey = null;
-    
-    /**
-     * @var string|null $groupKey The unique GUID identifier for the task group.
-    */
-    private ?string $groupKey = null;
-    
-    /**
-     * @var bool|null $isDefaultGroup True if the task group is the default task group.
-    */
-    private ?bool $isDefaultGroup = null;
-    
-    /**
-     * @var string|null $name The name of the task group.
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<OutlookTaskFolder>|null $taskFolders The collection of task folders in the task group. Read-only. Nullable.
-    */
-    private ?array $taskFolders = null;
-    
-    /**
      * Instantiates a new outlookTaskGroup and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.outlookTaskGroup');
     }
 
     /**
@@ -55,7 +29,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getChangeKey(): ?string {
-        return $this->changeKey;
+        return $this->getBackingStore()->get('changeKey');
     }
 
     /**
@@ -78,7 +52,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getGroupKey(): ?string {
-        return $this->groupKey;
+        return $this->getBackingStore()->get('groupKey');
     }
 
     /**
@@ -86,7 +60,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return bool|null
     */
     public function getIsDefaultGroup(): ?bool {
-        return $this->isDefaultGroup;
+        return $this->getBackingStore()->get('isDefaultGroup');
     }
 
     /**
@@ -94,7 +68,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -102,7 +76,7 @@ class OutlookTaskGroup extends Entity implements Parsable
      * @return array<OutlookTaskFolder>|null
     */
     public function getTaskFolders(): ?array {
-        return $this->taskFolders;
+        return $this->getBackingStore()->get('taskFolders');
     }
 
     /**
@@ -111,51 +85,51 @@ class OutlookTaskGroup extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('changeKey', $this->changeKey);
-        $writer->writeStringValue('groupKey', $this->groupKey);
-        $writer->writeBooleanValue('isDefaultGroup', $this->isDefaultGroup);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfObjectValues('taskFolders', $this->taskFolders);
+        $writer->writeStringValue('changeKey', $this->getChangeKey());
+        $writer->writeStringValue('groupKey', $this->getGroupKey());
+        $writer->writeBooleanValue('isDefaultGroup', $this->getIsDefaultGroup());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfObjectValues('taskFolders', $this->getTaskFolders());
     }
 
     /**
      * Sets the changeKey property value. The version of the task group.
      *  @param string|null $value Value to set for the changeKey property.
     */
-    public function setChangeKey(?string $value ): void {
-        $this->changeKey = $value;
+    public function setChangeKey(?string $value): void {
+        $this->getBackingStore()->set('changeKey', $value);
     }
 
     /**
      * Sets the groupKey property value. The unique GUID identifier for the task group.
      *  @param string|null $value Value to set for the groupKey property.
     */
-    public function setGroupKey(?string $value ): void {
-        $this->groupKey = $value;
+    public function setGroupKey(?string $value): void {
+        $this->getBackingStore()->set('groupKey', $value);
     }
 
     /**
      * Sets the isDefaultGroup property value. True if the task group is the default task group.
      *  @param bool|null $value Value to set for the isDefaultGroup property.
     */
-    public function setIsDefaultGroup(?bool $value ): void {
-        $this->isDefaultGroup = $value;
+    public function setIsDefaultGroup(?bool $value): void {
+        $this->getBackingStore()->set('isDefaultGroup', $value);
     }
 
     /**
      * Sets the name property value. The name of the task group.
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the taskFolders property value. The collection of task folders in the task group. Read-only. Nullable.
      *  @param array<OutlookTaskFolder>|null $value Value to set for the taskFolders property.
     */
-    public function setTaskFolders(?array $value ): void {
-        $this->taskFolders = $value;
+    public function setTaskFolders(?array $value): void {
+        $this->getBackingStore()->set('taskFolders', $value);
     }
 
 }

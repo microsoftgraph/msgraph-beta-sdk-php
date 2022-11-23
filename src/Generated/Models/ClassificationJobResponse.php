@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class ClassificationJobResponse extends JobResponseBase implements Parsable 
 {
     /**
-     * @var DetectedSensitiveContentWrapper|null $result The result property
-    */
-    private ?DetectedSensitiveContentWrapper $result = null;
-    
-    /**
      * Instantiates a new ClassificationJobResponse and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.classificationJobResponse');
     }
 
     /**
@@ -46,7 +40,7 @@ class ClassificationJobResponse extends JobResponseBase implements Parsable
      * @return DetectedSensitiveContentWrapper|null
     */
     public function getResult(): ?DetectedSensitiveContentWrapper {
-        return $this->result;
+        return $this->getBackingStore()->get('result');
     }
 
     /**
@@ -55,15 +49,15 @@ class ClassificationJobResponse extends JobResponseBase implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('result', $this->result);
+        $writer->writeObjectValue('result', $this->getResult());
     }
 
     /**
      * Sets the result property value. The result property
      *  @param DetectedSensitiveContentWrapper|null $value Value to set for the result property.
     */
-    public function setResult(?DetectedSensitiveContentWrapper $value ): void {
-        $this->result = $value;
+    public function setResult(?DetectedSensitiveContentWrapper $value): void {
+        $this->getBackingStore()->set('result', $value);
     }
 
 }

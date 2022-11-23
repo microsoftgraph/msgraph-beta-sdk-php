@@ -10,41 +10,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class TaskDefinition extends Entity implements Parsable 
 {
     /**
-     * @var LifecycleTaskCategory|null $category The category property
-    */
-    private ?LifecycleTaskCategory $category = null;
-    
-    /**
-     * @var bool|null $continueOnError The continueOnError property
-    */
-    private ?bool $continueOnError = null;
-    
-    /**
-     * @var string|null $description The description of the taskDefinition.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var string|null $displayName The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<Parameter>|null $parameters The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
-    */
-    private ?array $parameters = null;
-    
-    /**
-     * @var int|null $version The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
-    */
-    private ?int $version = null;
-    
-    /**
      * Instantiates a new taskDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.identityGovernance.taskDefinition');
     }
 
     /**
@@ -61,7 +30,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return LifecycleTaskCategory|null
     */
     public function getCategory(): ?LifecycleTaskCategory {
-        return $this->category;
+        return $this->getBackingStore()->get('category');
     }
 
     /**
@@ -69,7 +38,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return bool|null
     */
     public function getContinueOnError(): ?bool {
-        return $this->continueOnError;
+        return $this->getBackingStore()->get('continueOnError');
     }
 
     /**
@@ -77,7 +46,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -85,7 +54,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -109,7 +78,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return array<Parameter>|null
     */
     public function getParameters(): ?array {
-        return $this->parameters;
+        return $this->getBackingStore()->get('parameters');
     }
 
     /**
@@ -117,7 +86,7 @@ class TaskDefinition extends Entity implements Parsable
      * @return int|null
     */
     public function getVersion(): ?int {
-        return $this->version;
+        return $this->getBackingStore()->get('version');
     }
 
     /**
@@ -126,60 +95,60 @@ class TaskDefinition extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeEnumValue('category', $this->category);
-        $writer->writeBooleanValue('continueOnError', $this->continueOnError);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('parameters', $this->parameters);
-        $writer->writeIntegerValue('version', $this->version);
+        $writer->writeEnumValue('category', $this->getCategory());
+        $writer->writeBooleanValue('continueOnError', $this->getContinueOnError());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('parameters', $this->getParameters());
+        $writer->writeIntegerValue('version', $this->getVersion());
     }
 
     /**
      * Sets the category property value. The category property
      *  @param LifecycleTaskCategory|null $value Value to set for the category property.
     */
-    public function setCategory(?LifecycleTaskCategory $value ): void {
-        $this->category = $value;
+    public function setCategory(?LifecycleTaskCategory $value): void {
+        $this->getBackingStore()->set('category', $value);
     }
 
     /**
      * Sets the continueOnError property value. The continueOnError property
      *  @param bool|null $value Value to set for the continueOnError property.
     */
-    public function setContinueOnError(?bool $value ): void {
-        $this->continueOnError = $value;
+    public function setContinueOnError(?bool $value): void {
+        $this->getBackingStore()->set('continueOnError', $value);
     }
 
     /**
      * Sets the description property value. The description of the taskDefinition.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the displayName property value. The display name of the taskDefinition.Supports $filter(eq, ne) and $orderby.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the parameters property value. The parameters that must be supplied when creating a workflow task object.Supports $filter(any).
      *  @param array<Parameter>|null $value Value to set for the parameters property.
     */
-    public function setParameters(?array $value ): void {
-        $this->parameters = $value;
+    public function setParameters(?array $value): void {
+        $this->getBackingStore()->set('parameters', $value);
     }
 
     /**
      * Sets the version property value. The version number of the taskDefinition. New records are pushed when we add support for new parameters.Supports $filter(ge, gt, le, lt, eq, ne) and $orderby.
      *  @param int|null $value Value to set for the version property.
     */
-    public function setVersion(?int $value ): void {
-        $this->version = $value;
+    public function setVersion(?int $value): void {
+        $this->getBackingStore()->set('version', $value);
     }
 
 }

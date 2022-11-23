@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implements Parsable 
 {
     /**
-     * @var string|null $targetUrl The targetUrl property
-    */
-    private ?string $targetUrl = null;
-    
-    /**
      * Instantiates a new HttpRequestEndpoint and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
      * @return string|null
     */
     public function getTargetUrl(): ?string {
-        return $this->targetUrl;
+        return $this->getBackingStore()->get('targetUrl');
     }
 
     /**
@@ -55,15 +50,15 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration implement
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('targetUrl', $this->targetUrl);
+        $writer->writeStringValue('targetUrl', $this->getTargetUrl());
     }
 
     /**
      * Sets the targetUrl property value. The targetUrl property
      *  @param string|null $value Value to set for the targetUrl property.
     */
-    public function setTargetUrl(?string $value ): void {
-        $this->targetUrl = $value;
+    public function setTargetUrl(?string $value): void {
+        $this->getBackingStore()->set('targetUrl', $value);
     }
 
 }

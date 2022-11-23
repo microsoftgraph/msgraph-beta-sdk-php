@@ -9,16 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDefinition implements Parsable 
 {
     /**
-     * @var array<string>|null $propertyDefinitionIds The definitions of each property of the complex setting
-    */
-    private ?array $propertyDefinitionIds = null;
-    
-    /**
      * Instantiates a new DeviceManagementComplexSettingDefinition and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.deviceManagementComplexSettingDefinition');
     }
 
     /**
@@ -46,7 +40,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
      * @return array<string>|null
     */
     public function getPropertyDefinitionIds(): ?array {
-        return $this->propertyDefinitionIds;
+        return $this->getBackingStore()->get('propertyDefinitionIds');
     }
 
     /**
@@ -55,15 +49,15 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfPrimitiveValues('propertyDefinitionIds', $this->propertyDefinitionIds);
+        $writer->writeCollectionOfPrimitiveValues('propertyDefinitionIds', $this->getPropertyDefinitionIds());
     }
 
     /**
      * Sets the propertyDefinitionIds property value. The definitions of each property of the complex setting
      *  @param array<string>|null $value Value to set for the propertyDefinitionIds property.
     */
-    public function setPropertyDefinitionIds(?array $value ): void {
-        $this->propertyDefinitionIds = $value;
+    public function setPropertyDefinitionIds(?array $value): void {
+        $this->getBackingStore()->set('propertyDefinitionIds', $value);
     }
 
 }

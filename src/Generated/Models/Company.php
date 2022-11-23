@@ -9,206 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Company extends Entity implements Parsable 
 {
     /**
-     * @var array<Account>|null $accounts The accounts property
-    */
-    private ?array $accounts = null;
-    
-    /**
-     * @var array<AgedAccountsPayable>|null $agedAccountsPayable The agedAccountsPayable property
-    */
-    private ?array $agedAccountsPayable = null;
-    
-    /**
-     * @var array<AgedAccountsReceivable>|null $agedAccountsReceivable The agedAccountsReceivable property
-    */
-    private ?array $agedAccountsReceivable = null;
-    
-    /**
-     * @var string|null $businessProfileId The businessProfileId property
-    */
-    private ?string $businessProfileId = null;
-    
-    /**
-     * @var array<CompanyInformation>|null $companyInformation The companyInformation property
-    */
-    private ?array $companyInformation = null;
-    
-    /**
-     * @var array<CountryRegion>|null $countriesRegions The countriesRegions property
-    */
-    private ?array $countriesRegions = null;
-    
-    /**
-     * @var array<Currency>|null $currencies The currencies property
-    */
-    private ?array $currencies = null;
-    
-    /**
-     * @var array<CustomerPaymentJournal>|null $customerPaymentJournals The customerPaymentJournals property
-    */
-    private ?array $customerPaymentJournals = null;
-    
-    /**
-     * @var array<CustomerPayment>|null $customerPayments The customerPayments property
-    */
-    private ?array $customerPayments = null;
-    
-    /**
-     * @var array<Customer>|null $customers The customers property
-    */
-    private ?array $customers = null;
-    
-    /**
-     * @var array<Dimension>|null $dimensions The dimensions property
-    */
-    private ?array $dimensions = null;
-    
-    /**
-     * @var array<DimensionValue>|null $dimensionValues The dimensionValues property
-    */
-    private ?array $dimensionValues = null;
-    
-    /**
-     * @var string|null $displayName The displayName property
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var array<Employee>|null $employees The employees property
-    */
-    private ?array $employees = null;
-    
-    /**
-     * @var array<GeneralLedgerEntry>|null $generalLedgerEntries The generalLedgerEntries property
-    */
-    private ?array $generalLedgerEntries = null;
-    
-    /**
-     * @var array<ItemCategory>|null $itemCategories The itemCategories property
-    */
-    private ?array $itemCategories = null;
-    
-    /**
-     * @var array<Item>|null $items The items property
-    */
-    private ?array $items = null;
-    
-    /**
-     * @var array<JournalLine>|null $journalLines The journalLines property
-    */
-    private ?array $journalLines = null;
-    
-    /**
-     * @var array<Journal>|null $journals The journals property
-    */
-    private ?array $journals = null;
-    
-    /**
-     * @var string|null $name The name property
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<PaymentMethod>|null $paymentMethods The paymentMethods property
-    */
-    private ?array $paymentMethods = null;
-    
-    /**
-     * @var array<PaymentTerm>|null $paymentTerms The paymentTerms property
-    */
-    private ?array $paymentTerms = null;
-    
-    /**
-     * @var array<Picture>|null $picture The picture property
-    */
-    private ?array $picture = null;
-    
-    /**
-     * @var array<PurchaseInvoiceLine>|null $purchaseInvoiceLines The purchaseInvoiceLines property
-    */
-    private ?array $purchaseInvoiceLines = null;
-    
-    /**
-     * @var array<PurchaseInvoice>|null $purchaseInvoices The purchaseInvoices property
-    */
-    private ?array $purchaseInvoices = null;
-    
-    /**
-     * @var array<SalesCreditMemoLine>|null $salesCreditMemoLines The salesCreditMemoLines property
-    */
-    private ?array $salesCreditMemoLines = null;
-    
-    /**
-     * @var array<SalesCreditMemo>|null $salesCreditMemos The salesCreditMemos property
-    */
-    private ?array $salesCreditMemos = null;
-    
-    /**
-     * @var array<SalesInvoiceLine>|null $salesInvoiceLines The salesInvoiceLines property
-    */
-    private ?array $salesInvoiceLines = null;
-    
-    /**
-     * @var array<SalesInvoice>|null $salesInvoices The salesInvoices property
-    */
-    private ?array $salesInvoices = null;
-    
-    /**
-     * @var array<SalesOrderLine>|null $salesOrderLines The salesOrderLines property
-    */
-    private ?array $salesOrderLines = null;
-    
-    /**
-     * @var array<SalesOrder>|null $salesOrders The salesOrders property
-    */
-    private ?array $salesOrders = null;
-    
-    /**
-     * @var array<SalesQuoteLine>|null $salesQuoteLines The salesQuoteLines property
-    */
-    private ?array $salesQuoteLines = null;
-    
-    /**
-     * @var array<SalesQuote>|null $salesQuotes The salesQuotes property
-    */
-    private ?array $salesQuotes = null;
-    
-    /**
-     * @var array<ShipmentMethod>|null $shipmentMethods The shipmentMethods property
-    */
-    private ?array $shipmentMethods = null;
-    
-    /**
-     * @var string|null $systemVersion The systemVersion property
-    */
-    private ?string $systemVersion = null;
-    
-    /**
-     * @var array<TaxArea>|null $taxAreas The taxAreas property
-    */
-    private ?array $taxAreas = null;
-    
-    /**
-     * @var array<TaxGroup>|null $taxGroups The taxGroups property
-    */
-    private ?array $taxGroups = null;
-    
-    /**
-     * @var array<UnitOfMeasure>|null $unitsOfMeasure The unitsOfMeasure property
-    */
-    private ?array $unitsOfMeasure = null;
-    
-    /**
-     * @var array<Vendor>|null $vendors The vendors property
-    */
-    private ?array $vendors = null;
-    
-    /**
      * Instantiates a new Company and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.company');
     }
 
     /**
@@ -225,7 +29,7 @@ class Company extends Entity implements Parsable
      * @return array<Account>|null
     */
     public function getAccounts(): ?array {
-        return $this->accounts;
+        return $this->getBackingStore()->get('accounts');
     }
 
     /**
@@ -233,7 +37,7 @@ class Company extends Entity implements Parsable
      * @return array<AgedAccountsPayable>|null
     */
     public function getAgedAccountsPayable(): ?array {
-        return $this->agedAccountsPayable;
+        return $this->getBackingStore()->get('agedAccountsPayable');
     }
 
     /**
@@ -241,7 +45,7 @@ class Company extends Entity implements Parsable
      * @return array<AgedAccountsReceivable>|null
     */
     public function getAgedAccountsReceivable(): ?array {
-        return $this->agedAccountsReceivable;
+        return $this->getBackingStore()->get('agedAccountsReceivable');
     }
 
     /**
@@ -249,7 +53,7 @@ class Company extends Entity implements Parsable
      * @return string|null
     */
     public function getBusinessProfileId(): ?string {
-        return $this->businessProfileId;
+        return $this->getBackingStore()->get('businessProfileId');
     }
 
     /**
@@ -257,7 +61,7 @@ class Company extends Entity implements Parsable
      * @return array<CompanyInformation>|null
     */
     public function getCompanyInformation(): ?array {
-        return $this->companyInformation;
+        return $this->getBackingStore()->get('companyInformation');
     }
 
     /**
@@ -265,7 +69,7 @@ class Company extends Entity implements Parsable
      * @return array<CountryRegion>|null
     */
     public function getCountriesRegions(): ?array {
-        return $this->countriesRegions;
+        return $this->getBackingStore()->get('countriesRegions');
     }
 
     /**
@@ -273,7 +77,7 @@ class Company extends Entity implements Parsable
      * @return array<Currency>|null
     */
     public function getCurrencies(): ?array {
-        return $this->currencies;
+        return $this->getBackingStore()->get('currencies');
     }
 
     /**
@@ -281,7 +85,7 @@ class Company extends Entity implements Parsable
      * @return array<CustomerPaymentJournal>|null
     */
     public function getCustomerPaymentJournals(): ?array {
-        return $this->customerPaymentJournals;
+        return $this->getBackingStore()->get('customerPaymentJournals');
     }
 
     /**
@@ -289,7 +93,7 @@ class Company extends Entity implements Parsable
      * @return array<CustomerPayment>|null
     */
     public function getCustomerPayments(): ?array {
-        return $this->customerPayments;
+        return $this->getBackingStore()->get('customerPayments');
     }
 
     /**
@@ -297,7 +101,7 @@ class Company extends Entity implements Parsable
      * @return array<Customer>|null
     */
     public function getCustomers(): ?array {
-        return $this->customers;
+        return $this->getBackingStore()->get('customers');
     }
 
     /**
@@ -305,7 +109,7 @@ class Company extends Entity implements Parsable
      * @return array<Dimension>|null
     */
     public function getDimensions(): ?array {
-        return $this->dimensions;
+        return $this->getBackingStore()->get('dimensions');
     }
 
     /**
@@ -313,7 +117,7 @@ class Company extends Entity implements Parsable
      * @return array<DimensionValue>|null
     */
     public function getDimensionValues(): ?array {
-        return $this->dimensionValues;
+        return $this->getBackingStore()->get('dimensionValues');
     }
 
     /**
@@ -321,7 +125,7 @@ class Company extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -329,7 +133,7 @@ class Company extends Entity implements Parsable
      * @return array<Employee>|null
     */
     public function getEmployees(): ?array {
-        return $this->employees;
+        return $this->getBackingStore()->get('employees');
     }
 
     /**
@@ -386,7 +190,7 @@ class Company extends Entity implements Parsable
      * @return array<GeneralLedgerEntry>|null
     */
     public function getGeneralLedgerEntries(): ?array {
-        return $this->generalLedgerEntries;
+        return $this->getBackingStore()->get('generalLedgerEntries');
     }
 
     /**
@@ -394,7 +198,7 @@ class Company extends Entity implements Parsable
      * @return array<ItemCategory>|null
     */
     public function getItemCategories(): ?array {
-        return $this->itemCategories;
+        return $this->getBackingStore()->get('itemCategories');
     }
 
     /**
@@ -402,7 +206,7 @@ class Company extends Entity implements Parsable
      * @return array<Item>|null
     */
     public function getItems(): ?array {
-        return $this->items;
+        return $this->getBackingStore()->get('items');
     }
 
     /**
@@ -410,7 +214,7 @@ class Company extends Entity implements Parsable
      * @return array<JournalLine>|null
     */
     public function getJournalLines(): ?array {
-        return $this->journalLines;
+        return $this->getBackingStore()->get('journalLines');
     }
 
     /**
@@ -418,7 +222,7 @@ class Company extends Entity implements Parsable
      * @return array<Journal>|null
     */
     public function getJournals(): ?array {
-        return $this->journals;
+        return $this->getBackingStore()->get('journals');
     }
 
     /**
@@ -426,7 +230,7 @@ class Company extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -434,7 +238,7 @@ class Company extends Entity implements Parsable
      * @return array<PaymentMethod>|null
     */
     public function getPaymentMethods(): ?array {
-        return $this->paymentMethods;
+        return $this->getBackingStore()->get('paymentMethods');
     }
 
     /**
@@ -442,7 +246,7 @@ class Company extends Entity implements Parsable
      * @return array<PaymentTerm>|null
     */
     public function getPaymentTerms(): ?array {
-        return $this->paymentTerms;
+        return $this->getBackingStore()->get('paymentTerms');
     }
 
     /**
@@ -450,7 +254,7 @@ class Company extends Entity implements Parsable
      * @return array<Picture>|null
     */
     public function getPicture(): ?array {
-        return $this->picture;
+        return $this->getBackingStore()->get('picture');
     }
 
     /**
@@ -458,7 +262,7 @@ class Company extends Entity implements Parsable
      * @return array<PurchaseInvoiceLine>|null
     */
     public function getPurchaseInvoiceLines(): ?array {
-        return $this->purchaseInvoiceLines;
+        return $this->getBackingStore()->get('purchaseInvoiceLines');
     }
 
     /**
@@ -466,7 +270,7 @@ class Company extends Entity implements Parsable
      * @return array<PurchaseInvoice>|null
     */
     public function getPurchaseInvoices(): ?array {
-        return $this->purchaseInvoices;
+        return $this->getBackingStore()->get('purchaseInvoices');
     }
 
     /**
@@ -474,7 +278,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesCreditMemoLine>|null
     */
     public function getSalesCreditMemoLines(): ?array {
-        return $this->salesCreditMemoLines;
+        return $this->getBackingStore()->get('salesCreditMemoLines');
     }
 
     /**
@@ -482,7 +286,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesCreditMemo>|null
     */
     public function getSalesCreditMemos(): ?array {
-        return $this->salesCreditMemos;
+        return $this->getBackingStore()->get('salesCreditMemos');
     }
 
     /**
@@ -490,7 +294,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesInvoiceLine>|null
     */
     public function getSalesInvoiceLines(): ?array {
-        return $this->salesInvoiceLines;
+        return $this->getBackingStore()->get('salesInvoiceLines');
     }
 
     /**
@@ -498,7 +302,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesInvoice>|null
     */
     public function getSalesInvoices(): ?array {
-        return $this->salesInvoices;
+        return $this->getBackingStore()->get('salesInvoices');
     }
 
     /**
@@ -506,7 +310,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesOrderLine>|null
     */
     public function getSalesOrderLines(): ?array {
-        return $this->salesOrderLines;
+        return $this->getBackingStore()->get('salesOrderLines');
     }
 
     /**
@@ -514,7 +318,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesOrder>|null
     */
     public function getSalesOrders(): ?array {
-        return $this->salesOrders;
+        return $this->getBackingStore()->get('salesOrders');
     }
 
     /**
@@ -522,7 +326,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesQuoteLine>|null
     */
     public function getSalesQuoteLines(): ?array {
-        return $this->salesQuoteLines;
+        return $this->getBackingStore()->get('salesQuoteLines');
     }
 
     /**
@@ -530,7 +334,7 @@ class Company extends Entity implements Parsable
      * @return array<SalesQuote>|null
     */
     public function getSalesQuotes(): ?array {
-        return $this->salesQuotes;
+        return $this->getBackingStore()->get('salesQuotes');
     }
 
     /**
@@ -538,7 +342,7 @@ class Company extends Entity implements Parsable
      * @return array<ShipmentMethod>|null
     */
     public function getShipmentMethods(): ?array {
-        return $this->shipmentMethods;
+        return $this->getBackingStore()->get('shipmentMethods');
     }
 
     /**
@@ -546,7 +350,7 @@ class Company extends Entity implements Parsable
      * @return string|null
     */
     public function getSystemVersion(): ?string {
-        return $this->systemVersion;
+        return $this->getBackingStore()->get('systemVersion');
     }
 
     /**
@@ -554,7 +358,7 @@ class Company extends Entity implements Parsable
      * @return array<TaxArea>|null
     */
     public function getTaxAreas(): ?array {
-        return $this->taxAreas;
+        return $this->getBackingStore()->get('taxAreas');
     }
 
     /**
@@ -562,7 +366,7 @@ class Company extends Entity implements Parsable
      * @return array<TaxGroup>|null
     */
     public function getTaxGroups(): ?array {
-        return $this->taxGroups;
+        return $this->getBackingStore()->get('taxGroups');
     }
 
     /**
@@ -570,7 +374,7 @@ class Company extends Entity implements Parsable
      * @return array<UnitOfMeasure>|null
     */
     public function getUnitsOfMeasure(): ?array {
-        return $this->unitsOfMeasure;
+        return $this->getBackingStore()->get('unitsOfMeasure');
     }
 
     /**
@@ -578,7 +382,7 @@ class Company extends Entity implements Parsable
      * @return array<Vendor>|null
     */
     public function getVendors(): ?array {
-        return $this->vendors;
+        return $this->getBackingStore()->get('vendors');
     }
 
     /**
@@ -587,357 +391,357 @@ class Company extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('accounts', $this->accounts);
-        $writer->writeCollectionOfObjectValues('agedAccountsPayable', $this->agedAccountsPayable);
-        $writer->writeCollectionOfObjectValues('agedAccountsReceivable', $this->agedAccountsReceivable);
-        $writer->writeStringValue('businessProfileId', $this->businessProfileId);
-        $writer->writeCollectionOfObjectValues('companyInformation', $this->companyInformation);
-        $writer->writeCollectionOfObjectValues('countriesRegions', $this->countriesRegions);
-        $writer->writeCollectionOfObjectValues('currencies', $this->currencies);
-        $writer->writeCollectionOfObjectValues('customerPaymentJournals', $this->customerPaymentJournals);
-        $writer->writeCollectionOfObjectValues('customerPayments', $this->customerPayments);
-        $writer->writeCollectionOfObjectValues('customers', $this->customers);
-        $writer->writeCollectionOfObjectValues('dimensions', $this->dimensions);
-        $writer->writeCollectionOfObjectValues('dimensionValues', $this->dimensionValues);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeCollectionOfObjectValues('employees', $this->employees);
-        $writer->writeCollectionOfObjectValues('generalLedgerEntries', $this->generalLedgerEntries);
-        $writer->writeCollectionOfObjectValues('itemCategories', $this->itemCategories);
-        $writer->writeCollectionOfObjectValues('items', $this->items);
-        $writer->writeCollectionOfObjectValues('journalLines', $this->journalLines);
-        $writer->writeCollectionOfObjectValues('journals', $this->journals);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfObjectValues('paymentMethods', $this->paymentMethods);
-        $writer->writeCollectionOfObjectValues('paymentTerms', $this->paymentTerms);
-        $writer->writeCollectionOfObjectValues('picture', $this->picture);
-        $writer->writeCollectionOfObjectValues('purchaseInvoiceLines', $this->purchaseInvoiceLines);
-        $writer->writeCollectionOfObjectValues('purchaseInvoices', $this->purchaseInvoices);
-        $writer->writeCollectionOfObjectValues('salesCreditMemoLines', $this->salesCreditMemoLines);
-        $writer->writeCollectionOfObjectValues('salesCreditMemos', $this->salesCreditMemos);
-        $writer->writeCollectionOfObjectValues('salesInvoiceLines', $this->salesInvoiceLines);
-        $writer->writeCollectionOfObjectValues('salesInvoices', $this->salesInvoices);
-        $writer->writeCollectionOfObjectValues('salesOrderLines', $this->salesOrderLines);
-        $writer->writeCollectionOfObjectValues('salesOrders', $this->salesOrders);
-        $writer->writeCollectionOfObjectValues('salesQuoteLines', $this->salesQuoteLines);
-        $writer->writeCollectionOfObjectValues('salesQuotes', $this->salesQuotes);
-        $writer->writeCollectionOfObjectValues('shipmentMethods', $this->shipmentMethods);
-        $writer->writeStringValue('systemVersion', $this->systemVersion);
-        $writer->writeCollectionOfObjectValues('taxAreas', $this->taxAreas);
-        $writer->writeCollectionOfObjectValues('taxGroups', $this->taxGroups);
-        $writer->writeCollectionOfObjectValues('unitsOfMeasure', $this->unitsOfMeasure);
-        $writer->writeCollectionOfObjectValues('vendors', $this->vendors);
+        $writer->writeCollectionOfObjectValues('accounts', $this->getAccounts());
+        $writer->writeCollectionOfObjectValues('agedAccountsPayable', $this->getAgedAccountsPayable());
+        $writer->writeCollectionOfObjectValues('agedAccountsReceivable', $this->getAgedAccountsReceivable());
+        $writer->writeStringValue('businessProfileId', $this->getBusinessProfileId());
+        $writer->writeCollectionOfObjectValues('companyInformation', $this->getCompanyInformation());
+        $writer->writeCollectionOfObjectValues('countriesRegions', $this->getCountriesRegions());
+        $writer->writeCollectionOfObjectValues('currencies', $this->getCurrencies());
+        $writer->writeCollectionOfObjectValues('customerPaymentJournals', $this->getCustomerPaymentJournals());
+        $writer->writeCollectionOfObjectValues('customerPayments', $this->getCustomerPayments());
+        $writer->writeCollectionOfObjectValues('customers', $this->getCustomers());
+        $writer->writeCollectionOfObjectValues('dimensions', $this->getDimensions());
+        $writer->writeCollectionOfObjectValues('dimensionValues', $this->getDimensionValues());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeCollectionOfObjectValues('employees', $this->getEmployees());
+        $writer->writeCollectionOfObjectValues('generalLedgerEntries', $this->getGeneralLedgerEntries());
+        $writer->writeCollectionOfObjectValues('itemCategories', $this->getItemCategories());
+        $writer->writeCollectionOfObjectValues('items', $this->getItems());
+        $writer->writeCollectionOfObjectValues('journalLines', $this->getJournalLines());
+        $writer->writeCollectionOfObjectValues('journals', $this->getJournals());
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfObjectValues('paymentMethods', $this->getPaymentMethods());
+        $writer->writeCollectionOfObjectValues('paymentTerms', $this->getPaymentTerms());
+        $writer->writeCollectionOfObjectValues('picture', $this->getPicture());
+        $writer->writeCollectionOfObjectValues('purchaseInvoiceLines', $this->getPurchaseInvoiceLines());
+        $writer->writeCollectionOfObjectValues('purchaseInvoices', $this->getPurchaseInvoices());
+        $writer->writeCollectionOfObjectValues('salesCreditMemoLines', $this->getSalesCreditMemoLines());
+        $writer->writeCollectionOfObjectValues('salesCreditMemos', $this->getSalesCreditMemos());
+        $writer->writeCollectionOfObjectValues('salesInvoiceLines', $this->getSalesInvoiceLines());
+        $writer->writeCollectionOfObjectValues('salesInvoices', $this->getSalesInvoices());
+        $writer->writeCollectionOfObjectValues('salesOrderLines', $this->getSalesOrderLines());
+        $writer->writeCollectionOfObjectValues('salesOrders', $this->getSalesOrders());
+        $writer->writeCollectionOfObjectValues('salesQuoteLines', $this->getSalesQuoteLines());
+        $writer->writeCollectionOfObjectValues('salesQuotes', $this->getSalesQuotes());
+        $writer->writeCollectionOfObjectValues('shipmentMethods', $this->getShipmentMethods());
+        $writer->writeStringValue('systemVersion', $this->getSystemVersion());
+        $writer->writeCollectionOfObjectValues('taxAreas', $this->getTaxAreas());
+        $writer->writeCollectionOfObjectValues('taxGroups', $this->getTaxGroups());
+        $writer->writeCollectionOfObjectValues('unitsOfMeasure', $this->getUnitsOfMeasure());
+        $writer->writeCollectionOfObjectValues('vendors', $this->getVendors());
     }
 
     /**
      * Sets the accounts property value. The accounts property
      *  @param array<Account>|null $value Value to set for the accounts property.
     */
-    public function setAccounts(?array $value ): void {
-        $this->accounts = $value;
+    public function setAccounts(?array $value): void {
+        $this->getBackingStore()->set('accounts', $value);
     }
 
     /**
      * Sets the agedAccountsPayable property value. The agedAccountsPayable property
      *  @param array<AgedAccountsPayable>|null $value Value to set for the agedAccountsPayable property.
     */
-    public function setAgedAccountsPayable(?array $value ): void {
-        $this->agedAccountsPayable = $value;
+    public function setAgedAccountsPayable(?array $value): void {
+        $this->getBackingStore()->set('agedAccountsPayable', $value);
     }
 
     /**
      * Sets the agedAccountsReceivable property value. The agedAccountsReceivable property
      *  @param array<AgedAccountsReceivable>|null $value Value to set for the agedAccountsReceivable property.
     */
-    public function setAgedAccountsReceivable(?array $value ): void {
-        $this->agedAccountsReceivable = $value;
+    public function setAgedAccountsReceivable(?array $value): void {
+        $this->getBackingStore()->set('agedAccountsReceivable', $value);
     }
 
     /**
      * Sets the businessProfileId property value. The businessProfileId property
      *  @param string|null $value Value to set for the businessProfileId property.
     */
-    public function setBusinessProfileId(?string $value ): void {
-        $this->businessProfileId = $value;
+    public function setBusinessProfileId(?string $value): void {
+        $this->getBackingStore()->set('businessProfileId', $value);
     }
 
     /**
      * Sets the companyInformation property value. The companyInformation property
      *  @param array<CompanyInformation>|null $value Value to set for the companyInformation property.
     */
-    public function setCompanyInformation(?array $value ): void {
-        $this->companyInformation = $value;
+    public function setCompanyInformation(?array $value): void {
+        $this->getBackingStore()->set('companyInformation', $value);
     }
 
     /**
      * Sets the countriesRegions property value. The countriesRegions property
      *  @param array<CountryRegion>|null $value Value to set for the countriesRegions property.
     */
-    public function setCountriesRegions(?array $value ): void {
-        $this->countriesRegions = $value;
+    public function setCountriesRegions(?array $value): void {
+        $this->getBackingStore()->set('countriesRegions', $value);
     }
 
     /**
      * Sets the currencies property value. The currencies property
      *  @param array<Currency>|null $value Value to set for the currencies property.
     */
-    public function setCurrencies(?array $value ): void {
-        $this->currencies = $value;
+    public function setCurrencies(?array $value): void {
+        $this->getBackingStore()->set('currencies', $value);
     }
 
     /**
      * Sets the customerPaymentJournals property value. The customerPaymentJournals property
      *  @param array<CustomerPaymentJournal>|null $value Value to set for the customerPaymentJournals property.
     */
-    public function setCustomerPaymentJournals(?array $value ): void {
-        $this->customerPaymentJournals = $value;
+    public function setCustomerPaymentJournals(?array $value): void {
+        $this->getBackingStore()->set('customerPaymentJournals', $value);
     }
 
     /**
      * Sets the customerPayments property value. The customerPayments property
      *  @param array<CustomerPayment>|null $value Value to set for the customerPayments property.
     */
-    public function setCustomerPayments(?array $value ): void {
-        $this->customerPayments = $value;
+    public function setCustomerPayments(?array $value): void {
+        $this->getBackingStore()->set('customerPayments', $value);
     }
 
     /**
      * Sets the customers property value. The customers property
      *  @param array<Customer>|null $value Value to set for the customers property.
     */
-    public function setCustomers(?array $value ): void {
-        $this->customers = $value;
+    public function setCustomers(?array $value): void {
+        $this->getBackingStore()->set('customers', $value);
     }
 
     /**
      * Sets the dimensions property value. The dimensions property
      *  @param array<Dimension>|null $value Value to set for the dimensions property.
     */
-    public function setDimensions(?array $value ): void {
-        $this->dimensions = $value;
+    public function setDimensions(?array $value): void {
+        $this->getBackingStore()->set('dimensions', $value);
     }
 
     /**
      * Sets the dimensionValues property value. The dimensionValues property
      *  @param array<DimensionValue>|null $value Value to set for the dimensionValues property.
     */
-    public function setDimensionValues(?array $value ): void {
-        $this->dimensionValues = $value;
+    public function setDimensionValues(?array $value): void {
+        $this->getBackingStore()->set('dimensionValues', $value);
     }
 
     /**
      * Sets the displayName property value. The displayName property
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the employees property value. The employees property
      *  @param array<Employee>|null $value Value to set for the employees property.
     */
-    public function setEmployees(?array $value ): void {
-        $this->employees = $value;
+    public function setEmployees(?array $value): void {
+        $this->getBackingStore()->set('employees', $value);
     }
 
     /**
      * Sets the generalLedgerEntries property value. The generalLedgerEntries property
      *  @param array<GeneralLedgerEntry>|null $value Value to set for the generalLedgerEntries property.
     */
-    public function setGeneralLedgerEntries(?array $value ): void {
-        $this->generalLedgerEntries = $value;
+    public function setGeneralLedgerEntries(?array $value): void {
+        $this->getBackingStore()->set('generalLedgerEntries', $value);
     }
 
     /**
      * Sets the itemCategories property value. The itemCategories property
      *  @param array<ItemCategory>|null $value Value to set for the itemCategories property.
     */
-    public function setItemCategories(?array $value ): void {
-        $this->itemCategories = $value;
+    public function setItemCategories(?array $value): void {
+        $this->getBackingStore()->set('itemCategories', $value);
     }
 
     /**
      * Sets the items property value. The items property
      *  @param array<Item>|null $value Value to set for the items property.
     */
-    public function setItems(?array $value ): void {
-        $this->items = $value;
+    public function setItems(?array $value): void {
+        $this->getBackingStore()->set('items', $value);
     }
 
     /**
      * Sets the journalLines property value. The journalLines property
      *  @param array<JournalLine>|null $value Value to set for the journalLines property.
     */
-    public function setJournalLines(?array $value ): void {
-        $this->journalLines = $value;
+    public function setJournalLines(?array $value): void {
+        $this->getBackingStore()->set('journalLines', $value);
     }
 
     /**
      * Sets the journals property value. The journals property
      *  @param array<Journal>|null $value Value to set for the journals property.
     */
-    public function setJournals(?array $value ): void {
-        $this->journals = $value;
+    public function setJournals(?array $value): void {
+        $this->getBackingStore()->set('journals', $value);
     }
 
     /**
      * Sets the name property value. The name property
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the paymentMethods property value. The paymentMethods property
      *  @param array<PaymentMethod>|null $value Value to set for the paymentMethods property.
     */
-    public function setPaymentMethods(?array $value ): void {
-        $this->paymentMethods = $value;
+    public function setPaymentMethods(?array $value): void {
+        $this->getBackingStore()->set('paymentMethods', $value);
     }
 
     /**
      * Sets the paymentTerms property value. The paymentTerms property
      *  @param array<PaymentTerm>|null $value Value to set for the paymentTerms property.
     */
-    public function setPaymentTerms(?array $value ): void {
-        $this->paymentTerms = $value;
+    public function setPaymentTerms(?array $value): void {
+        $this->getBackingStore()->set('paymentTerms', $value);
     }
 
     /**
      * Sets the picture property value. The picture property
      *  @param array<Picture>|null $value Value to set for the picture property.
     */
-    public function setPicture(?array $value ): void {
-        $this->picture = $value;
+    public function setPicture(?array $value): void {
+        $this->getBackingStore()->set('picture', $value);
     }
 
     /**
      * Sets the purchaseInvoiceLines property value. The purchaseInvoiceLines property
      *  @param array<PurchaseInvoiceLine>|null $value Value to set for the purchaseInvoiceLines property.
     */
-    public function setPurchaseInvoiceLines(?array $value ): void {
-        $this->purchaseInvoiceLines = $value;
+    public function setPurchaseInvoiceLines(?array $value): void {
+        $this->getBackingStore()->set('purchaseInvoiceLines', $value);
     }
 
     /**
      * Sets the purchaseInvoices property value. The purchaseInvoices property
      *  @param array<PurchaseInvoice>|null $value Value to set for the purchaseInvoices property.
     */
-    public function setPurchaseInvoices(?array $value ): void {
-        $this->purchaseInvoices = $value;
+    public function setPurchaseInvoices(?array $value): void {
+        $this->getBackingStore()->set('purchaseInvoices', $value);
     }
 
     /**
      * Sets the salesCreditMemoLines property value. The salesCreditMemoLines property
      *  @param array<SalesCreditMemoLine>|null $value Value to set for the salesCreditMemoLines property.
     */
-    public function setSalesCreditMemoLines(?array $value ): void {
-        $this->salesCreditMemoLines = $value;
+    public function setSalesCreditMemoLines(?array $value): void {
+        $this->getBackingStore()->set('salesCreditMemoLines', $value);
     }
 
     /**
      * Sets the salesCreditMemos property value. The salesCreditMemos property
      *  @param array<SalesCreditMemo>|null $value Value to set for the salesCreditMemos property.
     */
-    public function setSalesCreditMemos(?array $value ): void {
-        $this->salesCreditMemos = $value;
+    public function setSalesCreditMemos(?array $value): void {
+        $this->getBackingStore()->set('salesCreditMemos', $value);
     }
 
     /**
      * Sets the salesInvoiceLines property value. The salesInvoiceLines property
      *  @param array<SalesInvoiceLine>|null $value Value to set for the salesInvoiceLines property.
     */
-    public function setSalesInvoiceLines(?array $value ): void {
-        $this->salesInvoiceLines = $value;
+    public function setSalesInvoiceLines(?array $value): void {
+        $this->getBackingStore()->set('salesInvoiceLines', $value);
     }
 
     /**
      * Sets the salesInvoices property value. The salesInvoices property
      *  @param array<SalesInvoice>|null $value Value to set for the salesInvoices property.
     */
-    public function setSalesInvoices(?array $value ): void {
-        $this->salesInvoices = $value;
+    public function setSalesInvoices(?array $value): void {
+        $this->getBackingStore()->set('salesInvoices', $value);
     }
 
     /**
      * Sets the salesOrderLines property value. The salesOrderLines property
      *  @param array<SalesOrderLine>|null $value Value to set for the salesOrderLines property.
     */
-    public function setSalesOrderLines(?array $value ): void {
-        $this->salesOrderLines = $value;
+    public function setSalesOrderLines(?array $value): void {
+        $this->getBackingStore()->set('salesOrderLines', $value);
     }
 
     /**
      * Sets the salesOrders property value. The salesOrders property
      *  @param array<SalesOrder>|null $value Value to set for the salesOrders property.
     */
-    public function setSalesOrders(?array $value ): void {
-        $this->salesOrders = $value;
+    public function setSalesOrders(?array $value): void {
+        $this->getBackingStore()->set('salesOrders', $value);
     }
 
     /**
      * Sets the salesQuoteLines property value. The salesQuoteLines property
      *  @param array<SalesQuoteLine>|null $value Value to set for the salesQuoteLines property.
     */
-    public function setSalesQuoteLines(?array $value ): void {
-        $this->salesQuoteLines = $value;
+    public function setSalesQuoteLines(?array $value): void {
+        $this->getBackingStore()->set('salesQuoteLines', $value);
     }
 
     /**
      * Sets the salesQuotes property value. The salesQuotes property
      *  @param array<SalesQuote>|null $value Value to set for the salesQuotes property.
     */
-    public function setSalesQuotes(?array $value ): void {
-        $this->salesQuotes = $value;
+    public function setSalesQuotes(?array $value): void {
+        $this->getBackingStore()->set('salesQuotes', $value);
     }
 
     /**
      * Sets the shipmentMethods property value. The shipmentMethods property
      *  @param array<ShipmentMethod>|null $value Value to set for the shipmentMethods property.
     */
-    public function setShipmentMethods(?array $value ): void {
-        $this->shipmentMethods = $value;
+    public function setShipmentMethods(?array $value): void {
+        $this->getBackingStore()->set('shipmentMethods', $value);
     }
 
     /**
      * Sets the systemVersion property value. The systemVersion property
      *  @param string|null $value Value to set for the systemVersion property.
     */
-    public function setSystemVersion(?string $value ): void {
-        $this->systemVersion = $value;
+    public function setSystemVersion(?string $value): void {
+        $this->getBackingStore()->set('systemVersion', $value);
     }
 
     /**
      * Sets the taxAreas property value. The taxAreas property
      *  @param array<TaxArea>|null $value Value to set for the taxAreas property.
     */
-    public function setTaxAreas(?array $value ): void {
-        $this->taxAreas = $value;
+    public function setTaxAreas(?array $value): void {
+        $this->getBackingStore()->set('taxAreas', $value);
     }
 
     /**
      * Sets the taxGroups property value. The taxGroups property
      *  @param array<TaxGroup>|null $value Value to set for the taxGroups property.
     */
-    public function setTaxGroups(?array $value ): void {
-        $this->taxGroups = $value;
+    public function setTaxGroups(?array $value): void {
+        $this->getBackingStore()->set('taxGroups', $value);
     }
 
     /**
      * Sets the unitsOfMeasure property value. The unitsOfMeasure property
      *  @param array<UnitOfMeasure>|null $value Value to set for the unitsOfMeasure property.
     */
-    public function setUnitsOfMeasure(?array $value ): void {
-        $this->unitsOfMeasure = $value;
+    public function setUnitsOfMeasure(?array $value): void {
+        $this->getBackingStore()->set('unitsOfMeasure', $value);
     }
 
     /**
      * Sets the vendors property value. The vendors property
      *  @param array<Vendor>|null $value Value to set for the vendors property.
     */
-    public function setVendors(?array $value ): void {
-        $this->vendors = $value;
+    public function setVendors(?array $value): void {
+        $this->getBackingStore()->set('vendors', $value);
     }
 
 }

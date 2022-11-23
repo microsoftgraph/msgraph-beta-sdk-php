@@ -8,28 +8,22 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class EnrollAssetsPostRequestBody implements AdditionalDataHolder, Parsable 
+class EnrollAssetsPostRequestBody implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var array<UpdatableAsset>|null $assets The assets property
-    */
-    private ?array $assets = null;
-    
-    /**
-     * @var UpdateCategory|null $updateCategory The updateCategory property
-    */
-    private ?UpdateCategory $updateCategory = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new enrollAssetsPostRequestBody and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
     }
 
@@ -46,8 +40,8 @@ class EnrollAssetsPostRequestBody implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -55,7 +49,15 @@ class EnrollAssetsPostRequestBody implements AdditionalDataHolder, Parsable
      * @return array<UpdatableAsset>|null
     */
     public function getAssets(): ?array {
-        return $this->assets;
+        return $this->getBackingStore()->get('assets');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -75,7 +77,7 @@ class EnrollAssetsPostRequestBody implements AdditionalDataHolder, Parsable
      * @return UpdateCategory|null
     */
     public function getUpdateCategory(): ?UpdateCategory {
-        return $this->updateCategory;
+        return $this->getBackingStore()->get('updateCategory');
     }
 
     /**
@@ -83,33 +85,41 @@ class EnrollAssetsPostRequestBody implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeCollectionOfObjectValues('assets', $this->assets);
-        $writer->writeEnumValue('updateCategory', $this->updateCategory);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeCollectionOfObjectValues('assets', $this->getAssets());
+        $writer->writeEnumValue('updateCategory', $this->getUpdateCategory());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the assets property value. The assets property
      *  @param array<UpdatableAsset>|null $value Value to set for the assets property.
     */
-    public function setAssets(?array $value ): void {
-        $this->assets = $value;
+    public function setAssets(?array $value): void {
+        $this->getBackingStore()->set('assets', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the updateCategory property value. The updateCategory property
      *  @param UpdateCategory|null $value Value to set for the updateCategory property.
     */
-    public function setUpdateCategory(?UpdateCategory $value ): void {
-        $this->updateCategory = $value;
+    public function setUpdateCategory(?UpdateCategory $value): void {
+        $this->getBackingStore()->set('updateCategory', $value);
     }
 
 }

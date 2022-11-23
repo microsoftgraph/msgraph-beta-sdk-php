@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB2BSetting implements Parsable 
 {
     /**
-     * @var DevicesFilter|null $devices The devices property
-    */
-    private ?DevicesFilter $devices = null;
-    
-    /**
      * Instantiates a new CrossTenantAccessPolicyTenantRestrictions and sets the default values.
     */
     public function __construct() {
@@ -35,7 +30,7 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
      * @return DevicesFilter|null
     */
     public function getDevices(): ?DevicesFilter {
-        return $this->devices;
+        return $this->getBackingStore()->get('devices');
     }
 
     /**
@@ -55,15 +50,15 @@ class CrossTenantAccessPolicyTenantRestrictions extends CrossTenantAccessPolicyB
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('devices', $this->devices);
+        $writer->writeObjectValue('devices', $this->getDevices());
     }
 
     /**
      * Sets the devices property value. The devices property
      *  @param DevicesFilter|null $value Value to set for the devices property.
     */
-    public function setDevices(?DevicesFilter $value ): void {
-        $this->devices = $value;
+    public function setDevices(?DevicesFilter $value): void {
+        $this->getBackingStore()->set('devices', $value);
     }
 
 }

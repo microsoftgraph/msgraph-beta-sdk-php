@@ -10,51 +10,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class EmailThreatSubmission extends ThreatSubmission implements Parsable 
 {
     /**
-     * @var AttackSimulationInfo|null $attackSimulationInfo If the email is phishing simulation, this field will not be null.
-    */
-    private ?AttackSimulationInfo $attackSimulationInfo = null;
-    
-    /**
-     * @var string|null $internetMessageId Specifies the internet message id of the email being submitted. This information is present in the email header.
-    */
-    private ?string $internetMessageId = null;
-    
-    /**
-     * @var SubmissionCategory|null $originalCategory The original category of the submission. The possible values are: notJunk, spam, phishing, malware and unkownFutureValue.
-    */
-    private ?SubmissionCategory $originalCategory = null;
-    
-    /**
-     * @var DateTime|null $receivedDateTime Specifies the date and time stamp when the email was received.
-    */
-    private ?DateTime $receivedDateTime = null;
-    
-    /**
-     * @var string|null $recipientEmailAddress Specifies the email address (in smtp format) of the recipient who received the email.
-    */
-    private ?string $recipientEmailAddress = null;
-    
-    /**
-     * @var string|null $sender Specifies the email address of the sender.
-    */
-    private ?string $sender = null;
-    
-    /**
-     * @var string|null $senderIP Specifies the IP address of the sender.
-    */
-    private ?string $senderIP = null;
-    
-    /**
-     * @var string|null $subject Specifies the subject of the email .
-    */
-    private ?string $subject = null;
-    
-    /**
-     * @var TenantAllowOrBlockListAction|null $tenantAllowOrBlockListAction It is used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
-    */
-    private ?TenantAllowOrBlockListAction $tenantAllowOrBlockListAction = null;
-    
-    /**
      * Instantiates a new EmailThreatSubmission and sets the default values.
     */
     public function __construct() {
@@ -84,7 +39,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return AttackSimulationInfo|null
     */
     public function getAttackSimulationInfo(): ?AttackSimulationInfo {
-        return $this->attackSimulationInfo;
+        return $this->getBackingStore()->get('attackSimulationInfo');
     }
 
     /**
@@ -111,7 +66,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getInternetMessageId(): ?string {
-        return $this->internetMessageId;
+        return $this->getBackingStore()->get('internetMessageId');
     }
 
     /**
@@ -119,7 +74,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return SubmissionCategory|null
     */
     public function getOriginalCategory(): ?SubmissionCategory {
-        return $this->originalCategory;
+        return $this->getBackingStore()->get('originalCategory');
     }
 
     /**
@@ -127,7 +82,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return DateTime|null
     */
     public function getReceivedDateTime(): ?DateTime {
-        return $this->receivedDateTime;
+        return $this->getBackingStore()->get('receivedDateTime');
     }
 
     /**
@@ -135,7 +90,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getRecipientEmailAddress(): ?string {
-        return $this->recipientEmailAddress;
+        return $this->getBackingStore()->get('recipientEmailAddress');
     }
 
     /**
@@ -143,7 +98,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSender(): ?string {
-        return $this->sender;
+        return $this->getBackingStore()->get('sender');
     }
 
     /**
@@ -151,7 +106,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSenderIP(): ?string {
-        return $this->senderIP;
+        return $this->getBackingStore()->get('senderIP');
     }
 
     /**
@@ -159,7 +114,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return string|null
     */
     public function getSubject(): ?string {
-        return $this->subject;
+        return $this->getBackingStore()->get('subject');
     }
 
     /**
@@ -167,7 +122,7 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
      * @return TenantAllowOrBlockListAction|null
     */
     public function getTenantAllowOrBlockListAction(): ?TenantAllowOrBlockListAction {
-        return $this->tenantAllowOrBlockListAction;
+        return $this->getBackingStore()->get('tenantAllowOrBlockListAction');
     }
 
     /**
@@ -176,87 +131,87 @@ class EmailThreatSubmission extends ThreatSubmission implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeObjectValue('attackSimulationInfo', $this->attackSimulationInfo);
-        $writer->writeStringValue('internetMessageId', $this->internetMessageId);
-        $writer->writeEnumValue('originalCategory', $this->originalCategory);
-        $writer->writeDateTimeValue('receivedDateTime', $this->receivedDateTime);
-        $writer->writeStringValue('recipientEmailAddress', $this->recipientEmailAddress);
-        $writer->writeStringValue('sender', $this->sender);
-        $writer->writeStringValue('senderIP', $this->senderIP);
-        $writer->writeStringValue('subject', $this->subject);
-        $writer->writeObjectValue('tenantAllowOrBlockListAction', $this->tenantAllowOrBlockListAction);
+        $writer->writeObjectValue('attackSimulationInfo', $this->getAttackSimulationInfo());
+        $writer->writeStringValue('internetMessageId', $this->getInternetMessageId());
+        $writer->writeEnumValue('originalCategory', $this->getOriginalCategory());
+        $writer->writeDateTimeValue('receivedDateTime', $this->getReceivedDateTime());
+        $writer->writeStringValue('recipientEmailAddress', $this->getRecipientEmailAddress());
+        $writer->writeStringValue('sender', $this->getSender());
+        $writer->writeStringValue('senderIP', $this->getSenderIP());
+        $writer->writeStringValue('subject', $this->getSubject());
+        $writer->writeObjectValue('tenantAllowOrBlockListAction', $this->getTenantAllowOrBlockListAction());
     }
 
     /**
      * Sets the attackSimulationInfo property value. If the email is phishing simulation, this field will not be null.
      *  @param AttackSimulationInfo|null $value Value to set for the attackSimulationInfo property.
     */
-    public function setAttackSimulationInfo(?AttackSimulationInfo $value ): void {
-        $this->attackSimulationInfo = $value;
+    public function setAttackSimulationInfo(?AttackSimulationInfo $value): void {
+        $this->getBackingStore()->set('attackSimulationInfo', $value);
     }
 
     /**
      * Sets the internetMessageId property value. Specifies the internet message id of the email being submitted. This information is present in the email header.
      *  @param string|null $value Value to set for the internetMessageId property.
     */
-    public function setInternetMessageId(?string $value ): void {
-        $this->internetMessageId = $value;
+    public function setInternetMessageId(?string $value): void {
+        $this->getBackingStore()->set('internetMessageId', $value);
     }
 
     /**
      * Sets the originalCategory property value. The original category of the submission. The possible values are: notJunk, spam, phishing, malware and unkownFutureValue.
      *  @param SubmissionCategory|null $value Value to set for the originalCategory property.
     */
-    public function setOriginalCategory(?SubmissionCategory $value ): void {
-        $this->originalCategory = $value;
+    public function setOriginalCategory(?SubmissionCategory $value): void {
+        $this->getBackingStore()->set('originalCategory', $value);
     }
 
     /**
      * Sets the receivedDateTime property value. Specifies the date and time stamp when the email was received.
      *  @param DateTime|null $value Value to set for the receivedDateTime property.
     */
-    public function setReceivedDateTime(?DateTime $value ): void {
-        $this->receivedDateTime = $value;
+    public function setReceivedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('receivedDateTime', $value);
     }
 
     /**
      * Sets the recipientEmailAddress property value. Specifies the email address (in smtp format) of the recipient who received the email.
      *  @param string|null $value Value to set for the recipientEmailAddress property.
     */
-    public function setRecipientEmailAddress(?string $value ): void {
-        $this->recipientEmailAddress = $value;
+    public function setRecipientEmailAddress(?string $value): void {
+        $this->getBackingStore()->set('recipientEmailAddress', $value);
     }
 
     /**
      * Sets the sender property value. Specifies the email address of the sender.
      *  @param string|null $value Value to set for the sender property.
     */
-    public function setSender(?string $value ): void {
-        $this->sender = $value;
+    public function setSender(?string $value): void {
+        $this->getBackingStore()->set('sender', $value);
     }
 
     /**
      * Sets the senderIP property value. Specifies the IP address of the sender.
      *  @param string|null $value Value to set for the senderIP property.
     */
-    public function setSenderIP(?string $value ): void {
-        $this->senderIP = $value;
+    public function setSenderIP(?string $value): void {
+        $this->getBackingStore()->set('senderIP', $value);
     }
 
     /**
      * Sets the subject property value. Specifies the subject of the email .
      *  @param string|null $value Value to set for the subject property.
     */
-    public function setSubject(?string $value ): void {
-        $this->subject = $value;
+    public function setSubject(?string $value): void {
+        $this->getBackingStore()->set('subject', $value);
     }
 
     /**
      * Sets the tenantAllowOrBlockListAction property value. It is used to automatically add allows for the components such as URL, file, sender; which are deemed bad by Microsoft so that similar messages in the future can be allowed.
      *  @param TenantAllowOrBlockListAction|null $value Value to set for the tenantAllowOrBlockListAction property.
     */
-    public function setTenantAllowOrBlockListAction(?TenantAllowOrBlockListAction $value ): void {
-        $this->tenantAllowOrBlockListAction = $value;
+    public function setTenantAllowOrBlockListAction(?TenantAllowOrBlockListAction $value): void {
+        $this->getBackingStore()->set('tenantAllowOrBlockListAction', $value);
     }
 
 }

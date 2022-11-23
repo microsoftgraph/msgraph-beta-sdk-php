@@ -9,26 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity implements Parsable 
 {
     /**
-     * @var string|null $deviceId The unique identifier of the device, Intune DeviceID or SCCM device id.
-    */
-    private ?string $deviceId = null;
-    
-    /**
-     * @var int|null $estimatedRuntimeInMinutes The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
-    */
-    private ?int $estimatedRuntimeInMinutes = null;
-    
-    /**
-     * @var string|null $runtimeDateTime The datetime for the instance of runtime history.
-    */
-    private ?string $runtimeDateTime = null;
-    
-    /**
      * Instantiates a new userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory');
     }
 
     /**
@@ -45,7 +29,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return string|null
     */
     public function getDeviceId(): ?string {
-        return $this->deviceId;
+        return $this->getBackingStore()->get('deviceId');
     }
 
     /**
@@ -53,7 +37,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return int|null
     */
     public function getEstimatedRuntimeInMinutes(): ?int {
-        return $this->estimatedRuntimeInMinutes;
+        return $this->getBackingStore()->get('estimatedRuntimeInMinutes');
     }
 
     /**
@@ -74,7 +58,7 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
      * @return string|null
     */
     public function getRuntimeDateTime(): ?string {
-        return $this->runtimeDateTime;
+        return $this->getBackingStore()->get('runtimeDateTime');
     }
 
     /**
@@ -83,33 +67,33 @@ class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory extends Entity im
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('deviceId', $this->deviceId);
-        $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->estimatedRuntimeInMinutes);
-        $writer->writeStringValue('runtimeDateTime', $this->runtimeDateTime);
+        $writer->writeStringValue('deviceId', $this->getDeviceId());
+        $writer->writeIntegerValue('estimatedRuntimeInMinutes', $this->getEstimatedRuntimeInMinutes());
+        $writer->writeStringValue('runtimeDateTime', $this->getRuntimeDateTime());
     }
 
     /**
      * Sets the deviceId property value. The unique identifier of the device, Intune DeviceID or SCCM device id.
      *  @param string|null $value Value to set for the deviceId property.
     */
-    public function setDeviceId(?string $value ): void {
-        $this->deviceId = $value;
+    public function setDeviceId(?string $value): void {
+        $this->getBackingStore()->set('deviceId', $value);
     }
 
     /**
      * Sets the estimatedRuntimeInMinutes property value. The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values -2147483648 to 2147483647
      *  @param int|null $value Value to set for the estimatedRuntimeInMinutes property.
     */
-    public function setEstimatedRuntimeInMinutes(?int $value ): void {
-        $this->estimatedRuntimeInMinutes = $value;
+    public function setEstimatedRuntimeInMinutes(?int $value): void {
+        $this->getBackingStore()->set('estimatedRuntimeInMinutes', $value);
     }
 
     /**
      * Sets the runtimeDateTime property value. The datetime for the instance of runtime history.
      *  @param string|null $value Value to set for the runtimeDateTime property.
     */
-    public function setRuntimeDateTime(?string $value ): void {
-        $this->runtimeDateTime = $value;
+    public function setRuntimeDateTime(?string $value): void {
+        $this->getBackingStore()->set('runtimeDateTime', $value);
     }
 
 }

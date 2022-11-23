@@ -9,11 +9,6 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfiguration implements Parsable 
 {
     /**
-     * @var string|null $resourceId The appID of the Azure AD application to use to authenticate a logic app with a custom access package workflow extension.
-    */
-    private ?string $resourceId = null;
-    
-    /**
      * Instantiates a new AzureAdTokenAuthentication and sets the default values.
     */
     public function __construct() {
@@ -46,7 +41,7 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
      * @return string|null
     */
     public function getResourceId(): ?string {
-        return $this->resourceId;
+        return $this->getBackingStore()->get('resourceId');
     }
 
     /**
@@ -55,15 +50,15 @@ class AzureAdTokenAuthentication extends CustomExtensionAuthenticationConfigurat
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('resourceId', $this->resourceId);
+        $writer->writeStringValue('resourceId', $this->getResourceId());
     }
 
     /**
      * Sets the resourceId property value. The appID of the Azure AD application to use to authenticate a logic app with a custom access package workflow extension.
      *  @param string|null $value Value to set for the resourceId property.
     */
-    public function setResourceId(?string $value ): void {
-        $this->resourceId = $value;
+    public function setResourceId(?string $value): void {
+        $this->getBackingStore()->set('resourceId', $value);
     }
 
 }

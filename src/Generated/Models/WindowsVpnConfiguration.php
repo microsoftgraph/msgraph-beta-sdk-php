@@ -10,21 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var string|null $connectionName Connection name displayed to the user.
-    */
-    private ?string $connectionName = null;
-    
-    /**
-     * @var StreamInterface|null $customXml Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
-    */
-    private ?StreamInterface $customXml = null;
-    
-    /**
-     * @var array<VpnServer>|null $servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-    */
-    private ?array $servers = null;
-    
-    /**
      * Instantiates a new WindowsVpnConfiguration and sets the default values.
     */
     public function __construct() {
@@ -55,15 +40,15 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return string|null
     */
     public function getConnectionName(): ?string {
-        return $this->connectionName;
+        return $this->getBackingStore()->get('connectionName');
     }
 
     /**
      * Gets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getCustomXml(): StreamInterface {
-        return $this->customXml;
+    public function getCustomXml(): ?StreamInterface {
+        return $this->getBackingStore()->get('customXml');
     }
 
     /**
@@ -84,7 +69,7 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
      * @return array<VpnServer>|null
     */
     public function getServers(): ?array {
-        return $this->servers;
+        return $this->getBackingStore()->get('servers');
     }
 
     /**
@@ -93,33 +78,33 @@ class WindowsVpnConfiguration extends DeviceConfiguration implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('connectionName', $this->connectionName);
-        $writer->writeBinaryContent('customXml', $this->customXml);
-        $writer->writeCollectionOfObjectValues('servers', $this->servers);
+        $writer->writeStringValue('connectionName', $this->getConnectionName());
+        $writer->writeBinaryContent('customXml', $this->getCustomXml());
+        $writer->writeCollectionOfObjectValues('servers', $this->getServers());
     }
 
     /**
      * Sets the connectionName property value. Connection name displayed to the user.
      *  @param string|null $value Value to set for the connectionName property.
     */
-    public function setConnectionName(?string $value ): void {
-        $this->connectionName = $value;
+    public function setConnectionName(?string $value): void {
+        $this->getBackingStore()->set('connectionName', $value);
     }
 
     /**
      * Sets the customXml property value. Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
      *  @param StreamInterface|null $value Value to set for the customXml property.
     */
-    public function setCustomXml(?StreamInterface $value ): void {
-        $this->customXml = $value;
+    public function setCustomXml(?StreamInterface $value): void {
+        $this->getBackingStore()->set('customXml', $value);
     }
 
     /**
      * Sets the servers property value. List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *  @param array<VpnServer>|null $value Value to set for the servers property.
     */
-    public function setServers(?array $value ): void {
-        $this->servers = $value;
+    public function setServers(?array $value): void {
+        $this->getBackingStore()->set('servers', $value);
     }
 
 }

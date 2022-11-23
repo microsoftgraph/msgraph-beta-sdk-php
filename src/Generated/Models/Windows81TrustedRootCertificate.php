@@ -10,21 +10,6 @@ use Psr\Http\Message\StreamInterface;
 class Windows81TrustedRootCertificate extends DeviceConfiguration implements Parsable 
 {
     /**
-     * @var string|null $certFileName File name to display in UI.
-    */
-    private ?string $certFileName = null;
-    
-    /**
-     * @var CertificateDestinationStore|null $destinationStore Possible values for the Certificate Destination Store.
-    */
-    private ?CertificateDestinationStore $destinationStore = null;
-    
-    /**
-     * @var StreamInterface|null $trustedRootCertificate Trusted Root Certificate
-    */
-    private ?StreamInterface $trustedRootCertificate = null;
-    
-    /**
      * Instantiates a new windows81TrustedRootCertificate and sets the default values.
     */
     public function __construct() {
@@ -46,7 +31,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
      * @return string|null
     */
     public function getCertFileName(): ?string {
-        return $this->certFileName;
+        return $this->getBackingStore()->get('certFileName');
     }
 
     /**
@@ -54,7 +39,7 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
      * @return CertificateDestinationStore|null
     */
     public function getDestinationStore(): ?CertificateDestinationStore {
-        return $this->destinationStore;
+        return $this->getBackingStore()->get('destinationStore');
     }
 
     /**
@@ -72,10 +57,10 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
 
     /**
      * Gets the trustedRootCertificate property value. Trusted Root Certificate
-     * @return StreamInterface
+     * @return StreamInterface|null
     */
-    public function getTrustedRootCertificate(): StreamInterface {
-        return $this->trustedRootCertificate;
+    public function getTrustedRootCertificate(): ?StreamInterface {
+        return $this->getBackingStore()->get('trustedRootCertificate');
     }
 
     /**
@@ -84,33 +69,33 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration implements Par
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('certFileName', $this->certFileName);
-        $writer->writeEnumValue('destinationStore', $this->destinationStore);
-        $writer->writeBinaryContent('trustedRootCertificate', $this->trustedRootCertificate);
+        $writer->writeStringValue('certFileName', $this->getCertFileName());
+        $writer->writeEnumValue('destinationStore', $this->getDestinationStore());
+        $writer->writeBinaryContent('trustedRootCertificate', $this->getTrustedRootCertificate());
     }
 
     /**
      * Sets the certFileName property value. File name to display in UI.
      *  @param string|null $value Value to set for the certFileName property.
     */
-    public function setCertFileName(?string $value ): void {
-        $this->certFileName = $value;
+    public function setCertFileName(?string $value): void {
+        $this->getBackingStore()->set('certFileName', $value);
     }
 
     /**
      * Sets the destinationStore property value. Possible values for the Certificate Destination Store.
      *  @param CertificateDestinationStore|null $value Value to set for the destinationStore property.
     */
-    public function setDestinationStore(?CertificateDestinationStore $value ): void {
-        $this->destinationStore = $value;
+    public function setDestinationStore(?CertificateDestinationStore $value): void {
+        $this->getBackingStore()->set('destinationStore', $value);
     }
 
     /**
      * Sets the trustedRootCertificate property value. Trusted Root Certificate
      *  @param StreamInterface|null $value Value to set for the trustedRootCertificate property.
     */
-    public function setTrustedRootCertificate(?StreamInterface $value ): void {
-        $this->trustedRootCertificate = $value;
+    public function setTrustedRootCertificate(?StreamInterface $value): void {
+        $this->getBackingStore()->set('trustedRootCertificate', $value);
     }
 
 }

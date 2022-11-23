@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class RegistryKeyEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $registryHive Registry hive of the key that the recorded action was applied to.
-    */
-    private ?string $registryHive = null;
-    
-    /**
-     * @var string|null $registryKey Registry key that the recorded action was applied to.
-    */
-    private ?string $registryKey = null;
-    
-    /**
      * Instantiates a new RegistryKeyEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.registryKeyEvidence');
     }
 
     /**
@@ -52,7 +41,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getRegistryHive(): ?string {
-        return $this->registryHive;
+        return $this->getBackingStore()->get('registryHive');
     }
 
     /**
@@ -60,7 +49,7 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getRegistryKey(): ?string {
-        return $this->registryKey;
+        return $this->getBackingStore()->get('registryKey');
     }
 
     /**
@@ -69,24 +58,24 @@ class RegistryKeyEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('registryHive', $this->registryHive);
-        $writer->writeStringValue('registryKey', $this->registryKey);
+        $writer->writeStringValue('registryHive', $this->getRegistryHive());
+        $writer->writeStringValue('registryKey', $this->getRegistryKey());
     }
 
     /**
      * Sets the registryHive property value. Registry hive of the key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryHive property.
     */
-    public function setRegistryHive(?string $value ): void {
-        $this->registryHive = $value;
+    public function setRegistryHive(?string $value): void {
+        $this->getBackingStore()->set('registryHive', $value);
     }
 
     /**
      * Sets the registryKey property value. Registry key that the recorded action was applied to.
      *  @param string|null $value Value to set for the registryKey property.
     */
-    public function setRegistryKey(?string $value ): void {
-        $this->registryKey = $value;
+    public function setRegistryKey(?string $value): void {
+        $this->getBackingStore()->set('registryKey', $value);
     }
 
 }

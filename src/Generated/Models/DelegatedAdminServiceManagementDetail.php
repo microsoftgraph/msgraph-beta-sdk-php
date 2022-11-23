@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class DelegatedAdminServiceManagementDetail extends Entity implements Parsable 
 {
     /**
-     * @var string|null $serviceManagementUrl The URL of the management portal for the managed service. Read-only.
-    */
-    private ?string $serviceManagementUrl = null;
-    
-    /**
-     * @var string|null $serviceName The name of a managed service. Read-only.
-    */
-    private ?string $serviceName = null;
-    
-    /**
      * Instantiates a new delegatedAdminServiceManagementDetail and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.delegatedAdminServiceManagementDetail');
     }
 
     /**
@@ -52,7 +41,7 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceManagementUrl(): ?string {
-        return $this->serviceManagementUrl;
+        return $this->getBackingStore()->get('serviceManagementUrl');
     }
 
     /**
@@ -60,7 +49,7 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
      * @return string|null
     */
     public function getServiceName(): ?string {
-        return $this->serviceName;
+        return $this->getBackingStore()->get('serviceName');
     }
 
     /**
@@ -69,24 +58,24 @@ class DelegatedAdminServiceManagementDetail extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('serviceManagementUrl', $this->serviceManagementUrl);
-        $writer->writeStringValue('serviceName', $this->serviceName);
+        $writer->writeStringValue('serviceManagementUrl', $this->getServiceManagementUrl());
+        $writer->writeStringValue('serviceName', $this->getServiceName());
     }
 
     /**
      * Sets the serviceManagementUrl property value. The URL of the management portal for the managed service. Read-only.
      *  @param string|null $value Value to set for the serviceManagementUrl property.
     */
-    public function setServiceManagementUrl(?string $value ): void {
-        $this->serviceManagementUrl = $value;
+    public function setServiceManagementUrl(?string $value): void {
+        $this->getBackingStore()->set('serviceManagementUrl', $value);
     }
 
     /**
      * Sets the serviceName property value. The name of a managed service. Read-only.
      *  @param string|null $value Value to set for the serviceName property.
     */
-    public function setServiceName(?string $value ): void {
-        $this->serviceName = $value;
+    public function setServiceName(?string $value): void {
+        $this->getBackingStore()->set('serviceName', $value);
     }
 
 }

@@ -6,40 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class VpnServer implements AdditionalDataHolder, Parsable 
+class VpnServer implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var string|null $address Address (IP address, FQDN or URL)
-    */
-    private ?string $address = null;
-    
-    /**
-     * @var string|null $description Description.
-    */
-    private ?string $description = null;
-    
-    /**
-     * @var bool|null $isDefaultServer Default server.
-    */
-    private ?bool $isDefaultServer = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new vpnServer and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.vpnServer');
     }
 
     /**
@@ -55,8 +38,8 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -64,7 +47,15 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getAddress(): ?string {
-        return $this->address;
+        return $this->getBackingStore()->get('address');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -72,7 +63,7 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getDescription(): ?string {
-        return $this->description;
+        return $this->getBackingStore()->get('description');
     }
 
     /**
@@ -94,7 +85,7 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * @return bool|null
     */
     public function getIsDefaultServer(): ?bool {
-        return $this->isDefaultServer;
+        return $this->getBackingStore()->get('isDefaultServer');
     }
 
     /**
@@ -102,7 +93,7 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -110,51 +101,59 @@ class VpnServer implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeStringValue('address', $this->address);
-        $writer->writeStringValue('description', $this->description);
-        $writer->writeBooleanValue('isDefaultServer', $this->isDefaultServer);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeStringValue('address', $this->getAddress());
+        $writer->writeStringValue('description', $this->getDescription());
+        $writer->writeBooleanValue('isDefaultServer', $this->getIsDefaultServer());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the address property value. Address (IP address, FQDN or URL)
      *  @param string|null $value Value to set for the address property.
     */
-    public function setAddress(?string $value ): void {
-        $this->address = $value;
+    public function setAddress(?string $value): void {
+        $this->getBackingStore()->set('address', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the description property value. Description.
      *  @param string|null $value Value to set for the description property.
     */
-    public function setDescription(?string $value ): void {
-        $this->description = $value;
+    public function setDescription(?string $value): void {
+        $this->getBackingStore()->set('description', $value);
     }
 
     /**
      * Sets the isDefaultServer property value. Default server.
      *  @param bool|null $value Value to set for the isDefaultServer property.
     */
-    public function setIsDefaultServer(?bool $value ): void {
-        $this->isDefaultServer = $value;
+    public function setIsDefaultServer(?bool $value): void {
+        $this->getBackingStore()->set('isDefaultServer', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
 }

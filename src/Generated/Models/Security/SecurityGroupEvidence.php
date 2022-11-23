@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class SecurityGroupEvidence extends AlertEvidence implements Parsable 
 {
     /**
-     * @var string|null $displayName The name of the security group.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $securityGroupId Unique identifier of the security group.
-    */
-    private ?string $securityGroupId = null;
-    
-    /**
      * Instantiates a new SecurityGroupEvidence and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.securityGroupEvidence');
     }
 
     /**
@@ -40,7 +29,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -60,7 +49,7 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
      * @return string|null
     */
     public function getSecurityGroupId(): ?string {
-        return $this->securityGroupId;
+        return $this->getBackingStore()->get('securityGroupId');
     }
 
     /**
@@ -69,24 +58,24 @@ class SecurityGroupEvidence extends AlertEvidence implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('securityGroupId', $this->securityGroupId);
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('securityGroupId', $this->getSecurityGroupId());
     }
 
     /**
      * Sets the displayName property value. The name of the security group.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the securityGroupId property value. Unique identifier of the security group.
      *  @param string|null $value Value to set for the securityGroupId property.
     */
-    public function setSecurityGroupId(?string $value ): void {
-        $this->securityGroupId = $value;
+    public function setSecurityGroupId(?string $value): void {
+        $this->getBackingStore()->set('securityGroupId', $value);
     }
 
 }

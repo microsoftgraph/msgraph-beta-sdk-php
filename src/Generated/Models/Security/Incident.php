@@ -11,81 +11,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class Incident extends Entity implements Parsable 
 {
     /**
-     * @var array<Alert>|null $alerts The list of related alerts. Supports $expand.
-    */
-    private ?array $alerts = null;
-    
-    /**
-     * @var string|null $assignedTo Owner of the incident, or null if no owner is assigned. Free editable text.
-    */
-    private ?string $assignedTo = null;
-    
-    /**
-     * @var AlertClassification|null $classification The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
-    */
-    private ?AlertClassification $classification = null;
-    
-    /**
-     * @var array<AlertComment>|null $comments Array of comments created by the Security Operations (SecOps) team when the incident is managed.
-    */
-    private ?array $comments = null;
-    
-    /**
-     * @var DateTime|null $createdDateTime Time when the incident was first created.
-    */
-    private ?DateTime $createdDateTime = null;
-    
-    /**
-     * @var AlertDetermination|null $determination Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
-    */
-    private ?AlertDetermination $determination = null;
-    
-    /**
-     * @var string|null $displayName The incident name.
-    */
-    private ?string $displayName = null;
-    
-    /**
-     * @var string|null $incidentWebUrl The URL for the incident page in the Microsoft 365 Defender portal.
-    */
-    private ?string $incidentWebUrl = null;
-    
-    /**
-     * @var DateTime|null $lastUpdateDateTime Time when the incident was last updated.
-    */
-    private ?DateTime $lastUpdateDateTime = null;
-    
-    /**
-     * @var string|null $redirectIncidentId Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
-    */
-    private ?string $redirectIncidentId = null;
-    
-    /**
-     * @var AlertSeverity|null $severity The severity property
-    */
-    private ?AlertSeverity $severity = null;
-    
-    /**
-     * @var IncidentStatus|null $status The status property
-    */
-    private ?IncidentStatus $status = null;
-    
-    /**
-     * @var array<string>|null $tags Array of custom tags associated with an incident.
-    */
-    private ?array $tags = null;
-    
-    /**
-     * @var string|null $tenantId The Azure Active Directory tenant in which the alert was created.
-    */
-    private ?string $tenantId = null;
-    
-    /**
      * Instantiates a new incident and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.security.incident');
     }
 
     /**
@@ -102,7 +31,7 @@ class Incident extends Entity implements Parsable
      * @return array<Alert>|null
     */
     public function getAlerts(): ?array {
-        return $this->alerts;
+        return $this->getBackingStore()->get('alerts');
     }
 
     /**
@@ -110,7 +39,7 @@ class Incident extends Entity implements Parsable
      * @return string|null
     */
     public function getAssignedTo(): ?string {
-        return $this->assignedTo;
+        return $this->getBackingStore()->get('assignedTo');
     }
 
     /**
@@ -118,7 +47,7 @@ class Incident extends Entity implements Parsable
      * @return AlertClassification|null
     */
     public function getClassification(): ?AlertClassification {
-        return $this->classification;
+        return $this->getBackingStore()->get('classification');
     }
 
     /**
@@ -126,7 +55,7 @@ class Incident extends Entity implements Parsable
      * @return array<AlertComment>|null
     */
     public function getComments(): ?array {
-        return $this->comments;
+        return $this->getBackingStore()->get('comments');
     }
 
     /**
@@ -134,7 +63,7 @@ class Incident extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getCreatedDateTime(): ?DateTime {
-        return $this->createdDateTime;
+        return $this->getBackingStore()->get('createdDateTime');
     }
 
     /**
@@ -142,7 +71,7 @@ class Incident extends Entity implements Parsable
      * @return AlertDetermination|null
     */
     public function getDetermination(): ?AlertDetermination {
-        return $this->determination;
+        return $this->getBackingStore()->get('determination');
     }
 
     /**
@@ -150,7 +79,7 @@ class Incident extends Entity implements Parsable
      * @return string|null
     */
     public function getDisplayName(): ?string {
-        return $this->displayName;
+        return $this->getBackingStore()->get('displayName');
     }
 
     /**
@@ -182,7 +111,7 @@ class Incident extends Entity implements Parsable
      * @return string|null
     */
     public function getIncidentWebUrl(): ?string {
-        return $this->incidentWebUrl;
+        return $this->getBackingStore()->get('incidentWebUrl');
     }
 
     /**
@@ -190,7 +119,7 @@ class Incident extends Entity implements Parsable
      * @return DateTime|null
     */
     public function getLastUpdateDateTime(): ?DateTime {
-        return $this->lastUpdateDateTime;
+        return $this->getBackingStore()->get('lastUpdateDateTime');
     }
 
     /**
@@ -198,7 +127,7 @@ class Incident extends Entity implements Parsable
      * @return string|null
     */
     public function getRedirectIncidentId(): ?string {
-        return $this->redirectIncidentId;
+        return $this->getBackingStore()->get('redirectIncidentId');
     }
 
     /**
@@ -206,7 +135,7 @@ class Incident extends Entity implements Parsable
      * @return AlertSeverity|null
     */
     public function getSeverity(): ?AlertSeverity {
-        return $this->severity;
+        return $this->getBackingStore()->get('severity');
     }
 
     /**
@@ -214,7 +143,7 @@ class Incident extends Entity implements Parsable
      * @return IncidentStatus|null
     */
     public function getStatus(): ?IncidentStatus {
-        return $this->status;
+        return $this->getBackingStore()->get('status');
     }
 
     /**
@@ -222,7 +151,7 @@ class Incident extends Entity implements Parsable
      * @return array<string>|null
     */
     public function getTags(): ?array {
-        return $this->tags;
+        return $this->getBackingStore()->get('tags');
     }
 
     /**
@@ -230,7 +159,7 @@ class Incident extends Entity implements Parsable
      * @return string|null
     */
     public function getTenantId(): ?string {
-        return $this->tenantId;
+        return $this->getBackingStore()->get('tenantId');
     }
 
     /**
@@ -239,132 +168,132 @@ class Incident extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeCollectionOfObjectValues('alerts', $this->alerts);
-        $writer->writeStringValue('assignedTo', $this->assignedTo);
-        $writer->writeEnumValue('classification', $this->classification);
-        $writer->writeCollectionOfObjectValues('comments', $this->comments);
-        $writer->writeDateTimeValue('createdDateTime', $this->createdDateTime);
-        $writer->writeEnumValue('determination', $this->determination);
-        $writer->writeStringValue('displayName', $this->displayName);
-        $writer->writeStringValue('incidentWebUrl', $this->incidentWebUrl);
-        $writer->writeDateTimeValue('lastUpdateDateTime', $this->lastUpdateDateTime);
-        $writer->writeStringValue('redirectIncidentId', $this->redirectIncidentId);
-        $writer->writeEnumValue('severity', $this->severity);
-        $writer->writeEnumValue('status', $this->status);
-        $writer->writeCollectionOfPrimitiveValues('tags', $this->tags);
-        $writer->writeStringValue('tenantId', $this->tenantId);
+        $writer->writeCollectionOfObjectValues('alerts', $this->getAlerts());
+        $writer->writeStringValue('assignedTo', $this->getAssignedTo());
+        $writer->writeEnumValue('classification', $this->getClassification());
+        $writer->writeCollectionOfObjectValues('comments', $this->getComments());
+        $writer->writeDateTimeValue('createdDateTime', $this->getCreatedDateTime());
+        $writer->writeEnumValue('determination', $this->getDetermination());
+        $writer->writeStringValue('displayName', $this->getDisplayName());
+        $writer->writeStringValue('incidentWebUrl', $this->getIncidentWebUrl());
+        $writer->writeDateTimeValue('lastUpdateDateTime', $this->getLastUpdateDateTime());
+        $writer->writeStringValue('redirectIncidentId', $this->getRedirectIncidentId());
+        $writer->writeEnumValue('severity', $this->getSeverity());
+        $writer->writeEnumValue('status', $this->getStatus());
+        $writer->writeCollectionOfPrimitiveValues('tags', $this->getTags());
+        $writer->writeStringValue('tenantId', $this->getTenantId());
     }
 
     /**
      * Sets the alerts property value. The list of related alerts. Supports $expand.
      *  @param array<Alert>|null $value Value to set for the alerts property.
     */
-    public function setAlerts(?array $value ): void {
-        $this->alerts = $value;
+    public function setAlerts(?array $value): void {
+        $this->getBackingStore()->set('alerts', $value);
     }
 
     /**
      * Sets the assignedTo property value. Owner of the incident, or null if no owner is assigned. Free editable text.
      *  @param string|null $value Value to set for the assignedTo property.
     */
-    public function setAssignedTo(?string $value ): void {
-        $this->assignedTo = $value;
+    public function setAssignedTo(?string $value): void {
+        $this->getBackingStore()->set('assignedTo', $value);
     }
 
     /**
      * Sets the classification property value. The specification for the incident. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      *  @param AlertClassification|null $value Value to set for the classification property.
     */
-    public function setClassification(?AlertClassification $value ): void {
-        $this->classification = $value;
+    public function setClassification(?AlertClassification $value): void {
+        $this->getBackingStore()->set('classification', $value);
     }
 
     /**
      * Sets the comments property value. Array of comments created by the Security Operations (SecOps) team when the incident is managed.
      *  @param array<AlertComment>|null $value Value to set for the comments property.
     */
-    public function setComments(?array $value ): void {
-        $this->comments = $value;
+    public function setComments(?array $value): void {
+        $this->getBackingStore()->set('comments', $value);
     }
 
     /**
      * Sets the createdDateTime property value. Time when the incident was first created.
      *  @param DateTime|null $value Value to set for the createdDateTime property.
     */
-    public function setCreatedDateTime(?DateTime $value ): void {
-        $this->createdDateTime = $value;
+    public function setCreatedDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('createdDateTime', $value);
     }
 
     /**
      * Sets the determination property value. Specifies the determination of the incident. Possible values are: unknown, apt, malware, securityPersonnel, securityTesting, unwantedSoftware, other, multiStagedAttack, compromisedUser, phishing, maliciousUserActivity, clean, insufficientData, confirmedUserActivity, lineOfBusinessApplication, unknownFutureValue.
      *  @param AlertDetermination|null $value Value to set for the determination property.
     */
-    public function setDetermination(?AlertDetermination $value ): void {
-        $this->determination = $value;
+    public function setDetermination(?AlertDetermination $value): void {
+        $this->getBackingStore()->set('determination', $value);
     }
 
     /**
      * Sets the displayName property value. The incident name.
      *  @param string|null $value Value to set for the displayName property.
     */
-    public function setDisplayName(?string $value ): void {
-        $this->displayName = $value;
+    public function setDisplayName(?string $value): void {
+        $this->getBackingStore()->set('displayName', $value);
     }
 
     /**
      * Sets the incidentWebUrl property value. The URL for the incident page in the Microsoft 365 Defender portal.
      *  @param string|null $value Value to set for the incidentWebUrl property.
     */
-    public function setIncidentWebUrl(?string $value ): void {
-        $this->incidentWebUrl = $value;
+    public function setIncidentWebUrl(?string $value): void {
+        $this->getBackingStore()->set('incidentWebUrl', $value);
     }
 
     /**
      * Sets the lastUpdateDateTime property value. Time when the incident was last updated.
      *  @param DateTime|null $value Value to set for the lastUpdateDateTime property.
     */
-    public function setLastUpdateDateTime(?DateTime $value ): void {
-        $this->lastUpdateDateTime = $value;
+    public function setLastUpdateDateTime(?DateTime $value): void {
+        $this->getBackingStore()->set('lastUpdateDateTime', $value);
     }
 
     /**
      * Sets the redirectIncidentId property value. Only populated in case an incident is grouped together with another incident, as part of the logic that processes incidents. In such a case, the status property is redirected.
      *  @param string|null $value Value to set for the redirectIncidentId property.
     */
-    public function setRedirectIncidentId(?string $value ): void {
-        $this->redirectIncidentId = $value;
+    public function setRedirectIncidentId(?string $value): void {
+        $this->getBackingStore()->set('redirectIncidentId', $value);
     }
 
     /**
      * Sets the severity property value. The severity property
      *  @param AlertSeverity|null $value Value to set for the severity property.
     */
-    public function setSeverity(?AlertSeverity $value ): void {
-        $this->severity = $value;
+    public function setSeverity(?AlertSeverity $value): void {
+        $this->getBackingStore()->set('severity', $value);
     }
 
     /**
      * Sets the status property value. The status property
      *  @param IncidentStatus|null $value Value to set for the status property.
     */
-    public function setStatus(?IncidentStatus $value ): void {
-        $this->status = $value;
+    public function setStatus(?IncidentStatus $value): void {
+        $this->getBackingStore()->set('status', $value);
     }
 
     /**
      * Sets the tags property value. Array of custom tags associated with an incident.
      *  @param array<string>|null $value Value to set for the tags property.
     */
-    public function setTags(?array $value ): void {
-        $this->tags = $value;
+    public function setTags(?array $value): void {
+        $this->getBackingStore()->set('tags', $value);
     }
 
     /**
      * Sets the tenantId property value. The Azure Active Directory tenant in which the alert was created.
      *  @param string|null $value Value to set for the tenantId property.
     */
-    public function setTenantId(?string $value ): void {
-        $this->tenantId = $value;
+    public function setTenantId(?string $value): void {
+        $this->getBackingStore()->set('tenantId', $value);
     }
 
 }

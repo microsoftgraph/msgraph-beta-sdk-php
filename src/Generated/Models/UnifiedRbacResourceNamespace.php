@@ -9,21 +9,10 @@ use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
 class UnifiedRbacResourceNamespace extends Entity implements Parsable 
 {
     /**
-     * @var string|null $name Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith).
-    */
-    private ?string $name = null;
-    
-    /**
-     * @var array<UnifiedRbacResourceAction>|null $resourceActions Operations that an authorized principal are allowed to perform.
-    */
-    private ?array $resourceActions = null;
-    
-    /**
      * Instantiates a new unifiedRbacResourceNamespace and sets the default values.
     */
     public function __construct() {
         parent::__construct();
-        $this->setOdataType('#microsoft.graph.unifiedRbacResourceNamespace');
     }
 
     /**
@@ -52,7 +41,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
      * @return string|null
     */
     public function getName(): ?string {
-        return $this->name;
+        return $this->getBackingStore()->get('name');
     }
 
     /**
@@ -60,7 +49,7 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
      * @return array<UnifiedRbacResourceAction>|null
     */
     public function getResourceActions(): ?array {
-        return $this->resourceActions;
+        return $this->getBackingStore()->get('resourceActions');
     }
 
     /**
@@ -69,24 +58,24 @@ class UnifiedRbacResourceNamespace extends Entity implements Parsable
     */
     public function serialize(SerializationWriter $writer): void {
         parent::serialize($writer);
-        $writer->writeStringValue('name', $this->name);
-        $writer->writeCollectionOfObjectValues('resourceActions', $this->resourceActions);
+        $writer->writeStringValue('name', $this->getName());
+        $writer->writeCollectionOfObjectValues('resourceActions', $this->getResourceActions());
     }
 
     /**
      * Sets the name property value. Name of the resource namespace. Typically, the same name as the id property, such as microsoft.aad.b2c. Required. Supports $filter (eq, startsWith).
      *  @param string|null $value Value to set for the name property.
     */
-    public function setName(?string $value ): void {
-        $this->name = $value;
+    public function setName(?string $value): void {
+        $this->getBackingStore()->set('name', $value);
     }
 
     /**
      * Sets the resourceActions property value. Operations that an authorized principal are allowed to perform.
      *  @param array<UnifiedRbacResourceAction>|null $value Value to set for the resourceActions property.
     */
-    public function setResourceActions(?array $value ): void {
-        $this->resourceActions = $value;
+    public function setResourceActions(?array $value): void {
+        $this->getBackingStore()->set('resourceActions', $value);
     }
 
 }

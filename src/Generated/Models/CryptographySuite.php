@@ -6,55 +6,23 @@ use Microsoft\Kiota\Abstractions\Serialization\AdditionalDataHolder;
 use Microsoft\Kiota\Abstractions\Serialization\Parsable;
 use Microsoft\Kiota\Abstractions\Serialization\ParseNode;
 use Microsoft\Kiota\Abstractions\Serialization\SerializationWriter;
+use Microsoft\Kiota\Abstractions\Store\BackedModel;
+use Microsoft\Kiota\Abstractions\Store\BackingStore;
+use Microsoft\Kiota\Abstractions\Store\BackingStoreFactorySingleton;
 
-class CryptographySuite implements AdditionalDataHolder, Parsable 
+class CryptographySuite implements AdditionalDataHolder, BackedModel, Parsable 
 {
     /**
-     * @var array<string, mixed> $additionalData Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @var BackingStore $backingStore Stores model information.
     */
-    private array $additionalData;
-    
-    /**
-     * @var AuthenticationTransformConstant|null $authenticationTransformConstants Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
-    */
-    private ?AuthenticationTransformConstant $authenticationTransformConstants = null;
-    
-    /**
-     * @var VpnEncryptionAlgorithmType|null $cipherTransformConstants Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-    */
-    private ?VpnEncryptionAlgorithmType $cipherTransformConstants = null;
-    
-    /**
-     * @var DiffieHellmanGroup|null $dhGroup Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
-    */
-    private ?DiffieHellmanGroup $dhGroup = null;
-    
-    /**
-     * @var VpnEncryptionAlgorithmType|null $encryptionMethod Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
-    */
-    private ?VpnEncryptionAlgorithmType $encryptionMethod = null;
-    
-    /**
-     * @var VpnIntegrityAlgorithmType|null $integrityCheckMethod Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
-    */
-    private ?VpnIntegrityAlgorithmType $integrityCheckMethod = null;
-    
-    /**
-     * @var string|null $odataType The OdataType property
-    */
-    private ?string $odataType = null;
-    
-    /**
-     * @var PerfectForwardSecrecyGroup|null $pfsGroup Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
-    */
-    private ?PerfectForwardSecrecyGroup $pfsGroup = null;
+    private BackingStore $backingStore;
     
     /**
      * Instantiates a new cryptographySuite and sets the default values.
     */
     public function __construct() {
+        $this->backingStore = BackingStoreFactorySingleton::getInstance()->createBackingStore();
         $this->setAdditionalData([]);
-        $this->setOdataType('#microsoft.graph.cryptographySuite');
     }
 
     /**
@@ -70,8 +38,8 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @return array<string, mixed>
     */
-    public function getAdditionalData(): array {
-        return $this->additionalData;
+    public function getAdditionalData(): ?array {
+        return $this->getBackingStore()->get('additionalData');
     }
 
     /**
@@ -79,7 +47,15 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return AuthenticationTransformConstant|null
     */
     public function getAuthenticationTransformConstants(): ?AuthenticationTransformConstant {
-        return $this->authenticationTransformConstants;
+        return $this->getBackingStore()->get('authenticationTransformConstants');
+    }
+
+    /**
+     * Gets the backingStore property value. Stores model information.
+     * @return BackingStore
+    */
+    public function getBackingStore(): BackingStore {
+        return $this->backingStore;
     }
 
     /**
@@ -87,7 +63,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getCipherTransformConstants(): ?VpnEncryptionAlgorithmType {
-        return $this->cipherTransformConstants;
+        return $this->getBackingStore()->get('cipherTransformConstants');
     }
 
     /**
@@ -95,7 +71,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return DiffieHellmanGroup|null
     */
     public function getDhGroup(): ?DiffieHellmanGroup {
-        return $this->dhGroup;
+        return $this->getBackingStore()->get('dhGroup');
     }
 
     /**
@@ -103,7 +79,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return VpnEncryptionAlgorithmType|null
     */
     public function getEncryptionMethod(): ?VpnEncryptionAlgorithmType {
-        return $this->encryptionMethod;
+        return $this->getBackingStore()->get('encryptionMethod');
     }
 
     /**
@@ -128,7 +104,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return VpnIntegrityAlgorithmType|null
     */
     public function getIntegrityCheckMethod(): ?VpnIntegrityAlgorithmType {
-        return $this->integrityCheckMethod;
+        return $this->getBackingStore()->get('integrityCheckMethod');
     }
 
     /**
@@ -136,7 +112,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return string|null
     */
     public function getOdataType(): ?string {
-        return $this->odataType;
+        return $this->getBackingStore()->get('odataType');
     }
 
     /**
@@ -144,7 +120,7 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @return PerfectForwardSecrecyGroup|null
     */
     public function getPfsGroup(): ?PerfectForwardSecrecyGroup {
-        return $this->pfsGroup;
+        return $this->getBackingStore()->get('pfsGroup');
     }
 
     /**
@@ -152,78 +128,86 @@ class CryptographySuite implements AdditionalDataHolder, Parsable
      * @param SerializationWriter $writer Serialization writer to use to serialize this model
     */
     public function serialize(SerializationWriter $writer): void {
-        $writer->writeEnumValue('authenticationTransformConstants', $this->authenticationTransformConstants);
-        $writer->writeEnumValue('cipherTransformConstants', $this->cipherTransformConstants);
-        $writer->writeEnumValue('dhGroup', $this->dhGroup);
-        $writer->writeEnumValue('encryptionMethod', $this->encryptionMethod);
-        $writer->writeEnumValue('integrityCheckMethod', $this->integrityCheckMethod);
-        $writer->writeStringValue('@odata.type', $this->odataType);
-        $writer->writeEnumValue('pfsGroup', $this->pfsGroup);
-        $writer->writeAdditionalData($this->additionalData);
+        $writer->writeEnumValue('authenticationTransformConstants', $this->getAuthenticationTransformConstants());
+        $writer->writeEnumValue('cipherTransformConstants', $this->getCipherTransformConstants());
+        $writer->writeEnumValue('dhGroup', $this->getDhGroup());
+        $writer->writeEnumValue('encryptionMethod', $this->getEncryptionMethod());
+        $writer->writeEnumValue('integrityCheckMethod', $this->getIntegrityCheckMethod());
+        $writer->writeStringValue('@odata.type', $this->getOdataType());
+        $writer->writeEnumValue('pfsGroup', $this->getPfsGroup());
+        $writer->writeAdditionalData($this->getAdditionalData());
     }
 
     /**
      * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      *  @param array<string,mixed> $value Value to set for the AdditionalData property.
     */
-    public function setAdditionalData(?array $value ): void {
-        $this->additionalData = $value;
+    public function setAdditionalData(?array $value): void {
+        $this->getBackingStore()->set('additionalData', $value);
     }
 
     /**
      * Sets the authenticationTransformConstants property value. Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
      *  @param AuthenticationTransformConstant|null $value Value to set for the authenticationTransformConstants property.
     */
-    public function setAuthenticationTransformConstants(?AuthenticationTransformConstant $value ): void {
-        $this->authenticationTransformConstants = $value;
+    public function setAuthenticationTransformConstants(?AuthenticationTransformConstant $value): void {
+        $this->getBackingStore()->set('authenticationTransformConstants', $value);
+    }
+
+    /**
+     * Sets the backingStore property value. Stores model information.
+     *  @param BackingStore $value Value to set for the BackingStore property.
+    */
+    public function setBackingStore(BackingStore $value): void {
+        $this->backingStore = $value;
     }
 
     /**
      * Sets the cipherTransformConstants property value. Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
      *  @param VpnEncryptionAlgorithmType|null $value Value to set for the cipherTransformConstants property.
     */
-    public function setCipherTransformConstants(?VpnEncryptionAlgorithmType $value ): void {
-        $this->cipherTransformConstants = $value;
+    public function setCipherTransformConstants(?VpnEncryptionAlgorithmType $value): void {
+        $this->getBackingStore()->set('cipherTransformConstants', $value);
     }
 
     /**
      * Sets the dhGroup property value. Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
      *  @param DiffieHellmanGroup|null $value Value to set for the dhGroup property.
     */
-    public function setDhGroup(?DiffieHellmanGroup $value ): void {
-        $this->dhGroup = $value;
+    public function setDhGroup(?DiffieHellmanGroup $value): void {
+        $this->getBackingStore()->set('dhGroup', $value);
     }
 
     /**
      * Sets the encryptionMethod property value. Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
      *  @param VpnEncryptionAlgorithmType|null $value Value to set for the encryptionMethod property.
     */
-    public function setEncryptionMethod(?VpnEncryptionAlgorithmType $value ): void {
-        $this->encryptionMethod = $value;
+    public function setEncryptionMethod(?VpnEncryptionAlgorithmType $value): void {
+        $this->getBackingStore()->set('encryptionMethod', $value);
     }
 
     /**
      * Sets the integrityCheckMethod property value. Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
      *  @param VpnIntegrityAlgorithmType|null $value Value to set for the integrityCheckMethod property.
     */
-    public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value ): void {
-        $this->integrityCheckMethod = $value;
+    public function setIntegrityCheckMethod(?VpnIntegrityAlgorithmType $value): void {
+        $this->getBackingStore()->set('integrityCheckMethod', $value);
     }
 
     /**
      * Sets the @odata.type property value. The OdataType property
      *  @param string|null $value Value to set for the OdataType property.
     */
-    public function setOdataType(?string $value ): void {
-        $this->odataType = $value;
+    public function setOdataType(?string $value): void {
+        $this->getBackingStore()->set('odataType', $value);
     }
 
     /**
      * Sets the pfsGroup property value. Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
      *  @param PerfectForwardSecrecyGroup|null $value Value to set for the pfsGroup property.
     */
-    public function setPfsGroup(?PerfectForwardSecrecyGroup $value ): void {
-        $this->pfsGroup = $value;
+    public function setPfsGroup(?PerfectForwardSecrecyGroup $value): void {
+        $this->getBackingStore()->set('pfsGroup', $value);
     }
 
 }
