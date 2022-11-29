@@ -78,7 +78,7 @@ class RoleDefinitionsRequestBuilder
     }
 
     /**
-     * Create a new unifiedRoleDefinition object for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD)
+     * Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD)
      * @param UnifiedRoleDefinition $body 
      * @param RoleDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @return RequestInformation
@@ -121,7 +121,7 @@ class RoleDefinitionsRequestBuilder
     }
 
     /**
-     * Create a new unifiedRoleDefinition object for an RBAC provider. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD)
+     * Create a new unifiedRoleDefinition object for an RBAC provider. This feature requires an Azure AD Premium P1 or P2 license. The following RBAC providers are currently supported:- Cloud PC- device management (Intune)- directory (Azure AD)
      * @param UnifiedRoleDefinition $body 
      * @param RoleDefinitionsRequestBuilderPostRequestConfiguration|null $requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param ResponseHandler|null $responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -289,7 +289,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Gets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites.
+     * Gets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.
      * @return string|null
     */
     public function getTenantDefaultTimezone(): ?string {
@@ -558,7 +558,7 @@ class Settings extends Entity implements Parsable
     }
 
     /**
-     * Sets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites.
+     * Sets the tenantDefaultTimezone property value. The default timezone of a tenant for newly created sites. For a list of possible values, see SPRegionalSettings.TimeZones property.
      *  @param string|null $value Value to set for the tenantDefaultTimezone property.
     */
     public function setTenantDefaultTimezone(?string $value): void {
