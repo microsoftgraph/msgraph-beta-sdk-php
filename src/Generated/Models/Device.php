@@ -75,7 +75,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Gets the deviceId property value. Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).
      * @return string|null
     */
     public function getDeviceId(): ?string {
@@ -336,7 +336,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Gets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0.
      * @return array<string>|null
     */
     public function getPhysicalIds(): ?array {
@@ -392,7 +392,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Gets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+     * Gets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
      * @return array<string>|null
     */
     public function getSystemLabels(): ?array {
@@ -523,7 +523,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+     * Sets the deviceId property value. Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).
      *  @param string|null $value Value to set for the deviceId property.
     */
     public function setDeviceId(?string $value): void {
@@ -731,7 +731,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+     * Sets the physicalIds property value. For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0.
      *  @param array<string>|null $value Value to set for the physicalIds property.
     */
     public function setPhysicalIds(?array $value): void {
@@ -787,7 +787,7 @@ class Device extends DirectoryObject implements Parsable
     }
 
     /**
-     * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+     * Sets the systemLabels property value. List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
      *  @param array<string>|null $value Value to set for the systemLabels property.
     */
     public function setSystemLabels(?array $value): void {

@@ -33,7 +33,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the favoritePlanReferences property value. A collection containing the references to the plans that the user has marked as favorites.
+     * Gets the favoritePlanReferences property value. A collection that contains the references to the plans that the user has marked as favorites.
      * @return PlannerFavoritePlanReferenceCollection|null
     */
     public function getFavoritePlanReferences(): ?PlannerFavoritePlanReferenceCollection {
@@ -75,7 +75,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Gets the recentPlanReferences property value. A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
+     * Gets the recentPlanReferences property value. A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
      * @return PlannerRecentPlanReferenceCollection|null
     */
     public function getRecentPlanReferences(): ?PlannerRecentPlanReferenceCollection {
@@ -131,7 +131,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the favoritePlanReferences property value. A collection containing the references to the plans that the user has marked as favorites.
+     * Sets the favoritePlanReferences property value. A collection that contains the references to the plans that the user has marked as favorites.
      *  @param PlannerFavoritePlanReferenceCollection|null $value Value to set for the favoritePlanReferences property.
     */
     public function setFavoritePlanReferences(?PlannerFavoritePlanReferenceCollection $value): void {
@@ -155,7 +155,7 @@ class PlannerUser extends PlannerDelta implements Parsable
     }
 
     /**
-     * Sets the recentPlanReferences property value. A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
+     * Sets the recentPlanReferences property value. A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
      *  @param PlannerRecentPlanReferenceCollection|null $value Value to set for the recentPlanReferences property.
     */
     public function setRecentPlanReferences(?PlannerRecentPlanReferenceCollection $value): void {
